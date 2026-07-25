@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Fraud Investigation Playbook: Building a File That Survives Review | FinCrimeRadar</title>
+  <meta name="description" content="Most fraud investigation guides teach corporate fraud. This one teaches the alert queue: testing theories rather than confirming them, where the POCA s.333A disclosure boundary actually sits, sequencing evidence, and building a file that survives review." />
+  <meta name="keywords" content="fraud investigation, POCA 2002, tipping off, section 333A, DAML, defence against money laundering, suspicious activity report, SAR, moratorium period, alert triage, investigation file, MLRO" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/fraud-investigation-playbook.html" />
+  <meta property="og:title" content="The Fraud Investigation Playbook: Building a File That Survives Review" />
+  <meta property="og:description" content="Most investigation guides teach corporate fraud. This one teaches the queue. Three decision scenarios, the full POCA reporting chain, and a knowledge check." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/fraud-investigation-playbook.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Fraud Investigation Playbook: Building a File That Survives Review",
+    "description": "Most fraud investigation guides teach corporate fraud. This one teaches the alert queue: testing theories rather than confirming them, where the POCA s.333A disclosure boundary actually sits, sequencing evidence, and building a file that survives review.",
+    "author": {"@type": "Organization", "name": "FinCrimeRadar"},
+    "publisher": {"@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org"},
+    "url": "https://fincrimeradar.org/fraud-investigation-playbook.html",
+    "datePublished": "2026-07-25"
+  }
+  </script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-theory:#2563eb; --c-theory-light:#eff6ff;
+      --c-disclosure:#dc2626; --c-disclosure-light:#fef2f2;
+      --c-timeline:#7c3aed; --c-timeline-light:#f5f3ff;
+      --c-reasoning:#d97706; --c-reasoning-light:#fffbeb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-theory); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero {
+      background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%);
+      color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden;
+    }
+    .article-hero::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(220,38,38,0.13) 0%, transparent 60%);
+    }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-theory); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-timeline); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-disclosure); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    /* HERO STAT STRIP */
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(93,202,165,0.5); } 50%{ box-shadow:0 0 0 6px rgba(93,202,165,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-theory); border-left-color:var(--c-theory); }
+    .toc a.active { color:var(--c-theory); border-left-color:var(--c-theory); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* PATTERN BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-theory { background:var(--c-theory-light); color:var(--c-theory); border:1px solid #bfdbfe; }
+    .badge-disclosure { background:var(--c-disclosure-light); color:var(--c-disclosure); border:1px solid #fecaca; }
+    .badge-timeline { background:var(--c-timeline-light); color:var(--c-timeline); border:1px solid #ddd6fe; }
+    .badge-reasoning { background:var(--c-reasoning-light); color:var(--c-reasoning); border:1px solid #fde68a; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD (icon, name, one-liner, Trap/Tell/Do), one component, two placements */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) {
+      .pattern-ttd { grid-template-columns:1fr; }
+      .pattern-grid { grid-template-columns:1fr; }
+    }
+
+    /* PROCESS FLOWCHART */
+    .flow { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; margin:1.5rem 0; }
+    .flow-stage { margin-bottom:2px; }
+    .flow-stage-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:6px; }
+    .flow-node { background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:0.85rem 1rem; }
+    .flow-node-title { font-size:14px; font-weight:700; color:var(--navy); }
+    .flow-node-sub { font-size:12.5px; color:#374151; margin-top:4px; line-height:1.55; }
+    .flow-routes { display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
+    .flow-route { font-size:11.5px; background:var(--off); border:1px solid var(--border); border-radius:99px; padding:3px 10px; color:#374151; }
+    .flow-arrow { text-align:center; color:#9ca3af; font-size:17px; line-height:1; margin:7px 0; }
+    .flow-decision { background:var(--navy); color:#fff; border-radius:10px; padding:0.9rem 1rem; text-align:center; }
+    .flow-decision-q { font-size:13.5px; font-weight:700; line-height:1.4; }
+    .flow-decision-cite { font-size:11.5px; color:#93c5fd; margin-top:4px; }
+    .flow-branches { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:11px; }
+    .flow-branch { border-radius:10px; padding:0.85rem 1rem; border:1.5px solid; }
+    .flow-branch-no { background:#f0fdf4; border-color:#86efac; }
+    .flow-branch-yes { background:#fff; border-color:#cbd5e1; }
+    .flow-branch-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:5px; }
+    .flow-branch-text { font-size:12.5px; color:#374151; line-height:1.55; }
+    /* The stage 4 fork, deliberately the loudest element on the page */
+    .flow-critical { border:2.5px solid var(--c-disclosure); background:var(--c-disclosure-light); border-radius:12px; padding:1.15rem 1.25rem; margin-top:12px; box-shadow:0 3px 12px rgba(220,38,38,0.10); }
+    .flow-critical-flag { display:inline-block; background:var(--c-disclosure); color:#fff; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; border-radius:99px; padding:3px 11px; margin-bottom:9px; }
+    .flow-critical-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--c-disclosure); line-height:1.3; margin-bottom:6px; }
+    .flow-critical-text { font-size:13px; color:#374151; line-height:1.6; }
+    .flow-outcomes { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px; }
+    .flow-outcome { border-radius:8px; padding:0.8rem 0.85rem; border:1px solid; background:#fff; }
+    .flow-outcome-granted { border-color:#86efac; background:#f0fdf4; }
+    .flow-outcome-deemed { border-color:#bfdbfe; background:#eff6ff; }
+    .flow-outcome-refused { border-color:#fecaca; background:#fff5f5; }
+    .flow-outcome-title { font-size:12.5px; font-weight:700; margin-bottom:4px; }
+    .flow-outcome-text { font-size:11.5px; color:#374151; line-height:1.5; }
+    .flow-note { margin-top:13px; background:var(--c-reasoning-light); border-left:4px solid var(--c-reasoning); border-radius:8px; padding:0.85rem 1rem; font-size:12.5px; color:#374151; line-height:1.6; }
+    .flow-note strong { color:var(--c-reasoning); }
+    @media(max-width:700px) {
+      .flow-branches, .flow-outcomes { grid-template-columns:1fr; }
+    }
+
+    /* SCENARIO HEADER */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-theory); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-icon.open { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
+    .faq-a.open { max-height:400px; padding:0 1.1rem 1rem; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-theory); color:var(--c-theory); }
+
+    /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:#00c4a7; }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .hero-stats { flex-direction:column; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🗂️ Interactive Deep Dive · Fraud Investigation</div>
+    <h1>The Fraud Investigation Playbook:<br><em>Building a File That Survives Review</em></h1>
+    <p class="hero-sub">Most investigation guides teach corporate fraud. This one teaches the queue.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 14 min read</span>
+      <span>🗂️ Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 3 Scenarios</span>
+    </div>
+
+    <div class="hero-eyebrow-row">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      <span>The provision that governs what you can say</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">s.<span class="stat-num-anim" data-target="333">0</span>A</div>
+        <div class="hero-stat-label">POCA 2002, tipping off</div>
+        <div class="hero-stat-source">The regulated-sector disclosure offence, and the line analysts most often misread in both directions</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="2">0</span> years</div>
+        <div class="hero-stat-label">Maximum on indictment</div>
+        <div class="hero-stat-source">The maximum term of imprisonment on conviction on indictment for a section 333A offence</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">Strict</div>
+        <div class="hero-stat-label">Liability standard</div>
+        <div class="hero-stat-source">No criminal intent is required, the offence can be committed without any intention to obstruct</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout">
+  <div class="article-body">
+
+    <!-- INTRO -->
+    <div class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--c-theory)">The Job Nobody Writes For</div>
+      <h2>Most investigation guides teach corporate fraud. This one teaches the queue.</h2>
+      <p>Search "fraud investigation guide" and almost everything you find describes a different job: an investigator engaged to look into suspected embezzlement, with weeks to work, authority to interview staff, and chain-of-custody procedures aimed at court admissibility. Genuinely useful, for that job.</p>
+      <p>It is not the job of a fraud analyst at a bank, a payments firm, or a fintech. That job has an alert queue, incomplete information, a decision to make today, and an output that is not a court case. It is a disposition and a file, and the file has to survive being read eighteen months later by someone who was not there.</p>
+      <p>This guide covers the parts of that job that get taught least: how to test a theory rather than confirm one, where the legal boundary actually sits on contacting a customer, why sequence reveals what individual facts do not, and what a defensible file actually contains.</p>
+
+      <div class="callout callout-navy">
+        <strong>How to use this guide</strong>
+        <p>Read the four patterns and the process chain first. Then work each scenario, make your call, and read why, both for the right answer and every wrong one. The knowledge check at the end pulls the same patterns from new angles. Do not skip ahead.</p>
+      </div>
+    </div>
+
+    <!-- FOUR PATTERNS, MERGED CARDS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-theory)">Four Patterns</div>
+      <h2>Four patterns, four cards</h2>
+      <p>Most weak investigation files trace back to one of these four shapes. Learn to recognise them before the scenarios test them.</p>
+
+      <div class="pattern-card" style="background:var(--c-theory-light);border-color:#bfdbfe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🎯</div>
+          <div class="pattern-name" style="color:var(--c-theory);">The Theory-First File</div>
+        </div>
+        <div class="pattern-line">Deciding what happened, then collecting the evidence that agrees.</div>
+        <p style="margin-bottom:1rem;">The first plausible explanation arrives early and it is comfortable. Everything gathered afterwards gets read through it: facts that fit are recorded as confirmation, facts that do not are explained away as noise or set aside as irrelevant. The file ends up looking thorough and reading as conclusive, but it never actually tested the conclusion, it only decorated it. A good investigation starts by asking what would prove this theory wrong, and records the answer either way.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Trap</div><div class="ttd-text">An early explanation feels like a finding rather than a hypothesis.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Tell</div><div class="ttd-text">Contradicting evidence gets rationalised rather than written down.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Do</div><div class="ttd-text">Look actively for what would disprove the working theory, record it regardless of what it shows.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-disclosure-light);border-color:#fecaca;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🤐</div>
+          <div class="pattern-name" style="color:var(--c-disclosure);">The Careless Disclosure</div>
+        </div>
+        <div class="pattern-line">The offence is revealing the report, not asking the question.</div>
+        <p style="margin-bottom:1rem;">Under section 333A of the Proceeds of Crime Act 2002, it is a criminal offence in the regulated sector to disclose that a suspicious activity report has been made, or that a money laundering investigation is being contemplated or carried out, where that disclosure is likely to prejudice an investigation. It is strict liability, no criminal intent is required, and on conviction on indictment it carries up to two years' imprisonment.</p>
+        <p style="margin-bottom:1rem;">What it is not is a blanket prohibition on speaking to customers. Nothing in POCA prevents making normal enquiries about a transaction or a relationship. The line is disclosure of the report or the investigation, not the enquiry itself. Analysts routinely get this wrong in both directions, some volunteer far too much in the name of transparency, others refuse any contact at all and lose information they were entitled to seek.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Trap</div><div class="ttd-text">Either extreme feels safe, saying everything, or saying nothing.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Tell</div><div class="ttd-text">The question is whether a specific disclosure reveals the report or the investigation, not whether contact happened at all.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Do</div><div class="ttd-text">Make normal enquiries where they are useful. Never disclose the SAR or the investigation. When unsure what can be said, ask the MLRO before speaking, not after.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-timeline-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🧭</div>
+          <div class="pattern-name" style="color:var(--c-timeline);">The Missing Timeline</div>
+        </div>
+        <div class="pattern-line">Individually explainable facts stop being explainable once they are put in order.</div>
+        <p style="margin-bottom:1rem;">A login, a password change, a payment, a support call, each one has a mundane reading in isolation. Sequenced, with timestamps, the same four facts can describe an account takeover in progress. Investigations that collect evidence into a list rather than a chronology systematically miss patterns that only exist in the ordering, and the reasoning becomes much harder to explain to a reviewer who cannot see the sequence either.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Trap</div><div class="ttd-text">A collection of facts feels like an analysis.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Tell</div><div class="ttd-text">The file has evidence but no constructed chronology.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Do</div><div class="ttd-text">Build the timeline before reaching a conclusion, most fraud patterns live in the sequence rather than the individual events.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-reasoning-light);border-color:#fde68a;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">✍️</div>
+          <div class="pattern-name" style="color:var(--c-reasoning);">The Unwritten Reasoning</div>
+        </div>
+        <div class="pattern-line">The file records what was found and what was decided, but not why one led to the other.</div>
+        <p style="margin-bottom:1rem;">While the case is live the logic feels self-evident, so it never gets written down. Months later the file contains evidence, a disposition, and a silent gap between them. A reviewer, an auditor, or a regulator cannot reconstruct the reasoning, and an unexplained decision reads as an unconsidered one even when it was neither. The test is not whether the analyst understood it at the time, it is whether someone unfamiliar with the case can follow it cold.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Trap</div><div class="ttd-text">Obvious reasoning feels like it does not need recording.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Tell</div><div class="ttd-text">The file jumps from evidence to disposition with nothing connecting them.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Do</div><div class="ttd-text">Write the reasoning for a stranger reading it in eighteen months, not for yourself today.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE PROCESS, END TO END -->
+    <div class="article-section" id="process">
+      <div class="section-eyebrow" style="color:var(--c-disclosure)">The Reporting Chain</div>
+      <h2>The process, end to end</h2>
+      <p>Four stages, two decision points. The first fork asks whether you have suspicion at all. The second, and by far the more consequential one, asks whether anything you are about to do would itself be a principal money laundering offence.</p>
+
+      <div class="flow" id="processFlow">
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 1 · Detection</div>
+          <div class="flow-node">
+            <div class="flow-node-title">A case reaches the queue</div>
+            <div class="flow-node-sub">All routes feed the same triage step. The route a case arrived by is itself information worth recording.</div>
+            <div class="flow-routes">
+              <span class="flow-route">Transaction monitoring alert</span>
+              <span class="flow-route">Screening hit</span>
+              <span class="flow-route">Staff referral</span>
+              <span class="flow-route">Customer or victim report</span>
+              <span class="flow-route">Institution or law enforcement notification</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 2 · Investigation</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Secure records, then build the picture</div>
+            <div class="flow-node-sub">Secure the records before contacting anyone. Build the timeline. Test the working theory by looking for what would disprove it. Make normal enquiries where they would genuinely help, without disclosing suspicion, a report, or an investigation.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 3 · The decision point</div>
+          <div class="flow-decision">
+            <div class="flow-decision-q">Do you have knowledge or suspicion of money laundering?</div>
+          </div>
+          <div class="flow-branches">
+            <div class="flow-branch flow-branch-no">
+              <div class="flow-branch-label" style="color:var(--success);">No</div>
+              <div class="flow-branch-text">Document the reasoning, close the case, and feed the outcome back into detection rules so the same false positive pattern gets tuned out rather than recurring indefinitely.</div>
+            </div>
+            <div class="flow-branch flow-branch-yes">
+              <div class="flow-branch-label" style="color:var(--navy);">Yes</div>
+              <div class="flow-branch-text">Make an internal report to the MLRO. In the regulated sector this is an obligation under <strong>section 330</strong> of POCA, not a discretionary escalation.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 4 · After the internal report</div>
+          <div class="flow-node">
+            <div class="flow-node-title">MLRO assesses and files a SAR with the NCA where warranted</div>
+            <div class="flow-node-sub">Under <strong>section 331</strong>. Then a second question determines everything that follows.</div>
+          </div>
+
+          <div class="flow-arrow">↓</div>
+
+          <div class="flow-decision">
+            <div class="flow-decision-q">Is there a proposed act that would be a principal money laundering offence?</div>
+            <div class="flow-decision-cite">Sections 327 to 329, for example processing the very transaction that triggered the alert</div>
+          </div>
+
+          <div class="flow-branches">
+            <div class="flow-branch flow-branch-no">
+              <div class="flow-branch-label" style="color:var(--success);">No</div>
+              <div class="flow-branch-text">The SAR stands on its own. No further authorisation is needed because nothing is being authorised.</div>
+            </div>
+            <div class="flow-branch flow-branch-yes" style="border-color:var(--c-disclosure);background:var(--c-disclosure-light);">
+              <div class="flow-branch-label" style="color:var(--c-disclosure);">Yes</div>
+              <div class="flow-branch-text">A <strong>defence against money laundering</strong> request is required under <strong>section 338</strong>. See below.</div>
+            </div>
+          </div>
+
+          <div class="flow-critical">
+            <span class="flow-critical-flag">Most frequently missed</span>
+            <div class="flow-critical-title">A SAR is not a DAML.</div>
+            <div class="flow-critical-text">This is the most consequential distinction in the entire process. Filing a SAR and then processing the transaction anyway leaves the firm with no statutory defence, and the act itself may constitute a principal money laundering offence. The report does not authorise anything, it only reports.</div>
+
+            <div class="flow-outcomes">
+              <div class="flow-outcome flow-outcome-granted">
+                <div class="flow-outcome-title" style="color:var(--success);">Granted</div>
+                <div class="flow-outcome-text">The NCA grants the request within the seven working day notice period. A defence is available.</div>
+              </div>
+              <div class="flow-outcome flow-outcome-deemed">
+                <div class="flow-outcome-title" style="color:var(--c-theory);">Deemed consent</div>
+                <div class="flow-outcome-text">The notice period expires with no response at all. A defence is available under <strong>section 335(2)</strong>.</div>
+              </div>
+              <div class="flow-outcome flow-outcome-refused">
+                <div class="flow-outcome-title" style="color:var(--c-disclosure);">Refused</div>
+                <div class="flow-outcome-text">A moratorium of 31 calendar days begins on the day of refusal. The prohibited act must not be carried out, though other work on the file can continue. Extendable by court under <strong>section 336A</strong> up to 186 days.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-note">
+            <strong>Running throughout stages 3 and 4:</strong> the tipping off constraints under section 333A apply with full force, and the NCA cannot grant a defence for tipping off or for prejudicing an investigation. Those offences sit outside the DAML regime entirely, no consent route exists for them.
+          </div>
+        </div>
+      </div>
+
+      <h3>Stage 1, detection</h3>
+      <p>A case reaches you through a small number of routes: a transaction monitoring alert, a screening hit, a referral from customer-facing staff, a report from the customer or a victim, or a notification from another institution or law enforcement. All of them feed into the same triage step, and the route a case arrived by is itself information worth recording.</p>
+
+      <h3>Stage 2, investigation</h3>
+      <p>Secure the records before contacting anyone. Build the timeline. Test the working theory by looking for what would disprove it. Make normal enquiries where they would genuinely help, without disclosing suspicion, a report, or an investigation.</p>
+
+      <h3>Stage 3, the decision point</h3>
+      <p>Do you have knowledge or suspicion of money laundering?</p>
+      <ul>
+        <li>If no, document the reasoning, close the case, and feed the outcome back into detection rules so the same false positive pattern gets tuned out rather than recurring indefinitely.</li>
+        <li>If yes, make an internal report to the MLRO. In the regulated sector this is an obligation under section 330 of POCA, not a discretionary escalation.</li>
+      </ul>
+
+      <h3>Stage 4, after the internal report</h3>
+      <p>The MLRO assesses it and files a SAR with the NCA where warranted, under section 331. Then a second question determines everything that follows: is there a proposed act that would be a principal money laundering offence under sections 327 to 329, such as processing the very transaction that triggered the alert?</p>
+      <ul>
+        <li>If no, the SAR stands on its own.</li>
+        <li>If yes, a defence against money laundering request is required under section 338. This is the most consequential distinction in the entire process and the most frequently missed one. A SAR is not a DAML. Filing a SAR and then processing the transaction anyway leaves the firm with no statutory defence, and the act itself may constitute a principal money laundering offence. The report does not authorise anything, it only reports.</li>
+      </ul>
+      <p>Once a DAML is submitted:</p>
+      <ul>
+        <li>A notice period of seven working days begins, starting the first working day after the disclosure is made.</li>
+        <li>If the NCA grants the request, or the notice period expires with no response at all, a defence is available. The no-response route is deemed consent under section 335(2).</li>
+        <li>If the request is refused, a moratorium period of 31 calendar days begins on the day of refusal. The prohibited act must not be carried out, though other work on the file can continue.</li>
+        <li>A senior law enforcement officer can apply to court under section 336A to extend the moratorium in further increments, up to a maximum of 186 days.</li>
+      </ul>
+      <p>Throughout stages 3 and 4 the tipping off constraints under section 333A apply with full force, and the NCA cannot grant a defence for tipping off or for prejudicing an investigation. Those offences sit outside the DAML regime entirely, no consent route exists for them.</p>
+      <p>Where the underlying matter is fraud rather than pure money laundering, two further threads run alongside this chain: the account and relationship decision, and victim remediation where a reimbursement obligation applies.</p>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-theory-light);">🎯</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Testing vs. confirming</div>
+          <div class="scenario-name">The Comfortable Theory</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-theory">The Theory-First File</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>An alert flags a series of round-figure payments from a customer's business account to an unfamiliar overseas counterparty. Your working theory is invoice fraud, the pattern fits and you have seen it before. Partway through the investigation you find a signed supply agreement between the two parties, dated eight months before the first payment, with terms matching the payment amounts and schedule.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)">
+            <span class="opt-label">A</span>
+            <span>Set the agreement aside, documents can be fabricated and the payment pattern is still consistent with invoice fraud.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)">
+            <span class="opt-label">B</span>
+            <span>Record the agreement in the file, treat it as evidence that materially weakens the original theory, and reassess rather than continuing to build the invoice fraud case.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)">
+            <span class="opt-label">C</span>
+            <span>Close the alert immediately as a false positive, the agreement explains everything.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)">
+            <span class="opt-label">D</span>
+            <span>Keep the original theory but do not mention the agreement in the file, since it complicates the narrative.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict">
+          <div id="scenario1-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-disclosure-light);">🤐</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · The disclosure boundary</div>
+          <div class="scenario-name">The Question You Are Allowed to Ask</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-disclosure">The Careless Disclosure</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>You are investigating an alert on a customer's recent high-value transfer. No SAR has been filed and none is currently contemplated, you are still establishing the facts. You want to understand the transfer's stated purpose. A colleague tells you not to contact the customer at all, because "tipping off is a criminal offence."</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)">
+            <span class="opt-label">A</span>
+            <span>Accept the advice, do not contact the customer, and reach a disposition on the available information alone.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)">
+            <span class="opt-label">B</span>
+            <span>Contact the customer and explain that the transfer has been flagged as suspicious and is under investigation, so they understand why you are asking.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)">
+            <span class="opt-label">C</span>
+            <span>Make a normal enquiry about the transfer's purpose, as you would in the ordinary course of the relationship, without disclosing any suspicion, report, or investigation.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)">
+            <span class="opt-label">D</span>
+            <span>Wait until a SAR has been filed, then contact the customer, since the position will be clearer at that point.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict">
+          <div id="scenario2-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 3 -->
+    <div class="article-section" id="scenario3">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-reasoning-light);">✍️</div>
+        <div>
+          <div class="scenario-num">Scenario 03 · What a file has to show</div>
+          <div class="scenario-name">The Silent File</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-reasoning">The Unwritten Reasoning</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario3">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>You review a colleague's closed case from four months ago. The file contains the original alert, account statements, the customer's KYC record, a copy of a supplier invoice, and a disposition of "no further action, alert closed." Every document is present and legible. There is no written explanation of what the analyst concluded or why.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario3','A',this)">
+            <span class="opt-label">A</span>
+            <span>Accept the file as complete, all the evidence is there and a reviewer can draw their own conclusions from it.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','B',this)">
+            <span class="opt-label">B</span>
+            <span>Flag the file as inadequately documented, the evidence supports a conclusion but the file does not record what conclusion was drawn or on what basis, and a reviewer cannot reconstruct the reasoning.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','C',this)">
+            <span class="opt-label">C</span>
+            <span>Reopen the investigation from scratch, since the original one cannot be verified.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','D',this)">
+            <span class="opt-label">D</span>
+            <span>Add your own reasoning to the file retrospectively, based on what you think the analyst probably concluded.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario3-verdict">
+          <div id="scenario3-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CHECK QUIZ -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions. Would your file survive being read cold?</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. What does section 333A of POCA 2002 actually prohibit?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Any contact with a customer whose account has been flagged</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - Disclosing that a report has been made, or that a money laundering investigation is contemplated or underway, where that disclosure is likely to prejudice an investigation</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Filing a suspicious activity report without customer consent</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - Recording suspicions in a customer file</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Does the tipping off offence require intent to prejudice an investigation?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - Yes, it must be proven the person intended to obstruct</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - No, it is a strict liability offence, no criminal intent is required</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - Only if the person is a nominated officer</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - Only where a report has already been filed with the NCA</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. Why does contradicting evidence need recording even when it complicates the theory?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - It does not, only supporting evidence belongs in a file</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - Because a file that shows a theory was tested and reassessed is stronger under review than one that only documents the conclusion reached</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - Because contradicting evidence always disproves the original theory</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - Because regulators require a minimum file length</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. What is the practical test for whether a file's reasoning is adequately documented?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Whether the analyst can explain it from memory if asked</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Whether someone unfamiliar with the case can follow how the evidence produced the disposition, reading it cold</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Whether every document has a timestamp</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - Whether it exceeds a set word count</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. What is the central argument this guide makes about fraud investigation in a regulated firm?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - Investigations should always be escalated to be safe</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - The output is a decision and a defensible file, which requires testing theories rather than confirming them, knowing where the disclosure boundary actually sits, sequencing evidence, and writing reasoning for a stranger</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - Customer contact should always be avoided during an investigation</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - Corporate fraud investigation methods transfer directly to alert-queue work</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-theory)">Frequently Asked</div>
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does making an enquiry of a customer ever become tipping off on its own? <span class="faq-icon">+</span></div>
+        <div class="faq-a">The enquiry itself is not the offence. The offence under section 333A is disclosing that a report has been made, or that a money laundering investigation is contemplated or underway, where that disclosure is likely to prejudice an investigation. An enquiry becomes a problem when its framing reveals one of those things, which is why phrasing matters more than the fact of contact.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if a customer directly asks whether a report has been made about them? <span class="faq-icon">+</span></div>
+        <div class="faq-a">This is the situation where firms most often get into difficulty. The answer cannot confirm the existence of a report, and an evasive answer that effectively confirms it is no safer. Firms should have an agreed position on this before it happens rather than leaving analysts to improvise, and any doubt should go to the MLRO before a response is given.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How much detail does the reasoning in a file actually need? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Enough that someone unfamiliar with the case, reading it cold with no ability to ask questions, can follow how the evidence produced the disposition. That usually means stating what was considered, what was concluded, and what specifically supported that conclusion, not a lengthy narrative.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Should a disproved theory be recorded, or only the final conclusion? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Record it. A file showing that a theory was considered and ruled out on specific evidence is stronger than one that only presents the final answer, because it demonstrates the conclusion was tested rather than assumed. Investigations that only document the winning theory look thinner under review, not cleaner.</div>
+      </div>
+    </div>
+
+    <!-- AT A GLANCE, closing card grid -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-theory)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Four patterns, the trap that makes each one look routine, the tell that actually gives it away, and the response that fits.</p>
+
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-theory-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🎯</div>
+            <div class="pattern-name" style="color:var(--c-theory);">The Theory-First File</div>
+          </div>
+          <div class="pattern-line">Deciding what happened, then collecting the evidence that agrees.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Trap</div><div class="ttd-text">An early explanation feels like a finding rather than a hypothesis.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Tell</div><div class="ttd-text">Contradicting evidence gets rationalised rather than written down.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Do</div><div class="ttd-text">Look for what would disprove the working theory, record it either way.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-disclosure-light);border-color:#fecaca;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🤐</div>
+            <div class="pattern-name" style="color:var(--c-disclosure);">The Careless Disclosure</div>
+          </div>
+          <div class="pattern-line">The offence is revealing the report, not asking the question.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Trap</div><div class="ttd-text">Either extreme feels safe, saying everything, or saying nothing.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Tell</div><div class="ttd-text">The question is whether a disclosure reveals the report, not whether contact happened.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Do</div><div class="ttd-text">Make normal enquiries. Never disclose the SAR or the investigation. Ask the MLRO before speaking, not after.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-timeline-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🧭</div>
+            <div class="pattern-name" style="color:var(--c-timeline);">The Missing Timeline</div>
+          </div>
+          <div class="pattern-line">Individually explainable facts stop being explainable once they are put in order.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Trap</div><div class="ttd-text">A collection of facts feels like an analysis.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Tell</div><div class="ttd-text">The file has evidence but no constructed chronology.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Do</div><div class="ttd-text">Build the timeline before concluding, most fraud patterns live in the sequence.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-reasoning-light);border-color:#fde68a;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">✍️</div>
+            <div class="pattern-name" style="color:var(--c-reasoning);">The Unwritten Reasoning</div>
+          </div>
+          <div class="pattern-line">The file records what was found and what was decided, but not why one led to the other.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Trap</div><div class="ttd-text">Obvious reasoning feels like it does not need recording.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Tell</div><div class="ttd-text">The file jumps from evidence to disposition with nothing connecting them.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Do</div><div class="ttd-text">Write the reasoning for a stranger reading it in eighteen months, not for yourself today.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-theory)">The File Is the Output</div>
+      <h2>The file is the output, not a by-product of reaching a decision.</h2>
+      <p><a href="/scenario-lab.html" style="color:var(--c-theory);font-weight:600;">FinCrimeRadar's Scenario Lab</a> puts the same investigative decisions in front of you under real time pressure and partial information, free, no signup required.</p>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text">
+          <strong>Want to practise the decisions rather than read about them?</strong>
+          <span>Free. No account needed. Work real cases under time pressure and partial information.</span>
+        </div>
+        <a href="/scenario-lab.html" class="itp-btn">Open the Scenario Lab →</a>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#intro">The Job Nobody Writes For</a>
+      <a href="#patterns">Four Patterns</a>
+      <a href="#process">The Process, End to End</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-theory);"></span> 01 · The Comfortable Theory</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-disclosure);"></span> 02 · The Question You Can Ask</a>
+      <a href="#scenario3" class="toc-scenario"><span class="toc-dot" style="background:var(--c-reasoning);"></span> 03 · The Silent File</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 3</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+
+    <div class="tool-cta">
+      <p>Practise the same decisions live, real cases, time pressure, partial information.</p>
+      <a href="/scenario-lab.html">Open the Scenario Lab →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// TOC ACTIVE STATE
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+// STAT STRIP COUNT-UP ANIMATION
+// Animates each .stat-num-anim from 0 to its data-target once the hero
+// scrolls into view. Respects prefers-reduced-motion by jumping straight
+// to the final value instead of animating.
+(function () {
+  const nums = document.querySelectorAll('.stat-num-anim');
+  if (!nums.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateNum(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if (prefersReduced) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const heroEl = document.querySelector('.article-hero');
+  if (!heroEl) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        nums.forEach(animateNum);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(heroEl);
+})();
+
+// SCORE TRACKING
+let scenarioResults = {};
+
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 3';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+// SCENARIO ANSWER KEYS AND FULL VERDICTS
+// Every option reveals the same full reasoning block: why the correct
+// answer is right AND why each wrong option fails, matching how each
+// scenario's explanation was authored as one continuous argument
+// rather than per-option variants.
+const answerKeys = {
+  scenario1: 'B',
+  scenario2: 'C',
+  scenario3: 'B'
+};
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: B, Record the agreement, treat it as evidence weakening the theory, and reassess',
+    body: [
+      'This is "The Theory-First File." The agreement is genuinely significant contradicting evidence and its existence changes the picture, so the correct response is to reassess the theory rather than defend it.',
+      'Option A is the exact failure this pattern describes, dismissing inconvenient evidence with a generic possibility ("documents can be fabricated") rather than weighing what was actually found. Option C swings too far the other way, an agreement explains the commercial relationship but does not by itself resolve every question the alert raised, verification of the counterparty and the agreement\'s authenticity is still warranted. Option D is the most serious error available here, deliberately omitting material evidence from a file is not an investigative choice, it is a documentation failure that would be very difficult to defend if the file were ever reviewed.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: C, Make a normal enquiry about the transfer\'s purpose without disclosing suspicion',
+    body: [
+      'This is "The Careless Disclosure," and the colleague\'s advice is a common misreading. POCA does not prohibit making normal enquiries of a customer, the section 333A offence is disclosing that a report has been made, or that a money laundering investigation is contemplated or underway. Asking about a transaction\'s purpose, without revealing any of that, is ordinary due diligence and is exactly the kind of enquiry the regime expects firms to make.',
+      'Option A gives up genuinely available information for no legal reason, and a file that reaches a disposition without asking an obvious question is weaker for it. Option B is the actual offence, disclosing that the transfer is under investigation is precisely what section 333A prohibits. Option D inverts the risk entirely, contacting the customer becomes more legally fraught after a SAR is filed, not less, that is the point at which the disclosure offence is most clearly engaged.'
+    ]
+  },
+  scenario3: {
+    title: 'Correct answer: B, Flag the file as inadequately documented, the reasoning is missing',
+    body: [
+      'This is "The Unwritten Reasoning." A complete evidence set is not a complete file, the reasoning connecting evidence to disposition is itself a required part of the record, and its absence is the finding here.',
+      'Option A confuses evidence with analysis, expecting a reviewer to independently re-derive a conclusion defeats the purpose of documenting a decision at all. Option C is disproportionate to what is actually wrong, the problem is documentation quality rather than a substantive investigative failure, and re-running the whole case is a costly response to something that may be resolvable by asking the original analyst to record their reasoning. Option D is the genuinely dangerous option, retrospectively inventing another person\'s reasoning and recording it as though it were theirs corrupts the file rather than improving it.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    b.style.opacity = '0.6';
+    b.style.cursor = 'default';
+  });
+
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+
+  verdictDiv.classList.add('show');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+// FAQ TOGGLE
+function toggleFaq(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.faq-icon').classList.toggle('open');
+}
+
+// QUIZ LOGIC
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'Section 333A prohibits disclosing that a report has been made, or that a money laundering investigation is contemplated or underway, where that disclosure is likely to prejudice an investigation. It is not a prohibition on customer contact itself.' },
+  qq2: { correct: 'B', fb: 'It is a strict liability offence. No criminal intent is required, which is exactly why the phrasing of an enquiry matters so much more than most analysts assume.' },
+  qq3: { correct: 'B', fb: 'A file showing that a theory was tested and reassessed on specific evidence is stronger under review than one that only presents the conclusion reached, because it demonstrates the conclusion was tested rather than assumed.' },
+  qq4: { correct: 'B', fb: 'The test is whether someone unfamiliar with the case, reading it cold with no ability to ask questions, can follow how the evidence produced the disposition. Not whether the analyst remembers it.' },
+  qq5: { correct: 'B', fb: 'The output is a decision and a defensible file. That requires testing theories rather than confirming them, knowing where the disclosure boundary actually sits, sequencing evidence into a chronology, and writing reasoning for a stranger.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the disclosure boundary is worth a second read.','Getting there, go back through the patterns you missed.','Solid foundation, a few gaps to close.','Good grasp, your files would mostly hold up.','Strong, practitioner-level investigative judgement.','Perfect, your file would survive being read cold.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+// SAVE AS IMAGE
+// Renders the closing pattern-card grid to a downloadable PNG using
+// native Canvas 2D only, no external library. Content (icon, name,
+// one-liner, Trap/Tell/Do text) is read directly from the live DOM at
+// click time, so the image can never drift out of sync with the page.
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return {
+      lineLines,
+      ttdLineCounts,
+      height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD
+    };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Fraud Investigation Playbook: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'fraud-investigation-playbook-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
