@@ -275,9 +275,6 @@
     .next-up h4 { font-size:14px; color:var(--muted); margin-bottom:4px; }
     .next-up p { font-size:16px; font-weight:600; color:var(--navy); }
     .next-up a { padding:9px 20px; background:var(--tm-color); color:#fff; border-radius:8px; text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap; }
-    footer { background:#F7F8FA; color:var(--muted); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:13px; margin-top:2rem; }
-    footer a { color:var(--navy); text-decoration:none; }
-    footer a:hover { color:var(--accent); }
 
     /* ===== MOBILE RESPONSIVE ===== */
     .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
@@ -295,7 +292,6 @@
       .tab-btn { font-size:12px; padding:6px 10px; }
       .compare-table { font-size:13px; }
       .next-up { flex-direction:column; align-items:flex-start; }
-      footer { flex-direction:column; }
     }
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -313,8 +309,8 @@
   </a>
   <div class="nav-links">
     <a href="/knowledge.html">Knowledge Hub</a>
-    <a href="/learn.html">Learn</a>
-    <a href="/about.html">About</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
     <a href="/screen.html" class="nav-cta">Try the tool →</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
@@ -964,8 +960,121 @@
   </div>
 </div>
 
-<footer>
-  <p>© 2026 FinCrimeRadar · Built by <a href="/about.html">Pratik Zanke</a> · <a href="/privacy.html">Privacy Policy</a> · <a href="/editorial-standards.html">Editorial Standards</a> · <a href="/methodology.html">Methodology</a> · <a href="https://github.com/prats922/fincrimeradar" target="_blank">GitHub</a></p>
+<footer style="background:#071912;color:#94a3b8;margin-top:0;">
+  <div style="max-width:1060px;margin:0 auto;padding:3rem 1.5rem 2rem;">
+
+    <!-- Top row: brand + newsletter -->
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:2.5rem;">
+
+      <!-- Brand column -->
+      <div>
+        <a href="/" style="display:inline-block;margin-bottom:1rem;">
+          <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:220px;object-fit:contain;object-position:left center;display:block;" />
+        </a>
+        <p style="font-size:13.5px;color:#94a3b8;line-height:1.7;max-width:380px;margin-bottom:1.25rem;">
+          Free, open-source financial crime intelligence. Built by a compliance practitioner for compliance professionals, students, and anyone who thinks the best AML knowledge should not live behind a paywall.
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://www.linkedin.com/in/pratik-zanke-749856126/" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:12px;color:#cbd5e1;text-decoration:none;transition:all .15s;"
+             onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/prats922/fincrimeradar" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:12px;color:#cbd5e1;text-decoration:none;transition:all .15s;"
+             onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Newsletter column -->
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:1.5rem;">
+        <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">Weekly compliance digest</div>
+        <div style="font-size:12px;color:#64748b;margin-bottom:1rem;line-height:1.5;">Regulatory updates, new guides, and screening tool improvements. No spam. Unsubscribe anytime.</div>
+        <div style="display:flex;gap:8px;">
+          <input type="email" id="footerEmail" placeholder="your@email.com"
+            style="flex:1;padding:9px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:13px;color:#fff;outline:none;font-family:'Inter',sans-serif;min-width:0;"
+            onfocus="this.style.borderColor='#00c4a7'" onblur="this.style.borderColor='rgba(255,255,255,.12)'" />
+          <button onclick="footerSignup()"
+            style="padding:9px 16px;background:#00c4a7;border:none;border-radius:6px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background .15s;"
+            onmouseover="this.style.background='#00a892'" onmouseout="this.style.background='#00c4a7'">Subscribe</button>
+        </div>
+        <div id="footerNlSuccess" style="display:none;font-size:12px;color:#4ade80;margin-top:8px;">You are in. Weekly digest coming your way.</div>
+        <div id="footerNlError" style="display:none;font-size:12px;color:#f87171;margin-top:8px;"></div>
+      </div>
+    </div>
+
+    <!-- Nav columns -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:2rem;">
+
+      <!-- Platform -->
+      <div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Platform</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <a href="/screen.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Screening Tool</a>
+          <a href="/knowledge.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Knowledge Hub</a>
+          <a href="/learn.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Learn</a>
+        </div>
+      </div>
+
+      <!-- Guides -->
+      <div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Key Guides</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <a href="/aml-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">UK AML Compliance</a>
+          <a href="/pep-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">PEP Screening Handbook</a>
+          <a href="/sar-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">SAR Complete Guide</a>
+          <a href="/fatf-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">FATF 40 Recommendations</a>
+          <a href="/tm-guide.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Transaction Monitoring</a>
+        </div>
+      </div>
+
+      <!-- Data Sources -->
+      <div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Data Sources</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <span style="font-size:13px;color:#64748b;">OpenSanctions (OFAC, UN, EU)</span>
+          <span style="font-size:13px;color:#64748b;">OFSI (UK Sanctions List)</span>
+          <span style="font-size:13px;color:#64748b;">OpenSanctions PEP Dataset</span>
+          <span style="font-size:13px;color:#64748b;">FCA, NCA, BBC, OCCRP</span>
+          <span style="font-size:13px;color:#64748b;">HM Treasury, FATF</span>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <a href="/about.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">About</a>
+          <a href="/contact.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Contact</a>
+          <a href="/privacy.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a>
+          <a href="/editorial-standards.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Editorial Standards</a>
+          <a href="/methodology.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Methodology</a>
+          <a href="/terms.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a>
+          <a href="https://github.com/prats922/fincrimeradar" target="_blank" rel="noopener" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Open Source</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div style="font-size:12px;color:#475569;line-height:1.5;">
+        © 2026 FinCrimeRadar. Built by <a href="/about.html" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#64748b'">Pratik Zanke</a>, Compliance Operations Analyst. For educational purposes only. Not legal advice.
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div style="width:6px;height:6px;border-radius:50%;background:#16a34a;"></div>
+        <span style="font-size:12px;color:#475569;">All systems operational</span>
+      </div>
+    </div>
+
+    <!-- Legal line -->
+    <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06);">
+      <span style="font-size:11px;color:#334155;line-height:1.5;">FinCrimeRadar Ltd · Registered in England and Wales · Company number 17324449 · Registered office: 128 City Road, London, EC1V 2NX</span>
+    </div>
+  </div>
 </footer>
 
 <script>
@@ -1047,24 +1156,42 @@ function answerQ(qId, chosen, correct) {
   document.getElementById(qId + '-explain').classList.add('show');
 }
 
-// Mobile nav
-function toggleMobileNav() {
-  var nav = document.getElementById('mobileNav');
-  var btn = document.getElementById('navHamburger');
-  if (!nav) return;
-  var open = nav.classList.toggle('open');
-  btn.innerHTML = open ? '&#10005;' : '&#9776;';
-  document.body.style.overflow = open ? 'hidden' : '';
-}
-document.addEventListener('click', function(e) {
-  var nav = document.getElementById('mobileNav');
-  var btn = document.getElementById('navHamburger');
-  if (nav && nav.classList.contains('open') && !nav.contains(e.target) && e.target !== btn) {
-    nav.classList.remove('open');
-    btn.innerHTML = '&#9776;';
-    document.body.style.overflow = '';
+// Footer newsletter signup
+async function footerSignup(){
+  var emailInput = document.getElementById('footerEmail');
+  var successEl = document.getElementById('footerNlSuccess');
+  var errorEl = document.getElementById('footerNlError');
+  var email = emailInput.value.trim();
+
+  successEl.style.display = 'none';
+  errorEl.style.display = 'none';
+
+  if(!email || email.indexOf('@') === -1 || email.indexOf('.') === -1){
+    errorEl.textContent = 'Enter a valid email address.';
+    errorEl.style.display = 'block';
+    return;
   }
-});
+
+  try {
+    var res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email }),
+    });
+    var data = await res.json().catch(function(){ return {}; });
+
+    if (res.ok && data.success) {
+      successEl.style.display = 'block';
+      emailInput.value = '';
+    } else {
+      errorEl.textContent = (data && data.error) || 'Signup could not be completed, try again shortly.';
+      errorEl.style.display = 'block';
+    }
+  } catch (e) {
+    errorEl.textContent = 'Signup could not be completed, check your connection and try again.';
+    errorEl.style.display = 'block';
+  }
+}
 </script>
 
 <div id="cookieBanner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#0f2044; border-top:1px solid #1d3a6e; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; box-shadow:0 -4px 20px rgba(0,0,0,0.3);">
@@ -1077,26 +1204,7 @@ document.addEventListener('click', function(e) {
     <button onclick="acceptCookies()" style="padding:8px 18px; background:#00c4a7; border:none; color:#fff; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer;">Accept all</button>
   </div>
 </div>
-<script>
-  (function() {
-    var consent = localStorage.getItem('fcr_cookie_consent');
-    if (!consent) { document.getElementById('cookieBanner').style.display = 'flex'; }
-  })();
-  function acceptCookies() {
-    localStorage.setItem('fcr_cookie_consent', 'accepted');
-    if (typeof gtag === 'function') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
-    }
-    document.getElementById('cookieBanner').style.display = 'none';
-  }
-  function rejectCookies() {
-    localStorage.setItem('fcr_cookie_consent', 'rejected');
-    if (typeof gtag === 'function') {
-      gtag('consent', 'update', { 'analytics_storage': 'denied' });
-    }
-    document.getElementById('cookieBanner').style.display = 'none';
-  }
-</script>
+<script defer src="/js/site-chrome.js"></script>
 <script defer src="/brand.js"></script>
 </body>
 </html>
