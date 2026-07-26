@@ -103,6 +103,9 @@
     .kh-hero h1{font-family:var(--kh-display);font-weight:900;font-size:clamp(2.2rem,5.4vw,3.7rem);line-height:1.06;color:#fff;margin-bottom:16px}
     .kh-hero h1 em{font-style:italic;color:var(--kh-radar)}
     .kh-sub{font-size:clamp(.96rem,1.5vw,1.06rem);color:rgba(255,255,255,.6);max-width:580px;margin:0 auto 34px;line-height:1.6}
+    .kh-format-note{font-size:.72rem;color:rgba(255,255,255,.35);margin:-24px 0 30px}
+    .kh-format-note a{color:rgba(255,255,255,.5);text-decoration:underline}
+    .kh-format-note a:hover{color:rgba(255,255,255,.75)}
     .kh-stats{display:flex;justify-content:center;gap:clamp(24px,5vw,60px);flex-wrap:wrap}
     .kh-stat .num{font-family:var(--kh-display);font-weight:800;font-size:clamp(1.5rem,3vw,2rem);color:#fff;line-height:1}
     .kh-stat .lbl{font-family:var(--kh-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:7px}
@@ -242,7 +245,7 @@
       border-bottom: none;
     }
 
-    /* TOOL CONTEXT — static explanatory content placed below the guide
+    /* TOOL CONTEXT, static explanatory content placed below the guide
        grid, near the footer, so it no longer sits between the hero and
        the grid on first load. Matching the guide pages' article
        typography. Same component and token approach as
@@ -279,7 +282,7 @@
       .section { padding: 2rem 1.25rem; }
       .section-title { font-size: clamp(1.3rem, 5vw, 1.8rem) !important; }
 
-      /* GRIDS — collapse all multi-col to single col */
+      /* GRIDS, collapse all multi-col to single col */
       [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
@@ -322,10 +325,10 @@
       footer { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
       .footer-links { flex-wrap: wrap !important; gap: 0.75rem !important; }
 
-      /* NEWS PILLS — horizontal scroll */
+      /* NEWS PILLS, horizontal scroll */
       .filter-pills, [style*="flex-wrap:wrap"] { flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; padding-bottom: 4px !important; }
 
-      /* FOOTER — mobile fix: previously nested inside the rule above
+      /* FOOTER, mobile fix: previously nested inside the rule above
          due to a missing closing brace, so it silently never applied. */
       footer > div { padding: 2rem 1rem 1.5rem !important; }
       footer > div > div:first-child { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
@@ -359,6 +362,7 @@
       <div class="kh-eyebrow"><span class="kh-dot"></span>Knowledge hub &middot; <span id="khHeroCount">30</span> handbooks</div>
       <h1>Read the typology<br><em>before it clears</em></h1>
       <p class="kh-sub">Guides, explainers, and deep dives on sanctions, PEP screening, UK AML law, and more, written for compliance students and professionals. All free, always.</p>
+      <p class="kh-format-note">Guides use a few different formats, <a href="/methodology.html#format">here's why</a>.</p>
       <div class="kh-stats">
         <div class="kh-stat"><div class="num" id="khStatGuides">30</div><div class="lbl">Handbooks</div></div>
         <div class="kh-stat"><div class="num">72K+</div><div class="lbl">Sanctions records</div></div>
