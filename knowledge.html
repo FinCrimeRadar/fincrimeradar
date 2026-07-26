@@ -83,101 +83,107 @@
     .nav-links a.active { color:var(--accent); font-weight:500; }
     .nav-cta { padding:7px 16px; background:var(--teal); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
 
-    /* HERO */
-    .hub-hero { background:linear-gradient(135deg,var(--navy-mid) 0%,var(--navy-light) 100%); padding:4.5rem 2rem 3.5rem; text-align:center; }
-    .hub-eyebrow { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
-    .hub-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(2rem,4.5vw,3.25rem); font-weight:400; color:#fff; line-height:1.2; margin-bottom:1rem; max-width:680px; margin-left:auto; margin-right:auto; }
-    .hub-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
-    .hub-sub { font-size:16px; color:#cbd5e1; max-width:540px; margin:0 auto 2.5rem; line-height:1.7; }
-    .hub-stats { display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap; }
-    .hub-stat { text-align:center; }
-    .hub-stat .num { font-size:22px; font-weight:700; color:#fff; }
-    .hub-stat .lbl { font-size:12px; color:#94a3b8; margin-top:2px; }
-
-    /* SEARCH BAR */
-    .search-bar { background:var(--white); border-bottom:1px solid var(--border); padding:1.25rem 2rem; }
-    .search-inner { max-width:600px; margin:0 auto; display:flex; gap:8px; }
-    .search-inner input { flex:1; padding:10px 14px; border:1.5px solid var(--border); border-radius:8px; font-size:14px; color:var(--text); outline:none; font-family:'Inter',sans-serif; background:var(--off); transition:border-color 0.15s; }
-    .search-inner input:focus { border-color:var(--accent); background:var(--white); }
-    .search-inner input::placeholder { color:var(--light); }
-
-    /* FILTER PILLS */
-    .filter-bar { max-width:1060px; margin:0 auto; padding:1.5rem 1.5rem 0; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-    .filter-label { font-size:12px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:0.4px; }
-    .filter-pill { padding:5px 14px; border-radius:99px; font-size:12px; font-weight:500; border:1.5px solid var(--border); color:var(--muted); cursor:pointer; background:var(--white); transition:all 0.15s; font-family:'Inter',sans-serif; }
-    .filter-pill.active { border-color:var(--accent); color:var(--accent); background:var(--accent-light); }
-    .filter-pill:hover:not(.active) { border-color:var(--light); color:var(--text); }
-    .pill-soon { display:inline-flex; align-items:center; gap:5px; opacity:0.75; }
-    .pill-soon.active { opacity:1; }
-    .soon-tag { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; background:#f59e0b; color:#fff; padding:1px 6px; border-radius:99px; }
-
-    /* MAIN GRID */
-    .hub-container { max-width:1060px; margin:0 auto; padding:1.5rem; }
-
-    /* FEATURED SECTION */
-    .featured-section { margin-bottom:1.25rem; }
-    .section-heading { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
-    .section-heading h2 { font-size:16px; font-weight:600; color:var(--navy); }
-    .section-heading a { font-size:13px; color:var(--accent); text-decoration:none; }
-    .section-heading a:hover { text-decoration:underline; }
-
-    /* FEATURED SERIES — compact strip */
-    .series-strip { display:flex; flex-direction:column; gap:6px; margin-bottom:0; }
-    .series-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+    /* KNOWLEDGE HUB REDESIGN (kh- prefixed, scoped to .kh-page per Phase 0 audit) */
+    .kh-page{
+      --kh-radar:#3BE8B0;
+      --kh-display:'Playfair Display',Georgia,serif;
+      --kh-sans:'DM Sans',system-ui,sans-serif;
+      --kh-mono:'IBM Plex Mono',monospace;
+      font-family:var(--kh-sans);background:var(--off);color:var(--text);
     }
-    .series-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:10px 14px; text-decoration:none; transition:all .15s; }
-    .series-row:hover { box-shadow:0 2px 8px rgba(0,0,0,.07); transform:translateX(2px); }
-    .series-row-dot { width:10px; height:10px; border-radius:3px; flex-shrink:0; }
-    .series-row-body { flex:1; min-width:0; }
-    .series-row-title { font-size:14px; font-weight:600; color:var(--navy); line-height:1.3; }
-    .series-row-meta { font-size:12px; color:var(--muted); margin-top:1px; }
-    .series-row-arrow { font-size:13px; color:var(--muted); flex-shrink:0; transition:transform .15s; }
-    .series-row:hover .series-row-arrow { transform:translateX(3px); color:var(--accent); }
-
-    /* ARTICLE GRID */
-    .articles-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-bottom:2rem; }
-
-    /* ARTICLE CARD */
-    .article-card { background:var(--white); border:1px solid var(--border); border-radius:12px; overflow:hidden; text-decoration:none; display:flex; flex-direction:column; transition:all 0.2s; }
-    .article-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 4px 16px rgba(29,95,196,0.1); }
-    .card-top { padding:1.25rem 1.25rem 0; }
-    .card-meta { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
-    .card-category { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; padding:3px 8px; border-radius:4px; }
-    .cat-screening { background:#dbeafe; color:#1e40af; }
-    .cat-law { background:#fee2e2; color:#991b1b; }
-    .cat-pep { background:#ede9fe; color:#5b21b6; }
-    .cat-aml { background:#fef3c7; color:#92400e; }
-    .cat-fraud { background:#dcfce7; color:#166534; }
-    .cat-sanctions { background:#fff1f2; color:#9f1239; }
-    .cat-crypto { background:#eff6ff; color:#2563eb; }
-    .card-read { font-size:11px; color:var(--muted); }
-    .card-title { font-size:16px; font-weight:600; color:var(--navy); line-height:1.35; margin-bottom:0.6rem; }
-    .card-desc { font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:1rem; }
-    .card-bottom { padding:0 1.25rem 1.25rem; margin-top:auto; display:flex; align-items:center; justify-content:space-between; }
-    .card-tags { display:flex; gap:5px; flex-wrap:wrap; }
-    .card-tag { font-size:11px; padding:2px 7px; border-radius:4px; background:var(--off); border:1px solid var(--border); color:var(--muted); }
-    .card-arrow { font-size:16px; color:var(--accent); flex-shrink:0; }
-    .card-new { position:relative; }
-    .card-new::after { content:'NEW'; position:absolute; top:12px; right:12px; font-size:10px; font-weight:700; background:var(--success); color:#fff; padding:2px 7px; border-radius:4px; letter-spacing:0.4px; }
-    .card-series { border-left:3px solid var(--accent); }
-
-    /* COMING SOON CARD */
-    .coming-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.25rem; opacity:0.6; }
-    .coming-badge { font-size:11px; font-weight:600; color:var(--muted); background:var(--off); padding:2px 8px; border-radius:4px; display:inline-block; margin-bottom:0.75rem; }
-    .coming-title { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px; }
-    .coming-desc { font-size:13px; color:var(--muted); }
-
-    /* TOOL BANNER */
-    .tool-banner { background:var(--accent-light); border:1px solid #bfdbfe; border-radius:12px; padding:1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap; margin-bottom:2rem; }
-    .tb-left { flex:1; }
-    .tb-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--accent); margin-bottom:5px; }
-    .tb-title { font-size:16px; font-weight:600; color:var(--navy); margin-bottom:3px; }
-    .tb-sub { font-size:13px; color:var(--muted); }
-    .tb-btn { padding:10px 20px; background:var(--accent); color:#fff; border-radius:8px; font-size:13px; font-weight:600; text-decoration:none; white-space:nowrap; transition:all 0.15s; }
-    .tb-btn:hover { background:var(--accent-h); }
+    .kh-hero{position:relative;background:var(--navy-mid);overflow:hidden;padding:clamp(58px,8vw,96px) 20px clamp(42px,5vw,60px)}
+    .kh-sweep{position:absolute;top:50%;left:50%;width:1100px;height:1100px;transform:translate(-50%,-50%);background:conic-gradient(from 0deg,transparent 0deg,transparent 300deg,rgba(59,232,176,.15) 350deg,rgba(59,232,176,.28) 360deg);border-radius:50%;animation:khSweep 5s cubic-bezier(.3,0,.15,1) 1 forwards;pointer-events:none}
+    @keyframes khSweep{to{transform:translate(-50%,-50%) rotate(360deg)}}
+    .kh-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1100px;height:1100px;pointer-events:none;opacity:.5}
+    .kh-rings div{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:1px solid rgba(59,232,176,.1);border-radius:50%}
+    .kh-hero-inner{position:relative;max-width:1140px;margin:0 auto;text-align:center;z-index:2}
+    .kh-eyebrow{font-family:var(--kh-mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--kh-radar);margin-bottom:20px}
+    .kh-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--kh-radar);margin-right:8px;vertical-align:1px;animation:khBlip 2.4s infinite}
+    @keyframes khBlip{0%,100%{opacity:1}50%{opacity:.25}}
+    .kh-hero h1{font-family:var(--kh-display);font-weight:900;font-size:clamp(2.2rem,5.4vw,3.7rem);line-height:1.06;color:#fff;margin-bottom:16px}
+    .kh-hero h1 em{font-style:italic;color:var(--kh-radar)}
+    .kh-sub{font-size:clamp(.96rem,1.5vw,1.06rem);color:rgba(255,255,255,.6);max-width:580px;margin:0 auto 34px;line-height:1.6}
+    .kh-stats{display:flex;justify-content:center;gap:clamp(24px,5vw,60px);flex-wrap:wrap}
+    .kh-stat .num{font-family:var(--kh-display);font-weight:800;font-size:clamp(1.5rem,3vw,2rem);color:#fff;line-height:1}
+    .kh-stat .lbl{font-family:var(--kh-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:7px}
+    .kh-library{max-width:1140px;margin:0 auto;padding:32px 20px 70px;display:grid;grid-template-columns:196px 1fr;gap:34px;align-items:start}
+    .kh-rail{position:sticky;top:24px}
+    .kh-rail-h{font-family:var(--kh-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+    .kh-dom{display:flex;justify-content:space-between;align-items:center;width:100%;padding:8px 11px;border:none;background:none;border-radius:7px;font-family:var(--kh-sans);font-size:.86rem;color:var(--slate);cursor:pointer;text-align:left}
+    .kh-dom:hover{background:var(--white)}
+    .kh-dom.on{background:var(--navy-mid);color:#fff}
+    .kh-dom .n{font-family:var(--kh-mono);font-size:.69rem;color:var(--muted)}
+    .kh-dom.on .n{color:var(--kh-radar)}
+    .kh-rail-tool{margin-top:24px;background:var(--navy-mid);border-radius:12px;padding:16px}
+    .kh-rail-tool .k{font-family:var(--kh-mono);font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;color:var(--kh-radar);margin-bottom:8px}
+    .kh-rail-tool p{font-size:.79rem;color:rgba(255,255,255,.62);line-height:1.5;margin-bottom:12px}
+    .kh-rail-tool a{display:inline-block;font-size:.79rem;font-weight:600;color:var(--navy-mid);background:var(--kh-radar);padding:7px 14px;border-radius:7px;text-decoration:none}
+    .kh-search{width:100%;padding:13px 17px;border:1px solid var(--border);border-radius:10px;font-size:14.5px;font-family:var(--kh-sans);background:var(--white);color:var(--text)}
+    .kh-search:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(18,185,129,.12)}
+    .kh-res{font-family:var(--kh-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
+    .kh-sec-head{display:flex;justify-content:space-between;align-items:baseline;margin:26px 0 15px}
+    .kh-sec-head h2{font-family:var(--kh-display);font-size:1.44rem;font-weight:800}
+    .kh-sec-note{font-family:var(--kh-mono);font-size:.61rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .kh-showcase{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin:26px 0}
+    .kh-showcase-main{background:var(--navy-mid);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:18px}
+    .kh-flag-nav{display:flex;flex-wrap:wrap;gap:8px;position:static;top:auto;height:auto;z-index:auto;padding:0;background:none;backdrop-filter:none;border-bottom:none;justify-content:flex-start;align-items:stretch}
+    .kh-flag-navitem{font-family:var(--kh-mono);font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;text-align:left}
+    .kh-flag-navitem:hover:not(.kh-disabled):not(.on){border-color:rgba(59,232,176,.4);color:#fff}
+    .kh-flag-navitem.on{background:var(--kh-radar);border-color:var(--kh-radar);color:var(--navy-mid);font-weight:700}
+    .kh-flag-navitem.kh-disabled{opacity:.3;pointer-events:none}
+    .kh-flag-k{font-family:var(--kh-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--kh-radar);margin-bottom:11px}
+    .kh-flag-detail h3{font-family:var(--kh-display);font-size:1.2rem;font-weight:800;color:#fff;line-height:1.25;margin-bottom:16px}
+    .kh-flag-detail h3 a{color:inherit;text-decoration:none}
+    .kh-term{background:rgba(0,0,0,.28);border:1px solid rgba(59,232,176,.14);border-radius:10px;padding:12px 14px}
+    .kh-term-h{font-family:var(--kh-mono);font-size:.71rem;color:var(--kh-radar);padding-bottom:9px;border-bottom:1px solid rgba(59,232,176,.12)}
+    .kh-cur{display:inline-block;width:7px;height:12px;background:var(--kh-radar);vertical-align:-2px;margin-left:5px;animation:khBlip 1.1s steps(2) infinite}
+    .kh-step{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid rgba(255,255,255,.07);text-decoration:none}
+    .kh-step:first-of-type{border-top:none}
+    .kh-st{font-family:var(--kh-mono);font-size:.73rem;color:rgba(255,255,255,.82);flex:1;line-height:1.4}
+    .kh-step:hover .kh-st{color:#fff}
+    .kh-mins{font-family:var(--kh-mono);font-size:.63rem;color:var(--kh-radar);border:1px solid rgba(59,232,176,.3);border-radius:999px;padding:3px 10px;flex-shrink:0}
+    .kh-showcase-side{display:flex;flex-direction:column;gap:14px}
+    .kh-panel{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:20px}
+    .kh-panel-k{font-family:var(--kh-mono);font-size:.61rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+    .kh-rank{display:flex;gap:13px;padding:9px 0;text-decoration:none;color:inherit}
+    .kh-rank .no{font-family:var(--kh-mono);font-size:.79rem;color:var(--teal);flex-shrink:0}
+    .kh-rank .ti{font-size:.89rem;font-weight:500;line-height:1.35;margin-bottom:3px;display:block}
+    .kh-rank:hover .ti{color:var(--teal-deep)}
+    .kh-rank .mt{font-family:var(--kh-mono);font-size:.59rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+    .kh-rec{display:flex;gap:11px;padding:9px 0;text-decoration:none;color:inherit}
+    .kh-bul{width:7px;height:7px;border-radius:50%;background:var(--teal);margin-top:6px;flex-shrink:0}
+    .kh-rec .ti{font-size:.87rem;line-height:1.4;margin-bottom:3px;display:block}
+    .kh-rec:hover .ti{color:var(--teal-deep)}
+    .kh-rec .ago{font-family:var(--kh-mono);font-size:.59rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+    .kh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+    .kh-article-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .18s}
+    .kh-article-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent,var(--teal));opacity:0;transition:opacity .18s}
+    .kh-article-card:hover{border-color:var(--teal)}
+    .kh-article-card:hover::before{opacity:1}
+    .kh-item-meta{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+    .kh-cat{font-family:var(--kh-mono);font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:5px;background:var(--catbg,#E1F5EE);color:var(--catfg,var(--teal-deep))}
+    .kh-read{font-family:var(--kh-mono);font-size:.63rem;color:var(--muted)}
+    .kh-item-title{font-family:var(--kh-display);font-size:1rem;font-weight:700;line-height:1.34;margin-bottom:8px}
+    .kh-item-desc{font-size:.82rem;color:var(--slate);line-height:1.58;flex:1}
+    .kh-item-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+    .kh-tag{font-size:.67rem;color:var(--muted)}
+    .kh-arrow{color:var(--teal)}
+    .kh-hidden{display:none}
+    .kh-empty{display:none;text-align:center;padding:52px 20px;color:var(--muted)}
+    .kh-empty.on{display:block}
+    .kh-empty h3{font-family:var(--kh-display);font-size:1.18rem;color:var(--text);margin-bottom:7px}
+    .kh-empty button{margin-top:15px;background:var(--navy-mid);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-family:var(--kh-sans);font-size:.85rem;cursor:pointer}
+    @media(prefers-reduced-motion:reduce){.kh-sweep,.kh-dot,.kh-cur{animation:none}}
+    @media(max-width:1000px){.kh-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:820px){
+      .kh-library{grid-template-columns:1fr;gap:20px}
+      .kh-rail{position:static}
+      #khDomList{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+      .kh-dom{white-space:nowrap;width:auto;border:1px solid var(--border);background:var(--white)}
+      .kh-rail-tool{display:none}
+      .kh-showcase{grid-template-columns:1fr}
+    }
+    @media(max-width:620px){.kh-grid{grid-template-columns:1fr}}
 
     /* NEWSLETTER */
     .newsletter { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.75rem; text-align:center; margin-bottom:2rem; }
@@ -293,17 +299,7 @@
       .risk-matrix { grid-template-columns: 1fr !important; }
 
       /* KNOWLEDGE HUB */
-      .hub-hero { padding: 2.5rem 1.25rem 2rem !important; }
       .tool-context { margin: 0 1rem 1.25rem !important; padding: 1.25rem !important; }
-      .hub-container { padding: 1rem !important; }
-      .series-grid {
-        grid-template-columns: 1fr;
-      }
-      .series-row { padding:9px 12px; }
-      .series-row-meta { display:none; }
-      .filter-bar { padding: 1rem 1rem 0 !important; }
-      .search-inner { flex-direction: column !important; }
-      .tool-banner { flex-direction: column !important; }
       .nl-form { flex-direction: column !important; }
 
       /* SCREEN PAGE */
@@ -349,725 +345,201 @@
 
 <div id="site-nav"></div>
 
-<!-- HERO -->
-<div class="hub-hero">
-  <div class="hub-eyebrow">📚 Free learning resources</div>
-  <h1>AML Knowledge Hub<br><em>Learn financial crime compliance</em></h1>
-  <p class="hub-sub">Guides, explainers, and deep dives on sanctions, PEP screening, UK AML law, and more, written for compliance students and professionals. All free, always.</p>
-  <p style="font-size:12px;color:#94a3b8;margin:-1.5rem 0 2.25rem;">Guides use a few different formats, <a href="/methodology.html#format" style="color:#94a3b8;text-decoration:underline;">here's why</a>.</p>
-  <div class="hub-stats">
-    <div class="hub-stat"><div class="num" id="guide-count-stat">14</div><div class="lbl">In-depth guides</div></div>
-    <div class="hub-stat"><div class="num">72K+</div><div class="lbl">Sanctions records</div></div>
-    <div class="hub-stat"><div class="num">100%</div><div class="lbl">Free forever</div></div>
-    <div class="hub-stat"><div class="num">2026</div><div class="lbl">Regularly updated</div></div>
+<div class="kh-page">
+
+  <!-- HERO -->
+  <div class="kh-hero">
+    <div class="kh-sweep"></div>
+    <div class="kh-rings">
+      <div style="width:340px;height:340px"></div>
+      <div style="width:600px;height:600px"></div>
+      <div style="width:880px;height:880px"></div>
+    </div>
+    <div class="kh-hero-inner">
+      <div class="kh-eyebrow"><span class="kh-dot"></span>Knowledge hub &middot; <span id="khHeroCount">30</span> handbooks</div>
+      <h1>Read the typology<br><em>before it clears</em></h1>
+      <p class="kh-sub">Guides, explainers, and deep dives on sanctions, PEP screening, UK AML law, and more, written for compliance students and professionals. All free, always.</p>
+      <div class="kh-stats">
+        <div class="kh-stat"><div class="num" id="khStatGuides">30</div><div class="lbl">Handbooks</div></div>
+        <div class="kh-stat"><div class="num">72K+</div><div class="lbl">Sanctions records</div></div>
+        <!-- MANUAL FIGURE: bump to 3 the day Risk Scoring ships alongside Fraud Detection and KYC/KYB, see BACKLOG.md Build Loop -->
+        <div class="kh-stat"><div class="num">2</div><div class="lbl">Simulators</div></div>
+        <div class="kh-stat"><div class="num">100%</div><div class="lbl">Free forever</div></div>
+      </div>
+    </div>
   </div>
+
+  <div class="kh-library">
+    <aside class="kh-rail">
+      <div class="kh-rail-h">Domains</div>
+      <div id="khDomList"></div>
+      <div class="kh-rail-tool">
+        <div class="k">Screen a name</div>
+        <p>Test any handbook against the live engine.</p>
+        <a href="/screen.html">Open tool &rarr;</a>
+      </div>
+    </aside>
+
+    <div>
+      <input type="text" class="kh-search" id="khSearchInput" aria-label="Search handbooks" placeholder="Search guides, e.g. PEP screening, SAR, MLR 2017..." oninput="filterCards()" />
+      <div class="kh-res"><span id="khShown">0</span> results</div>
+
+      <div class="kh-showcase" id="khShowcase">
+        <div class="kh-showcase-main">
+          <nav class="kh-flag-nav" id="khFlagNav" aria-label="Choose a flagship series"></nav>
+          <div class="kh-flag-detail" id="khFlagDetail"></div>
+        </div>
+        <div class="kh-showcase-side">
+          <div class="kh-panel">
+            <div class="kh-panel-k">Must read this month</div>
+            <!-- MANUAL CURATION: hand picked, swap monthly, does not update automatically -->
+            <a href="/tm-guide.html" class="kh-rank"><span class="no">01</span><span><span class="ti">Transaction Monitoring: from rules to AI</span><span class="mt">TM &middot; 20 min &middot; deep dive</span></span></a>
+            <a href="/screening-alerts-guide.html" class="kh-rank"><span class="no">02</span><span><span class="ti">The Screening Alert Survival Guide</span><span class="mt">Screening &middot; 18 min</span></span></a>
+            <a href="/ubo-investigation-handbook.html" class="kh-rank"><span class="no">03</span><span><span class="ti">The UBO Investigation Handbook</span><span class="mt">Onboarding &middot; 20 min</span></span></a>
+          </div>
+          <div class="kh-panel">
+            <div class="kh-panel-k">Freshness</div>
+            <div id="khRecentList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="khFlagData" hidden>
+        <div class="kh-flagship-data" data-cats="aml-programme" data-date="2026-06-27" data-title="uk aml compliance guide legal framework mlr 2017 poca terrorism act samla fca core obligations cdd sar controls enforcement mlro" data-name="UK AML Compliance: The Complete Guide" data-kicker="3-part series" data-href="/aml-guide-part1.html">
+          <div class="kh-step-data" data-href="/aml-guide-part1.html" data-label="1. The Legal Framework" data-mins="20 MIN"></div>
+          <div class="kh-step-data" data-href="/aml-guide-part2.html" data-label="2. Core Obligations" data-mins="22 MIN"></div>
+          <div class="kh-step-data" data-href="/aml-guide-part3.html" data-label="3. Controls &amp; Enforcement" data-mins="20 MIN"></div>
+        </div>
+        <div class="kh-flagship-data" data-cats="screening-pep" data-date="2026-06-28" data-title="pep screening handbook who is a pep politically exposed person fatf fg253 due diligence edd source of funds wealth case studies enforcement danske bank standard chartered checklist" data-name="PEP Screening Handbook" data-kicker="3-part series" data-href="/pep-guide-part1.html">
+          <div class="kh-step-data" data-href="/pep-guide-part1.html" data-label="1. Who is a PEP?" data-mins="20 MIN"></div>
+          <div class="kh-step-data" data-href="/pep-guide-part2.html" data-label="2. PEP Due Diligence" data-mins="22 MIN"></div>
+          <div class="kh-step-data" data-href="/pep-guide-part3.html" data-label="3. Case Studies &amp; EDD Checklist" data-mins="20 MIN"></div>
+        </div>
+        <div class="kh-flagship-data" data-cats="sars" data-date="2026-06-28" data-title="suspicious activity reports sar legal regime poca mlro daml tipping off ukfiu nca writing better sars 5w framework narrative quality intelligence governance" data-name="Suspicious Activity Reports: The Complete Guide" data-kicker="3-part series" data-href="/sar-guide-part1.html">
+          <div class="kh-step-data" data-href="/sar-guide-part1.html" data-label="1. The Legal Regime" data-mins="20 MIN"></div>
+          <div class="kh-step-data" data-href="/sar-guide-part2.html" data-label="2. Writing Better SARs" data-mins="20 MIN"></div>
+          <div class="kh-step-data" data-href="/sar-guide-part3.html" data-label="3. Quality, Intelligence &amp; NCA" data-mins="18 MIN"></div>
+        </div>
+        <div class="kh-flagship-data" data-cats="screening-pep aml-programme" data-date="2026-07-01" data-title="fatf 40 recommendations risk-based approach cdd pep sar beneficial ownership record keeping internal controls grey list black list country risk edd jurisdiction monitoring" data-name="FATF: The Practitioner's Handbook" data-kicker="2-part series" data-href="/fatf-guide-part1.html">
+          <div class="kh-step-data" data-href="/fatf-guide-part1.html" data-label="1. The 40 Recommendations" data-mins="28 MIN"></div>
+          <div class="kh-step-data" data-href="/fatf-guide-part2.html" data-label="2. Grey List, Black List &amp; Country Risk" data-mins="25 MIN"></div>
+        </div>
+        <div class="kh-flagship-data" data-cats="aml-programme" data-date="2026-07-09" data-title="mlro guide money laundering reporting officer smf16 smf17 senior managers certification regime fca approval fit and proper sar process nominated officer compliance steward personal liability annual report" data-name="The MLRO Handbook" data-kicker="2-part series" data-href="/mlro-handbook-part1.html">
+          <div class="kh-step-data" data-href="/mlro-handbook-part1.html" data-label="1. Becoming SMF16 or SMF17" data-mins="14 MIN"></div>
+          <div class="kh-step-data" data-href="/mlro-handbook-part2.html" data-label="2. The Role, SARs and Enforcement" data-mins="16 MIN"></div>
+        </div>
+        <div class="kh-flagship-data" data-cats="crypto" data-date="2026-07-13" data-title="crypto virtual assets travel rule vasp cryptoasset compliance fsma typologies mixer tumbler peel chain rug pull wallet sanctions ofac ofsi wallet screening address clustering scenario lab" data-name="Cryptoasset Compliance for AML Practitioners" data-kicker="6-part series" data-href="/crypto-guide-part1.html">
+          <div class="kh-step-data" data-href="/crypto-guide-part1.html" data-label="1. Foundations" data-mins="12 MIN"></div>
+          <div class="kh-step-data" data-href="/crypto-guide-part2.html" data-label="2. What to Actually Do Before October 2027" data-mins="11 MIN"></div>
+          <div class="kh-step-data" data-href="/crypto-guide-part3.html" data-label="3. Typologies, Mixers, Layering &amp; Rug Pulls" data-mins="9 MIN"></div>
+          <div class="kh-step-data" data-href="/crypto-guide-part4.html" data-label="4. How Wallets Actually End Up Sanctioned" data-mins="9 MIN"></div>
+          <div class="kh-step-data" data-href="/crypto-guide-part5.html" data-label="5. The Gap Between Training and a Real Case" data-mins="8 MIN"></div>
+          <div class="kh-step-data" data-href="/crypto-guide-part6.html" data-label="6. Screening Logic, Where It Breaks Down" data-mins="9 MIN"></div>
+        </div>
+      </div>
+
+      <div class="kh-sec-head" id="khGridHead"><h2>Every handbook</h2><span class="kh-sec-note">Sort &middot; newest</span></div>
+      <div class="kh-grid" id="khArticlesGrid">
+
+        <a href="/tm-guide.html" class="kh-article-card" data-cats="fraud-detection" data-title="transaction monitoring rules AI machine learning false positives typologies alert triage SAR financial crime" data-date="2026-06-28" style="--accent:#16A34A;--catbg:#DCFCE7;--catfg:#166534">
+          <div class="kh-item-meta"><span class="kh-cat">Transaction Monitoring</span><span class="kh-read">20 MIN</span></div>
+          <div class="kh-item-title">Transaction Monitoring: From Rules to AI, The Practitioner's Deep Dive</div>
+          <div class="kh-item-desc">How TM systems really work, why 95% of alerts are false positives, how AI is changing the game, and what analysts actually do when the queue hits 400. Includes typology cards, alert triage simulator, and knowledge check.</div>
+          <div class="kh-item-foot"><span class="kh-tag">TM Rules</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/screening-alerts-guide.html" class="kh-article-card" data-cats="screening-pep" data-title="screening alert challenges false positive analyst burnout alert fatigue name matching compliance" data-date="2026-06-28" style="--accent:#3B82F6;--catbg:#DBEAFE;--catfg:#1E40AF">
+          <div class="kh-item-meta"><span class="kh-cat">Screening</span><span class="kh-read">18 MIN</span></div>
+          <div class="kh-item-title">The Screening Alert Survival Guide: 7 Challenges Every Analyst Faces</div>
+          <div class="kh-item-desc">800 alerts. 95% false positives. No DOB on file. The honest, unfiltered guide to what screening alert clearance actually involves, and what genuinely helps.</div>
+          <div class="kh-item-foot"><span class="kh-tag">False positives</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/learn.html" class="kh-article-card" data-cats="screening-pep" data-title="financial crime screening sanctions pep adverse media complete guide" data-date="2026-06-27" style="--accent:#3B82F6;--catbg:#DBEAFE;--catfg:#1E40AF">
+          <div class="kh-item-meta"><span class="kh-cat">Screening</span><span class="kh-read">25 MIN</span></div>
+          <div class="kh-item-title">What is Financial Crime Screening? The Complete Guide</div>
+          <div class="kh-item-desc">A comprehensive, interactive introduction to sanctions screening, PEP checks, and adverse media monitoring, with quizzes, real examples, and live tool access.</div>
+          <div class="kh-item-foot"><span class="kh-tag">Sanctions</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/kyc-onboarding-dilemma.html" class="kh-article-card" data-cats="onboarding" data-title="kyc kyb cdd edd onboarding dilemma individual corporate charity sovereign UBO beneficial ownership due diligence" data-date="2026-06-29" style="--accent:#7F77DD;--catbg:#EEEDFE;--catfg:#3C3489">
+          <div class="kh-item-meta"><span class="kh-cat">Onboarding</span><span class="kh-read">25 MIN</span></div>
+          <div class="kh-item-title">KYC / KYB / CDD / EDD: The Onboarding Dilemma</div>
+          <div class="kh-item-desc">Six archetypes from lone individual to sovereign wealth fund. Six real dilemmas. Make the call yourself, then see the correct answer and the regulation behind it. The only guide that covers every customer type in one place.</div>
+          <div class="kh-item-foot"><span class="kh-tag">KYC</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/fraud-red-flags-guide.html" class="kh-article-card" data-cats="fraud-detection" data-title="fraud red flags account takeover app scam authorised push payment transaction laundering structuring impossible travel card testing scenario lab" data-date="2026-07-15" style="--accent:#16A34A;--catbg:#DCFCE7;--catfg:#166534">
+          <div class="kh-item-meta"><span class="kh-cat">Fraud</span><span class="kh-read">15 MIN</span></div>
+          <div class="kh-item-title">Fraud Red Flags: Reading the Patterns, Not Just the Rules</div>
+          <div class="kh-item-desc">Four live cases from Scenario Lab's Fraud Detection module, worked through properly. Account takeover, APP scams, transaction laundering, and structuring, decision scenarios with full reasoning and a knowledge check.</div>
+          <div class="kh-item-foot"><span class="kh-tag">Account Takeover</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/false-positive-playbook.html" class="kh-article-card" data-cats="screening-pep" data-title="false positive playbook alert disposition name matching DOB mismatch transliteration adverse media sanctions PEP screening" data-date="2026-07-16" style="--accent:#3B82F6;--catbg:#DBEAFE;--catfg:#1E40AF">
+          <div class="kh-item-meta"><span class="kh-cat">Screening</span><span class="kh-read">12 MIN</span></div>
+          <div class="kh-item-title">The False Positive Playbook: Disposing Alerts Without Getting It Wrong</div>
+          <div class="kh-item-desc">The guide the vendors don't write. Three decision scenarios on disposing sanctions, PEP, and adverse media alerts correctly, name matching, DOB mismatches, transliteration, and adverse media false hits, with full reasoning and a knowledge check.</div>
+          <div class="kh-item-foot"><span class="kh-tag">False Positives</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/ubo-investigation-handbook.html" class="kh-article-card" data-cats="onboarding" data-title="ubo investigation beneficial ownership nominee director PSC register CJEU trust beneficiaries CDD due diligence" data-date="2026-07-16" style="--accent:#7F77DD;--catbg:#EEEDFE;--catfg:#3C3489">
+          <div class="kh-item-meta"><span class="kh-cat">Onboarding</span><span class="kh-read">14 MIN</span></div>
+          <div class="kh-item-title">The UBO Investigation Handbook: Finding the Real Owner</div>
+          <div class="kh-item-desc">Checking a register isn't investigating an ownership structure, it's the starting point. Three decision scenarios on nominee directors, unreliable PSC register data, the 2022 CJEU ruling on EU register access, and trust beneficiaries, with full reasoning and a knowledge check.</div>
+          <div class="kh-item-foot"><span class="kh-tag">Beneficial Ownership</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/source-of-wealth-investigation-handbook.html" class="kh-article-card" data-cats="onboarding" data-title="source of wealth source of funds SoW SoF enhanced due diligence EDD gift verification PEP due diligence customer due diligence CDD investigation" data-date="2026-07-19" style="--accent:#7F77DD;--catbg:#EEEDFE;--catfg:#3C3489">
+          <div class="kh-item-meta"><span class="kh-cat">Onboarding</span><span class="kh-read">13 MIN</span></div>
+          <div class="kh-item-title">The Source of Wealth Investigation Handbook: Telling a Plausible Story from Verified Evidence</div>
+          <div class="kh-item-desc">A well-told explanation is not the same as a verified one. Three decision scenarios on verifying source of wealth and source of funds, a two-step gift case study, and a knowledge check, for compliance analysts who need to distinguish a plausible story from actual verification.</div>
+          <div class="kh-item-foot"><span class="kh-tag">Source of Wealth</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/adverse-media-intelligence-guide.html" class="kh-article-card" data-cats="screening-pep" data-title="adverse media intelligence screening false positive source credibility FATF recommendation 12 AMLA CDD investigation legal stage recency role" data-date="2026-07-23" style="--accent:#3B82F6;--catbg:#DBEAFE;--catfg:#1E40AF">
+          <div class="kh-item-meta"><span class="kh-cat">Screening</span><span class="kh-read">12 MIN</span></div>
+          <div class="kh-item-title">The Adverse Media Intelligence Guide: Reading the Story Behind the Headline</div>
+          <div class="kh-item-desc">Confirming identity is the easy half. Three decision scenarios on weighing legal stage, source credibility, recency, and role in adverse media hits, with a source credibility hierarchy and a knowledge check.</div>
+          <div class="kh-item-foot"><span class="kh-tag">Adverse Media</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/fraud-investigation-playbook.html" class="kh-article-card" data-cats="fraud-detection sars" data-title="fraud investigation playbook alert queue POCA 2002 tipping off section 333A DAML defence against money laundering SAR moratorium period investigation file documentation MLRO" data-date="2026-07-25" style="--accent:#16A34A;--catbg:#DCFCE7;--catfg:#166534">
+          <div class="kh-item-meta"><span class="kh-cat">Fraud</span><span class="kh-read">14 MIN</span></div>
+          <div class="kh-item-title">The Fraud Investigation Playbook: Building a File That Survives Review</div>
+          <div class="kh-item-desc">Most investigation guides teach corporate fraud. This one teaches the queue. Three decision scenarios on testing theories, the POCA disclosure boundary, and file documentation, with the full reporting chain from detection to DAML.</div>
+          <div class="kh-item-foot"><span class="kh-tag">Fraud Investigation</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+        <a href="/sanctions-compliance-guide.html" class="kh-article-card" data-cats="screening-pep" data-title="sanctions compliance guide ofac ofsi un eu" data-date="2026-07-04" style="--accent:#3B82F6;--catbg:#DBEAFE;--catfg:#1E40AF">
+          <div class="kh-item-meta"><span class="kh-cat">Sanctions</span><span class="kh-read">15 MIN</span></div>
+          <div class="kh-item-title">Sanctions Compliance: OFAC, OFSI and Beyond</div>
+          <div class="kh-item-desc">Sanctions explained in plain English, a real OFAC case that generates false positives against ordinary people, flip flashcards, and a live comparison against a globally known designation.</div>
+          <div class="kh-item-foot"><span class="kh-tag">OFAC</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
+
+      </div>
+
+      <div class="kh-empty" id="khEmptyState">
+        <h3>No handbooks match that</h3>
+        <p>Try clearing the search, or browsing a different domain.</p>
+        <button onclick="resetAll()">Show everything</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<!-- SEARCH -->
-<div class="search-bar">
-  <div class="search-inner">
-    <input type="text" id="searchInput" placeholder="Search guides, e.g. PEP screening, SAR, MLR 2017..." oninput="filterCards()" />
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="nl-title">Get notified when new guides drop</div>
+  <div class="nl-sub">New articles, regulatory updates, and screening tool improvements, straight to your inbox. Free.</div>
+  <div class="nl-form">
+    <input type="email" id="nlEmail" placeholder="your@email.com" />
+    <button onclick="nlSignup()">Notify me</button>
   </div>
-</div>
-
-<!-- FILTERS -->
-<div class="filter-bar">
-  <span class="filter-label">Filter:</span>
-  <button class="filter-pill active" data-cat="all" onclick="setFilter(this)">All</button>
-  <button class="filter-pill" data-cat="onboarding" onclick="setFilter(this)">Onboarding & CDD</button>
-  <button class="filter-pill" data-cat="aml-programme" onclick="setFilter(this)">AML Programme</button>
-  <button class="filter-pill" data-cat="tm-fraud" onclick="setFilter(this)">TM & Fraud</button>
-  <button class="filter-pill" data-cat="fraud-detection" onclick="setFilter(this)">Fraud</button>
-  <button class="filter-pill" data-cat="screening-pep" onclick="setFilter(this)">Sanctions & PEP</button>
-  <button class="filter-pill" data-cat="sars" onclick="setFilter(this)">Reporting & SARs</button>
-  <button class="filter-pill" data-cat="crypto" onclick="setFilter(this)">Crypto</button>
-</div>
-
-<div class="hub-container">
-
-  <!-- FEATURED SERIES — compact strip -->
-  <div class="featured-section" data-cats="law aml">
-    <div class="section-heading">
-      <h2>⭐ Series</h2>
-    </div>
-    <div class="series-grid">
-      <a href="/aml-guide-part1.html" class="series-row">
-        <div class="series-row-dot" style="background:var(--blue);"></div>
-        <div class="series-row-body">
-          <div class="series-row-title">UK AML Compliance: The Complete Guide</div>
-          <div class="series-row-meta">3 parts · MLR 2017, POCA 2002, CDD, SARs, FCA enforcement</div>
-        </div>
-        <div class="series-row-arrow">→</div>
-      </a>
-      <a href="/pep-guide-part1.html" class="series-row">
-        <div class="series-row-dot" style="background:var(--purple);"></div>
-        <div class="series-row-body">
-          <div class="series-row-title">PEP Screening Handbook</div>
-          <div class="series-row-meta">3 parts · Who is a PEP, EDD obligations, case studies & checklist</div>
-        </div>
-        <div class="series-row-arrow">→</div>
-      </a>
-      <a href="/sar-guide-part1.html" class="series-row">
-        <div class="series-row-dot" style="background:var(--warning);"></div>
-        <div class="series-row-body">
-          <div class="series-row-title">Suspicious Activity Reports: The Complete Guide</div>
-          <div class="series-row-meta">3 parts · Legal regime, writing better SARs, NCA intelligence</div>
-        </div>
-        <div class="series-row-arrow">→</div>
-      </a>
-      <a href="/fatf-guide-part1.html" class="series-row">
-        <div class="series-row-dot" style="background:#f59e0b;"></div>
-        <div class="series-row-body">
-          <div class="series-row-title">FATF: The Practitioner's Handbook</div>
-          <div class="series-row-meta">2 parts · All 40 recommendations, grey list, black list & country risk</div>
-        </div>
-        <div class="series-row-arrow">→</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- TOOL BANNER -->
-  <div class="tool-banner">
-    <div class="tb-left">
-      <div class="tb-eyebrow">🛡️ Live screening tool</div>
-      <div class="tb-title">Put your knowledge into practice: screen real names</div>
-      <div class="tb-sub">Sanctions, PEP, and adverse media screening. Free. No sign-up. Try it alongside any guide.</div>
-    </div>
-    <a href="/screen.html" class="tb-btn">Open screening tool →</a>
-  </div>
-
-  <!-- ALL GUIDES -->
-  <div class="section-heading">
-    <h2>All guides</h2>
-    <span id="card-count" style="font-size:13px; color:var(--muted);"></span>
-  </div>
-
-  <div class="articles-grid" id="articlesGrid">
-  <!-- Empty state: shown when filter/search returns zero results -->
-  <div id="emptyState" style="display:none;grid-column:1/-1;text-align:center;padding:4rem 2rem;">
-    <div style="font-size:48px;margin-bottom:1rem;">🔍</div>
-    <div style="font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;color:var(--navy);margin-bottom:.5rem;">No guides match that filter</div>
-    <div style="font-size:14px;color:var(--muted);max-width:360px;margin:0 auto 1.5rem;line-height:1.7;">
-      Try clearing the search, switching to <strong>All</strong>, or browsing a different domain.
-    </div>
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-      <button onclick="clearFilters()"
-        style="padding:9px 20px;background:var(--teal);color:#fff;border:none;border-radius:var(--r-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s;"
-        onmouseover="this.style.background='var(--teal-h)'" onmouseout="this.style.background='var(--teal)'">
-        Show all guides
-      </button>
-      <a href="/screen.html"
-        style="padding:9px 20px;background:transparent;color:var(--navy);border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-weight:600;text-decoration:none;font-family:'Inter',sans-serif;transition:all .15s;"
-        onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">
-        Try the screening tool
-      </a>
-    </div>
-  </div>
-
-    <!-- Card TM: Transaction Monitoring Deep Dive -->
-    <a href="/tm-guide.html" class="article-card card-new" data-cats="tm-fraud" data-title="transaction monitoring rules AI machine learning false positives typologies alert triage SAR financial crime" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">Transaction Monitoring</span>
-          <span class="card-read">⏱ 20 min read · ⚡ Deep Dive</span>
-        </div>
-        <div class="card-title">Transaction Monitoring: From Rules to AI, The Practitioner's Deep Dive</div>
-        <div class="card-desc">How TM systems really work, why 95% of alerts are false positives, how AI is changing the game, and what analysts actually do when the queue hits 400. Includes typology cards, alert triage simulator, and knowledge check.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">TM Rules</span>
-          <span class="card-tag">AI & ML</span>
-          <span class="card-tag">Alert Triage</span>
-          <span class="card-tag">Typologies</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: Screening Alert Survival Guide -->
-    <a href="/screening-alerts-guide.html" class="article-card card-new" data-cats="screening-pep" data-title="screening alert challenges false positive analyst burnout alert fatigue name matching compliance" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-screening">Screening</span>
-          <span class="card-read">⏱ 18 min read · 😅 Relatable</span>
-        </div>
-        <div class="card-title">The Screening Alert Survival Guide: 7 Challenges Every Analyst Faces</div>
-        <div class="card-desc">800 alerts. 95% false positives. No DOB on file. The honest, unfiltered guide to what screening alert clearance actually involves, and what genuinely helps.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">False positives</span>
-          <span class="card-tag">Alert fatigue</span>
-          <span class="card-tag">Name matching</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: What is Financial Crime Screening -->
-    <a href="/learn.html" class="article-card card-new" data-cats="screening-pep" data-title="financial crime screening sanctions pep adverse media complete guide" data-date="2026-06-27">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-screening">Screening</span>
-          <span class="card-read">⏱ 25 min read</span>
-        </div>
-        <div class="card-title">What is Financial Crime Screening? The Complete Guide</div>
-        <div class="card-desc">A comprehensive, interactive introduction to sanctions screening, PEP checks, and adverse media monitoring, with quizzes, real examples, and live tool access.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Sanctions</span>
-          <span class="card-tag">PEP</span>
-          <span class="card-tag">Adverse media</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- KYC Onboarding Dilemma -->
-    <a href="/kyc-onboarding-dilemma.html" class="article-card card-new" data-cats="onboarding" data-title="kyc kyb cdd edd onboarding dilemma individual corporate charity sovereign UBO beneficial ownership due diligence" data-date="2026-06-29">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">Onboarding</span>
-          <span class="card-read">⏱ 25 min read · 🧭 Interactive</span>
-        </div>
-        <div class="card-title">KYC / KYB / CDD / EDD: The Onboarding Dilemma</div>
-        <div class="card-desc">Six archetypes from lone individual to sovereign wealth fund. Six real dilemmas. Make the call yourself, then see the correct answer and the regulation behind it. The only guide that covers every customer type in one place.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">KYC</span>
-          <span class="card-tag">KYB</span>
-          <span class="card-tag">EDD</span>
-          <span class="card-tag">UBO</span>
-          <span class="card-tag">Charities</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: Fraud Red Flags Guide -->
-    <a href="/fraud-red-flags-guide.html" class="article-card card-new" data-cats="fraud-detection" data-title="fraud red flags account takeover app scam authorised push payment transaction laundering structuring impossible travel card testing scenario lab" data-date="2026-07-15">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-fraud">Fraud</span>
-          <span class="card-read">⏱ 15 min read · 🚨 Interactive</span>
-        </div>
-        <div class="card-title">Fraud Red Flags: Reading the Patterns, Not Just the Rules</div>
-        <div class="card-desc">Four live cases from Scenario Lab's Fraud Detection module, worked through properly. Account takeover, APP scams, transaction laundering, and structuring, decision scenarios with full reasoning and a knowledge check.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Account Takeover</span>
-          <span class="card-tag">APP Scam</span>
-          <span class="card-tag">Transaction Laundering</span>
-          <span class="card-tag">Structuring</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: False Positive Playbook -->
-    <a href="/false-positive-playbook.html" class="article-card card-new" data-cats="screening-pep" data-title="false positive playbook alert disposition name matching DOB mismatch transliteration adverse media sanctions PEP screening" data-date="2026-07-16">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-screening">Screening</span>
-          <span class="card-read">⏱ 12 min read · 🔍 Interactive</span>
-        </div>
-        <div class="card-title">The False Positive Playbook: Disposing Alerts Without Getting It Wrong</div>
-        <div class="card-desc">The guide the vendors don't write. Three decision scenarios on disposing sanctions, PEP, and adverse media alerts correctly, name matching, DOB mismatches, transliteration, and adverse media false hits, with full reasoning and a knowledge check.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">False Positives</span>
-          <span class="card-tag">Name Matching</span>
-          <span class="card-tag">Transliteration</span>
-          <span class="card-tag">Adverse Media</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: UBO Investigation Handbook -->
-    <a href="/ubo-investigation-handbook.html" class="article-card card-new" data-cats="onboarding" data-title="ubo investigation beneficial ownership nominee director PSC register CJEU trust beneficiaries CDD due diligence" data-date="2026-07-16">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">Onboarding</span>
-          <span class="card-read">⏱ 14 min read · 🔎 Interactive</span>
-        </div>
-        <div class="card-title">The UBO Investigation Handbook: Finding the Real Owner</div>
-        <div class="card-desc">Checking a register isn't investigating an ownership structure, it's the starting point. Three decision scenarios on nominee directors, unreliable PSC register data, the 2022 CJEU ruling on EU register access, and trust beneficiaries, with full reasoning and a knowledge check.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Beneficial Ownership</span>
-          <span class="card-tag">Nominee Directors</span>
-          <span class="card-tag">PSC Register</span>
-          <span class="card-tag">Trusts</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: Source of Wealth Investigation Handbook -->
-    <a href="/source-of-wealth-investigation-handbook.html" class="article-card card-new" data-cats="onboarding" data-title="source of wealth source of funds SoW SoF enhanced due diligence EDD gift verification PEP due diligence customer due diligence CDD investigation" data-date="2026-07-19">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">Onboarding</span>
-          <span class="card-read">⏱ 13 min read · 🔎 Interactive</span>
-        </div>
-        <div class="card-title">The Source of Wealth Investigation Handbook: Telling a Plausible Story from Verified Evidence</div>
-        <div class="card-desc">A well-told explanation is not the same as a verified one. Three decision scenarios on verifying source of wealth and source of funds, a two-step gift case study, and a knowledge check, for compliance analysts who need to distinguish a plausible story from actual verification.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Source of Wealth</span>
-          <span class="card-tag">Source of Funds</span>
-          <span class="card-tag">Enhanced Due Diligence</span>
-          <span class="card-tag">Gift Verification</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: Adverse Media Intelligence Guide -->
-    <a href="/adverse-media-intelligence-guide.html" class="article-card card-new" data-cats="screening-pep" data-title="adverse media intelligence screening false positive source credibility FATF recommendation 12 AMLA CDD investigation legal stage recency role" data-date="2026-07-23">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-screening">Screening</span>
-          <span class="card-read">⏱ 12 min read · 🔎 Interactive</span>
-        </div>
-        <div class="card-title">The Adverse Media Intelligence Guide: Reading the Story Behind the Headline</div>
-        <div class="card-desc">Confirming identity is the easy half. Three decision scenarios on weighing legal stage, source credibility, recency, and role in adverse media hits, with a source credibility hierarchy and a knowledge check.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Adverse Media</span>
-          <span class="card-tag">Source Credibility</span>
-          <span class="card-tag">False Positives</span>
-          <span class="card-tag">FATF Recommendation 12</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- Card: Fraud Investigation Playbook -->
-    <a href="/fraud-investigation-playbook.html" class="article-card card-new" data-cats="fraud-detection sars" data-title="fraud investigation playbook alert queue POCA 2002 tipping off section 333A DAML defence against money laundering SAR moratorium period investigation file documentation MLRO" data-date="2026-07-25">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-fraud">Fraud</span>
-          <span class="card-read">⏱ 14 min read · 🗂️ Interactive</span>
-        </div>
-        <div class="card-title">The Fraud Investigation Playbook: Building a File That Survives Review</div>
-        <div class="card-desc">Most investigation guides teach corporate fraud. This one teaches the queue. Three decision scenarios on testing theories, the POCA disclosure boundary, and file documentation, with the full reporting chain from detection to DAML.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Fraud Investigation</span>
-          <span class="card-tag">Tipping Off</span>
-          <span class="card-tag">DAML</span>
-          <span class="card-tag">POCA 2002</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- UK AML Series -->
-    <a href="/aml-guide-part1.html" class="article-card card-series card-new" data-cats="aml-programme" data-title="uk aml compliance guide legal framework mlr 2017 poca terrorism act samla fca" data-date="2026-06-27">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-law">UK Law</span>
-          <span class="card-read">⏱ 20 min · Part 1 of 3</span>
-        </div>
-        <div class="card-title">UK AML Compliance Part 1: The Legal Framework</div>
-        <div class="card-desc">MLR 2017, POCA 2002, Terrorism Act 2000, SAMLA 2018: the four pillars of UK AML law, who they apply to, and what they require in practice.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">MLR 2017</span>
-          <span class="card-tag">POCA</span>
-          <span class="card-tag">Terrorism Act</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-    <a href="/aml-guide-part2.html" class="article-card card-series card-new" data-cats="aml-programme" data-title="uk aml core obligations risk assessment cdd customer due diligence sar reporting controls" data-date="2026-06-27">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-law">UK Law</span>
-          <span class="card-read">⏱ 22 min · Part 2 of 3</span>
-        </div>
-        <div class="card-title">UK AML Compliance Part 2: Core Obligations</div>
-        <div class="card-desc">Risk assessments, Customer Due Diligence, SARs and the DAML process, record-keeping obligations, and what the FCA actually looks for during a supervisory visit.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">CDD</span>
-          <span class="card-tag">SARs</span>
-          <span class="card-tag">Risk assessment</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-    <a href="/aml-guide-part3.html" class="article-card card-series card-new" data-cats="aml-programme" data-title="uk aml controls enforcement staff training mlro fca enforcement 2026 horizon" data-date="2026-06-27">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-law">UK Law</span>
-          <span class="card-read">⏱ 20 min · Part 3 of 3</span>
-        </div>
-        <div class="card-title">UK AML Compliance Part 3: Controls & Enforcement</div>
-        <div class="card-desc">Staff training, transaction monitoring, MLRO governance, FCA enforcement patterns, and the 2026-2028 regulatory horizon. What good looks like in practice.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Training</span>
-          <span class="card-tag">MLRO</span>
-          <span class="card-tag">Enforcement</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- PEP Series -->
-    <a href="/pep-guide-part1.html" class="article-card card-series card-new" data-cats="screening-pep" data-title="pep screening handbook who is a pep politically exposed person fatf fg253" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-pep">PEP</span>
-          <span class="card-read">⏱ 20 min · Part 1 of 3</span>
-        </div>
-        <div class="card-title">PEP Screening Handbook Part 1: Who is a PEP?</div>
-        <div class="card-desc">FATF definitions, PEP categories, domestic vs foreign distinction, RCAs, PEP duration, and the landmark FCA FG25/3 July 2025 guidance.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">FATF</span>
-          <span class="card-tag">FG25/3</span>
-          <span class="card-tag">MLR 2017</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-    <a href="/pep-guide-part2.html" class="article-card card-series card-new" data-cats="screening-pep" data-title="pep due diligence edd source of funds source of wealth senior management approval monitoring" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-pep">PEP</span>
-          <span class="card-read">⏱ 22 min · Part 2 of 3</span>
-        </div>
-        <div class="card-title">PEP Screening Handbook Part 2: PEP Due Diligence</div>
-        <div class="card-desc">Source of funds vs source of wealth, senior management approval, enhanced ongoing monitoring, red flags, and exiting PEP relationships safely.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">EDD</span>
-          <span class="card-tag">SoF/SoW</span>
-          <span class="card-tag">Monitoring</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-    <a href="/pep-guide-part3.html" class="article-card card-series card-new" data-cats="screening-pep" data-title="pep case studies enforcement danske bank standard chartered edd checklist programme" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-pep">PEP</span>
-          <span class="card-read">⏱ 20 min · Part 3 of 3</span>
-        </div>
-        <div class="card-title">PEP Screening Handbook Part 3: Case Studies & EDD Checklist</div>
-        <div class="card-desc">Raiffeisen, Danske Bank, Standard Chartered: real enforcement cases, FCA patterns, programme design, and the interactive 24-item PEP EDD checklist.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Case studies</span>
-          <span class="card-tag">Enforcement</span>
-          <span class="card-tag">Checklist</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- SAR Series -->
-    <a href="/sar-guide-part1.html" class="article-card card-series card-new" data-cats="sars" data-title="suspicious activity reports sar legal regime poca mlro daml tipping off ukfiu nca" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">AML</span>
-          <span class="card-read">⏱ 20 min · Part 1 of 3</span>
-        </div>
-        <div class="card-title">Suspicious Activity Reports Part 1: The Legal Regime</div>
-        <div class="card-desc">Legal basis under POCA, who must file, the MLRO's statutory role, the DAML process, tipping off, and how the UK SAR regime works in practice.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">POCA</span>
-          <span class="card-tag">DAML</span>
-          <span class="card-tag">MLRO</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-    <a href="/sar-guide-part2.html" class="article-card card-series card-new" data-cats="sars" data-title="writing better sars sar narrative 5w framework subject information typologies mistakes" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">AML</span>
-          <span class="card-read">⏱ 20 min · Part 2 of 3</span>
-        </div>
-        <div class="card-title">Suspicious Activity Reports Part 2: Writing Better SARs</div>
-        <div class="card-desc">The 5W framework, good vs bad narrative examples, the 8 most common SAR mistakes, and typology-specific tips for structuring, TBML, and crypto.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">5W framework</span>
-          <span class="card-tag">Narrative</span>
-          <span class="card-tag">Typologies</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-    <a href="/sar-guide-part3.html" class="article-card card-series card-new" data-cats="sars" data-title="sar quality intelligence nca ukfiu programme mlro governance reform fipp jmlit" data-date="2026-06-28">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">AML</span>
-          <span class="card-read">⏱ 18 min · Part 3 of 3</span>
-        </div>
-        <div class="card-title">Suspicious Activity Reports Part 3: Quality, Intelligence & NCA</div>
-        <div class="card-desc">How the NCA uses SAR intelligence, quality metrics, the SAR reform agenda, MLRO board governance, and building a high-performing SAR programme.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">NCA/UKFIU</span>
-          <span class="card-tag">Quality</span>
-          <span class="card-tag">Governance</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <!-- FATF Guide Part 1 — NEW -->
-    <a href="/fatf-guide-part1.html" class="article-card card-new" data-cats="screening-pep aml-programme" data-title="FATF 40 recommendations risk-based approach CDD PEP SAR beneficial ownership record keeping internal controls" data-date="2026-07-01">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-law">FATF</span>
-          <span class="card-read">⏱ 28 min read · 📋 Visual</span>
-        </div>
-        <div class="card-title">FATF 40 Recommendations: The Practitioner's Handbook</div>
-        <div class="card-desc">The seven recommendations that drive 90% of daily compliance decisions, decoded with visual memory cards, real desk scenarios, and the questions regulators actually ask. Part 1 of 2.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">RBA</span>
-          <span class="card-tag">CDD</span>
-          <span class="card-tag">PEPs</span>
-          <span class="card-tag">SARs</span>
-          <span class="card-tag">UBO</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/sanctions-compliance-guide.html" class="article-card card-new" data-cats="screening-pep" data-title="sanctions compliance guide ofac ofsi un eu" data-date="2026-07-04">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-law">Sanctions</span>
-          <span class="card-read">&#9201; 15 min read &middot; Interactive</span>
-        </div>
-        <div class="card-title">Sanctions Compliance: OFAC, OFSI and Beyond</div>
-        <div class="card-desc">Sanctions explained in plain English, a real OFAC case that generates false positives against ordinary people, flip flashcards, and a live comparison against a globally known designation.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">OFAC</span>
-          <span class="card-tag">OFSI</span>
-          <span class="card-tag">False Positives</span>
-        </div>
-        <span class="card-arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="/fatf-guide-part2.html" class="article-card card-new" data-cats="screening-pep aml-programme" data-title="FATF grey list black list countries 2026 EDD country risk jurisdiction monitoring" data-date="2026-07-01">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-law">FATF</span>
-          <span class="card-read">⏱ 25 min read · 🗺 Visual Risk Map</span>
-        </div>
-        <div class="card-title">Grey List, Black List & Country Risk: The Compliance Playbook</div>
-        <div class="card-desc">How countries get listed, what the 2026 current lists mean for your EDD obligations, all 22 grey-listed jurisdictions with a visual risk grid, and the compliance decisions that flow from each. Part 2 of 2.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Grey List</span>
-          <span class="card-tag">Black List</span>
-          <span class="card-tag">EDD</span>
-          <span class="card-tag">June 2026</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/mlro-handbook-part1.html" class="article-card card-series card-new" data-cats="aml-programme" data-title="mlro guide money laundering reporting officer smf16 smf17 senior managers certification regime fca approval fit and proper" data-date="2026-07-08">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">MLRO</span>
-          <span class="card-read">⏱ 14 min · Part 1 of 2</span>
-        </div>
-        <div class="card-title">The MLRO Handbook, Part 1: Becoming SMF16 or SMF17</div>
-        <div class="card-desc">Who can actually become an MLRO, the FCA's real bar for approval, the five stage approval process step by step, and the small firm combination question.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">SMF16</span>
-          <span class="card-tag">SMF17</span>
-          <span class="card-tag">FCA Approval</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/mlro-handbook-part2.html" class="article-card card-series card-new" data-cats="aml-programme" data-title="mlro job day to day sar process nominated officer compliance steward smf17 personal liability poca enforcement annual report" data-date="2026-07-09">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-aml">MLRO</span>
-          <span class="card-read">⏱ 16 min · Part 2 of 2</span>
-        </div>
-        <div class="card-title">The MLRO Handbook, Part 2: The Role, SARs and Enforcement</div>
-        <div class="card-desc">Nominated officer versus compliance steward, the SAR decision process step by step, dual SM&CR and POCA liability, the Annual MLRO Report, and enforcement cases where personal liability has actually been tested.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">SAR Process</span>
-          <span class="card-tag">POCA</span>
-          <span class="card-tag">Personal Liability</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/crypto-guide-part1.html" class="article-card card-series card-new" data-cats="crypto" data-title="crypto virtual assets travel rule virtual asset service provider vasp cryptoasset compliance fsma" data-date="2026-07-08">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-crypto">Crypto</span>
-          <span class="card-read">⏱ 12 min · Part 1 of 6</span>
-        </div>
-        <div class="card-title">Cryptoasset Compliance for AML Practitioners, Part 1</div>
-        <div class="card-desc">What actually changes now for the analyst with a crypto customer: the foundations, the MLR and FSMA regimes running at once, the Travel Rule, and where crypto KYC breaks from the standard onboarding checklist.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">MLR</span>
-          <span class="card-tag">FSMA</span>
-          <span class="card-tag">Travel Rule</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/crypto-guide-part2.html" class="article-card card-series card-new" data-cats="crypto" data-title="crypto fsma cryptoasset authorisation gateway pre-application support service sysc 3 mlro competency travel rule fca cryptoasset rules 2026" data-date="2026-07-09">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-crypto">Crypto</span>
-          <span class="card-read">⏱ 11 min · Part 2 of 6</span>
-        </div>
-        <div class="card-title">The Crypto Guide, Part 2: What to Actually Do Before October 2027</div>
-        <div class="card-desc">The FSMA authorisation timeline following the FCA's 30 June 2026 final rules, why MLR registration does not convert into authorisation, what the FCA says separates a strong application from a weak one, and a practical starting checklist.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">FSMA Gateway</span>
-          <span class="card-tag">SYSC 3</span>
-          <span class="card-tag">2026 Rules</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/crypto-guide-part3.html" class="article-card card-series card-new" data-cats="crypto" data-title="crypto money laundering typologies mixer tumbler peel chain chain hopping rug pull red flags nft wash trading" data-date="2026-07-12">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-crypto">Crypto</span>
-          <span class="card-read">⏱ 9 min · Part 3 of 6</span>
-        </div>
-        <div class="card-title">The Crypto Guide, Part 3: Typologies, Mixers, Layering, and Rug Pulls Explained</div>
-        <div class="card-desc">How crypto laundering typologies actually work: mixing and chain-hopping, peel chains, rug pull red flags an analyst can actually check, and NFT wash trading as a laundering vector.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Peel Chains</span>
-          <span class="card-tag">Rug Pulls</span>
-          <span class="card-tag">NFT Wash Trading</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/crypto-guide-part4.html" class="article-card card-series card-new" data-cats="crypto" data-title="crypto wallet sanctions OFAC SDN wallet address OFSI cryptoassets threat assessment UK sanctions list direct indirect exposure blocked property" data-date="2026-07-13">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-crypto">Crypto</span>
-          <span class="card-read">⏱ 9 min · Part 4 of 6</span>
-        </div>
-        <div class="card-title">The Crypto Guide, Part 4: How Crypto Wallets Actually End Up Sanctioned</div>
-        <div class="card-desc">How OFAC and OFSI actually designate wallet addresses, direct versus indirect exposure under the UK Sanctions List, FAQ 646 blocked property, and what wallet screening design needs that name screening doesn't.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Wallet Sanctions</span>
-          <span class="card-tag">OFSI</span>
-          <span class="card-tag">UK Sanctions List</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/crypto-guide-part5.html" class="article-card card-series card-new" data-cats="crypto" data-title="AML training gaps crypto KYC wallet attribution crypto case investigation skills wallet graph analysis scenario lab" data-date="2026-07-13">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-crypto">Crypto</span>
-          <span class="card-read">⏱ 8 min · Part 5 of 6</span>
-        </div>
-        <div class="card-title">The Crypto Guide, Part 5: The Gap Between AML Training and a Real Crypto Case</div>
-        <div class="card-desc">Five gaps standard AML training leaves in a genuinely crypto-touching case: no bank in the middle to block a transaction, identity versus wallet attribution, what a clean on-chain history actually means, and reading a wallet graph.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Analyst Training</span>
-          <span class="card-tag">Wallet Attribution</span>
-          <span class="card-tag">Scenario Lab</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-    <a href="/crypto-guide-part6.html" class="article-card card-series card-new" data-cats="crypto" data-title="wallet screening design address clustering AML sanctions confidence threshold cross-chain custodial wallet attribution" data-date="2026-07-13">
-      <div class="card-top">
-        <div class="card-meta">
-          <span class="card-category cat-crypto">Crypto</span>
-          <span class="card-read">⏱ 9 min · Part 6 of 6</span>
-        </div>
-        <div class="card-title">The Crypto Guide, Part 6: Screening Logic and Wallet Addresses, Where It Breaks Down</div>
-        <div class="card-desc">Where wallet screening logic actually breaks down: clustering confidence thresholds, why mixing defeats the clustering assumption, cross-chain visibility gaps, custodial wallet attribution, and five design requirements that hold up.</div>
-      </div>
-      <div class="card-bottom">
-        <div class="card-tags">
-          <span class="card-tag">Screening Design</span>
-          <span class="card-tag">Address Clustering</span>
-          <span class="card-tag">Series Finale</span>
-        </div>
-        <span class="card-arrow">→</span>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- NEWSLETTER -->
-  <div class="newsletter">
-    <div class="nl-title">Get notified when new guides drop</div>
-    <div class="nl-sub">New articles, regulatory updates, and screening tool improvements, straight to your inbox. Free.</div>
-    <div class="nl-form">
-      <input type="email" id="nlEmail" placeholder="your@email.com" />
-      <button onclick="nlSignup()">Notify me</button>
-    </div>
-    <div class="nl-hint">No spam. Unsubscribe any time.</div>
-    <div class="nl-success" id="nlSuccess">✓ You're in! We'll notify you when new guides are published.</div>
-  </div>
-
+  <div class="nl-hint">No spam. Unsubscribe any time.</div>
+  <div class="nl-success" id="nlSuccess">✓ You're in! We'll notify you when new guides are published.</div>
 </div>
 
 <section class="tool-context">
@@ -1239,79 +711,177 @@ async function footerSignup() {
 </script>
 
 <script>
-  let activeFilter = 'all';
+(function(){
+  var DOMAINS=[
+    {k:'all',label:'All handbooks'},
+    {k:'onboarding',label:'Onboarding &amp; CDD'},
+    {k:'aml-programme',label:'AML Programme'},
+    {k:'fraud-detection',label:'Fraud'},
+    {k:'screening-pep',label:'Sanctions &amp; PEP'},
+    {k:'sars',label:'Reporting &amp; SARs'},
+    {k:'crypto',label:'Crypto'}
+  ];
+  var activeCat='all';
+  var FLAGSHIPS=[];
+  var activeFlagIndex=0;
 
-  function setFilter(btn) {
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.cat;
-    filterCards();
+  function loadFlagshipData(){
+    FLAGSHIPS=Array.prototype.slice.call(document.querySelectorAll('#khFlagData > .kh-flagship-data')).map(function(el){
+      return {
+        el:el,
+        cats:el.getAttribute('data-cats')||'',
+        date:el.getAttribute('data-date')||'',
+        title:el.getAttribute('data-title')||'',
+        name:el.getAttribute('data-name')||'',
+        kicker:el.getAttribute('data-kicker')||'',
+        href:el.getAttribute('data-href')||'#',
+        steps:Array.prototype.slice.call(el.querySelectorAll('.kh-step-data')).map(function(s){
+          return {href:s.getAttribute('data-href'),label:s.getAttribute('data-label'),mins:s.getAttribute('data-mins')};
+        })
+      };
+    });
   }
 
-  function clearFilters() {
-    document.getElementById('searchInput').value = '';
-    activeFilter = 'all';
-    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
-    const allPill = document.querySelector('.filter-pill[data-cat="all"]');
-    if (allPill) allPill.classList.add('active');
-    filterCards();
+  function seriesMatches(fs,q){
+    var hay=(fs.title+' '+fs.name).toLowerCase();
+    return (activeCat==='all'||fs.cats.indexOf(activeCat)!==-1)&&(!q||hay.indexOf(q)!==-1);
   }
 
-  // Sorts .article-card elements within #articlesGrid by data-date,
-  // descending (newest first). Standing convention: every new guide's
-  // card just needs a data-date="YYYY-MM-DD" matching its real go-live
-  // date, wherever it's physically inserted in the HTML, this sort
-  // handles correct positioning so cards never need manual reordering.
+  function allItems(){
+    return Array.prototype.slice.call(document.querySelectorAll('#khArticlesGrid > .kh-article-card, #khFlagData > .kh-flagship-data'));
+  }
+
+  function buildRail(){
+    var host=document.getElementById('khDomList');
+    if(!host) return;
+    host.innerHTML=DOMAINS.map(function(d){
+      var n=d.k==='all'?allItems().length:allItems().filter(function(c){return (c.getAttribute('data-cats')||'').indexOf(d.k)!==-1;}).length;
+      return '<button class="kh-dom'+(d.k===activeCat?' on':'')+'" aria-pressed="'+(d.k===activeCat)+'" data-cat="'+d.k+'"><span>'+d.label+'</span><span class="n">'+n+'</span></button>';
+    }).join('');
+    host.querySelectorAll('.kh-dom').forEach(function(b){
+      b.onclick=function(){activeCat=b.getAttribute('data-cat');buildRail();filterCards();};
+    });
+  }
+
+  function renderFlagNav(matches){
+    var host=document.getElementById('khFlagNav');
+    if(!host) return;
+    var matchSet=matches||FLAGSHIPS;
+    host.innerHTML=FLAGSHIPS.map(function(fs,i){
+      var disabled=matchSet.indexOf(fs)===-1;
+      return '<button type="button" class="kh-flag-navitem'+(i===activeFlagIndex?' on':'')+(disabled?' kh-disabled':'')+'" data-i="'+i+'"'+(disabled?' aria-disabled="true"':'')+'>'+fs.name+'</button>';
+    }).join('');
+    host.querySelectorAll('.kh-flag-navitem').forEach(function(b){
+      if(b.classList.contains('kh-disabled')) return;
+      b.onclick=function(){
+        activeFlagIndex=parseInt(b.getAttribute('data-i'),10);
+        renderFlagNav(matchSet);
+        renderFlagDetail();
+      };
+    });
+  }
+
+  function renderFlagDetail(){
+    var host=document.getElementById('khFlagDetail');
+    if(!host) return;
+    var fs=FLAGSHIPS[activeFlagIndex];
+    if(!fs){host.innerHTML='';return;}
+    host.innerHTML='<div class="kh-flag-k">'+fs.kicker+'</div>'+
+      '<h3><a href="'+fs.href+'">'+fs.name+'</a></h3>'+
+      '<div class="kh-term"><div class="kh-term-h">&gt; read path<span class="kh-cur"></span></div>'+
+      fs.steps.map(function(s){return '<a class="kh-step" href="'+s.href+'"><span class="kh-st">'+s.label+'</span><span class="kh-mins">'+s.mins+'</span></a>';}).join('')+
+      '</div>';
+  }
+
+  // Sorts .kh-article-card elements within #khArticlesGrid by data-date,
+  // descending (newest first). Every new guide's card just needs a
+  // data-date="YYYY-MM-DD" matching its real go-live date, wherever it's
+  // physically inserted in the HTML, this sort handles correct positioning.
   function sortCards() {
-    const grid = document.getElementById('articlesGrid');
-    if (!grid) return;
-    const cards = Array.from(grid.querySelectorAll(':scope > .article-card'));
-    cards.sort((a, b) => (b.dataset.date || '').localeCompare(a.dataset.date || ''));
-    cards.forEach(card => grid.appendChild(card));
-  }
-
-  // Keeps the hero "In-depth guides" stat accurate automatically, counts
-  // the same direct-child .article-card elements sortCards() targets, so
-  // there's no hardcoded number to remember to update as guides are
-  // added or removed. Runs once on load, not on every filter/search,
-  // since the total card count in the DOM never changes from filtering.
-  function updateGuideCountStat() {
-    const statEl = document.getElementById('guide-count-stat');
-    const grid = document.getElementById('articlesGrid');
-    if (!statEl || !grid) return;
-    statEl.textContent = grid.querySelectorAll(':scope > .article-card').length;
+    var grid=document.getElementById('khArticlesGrid');
+    if(!grid) return;
+    Array.prototype.slice.call(grid.querySelectorAll(':scope > .kh-article-card')).sort(function(a,b){
+      return (b.getAttribute('data-date')||'').localeCompare(a.getAttribute('data-date')||'');
+    }).forEach(function(c){grid.appendChild(c);});
   }
 
   function filterCards() {
     sortCards();
-    const q = document.getElementById('searchInput').value.toLowerCase();
-    const cards = document.querySelectorAll('#articlesGrid [data-cats]');
-    let visible = 0;
-    cards.forEach(card => {
-      const cats = card.dataset.cats || '';
-      const title = card.dataset.title || '';
-      const catMatch = activeFilter === 'all' || cats.includes(activeFilter);
-      const searchMatch = !q || title.includes(q) || cats.includes(q);
-      if (catMatch && searchMatch) {
-        card.style.display = '';
-        visible++;
-      } else {
-        card.style.display = 'none';
-      }
+    var searchEl=document.getElementById('khSearchInput');
+    var q=searchEl?searchEl.value.toLowerCase():'';
+    var shown=0, gridShown=0;
+    Array.prototype.slice.call(document.querySelectorAll('#khArticlesGrid > .kh-article-card')).forEach(function(card){
+      var cats=card.getAttribute('data-cats')||'';
+      var hay=((card.getAttribute('data-title')||'')+' '+card.textContent).toLowerCase();
+      var ok=(activeCat==='all'||cats.indexOf(activeCat)!==-1)&&(!q||hay.indexOf(q)!==-1);
+      card.classList.toggle('kh-hidden',!ok);
+      if(ok){shown++; gridShown++;}
     });
-    const countEl = document.getElementById('card-count');
-    if (countEl) countEl.textContent = visible + ' guide' + (visible !== 1 ? 's' : '');
-    const emptyState = document.getElementById('emptyState');
-    if (emptyState) emptyState.style.display = visible === 0 ? 'block' : 'none';
-
-    // Show/hide featured section based on filter
-    const featured = document.querySelector('.featured-section');
-    if (featured) {
-      const featCats = featured.dataset.cats || '';
-      featured.style.display = (activeFilter === 'all' || featCats.includes(activeFilter)) && !q ? '' : 'none';
+    var flagMatches=FLAGSHIPS.filter(function(fs){return seriesMatches(fs,q);});
+    shown+=flagMatches.length;
+    if(flagMatches.length && flagMatches.indexOf(FLAGSHIPS[activeFlagIndex])===-1){
+      activeFlagIndex=FLAGSHIPS.indexOf(flagMatches[0]);
     }
+    renderFlagNav(flagMatches);
+    renderFlagDetail();
+    var showcase=document.getElementById('khShowcase'); if(showcase) showcase.classList.toggle('kh-hidden',flagMatches.length===0);
+    var shownEl=document.getElementById('khShown'); if(shownEl) shownEl.textContent=shown;
+    var gridHead=document.getElementById('khGridHead'); if(gridHead) gridHead.classList.toggle('kh-hidden',gridShown===0);
+    var emptyState=document.getElementById('khEmptyState'); if(emptyState) emptyState.classList.toggle('on',shown===0);
   }
 
+  // Keeps the hero handbook count and "Handbooks" stat accurate automatically,
+  // so there's no hardcoded number to remember to update as guides are added.
+  // A flagship series collapses several real guide parts into one nav entry, so
+  // counting entries alone would undercount (e.g. 17 entries for 30 real guides).
+  // Each .kh-flagship-data's real part count is its number of .kh-step-data
+  // children; standalone .kh-article-card entries count as 1 each.
+  function updateGuideCountStat() {
+    var standalone=document.querySelectorAll('#khArticlesGrid > .kh-article-card').length;
+    var seriesParts=Array.prototype.slice.call(document.querySelectorAll('#khFlagData > .kh-flagship-data')).reduce(function(sum,c){
+      return sum+c.querySelectorAll('.kh-step-data').length;
+    },0);
+    var n=standalone+seriesParts;
+    var statEl=document.getElementById('khStatGuides'); if(statEl) statEl.textContent=n;
+    var heroEl=document.getElementById('khHeroCount'); if(heroEl) heroEl.textContent=n;
+  }
+
+  function renderRecent(){
+    var host=document.getElementById('khRecentList');
+    if(!host) return;
+    var items=allItems().slice().sort(function(a,b){
+      return (b.getAttribute('data-date')||'').localeCompare(a.getAttribute('data-date')||'');
+    }).slice(0,3);
+    var now=new Date();
+    host.innerHTML=items.map(function(c){
+      var isFlag=c.classList.contains('kh-flagship-data');
+      var t=isFlag?(c.getAttribute('data-name')||''):((c.querySelector('.kh-item-title')||{}).textContent||'');
+      var href=isFlag?(c.getAttribute('data-href')||'#'):c.getAttribute('href');
+      var days=Math.max(0,Math.round((now-new Date(c.getAttribute('data-date')))/86400000));
+      var ago=days===0?'today':days===1?'1 day ago':days<21?days+' days ago':Math.round(days/7)+' weeks ago';
+      var tier=days<=3?'var(--teal)':days<=14?'var(--warning)':'var(--danger)';
+      return '<a href="'+href+'" class="kh-rec"><span class="kh-bul" style="background:'+tier+'"></span><span><span class="ti">'+t+'</span><span class="ago">'+ago+'</span></span></a>';
+    }).join('');
+  }
+
+  function resetAll(){
+    activeCat='all';
+    var searchEl=document.getElementById('khSearchInput');
+    if(searchEl) searchEl.value='';
+    buildRail();filterCards();
+  }
+
+  window.filterCards=filterCards;
+  window.sortCards=sortCards;
+  window.updateGuideCountStat=updateGuideCountStat;
+  window.resetAll=resetAll;
+
+  loadFlagshipData();
+  buildRail();filterCards();renderRecent();updateGuideCountStat();
+})();
+</script>
+
+<script>
   async function nlSignup() {
     const email = document.getElementById('nlEmail').value;
     if (!email || !email.includes('@')) return;
@@ -1330,10 +900,6 @@ async function footerSignup() {
       document.getElementById('nlSuccess').style.display = 'block';
     }
   }
-
-  // Init count
-  filterCards();
-  updateGuideCountStat();
 </script>
 
 
