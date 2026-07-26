@@ -177,9 +177,9 @@
     @media(max-width:1000px){.kh-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:820px){
       .kh-library{grid-template-columns:1fr;gap:20px}
-      .kh-rail{position:static}
-      #khDomList{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
-      .kh-dom{white-space:nowrap;width:auto;border:1px solid var(--border);background:var(--white)}
+      .kh-rail{position:static;min-width:0}
+      #khDomList{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+      .kh-dom{white-space:nowrap;width:auto;flex-shrink:0;border:1px solid var(--border);background:var(--white)}
       .kh-rail-tool{display:none}
       .kh-showcase{grid-template-columns:1fr}
     }
@@ -818,7 +818,7 @@ async function footerSignup() {
       if(ok){shown++; gridShown++;}
     });
     var flagMatches=FLAGSHIPS.filter(function(fs){return seriesMatches(fs,q);});
-    shown+=flagMatches.length;
+    shown+=flagMatches.reduce(function(sum,fs){return sum+(fs.steps.length||1);},0);
     if(flagMatches.length && flagMatches.indexOf(FLAGSHIPS[activeFlagIndex])===-1){
       activeFlagIndex=FLAGSHIPS.indexOf(flagMatches[0]);
     }
