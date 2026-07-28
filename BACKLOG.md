@@ -115,6 +115,41 @@ This standard was adopted mid-project. 4 guides shipped under the earlier table-
   Differentiated the same way the False Positive Playbook was, a real,
   underserved question practitioners actually ask, not a comparison
   chart repackaging marketing copy from each provider's own site.
+- [ ] **Classification Asymmetry: Why the Same Transaction Is Fraud to
+  One Institution and Money Laundering to Another.** Narrower, sharper
+  angle than a generic "fraud vs AML" comparison, which is already
+  well covered by credible sources (ACAMS, Unit21, FraudBeat) and does
+  not clear this site's differentiation bar. The genuine angle: a
+  fraudster steals funds from Institution A, the stolen money lands at
+  Institution B as an unremarkable looking deposit. Institution A sees
+  a fraud case, Institution B sees a potential money laundering case,
+  and neither sees the whole picture. Systems built to detect both
+  crimes together using shared behavioural signals actually get worse
+  at both, since fraud and money laundering have genuinely different
+  transactional characteristics even when connected. Source for the
+  core insight: a patent filing (not mainstream blog content), worth
+  treating as a rare, underused point rather than repackaged industry
+  commentary.
+
+  Must include a worked case study illustrating the asymmetry
+  concretely, showing the same transaction from both institutions'
+  perspectives side by side. No single, real, publicly documented case
+  specifically demonstrating this exact asymmetry pattern was
+  identified during scoping, so this will very likely need to be a
+  composite/illustrative case per the site's own standard (acceptable
+  where no real citable case exists), rather than assumed to already
+  have a real one lined up. Worth one genuine search for a real
+  qualifying case at drafting time before defaulting to composite.
+
+  Origin note: surfaced from reviewing an external "Fraud vs AML"
+  infographic reference. The infographic itself is not usable as a
+  design or content reference, it used unlicensed Simpsons characters
+  (Fox/Disney IP, cannot appear on the site in any form) and contained
+  a factual error, claiming AML SARs under the US BSA have no dollar
+  threshold while fraud SARs require $5,000+, when 31 CFR 1020.320
+  applies the same $5,000/$25,000 thresholds to both. Only the
+  classification asymmetry idea from the broader research pass is
+  being carried forward, nothing from the infographic itself.
 
 **Investigation handbook series, next major content push once the above is clear.** Positioning shift: most free AML content explains what the rules say, this series teaches how the actual investigative work gets done, direct match to practitioner background rather than research-only content. Sequence:
 
