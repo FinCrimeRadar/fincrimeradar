@@ -23,14 +23,15 @@
     },
   ];
 
-  // SAR Sandbox module. Unlike KYC and Fraud Detection, there is exactly one
-  // case, so it skips renderCasePicker entirely and goes straight from the
-  // dashboard tile to the case brief. It also has no offline path: case data
-  // and scoring both come from routes_sar_sandbox.py on the fincrimeradar-api
-  // service, there is no local JSON fallback the way KYC/fraud cases have
+  // SAR Sandbox module. Has its own case picker, renderSarCasePicker, kept
+  // separate from KYC/Fraud's renderCasePicker since SAR cases don't share
+  // that picker's shape (entity_id/case_number/briefing) or its
+  // correct/incorrect progress model, see the Phase 10 audit. It also has
+  // no offline path: case data and scoring both come from
+  // routes_sar_sandbox.py on the fincrimeradar-api service, there is no
+  // local JSON fallback the way KYC/fraud cases have
   // scenario-lab/data/cases.json, so this module only works once
   // options.apiBase points at a reachable backend.
-  const SAR_SANDBOX_CASE_ID = "sar-phase0-001";
 
   function initScenarioLab(rootEl, options) {
     options = options || {};
@@ -1872,7 +1873,7 @@
   function startSarModule(dashboard, workspace, state) {
     dashboard.style.display = "none";
     workspace.classList.add("visible");
-    loadSarCaseBrief(workspace, state);
+    renderSarCasePicker(workspace, state);
   }
 
   function renderSarLoadError(workspace, state, message) {
@@ -1884,7 +1885,59 @@
     workspace.appendChild(banner);
   }
 
-  async function loadSarCaseBrief(workspace, state) {
+  // SAR-specific case picker, deliberately not sharing code with the
+  // KYC/Fraud renderCasePicker: SAR cases carry case_id/title only, no
+  // entity_id/case_number/briefing, and there is no correct/incorrect
+  // progress badge for this module, so a tile here is just a title.
+  async function renderSarCasePicker(workspace, state) {
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+    const loading = document.createElement("p");
+    loading.textContent = "Loading cases…";
+    workspace.appendChild(loading);
+
+    let cases;
+    try {
+      const res = await fetch(sarSandboxUrl(state, "/api/sar-sandbox/cases"), {
+        credentials: "omit",
+      });
+      if (!res.ok) throw new Error("Cases request failed with status " + res.status);
+      cases = await res.json();
+    } catch (err) {
+      console.error("SAR Sandbox case list load error:", err);
+      renderSarLoadError(
+        workspace,
+        state,
+        "The case list could not be loaded. Refresh the page, or check the console for details."
+      );
+      return;
+    }
+
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+
+    const header = document.createElement("div");
+    header.className = "sl-case-header";
+    header.innerHTML = [
+      "<h2>SAR Writing Practice</h2>",
+      "<p>Choose a case to draft a practice narrative against.</p>",
+    ].join("");
+    workspace.appendChild(header);
+
+    const grid = document.createElement("div");
+    grid.className = "sl-case-grid";
+    cases.forEach((c) => {
+      const tile = document.createElement("button");
+      tile.type = "button";
+      tile.className = "sl-case-tile";
+      tile.innerHTML = "<h3>" + escapeHtml(c.title) + "</h3>";
+      tile.addEventListener("click", () => loadSarCaseBrief(workspace, state, c.case_id));
+      grid.appendChild(tile);
+    });
+    workspace.appendChild(grid);
+  }
+
+  async function loadSarCaseBrief(workspace, state, caseId) {
     workspace.innerHTML = "";
     workspace.appendChild(backToDashboardButton(workspace, state));
     const loading = document.createElement("p");
@@ -1893,7 +1946,7 @@
 
     let caseData;
     try {
-      const res = await fetch(sarSandboxUrl(state, "/api/sar-sandbox/case/" + SAR_SANDBOX_CASE_ID), {
+      const res = await fetch(sarSandboxUrl(state, "/api/sar-sandbox/case/" + caseId), {
         credentials: "omit",
       });
       if (!res.ok) throw new Error("Case request failed with status " + res.status);
@@ -1908,7 +1961,7 @@
       return;
     }
 
-    renderSarBrief(workspace, state, caseData);
+    renderSarBrief(workspace, state, caseData, caseId);
   }
 
   // Shared by the case brief screen and the collapsible case reference panel
@@ -1982,7 +2035,7 @@
     ].join("");
   }
 
-  function renderSarBrief(workspace, state, caseData) {
+  function renderSarBrief(workspace, state, caseData, caseId) {
     workspace.innerHTML = "";
     workspace.appendChild(backToDashboardButton(workspace, state));
 
@@ -2007,11 +2060,11 @@
     const continueBtn = document.createElement("button");
     continueBtn.className = "sl-btn";
     continueBtn.textContent = "Continue to narrative →";
-    continueBtn.addEventListener("click", () => renderSarEditor(workspace, state, caseData));
+    continueBtn.addEventListener("click", () => renderSarEditor(workspace, state, caseData, caseId));
     workspace.appendChild(continueBtn);
   }
 
-  function renderSarEditor(workspace, state, caseData) {
+  function renderSarEditor(workspace, state, caseData, caseId) {
     workspace.innerHTML = "";
     workspace.appendChild(backToDashboardButton(workspace, state));
 
@@ -2077,6 +2130,7 @@
         workspace,
         state,
         caseData,
+        caseId,
         {
           intro: introEl.value.trim(),
           investigative_body: bodyEl.value.trim(),
@@ -2089,7 +2143,7 @@
     });
   }
 
-  async function submitSarNarrative(workspace, state, caseData, narrative, submitBtn, errorBanner, fields) {
+  async function submitSarNarrative(workspace, state, caseData, caseId, narrative, submitBtn, errorBanner, fields) {
     errorBanner.className = "sl-decision-banner error";
     submitBtn.disabled = true;
     submitBtn.textContent = "Scoring…";
@@ -2110,7 +2164,7 @@
         credentials: "omit",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          case_id: SAR_SANDBOX_CASE_ID,
+          case_id: caseId,
           intro: narrative.intro,
           investigative_body: narrative.investigative_body,
           final_disposition: narrative.final_disposition,
