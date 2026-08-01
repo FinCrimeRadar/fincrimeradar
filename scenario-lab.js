@@ -1934,15 +1934,26 @@
 
     const factItems = caseData.supporting_facts.map((f) => "<li>" + escapeHtml(f) + "</li>").join("");
 
+    // Generated, not hardcoded: cases don't share one subject shape (a
+    // business account case names entity_type/director, a personal account
+    // case names customer_type/established_profile), so every key present
+    // gets a row, in whatever order the case JSON defines, formatted into a
+    // label rather than requiring every future case to match case 1's field
+    // names. entity_name is excluded here since it's already shown as the
+    // heading whenever it's present.
+    const subjectRows = Object.entries(caseData.subject)
+      .filter(([key]) => key !== "entity_name")
+      .map(([key, value]) => {
+        const label = key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+        return "<div><dt>" + escapeHtml(label) + "</dt><dd>" + escapeHtml(value) + "</dd></div>";
+      })
+      .join("");
+
     return [
       "<section>",
       "<h4>Subject</h4>",
       '<dl class="sar-brief-list">',
-      "<div><dt>Entity type</dt><dd>" + escapeHtml(caseData.subject.entity_type) + "</dd></div>",
-      "<div><dt>Account type</dt><dd>" + escapeHtml(caseData.subject.account_type) + "</dd></div>",
-      "<div><dt>Account opened</dt><dd>" + escapeHtml(caseData.subject.account_opened) + "</dd></div>",
-      "<div><dt>Declared business</dt><dd>" + escapeHtml(caseData.subject.declared_business) + "</dd></div>",
-      "<div><dt>Director</dt><dd>" + escapeHtml(caseData.subject.director) + "</dd></div>",
+      subjectRows,
       "</dl>",
       "</section>",
       "<section>",
@@ -1975,10 +1986,15 @@
     workspace.innerHTML = "";
     workspace.appendChild(backToDashboardButton(workspace, state));
 
+    // Not every case's subject has a single named entity, a personal
+    // account case has no equivalent of case 1's entity_name, so the
+    // heading falls back to the case title in that situation.
+    const heading = caseData.subject.entity_name || caseData.title;
+
     const header = document.createElement("div");
     header.className = "sl-case-header";
     header.innerHTML = [
-      "<h2>" + escapeHtml(caseData.subject.entity_name) + "</h2>",
+      "<h2>" + escapeHtml(heading) + "</h2>",
       "<p>Read the case brief below, then draft a practice SAR narrative against it.</p>",
     ].join("");
     workspace.appendChild(header);
