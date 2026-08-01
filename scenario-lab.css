@@ -1028,6 +1028,193 @@
   letter-spacing: 0.04em;
 }
 
+/* ---- SAR Sandbox module ----
+   Reuses .sl-case-header, .sl-btn, .sl-request-btn, and .sl-decision-banner
+   directly, same as the Fraud Detection module above. .error and .notice
+   are new modifiers on .sl-decision-banner, following the exact same
+   pattern as its existing .correct/.incorrect modifiers, not a second
+   banner component. .sl-textarea is genuinely new, no prior module has a
+   free-text input, styled with the same --sl- tokens as .sl-slider. Only
+   sar- prefixed rules below are specific to this module's own layout. */
+
+.sl-decision-banner.error {
+  background: rgba(229, 72, 77, 0.08);
+  border: 1px solid rgba(229, 72, 77, 0.3);
+  color: var(--sl-text);
+}
+
+.sl-decision-banner.notice {
+  background: rgba(232, 163, 58, 0.1);
+  border: 1px solid rgba(232, 163, 58, 0.35);
+  color: var(--sl-text);
+}
+
+.sar-brief section {
+  background: var(--sl-surface);
+  border: 1px solid var(--sl-border);
+  border-radius: var(--sl-radius-md);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+
+.sar-brief h4 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: var(--sl-text);
+}
+
+.sar-brief p {
+  margin: 0 0 6px;
+  color: var(--sl-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.sar-brief ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--sl-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.sar-brief-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px 20px;
+  margin: 0;
+}
+
+.sar-brief-list div {
+  display: flex;
+  flex-direction: column;
+}
+
+.sar-brief-list dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--sl-text-muted);
+}
+
+.sar-brief-list dd {
+  margin: 2px 0 0;
+  font-size: 0.9rem;
+  color: var(--sl-text);
+}
+
+.sar-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sar-transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.sar-transactions-table th,
+.sar-transactions-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--sl-border);
+  color: var(--sl-text-secondary);
+}
+
+.sar-transactions-table th {
+  color: var(--sl-text-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.sar-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sar-editor-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sar-editor-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sl-text);
+}
+
+.sl-textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--sl-text);
+  background: var(--sl-surface);
+  border: 1px solid var(--sl-border-mid);
+  border-radius: var(--sl-radius-sm);
+  padding: 10px 12px;
+}
+
+.sl-textarea:focus {
+  outline: none;
+  border-color: var(--sl-teal);
+}
+
+.sl-textarea:disabled {
+  opacity: 0.6;
+}
+
+.sar-results {
+  background: var(--sl-surface);
+  border: 1px solid var(--sl-border);
+  border-radius: var(--sl-radius-md);
+  padding: 4px 20px;
+}
+
+.sar-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--sl-border);
+}
+
+.sar-result-row:last-child {
+  border-bottom: none;
+}
+
+.sar-result-label {
+  font-size: 0.85rem;
+  color: var(--sl-text-muted);
+}
+
+.sar-result-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--sl-text);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .sar-result-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .sar-result-value {
+    text-align: left;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sl-tile.active,
   .sl-toggle,

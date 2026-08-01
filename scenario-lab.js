@@ -19,9 +19,19 @@
     },
   ];
 
+  // SAR Sandbox module. Unlike KYC and Fraud Detection, there is exactly one
+  // case, so it skips renderCasePicker entirely and goes straight from the
+  // dashboard tile to the case brief. It also has no offline path: case data
+  // and scoring both come from routes_sar_sandbox.py on the fincrimeradar-api
+  // service, there is no local JSON fallback the way KYC/fraud cases have
+  // scenario-lab/data/cases.json, so this module only works once
+  // options.apiBase points at a reachable backend.
+  const SAR_SANDBOX_CASE_ID = "sar-phase0-001";
+
   function initScenarioLab(rootEl, options) {
     options = options || {};
     const state = {
+      apiBase: options.apiBase || "",
       cases: [],
       kycCases: [],
       fraudCases: [],
@@ -115,6 +125,17 @@
     ].join("");
     fraudTile.addEventListener("click", () => startFraudModule(dashboard, workspace, state));
     dashboard.appendChild(fraudTile);
+
+    const sarTile = document.createElement("div");
+    sarTile.className = "sl-tile active";
+    sarTile.innerHTML = [
+      "<div>",
+      "<h3>SAR Writing Practice</h3>",
+      "<p>Draft a practice Suspicious Activity Report against one case, then get fact-coverage feedback on your narrative.</p>",
+      "</div>",
+    ].join("");
+    sarTile.addEventListener("click", () => startSarModule(dashboard, workspace, state));
+    dashboard.appendChild(sarTile);
 
     LOCKED_MODULES.forEach((mod) => {
       const tile = document.createElement("div");
@@ -1800,6 +1821,333 @@
     );
     complete.prepend(backToDashboardButton(workspace, state));
     appendNextModuleTeaser(complete, state);
+  }
+
+  // ---- SAR Sandbox module ----
+  // Three screens, no case picker (one case), no auto-advance anywhere, no
+  // decide()-style scoring loop back into state.results: this module is
+  // self contained, it never touches the KYC/Fraud completion or accuracy
+  // tracking. Standing standard from the Fraud Detection section above still
+  // applies here too: nothing in this module may auto-advance on a timer,
+  // and a second case must never be added as an auto-advancing sequence
+  // later, per the no-auto-advance rule that's locked for every module.
+
+  function sarSandboxUrl(state, path) {
+    return (state.apiBase || "").replace(/\/$/, "") + path;
+  }
+
+  function startSarModule(dashboard, workspace, state) {
+    dashboard.style.display = "none";
+    workspace.classList.add("visible");
+    loadSarCaseBrief(workspace, state);
+  }
+
+  function renderSarLoadError(workspace, state, message) {
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+    const banner = document.createElement("div");
+    banner.className = "sl-decision-banner show error";
+    banner.textContent = message;
+    workspace.appendChild(banner);
+  }
+
+  async function loadSarCaseBrief(workspace, state) {
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+    const loading = document.createElement("p");
+    loading.textContent = "Loading case…";
+    workspace.appendChild(loading);
+
+    let caseData;
+    try {
+      const res = await fetch(sarSandboxUrl(state, "/api/sar-sandbox/case/" + SAR_SANDBOX_CASE_ID), {
+        credentials: "omit",
+      });
+      if (!res.ok) throw new Error("Case request failed with status " + res.status);
+      caseData = await res.json();
+    } catch (err) {
+      console.error("SAR Sandbox case load error:", err);
+      renderSarLoadError(
+        workspace,
+        state,
+        "This case could not be loaded. Refresh the page, or check the console for details."
+      );
+      return;
+    }
+
+    renderSarBrief(workspace, state, caseData);
+  }
+
+  function renderSarBrief(workspace, state, caseData) {
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+
+    const header = document.createElement("div");
+    header.className = "sl-case-header";
+    header.innerHTML = [
+      "<h2>" + escapeHtml(caseData.subject.entity_name) + "</h2>",
+      "<p>Read the case brief below, then draft a practice SAR narrative against it.</p>",
+    ].join("");
+    workspace.appendChild(header);
+
+    const brief = document.createElement("div");
+    brief.className = "sar-brief";
+
+    const txnRows = caseData.transactions
+      .map(
+        (t) =>
+          "<tr><td>" +
+          escapeHtml(t.date) +
+          "</td><td>" +
+          escapeHtml(t.from) +
+          "</td><td>£" +
+          Number(t.amount_gbp).toLocaleString("en-GB") +
+          "</td><td>" +
+          escapeHtml(t.description) +
+          "</td></tr>"
+      )
+      .join("");
+
+    const factItems = caseData.supporting_facts.map((f) => "<li>" + escapeHtml(f) + "</li>").join("");
+
+    brief.innerHTML = [
+      "<section>",
+      "<h4>Subject</h4>",
+      '<dl class="sar-brief-list">',
+      "<div><dt>Entity type</dt><dd>" + escapeHtml(caseData.subject.entity_type) + "</dd></div>",
+      "<div><dt>Account type</dt><dd>" + escapeHtml(caseData.subject.account_type) + "</dd></div>",
+      "<div><dt>Account opened</dt><dd>" + escapeHtml(caseData.subject.account_opened) + "</dd></div>",
+      "<div><dt>Declared business</dt><dd>" + escapeHtml(caseData.subject.declared_business) + "</dd></div>",
+      "<div><dt>Director</dt><dd>" + escapeHtml(caseData.subject.director) + "</dd></div>",
+      "</dl>",
+      "</section>",
+      "<section>",
+      "<h4>Activity window</h4>",
+      "<p>" + escapeHtml(caseData.activity_window.start) + " to " + escapeHtml(caseData.activity_window.end) + "</p>",
+      "</section>",
+      "<section>",
+      "<h4>Transactions</h4>",
+      '<div class="sar-table-scroll">',
+      '<table class="sar-transactions-table">',
+      "<thead><tr><th>Date</th><th>From</th><th>Amount</th><th>Description</th></tr></thead>",
+      "<tbody>" + txnRows + "</tbody>",
+      "</table>",
+      "</div>",
+      "</section>",
+      "<section>",
+      "<h4>Onward movement</h4>",
+      "<p>" + escapeHtml(caseData.onward_movement.pattern) + "</p>",
+      "<p>" + escapeHtml(caseData.onward_movement.destination_note) + "</p>",
+      "<p>Total moved: £" + Number(caseData.onward_movement.total_moved_gbp).toLocaleString("en-GB") + "</p>",
+      "</section>",
+      "<section>",
+      "<h4>Supporting facts</h4>",
+      "<ul>" + factItems + "</ul>",
+      "</section>",
+    ].join("");
+    workspace.appendChild(brief);
+
+    const continueBtn = document.createElement("button");
+    continueBtn.className = "sl-btn";
+    continueBtn.textContent = "Continue to narrative →";
+    continueBtn.addEventListener("click", () => renderSarEditor(workspace, state, caseData));
+    workspace.appendChild(continueBtn);
+  }
+
+  function renderSarEditor(workspace, state, caseData) {
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+
+    const header = document.createElement("div");
+    header.className = "sl-case-header";
+    header.innerHTML = [
+      "<h2>Draft your SAR narrative</h2>",
+      "<p>Write each section in your own words based on the case brief. All three are required before you can submit.</p>",
+    ].join("");
+    workspace.appendChild(header);
+
+    const editor = document.createElement("div");
+    editor.className = "sar-editor";
+    editor.innerHTML = [
+      '<div class="sar-editor-field">',
+      '<label for="sar-field-intro">Intro</label>',
+      '<textarea id="sar-field-intro" class="sl-textarea" rows="4" ' +
+        'placeholder="Who is this SAR about, and why is it being filed?"></textarea>',
+      "</div>",
+      '<div class="sar-editor-field">',
+      '<label for="sar-field-body">Investigative Body</label>',
+      '<textarea id="sar-field-body" class="sl-textarea" rows="8" ' +
+        'placeholder="What happened, when, and how does the activity depart from what is expected?"></textarea>',
+      "</div>",
+      '<div class="sar-editor-field">',
+      '<label for="sar-field-disposition">Final Disposition</label>',
+      '<textarea id="sar-field-disposition" class="sl-textarea" rows="4" ' +
+        'placeholder="What is your conclusion, and what happens next?"></textarea>',
+      "</div>",
+    ].join("");
+    workspace.appendChild(editor);
+
+    const submitBtn = document.createElement("button");
+    submitBtn.className = "sl-btn";
+    submitBtn.textContent = "Submit for feedback";
+    submitBtn.disabled = true;
+    workspace.appendChild(submitBtn);
+
+    const errorBanner = document.createElement("div");
+    errorBanner.className = "sl-decision-banner error";
+    workspace.appendChild(errorBanner);
+
+    const introEl = editor.querySelector("#sar-field-intro");
+    const bodyEl = editor.querySelector("#sar-field-body");
+    const dispositionEl = editor.querySelector("#sar-field-disposition");
+
+    function updateSubmitState() {
+      const ready = introEl.value.trim() && bodyEl.value.trim() && dispositionEl.value.trim();
+      submitBtn.disabled = !ready;
+    }
+    [introEl, bodyEl, dispositionEl].forEach((el) => el.addEventListener("input", updateSubmitState));
+
+    submitBtn.addEventListener("click", () => {
+      submitSarNarrative(
+        workspace,
+        state,
+        caseData,
+        {
+          intro: introEl.value.trim(),
+          investigative_body: bodyEl.value.trim(),
+          final_disposition: dispositionEl.value.trim(),
+        },
+        submitBtn,
+        errorBanner,
+        [introEl, bodyEl, dispositionEl]
+      );
+    });
+  }
+
+  async function submitSarNarrative(workspace, state, caseData, narrative, submitBtn, errorBanner, fields) {
+    errorBanner.className = "sl-decision-banner error";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Scoring…";
+    fields.forEach((el) => (el.disabled = true));
+
+    function fail(message) {
+      errorBanner.textContent = message;
+      errorBanner.className = "sl-decision-banner show error";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit for feedback";
+      fields.forEach((el) => (el.disabled = false));
+    }
+
+    let res;
+    try {
+      res = await fetch(sarSandboxUrl(state, "/api/sar-sandbox/extract"), {
+        method: "POST",
+        credentials: "omit",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          case_id: SAR_SANDBOX_CASE_ID,
+          intro: narrative.intro,
+          investigative_body: narrative.investigative_body,
+          final_disposition: narrative.final_disposition,
+        }),
+      });
+    } catch (err) {
+      console.error("SAR Sandbox extraction network error:", err);
+      fail("Something went wrong marking your submission, nothing was scored, you can try submitting again.");
+      return;
+    }
+
+    if (res.status === 429) {
+      console.error("SAR Sandbox extraction rate limited");
+      fail("You've reached the practice limit for this hour, try again later.");
+      return;
+    }
+
+    if (res.status === 502) {
+      let detail = null;
+      try {
+        detail = (await res.json()).detail;
+      } catch (err) {
+        /* body wasn't JSON, nothing more to log */
+      }
+      console.error("SAR Sandbox extraction failed (502):", detail);
+      fail("Something went wrong marking your submission, nothing was scored, you can try submitting again.");
+      return;
+    }
+
+    if (!res.ok) {
+      console.error("SAR Sandbox extraction failed with status", res.status);
+      fail("Something went wrong marking your submission, nothing was scored, you can try submitting again.");
+      return;
+    }
+
+    let result;
+    try {
+      result = await res.json();
+    } catch (err) {
+      console.error("SAR Sandbox extraction response was not valid JSON:", err);
+      fail("Something went wrong marking your submission, nothing was scored, you can try submitting again.");
+      return;
+    }
+
+    renderSarResults(workspace, state, caseData, result);
+  }
+
+  function renderSarResults(workspace, state, caseData, result) {
+    const extraction = result.extraction;
+    const scoring = result.scoring;
+
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+
+    const header = document.createElement("div");
+    header.className = "sl-case-header";
+    header.innerHTML = "<h2>Feedback on your narrative</h2>";
+    workspace.appendChild(header);
+
+    if (scoring.structural_incomplete) {
+      const labels = { intro: "Intro", investigative_body: "Investigative Body", final_disposition: "Final Disposition" };
+      const missing = Object.keys(labels)
+        .filter((key) => !extraction.sections_present[key])
+        .map((key) => labels[key]);
+      const notice = document.createElement("div");
+      notice.className = "sl-decision-banner show notice";
+      notice.textContent =
+        "Your score was capped at 40 because " +
+        (missing.length === 1 ? "the " + missing[0] + " section was" : missing.join(" and ") + " sections were") +
+        " left blank. A complete SAR must cover all three sections.";
+      workspace.appendChild(notice);
+    }
+
+    const fiveWsCount = Object.values(extraction.five_ws).filter((w) => w.addressed).length;
+    const redFlagsCount = scoring.red_flags_score / 5;
+    const transactionCited = scoring.transaction_score > 0;
+    const speculativeNote =
+      scoring.speculative_score >= 10
+        ? "Clean language, no unsupported claims."
+        : "Some phrasing overstated certainty, review your wording for unsupported claims.";
+
+    const results = document.createElement("div");
+    results.className = "sar-results";
+    results.innerHTML = [
+      '<div class="sar-result-row"><span class="sar-result-label">Core facts</span>' +
+        '<span class="sar-result-value">' +
+        fiveWsCount +
+        " of 5 core facts covered</span></div>",
+      '<div class="sar-result-row"><span class="sar-result-label">Red flags</span>' +
+        '<span class="sar-result-value">' +
+        redFlagsCount +
+        " of 6 red flags identified</span></div>",
+      '<div class="sar-result-row"><span class="sar-result-label">Transaction detail</span>' +
+        '<span class="sar-result-value">Transaction detail cited: ' +
+        (transactionCited ? "yes" : "no") +
+        "</span></div>",
+      '<div class="sar-result-row"><span class="sar-result-label">Language</span>' +
+        '<span class="sar-result-value">' +
+        escapeHtml(speculativeNote) +
+        "</span></div>",
+    ].join("");
+    workspace.appendChild(results);
   }
 
   function escapeHtml(str) {
