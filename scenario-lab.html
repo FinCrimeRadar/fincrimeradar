@@ -172,14 +172,10 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const root = document.getElementById("scenario-lab-root");
-      // fetchCases defaults to the local /scenario-lab/data/cases.json payload.
-      // Leave apiBase unset until routes_scenario_lab.py is deployed on Render.
-      // Once live, set: initScenarioLab(root, { apiBase: "https://fincrimeradar-api.onrender.com" });
-      // The SAR Sandbox module has no local fallback of its own, unlike KYC/
-      // fraud's cases.json: its case data and scoring both come from
-      // routes_sar_sandbox.py on that same service, so that module does not
-      // work at all until apiBase is set to a reachable backend.
-      initScenarioLab(root, {});
+      // apiBase points at the live fincrimeradar-api Render service, used by
+      // KYC and Fraud Detection's case data and by SAR Sandbox's case data
+      // and scoring alike.
+      initScenarioLab(root, { apiBase: "https://fincrimeradar-api.onrender.com" });
     });
   </script>
 </body>
