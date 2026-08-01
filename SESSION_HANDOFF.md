@@ -23,3 +23,14 @@ modules confirmed working on the real production site as of this fix.
 
 **Open decisions:** None blocking. `EXTRACT_RATE_LIMIT_MAX` confirmed at 20,
 Sonnet 5 confirmed as the deliberate model choice.
+
+Case 2 (The Weekend Courier, sar-002) added and live in production.
+Required backend generalization (glob-based case loading, replacing the
+hardcoded single-file load) and a schema reconciliation between case 1
+and case 2's subject/onward_movement shapes, both confirmed correct via
+live regression on both cases before shipping. New GET
+/api/sar-sandbox/cases endpoint feeds a SAR-specific case picker
+(deliberately not sharing code with KYC/Fraud's picker, different case
+shape and no correct/incorrect scoring model). Deployed (commit
+b47afcc), confirmed live on fincrimeradar.org, picker and case brief
+both verified on the real production site.
