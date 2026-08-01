@@ -5,8 +5,12 @@
  *
  * Public entry point: initScenarioLab(rootEl, options)
  * options.apiBase  optional string, if set fetches `${apiBase}/scenario-lab/cases`
- *                   instead of the local /scenario-lab/data/cases.json file. Leave
- *                   unset until the Render endpoint in routes_scenario_lab.py is deployed.
+ *                   instead of the local /scenario-lab/data/cases.json file.
+ *                   KYC and Fraud Detection fall back to the local file on a
+ *                   failed or slow (>15s) live fetch, see fetchCases below,
+ *                   local/scenario-lab/data/cases.json already contains both
+ *                   modules' cases and stays the resilience path even though
+ *                   apiBase is now always set to the live Render service.
  */
 (function () {
   "use strict";
@@ -90,15 +94,44 @@
       });
   }
 
-  async function fetchCases(apiBase) {
-    const url = apiBase ? apiBase.replace(/\/$/, "") + "/scenario-lab/cases" : "/scenario-lab/data/cases.json";
-    const res = await fetch(url, { credentials: "omit" });
-    if (!res.ok) throw new Error("Cases request failed with status " + res.status);
-    const data = await res.json();
-    if (!Array.isArray(data) || data.length === 0) {
-      throw new Error("Cases payload was empty or malformed");
+  const LOCAL_CASES_URL = "/scenario-lab/data/cases.json";
+  const LIVE_CASES_TIMEOUT_MS = 15000;
+
+  async function fetchCasesFrom(url, timeoutMs) {
+    const controller = new AbortController();
+    const timer = timeoutMs ? setTimeout(() => controller.abort(), timeoutMs) : null;
+    try {
+      const res = await fetch(url, { credentials: "omit", signal: controller.signal });
+      if (!res.ok) throw new Error("Cases request failed with status " + res.status);
+      const data = await res.json();
+      if (!Array.isArray(data) || data.length === 0) {
+        throw new Error("Cases payload was empty or malformed");
+      }
+      return data;
+    } finally {
+      if (timer) clearTimeout(timer);
     }
-    return data;
+  }
+
+  // KYC and Fraud Detection's own case data has no ongoing cost and no reason
+  // to ever be unreachable just because the live Render service is cold,
+  // rate limited elsewhere, or briefly down, so a failed or slow (>15s) live
+  // fetch falls back to the local file, which already carries both modules'
+  // cases. SAR Sandbox has no local data of its own, that's expected, its
+  // own 429/502 handling in scenario-lab.js's SAR Sandbox section already
+  // covers its live-only endpoints, this fallback is deliberately scoped to
+  // fetchCases only.
+  async function fetchCases(apiBase) {
+    if (!apiBase) {
+      return fetchCasesFrom(LOCAL_CASES_URL);
+    }
+    const liveUrl = apiBase.replace(/\/$/, "") + "/scenario-lab/cases";
+    try {
+      return await fetchCasesFrom(liveUrl, LIVE_CASES_TIMEOUT_MS);
+    } catch (err) {
+      console.error("Scenario Lab live case fetch failed, falling back to local data:", err);
+      return fetchCasesFrom(LOCAL_CASES_URL);
+    }
   }
 
   function renderDashboard(dashboard, workspace, state) {
