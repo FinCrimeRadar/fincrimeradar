@@ -1130,6 +1130,50 @@
   font-weight: 600;
 }
 
+/* Collapsible case reference on the editor screen. No shared accordion
+   component exists to reuse: the guide pages' FAQ accordion is a different
+   mechanism (JS-toggled divs, inline per-page styles, not native
+   details/summary) and isn't on the --sl- token system, so this is styled
+   fresh from those tokens rather than adapted from that pattern. Wraps
+   renderCaseBriefMarkup's output in the same .sar-brief class the case
+   brief screen uses, so the inner content needs no styling of its own here. */
+.sar-case-reference {
+  background: var(--sl-surface);
+  border: 1px solid var(--sl-border);
+  border-radius: var(--sl-radius-md);
+  padding: 4px 20px;
+  margin-bottom: 16px;
+}
+
+.sar-case-reference summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sl-text);
+  list-style: none;
+}
+
+.sar-case-reference summary::-webkit-details-marker {
+  display: none;
+}
+
+.sar-case-reference summary::before {
+  content: "\25B8";
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--sl-teal);
+  transition: transform 0.15s var(--sl-ease);
+}
+
+.sar-case-reference[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.sar-case-reference .sar-brief {
+  padding-bottom: 12px;
+}
+
 .sar-editor {
   display: flex;
   flex-direction: column;

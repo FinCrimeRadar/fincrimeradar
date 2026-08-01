@@ -1911,21 +1911,12 @@
     renderSarBrief(workspace, state, caseData);
   }
 
-  function renderSarBrief(workspace, state, caseData) {
-    workspace.innerHTML = "";
-    workspace.appendChild(backToDashboardButton(workspace, state));
-
-    const header = document.createElement("div");
-    header.className = "sl-case-header";
-    header.innerHTML = [
-      "<h2>" + escapeHtml(caseData.subject.entity_name) + "</h2>",
-      "<p>Read the case brief below, then draft a practice SAR narrative against it.</p>",
-    ].join("");
-    workspace.appendChild(header);
-
-    const brief = document.createElement("div");
-    brief.className = "sar-brief";
-
+  // Shared by the case brief screen and the collapsible case reference panel
+  // on the editor screen, same content, two places, same discipline as the
+  // Trap/Tell/Do visual summary cards elsewhere on the site that render
+  // identically in more than one placement. Returns markup only, the caller
+  // decides where it gets mounted.
+  function renderCaseBriefMarkup(caseData) {
     const txnRows = caseData.transactions
       .map(
         (t) =>
@@ -1943,7 +1934,7 @@
 
     const factItems = caseData.supporting_facts.map((f) => "<li>" + escapeHtml(f) + "</li>").join("");
 
-    brief.innerHTML = [
+    return [
       "<section>",
       "<h4>Subject</h4>",
       '<dl class="sar-brief-list">',
@@ -1978,6 +1969,23 @@
       "<ul>" + factItems + "</ul>",
       "</section>",
     ].join("");
+  }
+
+  function renderSarBrief(workspace, state, caseData) {
+    workspace.innerHTML = "";
+    workspace.appendChild(backToDashboardButton(workspace, state));
+
+    const header = document.createElement("div");
+    header.className = "sl-case-header";
+    header.innerHTML = [
+      "<h2>" + escapeHtml(caseData.subject.entity_name) + "</h2>",
+      "<p>Read the case brief below, then draft a practice SAR narrative against it.</p>",
+    ].join("");
+    workspace.appendChild(header);
+
+    const brief = document.createElement("div");
+    brief.className = "sar-brief";
+    brief.innerHTML = renderCaseBriefMarkup(caseData);
     workspace.appendChild(brief);
 
     const continueBtn = document.createElement("button");
@@ -1995,9 +2003,17 @@
     header.className = "sl-case-header";
     header.innerHTML = [
       "<h2>Draft your SAR narrative</h2>",
-      "<p>Write each section in your own words based on the case brief. All three are required before you can submit.</p>",
+      "<p>Write each section in your own words. Refer back to the case details below as you write. All three are required before you can submit.</p>",
     ].join("");
     workspace.appendChild(header);
+
+    const caseReference = document.createElement("details");
+    caseReference.className = "sar-case-reference";
+    caseReference.innerHTML = [
+      "<summary>View case details</summary>",
+      '<div class="sar-brief">' + renderCaseBriefMarkup(caseData) + "</div>",
+    ].join("");
+    workspace.appendChild(caseReference);
 
     const editor = document.createElement("div");
     editor.className = "sar-editor";
