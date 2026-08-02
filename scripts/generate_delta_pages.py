@@ -325,7 +325,7 @@ def render_page(changes):
   <p class="eyebrow">Sanctions Delta Tracker</p>
   <h1>Watchlist changes: {TODAY}</h1>
   <p class="delta-lede">{total} change{'s' if total != 1 else ''} recorded across monitored regimes today.
-  Compiled automatically from official public sources, with practitioner guidance from a working MLRO.
+  Compiled automatically from official public sources, with practitioner guidance from a financial crime specialist and former Acting MLRO.
   Screen any name directly by clicking it.</p>
   {body}
   <p class="delta-disclaimer">Decision support, not legal advice. Always verify against the official source list before acting.</p>
