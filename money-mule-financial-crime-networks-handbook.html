@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money Mule Networks: The Account Was Never Fraudulent, Until It Was | FinCrimeRadar</title>
+  <meta name="description" content="Most mule accounts aren't opened for fraud anymore, they're real accounts taken over mid-life. Four decision scenarios on account handovers, instant-payment velocity, business-account fronts, and fraud-AML convergence, with a real £53m case and a knowledge check." />
+  <meta name="keywords" content="money mule, mule network, APP fraud, instant payments, FRAML, fraud AML convergence, account handover, suspicious activity report, SAR, POCA, EU Instant Payments Regulation" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/money-mule-financial-crime-networks-handbook.html" />
+  <meta property="og:title" content="Money Mule Networks: The Account Was Never Fraudulent, Until It Was" />
+  <meta property="og:description" content="Four decision scenarios on account handovers, instant-payment velocity, business-account fronts, and fraud-AML convergence, with a real case and a knowledge check." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/money-mule-financial-crime-networks-handbook.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Money Mule Networks: The Account Was Never Fraudulent, Until It Was",
+    "description": "Most mule accounts aren't opened for fraud anymore, they're real accounts taken over mid-life. Four decision scenarios on account handovers, instant-payment velocity, business-account fronts, and fraud-AML convergence, with a real £53m case and a knowledge check.",
+    "author": {"@type": "Organization", "name": "FinCrimeRadar"},
+    "publisher": {"@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org"},
+    "url": "https://fincrimeradar.org/money-mule-financial-crime-networks-handbook.html",
+    "datePublished": "2026-08-01"
+  }
+  </script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-sleeper:#2563eb; --c-sleeper-light:#eff6ff;
+      --c-velocity:#7c3aed; --c-velocity-light:#f5f3ff;
+      --c-front:#d97706; --c-front-light:#fffbeb;
+      --c-handoff:#dc2626; --c-handoff-light:#fef2f2;
+      --c-network:#0891b2; --c-network-light:#ecfeff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-sleeper); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero {
+      background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%);
+      color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden;
+    }
+    .article-hero::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(220,38,38,0.13) 0%, transparent 60%);
+    }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-sleeper); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-velocity); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-handoff); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    /* HERO STAT STRIP */
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(93,202,165,0.5); } 50%{ box-shadow:0 0 0 6px rgba(93,202,165,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-sleeper); border-left-color:var(--c-sleeper); }
+    .toc a.active { color:var(--c-sleeper); border-left-color:var(--c-sleeper); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* PATTERN BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-sleeper { background:var(--c-sleeper-light); color:var(--c-sleeper); border:1px solid #bfdbfe; }
+    .badge-velocity { background:var(--c-velocity-light); color:var(--c-velocity); border:1px solid #ddd6fe; }
+    .badge-front { background:var(--c-front-light); color:var(--c-front); border:1px solid #fde68a; }
+    .badge-handoff { background:var(--c-handoff-light); color:var(--c-handoff); border:1px solid #fecaca; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD (icon, name, one-liner, Trap/Tell/Do), one component, two placements */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) {
+      .pattern-ttd { grid-template-columns:1fr; }
+      .pattern-grid { grid-template-columns:1fr; }
+    }
+
+    /* PROCESS FLOW, linear, no branching */
+    .flow { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; margin:1.5rem 0; }
+    .flow-stage { margin-bottom:2px; }
+    .flow-stage-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:6px; }
+    .flow-node { background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:0.85rem 1rem; }
+    .flow-node-title { font-size:14px; font-weight:700; color:var(--navy); }
+    .flow-node-sub { font-size:12.5px; color:#374151; margin-top:4px; line-height:1.55; }
+    .flow-arrow { text-align:center; color:#9ca3af; font-size:17px; line-height:1; margin:7px 0; }
+
+    /* SCENARIO HEADER */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-sleeper); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-icon.open { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
+    .faq-a.open { max-height:400px; padding:0 1.1rem 1rem; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-sleeper); color:var(--c-sleeper); }
+
+    /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:#00c4a7; }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .hero-stats { flex-direction:column; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🕸️ Interactive Deep Dive · Money Mule Networks</div>
+    <h1>Money Mule Networks:<br><em>The Account Was Never Fraudulent, Until It Was</em></h1>
+    <p class="hero-sub">Most mule detection guides teach how to spot an account opened for fraud. Most mule accounts aren't opened that way anymore.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 16 min read</span>
+      <span>🕸️ Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 4 Scenarios</span>
+    </div>
+
+    <div class="hero-eyebrow-row">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      <span>The pattern most institutions are still missing</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="81">0</span>%</div>
+        <div class="hero-stat-label">Institutions reporting more mule account handovers</div>
+        <div class="hero-stat-source">Accounts opened by real people, taken over mid-life, not built for fraud from day one. Incognia, 2026 industry survey of over 500 fraud, risk, and AML professionals.</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="16">0</span>%</div>
+        <div class="hero-stat-label">Handovers caught before any suspicious transaction</div>
+        <div class="hero-stat-source">Same survey. Most institutions only see the pattern after money has already moved.</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="10">0</span> seconds</div>
+        <div class="hero-stat-label">Maximum settlement time for an in-scope euro transfer</div>
+        <div class="hero-stat-source">Regulation (EU) 2024/886, mandatory for eurozone banks since October 2025. No exceptions, no business hours.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout">
+  <div class="article-body">
+
+    <!-- INTRO -->
+    <div class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--c-sleeper)">The Account That Was Never Fraudulent</div>
+      <h2>The account was never fraudulent, until it was.</h2>
+      <p>Ask most compliance teams to describe a mule account and they'll describe how it gets opened: a synthetic identity, a burst of activity from day one, nothing real behind it. That picture is increasingly the wrong one. In a 2026 industry survey of over 500 fraud, risk, and AML professionals, Incognia found 81% of institutions reporting more mule account handovers, real accounts, opened by real people, taken over mid-life rather than built for fraud from the start. Only 16% of institutions in the same survey catch the handover before any suspicious transaction actually moves, which means most only see it after the money is already gone.</p>
+      <p>The other half of the problem is speed. Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, with no exceptions. Traditional transaction monitoring, built around an overnight batch cycle, was never designed to intervene inside a window that short. A mule network doesn't need a weak control anymore, it just needs a control that runs on the wrong clock.</p>
+
+      <div class="callout callout-navy">
+        <strong>A real network, not a hypothetical one</strong>
+        <p>Leicestershire Police built Operation Kilo over four years, eventually tracing more than £53 million through a mule account network that moved into cryptocurrency and out through Post Office branches across Leicester between 2019 and 2021, a genuine account-network case rather than a cash-courier one. The investigation ended in five convictions carrying a combined sentence of over 35 years, the heaviest for Jigar Gheewala, who received 11 years and 10 months in prison and a 14-year ban from acting as a company director.</p>
+      </div>
+
+      <div class="callout callout-navy">
+        <strong>How to use this guide</strong>
+        <p>Read the five patterns and the process chain first. Then work each scenario, make your call, and read why, both for the right answer and every wrong one. The knowledge check at the end pulls the same patterns from new angles. Do not skip ahead.</p>
+      </div>
+    </div>
+
+    <!-- FIVE PATTERNS, MERGED CARDS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-sleeper)">Five Patterns</div>
+      <h2>Five patterns, five cards</h2>
+      <p>Most mule-network misses trace back to one of these five shapes. Learn to recognise them before the scenarios test them.</p>
+
+      <div class="pattern-card" style="background:var(--c-sleeper-light);border-color:#bfdbfe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">💤</div>
+          <div class="pattern-name" style="color:var(--c-sleeper);">The Sleeper Account</div>
+        </div>
+        <div class="pattern-line">A real account, years old and unremarkable, becomes a mule account without ever looking freshly opened.</div>
+        <p style="margin-bottom:1rem;">Most detection logic still assumes a mule account looks new, thin history, no established pattern, activity from day one. Increasingly it doesn't. Industry survey data puts the majority of institutions now reporting more mule account handovers, genuine accounts, taken over mid-life through coercion, recruitment, or compromise, not built for fraud from the start. An account with years of stable history isn't protective once a real behavioural break appears, if anything it makes the break more diagnostic, because there's more baseline for it to depart from.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Trap</div><div class="ttd-text">Assuming account age equals trust.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Tell</div><div class="ttd-text">A sudden behavioural break from years of stable pattern.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Do</div><div class="ttd-text">Baseline against the account's own history, not a generic risk score.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-velocity-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">⚡</div>
+          <div class="pattern-name" style="color:var(--c-velocity);">The Ten-Second Gap</div>
+        </div>
+        <div class="pattern-line">By the time an overnight batch cycle runs, the money and the account access are both already gone.</div>
+        <p style="margin-bottom:1rem;">Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, with no exceptions. A control built around a nightly batch job was never designed to intervene inside a window that short, and a rapid receipt-then-disperse cycle, money in, cash or card spend out within minutes, can complete and clear long before any next-day review even runs.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Trap</div><div class="ttd-text">Relying on next-cycle batch alerts.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Tell</div><div class="ttd-text">Rapid receipt-then-disperse within minutes on an instant rail.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Do</div><div class="ttd-text">Real-time velocity rules, not overnight batch review.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-front-light);border-color:#fde68a;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🏢</div>
+          <div class="pattern-name" style="color:var(--c-front);">The Business Front</div>
+        </div>
+        <div class="pattern-line">KYB verifies who a company is at onboarding. It says nothing about what the account does a year later.</div>
+        <p style="margin-bottom:1rem;">A business account that matched its declared activity at onboarding can still drift into a materially different pattern months or years afterward, irregular payments from unconnected individuals, no invoice trail, transfers straight out to a director's personal account. UK and Thailand regulators have both separately flagged business accounts increasingly drawn into muling for exactly this reason. Treating the onboarding check as the whole answer misses that the mismatch, not the incorporation date or the account type, is what actually needs monitoring.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Trap</div><div class="ttd-text">Treating KYB as a one-time onboarding check.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Tell</div><div class="ttd-text">Transaction pattern doesn't match the declared business activity.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Do</div><div class="ttd-text">Monitor SME accounts against their own declared profile continuously.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-handoff-light);border-color:#fecaca;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🔇</div>
+          <div class="pattern-name" style="color:var(--c-handoff);">The Silent Handoff</div>
+        </div>
+        <div class="pattern-line">The same account can be a fraud victim's payee and an AML team's open suspect, with neither team aware of the other.</div>
+        <p style="margin-bottom:1rem;">APP fraud reimbursement claims and AML suspicious-activity monitoring are handled by different teams for good reason, they carry different obligations and need different expertise. But when both teams hold an open case on the same receiving account and neither can see the other's, the firm is sitting on a genuinely shared piece of information it isn't using. Merging the casework itself is not the fix, that's a documented way convergence backfires, but merging visibility is exactly the fix that costs nothing to get right.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Trap</div><div class="ttd-text">Treating fraud and AML alerts as separate queues by default.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Tell</div><div class="ttd-text">A fraud victim's payee and an AML mule suspect can be the same account, seen by two different teams.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Do</div><div class="ttd-text">Shared visibility across teams, not merged casework.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-network-light);border-color:#a5f3fc;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🕸️</div>
+          <div class="pattern-name" style="color:var(--c-network);">The Herder's Network</div>
+        </div>
+        <div class="pattern-line">A mule herder rarely runs one account. Looking at accounts one at a time is exactly how the network stays invisible.</div>
+        <p style="margin-bottom:1rem;">Individual mule accounts, reviewed one at a time, can each look like an isolated, borderline case. The pattern that actually matters, several accounts sharing a device, an IP address, a recruitment channel, or a timing signature, only becomes visible once accounts are linked to each other rather than assessed alone. Network-level analysis is what turns a handful of ambiguous individual alerts into a single, well-evidenced case against the herder running all of them.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Trap</div><div class="ttd-text">Looking for one bad account at a time.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Tell</div><div class="ttd-text">Several ostensibly unconnected accounts sharing subtle links, device, IP, timing.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Do</div><div class="ttd-text">Network-level linkage analysis, not account-by-account review.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE PROCESS, END TO END -->
+    <div class="article-section" id="process">
+      <div class="section-eyebrow" style="color:var(--c-velocity)">The Detection Chain</div>
+      <h2>The process, end to end</h2>
+      <p>Four stages, no branching. The scenarios above already carry the decision nuance, this is the sequence a case moves through once a pattern actually breaks.</p>
+
+      <div class="flow" id="processFlow">
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 1 · Identify</div>
+          <div class="flow-node">
+            <div class="flow-node-title">A pattern breaks against a baseline</div>
+            <div class="flow-node-sub">An established account's own history, a business's declared activity, or a velocity threshold on an instant rail.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 2 · Assess</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Witting or unwitting</div>
+            <div class="flow-node-sub">Newly opened for fraud, or a real account taken over mid-life. The mechanism changes both the investigative approach and any vulnerable-customer duty owed.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 3 · Contain</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Act inside the window that actually applies</div>
+            <div class="flow-node-sub">Same-day for an instant rail, not the next batch cycle.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 4 · Report and trace</div>
+          <div class="flow-node">
+            <div class="flow-node-title">File the SAR, then look for the network</div>
+            <div class="flow-node-sub">Shared devices, shared timing, shared recruitment patterns linking it to other accounts, since a single mule is rarely operating alone.</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Stage 1, identify</h3>
+      <p>A pattern breaks against a baseline: an established account's own history, a business's declared activity, or a velocity threshold on an instant rail.</p>
+
+      <h3>Stage 2, assess</h3>
+      <p>Witting or unwitting. Newly opened for fraud, or a real account taken over mid-life. The mechanism changes both the investigative approach and any vulnerable-customer duty owed.</p>
+
+      <h3>Stage 3, contain</h3>
+      <p>Act inside the settlement window that actually applies, same-day for an instant rail, not the next batch cycle.</p>
+
+      <h3>Stage 4, report and trace</h3>
+      <p>File the SAR on the individual account, then look for the network: shared devices, shared timing, shared recruitment patterns linking it to other accounts, since a single mule is rarely operating alone.</p>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-sleeper-light);">💤</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Account age vs. behavioural change</div>
+          <div class="scenario-name">The Sleeper Account</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-sleeper">The Sleeper Account</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A personal current account, seven years old, has carried a single monthly salary credit of around 1,600 GBP and nothing else the whole time, no prior alerts. Over nine days it receives five payments from unconnected senders, 300 to 450 GBP each, and each one is withdrawn in cash within a few hours, leaving only a small balance behind every time.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)">
+            <span class="opt-label">A</span>
+            <span>Treat this as low risk, seven years of clean history and no prior alerts speaks for itself.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)">
+            <span class="opt-label">B</span>
+            <span>Escalate immediately as a newly opened mule account and freeze pending investigation.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)">
+            <span class="opt-label">C</span>
+            <span>Recognise the departure from the account's own established pattern as the actual signal, and investigate the specific change rather than the account's age.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)">
+            <span class="opt-label">D</span>
+            <span>Wait for a tenth transaction before acting, five isn't yet a pattern.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict">
+          <div id="scenario1-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-velocity-light);">⚡</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · Velocity vs. batch monitoring</div>
+          <div class="scenario-name">The Ten-Second Gap</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-velocity">The Ten-Second Gap</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A retail customer's account receives an instant payment of 2,400 GBP at 14:32 on a Saturday. By 14:41, nine minutes later, the full balance has been withdrawn through three separate ATM transactions at two different machines. The firm's transaction monitoring runs on an overnight batch cycle.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)">
+            <span class="opt-label">A</span>
+            <span>Note it for tomorrow's batch review, that's when the monitoring system will flag it anyway.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)">
+            <span class="opt-label">B</span>
+            <span>Rely on the existing daily ATM withdrawal limit, the customer couldn't take out more than it allows regardless of speed.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)">
+            <span class="opt-label">C</span>
+            <span>Treat the velocity itself, not just the amount, as the trigger for a same-day real-time review.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)">
+            <span class="opt-label">D</span>
+            <span>Treat it as ordinary behaviour, ATM withdrawals are a normal transaction type.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict">
+          <div id="scenario2-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 3 -->
+    <div class="article-section" id="scenario3">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-front-light);">🏢</div>
+        <div>
+          <div class="scenario-num">Scenario 03 · KYB as ongoing monitoring</div>
+          <div class="scenario-name">The Business Front</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-front">The Business Front</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario3">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A limited company account, incorporated eighteen months ago and declared as an online consultancy, begins receiving irregular payments from six different individuals over three weeks, none with an invoice reference, each followed by a transfer to the director's personal account.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario3','A',this)">
+            <span class="opt-label">A</span>
+            <span>Treat it as normal business variability, business accounts naturally see more varied transactions than personal ones.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','B',this)">
+            <span class="opt-label">B</span>
+            <span>Rely on the KYB check completed at onboarding eighteen months ago, the company was verified as legitimate then.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','C',this)">
+            <span class="opt-label">C</span>
+            <span>Compare the actual transaction pattern against the declared business activity itself.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','D',this)">
+            <span class="opt-label">D</span>
+            <span>Escalate purely because the company is under two years old.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario3-verdict">
+          <div id="scenario3-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 4 -->
+    <div class="article-section" id="scenario4">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-handoff-light);">🔇</div>
+        <div>
+          <div class="scenario-num">Scenario 04 · Fraud-AML convergence</div>
+          <div class="scenario-name">The Silent Handoff</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-handoff">The Silent Handoff</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario4">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A customer reports themselves as an APP fraud victim, tricked into sending 3,000 GBP to another account at the same bank. Separately, unknown to the fraud team, the AML team has an open low-level alert on the receiving account for unusual third-party receipts. Neither team knows the other's case exists.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario4','A',this)">
+            <span class="opt-label">A</span>
+            <span>Keep the two cases entirely separate, fraud victim support and AML suspicion assessment are different obligations for different teams.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','B',this)">
+            <span class="opt-label">B</span>
+            <span>Merge both cases into one combined queue handled by a single generalist team, they clearly involve the same account.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','C',this)">
+            <span class="opt-label">C</span>
+            <span>Keep the two processes distinct, but ensure both teams can see that the other has an open case on the same account.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','D',this)">
+            <span class="opt-label">D</span>
+            <span>Prioritise the fraud reimbursement claim first, the AML angle can wait for capacity.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario4-verdict">
+          <div id="scenario4-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CHECK QUIZ -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions. Would you catch the handover, or only see it after the money moved?</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. Why is a mule account's age a weak signal on its own?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Older accounts are never used for muling</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - Because the actual signal is a departure from the account's own established pattern, not the account's age itself</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Because regulators only care about accounts opened in the last 12 months</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - Because older accounts always have weaker KYC on file</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Under Regulation (EU) 2024/886, what must happen to an in-scope euro transfer?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - It must clear within one business day</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - It must settle within 10 seconds, 24/7, with no exceptions</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - It must be manually reviewed before release if over 1,000 EUR</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - It only applies to transfers between different countries</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. What's the real risk of merging fraud and AML casework into one combined queue?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - There's no risk, more data sharing is always better</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - It can slow decisioning and dilute both teams' distinct priorities, rather than sharpen either</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - It's automatically unlawful under data protection law</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - It only matters for banks above a certain size</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. In the Business Front scenario, what specifically made the pattern suspicious?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - The company was under two years old</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - The payments came from individuals rather than businesses</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - The pattern, unconnected individual senders with no invoice trail, didn't match the declared consultancy activity</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - The director had a personal account at the same bank</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. Why does a nine-minute deposit-then-withdrawal cycle matter more on an instant rail than a traditional one?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - It doesn't, the amount is what matters regardless of rail</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - Because batch-cycle monitoring can no longer intervene before the funds and account access are already gone</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - Because instant payments are always fraudulent</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - Because ATMs process instant payments differently than bank transfers</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-sleeper)">Frequently Asked</div>
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the difference between a witting and an unwitting mule? <span class="faq-icon">+</span></div>
+        <div class="faq-a">A witting mule knowingly allows their account to be used, often for a cut of the funds. An unwitting mule has been coerced, groomed, or had their account taken over without full understanding of what it's being used for. The distinction affects both the investigative approach and how the individual is treated, not just how the SAR is worded.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How does the EU Instant Payments Regulation change what "in time" means for AML monitoring? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, with no exceptions. A control that only runs on the next overnight batch cycle has already missed the window by the time it fires.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is a mule account always opened for fraud, or can a genuine account become one? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Increasingly the latter. Industry survey data from 2026 found the majority of institutions reporting more mule account handovers, real accounts taken over mid-life, not opened fraudulently, and most institutions only catch the handover after money has already moved.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What does effective fraud-AML convergence actually require, beyond shared tooling? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Shared visibility between teams on the same account, while keeping each team's own process and expertise distinct. Merging the actual casework into one generalist queue is a documented way convergence backfires, slowing decisions rather than sharpening them.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does the UK's mandatory APP fraud reimbursement scheme change mule detection incentives? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Since October 2024, most UK victims of authorised push payment fraud have a legal right to reimbursement from their bank, subject to an 85,000 GBP cap per claim under the Payment Systems Regulator's rules. That cap held through the PSR's own 2026 review of the scheme's first year of operation. It shifts more of the direct financial cost of a mule account's activity onto the sending bank, not just the receiving one.</div>
+      </div>
+    </div>
+
+    <!-- AT A GLANCE, closing card grid -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-sleeper)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Five patterns, the trap that makes each one look routine, the tell that actually gives it away, and the response that fits.</p>
+
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-sleeper-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">💤</div>
+            <div class="pattern-name" style="color:var(--c-sleeper);">The Sleeper Account</div>
+          </div>
+          <div class="pattern-line">A real account, years old and unremarkable, becomes a mule account without ever looking freshly opened.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Trap</div><div class="ttd-text">Assuming account age equals trust.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Tell</div><div class="ttd-text">A sudden behavioural break from years of stable pattern.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Do</div><div class="ttd-text">Baseline against the account's own history, not a generic risk score.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-velocity-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">⚡</div>
+            <div class="pattern-name" style="color:var(--c-velocity);">The Ten-Second Gap</div>
+          </div>
+          <div class="pattern-line">By the time an overnight batch cycle runs, the money and the account access are both already gone.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Trap</div><div class="ttd-text">Relying on next-cycle batch alerts.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Tell</div><div class="ttd-text">Rapid receipt-then-disperse within minutes on an instant rail.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Do</div><div class="ttd-text">Real-time velocity rules, not overnight batch review.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-front-light);border-color:#fde68a;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🏢</div>
+            <div class="pattern-name" style="color:var(--c-front);">The Business Front</div>
+          </div>
+          <div class="pattern-line">KYB verifies who a company is at onboarding. It says nothing about what the account does a year later.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Trap</div><div class="ttd-text">Treating KYB as a one-time onboarding check.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Tell</div><div class="ttd-text">Transaction pattern doesn't match the declared business activity.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Do</div><div class="ttd-text">Monitor SME accounts against their own declared profile continuously.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-handoff-light);border-color:#fecaca;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🔇</div>
+            <div class="pattern-name" style="color:var(--c-handoff);">The Silent Handoff</div>
+          </div>
+          <div class="pattern-line">The same account can be a fraud victim's payee and an AML team's open suspect, with neither team aware of the other.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Trap</div><div class="ttd-text">Treating fraud and AML alerts as separate queues by default.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Tell</div><div class="ttd-text">A fraud victim's payee and an AML mule suspect can be the same account, seen by two different teams.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Do</div><div class="ttd-text">Shared visibility across teams, not merged casework.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-network-light);border-color:#a5f3fc;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🕸️</div>
+            <div class="pattern-name" style="color:var(--c-network);">The Herder's Network</div>
+          </div>
+          <div class="pattern-line">A mule herder rarely runs one account. Looking at accounts one at a time is exactly how the network stays invisible.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Trap</div><div class="ttd-text">Looking for one bad account at a time.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Tell</div><div class="ttd-text">Several ostensibly unconnected accounts sharing subtle links, device, IP, timing.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Do</div><div class="ttd-text">Network-level linkage analysis, not account-by-account review.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-sleeper)">The Account Is the Case</div>
+      <h2>The account was the whole case, the network was the bigger one.</h2>
+      <p><a href="/scenario-lab.html" style="color:var(--c-sleeper);font-weight:600;">FinCrimeRadar's Scenario Lab</a> puts the same investigative decisions in front of you under real time pressure and partial information, free, no signup required.</p>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text">
+          <strong>Want to practise the decisions rather than read about them?</strong>
+          <span>Free. No account needed. Work real cases under time pressure and partial information.</span>
+        </div>
+        <a href="/scenario-lab.html" class="itp-btn">Open the Scenario Lab →</a>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#intro">The Account That Was Never Fraudulent</a>
+      <a href="#patterns">Five Patterns</a>
+      <a href="#process">The Process, End to End</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-sleeper);"></span> 01 · The Sleeper Account</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-velocity);"></span> 02 · The Ten-Second Gap</a>
+      <a href="#scenario3" class="toc-scenario"><span class="toc-dot" style="background:var(--c-front);"></span> 03 · The Business Front</a>
+      <a href="#scenario4" class="toc-scenario"><span class="toc-dot" style="background:var(--c-handoff);"></span> 04 · The Silent Handoff</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 4</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+
+    <div class="tool-cta">
+      <p>Practise the same decisions live, real cases, time pressure, partial information.</p>
+      <a href="/scenario-lab.html">Open the Scenario Lab →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// TOC ACTIVE STATE
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+// STAT STRIP COUNT-UP ANIMATION
+// Animates each .stat-num-anim from 0 to its data-target once the hero
+// scrolls into view. Respects prefers-reduced-motion by jumping straight
+// to the final value instead of animating.
+(function () {
+  const nums = document.querySelectorAll('.stat-num-anim');
+  if (!nums.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateNum(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if (prefersReduced) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const heroEl = document.querySelector('.article-hero');
+  if (!heroEl) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        nums.forEach(animateNum);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(heroEl);
+})();
+
+// SCORE TRACKING
+let scenarioResults = {};
+
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 4';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+// SCENARIO ANSWER KEYS AND FULL VERDICTS
+// Every option reveals the same full reasoning block: why the correct
+// answer is right AND why each wrong option fails, matching how each
+// scenario's explanation was authored as one continuous argument
+// rather than per-option variants.
+const answerKeys = {
+  scenario1: 'C',
+  scenario2: 'C',
+  scenario3: 'C',
+  scenario4: 'C'
+};
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: C, Recognise the departure from the account\'s own established pattern as the actual signal',
+    body: [
+      'This is "The Sleeper Account." Seven years of stability is the baseline the account has actually established, and the nine-day deviation from it, five unconnected senders, each withdrawn in cash within hours, is the finding. Neither the account\'s age nor its clean history changes that, if anything a genuine deviation against that long a baseline is more meaningful, not less.',
+      'Option A treats age and a clean history as protective in themselves, which is exactly the assumption driving the rise in exploited handovers, real accounts with real history taken over mid-life rather than opened for fraud from day one. Option B overcorrects the other way, freezing and investigating this as a newly opened mule account skips past the fact that it is a real customer\'s account that may have been coerced, sold, or compromised, which changes both the investigative approach and raises vulnerable-customer considerations a "new account" framing never considers. Option D sacrifices the real-time advantage the pattern already provides, five transactions in nine days departing from seven years of stability is already a strong enough signal to act on, waiting for a tenth adds risk for no analytical benefit.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: C, Treat the velocity itself as the trigger for a same-day real-time review',
+    body: [
+      'This is "The Ten-Second Gap." A nine-minute round trip from an instant payment landing to the full balance being withdrawn across three ATM transactions has already outrun anything a batch-cycle control can intervene on, the velocity is the signal here, independent of the amount or the transaction type.',
+      'Option A waits for tomorrow\'s batch review, but the funds and the account access are already gone by the time that runs, a control that only fires after the window has closed is not a control on this rail, it is a record. Option B leans on the daily ATM withdrawal limit, which governs how much leaves through one channel, not whether receiving and immediately dispersing at that speed is itself a mule indicator. Option D treats the withdrawals as ordinary because ATM transactions are a normal transaction type, but that ordinariness is exactly what makes the velocity, not the transaction itself, the thing worth building a rule around.'
+    ]
+  },
+  scenario3: {
+    title: 'Correct answer: C, Compare the actual transaction pattern against the declared business activity itself',
+    body: [
+      'This is "The Business Front." Six unconnected individual senders with no invoice trail bears no resemblance to consultancy income, and that mismatch between what the account actually does and what it was declared to do is the signal, regardless of what onboarding established eighteen months ago.',
+      'Option A treats this as normal business variability, but the issue is not variability in general, it is a specific mismatch between individual senders and a declared consultancy. Option B leans on the KYB check completed at onboarding, which establishes who the company is, not what it does month to month, which is precisely why ongoing monitoring exists, and UK and Thailand regulators have both separately flagged business accounts increasingly drawn into muling for exactly this reason. Option D escalates purely on the company\'s age, but company age alone is a weak, overbroad signal, most genuinely new small businesses have irregular early cash flow for legitimate reasons, the mismatch is the finding, not the incorporation date.'
+    ]
+  },
+  scenario4: {
+    title: 'Correct answer: C, Keep the two processes distinct, but ensure both teams can see the other\'s open case',
+    body: [
+      'This is "The Silent Handoff." The receiving account is a genuinely shared piece of information both the fraud and AML teams need, and the right structure keeps their separate obligations and expertise distinct while still ensuring neither is working blind to what the other already knows.',
+      'Option A keeps the obligations correctly distinct but keeps the teams blind to each other\'s open case on the same account, which is where separate becomes siloed. Option B overcorrects by merging the casework itself into one generalist queue, which is exactly what slows decisioning and dilutes both teams\' distinct priorities, a real, documented risk in poorly implemented fraud-AML convergence. Option D sequences by which team\'s problem feels more urgent, prioritising the fraud claim while the AML angle waits for capacity, which is exactly the kind of siloed decision that lets a mule account keep operating while the fraud claim is worked in isolation.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    b.style.opacity = '0.6';
+    b.style.cursor = 'default';
+  });
+
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+
+  verdictDiv.classList.add('show');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+// FAQ TOGGLE
+function toggleFaq(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.faq-icon').classList.toggle('open');
+}
+
+// QUIZ LOGIC
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'The actual signal is a real behavioural break against the account\'s own established pattern, not the account\'s age. A long clean history makes a genuine deviation more diagnostic, not less relevant.' },
+  qq2: { correct: 'B', fb: 'Regulation (EU) 2024/886 requires in-scope euro transfers to settle within 10 seconds, 24 hours a day, with no exceptions, a genuinely different clock than a next-day monitoring cycle was built for.' },
+  qq3: { correct: 'B', fb: 'Merging fraud and AML casework into one generalist queue is a documented way convergence backfires, it slows decisions and dilutes both teams\' distinct priorities. Shared visibility, not merged casework, is the actual fix.' },
+  qq4: { correct: 'C', fb: 'The mismatch, unconnected individual senders with no invoice trail against a declared consultancy, is the signal. Company age and sender type alone are much weaker indicators on their own.' },
+  qq5: { correct: 'B', fb: 'A nine-minute deposit-then-withdrawal cycle on an instant rail completes and clears before an overnight batch-cycle control can run at all, by the time it fires, the funds and the account access are already gone.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the handover pattern is worth a second read.','Getting there, go back through the patterns you missed.','Solid foundation, a few gaps to close.','Good grasp, you would catch most handovers in time.','Strong, practitioner-level mule-network judgement.','Perfect, you would catch the handover before the money moved.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+// SAVE AS IMAGE
+// Renders the closing pattern-card grid to a downloadable PNG using
+// native Canvas 2D only, no external library. Content (icon, name,
+// one-liner, Trap/Tell/Do text) is read directly from the live DOM at
+// click time, so the image can never drift out of sync with the page.
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return {
+      lineLines,
+      ttdLineCounts,
+      height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD
+    };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Money Mule Networks: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'money-mule-handbook-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
