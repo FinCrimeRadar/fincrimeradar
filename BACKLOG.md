@@ -35,6 +35,10 @@ Bug fixes, technical debt, structural cleanup. Nothing here should take more tha
 - [ ] **Visible "Sources: N" count on Scenario Lab cases.** Cheap trust signal, methodology.html covers sourcing sitewide but nothing surfaces it at the individual case level. Idea from reviewing paymentssignal.com's screening lab, which shows this per case.
 - [ ] **Message/remittance-line screening as a possible new case.** A sanctions hit landing in free text rather than a named payment party field. Worth checking for a genuine gap the same way the ownership rule was checked, lower urgency, narrower scenario.
 - [ ] Real mobile device check owed on money-mule and crypto-travel-rule guides (static and iframe review only so far).
+- [ ] **Verification ledger, follow-up hardening (post-proof, not urgent).**
+  - Add scan-to-ledger reconciliation (compare scan candidates against logged claim text, surface un-logged material candidates) and widen the scan vocabulary (Section NNN, FSMA 2000, bare statutes, written quantities, dates, ratios). Candidate-finder-plus-human-read stays the model, this is an assist, not a CI gate.
+  - Extended validator hardening: URL structure check, reviewDue > verifiedOn, verifiedOn <= today, reject unknown fields, consider schema versioning.
+  - Source of these items: Codex adversarial review of the ledger proof, 2026-08-03. Two of its findings (citation overreach, validator crash + null-source) were fixed pre-commit, these two were logged.
 
 *Add items here the moment a fix is deferred rather than done, don't let them live only in memory notes.*
 

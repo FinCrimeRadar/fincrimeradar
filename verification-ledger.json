@@ -1,0 +1,140 @@
+[
+  {
+    "claimId": "tm-guide.canaccord-penalty.001",
+    "guide": "tm-guide.html",
+    "claimText": "The Canaccord Genuity consent order, issued in March 2026, found at least 160 SARs unfiled and thousands of suspicious transactions flowing undetected",
+    "claimType": "enforcement",
+    "source": {
+      "title": "In the Matter of Canaccord Genuity LLC",
+      "url": "https://www.fincen.gov/news/enforcement-actions/matter-canaccord-genuity-llc",
+      "publisher": "FinCEN (U.S. Department of the Treasury)",
+      "date": "2026-03-06"
+    },
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "verified"
+  },
+  {
+    "claimId": "tm-guide.fca-fcg-3-2-5a.001",
+    "guide": "tm-guide.html",
+    "claimText": "The FCA's Financial Crime Guide (FCG 3.2.5A, last updated 29 November 2024) recognises that rule-driven monitoring can be poorly calibrated for complex or high-volume payment flows, and names machine learning and AI-based tools as examples of \"sophisticated technologies\" that can help firms detect suspicious activity or triage existing alerts",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Crime Guide, FCG 3.2.5A (The use of transaction monitoring)",
+      "url": "https://handbook.fca.org.uk/handbook/fcg3/fcg3s2",
+      "publisher": "Financial Conduct Authority",
+      "date": "2024-11-29"
+    },
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "verified"
+  },
+  {
+    "claimId": "tm-guide.fincen-2024-nprm-status.001",
+    "guide": "tm-guide.html",
+    "claimText": "FinCEN's original AML/CFT programme-effectiveness proposal, issued 3 July 2024, cited machine learning as a tool that can improve customer risk assessment and reduce false positives. That proposal was withdrawn and fully superseded by a new NPRM FinCEN issued on 7 April 2026",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Fact Sheet: Proposed Rule to Fundamentally Reform Financial Institution AML/CFT Programs",
+      "url": "https://www.fincen.gov/system/files/2026-04/Program-NPRM-FactSheet.pdf",
+      "publisher": "FinCEN (U.S. Department of the Treasury)",
+      "date": "2026-04-07"
+    },
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-02-03",
+    "status": "verified"
+  },
+  {
+    "claimId": "tm-guide.fca-section166-tm-review.001",
+    "guide": "tm-guide.html",
+    "claimText": "The FCA can commission a skilled persons report under Section 166 of the Financial Services and Markets Act 2000 to independently assess a firm's transaction monitoring effectiveness",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Enforcement Guide EG 3.3 (Reports by skilled persons (section 166)) / Supervision Manual SUP 5",
+      "url": "https://www.handbook.fca.org.uk/handbook/EG/3/3.html",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-02-06"
+    },
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "verified"
+  },
+  {
+    "claimId": "tm-guide.poca-2002-structuring.001",
+    "guide": "tm-guide.html",
+    "claimText": "conduct of this kind can fall within the principal money laundering offences under sections 327 to 329 of POCA 2002 where the person knows or suspects the property is criminal property",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 327",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/327",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "verified"
+  },
+  {
+    "claimId": "tm-guide.fp-rate-rule-based.001",
+    "guide": "tm-guide.html",
+    "claimText": "The average rule-based TM system fires between 85-97% false positives",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "tm-guide.fp-rate-ml-ai-comparative.001",
+    "guide": "tm-guide.html",
+    "claimText": "Of 1,000 alerts generated in a typical rule-based TM system: 5% real risk / 95% noise (legacy), 25-40% real risk (ML-augmented), 60-70% real risk (AI-native). Source: Industry benchmarks, ACAMS survey data, vendor performance claims (independently validated figures vary)",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "tm-guide.compliance-capacity-share.001",
+    "guide": "tm-guide.html",
+    "claimText": "30-40% Of compliance team capacity consumed by alert triage",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "tm-guide.rule-inventory-size.001",
+    "guide": "tm-guide.html",
+    "claimText": "Most banks run 200-500 rules simultaneously ... Firms with 300+ rules rarely review all of them annually",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "tm-guide.ml-layer-fp-reduction.001",
+    "guide": "tm-guide.html",
+    "claimText": "Typical false positive reduction: 30-50%",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "tm-guide.llm-analyst-time-reduction.001",
+    "guide": "tm-guide.html",
+    "claimText": "The firms testing this are reporting 60-70%+ reductions in analyst time per alert",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "tm-guide.best-in-class-tp-rate.001",
+    "guide": "tm-guide.html",
+    "claimText": "some best-in-class TM operations report 10-20%+ true positive rates",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-03",
+    "reviewDue": "2027-08-03",
+    "status": "retained-as-estimate"
+  }
+]

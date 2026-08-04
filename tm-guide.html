@@ -327,7 +327,7 @@
   <div class="hero-inner">
     <div class="series-tag">⚡ Deep Dive · Transaction Monitoring</div>
     <h1>Transaction Monitoring:<br><em>From Rules to AI</em></h1>
-    <p class="hero-sub">A practitioner's guide to how TM systems actually work — the logic behind the rules, why 95% of alerts are false positives, how machine learning is rewriting the playbook, and what analysts actually do when the queue hits 400.</p>
+    <p class="hero-sub">A practitioner's guide to how TM systems actually work — the logic behind the rules, why industry estimates put false positive rates as high as 95%, how machine learning is rewriting the playbook, and what analysts actually do when the queue hits 400.</p>
     <p style="font-size:13px;color:#93c5fd;margin-bottom:1.5rem;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
     <div class="hero-meta">
       <span>✍️ Pratik Zanke</span>
@@ -349,24 +349,24 @@
       <div class="section-eyebrow">The Reality Check</div>
       <h2>The dirty secret nobody puts in the vendor deck</h2>
       <p>Transaction monitoring is, on paper, one of the most powerful tools in the financial crime compliance arsenal. In practice, at most firms, it spends most of its time generating noise.</p>
-      <p>The average rule-based TM system fires between <strong>85–97% false positives</strong>. That means for every 100 alerts your analysts review, three to fifteen actually matter. The rest are your salaried compliance team doing elaborate paperwork to confirm that a retired schoolteacher in Solihull did, in fact, make their usual monthly transfer to their daughter.</p>
+      <p>Industry benchmarking commonly puts rule-based TM systems at <strong>85–97% false positives</strong> (estimates vary by vendor and methodology; no single verified study covers the whole market). That means for every 100 alerts your analysts review, roughly three to fifteen are estimated to actually matter. The rest are your salaried compliance team doing elaborate paperwork to confirm that a retired schoolteacher in Solihull did, in fact, make their usual monthly transfer to their daughter.</p>
 
       <div class="stat-row">
         <div class="stat-box">
-          <div class="num">95%</div>
-          <div class="lbl">Average false positive rate in rule-based TM</div>
+          <div class="num">~95%</div>
+          <div class="lbl">Commonly cited average false positive rate in rule-based TM (industry estimate, not a single verified study)</div>
         </div>
         <div class="stat-box">
-          <div class="num">30–40%</div>
-          <div class="lbl">Of compliance team capacity consumed by alert triage</div>
+          <div class="num">~30–40%</div>
+          <div class="lbl">Widely cited estimate of compliance capacity consumed by alert triage</div>
         </div>
         <div class="stat-box">
           <div class="num">$80M</div>
-          <div class="lbl">FinCEN penalty on Canaccord Genuity — March 2026 — for TM failures</div>
+          <div class="lbl">FinCEN penalty on Canaccord Genuity — March 2026 — for TM failures <a href="#src-1">[1]</a></div>
         </div>
       </div>
 
-      <p>And yet, get it wrong — let the real signals slip through — and the consequences are existential. The Canaccord Genuity consent order, issued in March 2026, found at least 160 SARs unfiled and thousands of suspicious transactions flowing undetected, all because TM design relied on static reports reviewed by overwhelmed staff.</p>
+      <p>And yet, get it wrong — let the real signals slip through — and the consequences are existential. The Canaccord Genuity consent order, issued in March 2026, found at least 160 SARs unfiled and thousands of suspicious transactions flowing undetected <a href="#src-1">[1]</a>, all because TM design relied on static reports reviewed by overwhelmed staff.</p>
 
       <div class="callout callout-purple">
         <strong>💡 The Central Tension</strong>
@@ -397,7 +397,7 @@
         <span class="trigger">ALERT SCORE: HIGH (72)</span> &nbsp;&nbsp;<span class="comment">→ Route to Senior Analyst queue</span>
       </div>
 
-      <p>Most banks run <strong>200–500 rules simultaneously</strong>, each designed for a different typology. The problem: rules are static. They can't learn. And criminals have learned to live below them.</p>
+      <p>Industry estimates suggest many banks run on the order of <strong>200 to 500 rules simultaneously</strong> (exact counts aren't publicly benchmarked and vary widely by firm size), each designed for a different typology. The problem: rules are static. They can't learn. And criminals have learned to live below them.</p>
 
       <h3>The four inputs every TM system uses</h3>
       <ul>
@@ -409,7 +409,7 @@
 
       <div class="callout callout-navy">
         <strong>📋 The FCA's Expectations (SYSC 6.3)</strong>
-        <p>The FCA requires firms to have "automated systems to help detect suspicious transactions." The FCA's Financial Crime Guide (FCG 3.2.5G, updated April 2025) recognises that rule-driven monitoring can be poorly calibrated for complex or high-volume payment flows, and that more sophisticated technologies, including machine learning and AI tools, can help firms detect suspicious activity and triage alerts more effectively — firms should evidence they have considered whether ML-enhanced detection is appropriate for their risk profile.</p>
+        <p>The FCA's Financial Crime Guide (FCG 3.2.5A, last updated 29 November 2024) recognises that rule-driven monitoring can be poorly calibrated for complex or high-volume payment flows, and names machine learning and AI-based tools as examples of "sophisticated technologies" that can help firms detect suspicious activity or triage existing alerts <a href="#src-2">[2]</a> — firms should evidence they have considered whether ML-enhanced detection is appropriate for their risk profile.</p>
       </div>
     </div>
 
@@ -602,7 +602,7 @@
 
       <div class="fp-visual">
         <h3 style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:0.5rem;">The False Positive Problem — visualised</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:1rem;">Of 1,000 alerts generated in a typical rule-based TM system:</p>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:1rem;">To illustrate the shift in effectiveness across approaches — a hypothetical distribution of 1,000 alerts, not measured data from a specific study:</p>
 
         <div class="fp-bar-container">
           <div class="fp-label"><span>Legacy rules-only system</span><strong>5% real risk / 95% noise</strong></div>
@@ -625,7 +625,7 @@
             <div class="fp-false" style="width:35%;" id="fpFalse3">350 false positives</div>
           </div>
         </div>
-        <p style="font-size:11px; color:var(--muted); margin-top:0.75rem;">Source: Industry benchmarks, ACAMS survey data, vendor performance claims (independently validated figures vary)</p>
+        <p style="font-size:11px; color:var(--muted); margin-top:0.75rem;">Note: these ranges are illustrative and directional, reflecting commonly cited industry estimates. They are not drawn from a single verified benchmark study.</p>
       </div>
 
       <h3>The five structural failures</h3>
@@ -634,12 +634,12 @@
         <li><strong>No memory</strong> — Each transaction is assessed in isolation unless the rule specifically looks at historical patterns. A criminal who spaces out suspicious activity over months can stay invisible.</li>
         <li><strong>No context</strong> — A rule can't know that a spike in outbound transfers is because your customer just sold their house. Analysts have to figure that out manually.</li>
         <li><strong>Typology lag</strong> — New crime methods emerge constantly. Building and validating a new rule takes weeks or months. By then, criminals have moved on.</li>
-        <li><strong>Tuning debt</strong> — Every rule that isn't regularly reviewed accumulates stale logic. Firms with 300+ rules rarely review all of them annually. Dead rules generate false positives forever.</li>
+        <li><strong>Tuning debt</strong> — Every rule that isn't regularly reviewed accumulates stale logic. Firms running large rule inventories rarely review all of them annually. Dead rules generate false positives forever.</li>
       </ul>
 
       <div class="callout callout-red">
         <strong>⚠️ The Regulatory Tipping Point</strong>
-        <p>FinCEN's June 2024 proposed rule on AML/CFT programme effectiveness cited machine learning as a tool that can improve customer risk assessment and reduce false positives, though as of writing it remains a proposal, not yet finalised. The FCA's Financial Crime Guide similarly recognises that rule-driven transaction monitoring can be poorly calibrated for complex payment flows. Rule-only systems are no longer just inefficient — they're increasingly hard to defend under examination.</p>
+        <p>FinCEN's original AML/CFT programme-effectiveness proposal, issued 3 July 2024, cited machine learning as a tool that can improve customer risk assessment and reduce false positives. That proposal was withdrawn and fully superseded by a new NPRM FinCEN issued on 7 April 2026, which keeps the same emphasis on programme effectiveness and lists a bank's use of innovative tools such as AI as a factor examiners may weigh <a href="#src-3">[3]</a>. The FCA's Financial Crime Guide similarly recognises that rule-driven transaction monitoring can be poorly calibrated for complex payment flows <a href="#src-2">[2]</a>. Rule-only systems are no longer just inefficient — they're increasingly hard to defend under examination.</p>
       </div>
     </div>
 
@@ -673,7 +673,7 @@
           <div>
             <div class="tl-era">2020–2024</div>
             <div class="tl-title">Hybrid ML Augmentation</div>
-            <div class="tl-body">Machine learning models deployed <em>above</em> existing rule layers. Rules still generate alerts, but an ML model scores them — suppressing likely false positives before they hit analyst queues. Typical false positive reduction: 30–50%. Regulatory explainability maintained because rules still drive alerts; ML is a filter.</div>
+            <div class="tl-body">Machine learning models deployed <em>above</em> existing rule layers. Rules still generate alerts, but an ML model scores them — suppressing likely false positives before they hit analyst queues. Vendors and adopters commonly report a false positive reduction in the region of 30–50%, though results are implementation-specific and not independently benchmarked. Regulatory explainability maintained because rules still drive alerts; ML is a filter.</div>
             <span class="tl-tag tl-tag-current">Current best practice for mid-size firms</span>
           </div>
         </div>
@@ -691,7 +691,7 @@
           <div>
             <div class="tl-era">Emerging</div>
             <div class="tl-title">LLM-Assisted Investigation & Autonomous Triage</div>
-            <div class="tl-body">Large language models that can read an alert, pull contextual data, summarise the risk case, and draft a SAR narrative — leaving the analyst to approve rather than write from scratch. Autonomous L1 triage for lower-risk alerts, with full audit trail. Still nascent; regulatory acceptance varies. The firms testing this are reporting 60–70%+ reductions in analyst time per alert.</div>
+            <div class="tl-body">Large language models that can read an alert, pull contextual data, summarise the risk case, and draft a SAR narrative — leaving the analyst to approve rather than write from scratch. Autonomous L1 triage for lower-risk alerts, with full audit trail. Still nascent; regulatory acceptance varies. Early adopters report large reductions in analyst time per alert, with some citing figures of 60–70%+, though these are self-reported pilot results rather than independently verified benchmarks.</div>
             <span class="tl-tag tl-tag-emerging">Pilots underway at Tier 1 banks</span>
           </div>
         </div>
@@ -752,6 +752,7 @@
           </tr>
         </tbody>
       </table>
+      <p style="font-size:12px;color:var(--muted);margin-top:0.5rem;">False positive rate figures above are commonly cited industry ranges, not a single verified benchmark study.</p>
     </div>
 
     <!-- SECTION 7: ALERT SIMULATOR -->
@@ -845,8 +846,8 @@
       <p>Customer risk scores aren't static. A TM alert that's closed as a false positive should still update the customer's behavioural profile. A pattern of false-positive alerts from the same customer may itself be a signal worth investigating.</p>
 
       <div class="callout callout-teal">
-        <strong>✅ The FCA's TMER (Transaction Monitoring Effectiveness Review)</strong>
-        <p>The FCA has increasingly used skilled persons reviews (Section 166 reviews) to assess TM effectiveness at individual firms. The key metrics they examine: alert volume vs. SAR yield, time-to-close on escalated alerts, documentation quality on closed alerts, and evidence that rules are reviewed and updated against current typologies. A TM programme with a 97% false positive rate and no documented tuning history is a regulatory liability.</p>
+        <strong>✅ FCA Skilled Persons (Section 166) Reviews of TM Effectiveness</strong>
+        <p>The FCA can commission a skilled persons report under Section 166 of the Financial Services and Markets Act 2000 to independently assess a firm's transaction monitoring <a href="#src-4">[4]</a>. In practice, such reviews commonly examine alert volume against SAR yield, time-to-close on escalated alerts, documentation quality, and evidence of rule tuning. A TM programme with a persistently high false positive rate and no documented tuning history is a regulatory liability.</p>
       </div>
     </div>
 
@@ -864,7 +865,7 @@
           <button class="quiz-opt" onclick="answerQ('q1','d','b')">d) Threshold arbitrage — but not technically a typology</button>
         </div>
         <div class="quiz-explain" id="q1-explain">
-          <strong>Answer: b) Structuring (smurfing)</strong> — Breaking transactions into amounts below reporting or rule-trigger thresholds is called structuring. It's a classic money laundering technique and a criminal offence under POCA 2002. Note that deliberately staying just below a known threshold is itself a red flag — good TM systems look for this pattern, not just the threshold breach.
+          <strong>Answer: b) Structuring (smurfing)</strong> — Breaking transactions into amounts below reporting or rule-trigger thresholds is called structuring. It's a classic money laundering technique, and conduct of this kind can fall within the principal money laundering offences under sections 327 to 329 of POCA 2002 where the person knows or suspects the property is criminal property <a href="#src-5">[5]</a>. Note that deliberately staying just below a known threshold is itself a red flag — good TM systems look for this pattern, not just the threshold breach.
         </div>
       </div>
 
@@ -877,7 +878,7 @@
           <button class="quiz-opt" onclick="answerQ('q2','d','b')">d) You can't assess this without knowing the false positive rate</button>
         </div>
         <div class="quiz-explain" id="q2-explain">
-          <strong>Answer: b)</strong> — A 1.5% SAR yield means 98.5% of alerts were closed as false positives. This is sadly common, but it is not good. It suggests rules are miscalibrated or thresholds are too low. A well-tuned programme should aim for significantly higher yield — some best-in-class TM operations report 10–20%+ true positive rates. The FCA views consistently low SAR yield as a signal that TM design needs review.
+          <strong>Answer: b)</strong> — A 1.5% SAR yield means 98.5% of alerts were closed as false positives. This is sadly common, but it is not good. It suggests rules are miscalibrated or thresholds are too low. A well-tuned programme should aim for significantly higher yield — industry commentary suggests some best-in-class TM operations achieve true positive rates in the 10–20%+ range, though this isn't independently benchmarked. Persistently low SAR yield is widely regarded as a signal worth examining when assessing whether TM design needs review.
         </div>
       </div>
 
@@ -914,6 +915,20 @@
       </div>
     </div>
 
+    <!-- SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. Figures without a bracketed number are industry estimates or illustrative examples rather than verified facts; the surrounding text says which.</p>
+      <ol style="font-size:14px; line-height:1.7; padding-left:1.25rem;">
+        <li id="src-1">FinCEN, <em>In the Matter of Canaccord Genuity LLC</em> (consent order), 6 March 2026. <a href="https://www.fincen.gov/news/enforcement-actions/matter-canaccord-genuity-llc" target="_blank" rel="noopener">fincen.gov/news/enforcement-actions/matter-canaccord-genuity-llc</a></li>
+        <li id="src-2">Financial Conduct Authority, <em>Financial Crime Guide</em>, FCG 3.2.5A ("The use of transaction monitoring"), last updated 29 November 2024. <a href="https://handbook.fca.org.uk/handbook/fcg3/fcg3s2" target="_blank" rel="noopener">handbook.fca.org.uk/handbook/fcg3/fcg3s2</a></li>
+        <li id="src-3">FinCEN, <em>Fact Sheet: Proposed Rule to Fundamentally Reform Financial Institution AML/CFT Programs</em>, 7 April 2026 (confirms withdrawal and supersession of the 3 July 2024 NPRM). <a href="https://www.fincen.gov/system/files/2026-04/Program-NPRM-FactSheet.pdf" target="_blank" rel="noopener">fincen.gov/system/files/2026-04/Program-NPRM-FactSheet.pdf</a></li>
+        <li id="src-4">Financial Conduct Authority, <em>Enforcement Guide</em> EG 3.3 ("Reports by skilled persons (section 166)") and <em>Supervision Manual</em> SUP 5. <a href="https://www.handbook.fca.org.uk/handbook/EG/3/3.html" target="_blank" rel="noopener">handbook.fca.org.uk/handbook/EG/3/3.html</a></li>
+        <li id="src-5">Proceeds of Crime Act 2002, sections 327–329 (the concealing, arrangements, and possession money laundering offences). <a href="https://www.legislation.gov.uk/ukpga/2002/29/section/327" target="_blank" rel="noopener">legislation.gov.uk/ukpga/2002/29/section/327</a></li>
+      </ol>
+    </div>
+
   </div><!-- end article-body -->
 
   <!-- SIDEBAR -->
@@ -930,6 +945,7 @@
       <a href="#what-good-looks-like" class="toc-link">What good looks like</a>
       <a href="#knowledge-check" class="toc-link">Knowledge check</a>
       <a href="#conclusion" class="toc-link">Practitioner's verdict</a>
+      <a href="#sources" class="toc-link">Sources</a>
     </div>
 
     <div class="sidebar-card" style="margin-top:1rem;">
