@@ -136,5 +136,80 @@
     "verifiedOn": "2026-08-03",
     "reviewDue": "2027-08-03",
     "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "perpetual-kyc.fca-8apr2026-review.001",
+    "guide": "perpetual-kyc-framework-guide.html",
+    "claimText": "The FCA's 8 April 2026 multi-firm review of CDD/EDD and ongoing monitoring controls found firms lacked sufficient detail on how often periodic reviews should take place and what firms were expected to do in the case of event-driven reviews, treating the two as separate controls",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Firms' customer due diligence processes and controls: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-04-08"
+    },
+    "verifiedOn": "2026-08-05",
+    "reviewDue": "2027-08-05",
+    "status": "verified"
+  },
+  {
+    "claimId": "perpetual-kyc.nationwide-fine.001",
+    "guide": "perpetual-kyc-framework-guide.html",
+    "claimText": "The FCA fined Nationwide Building Society £44,078,500 in December 2025 for anti-financial crime systems and controls failings running from October 2016 to July 2021",
+    "claimType": "enforcement",
+    "source": {
+      "title": "FCA fines Nationwide £44m for failings in financial crime controls",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-fines-nationwide-44m-failings-financial-crime-controls",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-12-12"
+    },
+    "verifiedOn": "2026-08-05",
+    "reviewDue": "2027-08-05",
+    "status": "verified"
+  },
+  {
+    "claimId": "perpetual-kyc.nationwide-no-review-process.001",
+    "guide": "perpetual-kyc-framework-guide.html",
+    "claimText": "For most of the relevant period, in breach of its own policies, Nationwide had no process for undertaking either periodic or event-driven reviews of a large number of its customer relationships",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Final Notice: Nationwide Building Society",
+      "url": "https://www.fca.org.uk/publication/final-notices/nationwide-building-society-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-12-12"
+    },
+    "verifiedOn": "2026-08-05",
+    "reviewDue": "2027-08-05",
+    "status": "verified"
+  },
+  {
+    "claimId": "perpetual-kyc.nationwide-furlough-fraud.001",
+    "guide": "perpetual-kyc-framework-guide.html",
+    "claimText": "A Nationwide customer used personal current accounts to receive 24 fraudulent Covid furlough payments totalling £27.3 million over 13 months, with £26.01 million of that deposited over 8 days",
+    "claimType": "enforcement",
+    "source": {
+      "title": "FCA fines Nationwide £44m for failings in financial crime controls",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-fines-nationwide-44m-failings-financial-crime-controls",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-12-12"
+    },
+    "verifiedOn": "2026-08-05",
+    "reviewDue": "2027-08-05",
+    "status": "verified"
+  },
+  {
+    "claimId": "perpetual-kyc.fca-aml-fines-total.001",
+    "guide": "perpetual-kyc-framework-guide.html",
+    "claimText": "Since 2021, the FCA has imposed 13 fines totalling £300,767,526 on banks for anti-money laundering systems and controls failings",
+    "claimType": "statistic",
+    "source": {
+      "title": "FCA fines Nationwide £44m for failings in financial crime controls",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-fines-nationwide-44m-failings-financial-crime-controls",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-12-12"
+    },
+    "verifiedOn": "2026-08-05",
+    "reviewDue": "2027-08-05",
+    "status": "verified"
   }
 ]

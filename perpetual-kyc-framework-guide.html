@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perpetual KYC: Why Periodic and Event-Driven Review Are Not the Same Control | FinCrimeRadar</title>
+  <meta name="description" content="The FCA's 8 April 2026 review found firms collapse periodic and event-driven review into one control, or define neither well enough to evidence. Four decision scenarios, the Nationwide £44m case, and a knowledge check." />
+  <meta name="keywords" content="perpetual KYC, pKYC, event-driven review, periodic review, FCA CDD EDD, ongoing due diligence, customer due diligence, enhanced due diligence, Nationwide Building Society, FCA multi-firm review, AML programme" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/perpetual-kyc-framework-guide.html" />
+  <meta property="og:title" content="Perpetual KYC: Why Periodic and Event-Driven Review Are Not the Same Control" />
+  <meta property="og:description" content="The FCA's 8 April 2026 review found firms collapse periodic and event-driven review into one control, or define neither well enough to evidence. Four decision scenarios, the Nationwide £44m case, and a knowledge check." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/perpetual-kyc-framework-guide.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Perpetual KYC: Why Periodic and Event-Driven Review Are Not the Same Control",
+    "description": "The FCA's 8 April 2026 review found firms collapse periodic and event-driven review into one control, or define neither well enough to evidence. Four decision scenarios, the Nationwide £44m case, and a knowledge check.",
+    "author": {"@type": "Organization", "name": "FinCrimeRadar"},
+    "publisher": {"@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org"},
+    "url": "https://fincrimeradar.org/perpetual-kyc-framework-guide.html",
+    "datePublished": "2026-08-05"
+  }
+  </script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-trigger:#2563eb; --c-trigger-light:#eff6ff;
+      --c-frequency:#7c3aed; --c-frequency-light:#f5f3ff;
+      --c-business:#d97706; --c-business-light:#fffbeb;
+      --c-escalation:#dc2626; --c-escalation-light:#fef2f2;
+      --c-relabel:#0891b2; --c-relabel-light:#ecfeff;
+      --hero-bg-1:#0f2044; --hero-bg-2:#1a3a6e; --hero-accent-em:#93c5fd;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-trigger); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero {
+      background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%);
+      color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden;
+    }
+    .article-hero::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(220,38,38,0.13) 0%, transparent 60%);
+    }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-trigger); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-frequency); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-escalation); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    /* HERO STAT STRIP */
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(93,202,165,0.5); } 50%{ box-shadow:0 0 0 6px rgba(93,202,165,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-trigger); border-left-color:var(--c-trigger); }
+    .toc a.active { color:var(--c-trigger); border-left-color:var(--c-trigger); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* PATTERN BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-trigger { background:var(--c-trigger-light); color:var(--c-trigger); border:1px solid #bfdbfe; }
+    .badge-frequency { background:var(--c-frequency-light); color:var(--c-frequency); border:1px solid #ddd6fe; }
+    .badge-business { background:var(--c-business-light); color:var(--c-business); border:1px solid #fde68a; }
+    .badge-escalation { background:var(--c-escalation-light); color:var(--c-escalation); border:1px solid #fecaca; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD (icon, name, one-liner, Risk/Signal/Response), one component, two placements */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) {
+      .pattern-ttd { grid-template-columns:1fr; }
+      .pattern-grid { grid-template-columns:1fr; }
+    }
+
+    /* PROCESS FLOW, linear, no branching */
+    .flow { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; margin:1.5rem 0; }
+    .flow-stage { margin-bottom:2px; }
+    .flow-stage-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:6px; }
+    .flow-node { background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:0.85rem 1rem; }
+    .flow-node-title { font-size:14px; font-weight:700; color:var(--navy); }
+    .flow-node-sub { font-size:12.5px; color:#374151; margin-top:4px; line-height:1.55; }
+    .flow-arrow { text-align:center; color:#9ca3af; font-size:17px; line-height:1; margin:7px 0; }
+
+    /* SCENARIO HEADER */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-trigger); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-icon.open { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
+    .faq-a.open { max-height:400px; padding:0 1.1rem 1rem; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-trigger); color:var(--c-trigger); }
+
+    /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:#00c4a7; }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .hero-stats { flex-direction:column; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🔄 Interactive Deep Dive · Perpetual KYC</div>
+    <h1>Perpetual KYC:<br><em>Why Periodic and Event-Driven Review Are Not the Same Control</em></h1>
+    <p class="hero-sub">Most firms don't fail because they have no review policy. They fail because they collapse two different controls into one, or never define either well enough to evidence.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 15 min read</span>
+      <span>🔄 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 4 Scenarios</span>
+    </div>
+
+    <div class="hero-eyebrow-row">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      <span>The distinction the FCA now expects firms to evidence separately</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">£44,078,500</div>
+        <div class="hero-stat-label">FCA fine where a firm had no process for periodic or event-driven review</div>
+        <div class="hero-stat-source">Nationwide Building Society, December 2025, for anti-financial crime systems and controls failings.</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">£300,767,526</div>
+        <div class="hero-stat-label">Total FCA fines on banks for AML systems and controls failings since 2021</div>
+        <div class="hero-stat-source">FCA press release, December 2025.</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">8 April 2026</div>
+        <div class="hero-stat-label">When the FCA formally separated periodic and event-driven review as two distinct controls</div>
+        <div class="hero-stat-source">FCA multi-firm CDD/EDD review findings.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout">
+  <div class="article-body">
+
+    <!-- INTRO AND CASE STUDY -->
+    <div class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--c-trigger)">Two Controls, Not One</div>
+      <h2>Perpetual KYC isn't a faster calendar. It's a different architecture.</h2>
+      <p>"Perpetual KYC" gets used loosely, but the idea behind it is specific. Periodic KYC refreshes a customer's file on a fixed schedule, every one, two, or three years depending on risk tier, whether or not anything about the relationship has actually changed. Event-driven review does the opposite: it fires when something specific happens, an address change, a new beneficial owner, an adverse media hit, a transaction pattern that breaks from the account's own history, regardless of where that customer sits in the review calendar. Perpetual KYC is what you get when a firm runs both continuously and treats neither as a substitute for the other. A firm that just shortens its periodic cycle from three years to one hasn't built perpetual KYC, it's built a faster version of the same clock, one that still says nothing about what happens between review dates.</p>
+      <p>The FCA's own findings, published 8 April 2026 from a multi-firm review of customer due diligence, enhanced due diligence, and ongoing monitoring controls, treat periodic and event-driven review as two separate things firms are expected to define and evidence <a href="#src-1">[1]</a>. Its central finding wasn't that firms lacked a review policy. It was that most policies didn't say enough: unclear on how often periodic reviews should actually happen, and unclear on what a firm is supposed to do once an event-driven trigger fires <a href="#src-1">[1]</a>. That's the thesis this guide works from. Most firms don't fail perpetual KYC because they never wrote a policy. They fail because the policy collapses two distinct controls into one undifferentiated idea, or defines neither with enough operational detail for a member of staff to follow it or an examiner to evidence that it was followed.</p>
+
+      <div class="callout callout-navy">
+        <strong>A real case, not a hypothetical one</strong>
+        <p>In December 2025 the FCA fined Nationwide Building Society £44,078,500 for anti-financial crime systems and controls failings running from October 2016 to July 2021 <a href="#src-2">[2]</a>. That fine sits inside a wider pattern: since 2021, the FCA has imposed 13 fines totalling £300,767,526 on banks for anti-money laundering systems and controls failings <a href="#src-2">[2]</a>. For most of that period, in breach of its own policies, Nationwide had no process for carrying out either periodic or event-driven reviews of a large share of its personal current account customers <a href="#src-3">[3]</a>. The FCA's investigation also found Nationwide knew some customers were using personal accounts for business activity, in breach of the account's own terms, without the controls in place to manage that risk. One consequence: a single customer used ordinary personal current accounts to receive fraudulent Covid furlough payments, 24 separate payments totalling £27.3 million over 13 months, with £26.01 million of that landing in just eight days <a href="#src-2">[2]</a>. Nobody flagged it, because nothing was built to.</p>
+      </div>
+
+      <div class="callout callout-navy">
+        <strong>How to use this guide</strong>
+        <p>Read the five patterns and the review cycle below first. Then work each scenario, make your call, and read why, both for the right answer and every wrong one. The knowledge check at the end pulls the same distinctions from new angles, including a question on the Nationwide case specifically. Do not skip ahead.</p>
+      </div>
+    </div>
+
+    <!-- FIVE PATTERNS, MERGED CARDS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-trigger)">Five Patterns</div>
+      <h2>Five patterns, five cards</h2>
+      <p>Most perpetual KYC failures trace back to one of these five shapes. Learn to recognise them before the scenarios test them.</p>
+
+      <div class="pattern-card" style="background:var(--c-trigger-light);border-color:#bfdbfe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🎯</div>
+          <div class="pattern-name" style="color:var(--c-trigger);">The Undefined Trigger</div>
+        </div>
+        <div class="pattern-line">A policy that says review "when a material change occurs" without ever saying what counts isn't a control, it's a placeholder.</div>
+        <p style="margin-bottom:1rem;">The FCA's review found firms with no shortage of policy language on event-driven review, and a real shortage of operational detail underneath it. "Material change" left undefined means two analysts can look at the same event, a customer's registered address moving from a family home to a serviced office, say, and reach opposite conclusions about whether it matters, with no documented basis for either. A trigger that isn't written down as a specific, named event is a trigger that only fires when someone happens to notice.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trigger);">Risk</div><div class="ttd-text">An undefined "material change" standard invites inconsistent, indefensible judgement calls.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trigger);">Signal</div><div class="ttd-text">Two analysts handling comparable events differently with no documented reason why.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trigger);">Response</div><div class="ttd-text">A fixed, documented list of trigger events and thresholds, not open-ended professional judgement.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-frequency-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">⏳</div>
+          <div class="pattern-name" style="color:var(--c-frequency);">The Frequency Vacuum</div>
+        </div>
+        <div class="pattern-line">"Regularly" is not a review interval. It's the absence of one, dressed up as a policy.</div>
+        <p style="margin-bottom:1rem;">The same FCA review flagged firms whose periodic review policy simply didn't state how often reviews for a given risk tier should actually happen. Without an explicit cadence, two customers with comparable risk profiles can drift years apart in review timing purely on analyst workload, with nothing in the file to say that's wrong. A risk-based approach only works if the frequency itself is tied to risk, not to whichever review happened to get picked up first.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-frequency);">Risk</div><div class="ttd-text">"Regularly" as a review interval means some customers go years without a genuine refresh.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-frequency);">Signal</div><div class="ttd-text">High-risk customers with review dates that vary wildly across a similar book.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-frequency);">Response</div><div class="ttd-text">An explicit, risk-tiered cadence with a documented escalation when a review runs overdue.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-business-light);border-color:#fde68a;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🎭</div>
+          <div class="pattern-name" style="color:var(--c-business);">The Business-on-a-Personal-Account</div>
+        </div>
+        <div class="pattern-line">The account was never reclassified, because nothing was watching for the mismatch.</div>
+        <p style="margin-bottom:1rem;">This is the specific gap the FCA cited in the Nationwide case: personal accounts carrying business-style activity, invoice-like payments in and out at volume, with no control layered on top designed to catch that mismatch. A personal account isn't inherently lower risk than a business one, it's simply monitored against a different baseline, and once real activity stops matching that baseline the classification itself becomes the thing worth reviewing.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-business);">Risk</div><div class="ttd-text">A personal account used for business activity, with no control designed to catch it.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-business);">Signal</div><div class="ttd-text">High-volume, invoice-like payments on an account onboarded and monitored as personal.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-business);">Response</div><div class="ttd-text">Flag the mismatch and reassess the account's classification, don't wait for a volume threshold to act.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-escalation-light);border-color:#fecaca;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🕳️</div>
+          <div class="pattern-name" style="color:var(--c-escalation);">The Undocumented Escalation</div>
+        </div>
+        <div class="pattern-line">A "no action needed" decision with no record of how it was reached looks identical to a review that never happened.</div>
+        <p style="margin-bottom:1rem;">The FCA's review specifically cited firms failing to evidence what EDD steps were actually taken, and failing to show when senior management sign-off was required. An analyst clearing an adverse media hit as immaterial might be making the right call, but if nothing records what was checked, what was concluded, and whether escalation was needed, an examiner, or a future analyst on the same file, has no way to tell that from a review that simply didn't happen.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-escalation);">Risk</div><div class="ttd-text">An undocumented "no action needed" decision is indistinguishable from a review that never happened.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-escalation);">Signal</div><div class="ttd-text">EDD triggers closing out with no record of what was checked or concluded.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-escalation);">Response</div><div class="ttd-text">Record the trigger, the check, the conclusion, and any sign-off, every time, including when the answer is no action.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-relabel-light);border-color:#a5f3fc;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🏷️</div>
+          <div class="pattern-name" style="color:var(--c-relabel);">The Relabelled Batch Job</div>
+        </div>
+        <div class="pattern-line">Calling a shorter periodic cycle "perpetual KYC" doesn't make it one.</div>
+        <p style="margin-bottom:1rem;">A genuinely event-driven system ingests triggers as they happen and routes them for review in something close to real time. A firm that just tightens its periodic cycle, annual instead of biennial, say, has built a faster batch job, not perpetual monitoring. Reviews still only run on scheduled dates, and nothing fires in between when a real change actually occurs. The two are easy to conflate on a slide deck and very different in what they actually catch.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-relabel);">Risk</div><div class="ttd-text">Calling a shorter periodic cycle "perpetual KYC" without building real event-driven infrastructure.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-relabel);">Signal</div><div class="ttd-text">Reviews still run on a calendar, just a tighter one, nothing fires between cycles when a real change happens.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-relabel);">Response</div><div class="ttd-text">Build genuine trigger ingestion and event-driven routing, not a faster version of the same clock.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE REVIEW CYCLE, END TO END -->
+    <div class="article-section" id="process">
+      <div class="section-eyebrow" style="color:var(--c-frequency)">The Review Cycle</div>
+      <h2>The review cycle, end to end</h2>
+      <p>Four stages, no branching. The scenarios below carry the decision nuance, this is the sequence a case moves through once either kind of review actually fires.</p>
+
+      <div class="flow" id="processFlow">
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 1 · Detect</div>
+          <div class="flow-node">
+            <div class="flow-node-title">A defined trigger fires</div>
+            <div class="flow-node-sub">Adverse media, ownership change, a transaction pattern shift, or a customer-initiated update.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 2 · Assess</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Risk-based review against the current profile</div>
+            <div class="flow-node-sub">Judged against the customer's current risk profile, not the triggering event in isolation.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 3 · Act</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Re-score, escalate, request, or close</div>
+            <div class="flow-node-sub">Proportionate to what's actually found, not a fixed response regardless of severity.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Stage 4 · Evidence</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Record it, whether or not anything changed</div>
+            <div class="flow-node-sub">What triggered it, what was reviewed, the conclusion, and any sign-off required or obtained.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-trigger-light);">🎯</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Defining what counts as a trigger</div>
+          <div class="scenario-name">The Undefined Trigger</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-trigger">The Undefined Trigger</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A firm's policy says review is triggered "when a material change occurs" but never defines what counts. A customer's registered address changes from a family home to a serviced office. No one flags it, nothing in the policy says this kind of change counts.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)">
+            <span class="opt-label">A</span>
+            <span>Nothing needs to change, analysts should use professional judgement case by case.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)">
+            <span class="opt-label">B</span>
+            <span>Define a fixed list of specific trigger events, address change, ownership change, adverse media hit, unusual transaction pattern, each with a documented threshold.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)">
+            <span class="opt-label">C</span>
+            <span>Require every customer to be reviewed monthly regardless of events, removing the need for a trigger definition.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)">
+            <span class="opt-label">D</span>
+            <span>Only formalise triggers for high-risk customers, standard-risk customers can stay undefined.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict">
+          <div id="scenario1-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-frequency-light);">⏳</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · Setting a real review cadence</div>
+          <div class="scenario-name">The Frequency Vacuum</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-frequency">The Frequency Vacuum</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>Policy says periodic reviews happen "regularly" for high-risk customers, no stated interval. Two analysts on the same team review comparable high-risk customers, one at 8 months, one at 22.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)">
+            <span class="opt-label">A</span>
+            <span>Leave "regularly" undefined so reviews can flex with workload.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)">
+            <span class="opt-label">B</span>
+            <span>Set an explicit cadence per risk tier, documented in policy, with a defined escalation if a review runs overdue.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)">
+            <span class="opt-label">C</span>
+            <span>Set one blanket interval for every customer regardless of risk tier.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)">
+            <span class="opt-label">D</span>
+            <span>Base frequency on how long ago the customer joined, not their current risk rating.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict">
+          <div id="scenario2-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 3 -->
+    <div class="article-section" id="scenario3">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-business-light);">🎭</div>
+        <div>
+          <div class="scenario-num">Scenario 03 · Personal account, business activity</div>
+          <div class="scenario-name">The Business-on-a-Personal-Account</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-business">The Business-on-a-Personal-Account</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario3">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A personal current account shows regular, high-volume, invoice-style payments in and out, consistent with business activity. The account was onboarded and is monitored as personal, with no business-activity control layered on top.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario3','A',this)">
+            <span class="opt-label">A</span>
+            <span>Take no action, personal accounts aren't subject to business controls by definition.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','B',this)">
+            <span class="opt-label">B</span>
+            <span>Flag the pattern as potential undisclosed business use, review the account's classification and risk profile, and consider whether the account's terms have been breached.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','C',this)">
+            <span class="opt-label">C</span>
+            <span>Close the account immediately without investigation.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','D',this)">
+            <span class="opt-label">D</span>
+            <span>Only act if the volume exceeds a specific reporting threshold.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario3-verdict">
+          <div id="scenario3-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 4 -->
+    <div class="article-section" id="scenario4">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-escalation-light);">🕳️</div>
+        <div>
+          <div class="scenario-num">Scenario 04 · Documenting a "no action" decision</div>
+          <div class="scenario-name">The Undocumented Escalation</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-escalation">The Undocumented Escalation</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario4">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>An EDD trigger fires, an adverse media hit on a customer. An analyst reviews it, decides it isn't material, and moves on. No record exists of what was reviewed, what was concluded, or whether senior management sign-off was required.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario4','A',this)">
+            <span class="opt-label">A</span>
+            <span>No documentation is needed if the analyst is confident in their judgement.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','B',this)">
+            <span class="opt-label">B</span>
+            <span>Record what triggered the review, what was checked, the conclusion, and whether sign-off was required and obtained, even when the outcome is no action.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','C',this)">
+            <span class="opt-label">C</span>
+            <span>Only document escalations that result in an action being taken.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','D',this)">
+            <span class="opt-label">D</span>
+            <span>Escalate every adverse media hit to senior management automatically, to guarantee full documentation.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario4-verdict">
+          <div id="scenario4-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CHECK QUIZ -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions. Would you make the same call the scenarios above just walked you through?</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. What did the FCA's 8 April 2026 review find was commonly missing from firms' CDD/EDD policies?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Detail on how often periodic reviews should occur, and what to do for event-driven review</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - A requirement to use AI in customer screening</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - A named data protection officer</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - A published complaints procedure</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Genuine event-driven perpetual KYC architecture requires what, beyond a shorter periodic cycle?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - Trigger ingestion, risk-signal routing, and real-time re-scoring</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - A larger compliance team</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - Annual instead of biennial reviews</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - A dedicated mobile app</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. What specific control gap did the FCA cite in the Nationwide £44m fine that relates directly to perpetual KYC?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - Nationwide had no process for undertaking either periodic or event-driven reviews of a large number of its customer relationships</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - Nationwide failed to register with the FCA</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - Nationwide had no anti-bribery policy</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - Nationwide's staff lacked AML training entirely</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. Why is documentation required even when an EDD review concludes "no action needed"?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Because an undocumented "no action" is indistinguishable from a review that never happened</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Because the FCA requires a minimum word count per case</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Only larger firms need to document this</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - It isn't required if the analyst is senior enough</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. Under a risk-based approach, review frequency should be based on what?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - The customer's current risk tier, not tenure or account age</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - How long the customer has banked with the firm</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - The customer's nationality alone</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - A single fixed interval for every customer</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-trigger)">Frequently Asked</div>
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Isn't perpetual KYC just periodic KYC on a shorter cycle? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No. A firm that re-points its periodic reviews onto legacy systems with a shorter clock has perpetual KYC in name only. Genuine event-driven design means trigger ingestion, risk-signal routing, and real-time re-scoring, a different architecture, not a faster version of the same one.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the actual FCA expectation here? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Its 8 April 2026 findings treat periodic and event-driven review as two distinct controls and expect firms to define both clearly, with enough operational detail that staff know what to do and reviewers can evidence it happened.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do small firms need a fully automated event-driven system? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Not necessarily automated technology, but they do need clearly defined triggers and a documented process for acting on them. The FCA's finding was about clarity and evidence, not a specific technology.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the actual difference between periodic and event-driven review? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Periodic review runs on a schedule set by risk tier, regardless of activity. Event-driven review fires on a specific occurrence, regardless of schedule. Neither substitutes for the other.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What exactly happened at Nationwide? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Between October 2016 and July 2021, in breach of its own policies, Nationwide had no process for undertaking either periodic or event-driven reviews of a large number of its personal current account customers. One consequence surfaced by the FCA's investigation: a single customer used ordinary personal accounts to receive 24 fraudulent Covid furlough payments totalling £27.3 million over 13 months, with £26.01 million of that landing in just eight days. The FCA fined Nationwide £44,078,500 in December 2025.</div>
+      </div>
+    </div>
+
+    <!-- AT A GLANCE, closing card grid -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-trigger)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Five patterns, the risk that makes each one look routine, the signal that actually gives it away, and the response that fits.</p>
+
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-trigger-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🎯</div>
+            <div class="pattern-name" style="color:var(--c-trigger);">The Undefined Trigger</div>
+          </div>
+          <div class="pattern-line">A policy that says review "when a material change occurs" without ever saying what counts isn't a control, it's a placeholder.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trigger);">Risk</div><div class="ttd-text">An undefined "material change" standard invites inconsistent, indefensible judgement calls.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trigger);">Signal</div><div class="ttd-text">Two analysts handling comparable events differently with no documented reason why.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trigger);">Response</div><div class="ttd-text">A fixed, documented list of trigger events and thresholds, not open-ended professional judgement.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-frequency-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">⏳</div>
+            <div class="pattern-name" style="color:var(--c-frequency);">The Frequency Vacuum</div>
+          </div>
+          <div class="pattern-line">"Regularly" is not a review interval. It's the absence of one, dressed up as a policy.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-frequency);">Risk</div><div class="ttd-text">"Regularly" as a review interval means some customers go years without a genuine refresh.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-frequency);">Signal</div><div class="ttd-text">High-risk customers with review dates that vary wildly across a similar book.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-frequency);">Response</div><div class="ttd-text">An explicit, risk-tiered cadence with a documented escalation when a review runs overdue.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-business-light);border-color:#fde68a;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🎭</div>
+            <div class="pattern-name" style="color:var(--c-business);">The Business-on-a-Personal-Account</div>
+          </div>
+          <div class="pattern-line">The account was never reclassified, because nothing was watching for the mismatch.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-business);">Risk</div><div class="ttd-text">A personal account used for business activity, with no control designed to catch it.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-business);">Signal</div><div class="ttd-text">High-volume, invoice-like payments on an account onboarded and monitored as personal.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-business);">Response</div><div class="ttd-text">Flag the mismatch and reassess the account's classification, don't wait for a volume threshold to act.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-escalation-light);border-color:#fecaca;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🕳️</div>
+            <div class="pattern-name" style="color:var(--c-escalation);">The Undocumented Escalation</div>
+          </div>
+          <div class="pattern-line">A "no action needed" decision with no record of how it was reached looks identical to a review that never happened.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-escalation);">Risk</div><div class="ttd-text">An undocumented "no action needed" decision is indistinguishable from a review that never happened.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-escalation);">Signal</div><div class="ttd-text">EDD triggers closing out with no record of what was checked or concluded.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-escalation);">Response</div><div class="ttd-text">Record the trigger, the check, the conclusion, and any sign-off, every time, including when the answer is no action.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-relabel-light);border-color:#a5f3fc;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🏷️</div>
+            <div class="pattern-name" style="color:var(--c-relabel);">The Relabelled Batch Job</div>
+          </div>
+          <div class="pattern-line">Calling a shorter periodic cycle "perpetual KYC" doesn't make it one.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-relabel);">Risk</div><div class="ttd-text">Calling a shorter periodic cycle "perpetual KYC" without building real event-driven infrastructure.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-relabel);">Signal</div><div class="ttd-text">Reviews still run on a calendar, just a tighter one, nothing fires between cycles when a real change happens.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-relabel);">Response</div><div class="ttd-text">Build genuine trigger ingestion and event-driven routing, not a faster version of the same clock.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-trigger)">Two Controls, Evidenced Separately</div>
+      <h2>The FCA didn't ask for perpetual KYC by name. It asked firms to prove both controls actually run.</h2>
+      <p><a href="/scenario-lab.html" style="color:var(--c-trigger);font-weight:600;">FinCrimeRadar's Scenario Lab</a> puts the same investigative decisions in front of you under real time pressure and partial information, free, no signup required.</p>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text">
+          <strong>Want to practise the decisions rather than read about them?</strong>
+          <span>Free. No account needed. Work real cases under time pressure and partial information.</span>
+        </div>
+        <a href="/scenario-lab.html" class="itp-btn">Open the Scenario Lab →</a>
+      </div>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-trigger)">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. Figures without a bracketed number are illustrative scenario detail, not verified facts.</p>
+      <ol style="font-size:14px; line-height:1.7; padding-left:1.25rem;">
+        <li id="src-1">Financial Conduct Authority, <em>Firms' customer due diligence processes and controls: our findings</em> (multi-firm review), 8 April 2026. <a href="https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings" target="_blank" rel="noopener">fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings</a></li>
+        <li id="src-2">Financial Conduct Authority, <em>FCA fines Nationwide £44m for failings in financial crime controls</em> (press release), 12 December 2025. <a href="https://www.fca.org.uk/news/press-releases/fca-fines-nationwide-44m-failings-financial-crime-controls" target="_blank" rel="noopener">fca.org.uk/news/press-releases/fca-fines-nationwide-44m-failings-financial-crime-controls</a></li>
+        <li id="src-3">Financial Conduct Authority, <em>Final Notice: Nationwide Building Society</em>, 12 December 2025. <a href="https://www.fca.org.uk/publication/final-notices/nationwide-building-society-2025.pdf" target="_blank" rel="noopener">fca.org.uk/publication/final-notices/nationwide-building-society-2025.pdf</a></li>
+      </ol>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#intro">Two Controls, Not One</a>
+      <a href="#patterns">Five Patterns</a>
+      <a href="#process">The Review Cycle</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-trigger);"></span> 01 · The Undefined Trigger</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-frequency);"></span> 02 · The Frequency Vacuum</a>
+      <a href="#scenario3" class="toc-scenario"><span class="toc-dot" style="background:var(--c-business);"></span> 03 · The Business-on-a-Personal-Account</a>
+      <a href="#scenario4" class="toc-scenario"><span class="toc-dot" style="background:var(--c-escalation);"></span> 04 · The Undocumented Escalation</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+      <a href="#sources">Sources</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 4</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+
+    <div class="tool-cta">
+      <p>Practise the same decisions live, real cases, time pressure, partial information.</p>
+      <a href="/scenario-lab.html">Open the Scenario Lab →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// TOC ACTIVE STATE
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+// SCORE TRACKING
+let scenarioResults = {};
+
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 4';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+// SCENARIO ANSWER KEYS AND FULL VERDICTS
+// Every option reveals the same full reasoning block: why the correct
+// answer is right AND why each wrong option fails, matching how each
+// scenario's explanation was authored as one continuous argument
+// rather than per-option variants.
+const answerKeys = {
+  scenario1: 'B',
+  scenario2: 'B',
+  scenario3: 'B',
+  scenario4: 'B'
+};
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: B, Define a fixed list of specific trigger events, each with a documented threshold',
+    body: [
+      'This is "The Undefined Trigger." A registered address moving from a family home to a serviced office is exactly the kind of change an event-driven control exists to catch, but only if the policy actually names it as a trigger. The FCA\'s own review cited good practice as policies that clearly explain what measures apply and under what circumstances, which is precisely what a fixed, documented list of trigger events gives an analyst: a specific standard to check the change against, not a vague instruction to use judgement.',
+      'Option A leaves the standard undefined and hands it to individual judgement case by case, which is exactly the gap the FCA\'s review flagged, a lack of clarity over what firms are expected to do when an event-driven review is triggered. Undefined judgement without documented criteria isn\'t a control, it\'s inconsistency waiting to be found on file review. Option C sidesteps the definition problem entirely by reviewing everyone monthly regardless of events, which just relabels periodic review as event-driven, doesn\'t solve the underlying architecture problem, and doesn\'t scale as the customer book grows. Option D only formalises triggers for high-risk customers and leaves standard-risk customers undefined, but a standard-risk account can still show a material change worth catching, exactly the pattern in the Nationwide case, where personal accounts carried business-style activity with no control designed to notice it.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: B, Set an explicit cadence per risk tier, documented in policy, with a defined escalation if a review runs overdue',
+    body: [
+      'This is "The Frequency Vacuum." Two comparable high-risk customers landing at 8 months and 22 months isn\'t a workload quirk, it\'s the direct result of a policy that never said how often review should actually happen. An explicit, risk-tiered cadence with a documented overdue-escalation path closes exactly that gap, and it\'s the same standard the FCA\'s review pointed to when it criticised firms for insufficient detail on periodic review frequency.',
+      'Option A leaves "regularly" undefined so reviews can flex with workload, which is the specific ambiguity the FCA\'s review criticised: firms not saying enough about how often periodic reviews should take place. Option C sets one blanket interval for every customer regardless of risk tier, which abandons the risk-based principle outright, a risk-based approach means higher-risk customers get reviewed more often than everyone else, not on the same clock. Option D bases frequency on how long ago the customer joined rather than their current risk rating, but tenure isn\'t risk, a customer who was low-risk at onboarding can have become high-risk since, which is the entire reason ongoing monitoring exists rather than a one-off check at account opening.'
+    ]
+  },
+  scenario3: {
+    title: 'Correct answer: B, Flag the pattern as potential undisclosed business use, review the account\'s classification and risk profile, and consider whether the account\'s terms have been breached',
+    body: [
+      'This is "The Business-on-a-Personal-Account." High-volume, invoice-style payments in and out are consistent with commercial activity, not ordinary personal banking, and that mismatch between what the account is monitored as and what it\'s actually doing is the signal worth acting on. Flagging it, reassessing the account\'s classification and risk profile, and checking whether the account\'s terms have been breached addresses the mismatch directly, without prejudging what the right outcome is before the facts are in.',
+      'Option A takes no action on the basis that personal accounts aren\'t subject to business controls by definition, but that\'s the exact failure the FCA cited at Nationwide, personal accounts carrying business-style activity with no control designed to catch it. Option C jumps straight to closing the account without investigation, an overcorrection, since the pattern deserves investigation rather than automatic closure, there may be a legitimate explanation, or it may warrant a SAR, but closure without review skips the actual work. Option D waits for volume to cross a specific reporting threshold before acting, but the underlying issue is a control gap, not a size threshold, and smaller-volume undisclosed business activity is still a risk nothing was designed to catch.'
+    ]
+  },
+  scenario4: {
+    title: 'Correct answer: B, Record what triggered the review, what was checked, the conclusion, and whether sign-off was required and obtained, even when the outcome is no action',
+    body: [
+      'This is "The Undocumented Escalation." An analyst concluding an adverse media hit isn\'t material may well be making the right call, but without a record of what was checked and why, that judgement is invisible to anyone reviewing the file later. Recording the trigger, the check, the conclusion, and any sign-off, including when the answer is no action, is exactly the evidence standard the FCA\'s review found firms falling short of.',
+      'Option A treats documentation as optional so long as the analyst is confident, but the FCA\'s review specifically cited firms failing to evidence what EDD steps were actually taken, or when senior management approval was required, confidence isn\'t a substitute for a record. Option C only documents escalations that lead to action and leaves "no action" decisions unrecorded, but an undocumented "no action" is indistinguishable from a review that never happened at all, the evidence trail is the entire point. Option D escalates every adverse media hit to senior management automatically to guarantee documentation, also an overcorrection, blanket escalation creates alert fatigue and dilutes attention from genuinely material items, the goal is proportionate, documented judgement, not automatic escalation of everything.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    b.style.opacity = '0.6';
+    b.style.cursor = 'default';
+  });
+
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+
+  verdictDiv.classList.add('show');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+// FAQ TOGGLE
+function toggleFaq(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.faq-icon').classList.toggle('open');
+}
+
+// QUIZ LOGIC
+const quizFeedback = {
+  qq1: { correct: 'A', fb: 'The FCA\'s review found firms without enough detail on how often periodic reviews should take place, and without clarity on what to do once an event-driven review is triggered. Both gaps, not just one, were cited.' },
+  qq2: { correct: 'A', fb: 'A shorter periodic cycle is still a calendar, it doesn\'t catch anything between review dates. Genuine event-driven perpetual KYC needs trigger ingestion, risk-signal routing, and real-time re-scoring, a different architecture, not a faster version of the same one.' },
+  qq3: { correct: 'A', fb: 'For most of the relevant period, in breach of its own policies, Nationwide had no process for undertaking either periodic or event-driven reviews of a large number of its customer relationships, the specific finding behind the £44,078,500 fine.' },
+  qq4: { correct: 'A', fb: 'An undocumented "no action needed" decision leaves no way to distinguish a genuine, considered review from one that simply never happened, which is exactly the evidencing gap the FCA\'s review cited.' },
+  qq5: { correct: 'A', fb: 'A risk-based approach ties review frequency to the customer\'s current risk tier. Tenure and account age are not risk, a customer who was low-risk at onboarding can have become high-risk since.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct + ' -')) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen + ' -') && !isCorrect) o.classList.add('q-wrong');
+  });
+
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the periodic/event-driven split is worth a second read.','Getting there, go back through the patterns you missed.','Solid foundation, a few gaps to close.','Good grasp, you would make most of these calls correctly.','Strong, practitioner-level perpetual KYC judgement.','Perfect, you would never collapse the two controls into one.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+// SAVE AS IMAGE
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return {
+      lineLines,
+      ttdLineCounts,
+      height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD
+    };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Perpetual KYC: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'perpetual-kyc-guide-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+<script defer src="/js/site-chrome.js"></script>
+</body>
+</html>
