@@ -234,6 +234,10 @@
     .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
     .itp-btn:hover { background:var(--accent-h); }
 
+    /* SUMMARY SNAPSHOT (static pre-rendered image, distinct from the dynamic Save as image button above) */
+    .summary-snapshot-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto 1.25rem; }
+    .summary-snapshot-download { display:inline-flex; align-items:center; gap:6px; }
+
     /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
     footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
     footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
@@ -600,6 +604,21 @@
       </div>
     </div>
 
+    <!-- SUMMARY SNAPSHOT, static pre-rendered image -->
+    <div class="article-section" id="summary-snapshot">
+      <div class="section-eyebrow" style="color:var(--c-send)">Quick Reference</div>
+      <h2>Summary snapshot</h2>
+      <p>The full guide in one image, for quick reference or sharing.</p>
+      <img
+        src="/crypto-travel-rule-summary-snapshot.png"
+        alt="Crypto Travel Rule summary infographic showing the zero threshold for data transmission between crypto firms versus the EUR1,000 wallet ownership verification trigger, the four options for missing data, execute, suspend, return, or reject, five patterns including the threshold trap and the sunrise gap, and BaFin's blocking of six offshore exchange domains for lacking proper CASP authorisation."
+        width="1000"
+        height="1800"
+        class="summary-snapshot-img"
+      />
+      <a href="/crypto-travel-rule-summary-snapshot.png" download class="itp-btn summary-snapshot-download">⬇️ Download summary</a>
+    </div>
+
     <!-- CONCLUSION -->
     <div class="article-section" id="conclusion">
       <div class="section-eyebrow" style="color:var(--c-send)">The Decision Is the Guide</div>
@@ -627,6 +646,7 @@
       <a href="#knowledge-check">Knowledge Check</a>
       <a href="#faq">FAQ</a>
       <a href="#glance">At a Glance</a>
+      <a href="#summary-snapshot">Summary Snapshot</a>
       <a href="#conclusion">Conclusion</a>
     </div>
 
