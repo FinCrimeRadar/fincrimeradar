@@ -97,6 +97,8 @@ Visual summary is now a single unified card design, not a table, not two separat
 
 Also now standard, added after reviewing the PEP and SAR series: an animated stat strip near the top where real numbers exist worth leading with, a process-flow diagram where the content has a genuine sequential process, an FAQ accordion as a standard closing section, and real named case studies where one genuinely exists and can be accurately cited, composite/illustrative cases remain acceptable where no real citable case exists.
 
+Where a guide includes a real named case study, at least one of the five knowledge check questions must test a genuine detail or lesson from that specific case, not a generic guide concept. This applies to all future guides. Retrofit is not required on already shipped guides, but note it as a light touch improvement opportunity if either is revisited for another reason.
+
 Save as image button stays permanent, exporting the closing card grid instead of a table. data-date convention unchanged.
 
 This standard was adopted mid-project. 4 guides shipped under the earlier table-based version (Fraud Red Flags, False Positive Playbook, UBO Investigation Handbook, Source of Wealth) need retrofitting to the merged card design, queued, not urgent. The PEP and SAR series (6 guides) are explicitly NOT being retrofitted to any version of this standard, they're genuinely good in their existing rich-narrative format and stay as they are.
