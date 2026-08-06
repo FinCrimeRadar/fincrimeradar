@@ -48,7 +48,7 @@ Every case is authored specifically for the tool, not adapted from a public enfo
 
 ## Tech stack
 
-- **Backend:** Python + FastAPI, in a separate repo, [fincrimeradar-api](https://github.com/prats922/fincrimeradar-api)
+- **Backend:** Python + FastAPI, in a separate repo, [fincrimeradar-api](https://github.com/FinCrimeRadar/fincrimeradar-api)
 - **Screening engine:** OpenSanctions API + fuzzy matching (rapidfuzz), adverse media via GDELT
 - **Frontend:** HTML/CSS/JS (no framework, this repo)
 - **Hosting:** Vercel (frontend) + Render (API)
