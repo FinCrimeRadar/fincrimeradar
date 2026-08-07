@@ -226,5 +226,35 @@
     "verifiedOn": "2026-08-07",
     "reviewDue": "2027-08-07",
     "status": "verified"
+  },
+  {
+    "claimId": "fraud-investigation-playbook.poca-333a-strict-liability.001",
+    "guide": "fraud-investigation-playbook.html",
+    "claimText": "Under section 333A of POCA 2002, the regulated-sector tipping off offence is strict liability, no criminal intent is required, the test is only whether the disclosure is likely to prejudice an investigation",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 333A",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
+  },
+  {
+    "claimId": "fraud-investigation-playbook.poca-333a-max-penalty.001",
+    "guide": "fraud-investigation-playbook.html",
+    "claimText": "On conviction on indictment, a section 333A POCA 2002 tipping off offence carries a maximum of two years' imprisonment",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 333A(4)(b)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
   }
 ]
