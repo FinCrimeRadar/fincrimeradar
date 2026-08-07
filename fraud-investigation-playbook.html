@@ -296,6 +296,10 @@
     .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
     .save-img-btn:hover { border-color:var(--c-theory); color:var(--c-theory); }
 
+    /* SUMMARY SNAPSHOT (static pre-rendered image, distinct from the dynamic Save as image button above) */
+    .summary-snapshot-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto 1.25rem; }
+    .summary-snapshot-download { display:inline-flex; align-items:center; gap:6px; }
+
     /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
     footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
     footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
@@ -898,6 +902,21 @@
       </div>
     </div>
 
+    <!-- SUMMARY SNAPSHOT, static pre-rendered image -->
+    <div class="article-section" id="summary-snapshot">
+      <div class="section-eyebrow" style="color:var(--c-theory)">Quick Reference</div>
+      <h2>Summary snapshot</h2>
+      <p>The full guide in one image, for quick reference or sharing.</p>
+      <img
+        src="/fraud-investigation-playbook-summary-snapshot.png"
+        alt="Fraud Investigation Playbook summary infographic showing the POCA 2002 section 333A tipping off offence, its 2 year maximum sentence and strict liability standard, the four stage investigation process from detection through the decision points on suspicion and principal offence risk into the DAML consent path, and four failure patterns including the theory-first file and the unwritten reasoning."
+        width="864"
+        height="1821"
+        class="summary-snapshot-img"
+      />
+      <a href="/fraud-investigation-playbook-summary-snapshot.png" download class="itp-btn summary-snapshot-download">⬇️ Download summary</a>
+    </div>
+
     <!-- CONCLUSION -->
     <div class="article-section" id="conclusion">
       <div class="section-eyebrow" style="color:var(--c-theory)">The File Is the Output</div>
@@ -928,6 +947,7 @@
       <a href="#knowledge-check">Knowledge Check</a>
       <a href="#faq">FAQ</a>
       <a href="#glance">At a Glance</a>
+      <a href="#summary-snapshot">Summary Snapshot</a>
       <a href="#conclusion">Conclusion</a>
     </div>
 
