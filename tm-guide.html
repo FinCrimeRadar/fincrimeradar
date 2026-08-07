@@ -269,6 +269,12 @@
     .try-tool-sidebar p { font-size:12px; color:#93c5fd; margin-bottom:1rem; }
     .try-tool-sidebar a { display:block; background:#00c4a7; color:#fff; padding:9px; border-radius:8px; font-size:13px; font-weight:600; text-decoration:none; }
 
+    /* SUMMARY SNAPSHOT (static pre-rendered image) */
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; display:inline-flex; align-items:center; gap:6px; }
+    .itp-btn:hover { background:var(--accent-h); }
+    .summary-snapshot-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto 1.25rem; }
+    .summary-snapshot-download { display:inline-flex; align-items:center; gap:6px; }
+
     /* FOOTER */
     .article-footer { max-width:1100px; margin:0 auto; padding:1.5rem; }
     .next-up { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
@@ -915,6 +921,21 @@
       </div>
     </div>
 
+    <!-- SUMMARY SNAPSHOT, static pre-rendered image -->
+    <div class="article-section" id="summary-snapshot">
+      <div class="section-eyebrow">Quick Reference</div>
+      <h2>Summary snapshot</h2>
+      <p>The full guide in one image, for quick reference or sharing.</p>
+      <img
+        src="/tm-guide-summary-snapshot.png"
+        alt="Transaction monitoring summary infographic showing the commonly cited ~95% industry estimate for rule-based false positive rates, the FinCEN penalty of $80 million against Canaccord Genuity in March 2026 with 160 SARs unfiled, the core distinction between rule-based and AI-augmented monitoring, five failure patterns including threshold rigidity and tuning debt, and the same Canaccord Genuity case as the real-world example."
+        width="968"
+        height="1625"
+        class="summary-snapshot-img"
+      />
+      <a href="/tm-guide-summary-snapshot.png" download class="itp-btn summary-snapshot-download">⬇️ Download summary</a>
+    </div>
+
     <!-- SOURCES -->
     <div class="article-section" id="sources">
       <div class="section-eyebrow">Verification</div>
@@ -945,6 +966,7 @@
       <a href="#what-good-looks-like" class="toc-link">What good looks like</a>
       <a href="#knowledge-check" class="toc-link">Knowledge check</a>
       <a href="#conclusion" class="toc-link">Practitioner's verdict</a>
+      <a href="#summary-snapshot" class="toc-link">Summary snapshot</a>
       <a href="#sources" class="toc-link">Sources</a>
     </div>
 
