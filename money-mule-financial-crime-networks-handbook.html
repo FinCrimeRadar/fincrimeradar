@@ -354,7 +354,7 @@
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="10">0</span> seconds</div>
         <div class="hero-stat-label">Maximum settlement time for an in-scope euro transfer</div>
-        <div class="hero-stat-source">Regulation (EU) 2024/886, mandatory for eurozone banks since October 2025. No exceptions, no business hours.</div>
+        <div class="hero-stat-source">Regulation (EU) 2024/886, mandatory for eurozone banks since October 2025. No business-hours exemption for in-scope transfers; narrow technical carve-outs apply elsewhere.</div>
       </div>
     </div>
   </div>
@@ -368,12 +368,12 @@
     <div class="article-section" id="intro">
       <div class="section-eyebrow" style="color:var(--c-sleeper)">The Account That Was Never Fraudulent</div>
       <h2>The account was never fraudulent, until it was.</h2>
-      <p>Ask most compliance teams to describe a mule account and they'll describe how it gets opened: a synthetic identity, a burst of activity from day one, nothing real behind it. That picture is increasingly the wrong one. In a 2026 industry survey of over 500 fraud, risk, and AML professionals, Incognia found 81% of institutions reporting more mule account handovers, real accounts, opened by real people, taken over mid-life rather than built for fraud from the start. Only 16% of institutions in the same survey catch the handover before any suspicious transaction actually moves, which means most only see it after the money is already gone.</p>
-      <p>The other half of the problem is speed. Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, with no exceptions. Traditional transaction monitoring, built around an overnight batch cycle, was never designed to intervene inside a window that short. A mule network doesn't need a weak control anymore, it just needs a control that runs on the wrong clock.</p>
+      <p>Ask most compliance teams to describe a mule account and they'll describe how it gets opened: a synthetic identity, a burst of activity from day one, nothing real behind it. That picture is increasingly the wrong one. In a 2026 industry survey of over 500 fraud, risk, and AML professionals, Incognia found 81% of institutions reporting more mule account handovers, real accounts, opened by real people, taken over mid-life rather than built for fraud from the start [1]. Only 16% of institutions in the same survey catch the handover before any suspicious transaction actually moves, which means most only see it after the money is already gone.</p>
+      <p>The other half of the problem is speed. Under Article 5a of Regulation (EU) No 260/2012, as inserted by Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, every day [2]. The regulation carves out a handful of narrow exceptions, non-euro-area providers can apply to cap outbound instant transfers above €25,000 to business hours, and planned system maintenance is exempted, but none of those touch the ordinary domestic transfer a mule network relies on. Traditional transaction monitoring, built around an overnight batch cycle, was never designed to intervene inside a window that short. A mule network doesn't need a weak control anymore, it just needs a control that runs on the wrong clock.</p>
 
       <div class="callout callout-navy">
         <strong>A real network, not a hypothetical one</strong>
-        <p>Leicestershire Police built Operation Kilo over four years, eventually tracing more than £53 million through a mule account network that moved into cryptocurrency and out through Post Office branches across Leicester between 2019 and 2021, a genuine account-network case rather than a cash-courier one. The investigation ended in five convictions carrying a combined sentence of over 35 years, the heaviest for Jigar Gheewala, who received 11 years and 10 months in prison and a 14-year ban from acting as a company director.</p>
+        <p>Leicestershire Police built Operation Kilo over four years, eventually tracing more than £53 million through a mule account network that moved into cryptocurrency and out through Post Office branches across Leicester between 2019 and 2021, a genuine account-network case rather than a cash-courier one. The investigation ended in five convictions carrying a combined sentence of over 35 years, the heaviest for Jigar Gheewala, who received 11 years and 10 months in prison and a 14-year ban from acting as a company director [3].</p>
       </div>
 
       <div class="callout callout-navy">
@@ -408,7 +408,7 @@
           <div class="pattern-name" style="color:var(--c-velocity);">The Ten-Second Gap</div>
         </div>
         <div class="pattern-line">By the time an overnight batch cycle runs, the money and the account access are both already gone.</div>
-        <p style="margin-bottom:1rem;">Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, with no exceptions. A control built around a nightly batch job was never designed to intervene inside a window that short, and a rapid receipt-then-disperse cycle, money in, cash or card spend out within minutes, can complete and clear long before any next-day review even runs.</p>
+        <p style="margin-bottom:1rem;">Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day. A control built around a nightly batch job was never designed to intervene inside a window that short, and a rapid receipt-then-disperse cycle, money in, cash or card spend out within minutes, can complete and clear long before any next-day review even runs.</p>
         <div class="pattern-ttd">
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Trap</div><div class="ttd-text">Relying on next-cycle batch alerts.</div></div>
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Tell</div><div class="ttd-text">Rapid receipt-then-disperse within minutes on an instant rail.</div></div>
@@ -422,7 +422,7 @@
           <div class="pattern-name" style="color:var(--c-front);">The Business Front</div>
         </div>
         <div class="pattern-line">KYB verifies who a company is at onboarding. It says nothing about what the account does a year later.</div>
-        <p style="margin-bottom:1rem;">A business account that matched its declared activity at onboarding can still drift into a materially different pattern months or years afterward, irregular payments from unconnected individuals, no invoice trail, transfers straight out to a director's personal account. UK and Thailand regulators have both separately flagged business accounts increasingly drawn into muling for exactly this reason. Treating the onboarding check as the whole answer misses that the mismatch, not the incorporation date or the account type, is what actually needs monitoring.</p>
+        <p style="margin-bottom:1rem;">A business account that matched its declared activity at onboarding can still drift into a materially different pattern months or years afterward, irregular payments from unconnected individuals, no invoice trail, transfers straight out to a director's personal account. Thailand's Department of Business Development has documented this concretely: a 2025 enforcement sweep against corporate mule accounts implicated 442 registered companies used to disguise illegal activity [4]. The same structural gap, an onboarding check that measures who a company is rather than what it does month to month, is the underlying concern wherever business accounts are used for muling, not just in Thailand. Treating the onboarding check as the whole answer misses that the mismatch, not the incorporation date or the account type, is what actually needs monitoring.</p>
         <div class="pattern-ttd">
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Trap</div><div class="ttd-text">Treating KYB as a one-time onboarding check.</div></div>
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Tell</div><div class="ttd-text">Transaction pattern doesn't match the declared business activity.</div></div>
@@ -730,7 +730,7 @@
         <div class="quiz-q-text">2. Under Regulation (EU) 2024/886, what must happen to an in-scope euro transfer?</div>
         <div class="quiz-opts">
           <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - It must clear within one business day</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - It must settle within 10 seconds, 24/7, with no exceptions</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - It must settle within 10 seconds, 24/7</button>
           <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - It must be manually reviewed before release if over 1,000 EUR</button>
           <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - It only applies to transfers between different countries</button>
         </div>
@@ -787,7 +787,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">How does the EU Instant Payments Regulation change what "in time" means for AML monitoring? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, with no exceptions. A control that only runs on the next overnight batch cycle has already missed the window by the time it fires.</div>
+        <div class="faq-a">Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day. A control that only runs on the next overnight batch cycle has already missed the window by the time it fires.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Is a mule account always opened for fraud, or can a genuine account become one? <span class="faq-icon">+</span></div>
@@ -799,7 +799,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Does the UK's mandatory APP fraud reimbursement scheme change mule detection incentives? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Since October 2024, most UK victims of authorised push payment fraud have a legal right to reimbursement from their bank, subject to an 85,000 GBP cap per claim under the Payment Systems Regulator's rules. That cap held through the PSR's own 2026 review of the scheme's first year of operation. It shifts more of the direct financial cost of a mule account's activity onto the sending bank, not just the receiving one.</div>
+        <div class="faq-a">Since October 2024, most UK victims of authorised push payment fraud have a legal right to reimbursement from their bank, subject to an 85,000 GBP cap per claim under the Payment Systems Regulator's rules [5]. That cap is unchanged as of mid-2026: the PSR's independent evaluation of the scheme's first year, published July 2026, found fraud losses down and reimbursement rates up, but the cap itself is a separate question the PSR hasn't settled yet, a formal consultation on whether it (and the 50/50 sending/receiving split) needs recalibrating is due in December 2026. It shifts more of the direct financial cost of a mule account's activity onto the sending bank, not just the receiving one.</div>
       </div>
     </div>
 
@@ -911,6 +911,20 @@
       </div>
     </div>
 
+    <!-- SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-sleeper)">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. Figures without a bracketed number are industry estimates or illustrative examples rather than verified facts; the surrounding text says which.</p>
+      <ol style="font-size:14px; line-height:1.7; padding-left:1.25rem;">
+        <li id="src-1">Incognia, <em>The State of Mule Account Handovers in 2026 Report</em>, 10 February 2026. <a href="https://www.incognia.com/report/state-of-mule-account-handovers" target="_blank" rel="noopener">incognia.com/report/state-of-mule-account-handovers</a></li>
+        <li id="src-2">Regulation (EU) 2024/886 of the European Parliament and of the Council, inserting Article 5a into Regulation (EU) No 260/2012, 13 March 2024. <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0886" target="_blank" rel="noopener">eur-lex.europa.eu, CELEX:32024R0886</a></li>
+        <li id="src-3">Leicestershire Police, <em>Detectives Uncover Major Money Laundering Operation</em>, December 2025 (Operation Kilo sentencing). <a href="https://www.leics.police.uk/news/leicestershire/news/2025/december/detectives-uncover-major-money-laundering-operation/" target="_blank" rel="noopener">leics.police.uk/news/leicestershire/news/2025/december/detectives-uncover-major-money-laundering-operation</a></li>
+        <li id="src-4">Department of Business Development (Thailand), enforcement action against corporate mule bank accounts and nominee arrangements, 2025. <a href="https://www.forvismazars.com/th/en/insights/doing-business-in-thailand/legal/dbd-targets-nominee-and-mule-accounts" target="_blank" rel="noopener">forvismazars.com, DBD targets nominee and mule accounts</a></li>
+        <li id="src-5">Payment Systems Regulator, <em>Independent Evaluation of the APP Scams Reimbursement Requirement, First Year</em>, 1 July 2026. <a href="https://www.psr.org.uk/our-work/app-scams/" target="_blank" rel="noopener">psr.org.uk/our-work/app-scams</a></li>
+      </ol>
+    </div>
+
   </div><!-- /article-body -->
 
   <!-- SIDEBAR -->
@@ -929,6 +943,7 @@
       <a href="#glance">At a Glance</a>
       <a href="#summary-snapshot">Summary Snapshot</a>
       <a href="#conclusion">Conclusion</a>
+      <a href="#sources">Sources</a>
     </div>
 
     <div class="score-card">
@@ -1046,7 +1061,7 @@ const verdicts = {
     title: 'Correct answer: C, Compare the actual transaction pattern against the declared business activity itself',
     body: [
       'This is "The Business Front." Six unconnected individual senders with no invoice trail bears no resemblance to consultancy income, and that mismatch between what the account actually does and what it was declared to do is the signal, regardless of what onboarding established eighteen months ago.',
-      'Option A treats this as normal business variability, but the issue is not variability in general, it is a specific mismatch between individual senders and a declared consultancy. Option B leans on the KYB check completed at onboarding, which establishes who the company is, not what it does month to month, which is precisely why ongoing monitoring exists, and UK and Thailand regulators have both separately flagged business accounts increasingly drawn into muling for exactly this reason. Option D escalates purely on the company\'s age, but company age alone is a weak, overbroad signal, most genuinely new small businesses have irregular early cash flow for legitimate reasons, the mismatch is the finding, not the incorporation date.'
+      'Option A treats this as normal business variability, but the issue is not variability in general, it is a specific mismatch between individual senders and a declared consultancy. Option B leans on the KYB check completed at onboarding, which establishes who the company is, not what it does month to month, which is precisely why ongoing monitoring exists, and Thailand\'s Department of Business Development has documented exactly this pattern in a 2025 enforcement sweep against corporate mule accounts. Option D escalates purely on the company\'s age, but company age alone is a weak, overbroad signal, most genuinely new small businesses have irregular early cash flow for legitimate reasons, the mismatch is the finding, not the incorporation date.'
     ]
   },
   scenario4: {
@@ -1099,7 +1114,7 @@ function toggleFaq(el) {
 // QUIZ LOGIC
 const quizFeedback = {
   qq1: { correct: 'B', fb: 'The actual signal is a real behavioural break against the account\'s own established pattern, not the account\'s age. A long clean history makes a genuine deviation more diagnostic, not less relevant.' },
-  qq2: { correct: 'B', fb: 'Regulation (EU) 2024/886 requires in-scope euro transfers to settle within 10 seconds, 24 hours a day, with no exceptions, a genuinely different clock than a next-day monitoring cycle was built for.' },
+  qq2: { correct: 'B', fb: 'Regulation (EU) 2024/886 requires in-scope euro transfers to settle within 10 seconds, 24 hours a day, a genuinely different clock than a next-day monitoring cycle was built for.' },
   qq3: { correct: 'B', fb: 'Merging fraud and AML casework into one generalist queue is a documented way convergence backfires, it slows decisions and dilutes both teams\' distinct priorities. Shared visibility, not merged casework, is the actual fix.' },
   qq4: { correct: 'C', fb: 'The mismatch, unconnected individual senders with no invoice trail against a declared consultancy, is the signal. Company age and sender type alone are much weaker indicators on their own.' },
   qq5: { correct: 'B', fb: 'A nine-minute deposit-then-withdrawal cycle on an instant rail completes and clears before an overnight batch-cycle control can run at all, by the time it fires, the funds and the account access are already gone.' }

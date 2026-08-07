@@ -256,5 +256,80 @@
     "verifiedOn": "2026-08-07",
     "reviewDue": "2027-08-07",
     "status": "verified"
+  },
+  {
+    "claimId": "money-mule.incognia-handover-survey.001",
+    "guide": "money-mule-financial-crime-networks-handbook.html",
+    "claimText": "In a 2026 industry survey of over 500 fraud, risk, and AML professionals, Incognia found 81% of institutions reporting more mule account handovers and only 16% catching the handover before any suspicious transaction moves",
+    "claimType": "statistic",
+    "source": {
+      "title": "The State of Mule Account Handovers in 2026 Report",
+      "url": "https://www.incognia.com/report/state-of-mule-account-handovers",
+      "publisher": "Incognia",
+      "date": "2026-02-10"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
+  },
+  {
+    "claimId": "money-mule.eu-instant-payments-10-second.001",
+    "guide": "money-mule-financial-crime-networks-handbook.html",
+    "claimText": "Under Article 5a of Regulation (EU) No 260/2012, as inserted by Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day, subject to narrow carve-outs for non-euro-area providers and planned maintenance, not a blanket no-exceptions rule",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Regulation (EU) 2024/886 of the European Parliament and of the Council of 13 March 2024, Article 5a",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R0886",
+      "publisher": "EUR-Lex (Official Journal of the European Union)",
+      "date": "2024-03-13"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
+  },
+  {
+    "claimId": "money-mule.operation-kilo.001",
+    "guide": "money-mule-financial-crime-networks-handbook.html",
+    "claimText": "Leicestershire Police's Operation Kilo traced more than £53 million through a mule account network moved into cryptocurrency and out through Post Office branches in Leicester between 2019 and 2021, ending in five convictions carrying a combined sentence of over 35 years, the heaviest for Jigar Gheewala at 11 years and 10 months plus a 14-year company director ban",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Detectives Uncover Major Money Laundering Operation",
+      "url": "https://www.leics.police.uk/news/leicestershire/news/2025/december/detectives-uncover-major-money-laundering-operation/",
+      "publisher": "Leicestershire Police",
+      "date": "2025-12-17"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
+  },
+  {
+    "claimId": "money-mule.thailand-dbd-corporate-mules.001",
+    "guide": "money-mule-financial-crime-networks-handbook.html",
+    "claimText": "Thailand's Department of Business Development, working with the Central Investigation Bureau, has been cracking down on corporate mule bank accounts and nominee arrangements; a 2025 enforcement sweep across 46 locations implicated 442 juristic persons",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Thailand Enhances the Foreign Business License (FBL) Regime and Increases Enforcement Measures against Nominee Practices and Mule Bank Account Activities",
+      "url": "https://www.lawplusltd.com/2026/02/thailand-enhances-the-foreign-business-license-fbl-regime-and-increases-enforcement-measures-against-nominee-practices-and-mule-bank-account-activities/",
+      "publisher": "LawPlus Ltd., reporting on Department of Business Development / Central Investigation Bureau enforcement action",
+      "date": "2026-02-04"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
+  },
+  {
+    "claimId": "money-mule.psr-reimbursement-cap.001",
+    "guide": "money-mule-financial-crime-networks-handbook.html",
+    "claimText": "Since October 2024, most UK victims of authorised push payment fraud have a legal right to reimbursement from their bank, subject to an £85,000 cap per claim under the Payment Systems Regulator's rules; that cap remained unchanged in the PSR's July 2026 first-year evaluation, though a separate consultation on recalibrating the cap is due in December 2026",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Independent Evaluation of the APP Scams Reimbursement Requirement, First Year",
+      "url": "https://www.psr.org.uk/our-work/app-scams/",
+      "publisher": "Payment Systems Regulator",
+      "date": "2026-07-01"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
   }
 ]
