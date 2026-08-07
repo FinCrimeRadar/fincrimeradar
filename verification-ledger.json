@@ -211,5 +211,20 @@
     "verifiedOn": "2026-08-05",
     "reviewDue": "2027-08-05",
     "status": "verified"
+  },
+  {
+    "claimId": "mlro-handbook-2.cfp-management-fine.001",
+    "guide": "mlro-handbook-part2.html",
+    "claimText": "The former CFP Management Ltd MLRO was fined £465,415, the figure the Upper Tribunal endorsed in June 2025 after revising down the FCA's original £632,594 proposal",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Upper Tribunal ruling in the cases of Toni Fox and David Brian Price",
+      "url": "https://www.fca.org.uk/news/press-releases/upper-tribunal-ruling-cases-toni-fox-and-david-brian-price",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-05-30"
+    },
+    "verifiedOn": "2026-08-07",
+    "reviewDue": "2027-08-07",
+    "status": "verified"
   }
 ]
