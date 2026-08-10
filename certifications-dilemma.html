@@ -155,6 +155,32 @@
     .cert-compare-table .flag-note { color:var(--warning); font-weight:600; }
     .scroll-hint { display:none; align-items:center; gap:6px; font-size:12px; color:var(--muted); padding:8px 2px 0; justify-content:center; }
 
+    /* STICKY SCROLL CONTROLS
+       top:72px matches this page's own nav { height:72px } exactly (see the
+       nav rule above); brand.css defines no sitewide nav height to defer to
+       on this page, since this page's nav is static markup, not the
+       #site-nav partial mount. Sits inside .cert-table-scroll-region so it
+       stays stuck for as long as any part of the table (not just the very
+       top row) is still in the viewport, rather than only sticking within
+       its own single-line height the way a bare sibling sticky el would. */
+    .cert-table-scroll-region { position:relative; }
+    .cert-table-scroll-controls {
+      position:sticky; top:72px; z-index:20;
+      display:flex; align-items:center; justify-content:flex-end; gap:8px;
+      padding:6px 10px; margin-bottom:6px;
+      background:rgba(255,255,255,0.97); backdrop-filter:blur(4px);
+      border:1px solid var(--border); border-radius:8px;
+    }
+    .cert-scroll-label { font-size:11px; color:var(--muted); margin-right:auto; text-transform:uppercase; letter-spacing:0.4px; font-weight:600; }
+    .cert-scroll-btn {
+      width:28px; height:28px; border-radius:6px; border:1px solid var(--border);
+      background:#fff; color:var(--navy); font-size:16px; line-height:1; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; padding:0;
+      transition:background 0.15s, opacity 0.15s;
+    }
+    .cert-scroll-btn:hover:not(:disabled) { background:var(--off); border-color:var(--accent); }
+    .cert-scroll-btn:disabled { opacity:0.3; cursor:default; }
+
     /* FAQ */
     .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; }
     .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; color:var(--navy); background:var(--white); user-select:none; }
@@ -183,6 +209,11 @@
       .stat-row { grid-template-columns:1fr; }
       .cert-compare-table-wrap { border-radius:10px; }
       .scroll-hint { display:flex; }
+      /* Coexists with the swipe hint below rather than replacing it, kept
+         small enough it doesn't crowd a 390px viewport: label drops first,
+         the two arrow buttons stay since they're the actual control. */
+      .cert-table-scroll-controls { padding:5px 8px; }
+      .cert-scroll-label { display:none; }
     }
   </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -286,7 +317,13 @@
       <h2>Twelve credentials, compared on what actually differs</h2>
       <p>Cost figures below include mandatory membership fees where the issuing body requires one. Where a body's own site did not publish a fixed figure (rendered only at checkout, or blocked entirely), that is stated in the cell itself rather than filled in with a number from somewhere else. Confirmed directly against each issuer's site in August 2026; recheck before paying, fees and eligibility rules change without much notice.</p>
 
-      <div class="cert-compare-table-wrap">
+      <div class="cert-table-scroll-region">
+        <div class="cert-table-scroll-controls">
+          <span class="cert-scroll-label">Scroll to compare</span>
+          <button type="button" class="cert-scroll-btn cert-scroll-left" aria-label="Scroll table left">&lsaquo;</button>
+          <button type="button" class="cert-scroll-btn cert-scroll-right" aria-label="Scroll table right">&rsaquo;</button>
+        </div>
+        <div class="cert-compare-table-wrap">
         <table class="cert-compare-table">
           <caption>Certification comparison: cost, eligibility, career progression, and recertification burden</caption>
           <colgroup>
@@ -406,6 +443,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
       <div class="scroll-hint">&#8596; Swipe to see all six columns, the certification name stays pinned</div>
       <p class="source-note">Full source list and per-claim citations are logged in this site's verification ledger, not just asserted here.</p>
@@ -482,6 +520,25 @@ function toggleFaq(el) {
   el.nextElementSibling.classList.toggle('open');
   el.querySelector('.faq-icon').classList.toggle('open');
 }
+
+// COMPARISON TABLE SCROLL CONTROLS
+(function () {
+  const wrap = document.querySelector('.cert-compare-table-wrap');
+  const btnLeft = document.querySelector('.cert-scroll-left');
+  const btnRight = document.querySelector('.cert-scroll-right');
+  if (!wrap || !btnLeft || !btnRight) return;
+
+  function updateButtons() {
+    const max = wrap.scrollWidth - wrap.clientWidth;
+    btnLeft.disabled = wrap.scrollLeft <= 0;
+    btnRight.disabled = wrap.scrollLeft >= max - 1;
+  }
+  btnLeft.addEventListener('click', () => wrap.scrollBy({ left: -250, behavior: 'smooth' }));
+  btnRight.addEventListener('click', () => wrap.scrollBy({ left: 250, behavior: 'smooth' }));
+  wrap.addEventListener('scroll', updateButtons);
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+})();
 </script>
 
 <script defer src="/js/site-chrome.js"></script>
