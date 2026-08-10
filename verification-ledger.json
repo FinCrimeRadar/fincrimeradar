@@ -331,5 +331,725 @@
     "verifiedOn": "2026-08-07",
     "reviewDue": "2027-08-07",
     "status": "verified"
+  },
+  {
+    "claimId": "certifications-dilemma.cams.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACAMS's CAMS certification package costs US$1,595 (Public Sector) to US$2,095 (Private Sector) self-study, or US$2,095 to US$2,495 bundled with the Virtual Classroom Series. Active ACAMS membership is mandatory to obtain and maintain the certification. Exam retake is US$299, exam extension US$100",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CAMS Certifications: How to Get CAMS Certified",
+      "url": "https://www.acams.org/en/certifications/cams-certification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cams.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CAMS requires 40 eligibility credits earned through a combination of education, professional AFC-related experience, existing certifications, and training; no higher-education degree is mandatory. ACAMS states the certification is for AFC professionals with 18 to 24 months of experience, aspiring to or working in the second or third line of defense; common roles listed include MLRO/BSA Officer, Compliance Officer, Risk Manager, Internal Auditor, Head of Compliance, Head of KYC, Head of TM",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CAMS Certifications: How to Get CAMS Certified",
+      "url": "https://www.acams.org/en/certifications/cams-certification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cams.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CAMS is ACAMS's Specialist-level credential; ACAMS's own accelerated-eligibility rules state that CAMS qualifies a holder for all other Specialist and Advanced certifications without earning additional eligibility credits",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CAMS Certifications: How to Get CAMS Certified",
+      "url": "https://www.acams.org/en/certifications/cams-certification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cams.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CAMS recertification is required every 3 years, with 60 total credits (at least 12 from ACAMS). All 3-year ACAMS recertifications share the same fee schedule: US$200 early (by October 1), US$250 standard (by December 15), US$300 late (by March 31)",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Recertification",
+      "url": "https://www.acams.org/en/certifications/recertification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cgss.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACAMS's CGSS certification package costs US$1,495 (Public Sector) to US$1,995 (Private Sector) self-study, or US$1,995 to US$2,395 bundled with the Virtual Classroom Series. Active ACAMS membership is mandatory. Exam retake is US$299, exam extension US$100",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Certified Global Sanctions Specialist (CGSS) Certification",
+      "url": "https://www.acams.org/en/certifications/certified-global-sanctions-specialist-cgss",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cgss.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CGSS requires 40 eligibility credits, the same credit system used for CAMS. ACAMS states CGSS is for mid- to senior-level professionals responsible for sanctions compliance, screening, or managing economic and trade sanctions programmes, plus AFC, AML/CTF, legal and regulatory specialists who oversee compliance, risk management or advisory functions",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Certified Global Sanctions Specialist (CGSS) Certification",
+      "url": "https://www.acams.org/en/certifications/certified-global-sanctions-specialist-cgss",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cgss.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CGSS is a Specialist-level ACAMS credential alongside CAMS; ACAMS's accelerated-eligibility rules let CAMS holders qualify for CGSS, and vice versa, without earning additional eligibility credits",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Certified Global Sanctions Specialist (CGSS) Certification",
+      "url": "https://www.acams.org/en/certifications/certified-global-sanctions-specialist-cgss",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cgss.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CGSS recertification is required every 3 years, with 30 total credits (at least 15 from ACAMS), on the same US$200/US$250/US$300 fee schedule as other 3-year ACAMS recertifications",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Recertification",
+      "url": "https://www.acams.org/en/certifications/recertification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ckyca.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACAMS's CKYCA certification package costs US$1,045, the same price for both Private and Public Sector. Active ACAMS membership is mandatory. Exam retake is US$199, exam extension US$100",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CKYCA Certification",
+      "url": "https://www.acams.org/en/certifications/ckyca",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ckyca.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CKYCA eligibility uses ACAMS's general credit system (education, professional experience, certifications, training), with requirements set at ACAMS's Associate level, its lowest certification tier",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CKYCA Certification",
+      "url": "https://www.acams.org/en/certifications/ckyca",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ckyca.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CKYCA is ACAMS's Associate-level certification, the tier below Specialist-level CAMS and CGSS, per ACAMS's own three-tier structure (Associate, Specialist, Advanced)",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Recertification",
+      "url": "https://www.acams.org/en/certifications/recertification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ckyca.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CKYCA (an Associate-level certification, alongside CTMA and CAFCA) requires recertification every year: 2 ACAMS credits per year, no application and no fee, automatic once requirements are met while ACAMS membership stays active",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Recertification",
+      "url": "https://www.acams.org/en/certifications/recertification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfcs.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACFCS's own certification-overview and dedicated certification-pricing pages render CFCS package pricing client-side; no dollar figure is present in the static page source of either. Search-engine caches of the same domain report US$1,195 (current members), US$1,395 (exam plus 1-year membership), or US$1,725 (exam plus 3-year membership), with reduced government rates from US$750, but these figures were not independently confirmed by a direct fetch",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "retained-as-estimate",
+    "source": {
+      "title": "Certification Overview / Certification Pricing (search-cache reference, pricing not present in static page source)",
+      "url": "https://www.acfcs.org/certification-overview",
+      "publisher": "ACFCS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfcs.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CFCS requires active ACFCS membership plus 40 earned eligibility credits (drawn from education, professional financial-crime experience, certifications, and training; 10 credits per full year of directly relevant professional experience)",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CFCS Certification Process & Eligibility",
+      "url": "https://www.acfcs.org/certification-overview",
+      "publisher": "ACFCS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfcs.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACFCS's certification-overview page publishes no formal tier structure or ladder above CFCS, unlike ACAMS's explicit Associate/Specialist/Advanced tiering",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Certification Overview",
+      "url": "https://www.acfcs.org/certification-overview",
+      "publisher": "ACFCS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfcs.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CFCS recertification is required every 3 years: 60 continuing education credits (earned through training, education, and relevant professional experience), with active ACFCS membership required throughout the cycle. ACFCS runs random recertification audits requiring supporting documentation",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Recertification",
+      "url": "https://www.acfcs.org/recertification",
+      "publisher": "ACFCS",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfe.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The CFE Exam application fee is US$480, covering application processing and the first attempt at each required section. Exam retakes are US$110 per failed section; a two-year application-window extension costs US$150. ACFE Associate Membership is mandatory; membership dues vary by a dues calculator rather than a single flat published rate",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CFE Credential FAQs",
+      "url": "https://www.acfe.com/cfe-credential/cfe-faq",
+      "publisher": "ACFE",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfe.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CFE eligibility requires ACFE Associate Membership, a minimum of 40 points in ACFE's eligibility points system to sit the exam, and a minimum of 50 points plus (normally) two years of fraud-related professional experience to be awarded the credential. Points come from education (a bachelor's degree yields 40 points) and/or fraud-related work experience (2 years of experience can substitute for each year of missing education)",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CFE Credential Eligibility",
+      "url": "https://www.acfe.com/cfe-credential/eligibility",
+      "publisher": "ACFE",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfe.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACFE's site publishes CFE as its single general credential with no formal higher certification tier; ACFE positions ongoing career progression through its own mentoring, job board, and career-resource programmes rather than a next-level exam",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Certified Fraud Examiner (CFE) Credential",
+      "url": "https://www.acfe.com/cfe-credential",
+      "publisher": "ACFE",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cfe.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "To maintain the CFE credential, holders must complete a minimum of 20 CPE credits during each annual compliance period, with at least 10 credits fraud-related and at least 2 credits ethics-related",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Continuing Professional Education (CPE) Requirements",
+      "url": "https://www.acfe.com/cfe-credential/continuing-professional-education-cpe-requirements",
+      "publisher": "ACFE",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-cert-aml.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Certificate in Anti Money Laundering costs GBP765 / EUR860 / USD1,030 in course fees, plus a GBP195 / EUR220 / USD260 twelve-month ICA membership fee added at checkout for non-members",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Certificate in Anti Money Laundering",
+      "url": "https://www.int-comp.org/courses/ica-certificate-in-anti-money-laundering/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-cert-aml.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Certificate in AML is a Level 2, Introductory qualification with no stated formal prerequisite, positioned as suitable for anyone wanting to learn more about AML, including operational or front-line staff considering a career move into AML. It carries 20 ICA CPD hours and a 2-month duration, assessed by a one-hour online multiple-choice exam",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Certificate in Anti Money Laundering",
+      "url": "https://www.int-comp.org/courses/ica-certificate-in-anti-money-laundering/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-cert-aml.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Certificate in AML is ICA's Level 2 entry qualification; ICA's own qualification framework and course pages present the Level 6 Diploma in AML as the next step up",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Diploma in Anti Money Laundering (AML)",
+      "url": "https://www.int-comp.org/courses/ica-diploma-in-anti-money-laundering/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-cert-aml.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ICA qualifications, including the Certificate in AML, do not require recertification or retesting to remain held. ICA recommends, but does not require, 35 hours of CPD per membership year; that recommendation is tied to earning an optional Certified Practitioner Certificate badge, not to retaining the underlying qualification. Replacement certificates for ICA qualifications remain obtainable on request (a fee applies)",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA FAQs (Membership & CPD, Course selection)",
+      "url": "https://www.int-comp.org/help-and-support/faqs/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-aml.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Diploma in Anti Money Laundering costs GBP4,500 / EUR5,085 / USD6,075 in course fees, plus a GBP195 / EUR220 / USD260 twelve-month ICA membership fee for non-members",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Diploma in Anti Money Laundering (AML)",
+      "url": "https://www.int-comp.org/courses/ica-diploma-in-anti-money-laundering/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-aml.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Diploma in AML is a Level 6, Advanced qualification requiring a good standard of spoken and written English plus a sound educational background (degree or professional qualification) or equivalent. ICA states the course is suitable for MLROs/MLPOs and their deputies, police and FIU/FCU staff, managers with internal AML control responsibilities, risk managers, accountants and lawyers. It carries 130 ICA CPD hours over a 9-month, part-time format with four intakes a year",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Diploma in Anti Money Laundering (AML)",
+      "url": "https://www.int-comp.org/courses/ica-diploma-in-anti-money-laundering/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-aml.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Diploma in AML is ICA's Level 6 Advanced tier, alongside the Diploma in Governance, Risk and Compliance; ICA's qualification framework positions its Postgraduate Diploma level above both",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA FAQs (Course selection: ICA Qualification Framework)",
+      "url": "https://www.int-comp.org/help-and-support/faqs/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-aml.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "Same structure as the ICA Certificate in AML: no recertification or retesting on the qualification itself; 35 CPD hours/year is recommended, not required, and tied to an optional Certified Practitioner Certificate rather than to retaining the Diploma",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA FAQs (Membership & CPD)",
+      "url": "https://www.int-comp.org/help-and-support/faqs/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-grc.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Diploma in Governance, Risk and Compliance costs GBP4,500 / EUR5,085 / USD6,075 in course fees, plus a GBP195 / EUR220 / USD260 twelve-month ICA membership fee for non-members",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Diploma in Governance, Risk and Compliance",
+      "url": "https://www.int-comp.org/courses/ica-diploma-in-governance-risk-and-compliance/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-grc.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Diploma in GRC is a Level 6, Advanced qualification with the same English-language and educational-background entry bar as the Diploma in AML. ICA states the course is suitable for compliance officers/managers and their deputies, managers with internal compliance-control responsibilities, risk managers, internal audit staff, regulatory representatives, accountants, lawyers and company secretaries. It carries 130 ICA CPD hours over a 9-month, part-time format",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Diploma in Governance, Risk and Compliance",
+      "url": "https://www.int-comp.org/courses/ica-diploma-in-governance-risk-and-compliance/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-grc.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "The ICA Diploma in GRC is ICA's Level 6 Advanced tier, the governance, risk and compliance counterpart to the Diploma in AML, both sitting below ICA's Postgraduate Diploma level",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA Diploma in Governance, Risk and Compliance",
+      "url": "https://www.int-comp.org/courses/ica-diploma-in-governance-risk-and-compliance/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ica-diploma-grc.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "Same structure as the other two ICA qualifications in this guide: no recertification or retesting on the qualification itself; 35 CPD hours/year is recommended, not required",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ICA FAQs (Membership & CPD)",
+      "url": "https://www.int-comp.org/help-and-support/faqs/",
+      "publisher": "International Compliance Association (int-comp.org)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.crcm.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "aba.com returns HTTP 403 to a direct automated fetch and presents a bot-detection challenge page to a live browser session; CRCM cost could not be independently confirmed. Third-party estimate sites (not aba.com) claim figures ranging roughly from US$400 to US$815, but these are secondary aggregators, not the issuing body, and are not relied on here",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "retained-as-estimate",
+    "source": {
+      "title": "Certified Regulatory Compliance Manager (CRCM) (direct verification blocked, HTTP 403 / bot-detection challenge)",
+      "url": "https://www.aba.com/training-events/certifications/certified-regulatory-compliance-manager",
+      "publisher": "American Bankers Association",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.crcm.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "A search-engine cache of an aba.com eligibility page (not independently fetched, aba.com blocks automated and browser access alike) indicates CRCM requires 6+ years of US compliance experience within the last 10 years (3 of those within the last 5), or 3+ years plus completion of two ABA compliance-related training options, all tied to a primary role managing compliance risk under US consumer banking law",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "retained-as-estimate",
+    "source": {
+      "title": "Eligibility Requirements for the CRCM (search-cache reference, not independently fetched)",
+      "url": "https://www.aba.com/training-events/certifications/certified-regulatory-compliance-manager/eligibility-requirements",
+      "publisher": "American Bankers Association",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.crcm.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "A search-engine listing of aba.com's certification pages (not independently fetched) shows ABA also offers a Certified AML and Fraud Professional (CAFP) credential alongside CRCM, suggesting a parallel specialist track rather than a formal tier above CRCM; this has not been confirmed on the aba.com page itself",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "retained-as-estimate",
+    "source": {
+      "title": "Eligibility Requirements for the CAFP (search-cache reference, not independently fetched)",
+      "url": "https://www.aba.com/training-events/certifications/certified-aml-and-fraud-professional/eligibility-requirements",
+      "publisher": "American Bankers Association",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.crcm.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "A search-engine cache of aba.com's certification-maintenance pages (not independently fetched) indicates an annual renewal fee, with notice sent in October and payment due by January 31 of the following year, plus ongoing adherence to a Professional Code of Ethics",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "retained-as-estimate",
+    "source": {
+      "title": "Maintain the CRCM (search-cache reference, not independently fetched)",
+      "url": "https://www.aba.com/training-events/certifications/certified-regulatory-compliance-manager/maintain-crcm",
+      "publisher": "American Bankers Association",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ccepi.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CCEP-I's initial exam fee is US$350 for CCB/SCCE/HCCA members and US$450 for non-members; a re-exam within the exam eligibility period costs US$75. SCCE/HCCA membership dues are separate and are not covered by the exam fee",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Compliance Certification FAQs (CCB)",
+      "url": "https://www.corporatecompliance.org/certification/frequently-asked-questions-faqs",
+      "publisher": "Society of Corporate Compliance and Ethics (SCCE) / Compliance Certification Board (CCB)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ccepi.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CCEP-I eligibility requires at least one year in a full-time compliance position, or 1,500 hours of direct compliance job duties, earned in the two years preceding the application, with duties tied to the exam's Detailed Content Outline; an alternative pathway exists via a CCB-accredited university compliance and ethics programme",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Compliance Certification FAQs (CCB)",
+      "url": "https://www.corporatecompliance.org/certification/frequently-asked-questions-faqs",
+      "publisher": "Society of Corporate Compliance and Ethics (SCCE) / Compliance Certification Board (CCB)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ccepi.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "SCCE's own FAQ draws the distinction directly: CCEP certification is geared toward US compliance and ethics law and is primarily for individuals who work within the US, while CCEP-I focuses on international compliance and ethics law and is primarily for individuals who work outside the US or have international affiliates; both sit at the same CCB certification tier with no formal ladder above either",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Compliance Certification FAQs (CCB)",
+      "url": "https://www.corporatecompliance.org/certification/frequently-asked-questions-faqs",
+      "publisher": "Society of Corporate Compliance and Ethics (SCCE) / Compliance Certification Board (CCB)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.ccepi.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CCB certification renewal (covering CCEP-I) is required every 2 years: 40 CCB CEUs must be earned and submitted, with a minimum of 20 CEUs from live training or events. The dollar renewal fee itself is not published on CCB's static renewal page, which points to a separate fee schedule",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Renew Certification (CCB)",
+      "url": "https://www.corporatecompliance.org/certification/renew-certification",
+      "publisher": "Society of Corporate Compliance and Ethics (SCCE) / Compliance Certification Board (CCB)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cisi-cfc.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CISI's Level 3 Certificate in Combating Financial Crime costs a total exam fee of GBP402 plus a mandatory workbook fee of GBP210; the lighter Award tier of the same subject costs GBP155 exam fee plus GBP105 workbook fee",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "CISI Price List (Qualifying Level 3 Qualifications)",
+      "url": "https://www.cisi.org/cisiweb2/cisi-website/why-choose-a-CISI-qualification/getting-started/price-list",
+      "publisher": "Chartered Institute for Securities & Investment (CISI)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cisi-cfc.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CISI's Combating Financial Crime qualification page states no rigid formal prerequisite; it is positioned by subject-matter fit rather than a stated minimum of years of experience or a required prior qualification",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Combating Financial Crime",
+      "url": "https://www.cisi.org/cisiweb2/cisi-website/why-choose-a-CISI-qualification/compliance-risk/combating-financial-crime",
+      "publisher": "Chartered Institute for Securities & Investment (CISI)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cisi-cfc.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CISI positions Combating Financial Crime at both an Award level and a higher Certificate level; CISI's own qualification listing places its Diploma-level investment-compliance qualifications above the Certificate tier",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "Combating Financial Crime",
+      "url": "https://www.cisi.org/cisiweb2/cisi-website/why-choose-a-CISI-qualification/compliance-risk/combating-financial-crime",
+      "publisher": "Chartered Institute for Securities & Investment (CISI)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.cisi-cfc.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "CISI's Combating Financial Crime qualification does not itself require recertification or retesting. The Award tier of this qualification is stated on CISI's own page to grant Affiliate-level CISI membership only; whether that Affiliate-grant statement extends identically to the Certificate tier compared in this guide was not directly confirmed. A directly fetched CISI CPD-requirements document describes a 35-hour annual CPD scheme, which appears to apply to Chartered-level members, not Affiliate members; the CPD figure that specifically applies to Affiliate-grade members was not resolved with confidence and should be confirmed directly with CISI",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "retained-as-estimate",
+    "source": {
+      "title": "Combating Financial Crime; CISI CPD Requirements document",
+      "url": "https://www.cisi.org/cisiweb2/cisi-website/why-choose-a-CISI-qualification/compliance-risk/combating-financial-crime",
+      "publisher": "Chartered Institute for Securities & Investment (CISI)",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.certified-afc-auditor.cost.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACAMS's Certified AFC Auditor package (formerly Advanced CAMS-Audit) costs US$1,695 (Public Sector) to US$2,195 (Private Sector) self-study, or US$2,195 to US$2,595 bundled with the Virtual Classroom Series. Active ACAMS membership is mandatory. Exam retake is US$299, exam extension US$100",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Certified AFC Auditor Certification (formerly Advanced CAMS-Audit)",
+      "url": "https://www.acams.org/en/certifications/advanced-cams/advanced-aml-audit-certification",
+      "publisher": "ACAMS",
+      "date": "2026-07-27"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.certified-afc-auditor.eligibility.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "Certified AFC Auditor requires either 60 ACAMS eligibility credits or an active CAMS designation. ACAMS recommends a minimum of five years of relevant experience before applying at the Advanced level, and states it is highly recommended, though not strictly mandatory, that candidates hold CAMS or equivalent knowledge of AML fundamentals",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Certified AFC Auditor Certification (formerly Advanced CAMS-Audit)",
+      "url": "https://www.acams.org/en/certifications/advanced-cams/advanced-aml-audit-certification",
+      "publisher": "ACAMS",
+      "date": "2026-07-27"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.certified-afc-auditor.progression.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACAMS's own product page states the certification (formerly Advanced CAMS-Audit) is for mid- to senior-level professionals conducting AFC audits or testing and monitoring AFC controls, internal audit staff, external auditors providing AFC assurance, and professionals preparing institutions for regulatory examinations; ACAMS's Advanced tier also includes CAMS-FCI (Financial Crimes Investigations) and CAMS-RM (Risk Management) as parallel senior credentials",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Certified AFC Auditor Certification (formerly Advanced CAMS-Audit)",
+      "url": "https://www.acams.org/en/certifications/advanced-cams/advanced-aml-audit-certification",
+      "publisher": "ACAMS",
+      "date": "2026-07-27"
+    }
+  },
+  {
+    "claimId": "certifications-dilemma.certified-afc-auditor.recert-cycle.001",
+    "guide": "certifications-dilemma.html",
+    "claimText": "ACAMS's dedicated recertification page lists Advanced-level certifications (Certified AFC Auditor, CAMS-FCI, CAMS-RM) at 45 total credits per 3-year cycle (at least 15 from ACAMS), on the same US$200/US$250/US$300 fee schedule as other 3-year ACAMS recertifications. Note: the Certified AFC Auditor product page's own recertification summary text still states a 30-credit figure inherited from its pre-rebrand copy; this ledger entry follows the dedicated, per-tier recertification page as the more authoritative and current source",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "ACAMS Recertification",
+      "url": "https://www.acams.org/en/certifications/recertification",
+      "publisher": "ACAMS",
+      "date": "2026-08-10"
+    }
   }
 ]
