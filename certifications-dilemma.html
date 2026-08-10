@@ -155,20 +155,19 @@
     .cert-compare-table .flag-note { color:var(--warning); font-weight:600; }
     .scroll-hint { display:none; align-items:center; gap:6px; font-size:12px; color:var(--muted); padding:8px 2px 0; justify-content:center; }
 
-    /* STICKY SCROLL CONTROLS
-       top:72px matches this page's own nav { height:72px } exactly (see the
-       nav rule above); brand.css defines no sitewide nav height to defer to
-       on this page, since this page's nav is static markup, not the
-       #site-nav partial mount. Sits inside .cert-table-scroll-region so it
-       stays stuck for as long as any part of the table (not just the very
-       top row) is still in the viewport, rather than only sticking within
-       its own single-line height the way a bare sibling sticky el would. */
-    .cert-table-scroll-region { position:relative; }
+    /* SCROLL CONTROLS
+       Static, not sticky. A sticky version was tried first but confirmed
+       broken sitewide (not just here): brand.css's html,body{overflow-x:hidden}
+       forces overflow-y to compute as auto on both, per the CSS overflow
+       pairing rule, which makes body (not html, the element that actually
+       scrolls) the sticky containing-block reference for every sticky
+       element on the site, nav included. See BACKLOG.md Polish item for the
+       full diagnosis. Sits directly above the table in normal flow instead;
+       the native scrollbar and the swipe hint below cover the rest. */
     .cert-table-scroll-controls {
-      position:sticky; top:72px; z-index:20;
       display:flex; align-items:center; justify-content:flex-end; gap:8px;
       padding:6px 10px; margin-bottom:6px;
-      background:rgba(255,255,255,0.97); backdrop-filter:blur(4px);
+      background:var(--off);
       border:1px solid var(--border); border-radius:8px;
     }
     .cert-scroll-label { font-size:11px; color:var(--muted); margin-right:auto; text-transform:uppercase; letter-spacing:0.4px; font-weight:600; }
