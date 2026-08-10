@@ -1051,5 +1051,140 @@
       "publisher": "ACAMS",
       "date": "2026-08-10"
     }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.default-threshold.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "The default match-score threshold for OpenSanctions-backed screening (above which a candidate is surfaced as a match) is 0.7, and the default algorithm is calibrated to be used with that value.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions API: Tuning the Matching System",
+      "url": "https://www.opensanctions.org/docs/api/tuning/",
+      "publisher": "OpenSanctions",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.two-stage-pipeline.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "A match query is processed in two stages: first a search index locates candidate results optimized for recall (retrieval), then those candidates are evaluated against the query using the configured matching algorithm (scoring).",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions API: Tuning the Matching System",
+      "url": "https://www.opensanctions.org/docs/api/tuning/",
+      "publisher": "OpenSanctions",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.regression-18-features.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "OpenSanctions' regression-v1 matching algorithm scores candidates across exactly 18 named features (e.g. name_match, name_token_overlap, name_levenshtein, dob_matches, dob_year_matches, dob_year_disjoint, identifier_match, org_identifier_match, address_match, gender_mismatch, country_mismatch, and others), confirmed by manual count of the published feature table, not name similarity alone.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions Matcher: Supported Matching Algorithms",
+      "url": "https://www.opensanctions.org/matcher/",
+      "publisher": "OpenSanctions",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.name-based-name-qualified.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "The name-based and name-qualified algorithms compare names using Jaro-Winkler string similarity combined with Soundex phonetic matching, are both deprecated in favour of the ofac (OFACMatcher) algorithm, and OpenSanctions' own documentation states neither reaches parity with OFAC's public Sanctions List Search tool.",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions Matcher: Deprecated Matching Algorithms",
+      "url": "https://www.opensanctions.org/matcher/",
+      "publisher": "OpenSanctions",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.ofac-algorithm.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "A separate algorithm (ofac / OFACMatcher) is reverse-engineered from OFAC's own scoring FAQ (FAQ #249) and parity fixtures captured against the live public tool, specifically to emulate sanctionssearch.ofac.treas.gov's behaviour, distinct from the deprecated name-based and name-qualified algorithms.",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions Matcher: ofac Algorithm",
+      "url": "https://www.opensanctions.org/matcher/",
+      "publisher": "OpenSanctions",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.logicv2-default.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "logic-v2 is a deterministic, rule-based matching algorithm whose name matcher uses curated, multilingual cultural reference data for cross-language and cross-script matching, and OpenSanctions' own API tuning documentation recommends pinning to logic-v2 for new integrations.",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions Matcher (logic-v2) and API Tuning documentation",
+      "url": "https://www.opensanctions.org/matcher/",
+      "publisher": "OpenSanctions",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.case-study-098.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "Two individuals named Khalid Mehmood on Pakistan's proscribed persons list, sharing the same name, country, and sanctions programme but different national ID numbers (ending 9885 and 0181) and different father's names (Muhammad Khan and Haji Muhammad), were assigned a 0.98 match score by a rule-based (RegressionV1/Nomenklatura) baseline in a February 2026 academic benchmark.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions Pairs: Large-Scale Entity Matching with LLMs, Figure 1",
+      "url": "https://arxiv.org/abs/2603.11051",
+      "publisher": "arXiv",
+      "date": "2026-08-10"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.yente-crossscript-fix.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "yente release v5.4.0 (13 May 2026) fixed a cross-script candidate-ranking bug: when a Latin-script candidate already carried the symbolic evidence of a same-script match, an Arabic/Cyrillic/etc. rendering of the same name could previously outrank it at the retrieval stage; the release aligned Elasticsearch candidate-fetch weighting with how the scoring stage already valued that evidence.",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "opensanctions/yente Release v5.4.0",
+      "url": "https://github.com/opensanctions/yente/releases/tag/v5.4.0",
+      "publisher": "OpenSanctions (GitHub)",
+      "date": "2026-05-13"
+    }
+  },
+  {
+    "claimId": "screening-algorithm-tuning-guide.suffix-prefix-matching.001",
+    "guide": "screening-algorithm-tuning-guide.html",
+    "claimText": "OpenSanctions' API backend upgrade effective 8 September 2025 improved company type suffix/prefix matching (e.g. LLC, OAO, OJSC) and more precise retrieval of candidates with very generic names and names across different scripts.",
+    "claimType": "definition",
+    "verifiedOn": "2026-08-10",
+    "reviewDue": "2027-08-10",
+    "status": "verified",
+    "source": {
+      "title": "OpenSanctions Changelog #32: API Service Backend Upgrades",
+      "url": "https://www.opensanctions.org/changelog/",
+      "publisher": "OpenSanctions",
+      "date": "2025-09-08"
+    }
   }
 ]

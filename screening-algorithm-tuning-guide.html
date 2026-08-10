@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuning Screening Algorithms: Why Fuzzy Matching Isn't Magic | FinCrimeRadar</title>
+  <meta name="description" content="The 0.7 default threshold, the 18 features a production matching algorithm actually scores, and the real case where two different people scored 0.98 on the same sanctions list. How fuzzy matching actually works, sourced directly against OpenSanctions' own documentation." />
+  <meta name="keywords" content="fuzzy matching, sanctions screening algorithm, name matching, OpenSanctions, Jaro-Winkler, transliteration screening, match threshold tuning, false positive sanctions screening, golden test set" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/screening-algorithm-tuning-guide.html" />
+  <meta property="og:title" content="Tuning Screening Algorithms: Why Fuzzy Matching Isn't Magic" />
+  <meta property="og:description" content="The default threshold, the 18 features a real matching algorithm scores, and the case where two different people scored 0.98 on the same sanctions list. Sourced directly against OpenSanctions' own documentation." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/screening-algorithm-tuning-guide.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tuning Screening Algorithms: Why Fuzzy Matching Isn't Magic",
+    "description": "The 0.7 default threshold, the 18 features a production matching algorithm actually scores, and the real case where two different people scored 0.98 on the same sanctions list. Sourced directly against OpenSanctions' own documentation.",
+    "author": {"@type": "Organization", "name": "FinCrimeRadar"},
+    "publisher": {"@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org"},
+    "url": "https://fincrimeradar.org/screening-algorithm-tuning-guide.html",
+    "datePublished": "2026-08-10"
+  }
+  </script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --hero-bg-1:#0f2044; --hero-bg-2:#1a3a6e; --hero-accent-em:#6ee7d4;
+      --c-match:#16a34a; --c-match-light:#f0fdf4;
+      --c-collision:#dc2626; --c-collision-light:#fef2f2;
+      --c-suffix:#d97706; --c-suffix-light:#fffbeb;
+      --c-negative:#6b7280; --c-negative-light:#f3f4f6;
+      --c-scriptswap:#7c3aed; --c-scriptswap-light:#f5f3ff;
+      --c-anecdotal:#2563eb; --c-anecdotal-light:#eff6ff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--accent); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(0,196,167,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(110,231,212,0.13) 0%, transparent 60%); }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(0,196,167,0.2); border:1px solid rgba(110,231,212,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:660px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    /* HERO STAT STRIP */
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(110,231,212,0.5); } 50%{ box-shadow:0 0 0 6px rgba(110,231,212,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:280px 1fr; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--accent); border-left-color:var(--accent); }
+    .toc a.active { color:var(--accent); border-left-color:var(--accent); font-weight:600; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-teal { background:var(--accent-light); border-color:var(--accent); }
+    .callout-amber { background:#fffbeb; border-color:var(--warning); }
+    .callout-red { background:#fef2f2; border-color:var(--danger); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; color:var(--navy); }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* PATTERN CARDS (Risk / Signal / Response) */
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    @media(max-width:768px) { .pattern-ttd { grid-template-columns:1fr; } }
+
+    /* SAVE AS IMAGE */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+    /* ================= ALGORITHM PIPELINE VISUALIZER (apv-*) ================= */
+    .apv-wrap { margin:1.5rem 0; }
+    .apv-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:1rem; }
+    .apv-tab { background:var(--off); border:1.5px solid var(--border); border-radius:8px; padding:9px 14px; font-size:13px; font-weight:600; color:#374151; cursor:pointer; transition:all 0.15s; font-family:'Inter',sans-serif; }
+    .apv-tab:hover { border-color:var(--accent); }
+    .apv-tab.active { background:var(--navy); border-color:var(--navy); color:#fff; }
+    .apv-panel { border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+    .apv-panel-head { padding:1.25rem 1.5rem; background:var(--off); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .apv-panel-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.2rem; color:var(--navy); }
+    .apv-tag { display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; padding:3px 10px; border-radius:99px; }
+    .apv-tag-match { background:var(--c-match-light); color:var(--c-match); }
+    .apv-tag-collision { background:var(--c-collision-light); color:var(--c-collision); }
+    .apv-tag-suffix { background:var(--c-suffix-light); color:var(--c-suffix); }
+    .apv-tag-negative { background:var(--c-negative-light); color:var(--c-negative); }
+    .apv-names { padding:1.25rem 1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; border-bottom:1px solid var(--border); }
+    .apv-name-box { flex:1; min-width:180px; background:var(--off); border:1px solid var(--border); border-radius:8px; padding:0.75rem 1rem; }
+    .apv-name-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted); margin-bottom:3px; }
+    .apv-name-text { font-size:15px; font-weight:700; color:var(--navy); }
+    .apv-vs { font-size:13px; font-weight:700; color:var(--muted); }
+    .apv-stage { padding:1.25rem 1.5rem; border-bottom:1px solid var(--border); }
+    .apv-stage:last-child { border-bottom:none; }
+    .apv-stage-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--accent); margin-bottom:0.6rem; }
+    .apv-stage-note { font-size:13.5px; color:#374151; line-height:1.6; margin-bottom:0.75rem; }
+    .apv-retrieval-badge { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:700; padding:4px 10px; border-radius:99px; }
+    .apv-retrieval-badge.yes { background:var(--c-match-light); color:var(--c-match); }
+    .apv-retrieval-badge.low { background:#fffbeb; color:var(--warning); }
+    .apv-features { display:flex; flex-direction:column; gap:6px; margin-bottom:1rem; }
+    .apv-feature-row { display:flex; justify-content:space-between; align-items:center; gap:1rem; background:var(--off); border-radius:6px; padding:8px 12px; font-size:13px; }
+    .apv-feature-label { color:#374151; }
+    .apv-feature-value { font-weight:700; color:var(--navy); font-size:12.5px; white-space:nowrap; }
+    .apv-score-row { display:flex; align-items:center; gap:1rem; margin-top:0.75rem; }
+    .apv-score-bar-wrap { flex:1; height:10px; background:#e4e7ec; border-radius:99px; position:relative; overflow:visible; }
+    .apv-score-bar-fill { height:100%; border-radius:99px; transition:width 0.5s ease; }
+    .apv-score-threshold { position:absolute; top:-4px; bottom:-4px; width:2px; background:var(--navy); }
+    .apv-score-threshold::after { content:'0.7 threshold'; position:absolute; top:-18px; left:50%; transform:translateX(-50%); font-size:9.5px; font-weight:700; color:var(--navy); white-space:nowrap; }
+    .apv-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:1.5rem; color:var(--navy); min-width:64px; text-align:right; }
+    .apv-verdict { padding:1.25rem 1.5rem; }
+    .apv-verdict-title { font-weight:700; font-size:14.5px; margin-bottom:6px; }
+    .apv-verdict-text { font-size:13.5px; line-height:1.6; }
+    .apv-verdict.correct { background:var(--c-match-light); }
+    .apv-verdict.correct .apv-verdict-title { color:var(--c-match); }
+    .apv-verdict.correct .apv-verdict-text { color:#14532d; }
+    .apv-verdict.danger { background:var(--c-collision-light); }
+    .apv-verdict.danger .apv-verdict-title { color:var(--c-collision); }
+    .apv-verdict.danger .apv-verdict-text { color:#7f1d1d; }
+    .apv-verdict.caution { background:var(--c-suffix-light); }
+    .apv-verdict.caution .apv-verdict-title { color:var(--c-suffix); }
+    .apv-verdict.caution .apv-verdict-text { color:#78350f; }
+    .apv-verdict.neutral { background:var(--c-negative-light); }
+    .apv-verdict.neutral .apv-verdict-title { color:#374151; }
+    .apv-verdict.neutral .apv-verdict-text { color:#374151; }
+    .apv-toggle-row { display:flex; gap:8px; margin-bottom:0; }
+    .apv-toggle-btn { background:#fff; border:1.5px solid var(--border); border-radius:99px; padding:6px 14px; font-size:12.5px; font-weight:700; cursor:pointer; color:#374151; font-family:'Inter',sans-serif; }
+    .apv-toggle-btn.active { background:var(--warning); border-color:var(--warning); color:#fff; }
+    .apv-note { font-size:11.5px; color:var(--muted); padding:0 1.5rem 1.25rem; line-height:1.5; }
+
+    /* NOW YOU TRY */
+    .apv-challenge { margin-top:1.5rem; }
+    .apv-challenge-score { display:flex; align-items:center; justify-content:space-between; background:var(--navy); color:#fff; border-radius:10px; padding:0.9rem 1.25rem; margin-bottom:1rem; font-size:13.5px; font-weight:600; }
+    .apv-challenge-score span { font-family:'DM Serif Display',Georgia,serif; font-size:1.2rem; color:var(--hero-accent-em); }
+    .apv-challenge-card { border:1px solid var(--border); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .apv-challenge-names { display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:1rem; font-size:14.5px; font-weight:700; color:var(--navy); }
+    .apv-predict-row { display:flex; gap:8px; margin-bottom:0.75rem; }
+    .apv-predict-btn { flex:1; padding:10px; border-radius:8px; border:1.5px solid var(--border); background:#fff; font-size:13px; font-weight:700; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .apv-predict-btn:hover:not(:disabled) { border-color:var(--accent); }
+    .apv-predict-btn.chosen { border-color:var(--navy); background:var(--navy); color:#fff; }
+    .apv-predict-btn:disabled { cursor:default; opacity:0.55; }
+    .apv-reveal { display:none; margin-top:0.75rem; border-radius:8px; padding:0.9rem 1rem; font-size:13px; }
+    .apv-reveal.show { display:block; }
+    .apv-reveal.right { background:var(--c-match-light); color:#14532d; }
+    .apv-reveal.wrong { background:var(--c-collision-light); color:#7f1d1d; }
+    .apv-reveal strong { display:block; margin-bottom:3px; }
+
+    /* FAQ */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; color:var(--navy); }
+    .faq-q:hover { background:var(--off); }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-icon.open { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
+    .faq-a.open { max-height:400px; padding:0 1.1rem 1rem; }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; font-family:'Inter',sans-serif; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:#00c4a7; }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+      nav { padding:0 1rem; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; width:auto !important; max-width:160px !important; }
+      .article-hero { padding:2.5rem 1.25rem 2rem; }
+      .article-layout { grid-template-columns:1fr; padding:1.25rem 1rem; }
+      .article-sidebar { position:static; order:2; }
+      .article-body { order:1; }
+      .article-section { padding:1.25rem; }
+      .hero-stats { flex-direction:column; }
+      .apv-names { flex-direction:column; align-items:stretch; }
+      .apv-vs { text-align:center; }
+      .apv-panel-head { flex-direction:column; align-items:flex-start; }
+      .pattern-ttd { grid-template-columns:1fr; }
+      .apv-predict-row { flex-direction:column; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool &rarr;</a>
+</div>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="series-tag">Screening &middot; Reference guide</div>
+    <h1>Tuning Screening Algorithms: Why Fuzzy Matching Isn't Magic</h1>
+    <p class="hero-sub">The default threshold, the algorithms actually in production, and the real case where two different people scored 0.98 on the same sanctions list. Every technical claim checked directly against OpenSanctions' own documentation, not a secondary summary.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:1.5rem;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>&#128214; 16 min read</span>
+      <span>&#128260; Interactive pipeline visualizer</span>
+      <span>&#127919; Practitioner level</span>
+    </div>
+
+    <div class="hero-eyebrow-row">
+      <div class="pulse-dot"></div>
+      <span>Confirmed directly against primary sources</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">0.7</div>
+        <div class="hero-stat-label">Default match threshold behind most production sanctions screening</div>
+        <div class="hero-stat-source">OpenSanctions API documentation, the same score-cutoff logic used across name-based and regression scoring.</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">0.98</div>
+        <div class="hero-stat-label">The match score two different people once received on the same sanctions programme</div>
+        <div class="hero-stat-source">A 2026 academic benchmark, same name, same country, different national ID numbers.</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">18</div>
+        <div class="hero-stat-label">Features a production-grade matching algorithm actually scores, not just name text</div>
+        <div class="hero-stat-source">Levenshtein distance, phonetic matching, token overlap, date and identifier comparison, per OpenSanctions' own regression algorithm documentation.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+  <!-- TOC -->
+  <aside class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">In this guide</div>
+      <a href="#intro">Why fuzzy matching isn't magic</a>
+      <a href="#case-study">The 0.98 same-name problem</a>
+      <a href="#pipeline">The two-stage pipeline</a>
+      <a href="#transliteration">Cross-script matching</a>
+      <a href="#suffix-noise">Corporate suffix and patronymic noise</a>
+      <a href="#golden-test-set">Building a test set first</a>
+      <a href="#visualizer">Pipeline visualizer</a>
+      <a href="#patterns">Four things to watch for</a>
+      <a href="#faq">FAQ</a>
+      <a href="#quiz">Knowledge check</a>
+    </div>
+    <div class="tool-cta">
+      <p>Screen a name and see OpenSanctions retrieval and scoring run for real.</p>
+      <a href="/screen.html">Try the tool &rarr;</a>
+    </div>
+  </aside>
+
+  <main class="article-body">
+
+    <!-- INTRO -->
+    <section class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--accent)">The problem with "the algorithm decided"</div>
+      <h2>Fuzzy matching isn't magic</h2>
+
+      <p>Ask an analyst why a screening alert fired and the honest answer is often "the algorithm decided." That isn't a good enough answer, and treated as a final word rather than a starting point, it isn't even true. Fuzzy matching, the mechanism behind almost every sanctions and PEP screening hit, is not a black box handed down from somewhere unaccountable. It is documented, public, and tunable. The gap between an analyst who can explain why a match fired and one who can only accept or dismiss it is understanding, roughly, how that mechanism actually works.</p>
+
+      <p>Fuzzy matching means comparing a submitted name against a reference list not by exact string equality but by a calculated similarity score. Real names arrive misspelled, transliterated, reordered, or shortened, sometimes several of those at once, and a system that only catches an exact character-for-character match catches almost nothing that actually matters in practice.</p>
+
+      <p>This guide grounds every claim in one real, currently running production system rather than a textbook abstraction: OpenSanctions, the sanctions and PEP data provider behind a meaningful share of the industry's screening tools, including FinCrimeRadar's own. OpenSanctions documents its matching approaches openly, and the actual options are worth naming precisely rather than treating as interchangeable. Two older approaches, name-based and name-qualified, compare names using Jaro-Winkler string similarity combined with Soundex phonetic matching. Both are now deprecated, and OpenSanctions' own documentation is explicit that neither one reaches parity with OFAC's public Sanctions List Search tool [1]. A separate algorithm exists specifically for that purpose, reverse-engineered from OFAC's own scoring FAQ and calibrated to emulate the live public tool's behaviour [2]. The current recommended default is logic-v2, a deterministic, rule-based system that annotates parts of a name using curated, multilingual reference data before comparing anything, purpose-built to improve cross-language and cross-script matching over its predecessor [3]. Alongside it sits a regression-based approach, a logistic regression model scored across 18 separate features spanning name similarity, dates, and identifiers, not the name string alone [4].</p>
+
+      <p>Underneath every one of these sits a tension that no amount of tuning removes. Tighten the match threshold to cut false positives and a genuine match can slip through unflagged. Loosen it to catch more genuine matches and analysts drown in noise that was never a real hit. There is no setting that solves both problems at once. There is only an informed trade-off, made deliberately, rather than one made by accident and never revisited.</p>
+
+      <div class="callout callout-teal">
+        <strong>What this guide is not</strong>
+        <p>Not a computer-science specification of exact scoring formulas, and not a claim that any single number here is precise to three decimal places on every possible input. Every technical figure is sourced to a real, current primary document, listed in this site's verification ledger, and flagged honestly where OpenSanctions itself gives a range rather than a fixed value.</p>
+      </div>
+    </section>
+
+    <!-- CASE STUDY -->
+    <section class="article-section" id="case-study">
+      <div class="section-eyebrow" style="color:var(--danger)">The clearest illustration in the field</div>
+      <h2>The 0.98 same-name problem</h2>
+
+      <p>In a benchmark released in February 2026, researchers working with OpenSanctions' own large-scale labelled pair dataset surfaced a case that illustrates the ceiling of name-only matching better than any constructed example could. Two individuals appear on Pakistan's proscribed persons list under the identical name Khalid Mehmood. Same name, same country, same sanctions programme. They are not the same person: one record carries a national identity number ending 9885 and lists a father's name of Muhammad Khan, the other carries an ID ending 0181 and lists a father's name of Haji Muhammad. A standard rule-based matching baseline, the same category of algorithm many production screening systems still run today, scored this pair 0.98 out of a top score of roughly 1.0, functionally treating two different people as the same entity [5].</p>
+
+      <p>This is not a story about a badly built algorithm. Jaro-Winkler, Soundex, Levenshtein distance, whatever string-comparison method sits underneath a name-only matcher, none of them can resolve identity between two people who genuinely share a name, because the information needed to tell them apart was never encoded in the name string to begin with. That is exactly why OpenSanctions' newer algorithms don't stop at the name: name-qualified, logic-v2, and the regression-based approach all add a second identifying feature on top of the name score, a date of birth, a national ID, an address, precisely because the name alone runs out of resolving power once a name is common enough.</p>
+
+      <div class="callout callout-red">
+        <strong>The fix is not a better string algorithm</strong>
+        <p>No amount of refining how two name strings get compared changes the outcome of the Khalid Mehmood case, because both names are identical strings. The only thing that can distinguish these two people is a second, independent piece of identity: a date of birth, a national ID number, an address. That is the entire argument for qualified and regression-based scoring over name-only matching.</p>
+      </div>
+    </section>
+
+    <!-- TWO-STAGE PIPELINE -->
+    <section class="article-section" id="pipeline">
+      <div class="section-eyebrow" style="color:var(--accent)">What actually happens when a query runs</div>
+      <h2>The two-stage pipeline</h2>
+
+      <p>Real production screening does not run a single calculation. It runs two distinct stages, and conflating them is the source of a lot of "why did this even fire" confusion among analysts.</p>
+
+      <p><strong>Stage one is retrieval</strong>: a broad, deliberately high-recall search across the reference database that pulls in every plausible candidate, tuned to avoid missing anything, even at the cost of pulling in candidates that have no real chance of turning out to be a genuine match. <strong>Stage two is scoring</strong>: each retrieved candidate is compared against the query using whichever matching algorithm is configured, and assigned a numeric score [6]. Only candidates whose score crosses the configured threshold, 0.7 by default for OpenSanctions-backed screening, get surfaced to an analyst as a match [7].</p>
+
+      <p>The reason this two-stage shape matters in practice: a candidate that should never have been retrieved in stage one can still produce a specific-looking, confident score in stage two. An analyst who only ever looks at the final score has no way to tell the difference between "this is a strong match" and "this is a strong score on a candidate that shouldn't have made the candidate list in the first place." Understanding that a score is downstream of a retrieval decision, not a single self-contained judgement, is the first step toward being able to explain an alert rather than just react to it.</p>
+    </section>
+
+    <!-- TRANSLITERATION -->
+    <section class="article-section" id="transliteration">
+      <div class="section-eyebrow" style="color:var(--accent)">Not a solved layer underneath the algorithm</div>
+      <h2>Transliteration and cross-script matching</h2>
+
+      <p>Comparing a Latin-alphabet name against its Arabic, Cyrillic, or CJK rendering is a live, actively maintained engineering problem, not solved theory sitting quietly beneath whichever algorithm a screening tool advertises.</p>
+
+      <p>A concrete, dated example: OpenSanctions' underlying matching engine shipped a fix in May 2026 for a specific class of bug in cross-script candidate handling. Before the fix, a Latin-script candidate that already carried strong supporting evidence of a genuine match could still be silently outranked at the retrieval stage by an unrelated candidate whose name happened to render in Arabic, Cyrillic, or another script, purely because of how script-based weighting was calculated when candidates were first pulled in, not because the final score itself was wrong. The fix aligned that retrieval-stage weighting with how the scoring stage actually values evidence, so a same-script candidate with genuine supporting evidence is no longer pushed out by a same-name candidate in a different script that carries none [8].</p>
+
+      <p>The lesson for a practitioner is not the specific bug, which is already fixed. It is that transliteration and cross-script handling are not a fixed, solved layer sitting underneath whichever algorithm a vendor advertises. They are actively maintained logic that can and does change between versions, which is exactly why pinning a specific algorithm version matters for regulatory consistency: a compliance team that cannot say which version of the matching logic produced a given day's alerts cannot fully explain why alert volume shifted.</p>
+    </section>
+
+    <!-- CORPORATE SUFFIX / PATRONYMIC -->
+    <section class="article-section" id="suffix-noise">
+      <div class="section-eyebrow" style="color:var(--accent)">The everyday version of the same problem</div>
+      <h2>Corporate suffix and patronymic noise</h2>
+
+      <p>A more everyday version of the Khalid Mehmood problem shows up in two places: corporate suffixes and patronymics.</p>
+
+      <p>Corporate suffixes, LLC, OJSC, SA, Trading, Limited, and the like, are exactly the kind of variation a naive matcher can treat as a meaningful difference when it usually isn't one. "Global Trading Ltd" and "Global Trading OJSC" are, in the large majority of real cases, worth comparing as the same underlying entity name with an incorporation-type suffix attached, not two unrelated companies. Patronymics, name elements built from a parent's given name and common across Slavic, Arabic, and other naming conventions, create a related kind of noise: they look like meaningful, distinguishing name content to a naive matcher but often carry less weight in practice than the rest of the name.</p>
+
+      <p>Stripping this noise reduces false positives caused by suffix and patronymic variation, and current matching approaches do some version of it deliberately [9]. OpenSanctions' logic-v2 approach explicitly annotates and de-prioritises generic terms like these using curated reference data, rather than removing them outright [3]. Done carelessly, though, the same stripping logic can cut too deep and remove a part of a name that was genuinely doing distinguishing work, the same failure mode as the case study above, approached from the opposite direction: instead of a name-only score missing a real difference because two people share a common core name, an over-aggressive stripping rule can manufacture a false similarity by deleting the exact part of a name that would have told two entities apart.</p>
+    </section>
+
+    <!-- GOLDEN TEST SET -->
+    <section class="article-section" id="golden-test-set">
+      <div class="section-eyebrow" style="color:var(--accent)">The most practical section in this guide</div>
+      <h2>Building a test set before changing anything in production</h2>
+
+      <p>Everything covered so far points to the same practical conclusion: never change a threshold or an algorithm version based on a handful of recent alerts. Measure it first.</p>
+
+      <p>A golden test set is a fixed, held-out collection of known true-positive and true-negative name pairs, used specifically to check whether a proposed tuning change actually improves matching before it reaches production, not after. At minimum, a usable one should contain:</p>
+      <ul>
+        <li><strong>Known sanctioned names across multiple scripts</strong>, so a cross-script regression gets caught before it reaches production.</li>
+        <li><strong>Common-name collision pairs</strong>, like the Khalid Mehmood case above, so name-only overconfidence gets caught rather than assumed away.</li>
+        <li><strong>Real historical false positives from the reader's own alert history</strong>, because every screening population has its own recurring noise patterns a generic test set will not cover.</li>
+        <li><strong>Deliberately difficult transliteration variants</strong>, chosen specifically to stress-test the matcher rather than flatter it.</li>
+      </ul>
+
+      <p>The discipline this replaces is dangerous precisely because it feels reasonable in the moment: a threshold nudged up because analysts complained about noise last week, or nudged down because someone worried about a near miss, with no measurement of what that change actually does to the true-positive and false-positive rate against a fixed reference. A golden test set turns "I think this change helped" into something a compliance team can actually show a regulator.</p>
+    </section>
+
+    <!-- ================= PHASE D: ALGORITHM PIPELINE VISUALIZER ================= -->
+    <section class="article-section" id="visualizer">
+      <div class="section-eyebrow" style="color:var(--accent)">See the two stages run on real examples</div>
+      <h2>The Algorithm Pipeline Visualizer</h2>
+      <p>Four name pairs, walked through both pipeline stages exactly as described above. Every score and feature value below is a fixed, pre-written illustration of how each pair is scored, not a live recalculation, so the numbers stay identical no matter how many times you replay them.</p>
+
+      <div class="apv-wrap">
+        <div class="apv-tabs" role="tablist">
+          <button class="apv-tab active" data-pair="1" onclick="apvShowPair(1)">1. The Spelling Variant</button>
+          <button class="apv-tab" data-pair="2" onclick="apvShowPair(2)">2. The Common-Name Collision</button>
+          <button class="apv-tab" data-pair="3" onclick="apvShowPair(3)">3. The Corporate Suffix Case</button>
+          <button class="apv-tab" data-pair="4" onclick="apvShowPair(4)">4. The Clean Negative</button>
+        </div>
+
+        <!-- PAIR 1: SPELLING VARIANT -->
+        <div class="apv-panel" id="apv-panel-1">
+          <div class="apv-panel-head">
+            <div class="apv-panel-title">The Spelling Variant</div>
+            <span class="apv-tag apv-tag-match">Should match</span>
+          </div>
+          <div class="apv-names">
+            <div class="apv-name-box"><div class="apv-name-label">Query</div><div class="apv-name-text">Mohammed Al-Rashid</div></div>
+            <div class="apv-vs">vs</div>
+            <div class="apv-name-box"><div class="apv-name-label">Candidate</div><div class="apv-name-text">Muhamad Al Rashed</div></div>
+          </div>
+          <div class="apv-stage">
+            <div class="apv-stage-label">Stage 1 &middot; Retrieval</div>
+            <div class="apv-stage-note">Pulled into the candidate set despite three separate spelling differences, because retrieval is deliberately high-recall.</div>
+            <span class="apv-retrieval-badge yes">&#10003; Retrieved</span>
+          </div>
+          <div class="apv-stage">
+            <div class="apv-stage-label">Stage 2 &middot; Scoring</div>
+            <div class="apv-features">
+              <div class="apv-feature-row"><span class="apv-feature-label">Jaro-Winkler name similarity</span><span class="apv-feature-value">0.89</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Phonetic (Soundex) match</span><span class="apv-feature-value">Yes</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Token order match</span><span class="apv-feature-value">Yes</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Supporting identifiers</span><span class="apv-feature-value">None provided</span></div>
+            </div>
+            <div class="apv-score-row">
+              <div class="apv-score-bar-wrap"><div class="apv-score-bar-fill" style="width:91%;background:var(--c-match);"></div><div class="apv-score-threshold" style="left:70%;"></div></div>
+              <div class="apv-score-num">0.91</div>
+            </div>
+          </div>
+          <div class="apv-verdict correct">
+            <div class="apv-verdict-title">Above threshold, correctly matched</div>
+            <div class="apv-verdict-text">Three spelling differences (Mohammed/Muhamad, Al-Rashid/Al Rashed, hyphen vs space) are exactly what Jaro-Winkler and phonetic matching exist to absorb. This is fuzzy matching doing its intended job.</div>
+          </div>
+        </div>
+
+        <!-- PAIR 2: COMMON-NAME COLLISION -->
+        <div class="apv-panel" id="apv-panel-2" style="display:none;">
+          <div class="apv-panel-head">
+            <div class="apv-panel-title">The Common-Name Collision</div>
+            <span class="apv-tag apv-tag-collision">The real case study</span>
+          </div>
+          <div class="apv-names">
+            <div class="apv-name-box"><div class="apv-name-label">Query</div><div class="apv-name-text">Khalid Mehmood</div><div class="apv-name-label" style="margin-top:6px;">ID ...9885 &middot; father Muhammad Khan</div></div>
+            <div class="apv-vs">vs</div>
+            <div class="apv-name-box"><div class="apv-name-label">Candidate</div><div class="apv-name-text">Khalid Mehmood</div><div class="apv-name-label" style="margin-top:6px;">ID ...0181 &middot; father Haji Muhammad</div></div>
+          </div>
+          <div class="apv-stage">
+            <div class="apv-stage-label">Stage 1 &middot; Retrieval</div>
+            <div class="apv-stage-note">Identical name string, so this candidate is retrieved with maximum confidence, correctly.</div>
+            <span class="apv-retrieval-badge yes">&#10003; Retrieved</span>
+          </div>
+          <div class="apv-stage">
+            <div class="apv-stage-label">Stage 2 &middot; Scoring</div>
+            <div class="apv-features">
+              <div class="apv-feature-row"><span class="apv-feature-label">Name similarity</span><span class="apv-feature-value">1.00 (identical)</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Country / programme match</span><span class="apv-feature-value">Yes</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">National ID compared</span><span class="apv-feature-value">Different, ...9885 vs ...0181</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Father's name compared</span><span class="apv-feature-value">Different</span></div>
+            </div>
+            <div class="apv-score-row">
+              <div class="apv-score-bar-wrap"><div class="apv-score-bar-fill" style="width:98%;background:var(--c-collision);"></div><div class="apv-score-threshold" style="left:70%;"></div></div>
+              <div class="apv-score-num">0.98</div>
+            </div>
+          </div>
+          <div class="apv-verdict danger">
+            <div class="apv-verdict-title">This is the ceiling of name-only matching</div>
+            <div class="apv-verdict-text">A rule-based, name-only baseline scored this pair 0.98 in the academic benchmark this pair is drawn from, even though the ID number and father's name both differ. No string-similarity refinement fixes this: the two names are identical strings. Only weighting the ID and father's-name mismatch as disqualifying, not just informative, resolves it, which is exactly what qualified and regression-based matching are built to do.</div>
+          </div>
+        </div>
+
+        <!-- PAIR 3: CORPORATE SUFFIX -->
+        <div class="apv-panel" id="apv-panel-3" style="display:none;">
+          <div class="apv-panel-head">
+            <div class="apv-panel-title">The Corporate Suffix Case</div>
+            <span class="apv-tag apv-tag-suffix">Depends on stripping strategy</span>
+          </div>
+          <div class="apv-names">
+            <div class="apv-name-box"><div class="apv-name-label">Query</div><div class="apv-name-text">Zenith Trading OJSC</div></div>
+            <div class="apv-vs">vs</div>
+            <div class="apv-name-box"><div class="apv-name-label">Candidate</div><div class="apv-name-text">Zenith Trading Limited</div></div>
+          </div>
+          <div class="apv-stage">
+            <div class="apv-stage-label">Toggle the stripping strategy</div>
+            <div class="apv-stage-note">Same two company names, two different ways of handling the suffix and the generic word "Trading."</div>
+            <div class="apv-toggle-row">
+              <button class="apv-toggle-btn active" id="apv-toggle-naive" onclick="apvSetSuffix('naive')">No stripping (naive)</button>
+              <button class="apv-toggle-btn" id="apv-toggle-aggressive" onclick="apvSetSuffix('aggressive')">Over-aggressive stripping</button>
+            </div>
+          </div>
+          <div class="apv-stage" id="apv-suffix-body">
+            <!-- filled by JS -->
+          </div>
+          <div class="apv-verdict caution" id="apv-suffix-verdict">
+            <!-- filled by JS -->
+          </div>
+        </div>
+
+        <!-- PAIR 4: CLEAN NEGATIVE -->
+        <div class="apv-panel" id="apv-panel-4" style="display:none;">
+          <div class="apv-panel-head">
+            <div class="apv-panel-title">The Clean Negative</div>
+            <span class="apv-tag apv-tag-negative">Correctly not a match</span>
+          </div>
+          <div class="apv-names">
+            <div class="apv-name-box"><div class="apv-name-label">Query</div><div class="apv-name-text">David Chen</div><div class="apv-name-label" style="margin-top:6px;">DOB 1984, Singapore</div></div>
+            <div class="apv-vs">vs</div>
+            <div class="apv-name-box"><div class="apv-name-label">Candidate</div><div class="apv-name-text">David Chan</div><div class="apv-name-label" style="margin-top:6px;">DOB 1961, Malaysia</div></div>
+          </div>
+          <div class="apv-stage">
+            <div class="apv-stage-label">Stage 1 &middot; Retrieval</div>
+            <div class="apv-stage-note">Close enough phonetically to be retrieved, exactly as it should be.</div>
+            <span class="apv-retrieval-badge yes">&#10003; Retrieved</span>
+          </div>
+          <div class="apv-stage">
+            <div class="apv-stage-label">Stage 2 &middot; Scoring</div>
+            <div class="apv-features">
+              <div class="apv-feature-row"><span class="apv-feature-label">Name similarity</span><span class="apv-feature-value">0.74</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Phonetic match</span><span class="apv-feature-value">Partial</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Date of birth compared</span><span class="apv-feature-value">Different, 23 years apart</span></div>
+              <div class="apv-feature-row"><span class="apv-feature-label">Country compared</span><span class="apv-feature-value">Different</span></div>
+            </div>
+            <div class="apv-score-row">
+              <div class="apv-score-bar-wrap"><div class="apv-score-bar-fill" style="width:31%;background:var(--c-negative);"></div><div class="apv-score-threshold" style="left:70%;"></div></div>
+              <div class="apv-score-num">0.31</div>
+            </div>
+          </div>
+          <div class="apv-verdict neutral">
+            <div class="apv-verdict-title">Below threshold, correctly not flagged</div>
+            <div class="apv-verdict-text">A near-miss surname and no other supporting evidence is exactly what the 0.7 threshold exists to filter out. This is the quiet, correct majority case that a well-tuned system produces constantly and nobody notices, because nothing fires.</div>
+          </div>
+        </div>
+      </div>
+      <p class="apv-note" style="padding:0 0.25rem;margin-top:0.75rem;">All four feature values above are fixed illustrative figures written to demonstrate how each stage reasons about a pair, based on the real mechanics described in the sections above. They are not live recalculations and will not change between visits.</p>
+
+      <!-- NOW YOU TRY -->
+      <div class="apv-challenge">
+        <h3 style="margin-top:0;">Now you try</h3>
+        <p>Three fresh name pairs. Predict match or no match before revealing the answer.</p>
+        <div class="apv-challenge-score">
+          <span>Running score</span>
+          <span id="apvChallengeScore">0 / 0</span>
+        </div>
+
+        <div class="apv-challenge-card">
+          <div class="apv-challenge-names">Aleksandr Volkov <span style="color:var(--muted);font-weight:400;">vs</span> Alexander Volkov</div>
+          <div class="apv-predict-row">
+            <button class="apv-predict-btn" onclick="apvPredict(this,'q1','match')">Match</button>
+            <button class="apv-predict-btn" onclick="apvPredict(this,'q1','no-match')">No match</button>
+          </div>
+          <div class="apv-reveal" id="apv-reveal-q1"></div>
+        </div>
+
+        <div class="apv-challenge-card">
+          <div class="apv-challenge-names">Maria Santos (DOB 1990, Philippines) <span style="color:var(--muted);font-weight:400;">vs</span> Maria Santos (DOB 1958, Portugal)</div>
+          <div class="apv-predict-row">
+            <button class="apv-predict-btn" onclick="apvPredict(this,'q2','match')">Match</button>
+            <button class="apv-predict-btn" onclick="apvPredict(this,'q2','no-match')">No match</button>
+          </div>
+          <div class="apv-reveal" id="apv-reveal-q2"></div>
+        </div>
+
+        <div class="apv-challenge-card">
+          <div class="apv-challenge-names">Al-Faisal Group LLC <span style="color:var(--muted);font-weight:400;">vs</span> Al Faisal Group</div>
+          <div class="apv-predict-row">
+            <button class="apv-predict-btn" onclick="apvPredict(this,'q3','match')">Match</button>
+            <button class="apv-predict-btn" onclick="apvPredict(this,'q3','no-match')">No match</button>
+          </div>
+          <div class="apv-reveal" id="apv-reveal-q3"></div>
+        </div>
+      </div>
+
+      <div class="callout callout-teal" style="margin-top:1.5rem;">
+        <strong>Where this runs for real</strong>
+        <p>FinCrimeRadar's own screening tool calls OpenSanctions' live <code>/match/default</code> endpoint, the same retrieval-and-scoring pipeline described above, not a simulation of it. <a href="/screen.html" style="color:var(--accent);font-weight:600;">Try a real name against it &rarr;</a></p>
+      </div>
+    </section>
+
+    <!-- ================= PHASE E: RISK / SIGNAL / RESPONSE CARDS ================= -->
+    <section class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--accent)">Four things to watch for</div>
+      <h2>Four ways tuning goes wrong</h2>
+      <p>The risk each pattern creates, the signal that tells you it's happening, and the response that actually fits.</p>
+
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">&#128190; Save as image</button>
+      </div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-collision-light);border-color:#fecaca;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">&#128101;</div>
+            <div class="pattern-name" style="color:var(--c-collision);">The Common-Name Collision</div>
+          </div>
+          <div class="pattern-line">A name-only score can look decisive even when it is comparing two entirely different people who happen to share a common name.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-collision);">Risk</div><div class="ttd-text">A high-confidence-looking score gets treated as identity confirmation when it's only confirming the name string.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-collision);">Signal</div><div class="ttd-text">The score is high but no date of birth, national ID, or address was actually compared, only the name matched.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-collision);">Response</div><div class="ttd-text">Require a second identifying feature before treating a common name as confirmed, not a tighter name-string algorithm.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-scriptswap-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">&#127760;</div>
+            <div class="pattern-name" style="color:var(--c-scriptswap);">The Silent Script Swap</div>
+          </div>
+          <div class="pattern-line">A genuine same-script match can lose ranking priority to an unrelated candidate that happens to render in a different script, before scoring ever runs.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-scriptswap);">Risk</div><div class="ttd-text">A real match gets pushed down the candidate list at retrieval time and never reaches an analyst's screen at all.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-scriptswap);">Signal</div><div class="ttd-text">Cross-script alert volume shifts after a matching-engine version change, with no change in the underlying watchlist.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-scriptswap);">Response</div><div class="ttd-text">Pin and log the matching engine version in use, and re-run the golden test set's cross-script pairs after every upgrade.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-suffix-light);border-color:#fde68a;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">&#9986;&#65039;</div>
+            <div class="pattern-name" style="color:var(--c-suffix);">The Over-Aggressive Strip</div>
+          </div>
+          <div class="pattern-line">Stripping corporate suffixes and generic terms cuts false positives, right up until it strips a word that was actually doing distinguishing work.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-suffix);">Risk</div><div class="ttd-text">Two genuinely different companies get merged into a false match because a generic-sounding word was treated as noise.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-suffix);">Signal</div><div class="ttd-text">A new match fires between two entities whose only shared text is the exact word your stripping list just added.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-suffix);">Response</div><div class="ttd-text">Test every addition to a stripping or noise-term list against the golden test set before it ships, not just the case that motivated it.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-anecdotal-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">&#128172;</div>
+            <div class="pattern-name" style="color:var(--c-anecdotal);">The Anecdotal Retune</div>
+          </div>
+          <div class="pattern-line">A threshold nudged because of a handful of recent alerts, with no measurement of what that change actually does to the true and false positive rate.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-anecdotal);">Risk</div><div class="ttd-text">A change that felt reasonable in the moment silently shifts the real precision and recall trade-off with nobody able to say by how much.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-anecdotal);">Signal</div><div class="ttd-text">A threshold or algorithm-version change went live with no before-and-after comparison against a fixed reference set.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-anecdotal);">Response</div><div class="ttd-text">Run every proposed change against a golden test set first, and keep the before-and-after numbers as the record of why it shipped.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PHASE F: FAQ ================= -->
+    <section class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--accent)">Common Questions</div>
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is a higher match score always more trustworthy than a lower one? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Not on its own. A high score means the query matched strongly on whatever features the algorithm compared, and if the only feature available was the name, a high score can mean nothing more than "these two names are very similar strings," which the Khalid Mehmood case above shows can happen between two completely different people. A high score backed by a matching date of birth or national ID carries a different kind of confidence than a high score built from name similarity alone. Read what was actually compared, not just the final number.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Should our team default to a lower or higher match threshold than 0.7? <span class="faq-icon">+</span></div>
+        <div class="faq-a">There is genuine, ongoing disagreement in the industry on this, not a settled answer, and this guide won't pretend otherwise. Some practitioners argue for tuning toward fewer false positives, on the view that analyst attention is a scarce resource and alert fatigue itself causes real matches to get missed in the noise. Others argue for tuning toward fewer false negatives, on the view that a missed sanctions match carries a categorically worse downside than an extra few minutes of review time. Both are defensible institutional positions, not factual claims, and the right choice depends on a given team's risk appetite, alert volumes, and review capacity. What isn't defensible is picking either position without measuring the trade-off against a golden test set first.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does a name-matching algorithm ever need to see a date of birth or ID number to work at all? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Name-only matching works and is genuinely useful for a large share of screening traffic, most names aren't common enough to produce a collision like the case study above. The point isn't that name-only matching is broken, it's that name-only matching has a known, structural ceiling once a name is common enough, and no amount of string-algorithm refinement raises that ceiling. A second identifying feature is what raises it, which is exactly why qualified and regression-based approaches exist alongside name-only ones rather than replacing them outright.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why would a screening tool's results change without anyone touching a threshold? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Because the matching engine itself is actively maintained software, not a fixed formula. The cross-script ranking fix described above shipped in a routine engine release, not a threshold change, and it measurably shifted which candidates got prioritised for scoring. Any team relying on a hosted or managed screening provider should expect matching behaviour to shift periodically for reasons that have nothing to do with their own configuration, and should re-run their golden test set after any engine or algorithm-version upgrade, not just after their own configuration changes.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is it enough to just pick the "best" algorithm OpenSanctions offers and stop thinking about tuning? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No single algorithm removes the need for ongoing measurement. logic-v2 is the current recommended default and genuinely improves on older approaches in several dimensions, but "recommended default" is not the same as "correct for every population, every threshold, forever." A newer algorithm can still produce a collision like the case study above on a sufficiently common name, still needs a threshold set deliberately for a given team's risk appetite, and still benefits from being checked against a golden test set before and after any version change. The algorithm choice is one tuning decision among several, not a substitute for the discipline around all of them.</div>
+      </div>
+    </section>
+
+    <!-- ================= PHASE G: KNOWLEDGE CHECK ================= -->
+    <section class="quiz-section" id="quiz">
+      <div class="quiz-title">Knowledge check</div>
+      <div class="quiz-sub">Five questions. Feedback appears after each answer.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. What does the 0.7 figure referenced throughout this guide actually represent?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - The minimum acceptable accuracy rate for any matching algorithm</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - The default match-score threshold above which a candidate is surfaced as a result</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - The percentage of sanctioned individuals correctly identified across all screening tools</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - The retrieval-stage candidate limit per query</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. In the Khalid Mehmood case study, what specifically did the 0.98 score demonstrate, and what actually fixes it?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - The matching algorithm had a bug, fixed by patching its string-comparison logic</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - The threshold was set too low, fixed by raising it above 0.98</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - Name-only matching has a structural ceiling on common names, fixed by comparing a second identifying feature, not a better string algorithm</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - The retrieval stage failed to pull in the correct candidate</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. Why does the two-stage retrieval-then-scoring pipeline matter for an analyst reading an alert?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - It doesn't, only the final score matters</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - A confident-looking score can still sit on a candidate that shouldn't have been retrieved as a plausible match in the first place</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - Retrieval always produces exactly one candidate per query</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - Scoring happens before retrieval, not after</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. What did the documented May 2026 cross-script matching fix actually change?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - It added support for a new language for the first time</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - It aligned retrieval-stage candidate weighting with how the scoring stage already valued evidence, so a same-script match with real supporting evidence wasn't silently outranked by an unrelated different-script candidate</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - It removed the 0.7 default threshold entirely</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - It replaced Jaro-Winkler with a phonetic-only comparison</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. Why should a threshold or algorithm-version change be tested against a golden test set rather than judged on recent alerts alone?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - Recent alerts are always fake and can't be trusted</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - A handful of recent alerts can't show what a change did to the true and false positive rate as a whole, only a fixed reference set with known answers can</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - Regulators require a golden test set by law in every jurisdiction</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - It isn't necessary if the change is small</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--accent)">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. Figures without a bracketed number are illustrative examples rather than verified facts; the surrounding text says which.</p>
+      <ol style="font-size:14px; line-height:1.7; padding-left:1.25rem;" id="sources-list">
+        <li id="src-1">OpenSanctions, <em>Matcher: Deprecated Matching Algorithms</em> (name-based, name-qualified; Jaro-Winkler and Soundex, do not reach OFAC parity). <a href="https://www.opensanctions.org/matcher/" target="_blank" rel="noopener">opensanctions.org/matcher</a></li>
+        <li id="src-2">OpenSanctions, <em>Matcher: ofac Algorithm</em> (reverse-engineered from OFAC FAQ #249 and parity fixtures against the live public tool). <a href="https://www.opensanctions.org/matcher/" target="_blank" rel="noopener">opensanctions.org/matcher</a></li>
+        <li id="src-3">OpenSanctions, <em>Matcher (logic-v2)</em> and <em>API: Tuning the Matching System</em> (rule-based, cultural reference data, recommended for new integrations). <a href="https://www.opensanctions.org/matcher/" target="_blank" rel="noopener">opensanctions.org/matcher</a> / <a href="https://www.opensanctions.org/docs/api/tuning/" target="_blank" rel="noopener">opensanctions.org/docs/api/tuning</a></li>
+        <li id="src-4">OpenSanctions, <em>Matcher: regression-v1</em>, 18-feature table (name, phone, email, identifier, DOB, gender, country, address features), confirmed by manual count. <a href="https://www.opensanctions.org/matcher/" target="_blank" rel="noopener">opensanctions.org/matcher</a></li>
+        <li id="src-5">Konstantin, N. et al., <em>OpenSanctions Pairs: Large-Scale Entity Matching with LLMs</em>, arXiv:2603.11051, February 2026, Figure 1. <a href="https://arxiv.org/abs/2603.11051" target="_blank" rel="noopener">arxiv.org/abs/2603.11051</a></li>
+        <li id="src-6">OpenSanctions, <em>API: Tuning the Matching System</em> (two-stage retrieval-then-scoring pipeline). <a href="https://www.opensanctions.org/docs/api/tuning/" target="_blank" rel="noopener">opensanctions.org/docs/api/tuning</a></li>
+        <li id="src-7">OpenSanctions, <em>API: Tuning the Matching System</em> (0.7 default match-score threshold). <a href="https://www.opensanctions.org/docs/api/tuning/" target="_blank" rel="noopener">opensanctions.org/docs/api/tuning</a></li>
+        <li id="src-8">opensanctions/yente, GitHub Releases, v5.4.0, 13 May 2026 (cross-script candidate ranking fix). <a href="https://github.com/opensanctions/yente/releases/tag/v5.4.0" target="_blank" rel="noopener">github.com/opensanctions/yente/releases/tag/v5.4.0</a></li>
+        <li id="src-9">OpenSanctions, <em>Changelog</em> #32, API Service Backend Upgrades, effective 8 September 2025 (company suffix/prefix matching, cross-script retrieval). <a href="https://www.opensanctions.org/changelog/" target="_blank" rel="noopener">opensanctions.org/changelog</a></li>
+      </ol>
+    </section>
+
+  </main><!-- /article-body -->
+
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// TOC ACTIVE STATE
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+// ================= ALGORITHM PIPELINE VISUALIZER (apv-*) =================
+// All data below is fixed, pre-written display data for four illustrative
+// name pairs. Nothing here computes or simulates a real similarity score;
+// it only switches which pre-authored panel is visible.
+function apvShowPair(n) {
+  for (let i = 1; i <= 4; i++) {
+    const panel = document.getElementById('apv-panel-' + i);
+    if (panel) panel.style.display = (i === n) ? '' : 'none';
+  }
+  document.querySelectorAll('.apv-tab').forEach(t => {
+    t.classList.toggle('active', parseInt(t.getAttribute('data-pair'), 10) === n);
+  });
+}
+
+const apvSuffixData = {
+  naive: {
+    note: 'No stripping applied. "OJSC" and "Limited" are compared as literal, meaningful text, the same way "Trading" is.',
+    features: [
+      ['Raw string similarity', '0.81'],
+      ['Suffix tokens compared as-is', 'OJSC vs Limited, treated as different'],
+      ['Supporting identifiers', 'None provided']
+    ],
+    score: 68, scoreNum: '0.68', color: 'var(--c-suffix)',
+    verdictTitle: 'Below threshold, a likely false negative',
+    verdictText: 'Treating the incorporation-type suffix as meaningful, distinguishing text drags a genuine same-company match below the 0.7 threshold. This is the everyday cost of not stripping generic terms at all.'
+  },
+  aggressive: {
+    note: 'Suffix stripped, but so is the generic word "Trading," on the reasoning that it appears in many unrelated company names.',
+    features: [
+      ['Post-stripping string similarity', '1.00 ("Zenith" vs "Zenith")'],
+      ['Stripped as noise', '"Trading", "OJSC", "Limited"'],
+      ['Supporting identifiers', 'None provided']
+    ],
+    score: 95, scoreNum: '0.95', color: 'var(--c-collision)',
+    verdictTitle: 'Above threshold, a likely false positive',
+    verdictText: '"Trading" was doing real distinguishing work here, Zenith Trading and a hypothetical unrelated "Zenith Holdings" would score identically once "Trading" is stripped as generic noise. Over-aggressive stripping manufactures a false similarity by deleting the part of the name that told two entities apart.'
+  }
+};
+
+function apvSetSuffix(mode) {
+  const d = apvSuffixData[mode];
+  document.getElementById('apv-toggle-naive').classList.toggle('active', mode === 'naive');
+  document.getElementById('apv-toggle-aggressive').classList.toggle('active', mode === 'aggressive');
+
+  const body = document.getElementById('apv-suffix-body');
+  body.innerHTML = `
+    <div class="apv-stage-label">Stage 2 &middot; Scoring</div>
+    <div class="apv-stage-note">${d.note}</div>
+    <div class="apv-features">
+      ${d.features.map(f => `<div class="apv-feature-row"><span class="apv-feature-label">${f[0]}</span><span class="apv-feature-value">${f[1]}</span></div>`).join('')}
+    </div>
+    <div class="apv-score-row">
+      <div class="apv-score-bar-wrap"><div class="apv-score-bar-fill" style="width:${d.score}%;background:${d.color};"></div><div class="apv-score-threshold" style="left:70%;"></div></div>
+      <div class="apv-score-num">${d.scoreNum}</div>
+    </div>
+  `;
+  const verdict = document.getElementById('apv-suffix-verdict');
+  verdict.className = 'apv-verdict ' + (mode === 'naive' ? 'caution' : 'danger');
+  verdict.innerHTML = `<div class="apv-verdict-title">${d.verdictTitle}</div><div class="apv-verdict-text">${d.verdictText}</div>`;
+}
+
+// NOW YOU TRY, predict-before-reveal challenge
+const apvChallengeKey = {
+  q1: { correct: 'match', reason: 'Aleksandr/Alexander is a standard transliteration variant of the same Cyrillic name, exactly the kind of spelling difference fuzzy matching exists to absorb.' },
+  q2: { correct: 'no-match', reason: 'Same name, but a 32-year age gap and different countries, the same shape of collision as the Khalid Mehmood case study. A second identifying feature rules this pair out.' },
+  q3: { correct: 'match', reason: 'The only difference is the LLC suffix and a hyphen, both exactly the kind of noise corporate-suffix handling is meant to see past, without over-stripping anything else.' }
+};
+let apvChallengeAttempted = 0, apvChallengeCorrect = 0;
+
+function apvPredict(btn, qid, choice) {
+  const row = btn.parentElement;
+  const buttons = row.querySelectorAll('.apv-predict-btn');
+  buttons.forEach(b => b.disabled = true);
+  btn.classList.add('chosen');
+
+  const key = apvChallengeKey[qid];
+  const isCorrect = choice === key.correct;
+  const reveal = document.getElementById('apv-reveal-' + qid);
+  reveal.classList.add('show', isCorrect ? 'right' : 'wrong');
+  reveal.innerHTML = `<strong>${isCorrect ? 'Correct' : 'Not quite'}, the answer is ${key.correct === 'match' ? 'match' : 'no match'}.</strong>${key.reason}`;
+
+  apvChallengeAttempted++;
+  if (isCorrect) apvChallengeCorrect++;
+  document.getElementById('apvChallengeScore').textContent = apvChallengeCorrect + ' / ' + apvChallengeAttempted;
+}
+
+// FAQ TOGGLE
+function toggleFaq(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.faq-icon').classList.toggle('open');
+}
+
+// QUIZ LOGIC
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'The 0.7 figure is the default score threshold above which a candidate is surfaced as a result, not an accuracy rate or a candidate limit.' },
+  qq2: { correct: 'C', fb: 'Two different people sharing a name have nothing in the name string itself to distinguish them, no string algorithm fixes that. Only comparing a second identifying feature, like a national ID or date of birth, resolves it.' },
+  qq3: { correct: 'B', fb: 'A score is downstream of a retrieval decision. A confident-looking score can sit on a candidate that should never have made the candidate list, and the final score alone can\'t tell an analyst which situation they\'re looking at.' },
+  qq4: { correct: 'B', fb: 'The fix aligned retrieval-stage candidate weighting with how the scoring stage already valued evidence, so a same-script candidate with genuine supporting evidence wasn\'t silently outranked by an unrelated different-script candidate.' },
+  qq5: { correct: 'B', fb: 'A handful of recent alerts can\'t show what a change did to the true and false positive rate as a whole, only a fixed reference set with known correct answers can measure that.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Worth another pass through the pipeline section.','Getting there, a couple of concepts to revisit.','Solid foundation, a small gap or two.','Good grasp, you would catch most bad tuning calls.','Strong, practitioner-level matching judgement.','Perfect, you have the whole pipeline down.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+// SAVE AS IMAGE
+// Renders the closing pattern-card grid to a downloadable PNG using
+// native Canvas 2D only, no external library. Content (icon, name,
+// one-liner, Risk/Signal/Response text) is read directly from the live
+// DOM at click time, so the image can never drift out of sync with the page.
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return {
+      lineLines,
+      ttdLineCounts,
+      height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD
+    };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Screening Algorithm Tuning: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'screening-algorithm-tuning-guide-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
