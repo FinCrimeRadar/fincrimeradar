@@ -7,8 +7,9 @@ Daily flow:
   2. Diff against data/snapshot.json committed in the repo
   3. Classify: ADDED / DELISTED / AMENDED
   4. Render ONE grouped daily page at delta/YYYY-MM-DD.html
-     with a practitioner action layer per change type
-  5. Regenerate delta/index.html and append the new URL to sitemap.xml
+     with a practitioner action layer per change type (noindex, follow:
+     these pages are not meant to be added to sitemap.xml)
+  5. Regenerate delta/index.html
   6. Save the new snapshot
 
 Anomaly guardrail: if the diff exceeds MAX_SANE_CHANGES the job aborts
@@ -310,6 +311,7 @@ def render_page(changes):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
 <title>Sanctions List Changes {TODAY} | FinCrimeRadar Delta Tracker</title>
 <meta name="description" content="Daily record of global sanctions watchlist changes for {TODAY}: {total} designations, delistings and amendments, with MLRO action guidance.">
 <link rel="canonical" href="{SITE}/delta/{TODAY}.html">
@@ -398,7 +400,11 @@ def main():
 
     with open(f"{DELTA_DIR}/{TODAY}.html", "w") as f:
         f.write(render_page(changes))
-    update_sitemap(f"{SITE}/delta/{TODAY}.html")
+    # Delta pages are noindex (see the robots meta tag in render_page), so
+    # they must never be added to sitemap.xml, that would be the same mixed
+    # signal the 2026-07-23 AdSense noindex remediation corrected. Do not
+    # call update_sitemap() here. The function stays defined below in case a
+    # genuinely indexable future page type needs it.
     with gzip.open(SNAPSHOT_PATH, "wt", encoding="utf-8") as f:
         json.dump(new, f)
     print(f"Published {DELTA_DIR}/{TODAY}.html with {total} changes.")
