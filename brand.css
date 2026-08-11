@@ -147,7 +147,7 @@ footer[style*="0f2044"] a{
    to a Subscribe button with no stacking fallback, which is what
    clips the button on narrower phones. Fixed directly, plus the four
    column nav row, which had no mobile handling anywhere at all. */
-html, body{
+html{
   overflow-x:hidden;
   max-width:100%;
 }
