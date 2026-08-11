@@ -1186,5 +1186,152 @@
       "publisher": "OpenSanctions",
       "date": "2025-09-08"
     }
+  },
+  {
+    "claimId": "crypto-travel-rule.fatf-vasp-extension-2019.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "FATF Recommendation 16, the Travel Rule, was written for wire transfers and extended to virtual assets in June 2019",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Seventh Targeted Update on Implementation of the FATF Standards on Virtual Assets and VASPs, Table 1.1",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2026-07-16"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified"
+  },
+  {
+    "claimId": "crypto-travel-rule.tfr-zero-threshold.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "In the EU, originator and beneficiary data must travel with a transfer between two crypto firms from the first cent, there is no minimum, applicable from 30 December 2024",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Regulation (EU) 2023/1113 of the European Parliament and of the Council of 31 May 2023 (Transfer of Funds Regulation)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng",
+      "publisher": "EUR-Lex (Official Journal of the European Union)",
+      "date": "2023-05-31"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified"
+  },
+  {
+    "claimId": "crypto-travel-rule.tfr-1000-euro-verification.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "The 1,000 euro figure is the point above which an EU crypto firm must verify that its customer actually controls a self-hosted wallet involved in the transfer, a verification trigger under TFR Articles 14(5) and 16(2), not a data-transmission threshold",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Regulation (EU) 2023/1113, Articles 14(5) and 16(2)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng",
+      "publisher": "EUR-Lex (Official Journal of the European Union)",
+      "date": "2023-05-31"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified",
+    "note": "Article 14(5) directly confirmed against the EUR-Lex text (EUR 1,000 self-hosted verification threshold). Article 16(2) is the beneficiary-side mirror provision to Article 14 in the regulation's structure and was not independently re-quoted line by line."
+  },
+  {
+    "claimId": "crypto-travel-rule.fatf-83pct-jurisdictions.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "83% of surveyed jurisdictions (91 of 109) now have Travel Rule legislation in force, up from 73% a year earlier",
+    "claimType": "statistic",
+    "source": {
+      "title": "Seventh Targeted Update on Implementation of the FATF Standards on Virtual Assets and VASPs",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2026-07-16"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified"
+  },
+  {
+    "claimId": "crypto-travel-rule.fatf-40pct-enforcement.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "Of the jurisdictions that have passed Travel Rule legislation, only around 40% have actually taken enforcement or supervisory action to test compliance against it",
+    "claimType": "statistic",
+    "source": {
+      "title": "Seventh Targeted Update on Implementation of the FATF Standards on Virtual Assets and VASPs",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2026-07-16"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified"
+  },
+  {
+    "claimId": "crypto-travel-rule.amf-blacklist-2025.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "The AMF added dozens of names to its unauthorised-provider blacklist over the course of 2025, including a dedicated crypto-derivatives category",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Acteurs listes noires, Biens divers / Crypto-actif (rolling blacklist, no dated archive)",
+      "url": "https://protectepargne.amf-france.org/acteurs-listes-noires/biens-divers-crypto-actif",
+      "publisher": "Autorité des Marchés Financiers (AMF)",
+      "date": "2026-08-11"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "retained-as-estimate",
+    "note": "AMF's blacklist is a rolling, self-overwriting page. Research independently corroborated a 23 December 2025 release stating '71 names since the beginning of 2025' and an '1 August 2025' dated crypto-asset-derivatives blacklist PDF, with a figure of 13 names in that category, but every direct fetch of the specific dated releases/PDFs now returns 404 or shows later, different figures (the pages have since been superseded). Reworded to an honest range claim rather than assert precision the current live source can't durably back."
+  },
+  {
+    "claimId": "crypto-travel-rule.bafin-warnings-2025.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "BaFin issued public warnings against unlicensed crypto-linked websites: valuewanderer.com on 14 May 2025 and the DAO1 / Apertum Holding Limited scheme on 2 October 2025",
+    "claimType": "enforcement",
+    "source": {
+      "title": "BaFin consumer warning: DAO1 / Apertum Holding Limited (unauthorised crypto trading bot scheme)",
+      "url": "https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/neu/meldung_2025_10_02_dao1.html",
+      "publisher": "BaFin (Bundesanstalt für Finanzdienstleistungsaufsicht)",
+      "date": "2025-10-02"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified",
+    "note": "The 14 May 2025 warning (valuewanderer.com) was independently fetched and confirmed at https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/meldung_2025_05_14_valuewanderer_com.html"
+  },
+  {
+    "claimId": "crypto-travel-rule.eba-four-options.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "The EBA's guidelines give four real options when Travel Rule data is missing or incomplete: execute, suspend, return, or reject, chosen on a risk basis",
+    "claimType": "regulatory",
+    "source": {
+      "title": "EBA issues 'travel rule' guidance to tackle money laundering and terrorist financing in transfers of funds and certain crypto-assets",
+      "url": "https://www.eba.europa.eu/publications-and-media/press-releases/eba-issues-travel-rule-guidance-tackle-money-laundering-and-terrorist-financing-transfers-funds-and",
+      "publisher": "European Banking Authority",
+      "date": "2024-07-04"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified"
+  },
+  {
+    "claimId": "crypto-travel-rule.tfr-article37-deadline.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "Under TFR Article 37, the European Commission was required to assess the risks of transfers to and from self-hosted addresses by 1 July 2026",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Regulation (EU) 2023/1113, Article 37(2)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng",
+      "publisher": "EUR-Lex (Official Journal of the European Union)",
+      "date": "2023-05-31"
+    },
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "verified"
+  },
+  {
+    "claimId": "crypto-travel-rule.original-enforcement-figures-removed.001",
+    "guide": "crypto-travel-rule-sunrise-guide.html",
+    "claimText": "Original, since-removed claim: \"French regulators issued 14 enforcement notices to crypto businesses in the fourth quarter of 2025 alone. Germany's BaFin blocked access to six offshore exchange domains that were targeting German users without proper CASP authorisation.\" No primary source could be found supporting either the 14-notices figure or the six-domains-blocked figure. Replaced with a verified AMF/BaFin enforcement sentence citing primary regulator sources.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-08-11",
+    "reviewDue": "2027-08-11",
+    "status": "unverifiable-remove"
   }
 ]

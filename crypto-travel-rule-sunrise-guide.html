@@ -309,7 +309,7 @@
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="83">0</span>%</div>
         <div class="hero-stat-label">Of surveyed jurisdictions now have Travel Rule legislation in force</div>
-        <div class="hero-stat-source">91 of 109 jurisdictions, up from 73% a year earlier. FATF Seventh Targeted Update on Virtual Assets, 16 July 2026.</div>
+        <div class="hero-stat-source">91 of 109 jurisdictions, up from 73% a year earlier. FATF Seventh Targeted Update on Virtual Assets, 16 July 2026. <a href="#src-4">[4]</a></div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num">Zero</div>
@@ -333,11 +333,11 @@
     <div class="article-section" id="intro">
       <div class="section-eyebrow" style="color:var(--c-send)">The Rule That Arrived Unevenly</div>
       <h2>The sunrise problem isn't a policy debate. It's a decision you make today.</h2>
-      <p>FATF Recommendation 16, the Travel Rule, was written for wire transfers and extended to virtual assets in June 2019. It requires firms to collect, verify, and transmit originator and beneficiary information on qualifying transfers, the same basic obligation correspondent banks have carried for decades, applied to a rail that didn't exist when the standard was first drafted.</p>
+      <p>FATF Recommendation 16, the Travel Rule, was written for wire transfers and extended to virtual assets in June 2019 <a href="#src-1">[1]</a>. It requires firms to collect, verify, and transmit originator and beneficiary information on qualifying transfers, the same basic obligation correspondent banks have carried for decades, applied to a rail that didn't exist when the standard was first drafted.</p>
       <p>The complication is not the requirement itself, it's the pace at which jurisdictions have actually brought it into force. Practitioners call this the sunrise problem, after the fact that the sun rises at different times across time zones. A firm operating in a jurisdiction that has fully implemented the rule still has to transact with counterparties in jurisdictions where no equivalent obligation yet exists, or exists on paper but isn't supervised in practice. The rule doesn't arrive everywhere at once, and a transfer doesn't wait for both ends of the pipe to be compliant before it moves.</p>
       <p>Stated plainly, that's the argument this guide makes: the sunrise problem isn't something to read about, it's something an analyst decides, in the moment, on incomplete data, with a small number of real actions available and a real consequence attached to each one. Reading about FATF Recommendation 16 doesn't prepare you for the moment a transfer lands with no originator data attached and a live business decision waiting. This guide teaches that decision, through an interactive tree covering both directions, sending and receiving.</p>
-      <p>One distinction is worth fixing before anything else, because it's the single most common and costly error in this area. In the EU, originator and beneficiary data must travel with a transfer between two crypto firms from the first cent, there is no minimum. The 1,000 euro figure that gets quoted constantly is a different, narrower thing entirely: it's the point above which a firm must verify that its customer actually controls a self-hosted wallet involved in the transfer. Conflating the two produces exactly the failure mode you'd expect, a small transfer waved through with no Travel Rule data at all, on the mistaken belief that it fell under a threshold that was never about data transmission in the first place.</p>
-      <p>The enforcement picture backs up why this matters in practice, not just on paper. French regulators issued 14 enforcement notices to crypto businesses in the fourth quarter of 2025 alone. Germany's BaFin blocked access to six offshore exchange domains that were targeting German users without proper CASP authorisation. And FATF's own supervision data is blunt about the gap that remains: only around 40% of jurisdictions with Travel Rule statutes on the books have actually taken steps to test or enforce compliance against them. That enforcement gap isn't a footnote to the sunrise problem, it's a core part of it, since it's precisely the space in which a counterparty jurisdiction can have a rule in force with nobody checking whether firms are actually following it.</p>
+      <p>One distinction is worth fixing before anything else, because it's the single most common and costly error in this area. In the EU, originator and beneficiary data must travel with a transfer between two crypto firms from the first cent, there is no minimum <a href="#src-2">[2]</a>. The 1,000 euro figure that gets quoted constantly is a different, narrower thing entirely: it's the point above which a firm must verify that its customer actually controls a self-hosted wallet involved in the transfer <a href="#src-3">[3]</a>. Conflating the two produces exactly the failure mode you'd expect, a small transfer waved through with no Travel Rule data at all, on the mistaken belief that it fell under a threshold that was never about data transmission in the first place.</p>
+      <p>The enforcement picture backs up why this matters in practice, not just on paper. French and German regulators have both moved against unlicensed offshore crypto operators through 2025. The AMF added dozens of names to its unauthorised-provider blacklist over the course of the year, including a dedicated crypto-derivatives category <a href="#src-6">[6]</a>. BaFin issued public warnings against unlicensed crypto-linked websites in May 2025 and against the DAO1 scheme in October <a href="#src-7">[7]</a>. And FATF's own supervision data is blunt about the gap that remains: of the jurisdictions that have passed Travel Rule legislation, only around 40% have actually taken enforcement or supervisory action to test compliance against it <a href="#src-5">[5]</a>. That enforcement gap isn't a footnote to the sunrise problem, it's a core part of it, since it's precisely the space in which a counterparty jurisdiction can have a rule in force with nobody checking whether firms are actually following it.</p>
 
       <div class="callout callout-navy">
         <strong>How to use this guide</strong>
@@ -410,7 +410,7 @@
           <div class="pattern-name" style="color:var(--c-silent);">The Silent Proceed</div>
         </div>
         <div class="pattern-line">Crediting a transfer with missing data because holding it is friction, and leaving no record that a gap existed at all.</div>
-        <p style="margin-bottom:1rem;">The EBA's guidelines give four real options when data is missing or incomplete: execute, suspend, return, or reject, chosen on a risk basis. What isn't an option is silently crediting the transfer and moving on because a hold slows the customer down. An empty hold-and-reject log across a meaningful volume of transfers is itself a red flag under review, it suggests a firm that never actually exercises the judgement the rule expects it to exercise.</p>
+        <p style="margin-bottom:1rem;">The EBA's guidelines give four real options when data is missing or incomplete: execute, suspend, return, or reject, chosen on a risk basis <a href="#src-8">[8]</a>. What isn't an option is silently crediting the transfer and moving on because a hold slows the customer down. An empty hold-and-reject log across a meaningful volume of transfers is itself a red flag under review, it suggests a firm that never actually exercises the judgement the rule expects it to exercise.</p>
         <div class="pattern-ttd">
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Trap</div><div class="ttd-text">Crediting a transfer with missing originator data because holding it is friction.</div></div>
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Tell</div><div class="ttd-text">A hold-and-reject log that's suspiciously empty.</div></div>
@@ -522,7 +522,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Could the EU tighten the rules on self-hosted wallets further? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Possibly. Under TFR Article 37, the European Commission was required to assess the risks of transfers to and from self-hosted addresses by 1 July 2026 and, if it saw fit, propose tighter measures, which it can bring in through a fast-track delegated act. Options discussed in policy circles range from keeping the status quo to mandatory wallet whitelisting or transaction caps. As of this guide's publication that assessment had not been published, so the position remains unsettled, worth watching.</div>
+        <div class="faq-a">Possibly. Under TFR Article 37, the European Commission was required to assess the risks of transfers to and from self-hosted addresses by 1 July 2026 <a href="#src-9">[9]</a> and, if it saw fit, propose tighter measures, which it can bring in through a fast-track delegated act. Options discussed in policy circles range from keeping the status quo to mandatory wallet whitelisting or transaction caps. As of this guide's publication that assessment had not been published, so the position remains unsettled, worth watching.</div>
       </div>
     </div>
 
@@ -634,6 +634,24 @@
       </div>
     </div>
 
+    <!-- SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-send)">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. Figures without a bracketed number are industry estimates or illustrative examples rather than verified facts; the surrounding text says which.</p>
+      <ol style="font-size:14px; line-height:1.7; padding-left:1.25rem;">
+        <li id="src-1">FATF, <em>Seventh Targeted Update on Implementation of the FATF Standards on Virtual Assets and VASPs</em>, Table 1.1, 16 July 2026. <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html" target="_blank" rel="noopener">fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html</a></li>
+        <li id="src-2">Regulation (EU) 2023/1113 of the European Parliament and of the Council of 31 May 2023 (Transfer of Funds Regulation), applicable from 30 December 2024. <a href="https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu/eli/reg/2023/1113/oj/eng</a></li>
+        <li id="src-3">Regulation (EU) 2023/1113, Articles 14(5) and 16(2) (self-hosted wallet ownership verification above EUR 1,000). <a href="https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu/eli/reg/2023/1113/oj/eng</a></li>
+        <li id="src-4">FATF, <em>Seventh Targeted Update on Implementation of the FATF Standards on Virtual Assets and VASPs</em>, 16 July 2026 (83%, 91 of 109 surveyed jurisdictions, up from 73% a year earlier). <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html" target="_blank" rel="noopener">fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html</a></li>
+        <li id="src-5">FATF, <em>Seventh Targeted Update on Implementation of the FATF Standards on Virtual Assets and VASPs</em>, 16 July 2026 (enforcement/supervisory action gap). <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html" target="_blank" rel="noopener">fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html</a></li>
+        <li id="src-6">Autorité des Marchés Financiers (AMF), unauthorised-provider blacklist, crypto-assets and crypto-asset derivatives categories. The AMF republishes this blacklist on a rolling basis rather than archiving dated snapshots; the specific per-release name counts reported for December 2025 and August 2025 could not be independently re-verified against a stable, currently-live source, so the figure is not asserted precisely here. <a href="https://protectepargne.amf-france.org/acteurs-listes-noires/biens-divers-crypto-actif" target="_blank" rel="noopener">protectepargne.amf-france.org/acteurs-listes-noires/biens-divers-crypto-actif</a></li>
+        <li id="src-7">BaFin, consumer warnings against unauthorised crypto-linked websites: <a href="https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/meldung_2025_05_14_valuewanderer_com.html" target="_blank" rel="noopener">valuewanderer.com, 14 May 2025</a> and <a href="https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/neu/meldung_2025_10_02_dao1.html" target="_blank" rel="noopener">DAO1 / Apertum Holding Limited, 2 October 2025</a>.</li>
+        <li id="src-8">European Banking Authority, <em>EBA issues 'travel rule' guidance to tackle money laundering and terrorist financing in transfers of funds and certain crypto-assets</em>, 4 July 2024 (EBA/GL/2024/11, risk-based execute/suspend/return/reject options for missing data). <a href="https://www.eba.europa.eu/publications-and-media/press-releases/eba-issues-travel-rule-guidance-tackle-money-laundering-and-terrorist-financing-transfers-funds-and" target="_blank" rel="noopener">eba.europa.eu, EBA issues travel rule guidance</a></li>
+        <li id="src-9">Regulation (EU) 2023/1113, Article 37(2) (Commission assessment of self-hosted address transfer risk due by 1 July 2026). <a href="https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu/eli/reg/2023/1113/oj/eng</a></li>
+      </ol>
+    </div>
+
   </div><!-- /article-body -->
 
   <!-- SIDEBAR -->
@@ -648,6 +666,7 @@
       <a href="#glance">At a Glance</a>
       <a href="#summary-snapshot">Summary Snapshot</a>
       <a href="#conclusion">Conclusion</a>
+      <a href="#sources">Sources</a>
     </div>
 
     <div class="tool-cta">
