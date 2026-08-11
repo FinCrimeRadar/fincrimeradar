@@ -196,6 +196,57 @@ This standard was adopted mid-project. 4 guides shipped under the earlier table-
   classification asymmetry idea from the broader research pass is
   being carried forward, nothing from the infographic itself.
 
+- [ ] **The APP Scam vs. Civil Dispute Call.** PSR's own guidance admits
+  there's no fixed test for distinguishing an authorised push payment scam
+  from a private civil dispute, "each case needs to be considered on its
+  merits," yet reimbursement liability (the £85,000 cap, the 50/50
+  sending/receiving split) turns entirely on that call. Every existing
+  piece of content found during research (August 2026) is a law firm or
+  vendor explaining that the rule exists, none of it puts a reader through
+  a genuinely borderline case and makes them decide. Build in the Fraud
+  Red Flags / False Positive Playbook format, decision scenarios with full
+  reasoning, applied to a live, currently-unsettled distinction, the PSR's
+  own review of the regime runs into December 2026 so this has a natural
+  update trigger already scheduled.
+
+- [ ] **What Actually Happens After You Suspect a Deepfake at Onboarding.**
+  Deepfake detection technology itself is completely saturated with vendor
+  content (Shufti, Socure, TrueScreen, Facia, HyperVerge, deepidv all cover
+  the same detection-stack ground). None of it addresses the compliance
+  judgement once a session is actually flagged: does this trigger a SAR,
+  what's the evidentiary standard for declining an application without
+  proof, what's the liability either direction. Same framing already
+  proven on the Synthetic Identity guide, teach the judgement the
+  technology doesn't make for you, not the detection method itself.
+
+- [ ] **The AI Agent Transaction Nobody Can Screen.** IMF's own April 2026
+  note confirms the authentication and liability gap for autonomous AI
+  agent payments is genuinely open, not settled, existing content is
+  either academic policy analysis (IMF, Cambridge) or fintech infrastructure
+  sales material (Airwallex, DashDevs), nothing written for an AML analyst
+  who has to work out whose intent they're actually investigating when the
+  payer of record is software acting under delegated authority. Needs
+  honest "unsettled, here's how to think about it" framing rather than
+  false certainty, same discipline as the Risk Scoring module's mixer-
+  designation lesson (don't assert a settled answer where the underlying
+  reality is still contested). Early enough that a genuine first-mover
+  practitioner guide is possible, but the regulatory position needs
+  re-checking close to publication given how fast this area is moving.
+
+- [ ] **Gambling's White-Label Blind Spot.** Strongest candidate found in
+  this research pass. UKGC's own 31 July 2026 risk assessment names
+  insufficient scrutiny of white-label and B2B partnerships as the
+  gambling sector's primary AML vulnerability. Real enforcement density to
+  anchor a case study or summary snapshot: Platinum Gaming £10m (October
+  2025, largest single iGaming AML penalty of the year), Gamesys £6m,
+  Videoslots £650,000, Spreadex £2m, 13 operators sanctioned in H2 2025
+  alone. Every existing piece of content is a vendor KYC-basics explainer
+  (Sumsub, Shufti, AML Watcher), none address the specific accountability
+  question the regulator itself just flagged, who's actually liable when
+  a licensed operator doesn't fully control a white-label relationship.
+  UK-jurisdiction fit is exact, matches the site's existing regulatory
+  focus directly.
+
 **Investigation handbook series, next major content push once the above is clear.** Positioning shift: most free AML content explains what the rules say, this series teaches how the actual investigative work gets done, direct match to practitioner background rather than research-only content. Sequence:
 
 1. [x] **Fraud Red Flags guide**, shipped, built against the full interactivity standard.
@@ -213,6 +264,8 @@ This standard was adopted mid-project. 4 guides shipped under the earlier table-
 13. [ ] **Enforcement case library** — strongest differentiation idea in this batch, a free properly root-cause-tagged enforcement case library is something paid compliance intelligence services charge for, and extends what's already proven working (Sonali Bank, CFP Management in the MLRO Handbook). Not a single article and not a database build upfront, start as a slowly growing case library page, add one case at a time to the same depth standard as existing cases, only consider real database/search infrastructure once it's proven itself as content first. Can run alongside whichever other loop is active rather than needing a dedicated push.
 
 **Cut from consideration:** "AML Analyst Survival Handbook" and the Fraud Knowledge Hub PRD's "Fraud Analyst Survival Handbook" — same generic career-blog pattern under two different labels, reads as filler content overlapping everything else in this series rather than teaching anything specific of its own. "Fraud Typology & Red Flag Encyclopedia" (PRD target: 1,000+ indicators) also cut, exact anti-pattern the Transaction Monitoring guide was already reframed away from, an open-ended, ever-growing list that reads as thin glossary content and invented-volume-target thinking, not genuine depth. The Fraud Red Flags guide covers this substance properly, grounded per pattern, not as a database.
+
+- **Deepfake detection technology, and Trade-Based Money Laundering as a red-flags list, both checked and rejected (August 2026 content research pass).** Deepfake detection itself is vendor-owned ground, Shufti, Socure, TrueScreen, Facia, HyperVerge, and deepidv all cover identical territory, no gap exists there, though the adjacent "what do you actually do once you suspect one" angle above is a genuine gap. TBML red flags found completely saturated with generic "8 red flags" listicles (financialcrimeacademy, alessa, tookitaki, fluxforce, near-identical structure across all of them), same anti-pattern already cut once as the "Fraud Typology & Red Flag Encyclopedia" idea. If TBML gets built at all, it needs the Investigation Handbook treatment, a documentary package that looks clean and a reader has to find the discrepancy in, not another red-flag list.
 
 **Held for a later stage, not currently scoped:** Cross-jurisdictional MLRO/SMF17 comparison. Originally scoped as UK + UAE only, decision made to pivot this to a genuine multi-jurisdictional comparison (UK, UAE, MAS, AUSTRAC, FIU India, BNM, matching the practitioner's actual six-regime footprint) rather than a narrower two-country piece, once the investigation handbook series and other current priorities are through. Needs its own dedicated scoping session when it's actually picked back up, including the sourcing standard question for non-UK regulatory claims flagged in the original scoping discussion.
 
