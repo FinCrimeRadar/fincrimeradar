@@ -302,6 +302,27 @@ This standard was adopted mid-project. 4 guides shipped under the earlier table-
 
 - [ ] **"System view" architecture blueprints, parked idea, not scoped.** Linking individual Scenario Lab cases to a broader system diagram (controls, components, interfaces) showing where that decision sits architecturally. Genuinely interesting pattern from reviewing paymentssignal.com, but a real design commitment on its own, not a quick addition. Worth revisiting later, not queuing now.
 
+**Reserve tier, topics sourced from an external research pass, not a 12-week schedule.** Individual topics assessed and logged on their own merits at current cadence and depth, the schedule and structural proposals that accompanied them were not adopted, see below.
+
+Queue now, at current 2-3/week cadence and current guide depth, no format or taxonomy change:
+- [ ] Victim, Mule or Fraudster? The First Party Fraud Decision Handbook
+- [ ] APP Fraud Claims Investigation Handbook (merge with the already-logged APP Scam vs. Civil Dispute candidate, one cluster not two guides)
+- [ ] Investment Scam Investigation Handbook
+- [ ] Financial Crime Information Sharing: Can I Tell Another Bank?
+- [ ] AI in AML: Where the Model Stops and the Control Begins
+- [ ] Agentic AI in AML: What Should an AI Agent Never Be Allowed to Do Alone?
+- [ ] Companies House Identity Verification and the KYB Trust Gap
+- [ ] Sanctions Ownership and Control: The 50 Percent Rule Is Not Enough
+
+Hold for explicit review before queuing, flagged risk:
+- [ ] Any nationality or ethnicity-labelled network guide (Chinese, Russian speaking, daigou), needs mechanism-first retitling and content review before it goes anywhere near the queue.
+- [ ] Proliferation Financing and Export Control investigation content, needs a dual-use framing pass before drafting starts, same caution as CBRN-adjacent material.
+
+Not adopted:
+- The nine-domain taxonomy restructure, conflicts with the recently shipped Knowledge Hub Domains rail, needs its own scoping session if ever revisited.
+- The 14-step FCR Investigation Framework, competes with the content standard locked 2026-08-05, not adopted while that standard's own retrofit queue is still open.
+- The 12-week/30-guide production schedule and the "freeze research until November" decision, sized for a team and review capacity this project doesn't have.
+
 ---
 
 ## Not in the loop (separate track, own timing)
