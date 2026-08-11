@@ -268,6 +268,10 @@
     .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
     .save-img-btn:hover { border-color:var(--c-clean); color:var(--c-clean); }
 
+    /* SUMMARY SNAPSHOT (static pre-rendered image, distinct from the dynamic Save as image button above) */
+    .summary-snapshot-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto 1.25rem; }
+    .summary-snapshot-download { display:inline-flex; align-items:center; gap:6px; }
+
     /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
     footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
     footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
@@ -757,6 +761,24 @@
       </div>
     </div>
 
+    <!-- SUMMARY SNAPSHOT, static pre-rendered image -->
+    <div class="article-section" id="summary-snapshot">
+      <div class="section-eyebrow" style="color:var(--c-clean)">Quick Reference</div>
+      <h2>Summary snapshot</h2>
+      <p>The full guide in one image, for quick reference or sharing.</p>
+      <figure>
+        <img
+          src="/synthetic-identity-device-network-guide-summary-snapshot.png"
+          alt="Synthetic Identity and Device-Network Fraud summary infographic showing the two-path distinction between a fabricated synthetic identity and a real person running a device-linked account network, four patterns including the clean file and the borrowed thread, and the Monzo FCA fine of GBP21,091,300 issued 7 July 2025."
+          width="1000"
+          height="1500"
+          loading="lazy"
+          class="summary-snapshot-img"
+        />
+      </figure>
+      <a href="/synthetic-identity-device-network-guide-summary-snapshot.png" download class="itp-btn summary-snapshot-download">⬇️ Download summary</a>
+    </div>
+
     <!-- CONCLUSION -->
     <div class="article-section" id="conclusion">
       <div class="section-eyebrow" style="color:var(--c-clean)">The Judgement, Not the Technology</div>
@@ -787,6 +809,7 @@
       <a href="#knowledge-check">Knowledge Check</a>
       <a href="#faq">FAQ</a>
       <a href="#glance">At a Glance</a>
+      <a href="#summary-snapshot">Summary Snapshot</a>
       <a href="#conclusion">Conclusion</a>
     </div>
 
