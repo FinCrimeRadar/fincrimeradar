@@ -247,6 +247,37 @@ This standard was adopted mid-project. 4 guides shipped under the earlier table-
   UK-jurisdiction fit is exact, matches the site's existing regulatory
   focus directly.
 
+**Six content research candidates logged as of August 2026 (four from the first gap-scan pass, two more from a second pass covering professional services gatekeepers and correspondent banking). Roughly four to five weeks of guides at the 2-3/week target. Remaining pipeline to fill a full two-month runway needs a further systematic pass, not additional ad hoc sampling, flagged to avoid lowering the differentiation bar just to hit a topic count.**
+
+- [ ] **Tranche 2, When You've Never Had to Do This Before.** Australia's
+  AML/CTF Amendment Act brings lawyers, accountants, real estate agents,
+  and trust and company service providers into full AML obligations for
+  the first time from 1 July 2026, a genuine structural first, not an
+  update to an existing regime. The Access Group has publicly named a
+  "guidance gap," AUSTRAC's own starter kits aren't landing with the
+  profession. Existing content (DBA Advisory, Nexiant, MinterEllison)
+  explains that the obligation exists and lists the structural changes
+  required, none of it walks a lawyer or accountant with zero AML
+  background through an actual first decision, does this conveyancing
+  instruction need source of funds, does this trust structuring request
+  need EDD. Plays directly to the AUSTRAC jurisdiction already covered in
+  the author's background, worth weighting up the build queue for that
+  reason.
+
+- [ ] **The De-Risking Judgement Call.** FATF's own position is that
+  wholesale de-risking, terminating entire regions or categories of
+  correspondent relationships rather than managing the risk individually,
+  is explicitly not aligned with its own Recommendations, yet it remains
+  the default industry response because the compliance cost of an
+  individual relationship going wrong is asymmetric to the cost of simply
+  exiting it. Existing content found during research (August 2026) is
+  either a checklist (Neotas, CheckFile.ai, what EDD technically requires)
+  or policy-level commentary on why de-risking harms financial inclusion
+  (FATF, Congress.gov, IFC). Nobody puts a reader in the seat of the
+  analyst who has to actually decide, individually assess and retain, or
+  cut and de-risk, on a specific ambiguous respondent bank file. Plays to
+  the CEMEA/CBUAE jurisdiction background as well.
+
 **Investigation handbook series, next major content push once the above is clear.** Positioning shift: most free AML content explains what the rules say, this series teaches how the actual investigative work gets done, direct match to practitioner background rather than research-only content. Sequence:
 
 1. [x] **Fraud Red Flags guide**, shipped, built against the full interactivity standard.
