@@ -16,7 +16,8 @@
     "money-mule-financial-crime-networks-handbook",
     "kyc-onboarding-dilemma",
     "fraud-red-flags-guide",
-    "deepfake-onboarding-guide"
+    "deepfake-onboarding-guide",
+    "ai-agent-transaction-guide"
   ],
   "tm-guide": [
     "screening-algorithm-tuning-guide",
@@ -58,6 +59,9 @@
     "screening-algorithm-tuning-guide"
   ],
   "deepfake-onboarding-guide": [
+    "synthetic-identity-device-network-guide"
+  ],
+  "ai-agent-transaction-guide": [
     "synthetic-identity-device-network-guide"
   ]
 }

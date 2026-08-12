@@ -1483,5 +1483,140 @@
     "verifiedOn": "2026-08-12",
     "reviewDue": "2027-08-12",
     "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.imf-agent-definition.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "An AI agent is software that can interpret a goal, break it into steps, and act on digital services with limited human input at each step, rather than requiring explicit approval for every action. Modern payment systems are built on deterministic logic; agentic AI is probabilistic, the same instruction can produce a different action on a different run.",
+    "claimType": "definition",
+    "source": {
+      "title": "How Agentic AI Will Reshape Payments, IMF Notes 2026, Issue 004",
+      "url": "https://www.imf.org/en/publications/imf-notes/issues/2026/04/22/how-agentic-ai-will-reshape-payments-575560",
+      "publisher": "International Monetary Fund (Davidovic, S. and Tourpe, H.)",
+      "date": "2026-04-22"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.fca-agentic-ai-framework-change.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "The FCA's 2026 Payments Regulatory Priorities report states the regulator will consider whether change or development of regulation is needed to support agentic AI payments, a departure from its usual posture of applying existing rules to new technology. Confirmed by direct verbatim quote from page 7 of the primary source, under the heading \"Modernise payments regulation\": \"This will include considering whether change or development of regulation is needed to support agentic AI payments.\" Context worth noting so the record doesn't overstate prominence: this is one bullet point among several other priorities in a routine annual Payments Regulatory Priorities report, not a standalone or headline announcement.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "2026 Payments Regulatory Priorities",
+      "url": "https://www.fca.org.uk/publication/regulatory-priorities/payments-report.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-03-25"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-02-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.psr-2017-reg67.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "Regulation 67 of the Payment Services Regulations 2017: a payment transaction is regarded as authorised by the payer only if the payer has given consent to the execution of the payment transaction (or a series of which it forms part).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Payment Services Regulations 2017 (SI 2017/752), regulation 67",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752/regulation/67",
+      "publisher": "legislation.gov.uk (UK Statutory Instrument)",
+      "date": "2017-07-19"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.psr-2017-reg76.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "Regulation 76 of the Payment Services Regulations 2017: where an executed payment transaction was not authorised in accordance with regulation 67, the payment service provider must refund the amount to the payer by the end of the next business day, subject to a fraud-suspicion exception requiring notification under POCA 2002 s.333A(2).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Payment Services Regulations 2017 (SI 2017/752), regulation 76",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752/regulation/76",
+      "publisher": "legislation.gov.uk (UK Statutory Instrument)",
+      "date": "2017-07-19"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.cma-agentic-ai-consumers.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "The CMA's Agentic AI and consumers publication states existing consumer protection law (including DMCC Act powers) applies to conduct by AI agents in the same way as human-generated conduct, businesses deploying AI agents are responsible for what those agents do; the publication does not resolve which specific party bears liability when an agent's decision causes harm.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Agentic AI and consumers",
+      "url": "https://www.gov.uk/government/publications/agentic-ai-and-consumers",
+      "publisher": "Competition and Markets Authority",
+      "date": "2026-03-09"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-02-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.ap2-mandate-chain.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "Google's Agent Payments Protocol (AP2) launched 16 September 2025 with 60+ launch partners including Mastercard, PayPal, Coinbase, and American Express. It defines a three-mandate chain (Intent, Cart, Payment) carried as W3C Verifiable Credentials, and its v0.2 release explicitly added Human Not Present payment support (the agent completes the full chain autonomously within the original Intent Mandate's boundaries, no further human confirmation).",
+    "claimType": "statistic",
+    "source": {
+      "title": "Agent Payments Protocol (AP2)",
+      "url": "https://ap2-protocol.org",
+      "publisher": "Google (AP2 open protocol, multi-party launch)",
+      "date": "2025-09-16"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.x402-protocol.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "x402 is Coinbase's open, HTTP-402-based standard for internet-native stablecoin micropayments, enabling machine-to-machine and AI-agent payments without login. Now under Linux Foundation governance, backed by Google, Visa, Mastercard, Stripe, AWS, and Circle.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Introducing x402: a new standard for internet-native payments",
+      "url": "https://www.coinbase.com/developer-platform/discover/launches/x402",
+      "publisher": "Coinbase",
+      "date": "2025-05-01"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.taylor-wessing-liability-analysis.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "Legal commentary (not settled law): existing regulations struggle to distinguish unauthorised use from user negligence when an agent hallucinates or misdirects funds, and the current framework does not allocate liability between PISPs, account servicing PSPs, and AI technology providers; whether liability sits with the consumer, the AI developer, the PSP, or the merchant remains genuinely unclear. This is a narrower, more evenly-balanced framing than an earlier draft of this guide assumed (which leaned toward PSP liability as the likely outcome); corrected to match what the source actually says before publication.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Agentic AI in payments: Key regulatory considerations",
+      "url": "https://www.taylorwessing.com/en/insights-and-events/insights/2026/02/agentic-ai-in-payments",
+      "publisher": "Taylor Wessing (legal commentary, not primary regulation)",
+      "date": "2026-02-17"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-02-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "ai-agent-transaction-guide.amex-agent-purchase-protection.001",
+    "guide": "ai-agent-transaction-guide.html",
+    "claimText": "American Express launched its Agentic Commerce Experiences (ACE) developer kit on 14 April 2026, alongside an industry-first Agent Purchase Protection commitment covering eligible erroneous purchases made by registered, verified AI agents on its network. The model requires prior cardholder authentication before payment credentials are issued to a verified agent.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "American Express Debuts Agentic Commerce Experiences (ACE) Developer Kit and Announces Industry-First Protection for Registered Agent Purchases",
+      "url": "https://www.americanexpress.com/en-us/newsroom/articles/innovation/american-express-debuts-agentic-commerce-experiences--ace--devel.html",
+      "publisher": "American Express (direct company announcement, used in place of The Financial Brand's secondary reporting)",
+      "date": "2026-04-14"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
   }
 ]

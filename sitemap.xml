@@ -148,6 +148,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://fincrimeradar.org/ai-agent-transaction-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
   <!-- UK AML Compliance series -->
   <url>
