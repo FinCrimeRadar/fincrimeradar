@@ -920,6 +920,7 @@ async function footerSignup() {
 
   function resetAll(){
     activeCat='all';
+    updateUrlDomain(activeCat);
     var searchEl=document.getElementById('khSearchInput');
     if(searchEl) searchEl.value='';
     buildRail();filterCards();
