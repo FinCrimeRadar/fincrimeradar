@@ -1408,5 +1408,80 @@
     "verifiedOn": "2026-08-12",
     "reviewDue": "2027-08-12",
     "status": "verified"
+  },
+  {
+    "claimId": "deepfake-onboarding-guide.dsit-real-world-accuracy-gap.001",
+    "guide": "deepfake-onboarding-guide.html",
+    "claimText": "Real-world deepfake detection accuracy typically runs 10 to 20 percentage points below lab-tested figures, once tools meet manipulation techniques they were not trained on.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Deepfake Detection Technology",
+      "url": "https://www.gov.uk/government/publications/deepfake-detection-technology/deepfake-detection-technology",
+      "publisher": "Department for Science, Innovation and Technology (DSIT), commissioned from PUBLIC",
+      "date": "2026-03-26"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-02-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "deepfake-onboarding-guide.dsit-uk-provider-count.001",
+    "guide": "deepfake-onboarding-guide.html",
+    "claimText": "Only 7 of 59 mapped deepfake detection providers worldwide are UK-based (23 are US-headquartered, the largest single national cohort).",
+    "claimType": "statistic",
+    "source": {
+      "title": "Deepfake Detection Technology",
+      "url": "https://www.gov.uk/government/publications/deepfake-detection-technology/deepfake-detection-technology",
+      "publisher": "Department for Science, Innovation and Technology (DSIT), commissioned from PUBLIC",
+      "date": "2026-03-26"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-02-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "deepfake-onboarding-guide.dsit-testing-heterogeneity-osa-posture.001",
+    "guide": "deepfake-onboarding-guide.html",
+    "claimText": "Detection accuracy claims are inconsistent between vendors because there is no standardised testing methodology or dataset, and the safety tech industry has described a reactive, wait-and-see posture toward deepfakes under the Online Safety Act due to perceived ambiguity around synthetic media specifically.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Deepfake Detection Technology",
+      "url": "https://www.gov.uk/government/publications/deepfake-detection-technology/deepfake-detection-technology",
+      "publisher": "Department for Science, Innovation and Technology (DSIT), commissioned from PUBLIC",
+      "date": "2026-03-26"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-02-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "deepfake-onboarding-guide.ofcom-deepfake-definition.001",
+    "guide": "deepfake-onboarding-guide.html",
+    "claimText": "A deepfake is audio-visual content that has been generated or manipulated using AI, and that misrepresents someone or something.",
+    "claimType": "definition",
+    "source": {
+      "title": "Deepfake Defences: Mitigating the Harms of Deceptive Deepfakes",
+      "url": "https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/deepfake-defences",
+      "publisher": "Ofcom",
+      "date": "2024-07-23"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "deepfake-onboarding-guide.abn-amro-case-facts.001",
+    "guide": "deepfake-onboarding-guide.html",
+    "claimText": "A 34-year-old man in Amsterdam used face-swap software on stolen ID photos (partly obtained via a fake rental listing scam) to open 46 fraudulent accounts at ABN AMRO through the bank's mobile onboarding flow. The fraud surfaced when one application's ID photo showed a woman while the accompanying selfie showed a man. Convicted June 2026, sentenced to 30 months (6 suspended), ordered to repay over EUR13,000. The specific ECLI case citation could not be independently verified (rechtspraak.nl blocks automated access; no secondary source's rendered text contained it), so no ECLI number is asserted in the guide, only the Rechtspraak.nl news page itself is cited. The account count is reported inconsistently across sources: 46 (DutchNews.nl, used throughout this guide) versus 47 (security.nl, Dutch-language reporting); not reconciled, logged here rather than silently picking one.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "2,5 jaar cel voor oplichten bank met deepfake-technologie / Man opened 46 bank accounts using deepfakes and stolen IDs",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-amsterdam/nieuws/2026/06/25-jaar-cel-voor-oplichten-bank-met-deepfake-technologie",
+      "publisher": "De Rechtspraak (Dutch Judiciary) / DutchNews.nl",
+      "date": "2026-06-17"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
   }
 ]

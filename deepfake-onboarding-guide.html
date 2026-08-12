@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Actually Happens After You Suspect a Deepfake at Onboarding | FinCrimeRadar</title>
+  <meta name="description" content="A liveness check flags a moderate-confidence synthetic media score. Now what? The compliance judgement once a deepfake alert is already in your queue, not another detection technology explainer." />
+  <meta name="keywords" content="deepfake fraud, deepfake onboarding, synthetic media, liveness detection, biometric verification fraud, live injection attack, face swap KYC, SAR deepfake, ABN AMRO deepfake" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/deepfake-onboarding-guide.html" />
+  <meta property="og:title" content="What Actually Happens After You Suspect a Deepfake at Onboarding" />
+  <meta property="og:description" content="The detection tool gives you a confidence score, not a verdict. Four worked scenarios on the judgement that comes next, a real case, and a knowledge check." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/deepfake-onboarding-guide.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Actually Happens After You Suspect a Deepfake at Onboarding",
+    "description": "A liveness check flags a moderate-confidence synthetic media score. Now what? The compliance judgement once a deepfake alert is already in your queue, not another detection technology explainer.",
+    "about": [
+      {"@type": "Thing", "name": "Deepfake Fraud at Onboarding"},
+      {"@type": "Thing", "name": "Biometric Verification Fraud"},
+      {"@type": "Thing", "name": "Live Injection Attacks"}
+    ],
+    "author": {"@type": "Organization", "name": "FinCrimeRadar"},
+    "publisher": {"@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org"},
+    "url": "https://fincrimeradar.org/deepfake-onboarding-guide.html",
+    "datePublished": "2026-08-12"
+  }
+  </script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-flag:#2563eb; --c-flag-light:#eff6ff;
+      --c-repeat:#dc2626; --c-repeat-light:#fef2f2;
+      --c-false:#16a34a; --c-false-light:#f0fdf4;
+      --c-inject:#7c3aed; --c-inject-light:#f5f3ff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-flag); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero {
+      background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%);
+      color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden;
+    }
+    .article-hero::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%);
+    }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-flag); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-inject); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-repeat); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    /* HERO STAT STRIP */
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(93,202,165,0.5); } 50%{ box-shadow:0 0 0 6px rgba(93,202,165,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-flag); border-left-color:var(--c-flag); }
+    .toc a.active { color:var(--c-flag); border-left-color:var(--c-flag); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* PATTERN BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-flag { background:var(--c-flag-light); color:var(--c-flag); border:1px solid #bfdbfe; }
+    .badge-repeat { background:var(--c-repeat-light); color:var(--c-repeat); border:1px solid #fecaca; }
+    .badge-false { background:var(--c-false-light); color:var(--c-false); border:1px solid #bbf7d0; }
+    .badge-inject { background:var(--c-inject-light); color:var(--c-inject); border:1px solid #ddd6fe; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* PROCESS FLOW */
+    .flow { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; margin:1.5rem 0; }
+    .flow-stage { margin-bottom:2px; }
+    .flow-stage-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:6px; }
+    .flow-node { background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:0.85rem 1rem; }
+    .flow-node-title { font-size:14px; font-weight:700; color:var(--navy); }
+    .flow-node-sub { font-size:12.5px; color:#374151; margin-top:4px; line-height:1.55; }
+    .flow-arrow { text-align:center; color:#9ca3af; font-size:17px; line-height:1; margin:7px 0; }
+    .flow-branch { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .flow-branch .flow-node { height:100%; }
+
+    /* ILLUSTRATIVE GRAPHIC */
+    .illustrative-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto; }
+
+    /* MERGED PATTERN CARD */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) {
+      .pattern-ttd { grid-template-columns:1fr; }
+      .pattern-grid { grid-template-columns:1fr; }
+      .flow-branch { grid-template-columns:1fr; }
+    }
+
+    /* SCENARIO HEADER */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-flag); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-icon.open { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
+    .faq-a.open { max-height:400px; padding:0 1.1rem 1rem; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-flag); color:var(--c-flag); }
+
+    /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:#00c4a7; }
+
+    /* MOBILE */
+    @media(max-width:768px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .hero-stats { flex-direction:column; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🕵️ Interactive Deep Dive · Deepfake Onboarding Judgement</div>
+    <h1>What Actually Happens After<br><em>You Suspect a Deepfake at Onboarding</em></h1>
+    <p class="hero-sub">The detection tool gives you a confidence score, not a verdict. This guide teaches the judgement that comes after the flag, not another explainer on how the detection technology itself works.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 17 min read</span>
+      <span>🕵️ Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 4 Scenarios</span>
+    </div>
+
+    <div class="hero-eyebrow-row">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      <span>Why a confidence score is not a decision</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="20">0</span>pp</div>
+        <div class="hero-stat-label">Real-world accuracy drop below lab-tested figures (10 to 20 percentage points)</div>
+        <div class="hero-stat-source">DSIT/PUBLIC, Deepfake Detection Technology, 26 March 2026</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="7">0</span> of 59</div>
+        <div class="hero-stat-label">Mapped deepfake detection providers worldwide that are UK-based</div>
+        <div class="hero-stat-source">DSIT/PUBLIC, Deepfake Detection Technology, 26 March 2026</div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="46">0</span></div>
+        <div class="hero-stat-label">Fraudulent accounts, one man, one bank, one onboarding flow</div>
+        <div class="hero-stat-source">ABN AMRO deepfake onboarding case, convicted June 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout">
+  <div class="article-body">
+
+    <!-- INTRO / FOUNDATION -->
+    <div class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--c-flag)">Just Enough to Move On</div>
+      <h2>What a deepfake actually is, briefly</h2>
+      <p>Deepfake detection technology already has a saturated content market, vendor after vendor explaining the same generative-adversarial-network and diffusion-model mechanics. That ground is covered. This guide does not repeat it. What almost nobody covers is the compliance judgement once a session is already flagged, and that is the actual subject of everything below.</p>
+      <p>There is no single legal definition of a deepfake in UK law. Ofcom's own working definition, used in its 2024 discussion paper on the harms of deceptive deepfakes, is the clearest available: a deepfake is audio-visual content that has been generated or manipulated using AI, and that misrepresents someone or something.<sup>[1]</sup> The broader category is synthetic media, any image, video, audio, or text generated in whole or in part by AI. A deepfake is the subset built specifically to misrepresent.</p>
+
+      <h3>Two attack patterns that matter at onboarding</h3>
+      <p>Face-swap and reenactment tools take an existing photo or video of a target identity and map a different face onto it, adjusting for lighting, angle, and expression. This is the technique behind the ABN AMRO case below, a stolen ID photo had the fraudster's own facial characteristics blended onto it, closely enough to pass an automated selfie-to-ID match.</p>
+      <p>Live injection attacks are a materially different and more serious pattern. Rather than submitting a manipulated photo or video file, the attacker feeds synthetic video directly into the verification pipeline in real time, bypassing the device camera entirely. Detection vendors and DSIT's own market analysis treat this as the most pressing and scalable current threat, because it defeats checks that assume a live camera feed is inherently trustworthy.<sup>[1]</sup></p>
+      <p>One line on scope, since it matters: this guide is about the moment a submitted or live verification session is suspected to be synthetic media. The broader pattern of a fabricated identity built from stitched-together real fragments, which is a different problem with a different investigation, is covered in <a href="/synthetic-identity-device-network-guide.html" style="color:var(--c-flag);font-weight:600;">Synthetic Identity and Device-Network Fraud</a>.</p>
+
+      <div class="callout callout-navy">
+        <strong>What this guide does not cover</strong>
+        <p>Generative model mechanics, vendor detection tool comparisons, and liveness certification standards are all real, useful ground, and all already covered elsewhere. This guide covers what to do once a session is flagged, not how the flag was technically generated.</p>
+      </div>
+    </div>
+
+    <!-- WHY DETECTION TOOLS AREN'T THE WHOLE ANSWER -->
+    <div class="article-section" id="why-not-enough">
+      <div class="section-eyebrow" style="color:var(--c-flag)">The Pivot Point</div>
+      <h2>Why a detection tool cannot be the whole answer</h2>
+      <p>This is not caution for its own sake, it is what DSIT's own commissioned market analysis actually found, not vendor marketing:</p>
+      <ul>
+        <li>Detection accuracy claims are inconsistent between vendors because there is no standardised testing methodology or dataset, making genuine comparison difficult.<sup>[1]</sup></li>
+        <li>Real-world accuracy runs materially below lab-tested figures, DSIT's report puts the gap at 10 to 20 percentage points once tools meet manipulation techniques they were not trained on.<sup>[1]</sup></li>
+        <li>The Online Safety Act creates a regulatory backdrop but does not resolve ambiguity around synthetic media specifically, and the safety tech industry has itself described a reactive, wait-and-see posture toward deepfakes under the OSA as a result.<sup>[1]</sup></li>
+      </ul>
+      <p>The honest takeaway, stated plainly rather than implied: no detection tool gives you a clean yes or no you can act on alone. A confidence score is an input to a judgement, not a substitute for one. That judgement is what the rest of this guide actually teaches.</p>
+
+      <figure>
+        <img
+          src="/deepfake-onboarding-guide-detection-signals.png"
+          alt="Illustrative diagram of an abstract, non-identifiable head silhouette with four labelled detection-signal callouts: blink pattern irregularity, lighting and shadow inconsistency, jawline and edge artefacting, and lip-sync drift. Captioned illustrative only, not a real detection tool output."
+          width="573"
+          height="687"
+          loading="lazy"
+          class="illustrative-img"
+        />
+      </figure>
+    </div>
+
+    <!-- PROCESS FLOW -->
+    <div class="article-section" id="process">
+      <div class="section-eyebrow" style="color:var(--c-flag)">The Escalation Path</div>
+      <h2>From flag to decision</h2>
+      <p>A flag is the start of a process, not an automatic outcome. The four scenarios below work each branch in detail, this is the shape of the path they walk.</p>
+
+      <div class="flow" id="processFlow">
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 1 · Flag raised</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Liveness or document check returns an uncertain result</div>
+            <div class="flow-node-sub">Not a clear pass or fail, a confidence score that needs a human judgement applied to it.</div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 2 · One of three paths</div>
+          <div class="flow-branch">
+            <div class="flow-node">
+              <div class="flow-node-title">Decline</div>
+              <div class="flow-node-sub">Rarely proportionate on a moderate score alone, see Scenario 1.</div>
+            </div>
+            <div class="flow-node">
+              <div class="flow-node-title">Escalate to manual review</div>
+              <div class="flow-node-sub">The stronger default for a single ambiguous flag.</div>
+            </div>
+            <div class="flow-node">
+              <div class="flow-node-title">Request secondary verification</div>
+              <div class="flow-node-sub">Often the strongest single step, tests a different channel entirely.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 3 · SAR decision point</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Does this specific pattern of facts warrant a SAR</div>
+            <div class="flow-node-sub">The standard articulable-suspicion threshold governs, same as any other ambiguous KYC signal, see Scenario 2.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-flag-light);">🎯</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · A score, not a verdict</div>
+          <div class="scenario-name">The Moderate-Confidence Flag</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-flag">The Moderate Flag</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A liveness check returns a 62 percent confidence score that the submitted selfie may be synthetic, not a clear pass or fail. The applicant has otherwise submitted a genuine, unaltered passport image.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)">
+            <span class="opt-label">A</span>
+            <span>Decline the application outright. You cannot verify the applicant to the required standard.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)">
+            <span class="opt-label">B</span>
+            <span>Escalate to manual review. A trained reviewer looks at the actual submitted material, not just the score.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)">
+            <span class="opt-label">C</span>
+            <span>Request a second verification method, such as a live video call, before deciding either way.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict">
+          <div id="scenario1-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-repeat-light);">📝</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · The genuinely unsettled question</div>
+          <div class="scenario-name">The SAR Threshold</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-repeat">SAR Judgement</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>The applicant from Scenario 1 is escalated, and manual review cannot rule out synthetic media with confidence either way. The application is declined on a precautionary basis. No other applications, addresses, or documents connect to this one.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)">
+            <span class="opt-label">A</span>
+            <span>File a SAR immediately, the decline itself is grounds for suspicion.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)">
+            <span class="opt-label">B</span>
+            <span>Do not file. Treat it as a standard declined application with no further action.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)">
+            <span class="opt-label">C</span>
+            <span>Hold the decision with a documented reasoning note, and file only if a specific, articulable suspicion emerges, such as a data mismatch or a repeat-attempt pattern.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict">
+          <div id="scenario2-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 3 -->
+    <div class="article-section" id="scenario3">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-inject-light);">🔁</div>
+        <div>
+          <div class="scenario-num">Scenario 03 · Same face, different name</div>
+          <div class="scenario-name">The Repeat-Attempt Pattern</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-inject">The Repeat Applicant</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario3">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>Someone using documents very similar in style to a previously flagged application attempts onboarding again days later, with a different name and address, but a suspiciously similar facial structure across the flagged sessions.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario3','A',this)">
+            <span class="opt-label">A</span>
+            <span>Treat it as an unrelated new application, since the name and address are different.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','B',this)">
+            <span class="opt-label">B</span>
+            <span>File a SAR and check whether other recent applications share the same pattern.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario3-verdict">
+          <div id="scenario3-content"></div>
+        </div>
+      </div>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text">
+          <strong>Investigating a repeat-attempt pattern?</strong>
+          <span>Free. No account needed. Run a PEP, sanctions, and adverse media check on the applicant.</span>
+        </div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+    <!-- SCENARIO 4 -->
+    <div class="article-section" id="scenario4">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-false-light);">⚠️</div>
+        <div>
+          <div class="scenario-num">Scenario 04 · The failure direction most content ignores</div>
+          <div class="scenario-name">The False Positive</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-false">The False Positive</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario4">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div>
+            <strong>What do you do?</strong>
+            <span>Make the call</span>
+          </div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A genuine applicant triggers a detection flag purely because of unusual lighting conditions from a phone camera, or because they are wearing a face covering for religious or medical reasons. Nothing else about the application is unusual.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario4','A',this)">
+            <span class="opt-label">A</span>
+            <span>Apply the same decline threshold as any other flagged session.</span>
+          </button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','B',this)">
+            <span class="opt-label">B</span>
+            <span>Weight the flag lower given known tool limitations, and lean toward secondary verification rather than a decline.</span>
+          </button>
+        </div>
+        <div class="dilemma-verdict" id="scenario4-verdict">
+          <div id="scenario4-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY -->
+    <div class="article-section" id="case-study">
+      <div class="section-eyebrow" style="color:var(--c-repeat)">Real, Court-Confirmed, Not Hypothetical</div>
+      <h2>The ABN AMRO deepfake onboarding case</h2>
+      <p>A 34-year-old man in Amsterdam collected stolen identity documents, partly by posting a fake rental property listing on Marktplaats and asking prospective tenants to send copies of their passports "for verification".<sup>[3]</sup> He then used face-swap software to blend his own facial features onto the stolen ID photos, closely enough that automated selfie-to-ID matching accepted them. Using this method he opened 46 fraudulent accounts at ABN AMRO through the bank's standard mobile onboarding flow, which asks an applicant to photograph an ID document and then take a selfie for automated comparison.<sup>[3]</sup></p>
+      <p>The fraud came to light only when one application's submitted ID photo showed a woman while the accompanying selfie showed a man, a mismatch that triggered ABN AMRO's own investigation into the wider pattern.<sup>[3]</sup> He was convicted in June 2026 and sentenced to 30 months, six of them suspended, and ordered to repay ABN AMRO more than EUR13,000.<sup>[2]</sup></p>
+
+      <div class="callout callout-navy">
+        <strong>Disclosure</strong>
+        <p>This is a Dutch case, prosecuted under Dutch law, not a UK enforcement action. It's included because it is the clearest real, court-confirmed example currently available of exactly the attack pattern this guide addresses, a face-swap defeating a bank's own onboarding flow at scale before detection, not because it reflects UK regulatory practice specifically. Reporting on the exact account count varies slightly between sources (46 to 47), the figure used throughout this guide follows DutchNews.nl's reporting.</p>
+      </div>
+
+      <p>Why this case matters for the judgement, not just the technology: no single flagged session in isolation triggered detection. It was the cross-application pattern, caught by a human noticing an inconsistency the automated system hadn't decisively flagged, that surfaced the fraud. This directly supports Scenario 3's reasoning above.</p>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-repeat)">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. Figures without a bracketed number are illustrative examples rather than verified facts, the surrounding text says which.</p>
+      <ol style="font-size:14px; line-height:1.7; padding-left:1.25rem;">
+        <li id="src-1">Department for Science, Innovation and Technology / PUBLIC, <em>Deepfake Detection Technology</em>, published 26 March 2026. <a href="https://www.gov.uk/government/publications/deepfake-detection-technology/deepfake-detection-technology" target="_blank" rel="noopener">gov.uk/government/publications/deepfake-detection-technology</a></li>
+        <li id="src-2">De Rechtspraak (Dutch Judiciary), Rechtbank Amsterdam news item, <em>2,5 jaar cel voor oplichten bank met deepfake-technologie</em>, June 2026. <a href="https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-amsterdam/nieuws/2026/06/25-jaar-cel-voor-oplichten-bank-met-deepfake-technologie" target="_blank" rel="noopener">rechtspraak.nl, Rechtbank Amsterdam nieuws</a></li>
+        <li id="src-3">DutchNews.nl, <em>Man opened 46 bank accounts using deepfakes and stolen IDs</em>, 18 March 2026. <a href="https://www.dutchnews.nl/2026/03/man-opened-46-bank-accounts-using-deepfakes-and-stolen-ids/" target="_blank" rel="noopener">dutchnews.nl/2026/03/man-opened-46-bank-accounts-using-deepfakes-and-stolen-ids</a></li>
+        <li id="src-4">Ofcom, <em>Deepfake Defences: Mitigating the Harms of Deceptive Deepfakes</em>, discussion paper, published 23 July 2024. <a href="https://www.ofcom.org.uk/online-safety/illegal-and-harmful-content/deepfake-defences" target="_blank" rel="noopener">ofcom.org.uk/online-safety/illegal-and-harmful-content/deepfake-defences</a></li>
+      </ol>
+    </div>
+
+    <!-- KNOWLEDGE CHECK QUIZ -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions. Do you know what a deepfake flag actually requires you to do next?</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. What specific inconsistency between two documents in the same application first exposed the ABN AMRO fraud pattern?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - A mismatched date of birth between two submitted passports</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - The submitted ID photo showed a woman while the accompanying selfie showed a man</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Two applications used the exact same email address</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - A bank employee recognised the fraudster in person</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. According to DSIT's own research, how does real-world deepfake detection accuracy compare to lab-tested figures?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - Real-world accuracy is typically 10 to 20 percentage points lower than lab-tested figures</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - Real-world accuracy is always higher, since lab conditions are artificially harder</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - There is no measurable difference between lab and real-world accuracy</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - DSIT's research did not examine accuracy at all</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. A single moderate-confidence liveness flag with no other red flags: what's the most proportionate first response?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - Decline the application immediately</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - Escalate to manual review or request a second verification method, rather than decline on the score alone</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - Approve automatically, since one moderate score is not meaningful</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - File a SAR immediately on the flag alone</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. What made the repeat-attempt pattern in Scenario 3 different from the single flag in Scenario 1?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Nothing, both should be handled identically</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - A repeat pattern across separate applications is itself a red flag, and a stronger, more articulable basis for a SAR than a single ambiguous score</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Scenario 3 involves a live injection attack, which Scenario 1 does not</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - A repeat pattern automatically proves the applicant is not a fraudster</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. What is a live injection attack, and how does it differ from a submitted manipulated photo?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - There is no difference, both terms describe the same attack</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - A live injection attack feeds synthetic video directly into the verification pipeline in real time, bypassing the device camera, rather than submitting an altered file</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - A live injection attack only works against voice-based verification</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - A live injection attack requires physical access to the bank's servers</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-flag)">Frequently Asked</div>
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does a deepfake flag automatically require a SAR? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No. The same articulable-suspicion standard applies as any other ambiguous KYC signal, a bare technical flag with no corroborating pattern is not automatically grounds for a report. See Scenario 2.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if the detection tool itself is wrong? <span class="faq-icon">+</span></div>
+        <div class="faq-a">It happens more often than lab-tested accuracy figures suggest. DSIT's own research found real-world accuracy runs 10 to 20 percentage points below lab conditions. Treat a single tool's confidence score as one input, not a verdict.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can we decline an applicant based on a confidence score alone? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Generally not advisable on a moderate score in isolation. See Scenario 1's reasoning on proportionality and the risk of penalising a genuine customer without a stronger evidentiary basis.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is this different from a standard document forgery case? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes, materially. A forged physical document is typically a static, one-time artefact. A live injection attack defeats the assumption that a real-time camera feed is inherently trustworthy, a newer and different category of risk than document forgery.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why does this guide use a Dutch case study instead of a UK one? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No UK enforcement action matching this exact pattern, a deepfake defeating bank onboarding at scale, has been identified as of this guide's publication. The ABN AMRO case is the clearest real, citable example of the pattern currently available, disclosed honestly as non-UK rather than presented as if it were.</div>
+      </div>
+    </div>
+
+    <!-- AT A GLANCE, closing card grid -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-flag)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Four patterns, the risk each one carries, the signal that tells you which one you're looking at, and the response that fits.</p>
+
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-flag-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🎯</div>
+            <div class="pattern-name" style="color:var(--c-flag);">The Moderate Flag</div>
+          </div>
+          <div class="pattern-line">A single ambiguous confidence score is an input, not a verdict.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-flag);">Risk</div><div class="ttd-text">A single ambiguous confidence score.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-flag);">Signal</div><div class="ttd-text">No corroborating pattern beyond the one score.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-flag);">Response</div><div class="ttd-text">Escalate to manual review or request secondary verification, don't decline on the score alone.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-repeat-light);border-color:#fecaca;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">🔁</div>
+            <div class="pattern-name" style="color:var(--c-repeat);">The Repeat Applicant</div>
+          </div>
+          <div class="pattern-line">The same or similar biometric data across multiple applications is a real pattern, not a coincidence.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-repeat);">Risk</div><div class="ttd-text">The same or similar biometric data across multiple applications.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-repeat);">Signal</div><div class="ttd-text">Names or addresses change, facial structure doesn't.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-repeat);">Response</div><div class="ttd-text">This is an articulable basis for a SAR, unlike a single flag in isolation.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-false-light);border-color:#bbf7d0;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">⚠️</div>
+            <div class="pattern-name" style="color:var(--c-false);">The False Positive</div>
+          </div>
+          <div class="pattern-line">Penalising a genuine applicant for a known tool limitation is the failure direction most content ignores.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-false);">Risk</div><div class="ttd-text">Penalising a genuine applicant for a known tool limitation.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-false);">Signal</div><div class="ttd-text">Poor lighting, face coverings, non-standard presentation conditions.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-false);">Response</div><div class="ttd-text">Weight the flag lower, lean toward secondary verification rather than an automatic decline.</div></div>
+          </div>
+        </div>
+
+        <div class="pattern-card" style="background:var(--c-inject-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head">
+            <div class="pattern-icon">📡</div>
+            <div class="pattern-name" style="color:var(--c-inject);">The Injection Attack</div>
+          </div>
+          <div class="pattern-line">Synthetic video fed directly into a live session is a different, newer category of risk.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-inject);">Risk</div><div class="ttd-text">Synthetic video fed directly into a live verification session, not a submitted file.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-inject);">Signal</div><div class="ttd-text">Defeats the assumption that a live camera feed is inherently trustworthy.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-inject);">Response</div><div class="ttd-text">The pattern detection vendors treat as most pressing, and the one this guide's foundation section explains in most detail.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-flag)">The Judgement, Not the Technology</div>
+      <h2>The score is an input. The decision is still yours.</h2>
+      <p>Detection technology tells you a session might be synthetic. It does not tell you whether to decline, escalate, request secondary verification, or file a SAR, that is the judgement this guide walks through. <a href="/scenario-lab.html" style="color:var(--c-flag);font-weight:600;">FinCrimeRadar's Scenario Lab</a> puts similar investigative decisions in front of you under real time pressure and partial information, free, no signup required.</p>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text">
+          <strong>Want to practise the judgement rather than read about it?</strong>
+          <span>Free. No account needed. Work real cases under time pressure and partial information.</span>
+        </div>
+        <a href="/scenario-lab.html" class="itp-btn">Open the Scenario Lab →</a>
+      </div>
+    </div>
+
+    <!-- RELATED TOPICS -->
+    <div class="article-section" id="related-topics">
+      <div class="section-eyebrow" style="color:var(--c-flag)">Continue Reading</div>
+      <h2>Related topics</h2>
+      <ul style="font-size:14px; line-height:1.8; padding-left:1.25rem;">
+        <li><a href="/synthetic-identity-device-network-guide.html" style="color:var(--c-flag);font-weight:600;">Synthetic Identity and Device-Network Fraud</a>, the broader fabricated-identity pattern this guide's foundation section explicitly distinguishes itself from, a stitched-together identity rather than a suspected-synthetic verification session.</li>
+      </ul>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#intro">What a Deepfake Actually Is</a>
+      <a href="#why-not-enough">Why Detection Tools Aren't Enough</a>
+      <a href="#process">From Flag to Decision</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-flag);"></span> 01 · The Moderate Flag</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-repeat);"></span> 02 · The SAR Threshold</a>
+      <a href="#scenario3" class="toc-scenario"><span class="toc-dot" style="background:var(--c-inject);"></span> 03 · The Repeat Applicant</a>
+      <a href="#scenario4" class="toc-scenario"><span class="toc-dot" style="background:var(--c-false);"></span> 04 · The False Positive</a>
+      <a href="#case-study">Case Study</a>
+      <a href="#sources">Sources</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+      <a href="#related-topics">Related Topics</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 4</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+
+    <div class="tool-cta">
+      <p>Practise the same judgement live, real cases, no signup.</p>
+      <a href="/scenario-lab.html">Open the Scenario Lab →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// TOC ACTIVE STATE
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+// STAT STRIP COUNT-UP ANIMATION
+(function () {
+  const nums = document.querySelectorAll('.stat-num-anim');
+  if (!nums.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateNum(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if (prefersReduced) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const heroEl = document.querySelector('.article-hero');
+  if (!heroEl) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        nums.forEach(animateNum);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(heroEl);
+})();
+
+// SCORE TRACKING
+let scenarioResults = {};
+
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 4';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+// SCENARIO ANSWER KEYS AND FULL VERDICTS
+const answerKeys = {
+  scenario1: 'B',
+  scenario2: 'C',
+  scenario3: 'B',
+  scenario4: 'B'
+};
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: B, escalate to manual review',
+    body: [
+      'A 62 percent confidence score is genuinely ambiguous, not a near-certain finding. DSIT\'s own research confirms detection accuracy varies significantly and runs 10 to 20 percentage points below lab-tested figures in real-world conditions, so a moderate score from any single vendor tool carries real uncertainty, not near-certainty.',
+      'Option A is likely disproportionate on a moderate score alone, declining without a stronger evidentiary basis risks penalising a genuine customer and creates its own fair-treatment exposure. Option C, requesting a second verification method, is also a defensible and often stronger step, but escalating to a trained human reviewer who examines the actual submitted material first is the more universally correct default before deciding whether a second channel is even needed.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: C, hold with a documented reasoning note, file only if a specific suspicion emerges',
+    body: [
+      'A decline alone is not evidence of suspicion of financial crime, it may simply reflect an inability to verify identity to the required standard. No settled FCA or NCA position exists on a bright-line SAR trigger for a deepfake flag alone, so the standard suspicious-activity threshold, an articulable reason to suspect, not a bare technical flag, governs, same as any other ambiguous KYC signal.',
+      'Option A is premature, filing without an articulable reason to suspect risks both a poor-quality SAR and, at volume, defensive over-reporting that degrades the value of SARs generally. Option B is also wrong if additional red flags exist elsewhere, see Scenario 3, but the isolated case described here has none, which is exactly why C\'s conditional hold, not a blanket "never file", is the correct answer.'
+    ]
+  },
+  scenario3: {
+    title: 'Correct answer: B, file a SAR and check for a wider pattern',
+    body: [
+      'A repeat pattern across applications, similar documents, changing names and addresses, a consistent facial structure, is a red flag independent of any single confidence score. This is the exact pattern in the ABN AMRO case above, caught only once the bank\'s own investigation connected multiple applications through a mismatch a single automated check hadn\'t decisively flagged.',
+      'Option A is wrong precisely because it treats this as Scenario 1\'s single ambiguous flag again. It is not. A pattern across sessions is a materially stronger and more articulable basis for a SAR than a single moderate confidence score ever was alone, this is where "does this specific pattern of facts warrant a SAR" gets a clear yes.'
+    ]
+  },
+  scenario4: {
+    title: 'Correct answer: B, weight the flag lower given known tool limitations',
+    body: [
+      'DSIT\'s own report notes accuracy claims vary significantly across real-world conditions lab testing doesn\'t capture, poor lighting and non-standard presentation being exactly the kind of condition that degrades detection tool reliability without indicating fraud at all.',
+      'Option A applies the same decline threshold regardless of known cause, which is the guide\'s deliberate inclusion of the failure direction most compliance content ignores, only ever catching the fraudster, never protecting the genuine customer. Treating a known tool limitation as a reason for a lighter-touch response, leaning toward secondary verification from Scenario 1 rather than an automatic decline, is the better default, it still applies a genuine check rather than waving the flag through entirely.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => {
+    b.disabled = true;
+    b.style.opacity = '0.6';
+    b.style.cursor = 'default';
+  });
+
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+
+  verdictDiv.classList.add('show');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+// FAQ TOGGLE
+function toggleFaq(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.faq-icon').classList.toggle('open');
+}
+
+// QUIZ LOGIC
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'The mismatch between a woman\'s ID photo and a man\'s accompanying selfie on one application was the specific inconsistency that triggered ABN AMRO\'s own investigation into the wider pattern.' },
+  qq2: { correct: 'A', fb: 'DSIT\'s Deepfake Detection Technology report found real-world accuracy typically runs 10 to 20 percentage points below lab-tested figures, once tools meet manipulation techniques they weren\'t trained on.' },
+  qq3: { correct: 'B', fb: 'A moderate score is genuinely ambiguous, not near-certain. Escalation to manual review, or a second verification channel, is the proportionate default, not an automatic decline or approval.' },
+  qq4: { correct: 'B', fb: 'A repeat pattern across separate applications is itself a red flag, independent of any single confidence score, and is a materially stronger, more articulable basis for a SAR than one ambiguous flag alone.' },
+  qq5: { correct: 'B', fb: 'A live injection attack feeds synthetic video directly into the verification pipeline in real time, bypassing the device camera entirely, rather than submitting an already-manipulated photo or video file.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the flag-to-decision path is worth a second read.','Getting there, go back through the scenarios you missed.','Solid foundation, a few gaps to close.','Good grasp, you would handle most of these correctly in a real queue.','Strong, practitioner-level investigative judgement.','Perfect, you know what a flag actually requires every time.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+// SAVE AS IMAGE
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return {
+      lineLines,
+      ttdLineCounts,
+      height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD
+    };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Deepfake at Onboarding: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'deepfake-onboarding-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
