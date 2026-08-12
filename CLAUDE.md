@@ -30,3 +30,21 @@ Independent adversarial review (via ChatGPT/Codex, done manually by pasting the 
 It is NOT expected for: content and guide sourcing, CSS or styling, copy edits, typos, config, or any change without new logic. Skipping review on these is correct, not a lapse.
 
 Claude Code should NOT auto-launch the Codex plugin or set up background monitors/polling for reviews. If a diff qualifies as high-stakes logic, flag it and let the human run the review manually via ChatGPT.
+
+## Session tooling
+
+Two plugins are installed: `ponytail` (minimal-code discipline) and `code-review` (Anthropic's PR-based multi-agent reviewer).
+
+Ponytail mode follows the active BACKLOG.md loop:
+
+- Polish Loop: `/ponytail lite`. Mechanical, low-risk work (CSS, dash sweeps, token fixes) doesn't need full ladder deliberation.
+- Build Loop and Content Loop: `/ponytail full` (default). Real architecture and component decisions benefit from the full ladder.
+- `/ponytail ultra` is reserved for genuine adversarial situations, not a default upgrade from full.
+
+Review routing:
+
+- `/ponytail-review` is the default end-of-session check for every loop, every session. It runs on the current diff directly, no PR required.
+- `/code-review` is available for any PR you want a second pass on, general purpose, not gated by tier.
+- For the high-stakes tier defined under Review policy above (scoring or grading logic, authentication, code that moves money or touches financial data, new API endpoints, security or trust boundaries), both checks apply: `/code-review` via a real GitHub PR, AND the manual ChatGPT/Codex adversarial review outside the session. `/code-review` does not replace the manual step, it is same-model multi-agent review and does not provide the cross-model independence the manual step exists for. Run `/code-review` first to catch obvious issues cheaply, then do the manual cross-model pass on what remains.
+
+Do not run either review tool as a default habit on content, CSS, or config changes. That duplicates work the Review policy above already says to skip.
