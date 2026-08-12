@@ -1333,5 +1333,80 @@
     "verifiedOn": "2026-08-11",
     "reviewDue": "2027-08-11",
     "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "topics-sanctions-hub.ofac-strict-liability.001",
+    "guide": "content-drafts/topics-sanctions-hub.md (unpublished pilot content, not a live guide)",
+    "claimText": "OFAC may impose civil penalties for sanctions violations on a strict liability basis: a person subject to U.S. jurisdiction can be held civilly liable even if they did not know or have reason to know they were engaging in a transaction prohibited under OFAC-administered sanctions.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "OFAC FAQ 65",
+      "url": "https://ofac.treasury.gov/faqs/65",
+      "publisher": "Office of Foreign Assets Control, U.S. Department of the Treasury",
+      "date": "2024-11-13"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "topics-sanctions-hub.ofsi-strict-civil-liability.001",
+    "guide": "content-drafts/topics-sanctions-hub.md (unpublished pilot content, not a live guide)",
+    "claimText": "For breaches of UK financial sanctions committed on or after 15 June 2022, the Economic Crime (Transparency and Enforcement) Act 2022 amended section 146 of the Policing and Crime Act 2017 so that OFSI no longer has to prove knowledge or reasonable cause to suspect a breach, establishing strict civil liability; knowledge is still weighed as a case factor in assessing proportionality. OFSI's guidance was updated 9 February 2026 to add a four-level seriousness model for case assessment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial sanctions enforcement and monetary penalties guidance",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-enforcement-and-monetary-penalties-guidance/financial-sanctions-enforcement-and-monetary-penalties-guidance",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2026-02-09"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-02-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "topics-sanctions-hub.ofac-gva-capital-penalty.001",
+    "guide": "content-drafts/topics-sanctions-hub.md (unpublished pilot content, not a live guide)",
+    "claimText": "OFAC assessed a $215,988,868 civil monetary penalty against GVA Capital Ltd. of San Francisco, the statutory maximum, for knowingly managing investments on behalf of sanctioned Russian oligarch Suleiman Kerimov (via his nephew as proxy) between April 2018 and May 2021, and for failing to comply with an OFAC subpoena during the investigation.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "The U.S. Department of the Treasury's Office of Foreign Assets Control Assesses a Civil Monetary Penalty against GVA Capital, Ltd.",
+      "url": "https://ofac.treasury.gov/recent-actions/20250612",
+      "publisher": "Office of Foreign Assets Control, U.S. Department of the Treasury",
+      "date": "2025-06-12"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "topics-sanctions-hub.ofsi-bank-of-scotland-penalty.001",
+    "guide": "content-drafts/topics-sanctions-hub.md (unpublished pilot content, not a live guide)",
+    "claimText": "OFSI imposed a £160,000 monetary penalty on Bank of Scotland Plc, published 26 January 2026 (penalty imposed 10 November 2025), for processing payments to and from a personal account held by a person designated under the Russia sanctions regime; a 50% voluntary disclosure discount reduced the penalty from £320,000.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Imposition of a monetary penalty: Bank of Scotland Plc",
+      "url": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-bank-of-scotland-plc",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2026-01-26"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
+  },
+  {
+    "claimId": "topics-sanctions-hub.ofsi-herbert-smith-freehills-penalty.001",
+    "guide": "content-drafts/topics-sanctions-hub.md (unpublished pilot content, not a live guide)",
+    "claimText": "OFSI imposed a £465,000 monetary penalty on Herbert Smith Freehills CIS LLP (Moscow), published 20 March 2025, for six payments totalling £3,932,392.10 made to designated persons (via Alfa-Bank, Sovcombank, and Sberbank) between 25 and 31 May 2022 during the firm's hasty closure of its Russian office; a 50% voluntary disclosure discount reduced the penalty from £930,000.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Herbert Smith Freehills CIS LLP monetary penalty notice",
+      "url": "https://assets.publishing.service.gov.uk/media/67dae19a1a60f79643028472/200325_HSF_PENALTY_NOTICE.pdf",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2025-03-20"
+    },
+    "verifiedOn": "2026-08-12",
+    "reviewDue": "2027-08-12",
+    "status": "verified"
   }
 ]
