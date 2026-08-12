@@ -33,5 +33,27 @@
   ],
   "crypto-guide-part4": [
     "crypto-travel-rule-sunrise-guide"
+  ],
+  "fraud-investigation-playbook": [
+    "money-mule-financial-crime-networks-handbook"
+  ],
+  "ubo-investigation-handbook": [
+    "money-mule-financial-crime-networks-handbook",
+    "kyc-onboarding-dilemma"
+  ],
+  "kyc-onboarding-dilemma": [
+    "synthetic-identity-device-network-guide",
+    "ubo-investigation-handbook"
+  ],
+  "fraud-red-flags-guide": [
+    "synthetic-identity-device-network-guide"
+  ],
+  "screening-algorithm-tuning-guide": [
+    "tm-guide",
+    "screening-alerts-guide"
+  ],
+  "screening-alerts-guide": [
+    "tm-guide",
+    "screening-algorithm-tuning-guide"
   ]
 }

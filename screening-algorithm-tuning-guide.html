@@ -24,6 +24,11 @@
     "@type": "Article",
     "headline": "Tuning Screening Algorithms: Why Fuzzy Matching Isn't Magic",
     "description": "The 0.7 default threshold, the 18 features a production matching algorithm actually scores, and the real case where two different people scored 0.98 on the same sanctions list. Sourced directly against OpenSanctions' own documentation.",
+    "about": [
+      {"@type": "Thing", "name": "Fuzzy Matching Algorithms"},
+      {"@type": "Thing", "name": "Sanctions Screening Calibration"},
+      {"@type": "Thing", "name": "Name Matching"}
+    ],
     "author": {"@type": "Organization", "name": "FinCrimeRadar"},
     "publisher": {"@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org"},
     "url": "https://fincrimeradar.org/screening-algorithm-tuning-guide.html",
@@ -368,6 +373,7 @@
       <a href="#patterns">Four things to watch for</a>
       <a href="#faq">FAQ</a>
       <a href="#quiz">Knowledge check</a>
+      <a href="#related-topics">Related topics</a>
     </div>
     <div class="tool-cta">
       <p>Screen a name and see OpenSanctions retrieval and scoring run for real.</p>
@@ -834,6 +840,16 @@
         <li id="src-8">opensanctions/yente, GitHub Releases, v5.4.0, 13 May 2026 (cross-script candidate ranking fix). <a href="https://github.com/opensanctions/yente/releases/tag/v5.4.0" target="_blank" rel="noopener">github.com/opensanctions/yente/releases/tag/v5.4.0</a></li>
         <li id="src-9">OpenSanctions, <em>Changelog</em> #32, API Service Backend Upgrades, effective 8 September 2025 (company suffix/prefix matching, cross-script retrieval). <a href="https://www.opensanctions.org/changelog/" target="_blank" rel="noopener">opensanctions.org/changelog</a></li>
       </ol>
+    </section>
+
+    <!-- RELATED TOPICS -->
+    <section class="article-section" id="related-topics">
+      <div class="section-eyebrow" style="color:var(--accent)">Continue Reading</div>
+      <h2>Related topics</h2>
+      <ul style="font-size:14px; line-height:1.8; padding-left:1.25rem;">
+        <li><a href="/tm-guide.html" style="color:var(--accent);font-weight:600;">Transaction Monitoring: From Rules to AI</a>, the same threshold and tuning-debt problem for transaction rules that this guide covers for name matching.</li>
+        <li><a href="/screening-alerts-guide.html" style="color:var(--accent);font-weight:600;">The Screening Alert Survival Guide</a>, the analyst's side of the same threshold trade-off, false positives, alert fatigue, and the tools that actually help.</li>
+      </ul>
     </section>
 
   </main><!-- /article-body -->
