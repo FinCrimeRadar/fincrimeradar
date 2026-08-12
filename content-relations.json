@@ -8,6 +8,7 @@
   ],
   "crypto-travel-rule-sunrise-guide": [
     "crypto-guide-part1",
+    "crypto-guide-part2",
     "crypto-guide-part3",
     "crypto-guide-part4"
   ],
@@ -20,5 +21,17 @@
     "screening-algorithm-tuning-guide",
     "money-mule-financial-crime-networks-handbook",
     "screening-alerts-guide"
+  ],
+  "crypto-guide-part1": [
+    "crypto-travel-rule-sunrise-guide"
+  ],
+  "crypto-guide-part2": [
+    "crypto-travel-rule-sunrise-guide"
+  ],
+  "crypto-guide-part3": [
+    "crypto-travel-rule-sunrise-guide"
+  ],
+  "crypto-guide-part4": [
+    "crypto-travel-rule-sunrise-guide"
   ]
 }
