@@ -49,9 +49,9 @@ META_PATTERN = re.compile(
     r"<!--\s*fincrimeradar-meta:\s*trigger=(\S+)\s+override_active=(yes|no)\s+threshold=(\d+)\s*-->"
 )
 
-# Append new guides to the end of this list when they ship. get_featured_guides()
-# always returns the last 3, so the newest guide rotates in and the oldest
-# of the three rotates out automatically.
+# Append new guides to the end of this list when they ship. get_this_weeks_guides()
+# deterministically rotates through the library by ISO week, so which guides
+# appear changes automatically once the library grows past `count` entries.
 GUIDE_LIBRARY = [
     {
         "title": "The MLRO Handbook",
@@ -71,8 +71,32 @@ GUIDE_LIBRARY = [
 ]
 
 
-def get_featured_guides():
-    return GUIDE_LIBRARY[-3:]
+def get_this_weeks_guides(guide_library, count=3, reference_date=None):
+    """
+    Deterministically rotate through guide_library based on ISO week number.
+    Same week always yields the same selection (reproducible, auditable).
+    Advances every week, never repeats until the full library has cycled.
+    """
+    if not guide_library:
+        raise ValueError("guide_library is empty, cannot select guides for digest")
+    if count > len(guide_library):
+        raise ValueError(
+            f"count ({count}) exceeds guide_library size ({len(guide_library)}), "
+            "cannot select without repeating a guide in the same digest"
+        )
+
+    reference_date = reference_date or date.today()
+    iso_year, iso_week, _ = reference_date.isocalendar()
+
+    # Stable seed independent of dict/list ordering quirks
+    start_index = (iso_year * 52 + iso_week) % len(guide_library)
+
+    selected = []
+    for offset in range(count):
+        idx = (start_index + offset) % len(guide_library)
+        selected.append(guide_library[idx])
+
+    return selected
 
 
 def recent_delta_files():
@@ -146,7 +170,7 @@ def build_digest_html(entries=None):
     period_end = period_end_date.strftime("%d %b %Y")
 
     guides_html = ""
-    for g in get_featured_guides():
+    for g in get_this_weeks_guides(GUIDE_LIBRARY):
         guides_html += f"""
         <div style="border:1px solid #E3E8E3;border-radius:8px;padding:16px 18px;margin-top:12px;">
           <div style="font-size:15px;font-weight:700;color:#0B7A57;">{g['title']}</div>
