@@ -185,11 +185,8 @@
     .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
     .callout p { font-size:14px; margin:0; color:#374151; }
 
-    /* ILLUSTRATIVE GRAPHIC PLACEHOLDER */
-    .graphic-placeholder { border:2px dashed var(--border); border-radius:12px; padding:2rem 1.5rem; text-align:center; background:#f8fafc; margin:1.25rem 0; }
-    .graphic-placeholder .gp-icon { font-size:32px; margin-bottom:0.75rem; }
-    .graphic-placeholder .gp-title { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:0.4rem; }
-    .graphic-placeholder .gp-desc { font-size:13px; color:var(--muted); max-width:520px; margin:0 auto; line-height:1.6; }
+    /* ILLUSTRATIVE GRAPHIC */
+    .illustrative-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto; }
 
     /* TRANSACTION TYPE LIST */
     .txn-type { display:flex; gap:14px; align-items:flex-start; padding:1rem 0; border-bottom:1px solid #f3f4f6; }
@@ -409,11 +406,16 @@
 
       <p>Two distinct flow types matter for how a compliance analyst should think about risk. In <strong>human-present flows</strong>, the user is actively in the loop, the agent finds options and the user picks one before the Cart Mandate is created, lower risk, closer to a traditional guided checkout. In <strong>human-not-present flows</strong>, the agent completes the entire chain, Intent through Payment, autonomously within the Intent Mandate's original boundaries, with no further human confirmation.<sup>[6]</sup> This is where the real judgement gap lives, and where the rest of this guide focuses.</p>
 
-      <div class="graphic-placeholder">
-        <div class="gp-icon">🖼️</div>
-        <div class="gp-title">Illustrative graphic, pending</div>
-        <div class="gp-desc">Mandate chain flow diagram: a left-to-right flow, "User sets boundaries" through signed Intent, Cart, and Payment Mandates, branching into human-present and human-not-present paths. Flat vector style, brand.css tokens, no real company names, logos, or trademarks, generated externally and wired in once ready.</div>
-      </div>
+      <figure>
+        <img
+          src="/ai-agent-transaction-guide-mandate-chain.png"
+          alt="Illustrative flow diagram showing the mandate chain: User sets boundaries, then a signed Intent Mandate, then the agent selects and binds a signed Cart Mandate, then a signed Payment Mandate settles via card, bank transfer, or stablecoin. Below, a branch shows two paths: human present, confirms before Cart Mandate, and human not present, agent completes autonomously within original boundaries. Captioned simplified, illustrative flow, real implementations vary by protocol and provider."
+          width="859"
+          height="458"
+          loading="lazy"
+          class="illustrative-img"
+        />
+      </figure>
     </div>
 
     <!-- TRANSACTION TYPES -->
@@ -457,11 +459,16 @@
         </div>
       </div>
 
-      <div class="graphic-placeholder">
-        <div class="gp-icon">🖼️</div>
-        <div class="gp-title">Illustrative graphic, pending</div>
-        <div class="gp-desc">Transaction type taxonomy: five labelled category boxes matching the list above, each with a small generic icon. Flat vector style, same palette as the mandate chain diagram, no real company names, logos, or trademarks, generated externally and wired in once ready.</div>
-      </div>
+      <figure>
+        <img
+          src="/ai-agent-transaction-guide-transaction-types.png"
+          alt="Illustrative diagram of five transaction type categories, each in a labelled box with a small generic icon: real-time discretionary purchase, subscription and recurring management, machine-to-machine micropayment, cross-border multi-rail transaction, and agent-to-agent commerce. Captioned illustrative categories, not an exhaustive list."
+          width="1000"
+          height="640"
+          loading="lazy"
+          class="illustrative-img"
+        />
+      </figure>
     </div>
 
     <!-- WHY FRAMEWORKS WEREN'T BUILT FOR THIS -->
