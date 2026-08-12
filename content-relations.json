@@ -1,0 +1,24 @@
+{
+  "_purpose": "Planning and symmetry-check manifest for each guide's static Related Topics section. Not fetched by any page at runtime. One entry per guide slug that has had its Related Topics section built, listing the 3-4 related guide slugs rendered on that page. Guides not yet listed here have not been batched yet, see BACKLOG.md Polish Loop for rollout status.",
+  "money-mule-financial-crime-networks-handbook": [
+    "tm-guide",
+    "synthetic-identity-device-network-guide",
+    "fraud-investigation-playbook",
+    "ubo-investigation-handbook"
+  ],
+  "crypto-travel-rule-sunrise-guide": [
+    "crypto-guide-part1",
+    "crypto-guide-part3",
+    "crypto-guide-part4"
+  ],
+  "synthetic-identity-device-network-guide": [
+    "money-mule-financial-crime-networks-handbook",
+    "kyc-onboarding-dilemma",
+    "fraud-red-flags-guide"
+  ],
+  "tm-guide": [
+    "screening-algorithm-tuning-guide",
+    "money-mule-financial-crime-networks-handbook",
+    "screening-alerts-guide"
+  ]
+}
