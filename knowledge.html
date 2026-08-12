@@ -786,6 +786,16 @@ async function footerSignup() {
     });
   }
 
+  // Uses replaceState, not pushState: a rail click is a filter toggle on
+  // the same view, not a new page. pushState would add one history entry
+  // per click, making the back button step through filter states one at a
+  // time instead of leaving the page, so replaceState keeps the URL
+  // shareable without polluting history.
+  function updateUrlDomain(domain){
+    var url=location.pathname+(domain==='all'?'':'?domain='+encodeURIComponent(domain));
+    history.replaceState(null,'',url);
+  }
+
   function seriesMatches(fs,q){
     var hay=(fs.title+' '+fs.name).toLowerCase();
     return (activeCat==='all'||fs.cats.indexOf(activeCat)!==-1)&&(!q||hay.indexOf(q)!==-1);
@@ -803,7 +813,7 @@ async function footerSignup() {
       return '<button class="kh-dom'+(d.k===activeCat?' on':'')+'" aria-pressed="'+(d.k===activeCat)+'" data-cat="'+d.k+'"><span>'+d.label+'</span><span class="n">'+n+'</span></button>';
     }).join('');
     host.querySelectorAll('.kh-dom').forEach(function(b){
-      b.onclick=function(){activeCat=b.getAttribute('data-cat');buildRail();filterCards();};
+      b.onclick=function(){activeCat=b.getAttribute('data-cat');updateUrlDomain(activeCat);buildRail();filterCards();};
     });
   }
 
@@ -921,6 +931,12 @@ async function footerSignup() {
   window.resetAll=resetAll;
 
   loadFlagshipData();
+
+  var urlDomain = new URLSearchParams(location.search).get('domain');
+  if (urlDomain && DOMAINS.some(function(d){return d.k===urlDomain;})) {
+    activeCat = urlDomain;
+  }
+
   buildRail();filterCards();renderRecent();updateGuideCountStat();
 })();
 </script>
