@@ -221,8 +221,15 @@ html{
    Visual breadcrumb (Knowledge Hub > Domain > Guide) on every guide
    page, paired with BreadcrumbList structured data in each guide's
    own <head>. Domain links to knowledge.html's existing ?domain=
-   deep-link (no separate /topics/ hub exists, see BACKLOG). */
-.breadcrumb{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--muted,#6b7280);padding:0.85rem 1.5rem 0;max-width:1100px;margin:0 auto;}
+   deep-link (no separate /topics/ hub exists, see BACKLOG). Markup is
+   a bare <nav class="breadcrumb">, same collision family as the
+   Knowledge Hub flagship nav bug: every guide's own local stylesheet
+   defines a bare nav{position:sticky;top:0;z-index:200;height:72px}
+   rule for the real site nav, which this element inherited too since
+   .breadcrumb never touched those properties. .breadcrumb's own class
+   selector already outranks the bare element selector on specificity,
+   so an explicit reset here is enough, no !important needed. */
+.breadcrumb{position:static;top:auto;z-index:auto;height:auto;display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;color:var(--muted,#6b7280);padding:0.85rem 1.5rem 0;max-width:1100px;margin:0 auto;}
 .breadcrumb a{color:var(--muted,#6b7280);text-decoration:none;}
 .breadcrumb a:hover{color:var(--teal);}
 .breadcrumb span[aria-current]{color:var(--slate,#374151);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:420px;}
