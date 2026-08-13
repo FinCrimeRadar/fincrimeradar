@@ -1738,5 +1738,50 @@
     "verifiedOn": "2026-08-13",
     "reviewDue": "2027-08-13",
     "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.lccp-1-1-2-third-party.009",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "LCCP condition 1.1.2, Responsibility for third parties (all licences), requires licensees to ensure that any third party they contract with, for any part of the licensed business, conducts itself as if bound by the same licence conditions and codes of practice as the licensee, and permits the licensee to terminate the third-party contract for breach.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Licence Conditions and Codes of Practice, condition 1.1.2, Responsibility for third parties, all licences",
+      "url": "https://www.gamblingcommission.gov.uk/licensees-and-businesses/lccp/condition/1-1-2-responsibility-for-third-parties-all-licences",
+      "publisher": "UK Gambling Commission",
+      "date": "2026-08-13"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.third-party-responsibilities-guidance.010",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "UKGC's guidance page on licensees' responsibilities for third parties explicitly addresses white-label arrangements by name, stating that responsibility for compliance of all operating gambling websites, including white-labelled sites, sits with the licence holder and cannot be transferred to any other party.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Licensees' responsibilities for third parties",
+      "url": "https://www.gamblingcommission.gov.uk/licensees-and-businesses/page/licensees-responsibilities-for-third-parties",
+      "publisher": "UK Gambling Commission",
+      "date": "2026-08-13"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.fsb-technology-fine.011",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "FSB Technology (UK) Ltd was fined 600,000 GBP on 6 May 2020 following a UKGC investigation covering January 2017 to August 2019. Findings: inadequate oversight of at least three white-label partner websites; ineffective source-of-funds checks on a customer who wagered 282,000 GBP over 18 months while showing problem gambling indicators; a marketing email sent to 2,324 previously self-excluded customers; a VIP team manager operating without adequate oversight or AML training; an unauthorised banner advertisement on a GB-facing site. Additional licence conditions were imposed requiring risk-based due diligence on new and existing third-party partners, reviewed at least annually. All figures independently verified verbatim against UKGC's own press release, not secondary reporting.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Warning over third-party responsibilities as FSB receive sanctions",
+      "url": "https://www.gamblingcommission.gov.uk/news/article/warning-over-third-party-responsibilities-as-fsb-receive-sanctions",
+      "publisher": "UK Gambling Commission",
+      "date": "2020-05-06"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
   }
 ]

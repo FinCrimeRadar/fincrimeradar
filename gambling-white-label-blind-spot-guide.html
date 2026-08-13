@@ -87,10 +87,11 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
-      --muted:#6b7280; --text:#111827; --navy:#0f2044; --navy-mid:#071912; --navy-light:#0e3226;
+      /* --off, --border, --muted, --text, --navy, --danger, --success, --warning
+         are brand.css tokens, deliberately not redeclared here, brand.css loads
+         after this block so a local redeclaration would only be dead code. */
+      --white:#ffffff; --navy-mid:#071912; --navy-light:#0e3226;
       --hero-bg-1:#071912; --hero-bg-2:#0e3226;
-      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
       /* Evidence Essay layer: warm white, platinum grey, restrained gold,
          layered on top of the existing brand palette, not replacing it. */
       --ee-warm:#faf8f3; --ee-platinum:#e5e4e2; --ee-platinum-line:#d6d4d0;
@@ -174,8 +175,9 @@
     /* CASE STUDY CALLOUT */
     .case-callout { background:var(--ee-gold-soft); border:1px solid #e6d8ac; border-left:4px solid var(--ee-gold); border-radius:8px; padding:1.25rem 1.5rem; margin:1.25rem 0; }
     .case-callout-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--ee-gold); margin-bottom:0.5rem; }
-    .case-callout p.paraphrase { font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:16px; color:var(--navy-mid); line-height:1.6; margin:0 0 0.75rem; }
+    .case-callout p.paraphrase, .case-callout blockquote.direct-quote { font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:16px; color:var(--navy-mid); line-height:1.6; margin:0 0 0.75rem; }
     .case-callout .case-note { font-size:13px; color:#6b5a2e; }
+    .case-callout .case-attribution { font-size:13px; color:#6b5a2e; font-weight:600; }
 
     /* DIAGRAMS, plain HTML/CSS, no JS dependency, no SVG. Text content
        is the accessible alternative, not a separate description. */
@@ -192,6 +194,17 @@
       .ee-struct-row { grid-template-columns:1fr; }
       .ee-struct-arrow { transform:rotate(90deg); }
     }
+
+    /* PROCESS FLOW, same .flow component family already used elsewhere on
+       this site (e.g. deepfake-onboarding-guide.html), plain HTML/CSS, no
+       SVG, no JS dependency. Text content is the accessible alternative. */
+    .flow { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; margin:1.5rem 0; }
+    .flow-stage { margin-bottom:2px; }
+    .flow-stage-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:6px; }
+    .flow-node { background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:0.85rem 1rem; }
+    .flow-node-title { font-size:14px; font-weight:700; color:var(--navy); }
+    .flow-node-sub { font-size:12.5px; color:#374151; margin-top:4px; line-height:1.55; }
+    .flow-arrow { text-align:center; color:#9ca3af; font-size:17px; line-height:1; margin:7px 0; }
 
     .ee-timeline { list-style:none; }
     .ee-timeline li { display:grid; grid-template-columns:110px 1fr; gap:1rem; padding:0.85rem 0; border-bottom:1px solid var(--border); }
@@ -271,13 +284,15 @@
     .quiz-score-label { font-size:13px; color:#cbd5e1; margin-top:0.4rem; }
 
     /* FAQ */
+    /* Native <details>/<summary>, works with no JS. The custom marker
+       replaces the browser default rather than hiding disclosure entirely. */
     .faq-item { border-bottom:1px solid var(--border); }
     .faq-item:last-child { border-bottom:none; }
-    .faq-q { width:100%; text-align:left; background:none; border:none; padding:1rem 0; font-size:14.5px; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; font-family:'Inter',sans-serif; }
+    .faq-q { width:100%; text-align:left; padding:1rem 0; font-size:14.5px; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; font-family:'Inter',sans-serif; list-style:none; }
+    .faq-q::-webkit-details-marker { display:none; }
     .faq-q-icon { flex-shrink:0; transition:transform 0.2s; color:var(--ee-gold); }
-    .faq-q[aria-expanded="true"] .faq-q-icon { transform:rotate(45deg); }
-    .faq-a { display:none; font-size:14px; color:#374151; padding-bottom:1rem; line-height:1.65; }
-    .faq-a.show { display:block; }
+    .faq-item[open] .faq-q-icon { transform:rotate(45deg); }
+    .faq-a { font-size:14px; color:#374151; padding-bottom:1rem; line-height:1.65; }
 
     /* SOURCES */
     .sources-list { list-style:none; counter-reset:src; }
@@ -370,8 +385,9 @@
     <a href="#briefing" data-toc>Executive briefing</a>
     <a href="#ch1" data-toc>1. The structure</a>
     <a href="#ch2" data-toc>2. What UKGC found</a>
+    <a href="#due-diligence-cycle" data-toc>The due diligence cycle</a>
     <a href="#ch3" data-toc>3. The enforcement pattern</a>
-    <a href="#ch4" data-toc>4. Worked scenario</a>
+    <a href="#ch4" data-toc>4. Worked scenarios</a>
     <a href="#ch5" data-toc>5. Counterfactual</a>
     <a href="#knowledge-check" data-toc>Knowledge check</a>
     <a href="#faq" data-toc>FAQ</a>
@@ -386,7 +402,7 @@
       <div class="ee-eyebrow-sm">Executive briefing</div>
       <h2>Where the accountability gap actually opens</h2>
       <p>White-label gambling lets a third-party brand operate under an established operator's licence, infrastructure, and compliance framework. The commercial logic is straightforward: the brand gets fast market access, the licence holder gets distribution it would not otherwise reach. The AML logic is where it breaks down.</p>
-      <p>UKGC's 2026 money laundering and terrorist financing risk assessment, published 30 July 2026, rates "inadequate due diligence on white-label partnerships" as a high risk, high impact vulnerability <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>, unchanged in rating from the prior assessment despite reworded guidance, meaning the Commission does not consider this problem to be improving. The licensed operator carries the compliance obligation regardless of who owns the customer facing brand. Weak partner level checks let higher risk businesses, unusual payment arrangements, or unvetted customers into the regulated market without the scrutiny a direct relationship would get.</p>
+      <p>UKGC's 2026 money laundering and terrorist financing risk assessment, published 30 July 2026, rates "inadequate due diligence on white-label partnerships" as a high risk, high impact vulnerability <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>, unchanged in rating from the prior assessment, with only the guidance wording revised. The Commission's own risk assessment does not state or imply whether the underlying problem has improved, worsened, or stayed the same in practice, an unchanged rating records the Commission's current assessment, not a trend. The licensed operator carries the compliance obligation regardless of who owns the customer facing brand. Weak partner level checks let higher risk businesses, unusual payment arrangements, or unvetted customers into the regulated market without the scrutiny a direct relationship would get.</p>
       <p>This guide works through where that accountability gap actually opens, using UKGC's own case material and a recurring pattern of enforcement across licensed operators between 2024 and 2025.</p>
     </div>
 
@@ -395,7 +411,7 @@
       <h2>The structure</h2>
       <p>A white-label arrangement has three parties in practice, even though only two hold any formal position with the regulator. The licensee is the operator UKGC has actually authorised: the entity that passed fit and proper checks, submitted a personal and business risk assessment, and holds the licence conditions that make gambling activity lawful in Great Britain. The partner brand is the commercial front end, the website or app a customer actually sees and signs up to, running on the licensee's platform and, critically, under the licensee's licence. The customer interacts only with the partner brand and often has no visibility at all into which entity is legally responsible for the relationship.</p>
       <p>That legal responsibility does not move. Whatever the commercial agreement says about who monitors transactions day to day, who runs first line checks, or who handles customer support, the licence, and every obligation attached to it, sits with the licensee. UKGC does not licence the partner brand. If the partner brand's own conduct, or the conduct of its customers, creates a regulatory problem, the Commission's action lands on the licensee, not on the brand the customer actually recognises.</p>
-      <p>This is why due diligence on a white-label partner has to work on two separate levels, not one. The obvious level is customer due diligence: checking the individuals and businesses that open accounts and move money through the partner's platform. The level that gets missed is due diligence on the partner itself, as a business relationship in its own right. Who actually owns and controls the partner entity. Where its own funding comes from. Whether its own commercial activity is lawful, in Britain and in whatever territory it actually operates from. A licensee's own risk assessment obligations under the Money Laundering Regulations apply to that partner relationship exactly as they would to any other high risk business relationship, not as a lighter touch check because the partner already holds a commercial agreement.</p>
+      <p>This is why due diligence on a white-label partner has to work on two separate levels, not one. The obvious level is customer due diligence: checking the individuals and businesses that open accounts and move money through the partner's platform. The level that gets missed is due diligence on the partner itself, as a business relationship in its own right. Who actually owns and controls the partner entity. Where its own funding comes from. Whether its own commercial activity is lawful, in Britain and in whatever territory it actually operates from. A licensee's own due diligence obligations apply to that partner relationship exactly as they would to any other high risk business relationship, not as a lighter touch check because the partner already holds a commercial agreement. The legal basis differs by operator type: for casino operators specifically, this runs through the Money Laundering Regulations 2017, which impose additional responsibilities on non-remote and remote casinos alone. For the wider population of gambling operators, including most white-label betting and gaming arrangements, the equivalent obligation runs through the Proceeds of Crime Act 2002, the Gambling Act 2005, and the Licence Conditions and Codes of Practice, specifically the AML policy and procedure requirements at LCCP conditions 12.1.1 and 12.1.2.</p>
       <div class="ee-diagram" id="structDiagram">
         <div class="ee-diagram-caption">Where the obligation sits, regardless of who the customer sees</div>
         <div class="ee-struct-row">
@@ -421,14 +437,88 @@
     <div class="ee-section" id="ch2">
       <div class="ee-eyebrow-sm">Chapter 2</div>
       <h2>What UKGC actually found</h2>
-      <p>UKGC's 2026 risk assessment does not leave this as an abstract concern. Section 9 of the assessment, covering remote betting, includes a real investigation finding, anonymised, that reads as close to a textbook version of the structural failure Chapter 1 describes <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>.</p>
+      <p>The accountability rule is not the risk assessment, it is the licence condition underneath it. LCCP condition 1.1.2 requires licensees to ensure that any third party they contract with, for any part of the licensed business, conducts itself as if bound by the same licence conditions and codes of practice as the licensee itself <a class="cite" href="#src-9" data-src="9" aria-label="View source 9">[9]</a>. UKGC's own guidance on third-party responsibilities addresses white-label arrangements by name: the responsibility for compliance of all operating gambling websites, including white-labelled sites, sits with the licence holder and cannot be transferred to any other party <a class="cite" href="#src-10" data-src="10" aria-label="View source 10">[10]</a>. Everything that follows in this chapter, the risk rating, the named enforcement case, the anonymised finding, is evidence of what happens when that rule is not followed in practice, not the rule itself.</p>
+      <p>Three separate pieces of evidence bear on this gap, and they carry different weight. UKGC's 2026 risk assessment rates inadequate due diligence on white-label partnerships as high risk, high impact, unchanged from the prior assessment with only the guidance wording revised <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>. That rating is the Commission's current view of the risk level, not a description of what the failure looks like inside a real firm. For that, the clearest evidence is six years old, and it has a name.</p>
+      <p>In May 2020, UKGC fined FSB Technology (UK) Ltd &pound;600,000 following an investigation covering January 2017 to August 2019 <a class="cite" href="#src-11" data-src="11" aria-label="View source 11">[11]</a>. FSB's business model included operating at least three separate websites as white-label partnerships, the exact structure Chapter 1 describes. The Commission's investigation found the oversight failures sitting on FSB's side of that structure, not the partner brands'.</p>
+      <p>The specific findings read as a checklist of what partner-level due diligence is supposed to catch <a class="cite" href="#src-11" data-src="11" aria-label="View source 11">[11]</a>. Source-of-funds checks that should have flagged a customer wagering &pound;282,000 over eighteen months while showing indicators of problem gambling did not. A marketing email went out to 2,324 customers who had already self-excluded. A VIP team manager operated without adequate oversight or anti-money laundering training. An unauthorised banner advertisement ran on a Great Britain facing site. None of these failures happened on a partner's own systems, outside FSB's reach, they happened inside relationships FSB itself was responsible for overseeing.</p>
+      <div class="case-callout">
+        <div class="case-callout-label">UKGC, 6 May 2020</div>
+        <blockquote class="direct-quote">&ldquo;This arrangement, often referred to as a &lsquo;white label&rsquo;, places responsibility on the licensee to ensure that its third-party partners keep gambling fair, safe and crime-free.&rdquo;</blockquote>
+        <div class="case-attribution">Gambling Commission, FSB Technology enforcement action <a class="cite" href="#src-11" data-src="11" aria-label="View source 11">[11]</a></div>
+      </div>
+      <p>UKGC imposed additional licence conditions requiring FSB to carry out risk-based due diligence before entering any new third-party partnership, and to review existing partnerships on the same basis at least annually, not as a one-time onboarding check <a class="cite" href="#src-11" data-src="11" aria-label="View source 11">[11]</a>. The Commission's own director framed the case as a general warning, not a firm-specific one: operators are held fully responsible for third-party relationships, regardless of which brand the customer actually saw.</p>
+      <p>The practical lesson is not that FSB was unusually careless. It is that partner-level due diligence needs the same discipline as customer-level due diligence, applied on a schedule, not just at the point a partnership is signed. A partner relationship that looked acceptable in 2017 was still running the same way in 2019, because nothing forced a second look.</p>
+      <p>Six years after FSB, the same failure pattern surfaced again, this time in UKGC's own investigation work rather than a public enforcement notice. Section 9 of the Commission's 2026 risk assessment includes an anonymised finding that reads as close to a repeat of FSB's own failures as an anonymised case can <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>.</p>
       <div class="case-callout">
         <div class="case-callout-label">UKGC investigation finding, Section 9 (paraphrased)</div>
         <p class="paraphrase">A licensed operator with white-label partnerships had failed to carry out effective due diligence on the ownership of the third party and on the source of funds for the business relationship. The operator had also not sufficiently considered whether the white-label partner's own activity was lawful, either in Britain or in the territory where it was actually conducted.</p>
         <div class="case-note">UKGC does not name the operator in its published finding.</div>
       </div>
-      <p>Read against Chapter 1's structure, this is the second level of due diligence failing, not the first. The finding is not that the operator missed a suspicious customer transaction somewhere in the partner's platform. It is that the operator never properly checked the partner itself: who actually controlled it, where the money behind the arrangement came from, and whether the partner's own activity was even lawful in the place it was actually being carried out. Three separate checks, three separate gaps, on the one relationship a licensee cannot delegate away.</p>
-      <p>UKGC does not name the operator involved. That is a genuine limit on this source, not something to gloss over. It is disclosed openly here because this guide's own sourcing standard treats an honestly flagged limitation as worth more than a more dramatic claim the primary source cannot actually support. The <a href="#methodology">Methodology and limitations</a> section explains why this guide still treats the finding as the strongest available real world illustration of the pattern, despite the anonymisation.</p>
+      <p>Read against FSB, this is not a new problem, it is the same one recurring. The finding is not that the operator missed a suspicious customer transaction somewhere in the partner's platform. It is that the operator never properly checked the partner itself: who actually controlled it, where the money behind the arrangement came from, and whether the partner's own activity was even lawful in the place it was actually being carried out. Three separate checks, three separate gaps, on the one relationship a licensee cannot delegate away. The gap FSB was fined for in 2020 is the same gap UKGC's own investigators were still finding, anonymised, in the assessment published six years later. That is a persistent structural weakness, not an isolated incident.</p>
+      <p>UKGC does not name the operator in the 2026 finding. That is a genuine limit on this source, not something to gloss over. It is disclosed openly here because this guide's own sourcing standard treats an honestly flagged limitation as worth more than a more dramatic claim the primary source cannot actually support. The <a href="#methodology">Methodology and limitations</a> section explains why this guide still treats the finding as a strong corroborating illustration of the pattern, despite the anonymisation.</p>
+    </div>
+
+    <div class="ee-section" id="due-diligence-cycle">
+      <div class="ee-eyebrow-sm">Process</div>
+      <h2>The due diligence cycle in practice</h2>
+      <p>FSB's failures and the anonymised 2026 finding both trace back to the same missing sequence. This is what the cycle looks like when it runs correctly, onboarding through to the point it starts again.</p>
+      <div class="flow" id="dueDiligenceFlow">
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 1 &middot; Partner onboarding proposed</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Commercial proposes a new white-label partnership</div>
+            <div class="flow-node-sub">Due diligence starts here, before any commercial commitment is made, not after terms are agreed.</div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">&darr;</div>
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 2 &middot; Ownership verification</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Confirm who actually owns and controls the partner entity</div>
+            <div class="flow-node-sub">Independent documentation, registry extracts and identity verification, not the partner's own attestation.</div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">&darr;</div>
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 3 &middot; Funding evidence</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Establish the partner's own source of funds</div>
+            <div class="flow-node-sub">The same evidentiary standard applied to a high risk customer relationship, not a lighter check because a commercial agreement exists.</div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">&darr;</div>
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 4 &middot; Legality review</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Assess the partner's activity against UK law and the law of the territory where it actually operates</div>
+            <div class="flow-node-sub">Two separate legal tests, not one, per Chapter 1's structure.</div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">&darr;</div>
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 5 &middot; Ongoing monitoring</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Partner relationship reviewed on a fixed schedule once live</div>
+            <div class="flow-node-sub">Not a one-time check at onboarding, the discipline UKGC's additional licence conditions required of FSB.</div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">&darr;</div>
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 6 &middot; Escalation</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Material findings route to the licensee's own decision-making process</div>
+            <div class="flow-node-sub">Independent of the partner's own review timeline, the judgement Chapter 4's first scenario works through.</div>
+          </div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true">&darr;</div>
+        <div class="flow-stage">
+          <div class="flow-stage-label">Step 7 &middot; Governance approval</div>
+          <div class="flow-node">
+            <div class="flow-node-title">Partnership formally reapproved on the same basis at least annually</div>
+            <div class="flow-node-sub">Closes the loop back to ownership, funding, and legality, the review is a genuine recheck, not a formality.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="ee-section" id="ch3">
@@ -468,8 +558,10 @@
     </div>
 
     <div class="ee-section" id="ch4">
-      <div class="ee-eyebrow-sm">Chapter 4 &middot; Worked scenario</div>
-      <h2>The Distant Principal</h2>
+      <div class="ee-eyebrow-sm">Chapter 4 &middot; Worked scenarios</div>
+      <h2>Two judgement calls</h2>
+      <p>The structural gap Chapters 1 and 2 describe shows up as concrete decisions, not abstract policy. The two scenarios below map to two of the four Risk, Signal, Response patterns introduced later on this page: an escalation call under pressure from a partner's own review, and an onboarding call under commercial pressure to move fast.</p>
+      <h3>The Distant Principal</h3>
       <div class="dilemma-card" id="dilemma-scenario1">
         <div class="dilemma-header">Situation</div>
         <div class="dilemma-scenario">
@@ -482,7 +574,23 @@
           <button class="dilemma-option" data-tier="weak" onclick="showVerdict('scenario1','C',this)">C. Log the flag internally and wait for the partner's review to conclude before deciding.</button>
           <button class="dilemma-option" data-tier="unsafe" onclick="showVerdict('scenario1','D',this)">D. Take no action until the partner formally reports the outcome through the agreed contractual channel.</button>
         </div>
-        <div class="dilemma-verdict" id="scenario1-verdict"></div>
+        <div class="dilemma-verdict" id="scenario1-verdict" aria-live="polite"></div>
+      </div>
+
+      <h3>The Fast-Tracked Partner</h3>
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">Situation</div>
+        <div class="dilemma-scenario">
+          <p style="margin-bottom:0.75rem;">Commercial has negotiated a new white-label partnership with an offshore-registered gaming brand. A competitor is also courting the same partner, and commercial wants to sign and go live within two weeks. Compliance has been asked to sign off, but the beneficial ownership information supplied is a one-page attestation letter from the partner itself, no independent verification. The partner's ownership runs through two intermediary holding companies in different jurisdictions. This is a first-time relationship, with no history to draw on.</p>
+          <p><strong>Material facts.</strong> The attestation names a beneficial owner but includes no supporting documentation, no corporate registry extract, no identity verification of the named individual. Commercial has already discussed a go-live date informally with the partner. LCCP condition 1.1.2 requires the partner to be treated, for compliance purposes, as if bound by the same licence conditions as your own firm.</p>
+        </div>
+        <div class="dilemma-options" id="scenario2-options">
+          <button class="dilemma-option" data-tier="best" onclick="showVerdict('scenario2','A',this)">A. Require independent verification of beneficial ownership before sign-off, and give commercial a realistic revised timeline.</button>
+          <button class="dilemma-option" data-tier="defensible" onclick="showVerdict('scenario2','B',this)">B. Approve now with a firm 30 day deadline for independent verification and a real right to terminate if it is not met.</button>
+          <button class="dilemma-option" data-tier="weak" onclick="showVerdict('scenario2','C',this)">C. Approve based on the attestation, since the partner is UK-facing, and treat it as low risk pending a later review.</button>
+          <button class="dilemma-option" data-tier="unsafe" onclick="showVerdict('scenario2','D',this)">D. Approve to avoid losing the deal, and plan to verify ownership informally after go-live with no fixed deadline.</button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict" aria-live="polite"></div>
       </div>
     </div>
 
@@ -508,7 +616,7 @@
         <div class="pattern-ttd">
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Risk</div><div class="ttd-text">Diffused accountability across the licensee and partner boundary.</div></div>
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Signal</div><div class="ttd-text">Slow or absent escalation from the partner side.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Response</div><div class="ttd-text">The licensee's own SAR obligation runs independently of the partner's review, always.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Response</div><div class="ttd-text">The licensee must retain independent control of suspicion assessment, internal escalation and any reporting decision required by its policy and applicable law.</div></div>
         </div>
       </div>
 
@@ -564,7 +672,7 @@
           <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq1','C')">C. Whether the partner had its own UKGC licence</button>
           <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq1','D')">D. The partner's marketing compliance</button>
         </div>
-        <div class="quiz-feedback" id="qq1-fb"></div>
+        <div class="quiz-feedback" id="qq1-fb" aria-live="polite"></div>
       </div>
 
       <div class="quiz-q" id="qq2">
@@ -575,7 +683,7 @@
           <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq2','C')">C. Option C is only wrong if the partner's review takes more than 48 hours</button>
           <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq2','D')">D. There is no real difference between A and C</button>
         </div>
-        <div class="quiz-feedback" id="qq2-fb"></div>
+        <div class="quiz-feedback" id="qq2-fb" aria-live="polite"></div>
       </div>
 
       <div class="quiz-q" id="qq3">
@@ -586,7 +694,7 @@
           <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq3','C')">C. Neither party has any obligation once a second licence exists</button>
           <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq3','D')">D. UKGC can no longer act against your firm</button>
         </div>
-        <div class="quiz-feedback" id="qq3-fb"></div>
+        <div class="quiz-feedback" id="qq3-fb" aria-live="polite"></div>
       </div>
 
       <div class="quiz-q" id="qq4">
@@ -597,22 +705,33 @@
           <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq4','C')">C. 20</button>
           <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq4','D')">D. 3</button>
         </div>
-        <div class="quiz-feedback" id="qq4-fb"></div>
+        <div class="quiz-feedback" id="qq4-fb" aria-live="polite"></div>
       </div>
 
       <div class="quiz-q" id="qq5">
-        <div class="quiz-q-text">5. Why does this guide use an anonymised UKGC case study rather than a named operator for its central case?</div>
+        <div class="quiz-q-text">5. Why does this guide's corroborating 2026 UKGC finding stay anonymised rather than naming the operator?</div>
         <div class="quiz-opts">
           <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq5','A')">A. Naming the operator was legally impossible to research</button>
           <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq5','B')">B. Genuine primary sourcing was prioritised over a more dramatic but unverifiable naming, since UKGC's own published finding does not name the operator</button>
           <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq5','C')">C. The case is entirely hypothetical</button>
           <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq5','D')">D. Every UKGC case study is always anonymised as a matter of policy</button>
         </div>
-        <div class="quiz-feedback" id="qq5-fb"></div>
+        <div class="quiz-feedback" id="qq5-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq6">
+        <div class="quiz-q-text">6. What did UKGC's additional licence conditions require FSB Technology to do after the 2020 enforcement action?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq6','A')">A. A permanent ban on operating any white-label partnerships</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq6','B')">B. Risk-based due diligence on new and existing third-party partners, reviewed at least annually</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq6','C')">C. A public apology published on FSB's own website</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq6','D')">D. Mandatory sale of the business to a UK-only operator</button>
+        </div>
+        <div class="quiz-feedback" id="qq6-fb" aria-live="polite"></div>
       </div>
 
       <div class="quiz-score-display" id="quiz-score">
-        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-num" id="quiz-score-num">0/6</div>
         <div class="quiz-score-label" id="quiz-score-label"></div>
       </div>
     </div>
@@ -620,22 +739,22 @@
     <div class="ee-section" id="faq">
       <div class="ee-eyebrow-sm">FAQ</div>
       <h2>Common questions</h2>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Is a white-label partnership itself against the rules?<span class="faq-q-icon" aria-hidden="true">+</span></button>
+      <details class="faq-item">
+        <summary class="faq-q">Is a white-label partnership itself against the rules?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">No. White-label partnerships are a legitimate, common commercial structure in UK gambling. UKGC's own risk assessment does not say the model itself is the problem, it says due diligence on the partner as a business relationship, not just on the partner's customers, is the recurring gap.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Who is actually fined if a white-label partner's customer turns out to be a money laundering risk?<span class="faq-q-icon" aria-hidden="true">+</span></button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Who is actually fined if a white-label partner's customer turns out to be a money laundering risk?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">The licensee. UKGC licenses the operator holding the licence, not the customer facing partner brand. The partnership agreement can allocate day to day monitoring tasks to the partner, but it cannot reassign the legal AML obligation that comes with the licence itself.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Were any of the six enforcement actions in Chapter 3 specifically about white-label failures?<span class="faq-q-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">No, and this guide does not claim otherwise. None of the six named actions is a UKGC action specifically for a white-label control failure by name, that is Chapter 2's case alone. The six actions show a recurring pattern of licensee level AML weaknesses across operators running multi-brand portfolios, which is the same underlying discipline gap the white-label structure depends on getting right.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Does the 12 figure for H2 2025 mean 12 white-label failures?<span class="faq-q-icon" aria-hidden="true">+</span></button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Were any of the six enforcement actions in Chapter 3 specifically about white-label failures?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No, and this guide does not claim otherwise. None of the six named actions is a UKGC action specifically for a white-label control failure by name, that is Chapter 2's case material, the named FSB Technology enforcement action and the anonymised 2026 finding. The six Chapter 3 actions show a recurring pattern of licensee level AML weaknesses across operators running multi-brand portfolios, which is the same underlying discipline gap the white-label structure depends on getting right.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does the 12 figure for H2 2025 mean 12 white-label failures?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">No. It is 12 operator level regulatory actions of any kind recorded by UKGC in that six month window, not all of them AML related and none of them labelled a white-label failure specifically. It is offered as evidence of enforcement tempo across the sector generally, not as a white-label specific count. The <a href="#methodology">Methodology and limitations</a> section explains exactly how this figure was checked.</div>
-      </div>
+      </details>
     </div>
 
     <div class="ee-section" id="glance">
@@ -679,13 +798,16 @@
         <li id="src-6">UKGC enforcement action, Videoslots Limited, &pound;650,000, 20 November 2025. <a href="https://www.gamblingcommission.gov.uk/news/article/gbp650-000-fine-for-online-operator-videoslots-limited" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
         <li id="src-7">UKGC enforcement action, Paddy Power Betfair, &pound;2m, 17 December 2025. <a href="https://www.gamblingcommission.gov.uk/news/article/paddy-power-betfair-to-pay-gbp2m-for-regulatory-failures" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
         <li id="src-8">UKGC, full enforcement action list, used to independently count 12 operator level regulatory actions between 1 July and 31 December 2025, verified by reading the complete list rather than an index summary. <a href="https://www.gamblingcommission.gov.uk/news/enforcement-action" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-9">UKGC, Licence Conditions and Codes of Practice, condition 1.1.2, &quot;Responsibility for third parties, all licences.&quot; <a href="https://www.gamblingcommission.gov.uk/licensees-and-businesses/lccp/condition/1-1-2-responsibility-for-third-parties-all-licences" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-10">UKGC, &quot;Licensees' responsibilities for third parties,&quot; guidance page, explicitly addresses white-label arrangements by name. <a href="https://www.gamblingcommission.gov.uk/licensees-and-businesses/page/licensees-responsibilities-for-third-parties" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-11">UKGC enforcement action, FSB Technology (UK) Ltd, &pound;600,000, 6 May 2020, third-party white-label oversight failure. <a href="https://www.gamblingcommission.gov.uk/news/article/warning-over-third-party-responsibilities-as-fsb-receive-sanctions" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
       </ol>
     </div>
 
     <div class="ee-section" id="methodology">
       <div class="ee-eyebrow-sm">Methodology and limitations</div>
       <h2>How this guide was built and checked</h2>
-      <p><strong>The anonymised case.</strong> Chapter 2's spine case comes directly from UKGC's own 2026 risk assessment, which does not name the operator involved. That is disclosed here rather than hidden: this guide treats a genuine, primary sourced finding from the regulator itself as stronger material than a more dramatic but unverifiable claim naming an operator UKGC never actually named. Knowledge check question 5 tests this same point directly, because the sourcing choice is meant to be visible to the reader, not smoothed over.</p>
+      <p><strong>The corroborating anonymised finding.</strong> Chapter 2's primary case is FSB Technology (UK) Ltd's named 2020 enforcement action. Alongside it, UKGC's own 2026 risk assessment contains a second, anonymised finding that shows the same failure pattern recurring, and that finding does not name the operator involved. That is disclosed here rather than hidden: this guide treats a genuine, primary sourced finding from the regulator itself as stronger material than a more dramatic but unverifiable claim naming an operator UKGC never actually named. Knowledge check question 5 tests this same point directly, because the sourcing choice is meant to be visible to the reader, not smoothed over.</p>
       <p><strong>The corrected H2 2025 figure.</strong> An earlier count of enforcement actions in the second half of 2025 was checked directly against UKGC's own full enforcement list rather than accepted from a secondary report, and against an index summary that itself first appeared to undercount the real figure. The complete list was read in full and every operator level regulatory action between 1 July and 31 December 2025 was counted individually: Taichi Tech (3 Jul), ProgressPlay (21 Aug), Maple International Ventures (17 Sep), Petfre Gibraltar (1 Oct), Platinum Gaming (22 Oct), Spribe (30 Oct), VGC Leeds (31 Oct), NetBet (5 Nov), Videoslots (20 Nov), Deadheat Racing (21 Nov), Done Brothers (3 Dec), and Paddy Power Betfair (17 Dec), 12 in total, excluding two individual criminal matters in the same window that are not operator level sanctions.</p>
       <p><strong>Two corrections made during this final verification pass.</strong> Spreadex's enforcement action is dated 15 May 2025 on UKGC's own article, not an earlier date used in an interim draft. Platinum Gaming's October 2025 fine names unibet.co.uk and uk.bingo.com as the operator's brands, it does not name 32Red, which was fined alongside Platinum Gaming in a separate, earlier 2023 action.</p>
       <p><strong>Illustrative detail.</strong> The specific figures in Chapter 4's worked scenario, the &pound;18,000, the 40 minutes, the four day account age, are original composite teaching detail built around the real regulatory principle in Chapter 2's case. They are not tied to a specific real customer or case and are correctly uncited, consistent with this project's standard that illustrative worked examples do not carry a citation the way a regulatory or enforcement claim does.</p>
@@ -717,13 +839,13 @@
 // functional links, per this guide's no-JS requirement.
 var SOURCES = {
   "1": {
-    claim: "UKGC's 2026 risk assessment rates inadequate white-label due diligence as high risk, high impact, and contains the anonymised case study used throughout this guide.",
+    claim: "UKGC's 2026 risk assessment rates inadequate white-label due diligence as high risk, high impact, and contains the anonymised finding that corroborates Chapter 2's primary FSB Technology case.",
     title: "The 2026 money laundering and terrorist financing risks within the British gambling industry, Section 9 (Betting, remote)",
     publisher: "UK Gambling Commission",
     date: "30 July 2026",
     verified: "13 August 2026",
     url: "https://www.gamblingcommission.gov.uk/guidance/the-2026-money-laundering-and-terrorist-financing-risks-within-the-british-gambling-industry/2026-money-laundering-and-risks-betting-remote",
-    limit: "Does not name the operator in the case study. Confirms the rating is unchanged from the prior assessment, does not itself explain why the underlying problem has not improved."
+    limit: "Does not name the operator in the case study. The unchanged rating records the Commission's current assessment against reworded guidance, it does not establish whether the underlying risk has actually improved, worsened, or stayed the same in practice."
   },
   "2": {
     claim: "Gamesys Operations Limited fined £6m, AML and social responsibility failures across 12 sites under one licence.",
@@ -787,6 +909,33 @@ var SOURCES = {
     verified: "13 August 2026",
     url: "https://www.gamblingcommission.gov.uk/news/enforcement-action",
     limit: "This is a rolling, continuously updated page, not an archived snapshot. Revisiting it later will show a different, larger list. The count of 12 applies specifically to the 1 July to 31 December 2025 window as it stood when checked, not a live or self-updating figure."
+  },
+  "9": {
+    claim: "LCCP condition 1.1.2 requires licensees to ensure third parties they contract with conduct themselves as if bound by the same licence conditions and codes of practice as the licensee itself, and permits termination of the third-party contract for breach.",
+    title: "Licence Conditions and Codes of Practice, condition 1.1.2, Responsibility for third parties, all licences",
+    publisher: "UK Gambling Commission",
+    date: "Current at time of verification",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/licensees-and-businesses/lccp/condition/1-1-2-responsibility-for-third-parties-all-licences",
+    limit: "This is a licence condition text, not a case or enforcement record. It establishes the rule, not evidence of a specific breach."
+  },
+  "10": {
+    claim: "UKGC's own guidance states that responsibility for compliance of all operating gambling websites, including white-labelled sites, sits with the licence holder and cannot be transferred to any other party.",
+    title: "Licensees' responsibilities for third parties",
+    publisher: "UK Gambling Commission",
+    date: "Current at time of verification",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/licensees-and-businesses/page/licensees-responsibilities-for-third-parties",
+    limit: "Guidance page, not a legally binding licence condition in itself, though it explains how UKGC applies condition 1.1.2 in practice to white-label arrangements specifically."
+  },
+  "11": {
+    claim: "FSB Technology (UK) Ltd was fined £600,000 on 6 May 2020 following a UKGC investigation covering January 2017 to August 2019, for inadequate oversight of three white-label partner websites, ineffective source-of-funds checks, marketing to 2,324 self-excluded customers, inadequate VIP oversight, and an unauthorised banner advertisement. Additional licence conditions were imposed requiring risk-based due diligence on new and existing third-party partners.",
+    title: "Warning over third-party responsibilities as FSB receive sanctions",
+    publisher: "UK Gambling Commission",
+    date: "6 May 2020",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/article/warning-over-third-party-responsibilities-as-fsb-receive-sanctions",
+    limit: "A 2020 case; the guide uses it as the clearest available named illustration of the structural failure, not as evidence that FSB's specific failures are ongoing or representative of the current market."
   }
 };
 
@@ -824,9 +973,40 @@ function showSource(id) {
   // to the Sources entry both work with no JS at all. This listener only
   // adds the panel preview on top, it never has to reimplement anchor
   // activation.
+  //
+  // On mobile, the panel is moved inline to sit directly after the
+  // clicked citation's containing block, matching the approved layout
+  // spec (an inline reveal next to the citation, not a panel detached at
+  // the bottom of the page). It is the same single panel node, moved, not
+  // duplicated, so there is only ever one source of truth for its content.
+  var MOBILE_QUERY = window.matchMedia('(max-width:800px)');
+  var sourcePanelEl = document.getElementById('sourcePanel');
+  var sourcePanelHomeParent = sourcePanelEl ? sourcePanelEl.parentNode : null;
+  var sourcePanelHomeNext = sourcePanelEl ? sourcePanelEl.nextSibling : null;
+
+  function restoreSourcePanelHome() {
+    if (sourcePanelEl && sourcePanelHomeParent) {
+      sourcePanelHomeParent.insertBefore(sourcePanelEl, sourcePanelHomeNext);
+    }
+  }
+
   document.querySelectorAll('.cite[data-src]').forEach(function (el) {
-    el.addEventListener('click', function () { showSource(el.getAttribute('data-src')); });
+    el.addEventListener('click', function () {
+      showSource(el.getAttribute('data-src'));
+      if (MOBILE_QUERY.matches && sourcePanelEl) {
+        var anchor = el.closest('p, .case-attribution, .ee-timeline-body') || el.parentElement;
+        if (anchor && anchor.parentNode) {
+          anchor.insertAdjacentElement('afterend', sourcePanelEl);
+        }
+      }
+    });
   });
+
+  if (MOBILE_QUERY.addEventListener) {
+    MOBILE_QUERY.addEventListener('change', function (e) {
+      if (!e.matches) restoreSourcePanelHome();
+    });
+  }
 
   // SHARED RISK/SIGNAL/RESPONSE OBJECTS. The four pattern-card elements
   // above are the single source of truth, real static HTML, fully usable
@@ -881,14 +1061,6 @@ function showSource(id) {
     onScroll();
   }
 
-  // FAQ ACCORDION
-  window.toggleFaq = function (btn) {
-    var expanded = btn.getAttribute('aria-expanded') === 'true';
-    var answer = btn.nextElementSibling;
-    btn.setAttribute('aria-expanded', String(!expanded));
-    if (answer) answer.classList.toggle('show', !expanded);
-  };
-
 })();
 
 // SCENARIO GRADING
@@ -898,10 +1070,17 @@ var SCENARIO_VERDICTS = {
     B: { tier: 'defensible', label: 'Defensible with conditions', text: 'A short, explicit deadline is better than an open-ended wait, but it still delays a decision the licensee is legally positioned to make now. Defensible only if the 48 hours is genuinely used to add material information, not simply to defer ownership.' },
     C: { tier: 'weak', label: 'Weakly supported', text: 'This treats the partner’s monitoring as a substitute for the licensee’s own obligation rather than an input to it. It is the pattern UKGC’s case study identifies as the failure mode, not a neutral holding position.' },
     D: { tier: 'unsafe', label: 'Unsafe or unsupported', text: 'This makes the SAR decision contingent on a commercial partner’s own timeline and judgement, which is precisely the diffusion of accountability the risk assessment rates as a high-impact vulnerability.' }
+  },
+  scenario2: {
+    A: { tier: 'best', label: 'Best supported', text: 'This is the level of due diligence LCCP condition 1.1.2 and UKGC’s own third-party guidance describe: verifying ownership and funding before treating a partner relationship as being on the same footing as the licensee’s own operation. A short delay to verify is defensible, entering the relationship on an unverified attestation is not.' },
+    B: { tier: 'defensible', label: 'Defensible with conditions', text: 'A firm deadline with a real escalation trigger is meaningfully different from an open-ended “we’ll get to it.” Defensible only if the 30 days is genuinely used to complete verification, and only if the termination right is real, not decorative.' },
+    C: { tier: 'weak', label: 'Weakly supported', text: 'Being UK-facing says nothing about who actually owns and controls the partner, that is exactly the gap FSB and UKGC’s own case material both describe. Treating attestation as sufficient because a later review might catch problems is the reactive posture this guide’s evidence hierarchy shows failing repeatedly.' },
+    D: { tier: 'unsafe', label: 'Unsafe or unsupported', text: 'This lets a commercial deadline override a licence condition. LCCP 1.1.2 has no carve-out for competitive pressure, and “informally, after go-live” is not a deadline, it is a decision to enter the relationship unverified indefinitely.' }
   }
 };
 var LESSON = {
-  scenario1: 'A partnership agreement can allocate monitoring tasks. It cannot reassign the legal obligation that sits with the licence.'
+  scenario1: 'A partnership agreement can allocate monitoring tasks. It cannot reassign the legal obligation that sits with the licence.',
+  scenario2: 'A time-sensitive commercial deal does not change what the licence condition requires. Verification has to happen before the relationship starts operating under your licence, not after.'
 };
 
 function showVerdict(scenarioId, choice, btnEl) {
@@ -930,13 +1109,14 @@ function showVerdict(scenarioId, choice, btnEl) {
 }
 
 // KNOWLEDGE CHECK
-var QUIZ_ANSWERS = { qq1: 'B', qq2: 'B', qq3: 'A', qq4: 'B', qq5: 'B' };
+var QUIZ_ANSWERS = { qq1: 'B', qq2: 'B', qq3: 'A', qq4: 'B', qq5: 'B', qq6: 'B' };
 var QUIZ_EXPLAIN = {
   qq1: 'The finding names three specific gaps: ownership of the third party, source of funds for the relationship, and whether the partner’s own activity was lawful. Not customer-level checks, partner-level checks.',
   qq2: 'Both eventually escalate, but option C treats the partner’s review as something to wait on first. The licence carries the obligation regardless of who was contractually first in line to monitor.',
   qq3: 'A separate licence covers only the partner’s own separate activity. It does not transfer or dilute your firm’s obligation for the product operating under your own licence.',
   qq4: 'UKGC recorded 12 operator-level regulatory actions, fines and licence suspensions, between 1 July and 31 December 2025, verified directly against the Commission’s own full list.',
-  qq5: 'UKGC’s own published finding does not name the operator. This guide treats that honestly rather than inventing or guessing a name for a more dramatic read.'
+  qq5: 'UKGC’s own published finding does not name the operator. This guide treats that honestly rather than inventing or guessing a name for a more dramatic read.',
+  qq6: 'UKGC required FSB to carry out risk-based due diligence on new and existing third-party partners, reviewed at least annually, not a one-time check at onboarding. This is the same discipline gap the 2026 finding shows recurring six years later.'
 };
 var quizAnswered = 0;
 var quizCorrect = 0;
@@ -971,20 +1151,21 @@ function answerQuiz(qid, choice) {
   quizAnswered++;
   if (isCorrect) quizCorrect++;
 
-  if (quizAnswered === 5) {
+  if (quizAnswered === 6) {
     var scoreDiv = document.getElementById('quiz-score');
     var scoreNum = document.getElementById('quiz-score-num');
     var scoreLbl = document.getElementById('quiz-score-label');
     if (scoreDiv && scoreNum && scoreLbl) {
       scoreDiv.classList.add('show');
-      scoreNum.textContent = quizCorrect + '/5';
+      scoreNum.textContent = quizCorrect + '/6';
       var labels = [
         'Keep studying, the licensee-versus-partner distinction is worth a second read.',
         'Getting there, go back through the case and the scenario for the parts you missed.',
+        'Making progress, a few core distinctions are still worth re-reading.',
         'Solid foundation, a few gaps to close.',
         'Good grasp, you would catch most white-label accountability gaps in time.',
         'Strong, practitioner-level judgement on where this obligation actually sits.',
-        'Perfect score. You read the case, the scenario, and the enforcement pattern as one connected argument, not five separate facts.'
+        'Perfect score. You read the case, the scenario, and the enforcement pattern as one connected argument, not six separate facts.'
       ];
       scoreLbl.textContent = labels[quizCorrect];
     }
