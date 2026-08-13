@@ -162,7 +162,7 @@
     .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
     .callout p { font-size:14px; margin:0; color:#374151; }
 
-    /* MERGED PATTERN CARD (icon, name, one-liner, Trap/Tell/Do), one component, two placements */
+    /* MERGED PATTERN CARD (icon, name, one-liner, Risk/Signal/Response), one component, two placements */
     .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
     .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
     .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
@@ -376,9 +376,9 @@
         <div class="pattern-line">Two different euro figures, one data-transmission rule, one verification rule, and analysts merge them into one.</div>
         <p style="margin-bottom:1rem;">The 1,000 euro figure gets attached to the wrong obligation constantly, treated as though it were the point at which Travel Rule data starts being required. It isn't. Under the Transfer of Funds Regulation, originator and beneficiary data travels with every CASP-to-CASP transfer from the first cent, no threshold at all. The 1,000 euro figure is a separate, narrower trigger under Articles 14(5) and 16(2), it decides only when a firm must verify that a customer controls a self-hosted wallet. Treating them as one rule is the single most common way a firm ends up with a Travel Rule gap it didn't know it had.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Trap</div><div class="ttd-text">Assuming the 1,000 euro figure is a data-transmission threshold.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Tell</div><div class="ttd-text">A small CASP-to-CASP transfer waved through with no Travel Rule data.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Do</div><div class="ttd-text">Transmit data from the first cent between firms, the 1,000 euro figure only triggers wallet-ownership verification.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Risk</div><div class="ttd-text">Assuming the 1,000 euro figure is a data-transmission threshold.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Signal</div><div class="ttd-text">A small CASP-to-CASP transfer waved through with no Travel Rule data.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Response</div><div class="ttd-text">Transmit data from the first cent between firms, the 1,000 euro figure only triggers wallet-ownership verification.</div></div>
         </div>
       </div>
 
@@ -390,9 +390,9 @@
         <div class="pattern-line">The sender wasn't obliged to send data. That's not the same as a free pass to credit the funds blind.</div>
         <p style="margin-bottom:1rem;">When a transfer lands from a firm in a jurisdiction where the Travel Rule isn't yet in force, or is in force but unsupervised, it's tempting to treat the absence of data as explained and move on. It isn't a clean explanation, it's a risk that needs assessing on its own terms. FATF's own guidance is to treat these counterparty relationships the way a bank treats a correspondent-banking relationship, which means active due diligence, not passive acceptance because the other side technically had no obligation to do better.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Trap</div><div class="ttd-text">Treating a non-implementing counterparty jurisdiction as a free pass to credit blind.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Tell</div><div class="ttd-text">An inbound transfer from a firm in a jurisdiction with no Travel Rule in force.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Do</div><div class="ttd-text">Apply correspondent-banking-style due diligence, don't proceed just because the sender wasn't obliged to send data.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Risk</div><div class="ttd-text">Treating a non-implementing counterparty jurisdiction as a free pass to credit blind.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Signal</div><div class="ttd-text">An inbound transfer from a firm in a jurisdiction with no Travel Rule in force.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Response</div><div class="ttd-text">Apply correspondent-banking-style due diligence, don't proceed just because the sender wasn't obliged to send data.</div></div>
         </div>
       </div>
 
@@ -404,9 +404,9 @@
         <div class="pattern-line">A firm can be fully compliant on everything it sends and still have no real controls on what it receives.</div>
         <p style="margin-bottom:1rem;">Outbound Travel Rule compliance gets the engineering attention because it's the part a firm controls end to end. Inbound is different, the data arrives in whatever shape the sending firm chose to send it, and if that's a free-text memo field rather than a structured, machine-readable message, a system built only to send data correctly may not even parse what it received. Being compliant in your home jurisdiction says nothing about whether you're actually equipped to process what lands.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Trap</div><div class="ttd-text">Being compliant outbound but never building incoming-transfer controls.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Tell</div><div class="ttd-text">Transfers arriving with data buried in a free-text memo field your system can't parse.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Do</div><div class="ttd-text">Build machine-readable inbound controls, a compliant home jurisdiction doesn't make you compliant on what lands.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Risk</div><div class="ttd-text">Being compliant outbound but never building incoming-transfer controls.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Signal</div><div class="ttd-text">Transfers arriving with data buried in a free-text memo field your system can't parse.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Response</div><div class="ttd-text">Build machine-readable inbound controls, a compliant home jurisdiction doesn't make you compliant on what lands.</div></div>
         </div>
       </div>
 
@@ -418,9 +418,9 @@
         <div class="pattern-line">Crediting a transfer with missing data because holding it is friction, and leaving no record that a gap existed at all.</div>
         <p style="margin-bottom:1rem;">The EBA's guidelines give four real options when data is missing or incomplete: execute, suspend, return, or reject, chosen on a risk basis <a href="#src-8">[8]</a>. What isn't an option is silently crediting the transfer and moving on because a hold slows the customer down. An empty hold-and-reject log across a meaningful volume of transfers is itself a red flag under review, it suggests a firm that never actually exercises the judgement the rule expects it to exercise.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Trap</div><div class="ttd-text">Crediting a transfer with missing originator data because holding it is friction.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Tell</div><div class="ttd-text">A hold-and-reject log that's suspiciously empty.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Do</div><div class="ttd-text">Suspend, return, or reject on missing data, and keep the log that proves you did.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Risk</div><div class="ttd-text">Crediting a transfer with missing originator data because holding it is friction.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Signal</div><div class="ttd-text">A hold-and-reject log that's suspiciously empty.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Response</div><div class="ttd-text">Suspend, return, or reject on missing data, and keep the log that proves you did.</div></div>
         </div>
       </div>
 
@@ -432,9 +432,9 @@
         <div class="pattern-line">A self-hosted wallet isn't outside the regime, it's treated as inherently higher risk within it.</div>
         <p style="margin-bottom:1rem;">Self-custody is sometimes read as a gap in the regulatory perimeter, since there's no counterparty firm on the other end to exchange data with. That reading misses the actual rule, which is that above the local verification threshold, the firm must confirm its own customer controls the destination wallet, and the regulation's own recitals treat self-hosted transfers as inherently higher risk regardless of amount. A large withdrawal to an unverified external address is the exact scenario the threshold exists to catch.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Trap</div><div class="ttd-text">Assuming a self-hosted wallet is out of scope.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Tell</div><div class="ttd-text">A large withdrawal to an unverified external address.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Do</div><div class="ttd-text">Verify ownership above the local threshold, document the method, treat self-hosted as inherently higher risk per the regulation's own recitals.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Risk</div><div class="ttd-text">Assuming a self-hosted wallet is out of scope.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Signal</div><div class="ttd-text">A large withdrawal to an unverified external address.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Response</div><div class="ttd-text">Verify ownership above the local threshold, document the method, treat self-hosted as inherently higher risk per the regulation's own recitals.</div></div>
         </div>
       </div>
     </div>
@@ -536,7 +536,7 @@
     <div class="article-section" id="glance">
       <div class="section-eyebrow" style="color:var(--c-send)">Quick Reference</div>
       <h2>At a glance</h2>
-      <p>Five patterns, the trap that makes each one look routine, the tell that actually gives it away, and the response that fits.</p>
+      <p>Five patterns, the risk that makes each one look routine, the signal that actually gives it away, and the response that fits.</p>
 
       <div class="save-img-row">
         <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
@@ -550,9 +550,9 @@
           </div>
           <div class="pattern-line">Two different euro figures, one data-transmission rule, one verification rule, and analysts merge them into one.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Trap</div><div class="ttd-text">Assuming the 1,000 euro figure is a data-transmission threshold.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Tell</div><div class="ttd-text">A small CASP-to-CASP transfer waved through with no Travel Rule data.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Do</div><div class="ttd-text">Transmit data from the first cent between firms, the 1,000 euro figure only triggers wallet-ownership verification.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Risk</div><div class="ttd-text">Assuming the 1,000 euro figure is a data-transmission threshold.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Signal</div><div class="ttd-text">A small CASP-to-CASP transfer waved through with no Travel Rule data.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-send);">Response</div><div class="ttd-text">Transmit data from the first cent between firms, the 1,000 euro figure only triggers wallet-ownership verification.</div></div>
           </div>
         </div>
 
@@ -563,9 +563,9 @@
           </div>
           <div class="pattern-line">The sender wasn't obliged to send data. That's not the same as a free pass to credit the funds blind.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Trap</div><div class="ttd-text">Treating a non-implementing counterparty jurisdiction as a free pass to credit blind.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Tell</div><div class="ttd-text">An inbound transfer from a firm in a jurisdiction with no Travel Rule in force.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Do</div><div class="ttd-text">Apply correspondent-banking-style due diligence, don't proceed just because the sender wasn't obliged to send data.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Risk</div><div class="ttd-text">Treating a non-implementing counterparty jurisdiction as a free pass to credit blind.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Signal</div><div class="ttd-text">An inbound transfer from a firm in a jurisdiction with no Travel Rule in force.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sunrise);">Response</div><div class="ttd-text">Apply correspondent-banking-style due diligence, don't proceed just because the sender wasn't obliged to send data.</div></div>
           </div>
         </div>
 
@@ -576,9 +576,9 @@
           </div>
           <div class="pattern-line">A firm can be fully compliant on everything it sends and still have no real controls on what it receives.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Trap</div><div class="ttd-text">Being compliant outbound but never building incoming-transfer controls.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Tell</div><div class="ttd-text">Transfers arriving with data buried in a free-text memo field your system can't parse.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Do</div><div class="ttd-text">Build machine-readable inbound controls, a compliant home jurisdiction doesn't make you compliant on what lands.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Risk</div><div class="ttd-text">Being compliant outbound but never building incoming-transfer controls.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Signal</div><div class="ttd-text">Transfers arriving with data buried in a free-text memo field your system can't parse.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-recv);">Response</div><div class="ttd-text">Build machine-readable inbound controls, a compliant home jurisdiction doesn't make you compliant on what lands.</div></div>
           </div>
         </div>
 
@@ -589,9 +589,9 @@
           </div>
           <div class="pattern-line">Crediting a transfer with missing data because holding it is friction, and leaving no record that a gap existed at all.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Trap</div><div class="ttd-text">Crediting a transfer with missing originator data because holding it is friction.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Tell</div><div class="ttd-text">A hold-and-reject log that's suspiciously empty.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Do</div><div class="ttd-text">Suspend, return, or reject on missing data, and keep the log that proves you did.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Risk</div><div class="ttd-text">Crediting a transfer with missing originator data because holding it is friction.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Signal</div><div class="ttd-text">A hold-and-reject log that's suspiciously empty.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-silent);">Response</div><div class="ttd-text">Suspend, return, or reject on missing data, and keep the log that proves you did.</div></div>
           </div>
         </div>
 
@@ -602,9 +602,9 @@
           </div>
           <div class="pattern-line">A self-hosted wallet isn't outside the regime, it's treated as inherently higher risk within it.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Trap</div><div class="ttd-text">Assuming a self-hosted wallet is out of scope.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Tell</div><div class="ttd-text">A large withdrawal to an unverified external address.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Do</div><div class="ttd-text">Verify ownership above the local threshold, document the method, treat self-hosted as inherently higher risk per the regulation's own recitals.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Risk</div><div class="ttd-text">Assuming a self-hosted wallet is out of scope.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Signal</div><div class="ttd-text">A large withdrawal to an unverified external address.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-selfhosted);">Response</div><div class="ttd-text">Verify ownership above the local threshold, document the method, treat self-hosted as inherently higher risk per the regulation's own recitals.</div></div>
           </div>
         </div>
       </div>
@@ -968,7 +968,7 @@ dtreeReset();
 // SAVE AS IMAGE
 // Renders the closing pattern-card grid to a downloadable PNG using
 // native Canvas 2D only, no external library. Content (icon, name,
-// one-liner, Trap/Tell/Do text) is read directly from the live DOM at
+// one-liner, Risk/Signal/Response text) is read directly from the live DOM at
 // click time, so the image can never drift out of sync with the page.
 function wrapCanvasText(ctx, text, maxWidth) {
   const words = text.split(' ');

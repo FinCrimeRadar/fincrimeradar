@@ -177,7 +177,7 @@
     .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
     .callout p { font-size:14px; margin:0; color:#374151; }
 
-    /* MERGED PATTERN CARD (icon, name, one-liner, Trap/Tell/Do), one component, two placements */
+    /* MERGED PATTERN CARD (icon, name, one-liner, Risk/Signal/Response), one component, two placements */
     .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
     .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
     .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
@@ -425,9 +425,9 @@
         <div class="pattern-line">Deciding what happened, then collecting the evidence that agrees.</div>
         <p style="margin-bottom:1rem;">The first plausible explanation arrives early and it is comfortable. Everything gathered afterwards gets read through it: facts that fit are recorded as confirmation, facts that do not are explained away as noise or set aside as irrelevant. The file ends up looking thorough and reading as conclusive, but it never actually tested the conclusion, it only decorated it. A good investigation starts by asking what would prove this theory wrong, and records the answer either way.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Trap</div><div class="ttd-text">An early explanation feels like a finding rather than a hypothesis.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Tell</div><div class="ttd-text">Contradicting evidence gets rationalised rather than written down.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Do</div><div class="ttd-text">Look actively for what would disprove the working theory, record it regardless of what it shows.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Risk</div><div class="ttd-text">An early explanation feels like a finding rather than a hypothesis.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Signal</div><div class="ttd-text">Contradicting evidence gets rationalised rather than written down.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Response</div><div class="ttd-text">Look actively for what would disprove the working theory, record it regardless of what it shows.</div></div>
         </div>
       </div>
 
@@ -440,9 +440,9 @@
         <p style="margin-bottom:1rem;">Under section 333A of the Proceeds of Crime Act 2002, it is a criminal offence in the regulated sector to disclose that a suspicious activity report has been made, or that a money laundering investigation is being contemplated or carried out, where that disclosure is likely to prejudice an investigation. It is strict liability, no criminal intent is required, and on conviction on indictment it carries up to two years' imprisonment.</p>
         <p style="margin-bottom:1rem;">What it is not is a blanket prohibition on speaking to customers. Nothing in POCA prevents making normal enquiries about a transaction or a relationship. The line is disclosure of the report or the investigation, not the enquiry itself. Analysts routinely get this wrong in both directions, some volunteer far too much in the name of transparency, others refuse any contact at all and lose information they were entitled to seek.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Trap</div><div class="ttd-text">Either extreme feels safe, saying everything, or saying nothing.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Tell</div><div class="ttd-text">The question is whether a specific disclosure reveals the report or the investigation, not whether contact happened at all.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Do</div><div class="ttd-text">Make normal enquiries where they are useful. Never disclose the SAR or the investigation. When unsure what can be said, ask the MLRO before speaking, not after.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Risk</div><div class="ttd-text">Either extreme feels safe, saying everything, or saying nothing.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Signal</div><div class="ttd-text">The question is whether a specific disclosure reveals the report or the investigation, not whether contact happened at all.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Response</div><div class="ttd-text">Make normal enquiries where they are useful. Never disclose the SAR or the investigation. When unsure what can be said, ask the MLRO before speaking, not after.</div></div>
         </div>
       </div>
 
@@ -454,9 +454,9 @@
         <div class="pattern-line">Individually explainable facts stop being explainable once they are put in order.</div>
         <p style="margin-bottom:1rem;">A login, a password change, a payment, a support call, each one has a mundane reading in isolation. Sequenced, with timestamps, the same four facts can describe an account takeover in progress. Investigations that collect evidence into a list rather than a chronology systematically miss patterns that only exist in the ordering, and the reasoning becomes much harder to explain to a reviewer who cannot see the sequence either.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Trap</div><div class="ttd-text">A collection of facts feels like an analysis.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Tell</div><div class="ttd-text">The file has evidence but no constructed chronology.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Do</div><div class="ttd-text">Build the timeline before reaching a conclusion, most fraud patterns live in the sequence rather than the individual events.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Risk</div><div class="ttd-text">A collection of facts feels like an analysis.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Signal</div><div class="ttd-text">The file has evidence but no constructed chronology.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Response</div><div class="ttd-text">Build the timeline before reaching a conclusion, most fraud patterns live in the sequence rather than the individual events.</div></div>
         </div>
       </div>
 
@@ -468,9 +468,9 @@
         <div class="pattern-line">The file records what was found and what was decided, but not why one led to the other.</div>
         <p style="margin-bottom:1rem;">While the case is live the logic feels self-evident, so it never gets written down. Months later the file contains evidence, a disposition, and a silent gap between them. A reviewer, an auditor, or a regulator cannot reconstruct the reasoning, and an unexplained decision reads as an unconsidered one even when it was neither. The test is not whether the analyst understood it at the time, it is whether someone unfamiliar with the case can follow it cold.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Trap</div><div class="ttd-text">Obvious reasoning feels like it does not need recording.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Tell</div><div class="ttd-text">The file jumps from evidence to disposition with nothing connecting them.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Do</div><div class="ttd-text">Write the reasoning for a stranger reading it in eighteen months, not for yourself today.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Risk</div><div class="ttd-text">Obvious reasoning feels like it does not need recording.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Signal</div><div class="ttd-text">The file jumps from evidence to disposition with nothing connecting them.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Response</div><div class="ttd-text">Write the reasoning for a stranger reading it in eighteen months, not for yourself today.</div></div>
         </div>
       </div>
     </div>
@@ -847,7 +847,7 @@
     <div class="article-section" id="glance">
       <div class="section-eyebrow" style="color:var(--c-theory)">Quick Reference</div>
       <h2>At a glance</h2>
-      <p>Four patterns, the trap that makes each one look routine, the tell that actually gives it away, and the response that fits.</p>
+      <p>Four patterns, the risk that makes each one look routine, the signal that actually gives it away, and the response that fits.</p>
 
       <div class="save-img-row">
         <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
@@ -861,9 +861,9 @@
           </div>
           <div class="pattern-line">Deciding what happened, then collecting the evidence that agrees.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Trap</div><div class="ttd-text">An early explanation feels like a finding rather than a hypothesis.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Tell</div><div class="ttd-text">Contradicting evidence gets rationalised rather than written down.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Do</div><div class="ttd-text">Look for what would disprove the working theory, record it either way.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Risk</div><div class="ttd-text">An early explanation feels like a finding rather than a hypothesis.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Signal</div><div class="ttd-text">Contradicting evidence gets rationalised rather than written down.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-theory);">Response</div><div class="ttd-text">Look for what would disprove the working theory, record it either way.</div></div>
           </div>
         </div>
 
@@ -874,9 +874,9 @@
           </div>
           <div class="pattern-line">The offence is revealing the report, not asking the question.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Trap</div><div class="ttd-text">Either extreme feels safe, saying everything, or saying nothing.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Tell</div><div class="ttd-text">The question is whether a disclosure reveals the report, not whether contact happened.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Do</div><div class="ttd-text">Make normal enquiries. Never disclose the SAR or the investigation. Ask the MLRO before speaking, not after.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Risk</div><div class="ttd-text">Either extreme feels safe, saying everything, or saying nothing.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Signal</div><div class="ttd-text">The question is whether a disclosure reveals the report, not whether contact happened.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-disclosure);">Response</div><div class="ttd-text">Make normal enquiries. Never disclose the SAR or the investigation. Ask the MLRO before speaking, not after.</div></div>
           </div>
         </div>
 
@@ -887,9 +887,9 @@
           </div>
           <div class="pattern-line">Individually explainable facts stop being explainable once they are put in order.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Trap</div><div class="ttd-text">A collection of facts feels like an analysis.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Tell</div><div class="ttd-text">The file has evidence but no constructed chronology.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Do</div><div class="ttd-text">Build the timeline before concluding, most fraud patterns live in the sequence.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Risk</div><div class="ttd-text">A collection of facts feels like an analysis.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Signal</div><div class="ttd-text">The file has evidence but no constructed chronology.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-timeline);">Response</div><div class="ttd-text">Build the timeline before concluding, most fraud patterns live in the sequence.</div></div>
           </div>
         </div>
 
@@ -900,9 +900,9 @@
           </div>
           <div class="pattern-line">The file records what was found and what was decided, but not why one led to the other.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Trap</div><div class="ttd-text">Obvious reasoning feels like it does not need recording.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Tell</div><div class="ttd-text">The file jumps from evidence to disposition with nothing connecting them.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Do</div><div class="ttd-text">Write the reasoning for a stranger reading it in eighteen months, not for yourself today.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Risk</div><div class="ttd-text">Obvious reasoning feels like it does not need recording.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Signal</div><div class="ttd-text">The file jumps from evidence to disposition with nothing connecting them.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reasoning);">Response</div><div class="ttd-text">Write the reasoning for a stranger reading it in eighteen months, not for yourself today.</div></div>
           </div>
         </div>
       </div>
@@ -1174,7 +1174,7 @@ function answerQuiz(questionId, chosen) {
 // SAVE AS IMAGE
 // Renders the closing pattern-card grid to a downloadable PNG using
 // native Canvas 2D only, no external library. Content (icon, name,
-// one-liner, Trap/Tell/Do text) is read directly from the live DOM at
+// one-liner, Risk/Signal/Response text) is read directly from the live DOM at
 // click time, so the image can never drift out of sync with the page.
 function wrapCanvasText(ctx, text, maxWidth) {
   const words = text.split(' ');

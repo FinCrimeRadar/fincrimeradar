@@ -177,7 +177,7 @@
     .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
     .callout p { font-size:14px; margin:0; color:#374151; }
 
-    /* MERGED PATTERN CARD (icon, name, one-liner, Trap/Tell/Do), one component, two placements */
+    /* MERGED PATTERN CARD (icon, name, one-liner, Risk/Signal/Response), one component, two placements */
     .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
     .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
     .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
@@ -399,9 +399,9 @@
         <div class="pattern-line">A genuinely aged identity has noise. A fabricated one is often suspiciously tidy.</div>
         <p style="margin-bottom:1rem;">A real person's credit and account history accumulates mess over years, a late payment, a closed account, a credit inquiry that went nowhere, ordinary financial life. A synthetic identity's file is frequently the opposite: thin, or unnaturally clean for the age it claims. An analyst trained to look for red flags in negative information can miss the identity where there is suspiciously little information of any kind at all.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Trap</div><div class="ttd-text">An absence of derogatory history reads as reassurance.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Tell</div><div class="ttd-text">The file is thinner, or cleaner, than the claimed history would realistically produce.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Do</div><div class="ttd-text">Weigh an unnaturally clean file as a genuine signal, not a reason to relax scrutiny.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Risk</div><div class="ttd-text">An absence of derogatory history reads as reassurance.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Signal</div><div class="ttd-text">The file is thinner, or cleaner, than the claimed history would realistically produce.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Response</div><div class="ttd-text">Weigh an unnaturally clean file as a genuine signal, not a reason to relax scrutiny.</div></div>
         </div>
       </div>
 
@@ -413,9 +413,9 @@
         <div class="pattern-line">Fraudsters do not wait for a synthetic identity to age. They attach it to someone else's real history.</div>
         <p style="margin-bottom:1rem;">A common technique for accelerating a synthetic profile is authorised-user piggybacking, attaching the fabricated identity to a genuine person's existing credit account as an authorised user. The synthetic identity inherits that account's real age and payment history almost overnight, without needing years of its own. What looks like an established file may actually be borrowed history sitting on top of a fabricated identity.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Trap</div><div class="ttd-text">Established-looking credit history reads as proof of a genuine, aged identity.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Tell</div><div class="ttd-text">The account history's origin traces to being added as an authorised user on someone else's older account, not built independently.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Do</div><div class="ttd-text">Check whether apparent history was built directly or inherited through an authorised-user relationship.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Risk</div><div class="ttd-text">Established-looking credit history reads as proof of a genuine, aged identity.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Signal</div><div class="ttd-text">The account history's origin traces to being added as an authorised user on someone else's older account, not built independently.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Response</div><div class="ttd-text">Check whether apparent history was built directly or inherited through an authorised-user relationship.</div></div>
         </div>
       </div>
 
@@ -427,9 +427,9 @@
         <div class="pattern-line">A device match is a real signal. It is not proof on its own.</div>
         <p style="margin-bottom:1rem;">Multiple accounts resolving to the same device or fingerprint is genuinely worth investigating, but it is correlation, not conclusion. Families share laptops. Shared or public devices exist. A device match becomes meaningful when it combines with other signals, accounts opened in a short window, mismatched or implausible identity details, coordinated activity, not when it stands alone.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Trap</div><div class="ttd-text">A device match feels conclusive by itself.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Tell</div><div class="ttd-text">The only evidence is the shared device, with nothing else corroborating coordinated or fraudulent activity.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Do</div><div class="ttd-text">Treat a device match as one input requiring corroboration, not a finding on its own.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Risk</div><div class="ttd-text">A device match feels conclusive by itself.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Signal</div><div class="ttd-text">The only evidence is the shared device, with nothing else corroborating coordinated or fraudulent activity.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Response</div><div class="ttd-text">Treat a device match as one input requiring corroboration, not a finding on its own.</div></div>
         </div>
       </div>
 
@@ -441,9 +441,9 @@
         <div class="pattern-line">Is this a fabricated person, or one real person running several accounts? The answer changes the entire investigation.</div>
         <p style="margin-bottom:1rem;">Synthetic identity and device-network fraud get investigated as though they were the same problem because the same tools, fingerprinting, clustering, flag both. They are not the same problem. A device-network case usually involves one real, identifiable person, and there is a genuine account holder to act against. A synthetic identity case involves no such person, only assembled fragments, which changes what evidence even means and what the resolution looks like.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Trap</div><div class="ttd-text">Both cases arrive through similar-looking network alerts and get treated with the same playbook.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Tell</div><div class="ttd-text">Establishing whether a single real identity sits behind the accounts, or whether the identity itself doesn't resolve to a real person, changes everything downstream.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Do</div><div class="ttd-text">Establish which category you are actually in before deciding what evidence would resolve the case.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Risk</div><div class="ttd-text">Both cases arrive through similar-looking network alerts and get treated with the same playbook.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Signal</div><div class="ttd-text">Establishing whether a single real identity sits behind the accounts, or whether the identity itself doesn't resolve to a real person, changes everything downstream.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Response</div><div class="ttd-text">Establish which category you are actually in before deciding what evidence would resolve the case.</div></div>
         </div>
       </div>
     </div>
@@ -706,7 +706,7 @@
     <div class="article-section" id="glance">
       <div class="section-eyebrow" style="color:var(--c-clean)">Quick Reference</div>
       <h2>At a glance</h2>
-      <p>Four patterns, the trap that makes each one look routine, the tell that actually gives it away, and the response that fits.</p>
+      <p>Four patterns, the risk that makes each one look routine, the signal that actually gives it away, and the response that fits.</p>
 
       <div class="save-img-row">
         <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
@@ -720,9 +720,9 @@
           </div>
           <div class="pattern-line">A genuinely aged identity has noise. A fabricated one is often suspiciously tidy.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Trap</div><div class="ttd-text">An absence of derogatory history reads as reassurance.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Tell</div><div class="ttd-text">The file is thinner, or cleaner, than the claimed history would realistically produce.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Do</div><div class="ttd-text">Weigh an unnaturally clean file as a genuine signal, not a reason to relax scrutiny.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Risk</div><div class="ttd-text">An absence of derogatory history reads as reassurance.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Signal</div><div class="ttd-text">The file is thinner, or cleaner, than the claimed history would realistically produce.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clean);">Response</div><div class="ttd-text">Weigh an unnaturally clean file as a genuine signal, not a reason to relax scrutiny.</div></div>
           </div>
         </div>
 
@@ -733,9 +733,9 @@
           </div>
           <div class="pattern-line">Fraudsters do not wait for a synthetic identity to age. They attach it to someone else's real history.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Trap</div><div class="ttd-text">Established-looking credit history reads as proof of a genuine, aged identity.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Tell</div><div class="ttd-text">The account history traces to an authorised-user relationship, not independent history.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Do</div><div class="ttd-text">Check whether apparent history was built directly or inherited.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Risk</div><div class="ttd-text">Established-looking credit history reads as proof of a genuine, aged identity.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Signal</div><div class="ttd-text">The account history traces to an authorised-user relationship, not independent history.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thread);">Response</div><div class="ttd-text">Check whether apparent history was built directly or inherited.</div></div>
           </div>
         </div>
 
@@ -746,9 +746,9 @@
           </div>
           <div class="pattern-line">A device match is a real signal. It is not proof on its own.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Trap</div><div class="ttd-text">A device match feels conclusive by itself.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Tell</div><div class="ttd-text">The only evidence is the shared device, nothing else corroborates.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Do</div><div class="ttd-text">Treat a device match as one input requiring corroboration, not a finding.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Risk</div><div class="ttd-text">A device match feels conclusive by itself.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Signal</div><div class="ttd-text">The only evidence is the shared device, nothing else corroborates.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-device);">Response</div><div class="ttd-text">Treat a device match as one input requiring corroboration, not a finding.</div></div>
           </div>
         </div>
 
@@ -759,9 +759,9 @@
           </div>
           <div class="pattern-line">Is this a fabricated person, or one real person running several accounts?</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Trap</div><div class="ttd-text">Both cases arrive through similar network alerts and get the same playbook.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Tell</div><div class="ttd-text">Whether a real identity sits behind the accounts changes everything downstream.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Do</div><div class="ttd-text">Establish which category you are in before deciding what evidence would resolve it.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Risk</div><div class="ttd-text">Both cases arrive through similar network alerts and get the same playbook.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Signal</div><div class="ttd-text">Whether a real identity sits behind the accounts changes everything downstream.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Response</div><div class="ttd-text">Establish which category you are in before deciding what evidence would resolve it.</div></div>
           </div>
         </div>
       </div>
@@ -1040,7 +1040,7 @@ function answerQuiz(questionId, chosen) {
 // SAVE AS IMAGE
 // Renders the closing pattern-card grid to a downloadable PNG using
 // native Canvas 2D only, no external library. Content (icon, name,
-// one-liner, Trap/Tell/Do text) is read directly from the live DOM at
+// one-liner, Risk/Signal/Response text) is read directly from the live DOM at
 // click time, so the image can never drift out of sync with the page.
 function wrapCanvasText(ctx, text, maxWidth) {
   const words = text.split(' ');

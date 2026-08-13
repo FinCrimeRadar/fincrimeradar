@@ -178,7 +178,7 @@
     .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
     .callout p { font-size:14px; margin:0; color:#374151; }
 
-    /* MERGED PATTERN CARD (icon, name, one-liner, Trap/Tell/Do), one component, two placements */
+    /* MERGED PATTERN CARD (icon, name, one-liner, Risk/Signal/Response), one component, two placements */
     .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
     .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
     .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
@@ -402,9 +402,9 @@
         <div class="pattern-line">A real account, years old and unremarkable, becomes a mule account without ever looking freshly opened.</div>
         <p style="margin-bottom:1rem;">Most detection logic still assumes a mule account looks new, thin history, no established pattern, activity from day one. Increasingly it doesn't. Industry survey data puts the majority of institutions now reporting more mule account handovers, genuine accounts, taken over mid-life through coercion, recruitment, or compromise, not built for fraud from the start. An account with years of stable history isn't protective once a real behavioural break appears, if anything it makes the break more diagnostic, because there's more baseline for it to depart from.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Trap</div><div class="ttd-text">Assuming account age equals trust.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Tell</div><div class="ttd-text">A sudden behavioural break from years of stable pattern.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Do</div><div class="ttd-text">Baseline against the account's own history, not a generic risk score.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Risk</div><div class="ttd-text">Assuming account age equals trust.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Signal</div><div class="ttd-text">A sudden behavioural break from years of stable pattern.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Response</div><div class="ttd-text">Baseline against the account's own history, not a generic risk score.</div></div>
         </div>
       </div>
 
@@ -416,9 +416,9 @@
         <div class="pattern-line">By the time an overnight batch cycle runs, the money and the account access are both already gone.</div>
         <p style="margin-bottom:1rem;">Under Regulation (EU) 2024/886, an in-scope euro transfer must settle within 10 seconds, 24 hours a day. A control built around a nightly batch job was never designed to intervene inside a window that short, and a rapid receipt-then-disperse cycle, money in, cash or card spend out within minutes, can complete and clear long before any next-day review even runs.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Trap</div><div class="ttd-text">Relying on next-cycle batch alerts.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Tell</div><div class="ttd-text">Rapid receipt-then-disperse within minutes on an instant rail.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Do</div><div class="ttd-text">Real-time velocity rules, not overnight batch review.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Risk</div><div class="ttd-text">Relying on next-cycle batch alerts.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Signal</div><div class="ttd-text">Rapid receipt-then-disperse within minutes on an instant rail.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Response</div><div class="ttd-text">Real-time velocity rules, not overnight batch review.</div></div>
         </div>
       </div>
 
@@ -430,9 +430,9 @@
         <div class="pattern-line">KYB verifies who a company is at onboarding. It says nothing about what the account does a year later.</div>
         <p style="margin-bottom:1rem;">A business account that matched its declared activity at onboarding can still drift into a materially different pattern months or years afterward, irregular payments from unconnected individuals, no invoice trail, transfers straight out to a director's personal account. Thailand's Department of Business Development has documented this concretely: a 2025 enforcement sweep against corporate mule accounts implicated 442 registered companies used to disguise illegal activity [4]. The same structural gap, an onboarding check that measures who a company is rather than what it does month to month, is the underlying concern wherever business accounts are used for muling, not just in Thailand. Treating the onboarding check as the whole answer misses that the mismatch, not the incorporation date or the account type, is what actually needs monitoring.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Trap</div><div class="ttd-text">Treating KYB as a one-time onboarding check.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Tell</div><div class="ttd-text">Transaction pattern doesn't match the declared business activity.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Do</div><div class="ttd-text">Monitor SME accounts against their own declared profile continuously.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Risk</div><div class="ttd-text">Treating KYB as a one-time onboarding check.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Signal</div><div class="ttd-text">Transaction pattern doesn't match the declared business activity.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Response</div><div class="ttd-text">Monitor SME accounts against their own declared profile continuously.</div></div>
         </div>
       </div>
 
@@ -444,9 +444,9 @@
         <div class="pattern-line">The same account can be a fraud victim's payee and an AML team's open suspect, with neither team aware of the other.</div>
         <p style="margin-bottom:1rem;">APP fraud reimbursement claims and AML suspicious-activity monitoring are handled by different teams for good reason, they carry different obligations and need different expertise. But when both teams hold an open case on the same receiving account and neither can see the other's, the firm is sitting on a genuinely shared piece of information it isn't using. Merging the casework itself is not the fix, that's a documented way convergence backfires, but merging visibility is exactly the fix that costs nothing to get right.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Trap</div><div class="ttd-text">Treating fraud and AML alerts as separate queues by default.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Tell</div><div class="ttd-text">A fraud victim's payee and an AML mule suspect can be the same account, seen by two different teams.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Do</div><div class="ttd-text">Shared visibility across teams, not merged casework.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Risk</div><div class="ttd-text">Treating fraud and AML alerts as separate queues by default.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Signal</div><div class="ttd-text">A fraud victim's payee and an AML mule suspect can be the same account, seen by two different teams.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Response</div><div class="ttd-text">Shared visibility across teams, not merged casework.</div></div>
         </div>
       </div>
 
@@ -458,9 +458,9 @@
         <div class="pattern-line">A mule herder rarely runs one account. Looking at accounts one at a time is exactly how the network stays invisible.</div>
         <p style="margin-bottom:1rem;">Individual mule accounts, reviewed one at a time, can each look like an isolated, borderline case. The pattern that actually matters, several accounts sharing a device, an IP address, a recruitment channel, or a timing signature, only becomes visible once accounts are linked to each other rather than assessed alone. Network-level analysis is what turns a handful of ambiguous individual alerts into a single, well-evidenced case against the herder running all of them.</p>
         <div class="pattern-ttd">
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Trap</div><div class="ttd-text">Looking for one bad account at a time.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Tell</div><div class="ttd-text">Several ostensibly unconnected accounts sharing subtle links, device, IP, timing.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Do</div><div class="ttd-text">Network-level linkage analysis, not account-by-account review.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Risk</div><div class="ttd-text">Looking for one bad account at a time.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Signal</div><div class="ttd-text">Several ostensibly unconnected accounts sharing subtle links, device, IP, timing.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Response</div><div class="ttd-text">Network-level linkage analysis, not account-by-account review.</div></div>
         </div>
       </div>
     </div>
@@ -813,7 +813,7 @@
     <div class="article-section" id="glance">
       <div class="section-eyebrow" style="color:var(--c-sleeper)">Quick Reference</div>
       <h2>At a glance</h2>
-      <p>Five patterns, the trap that makes each one look routine, the tell that actually gives it away, and the response that fits.</p>
+      <p>Five patterns, the risk that makes each one look routine, the signal that actually gives it away, and the response that fits.</p>
 
       <div class="save-img-row">
         <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
@@ -827,9 +827,9 @@
           </div>
           <div class="pattern-line">A real account, years old and unremarkable, becomes a mule account without ever looking freshly opened.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Trap</div><div class="ttd-text">Assuming account age equals trust.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Tell</div><div class="ttd-text">A sudden behavioural break from years of stable pattern.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Do</div><div class="ttd-text">Baseline against the account's own history, not a generic risk score.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Risk</div><div class="ttd-text">Assuming account age equals trust.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Signal</div><div class="ttd-text">A sudden behavioural break from years of stable pattern.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-sleeper);">Response</div><div class="ttd-text">Baseline against the account's own history, not a generic risk score.</div></div>
           </div>
         </div>
 
@@ -840,9 +840,9 @@
           </div>
           <div class="pattern-line">By the time an overnight batch cycle runs, the money and the account access are both already gone.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Trap</div><div class="ttd-text">Relying on next-cycle batch alerts.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Tell</div><div class="ttd-text">Rapid receipt-then-disperse within minutes on an instant rail.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Do</div><div class="ttd-text">Real-time velocity rules, not overnight batch review.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Risk</div><div class="ttd-text">Relying on next-cycle batch alerts.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Signal</div><div class="ttd-text">Rapid receipt-then-disperse within minutes on an instant rail.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-velocity);">Response</div><div class="ttd-text">Real-time velocity rules, not overnight batch review.</div></div>
           </div>
         </div>
 
@@ -853,9 +853,9 @@
           </div>
           <div class="pattern-line">KYB verifies who a company is at onboarding. It says nothing about what the account does a year later.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Trap</div><div class="ttd-text">Treating KYB as a one-time onboarding check.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Tell</div><div class="ttd-text">Transaction pattern doesn't match the declared business activity.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Do</div><div class="ttd-text">Monitor SME accounts against their own declared profile continuously.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Risk</div><div class="ttd-text">Treating KYB as a one-time onboarding check.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Signal</div><div class="ttd-text">Transaction pattern doesn't match the declared business activity.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-front);">Response</div><div class="ttd-text">Monitor SME accounts against their own declared profile continuously.</div></div>
           </div>
         </div>
 
@@ -866,9 +866,9 @@
           </div>
           <div class="pattern-line">The same account can be a fraud victim's payee and an AML team's open suspect, with neither team aware of the other.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Trap</div><div class="ttd-text">Treating fraud and AML alerts as separate queues by default.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Tell</div><div class="ttd-text">A fraud victim's payee and an AML mule suspect can be the same account, seen by two different teams.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Do</div><div class="ttd-text">Shared visibility across teams, not merged casework.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Risk</div><div class="ttd-text">Treating fraud and AML alerts as separate queues by default.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Signal</div><div class="ttd-text">A fraud victim's payee and an AML mule suspect can be the same account, seen by two different teams.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-handoff);">Response</div><div class="ttd-text">Shared visibility across teams, not merged casework.</div></div>
           </div>
         </div>
 
@@ -879,9 +879,9 @@
           </div>
           <div class="pattern-line">A mule herder rarely runs one account. Looking at accounts one at a time is exactly how the network stays invisible.</div>
           <div class="pattern-ttd">
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Trap</div><div class="ttd-text">Looking for one bad account at a time.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Tell</div><div class="ttd-text">Several ostensibly unconnected accounts sharing subtle links, device, IP, timing.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Do</div><div class="ttd-text">Network-level linkage analysis, not account-by-account review.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Risk</div><div class="ttd-text">Looking for one bad account at a time.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Signal</div><div class="ttd-text">Several ostensibly unconnected accounts sharing subtle links, device, IP, timing.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-network);">Response</div><div class="ttd-text">Network-level linkage analysis, not account-by-account review.</div></div>
           </div>
         </div>
       </div>
@@ -1180,7 +1180,7 @@ function answerQuiz(questionId, chosen) {
 // SAVE AS IMAGE
 // Renders the closing pattern-card grid to a downloadable PNG using
 // native Canvas 2D only, no external library. Content (icon, name,
-// one-liner, Trap/Tell/Do text) is read directly from the live DOM at
+// one-liner, Risk/Signal/Response text) is read directly from the live DOM at
 // click time, so the image can never drift out of sync with the page.
 function wrapCanvasText(ctx, text, maxWidth) {
   const words = text.split(' ');
