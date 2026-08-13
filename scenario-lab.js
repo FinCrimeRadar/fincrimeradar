@@ -1199,9 +1199,15 @@
   // auto-advance). Otherwise the heading, copy, and stats are honest about
   // a partial session, and a direct link back to the picker covers the rest.
   function renderCompletionBody(complete, workspace, state, moduleKey, fullIntro) {
-    const attempted = state.results.length;
+    // A re-attempted case (via "Back to case list") pushes a second result
+    // for the same entity_id, so dedupe here, most recent attempt wins,
+    // before computing accuracy/attempted stats.
+    const deduped = Array.from(
+      state.results.reduce((map, r) => map.set(r.caseId, r), new Map()).values()
+    );
+    const attempted = deduped.length;
     const totalCases = state.cases.length;
-    const correct = state.results.filter((r) => r.correct).length;
+    const correct = deduped.filter((r) => r.correct).length;
     const accuracy = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
     const elapsedSeconds = Math.round((Date.now() - state.startedAt) / 1000);
     const minutes = Math.floor(elapsedSeconds / 60);
