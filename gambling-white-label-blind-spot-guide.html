@@ -248,6 +248,12 @@
     .save-img-btn:hover { border-color:var(--ee-gold); color:var(--ee-gold); }
     .save-img-btn:disabled { opacity:0.6; cursor:default; }
 
+    /* SUMMARY SNAPSHOT (static pre-rendered image, distinct from the dynamic Save as image button above) */
+    .summary-snapshot-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto 1.25rem; }
+    .summary-snapshot-download { display:inline-flex; align-items:center; gap:6px; }
+    .itp-btn { background:var(--teal); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--teal-h); }
+
     /* QUIZ */
     .quiz-q { margin-bottom:1.5rem; }
     .quiz-q-text { font-size:14.5px; font-weight:600; color:var(--navy); margin-bottom:0.75rem; }
@@ -641,6 +647,23 @@
       </div>
       <div class="pattern-grid" id="glanceCardGrid" aria-label="Summary of the four Risk, Signal, Response patterns, same content as introduced above"></div>
       <p class="byline-inline" id="glanceNoJsNote">With JavaScript enabled, this section mirrors the four pattern cards above automatically. Without JavaScript, see the same four cards under "Risk, signal, response" earlier on this page, the content is identical, just not duplicated here.</p>
+    </div>
+
+    <div class="ee-section" id="summary-snapshot">
+      <div class="ee-eyebrow-sm">Quick reference</div>
+      <h2>Summary snapshot</h2>
+      <p>The full guide in one image, for quick reference or sharing.</p>
+      <figure>
+        <img
+          src="/gambling-white-label-blind-spot-guide-summary-snapshot.png"
+          alt="Gambling's White-Label Blind Spot summary infographic showing UKGC's high risk, high impact rating on white-label due diligence, the licensee to partner brand to end customer structure with the compliance obligation running back to the licensee, six enforcement actions from January 2024 to December 2025 including Platinum Gaming's GBP10m fine, the 12 operator-level regulatory actions recorded in H2 2025, and the four Risk, Signal, Response patterns: The Distant Principal, The Unchecked Owner, The Borrowed Assurance, and The Legality Gap."
+          width="512"
+          height="768"
+          loading="lazy"
+          class="summary-snapshot-img"
+        />
+      </figure>
+      <a href="/gambling-white-label-blind-spot-guide-summary-snapshot.png" download class="itp-btn summary-snapshot-download">&#11015;&#65039; Download summary</a>
     </div>
 
     <div class="ee-section" id="sources">
