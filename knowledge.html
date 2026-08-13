@@ -504,14 +504,14 @@
           <div class="kh-item-foot"><span class="kh-tag">Account Takeover</span><span class="kh-arrow">&rarr;</span></div>
         </a>
 
-        <a href="/false-positive-playbook.html" class="kh-article-card" data-cats="screening-pep" data-title="false positive playbook alert disposition name matching DOB mismatch transliteration adverse media sanctions PEP screening" data-date="2026-07-16" style="--accent:#3B82F6;--catbg:#DBEAFE;--catfg:#1E40AF">
+        <a href="/false-positive-playbook.html" class="kh-article-card" data-cats="screening-pep" data-title="false positive playbook alert disposition name matching DOB mismatch transliteration adverse media sanctions PEP screening" data-date="2026-07-16" data-seq="1" style="--accent:#3B82F6;--catbg:#DBEAFE;--catfg:#1E40AF">
           <div class="kh-item-meta"><span class="kh-cat">Screening</span><span class="kh-read">12 MIN</span></div>
           <div class="kh-item-title">The False Positive Playbook: Disposing Alerts Without Getting It Wrong</div>
           <div class="kh-item-desc">The guide the vendors don't write. Three decision scenarios on disposing sanctions, PEP, and adverse media alerts correctly, name matching, DOB mismatches, transliteration, and adverse media false hits, with full reasoning and a knowledge check.</div>
           <div class="kh-item-foot"><span class="kh-tag">False Positives</span><span class="kh-arrow">&rarr;</span></div>
         </a>
 
-        <a href="/ubo-investigation-handbook.html" class="kh-article-card" data-cats="onboarding" data-title="ubo investigation beneficial ownership nominee director PSC register CJEU trust beneficiaries CDD due diligence" data-date="2026-07-16" style="--accent:#7F77DD;--catbg:#EEEDFE;--catfg:#3C3489">
+        <a href="/ubo-investigation-handbook.html" class="kh-article-card" data-cats="onboarding" data-title="ubo investigation beneficial ownership nominee director PSC register CJEU trust beneficiaries CDD due diligence" data-date="2026-07-16" data-seq="2" style="--accent:#7F77DD;--catbg:#EEEDFE;--catfg:#3C3489">
           <div class="kh-item-meta"><span class="kh-cat">Onboarding</span><span class="kh-read">14 MIN</span></div>
           <div class="kh-item-title">The UBO Investigation Handbook: Finding the Real Owner</div>
           <div class="kh-item-desc">Checking a register isn't investigating an ownership structure, it's the starting point. Three decision scenarios on nominee directors, unreliable PSC register data, the 2022 CJEU ruling on EU register access, and trust beneficiaries, with full reasoning and a knowledge check.</div>
@@ -864,11 +864,15 @@ async function footerSignup() {
   // descending (newest first). Every new guide's card just needs a
   // data-date="YYYY-MM-DD" matching its real go-live date, wherever it's
   // physically inserted in the HTML, this sort handles correct positioning.
+  // Ties on data-date fall back to data-seq, descending, default 0 when
+  // absent, only set on cards with a known same-day collision to resolve.
   function sortCards() {
     var grid=document.getElementById('khArticlesGrid');
     if(!grid) return;
     Array.prototype.slice.call(grid.querySelectorAll(':scope > .kh-article-card')).sort(function(a,b){
-      return (b.getAttribute('data-date')||'').localeCompare(a.getAttribute('data-date')||'');
+      var dateCmp=(b.getAttribute('data-date')||'').localeCompare(a.getAttribute('data-date')||'');
+      if(dateCmp!==0) return dateCmp;
+      return (Number(b.getAttribute('data-seq'))||0)-(Number(a.getAttribute('data-seq'))||0);
     }).forEach(function(c){grid.appendChild(c);});
   }
 
