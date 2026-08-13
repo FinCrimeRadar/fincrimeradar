@@ -41,6 +41,16 @@ It is NOT expected for: content and guide sourcing, CSS or styling, copy edits, 
 
 Claude Code should NOT auto-launch the Codex plugin or set up background monitors/polling for reviews. If a diff qualifies as high-stakes logic, flag it and let the human run the review manually via ChatGPT.
 
+## Regulatory-claim adversarial review
+
+The gambling-white-label-blind-spot-guide.html revision (2026-08-13) found three real regulatory-precision errors that had already passed the guide's normal build verification: an overstated Money Laundering Regulations scope claim (MLR 2017 applies directly to casinos, not gambling operators generally, who are governed through POCA/Gambling Act/LCCP instead), an unsupported inference drawn from an "unchanged" risk rating, and an absolute legal claim stated as universal when it was actually scenario-specific. All three were only caught by an external adversarial review with domain expertise, not by this project's own sourcing checklist or in-browser verification, both of which are built to catch missing citations and broken interactions, not scope errors in what a citation actually supports.
+
+This is the same class of gap the Review policy already exists to close for scoring and grading logic, extended to a different kind of risk: not code correctness, but claim correctness.
+
+Any new guide making a specific regulatory-obligation, legal-scope, or statutory-applicability claim (which regulation applies to which entity type, what a licence condition actually requires, what an authority's finding does or does not establish) requires an external adversarial review of those specific claims before publication, run manually outside the Claude Code session, same as the existing high-stakes logic review. This applies regardless of the guide's visual format or interactivity level, it is about the claims, not the layout.
+
+Claude Code should flag which claims in a new guide fall into this category as part of its own delivery report, the same way it already flags new scoring/grading logic requiring review, so the human knows what needs the external pass before shipping, rather than discovering the gap after publication.
+
 ## Session tooling
 
 Two plugins are installed: `ponytail` (minimal-code discipline) and `code-review` (Anthropic's PR-based multi-agent reviewer).
