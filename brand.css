@@ -138,6 +138,20 @@ footer[style*="0f2044"] a{
   margin:0 !important;
 }
 
+/* ---------- 6b. Footer link / subscribe button token fix ----------
+   Several pages hand-inlined style="" + onmouseover/onmouseout JS colour
+   swapping with a stale #00c4a7/#00a892 literal instead of --teal, both
+   in footer link lists and the newsletter subscribe button. Real :hover/
+   :focus states here replace that JS swapping. */
+.footer-link{color:#94a3b8;text-decoration:none;transition:color .15s;}
+.footer-link:hover{color:var(--teal);}
+.footer-subscribe-btn{padding:9px 16px;background:var(--teal);border:none;border-radius:6px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background .15s;}
+.footer-subscribe-btn:hover{background:var(--teal-h);}
+.footer-email-input{flex:1;padding:9px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:13px;color:#fff;outline:none;font-family:'Inter',sans-serif;min-width:0;}
+.footer-email-input:focus{border-color:var(--teal);}
+.cookie-accept-btn{padding:8px 18px;background:var(--teal);border:none;color:#fff;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s;}
+.cookie-accept-btn:hover{background:var(--teal-h);}
+
 /* ---------- 7. Mobile horizontal overflow fix ----------
    Root cause found on inspection: the outer footer grids already had
    working overrides, either from the page's own original responsive

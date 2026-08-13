@@ -82,13 +82,13 @@
     .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
     .nav-links { display:flex; align-items:center; gap:1.25rem; }
     .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
-    .nav-links a:hover { color:#00c4a7; }
-    .nav-cta { padding:7px 16px; background:#00c4a7; color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-links a:hover { color:var(--teal); }
+    .nav-cta { padding:7px 16px; background:var(--teal); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
     .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
     .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
     .mobile-nav.open { display:flex; }
     .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
-    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:#00c4a7; color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--teal); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
 
     /* PROGRESS */
     .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--tm-color); z-index:199; transition:width 0.1s; }
@@ -138,7 +138,7 @@
     .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
     .callout-purple { background:#f5f3ff; border-color:#7c3aed; }
     .callout-amber { background:#fffbeb; border-color:#d97706; }
-    .callout-teal { background:#f0fdf9; border-color:#00c4a7; }
+    .callout-teal { background:#f0fdf9; border-color:var(--teal); }
     .callout-red { background:#fef2f2; border-color:#dc2626; }
     .callout-navy { background:#f0f4ff; border-color:#0f2044; }
     .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
@@ -251,7 +251,7 @@
     .fp-false { background:#e5e7eb; display:flex; align-items:center; justify-content:center; font-size:11px; color:#9ca3af; transition:width 1s ease; }
 
     /* KEY TERM TOOLTIP */
-    .term { border-bottom:1px dashed #00c4a7; cursor:help; color:#0f2044; font-weight:500; }
+    .term { border-bottom:1px dashed var(--teal); cursor:help; color:#0f2044; font-weight:500; }
 
     /* QUIZ */
     .quiz { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin:1.5rem 0; }
@@ -272,7 +272,7 @@
     .try-tool-sidebar { background:linear-gradient(135deg,#0f2044,#1d5fc4); border-radius:12px; padding:1.25rem; text-align:center; color:#fff; }
     .try-tool-sidebar h4 { font-size:15px; margin-bottom:6px; }
     .try-tool-sidebar p { font-size:12px; color:#93c5fd; margin-bottom:1rem; }
-    .try-tool-sidebar a { display:block; background:#00c4a7; color:#fff; padding:9px; border-radius:8px; font-size:13px; font-weight:600; text-decoration:none; }
+    .try-tool-sidebar a { display:block; background:var(--teal); color:#fff; padding:9px; border-radius:8px; font-size:13px; font-weight:600; text-decoration:none; }
 
     /* SUMMARY SNAPSHOT (static pre-rendered image) */
     .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; display:inline-flex; align-items:center; gap:6px; }
@@ -922,7 +922,7 @@
       </div>
 
       <div style="text-align:center; margin-top:1.5rem;">
-        <a href="/screen.html" style="display:inline-block; background:#00c4a7; color:#fff; padding:12px 28px; border-radius:8px; font-weight:600; text-decoration:none; font-size:15px;">🛡️ Try the free screening tool →</a>
+        <a href="/screen.html" style="display:inline-block; background:var(--teal); color:#fff; padding:12px 28px; border-radius:8px; font-weight:600; text-decoration:none; font-size:15px;">🛡️ Try the free screening tool →</a>
       </div>
     </div>
 
@@ -960,9 +960,9 @@
       <div class="section-eyebrow">Continue Reading</div>
       <h2>Related topics</h2>
       <ul style="font-size:14px; line-height:1.8; padding-left:1.25rem;">
-        <li><a href="/screening-algorithm-tuning-guide.html" style="color:#00c4a7;font-weight:600;">Tuning Screening Algorithms</a>, the same threshold and tuning-debt problem for name matching that this guide covers for transaction rules.</li>
-        <li><a href="/money-mule-financial-crime-networks-handbook.html" style="color:#00c4a7;font-weight:600;">Money Mule Networks</a>, what the instant-payment velocity signal actually looks like in a real case.</li>
-        <li><a href="/screening-alerts-guide.html" style="color:#00c4a7;font-weight:600;">The Screening Alert Survival Guide</a>, the same alert-fatigue and false-positive problem from the sanctions and PEP screening side.</li>
+        <li><a href="/screening-algorithm-tuning-guide.html" style="color:var(--teal);font-weight:600;">Tuning Screening Algorithms</a>, the same threshold and tuning-debt problem for name matching that this guide covers for transaction rules.</li>
+        <li><a href="/money-mule-financial-crime-networks-handbook.html" style="color:var(--teal);font-weight:600;">Money Mule Networks</a>, what the instant-payment velocity signal actually looks like in a real case.</li>
+        <li><a href="/screening-alerts-guide.html" style="color:var(--teal);font-weight:600;">The Screening Alert Survival Guide</a>, the same alert-fatigue and false-positive problem from the sanctions and PEP screening side.</li>
       </ul>
     </div>
 
@@ -1051,11 +1051,9 @@
         <div style="font-size:12px;color:#64748b;margin-bottom:1rem;line-height:1.5;">Regulatory updates, new guides, and screening tool improvements. No spam. Unsubscribe anytime.</div>
         <div style="display:flex;gap:8px;">
           <input type="email" id="footerEmail" placeholder="your@email.com"
-            style="flex:1;padding:9px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:13px;color:#fff;outline:none;font-family:'Inter',sans-serif;min-width:0;"
-            onfocus="this.style.borderColor='#00c4a7'" onblur="this.style.borderColor='rgba(255,255,255,.12)'" />
+            class="footer-email-input" />
           <button onclick="footerSignup()"
-            style="padding:9px 16px;background:#00c4a7;border:none;border-radius:6px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background .15s;"
-            onmouseover="this.style.background='#00a892'" onmouseout="this.style.background='#00c4a7'">Subscribe</button>
+            class="footer-subscribe-btn">Subscribe</button>
         </div>
         <div id="footerNlSuccess" style="display:none;font-size:12px;color:#4ade80;margin-top:8px;">You are in. Weekly digest coming your way.</div>
         <div id="footerNlError" style="display:none;font-size:12px;color:#f87171;margin-top:8px;"></div>
@@ -1069,9 +1067,9 @@
       <div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Platform</div>
         <div style="display:flex;flex-direction:column;gap:.5rem;">
-          <a href="/screen.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Screening Tool</a>
-          <a href="/knowledge.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Knowledge Hub</a>
-          <a href="/learn.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Learn</a>
+          <a href="/screen.html" class="footer-link">Screening Tool</a>
+          <a href="/knowledge.html" class="footer-link">Knowledge Hub</a>
+          <a href="/learn.html" class="footer-link">Learn</a>
         </div>
       </div>
 
@@ -1079,11 +1077,11 @@
       <div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Key Guides</div>
         <div style="display:flex;flex-direction:column;gap:.5rem;">
-          <a href="/aml-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">UK AML Compliance</a>
-          <a href="/pep-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">PEP Screening Handbook</a>
-          <a href="/sar-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">SAR Complete Guide</a>
-          <a href="/fatf-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">FATF 40 Recommendations</a>
-          <a href="/tm-guide.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Transaction Monitoring</a>
+          <a href="/aml-guide-part1.html" class="footer-link">UK AML Compliance</a>
+          <a href="/pep-guide-part1.html" class="footer-link">PEP Screening Handbook</a>
+          <a href="/sar-guide-part1.html" class="footer-link">SAR Complete Guide</a>
+          <a href="/fatf-guide-part1.html" class="footer-link">FATF 40 Recommendations</a>
+          <a href="/tm-guide.html" class="footer-link">Transaction Monitoring</a>
         </div>
       </div>
 
@@ -1103,13 +1101,13 @@
       <div>
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Company</div>
         <div style="display:flex;flex-direction:column;gap:.5rem;">
-          <a href="/about.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">About</a>
-          <a href="/contact.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Contact</a>
-          <a href="/privacy.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a>
-          <a href="/editorial-standards.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Editorial Standards</a>
-          <a href="/methodology.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Methodology</a>
-          <a href="/terms.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a>
-          <a href="https://github.com/FinCrimeRadar/fincrimeradar" target="_blank" rel="noopener" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Open Source</a>
+          <a href="/about.html" class="footer-link">About</a>
+          <a href="/contact.html" class="footer-link">Contact</a>
+          <a href="/privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="/editorial-standards.html" class="footer-link">Editorial Standards</a>
+          <a href="/methodology.html" class="footer-link">Methodology</a>
+          <a href="/terms.html" class="footer-link">Terms of Service</a>
+          <a href="https://github.com/FinCrimeRadar/fincrimeradar" target="_blank" rel="noopener" class="footer-link">Open Source</a>
         </div>
       </div>
     </div>
@@ -1256,7 +1254,7 @@ async function footerSignup(){
   </div>
   <div style="display:flex; gap:8px; flex-shrink:0;">
     <button onclick="rejectCookies()" style="padding:8px 16px; background:transparent; border:1px solid #334155; color:#94a3b8; border-radius:6px; font-size:12px; font-weight:500; cursor:pointer;">Reject non-essential</button>
-    <button onclick="acceptCookies()" style="padding:8px 18px; background:#00c4a7; border:none; color:#fff; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer;">Accept all</button>
+    <button onclick="acceptCookies()" class="cookie-accept-btn">Accept all</button>
   </div>
 </div>
 <script defer src="/js/site-chrome.js"></script>

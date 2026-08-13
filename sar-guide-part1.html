@@ -64,11 +64,11 @@
     .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
     .nav-logo { width:26px; height:26px; }
     .nav-name { font-size:15px; font-weight:600; color:var(--navy); }
-    .nav-name span { color:#00c4a7; }
+    .nav-name span { color:var(--teal); }
     .nav-links { display:flex; align-items:center; gap:1.25rem; }
     .nav-links a { font-size:13px; color:#374151; text-decoration:none; }
-    .nav-links a:hover { color:#00c4a7; }
-    .nav-cta { padding:7px 16px; background:#00c4a7; color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; }
+    .nav-links a:hover { color:var(--teal); }
+    .nav-cta { padding:7px 16px; background:var(--teal); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; }
     .progress-bar { position:fixed; top:60px; left:0; width:0%; height:3px; background:var(--accent); z-index:199; transition:width 0.1s; }
     .series-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; }
     .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
@@ -192,7 +192,7 @@
     .pf-center { font-size:13px; color:var(--muted); }
     footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
     footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
-    footer a:hover { color:#00c4a7; }
+    footer a:hover { color:var(--teal); }
     /* ===== MOBILE RESPONSIVE ===== */
     .nav-hamburger {
       display: none;
@@ -229,7 +229,7 @@
     .mobile-nav a:hover { background: #f9fafb; }
     .mobile-nav .mobile-nav-cta {
       margin: 0.75rem 1.5rem 0.5rem;
-      background: #00c4a7;
+      background: var(--teal);
       color: #fff !important;
       border-radius: 8px;
       text-align: center;
@@ -333,7 +333,7 @@
     <a href="/knowledge.html" class="hm">Knowledge Hub</a>
     <a href="/scenario-lab.html" class="hm">Scenario Lab</a>
     <a href="/screen.html" class="hm">Screen</a>
-    <a href="/screen.html" class="nav-cta" style="background:#00c4a7;color:#fff;font-weight:600;">Try the tool →</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
 </nav>

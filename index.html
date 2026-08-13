@@ -401,11 +401,9 @@ async function heroCtaSignup(){
           <div style="font-size:12px;color:#64748b;margin-bottom:1rem;line-height:1.5;">Regulatory updates, new guides, and screening tool improvements. No spam. Unsubscribe anytime.</div>
           <div style="display:flex;gap:8px;">
             <input type="email" id="footerEmail" placeholder="your@email.com"
-              style="flex:1;padding:9px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:13px;color:#fff;outline:none;font-family:'Inter',sans-serif;min-width:0;"
-              onfocus="this.style.borderColor='#00c4a7'" onblur="this.style.borderColor='rgba(255,255,255,.12)'" />
+              class="footer-email-input" />
             <button onclick="footerSignup()"
-              style="padding:9px 16px;background:#00c4a7;border:none;border-radius:6px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background .15s;"
-              onmouseover="this.style.background='#00a892'" onmouseout="this.style.background='#00c4a7'">Subscribe</button>
+              class="footer-subscribe-btn">Subscribe</button>
           </div>
           <div id="footerNlSuccess" style="display:none;font-size:12px;color:#4ade80;margin-top:8px;">You are in. Weekly digest coming your way.</div>
           <div id="footerNlError" style="display:none;font-size:12px;color:#f87171;margin-top:8px;"></div>
@@ -419,9 +417,9 @@ async function heroCtaSignup(){
         <div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Platform</div>
           <div style="display:flex;flex-direction:column;gap:.5rem;">
-            <a href="/screen.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Screening Tool</a>
-            <a href="/knowledge.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Knowledge Hub</a>
-            <a href="/learn.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Learn</a>
+            <a href="/screen.html" class="footer-link">Screening Tool</a>
+            <a href="/knowledge.html" class="footer-link">Knowledge Hub</a>
+            <a href="/learn.html" class="footer-link">Learn</a>
           </div>
         </div>
 
@@ -429,11 +427,11 @@ async function heroCtaSignup(){
         <div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Key Guides</div>
           <div style="display:flex;flex-direction:column;gap:.5rem;">
-            <a href="/aml-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">UK AML Compliance</a>
-            <a href="/pep-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">PEP Screening Handbook</a>
-            <a href="/sar-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">SAR Complete Guide</a>
-            <a href="/fatf-guide-part1.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">FATF 40 Recommendations</a>
-            <a href="/tm-guide.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Transaction Monitoring</a>
+            <a href="/aml-guide-part1.html" class="footer-link">UK AML Compliance</a>
+            <a href="/pep-guide-part1.html" class="footer-link">PEP Screening Handbook</a>
+            <a href="/sar-guide-part1.html" class="footer-link">SAR Complete Guide</a>
+            <a href="/fatf-guide-part1.html" class="footer-link">FATF 40 Recommendations</a>
+            <a href="/tm-guide.html" class="footer-link">Transaction Monitoring</a>
           </div>
         </div>
 
@@ -453,13 +451,13 @@ async function heroCtaSignup(){
         <div>
           <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Company</div>
           <div style="display:flex;flex-direction:column;gap:.5rem;">
-            <a href="/about.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">About</a>
-            <a href="/contact.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Contact</a>
-            <a href="/privacy.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Privacy Policy</a>
-            <a href="/editorial-standards.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Editorial Standards</a>
-            <a href="/methodology.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Methodology</a>
-            <a href="/terms.html" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Terms of Service</a>
-            <a href="https://github.com/FinCrimeRadar/fincrimeradar" target="_blank" rel="noopener" style="font-size:13px;color:#94a3b8;text-decoration:none;transition:color .15s;" onmouseover="this.style.color='#00c4a7'" onmouseout="this.style.color='#94a3b8'">Open Source</a>
+            <a href="/about.html" class="footer-link">About</a>
+            <a href="/contact.html" class="footer-link">Contact</a>
+            <a href="/privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="/editorial-standards.html" class="footer-link">Editorial Standards</a>
+            <a href="/methodology.html" class="footer-link">Methodology</a>
+            <a href="/terms.html" class="footer-link">Terms of Service</a>
+            <a href="https://github.com/FinCrimeRadar/fincrimeradar" target="_blank" rel="noopener" class="footer-link">Open Source</a>
           </div>
         </div>
       </div>
@@ -674,7 +672,7 @@ track.innerHTML += track.innerHTML;
   </div>
   <div style="display:flex; gap:8px; flex-shrink:0;">
     <button onclick="rejectCookies()" style="padding:8px 16px; background:transparent; border:1px solid #334155; color:#94a3b8; border-radius:6px; font-size:12px; font-weight:500; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s;">Reject non-essential</button>
-    <button onclick="acceptCookies()" style="padding:8px 18px; background:#00c4a7; border:none; color:#fff; border-radius:6px; font-size:12px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s;">Accept all</button>
+    <button onclick="acceptCookies()" class="cookie-accept-btn">Accept all</button>
   </div>
 </div>
 <script defer src="/js/site-chrome.js"></script>
