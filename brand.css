@@ -186,6 +186,37 @@ html{
   }
 }
 
+/* ---------- 7b. Rich footer mobile layout ----------
+   Ported from identical local copies on about.html, screen.html, and
+   knowledge.html (each carried its own @media(max-width:768px) block).
+   #footerEmail's font-size:16px is the one genuinely functional rule
+   here, not cosmetic: iOS Safari auto-zooms the viewport on any input
+   focused below 16px, this is the fix. Scoped to footer[style*="071912"]
+   so it applies sitewide without every rich-footer page needing its
+   own copy. */
+@media (max-width:768px){
+  footer[style*="071912"]{
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:1rem !important;
+  }
+  footer[style*="071912"] > div{
+    padding:2rem 1rem 1.5rem !important;
+  }
+  footer[style*="071912"] > div > div:first-child{
+    grid-template-columns:1fr !important;
+    gap:1.5rem !important;
+  }
+  footer[style*="071912"] > div > div:nth-child(2){
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:1.25rem !important;
+  }
+  #footerEmail{
+    font-size:16px !important;
+    min-width:0 !important;
+  }
+}
+
 /* ---------- 8. Mobile table overflow fix ----------
    The first attempt forced display:block directly on the table
    element with overflow-x:auto, which did not reliably create a
