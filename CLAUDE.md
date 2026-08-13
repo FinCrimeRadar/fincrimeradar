@@ -23,6 +23,16 @@ Every new guide or piece of published content must be sourced before it ships. A
 
 Sourcing is a required build phase, not an afterthought: run scripts/check_ledger.py scan, classify candidates, source or reword each material claim, add ledger entries and on-page citations, then, for high-stakes logic only, an optional independent adversarial review before commit (see Review policy below). The verification ledger is the single source of truth and grows with each guide.
 
+## New component CSS isolation
+
+Three separate bugs have come from the same root cause: a new component using a generic or semantic HTML tag (a bare `<nav>`, a plain class name like `table` or `compare-table`) silently inherits an unrelated sitewide rule meant for something else. Examples: the Knowledge Hub flagship nav inheriting the sitewide `nav{position:sticky;height:72px}` rule, the certifications-dilemma.html compare table colliding with a brand.js scroll-wrap selector, and the guide breadcrumb inheriting the same sitewide sticky nav rule a third time.
+
+Before shipping any new component, check its markup against two known collision sources:
+- `brand.css`'s bare-element and generic-class selectors (`nav`, `footer`, `table`, and similar), which apply sitewide by design and will catch anything using the same tag or a name that matches.
+- `brand.js`'s watched selectors (currently includes `[class*="card"]` for scroll-reveal and table auto-wrapping), which match on partial class names, not just exact ones.
+
+Either avoid the generic tag or class name entirely, or add an explicit reset in the new component's own rule for every property the sitewide selector sets, don't rely on assuming a more specific selector will win the cascade without checking. Confirm the reset in-browser via computed styles, not just by reading the CSS.
+
 ## Review policy
 
 Independent adversarial review (via ChatGPT/Codex, done manually by pasting the diff, not the in-editor plugin) is RESERVED for high-stakes logic diffs: new scoring or grading logic, authentication, code that moves money or touches financial data, new API endpoints, or security or trust boundaries. For those, the reviewer is a manual step done outside the Claude Code session to avoid session-token drain from polling.
