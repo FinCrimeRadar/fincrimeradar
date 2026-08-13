@@ -244,6 +244,19 @@
     return { label: "Attempted, review again", cls: "attempted" };
   }
 
+  // "Sources: N" in the case header. No case carries literal cited-source
+  // data (Scenario Lab cases are illustrative composites, not sourced
+  // claims the way the guides are), so this counts the real structured
+  // evidence the case's decision is actually grounded in: screening
+  // records consulted for KYC cases, timeline steps for sequential fraud
+  // cases, cross-reference facts for the simultaneous-fact cases.
+  function caseSourceCount(c) {
+    if (c.nodes) return c.nodes.filter((n) => n.screening != null).length;
+    if (c.timeline) return c.timeline.length;
+    if (c.cross_reference_facts) return c.cross_reference_facts.length;
+    return 0;
+  }
+
   // ---- Case picker, shared by both modules ----
   // Entry point for a module from the dashboard, and the destination of
   // "Back to case list" from mid-sequence. Free selection rather than a
@@ -353,7 +366,7 @@
     caseHeader.innerHTML = [
       "<h2>Case " + c.case_number + " of " + workspace.dataset.total + ": " + escapeHtml(c.title) + "</h2>",
       "<p>" + escapeHtml(c.briefing) + "</p>",
-      '<div class="sl-case-meta"><span>Entities: ' + c.nodes.length + "</span></div>",
+      '<div class="sl-case-meta"><span>Entities: ' + c.nodes.length + "</span><span>Sources: " + caseSourceCount(c) + "</span></div>",
     ].join("");
     workspace.appendChild(caseHeader);
 
@@ -1308,6 +1321,7 @@
     caseHeader.innerHTML = [
       "<h2>Case " + c.case_number + ": " + escapeHtml(c.title) + "</h2>",
       "<p>" + escapeHtml(c.briefing) + "</p>",
+      '<div class="sl-case-meta"><span>Sources: ' + caseSourceCount(c) + "</span></div>",
     ].join("");
     workspace.appendChild(caseHeader);
 
@@ -1722,6 +1736,7 @@
     caseHeader.innerHTML = [
       "<h2>Case " + c.case_number + ": " + escapeHtml(c.title) + "</h2>",
       "<p>" + escapeHtml(c.briefing) + "</p>",
+      '<div class="sl-case-meta"><span>Sources: ' + caseSourceCount(c) + "</span></div>",
     ].join("");
     workspace.appendChild(caseHeader);
 
