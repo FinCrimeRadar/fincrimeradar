@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gambling's White-Label Blind Spot: The AML Accountability Gap | FinCrimeRadar</title>
+  <meta name="description" content="A licensed operator supplies the licence. A separate brand supplies the front end. UKGC's own investigations show the accountability gap between them, worked through with a real anonymised case, an enforcement pattern, and a graded scenario." />
+  <meta name="keywords" content="gambling white label, UKGC, white label partnership, B2B gambling AML, gambling money laundering, licensed operator obligation, gambling enforcement" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/gambling-white-label-blind-spot-guide.html" />
+  <meta property="og:title" content="Gambling's White-Label Blind Spot" />
+  <meta property="og:description" content="A licensed operator supplies the licence. A separate brand supplies the front end. UKGC's own investigations show the gap between them is exactly where accountability gets lost." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/gambling-white-label-blind-spot-guide.html" />
+  <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Gambling's White-Label Blind Spot",
+      "description": "A licensed operator supplies the licence. A separate brand supplies the front end. UKGC's own investigations show the gap between them is exactly where accountability gets lost.",
+      "about": [
+          {
+              "@type": "Thing",
+              "name": "White-Label Gambling Partnerships"
+          },
+          {
+              "@type": "Thing",
+              "name": "Gambling Sector AML"
+          },
+          {
+              "@type": "Thing",
+              "name": "UKGC Enforcement"
+          }
+      ],
+      "author": {
+          "@type": "Organization",
+          "name": "FinCrimeRadar"
+      },
+      "publisher": {
+          "@type": "Organization",
+          "name": "FinCrimeRadar",
+          "url": "https://fincrimeradar.org"
+      },
+      "url": "https://fincrimeradar.org/gambling-white-label-blind-spot-guide.html",
+      "datePublished": "2026-08-13",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://fincrimeradar.org/gambling-white-label-blind-spot-guide.html"
+      }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Fraud","item":"https://fincrimeradar.org/knowledge.html?domain=fraud-detection"},{"@type":"ListItem","position":3,"name":"Gambling's White-Label Blind Spot","item":"https://fincrimeradar.org/gambling-white-label-blind-spot-guide.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044; --navy-mid:#071912; --navy-light:#0e3226;
+      --hero-bg-1:#071912; --hero-bg-2:#0e3226;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      /* Evidence Essay layer: warm white, platinum grey, restrained gold,
+         layered on top of the existing brand palette, not replacing it. */
+      --ee-warm:#faf8f3; --ee-platinum:#e5e4e2; --ee-platinum-line:#d6d4d0;
+      --ee-gold:#a9812f; --ee-gold-soft:#f3ecd9;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--ee-warm); color:var(--text); line-height:1.7; }
+    h1, h2, h3 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; color:var(--navy-mid); }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--teal); }
+    .nav-cta { padding:7px 16px; background:var(--teal); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid var(--border); flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--teal); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--ee-gold); z-index:199; transition:width 0.1s; }
+
+    /* EXPERIMENT NOTE */
+    .experiment-note { background:var(--navy-mid); color:#cbd5e1; font-size:12px; text-align:center; padding:8px 1rem; }
+    .experiment-note a { color:var(--ee-gold-soft); }
+
+    /* HERO */
+    .ee-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); padding:3rem 1.5rem 2.5rem; }
+    .ee-hero-inner { max-width:820px; margin:0 auto; }
+    .ee-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--ee-gold-soft); margin-bottom:0.9rem; }
+    .ee-hero h1 { font-size:clamp(1.7rem,4vw,2.5rem); color:#fff; line-height:1.25; margin-bottom:1rem; }
+    .ee-standfirst { font-size:16.5px; color:#dbe4e0; line-height:1.7; max-width:640px; }
+    .ee-byline { font-size:13px; color:#93c5fd; margin-top:1.25rem; }
+    .ee-byline a { color:#93c5fd; text-decoration:underline; }
+
+    /* 3-COLUMN LAYOUT */
+    .ee-layout { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:210px 1fr 300px; gap:1.75rem; padding:2rem 1.5rem 3rem; align-items:start; }
+    .ee-body { min-width:0; }
+    .ee-toc, .ee-source-panel { position:sticky; top:90px; }
+    .ee-toc { background:#fff; border:1px solid var(--ee-platinum-line); border-radius:12px; padding:1.1rem; }
+    .ee-toc-title { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .ee-toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:5px 0 5px 10px; border-left:2px solid transparent; transition:all 0.15s; line-height:1.4; }
+    .ee-toc a:hover { color:var(--ee-gold); }
+    .ee-toc a.active { color:var(--navy-mid); font-weight:600; border-left-color:var(--ee-gold); }
+
+    /* SOURCE PANEL, right column. Deliberately calm and static: no
+       live-updating numbers, no unrelated metrics, only changes on
+       citation click. Not a dashboard. */
+    .ee-source-panel { background:#fff; border:1px solid var(--ee-platinum-line); border-radius:12px; padding:1.1rem; font-size:13px; max-height:calc(100vh - 110px); overflow-y:auto; }
+    .ee-source-panel-title { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .ee-source-empty { color:var(--muted); font-size:12.5px; line-height:1.6; }
+    .ee-source-claim { font-size:13px; color:var(--text); line-height:1.55; margin-bottom:0.75rem; padding-bottom:0.75rem; border-bottom:1px solid var(--ee-platinum-line); }
+    .ee-source-field-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--ee-gold); margin-top:0.6rem; }
+    .ee-source-field-value { font-size:13px; color:var(--text); line-height:1.5; }
+    .ee-source-link { display:inline-block; margin-top:0.75rem; font-size:12.5px; color:var(--teal); text-decoration:none; word-break:break-word; }
+    .ee-source-link:hover { text-decoration:underline; }
+    .ee-source-limit { font-size:12px; color:var(--muted); line-height:1.5; margin-top:0.6rem; font-style:italic; }
+
+    .cite { color:var(--ee-gold); font-weight:700; text-decoration:none; cursor:pointer; padding:0 1px; border-radius:3px; }
+    .cite:hover, .cite:focus-visible { background:var(--ee-gold-soft); }
+
+    /* ARTICLE SECTIONS */
+    .ee-section { background:#fff; border:1px solid var(--ee-platinum-line); border-radius:12px; padding:1.75rem; margin-bottom:1.5rem; }
+    .ee-section h2 { font-size:1.5rem; margin-bottom:0.9rem; }
+    .ee-section h3 { font-size:1.1rem; margin:1.25rem 0 0.5rem; color:var(--navy); }
+    .ee-section p { font-size:15px; color:#374151; margin-bottom:1rem; }
+    .ee-section p:last-child { margin-bottom:0; }
+    .ee-section ul, .ee-section ol { padding-left:1.25rem; margin-bottom:1rem; font-size:15px; color:#374151; }
+    .ee-section li { margin-bottom:0.4rem; }
+    .ee-eyebrow-sm { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--ee-gold); margin-bottom:0.6rem; }
+
+    .briefing-box { background:var(--navy-mid); color:#e5e7eb; border-radius:12px; padding:1.75rem; margin-bottom:1.5rem; }
+    .briefing-box .ee-eyebrow-sm { color:var(--ee-gold-soft); }
+    .briefing-box h2 { color:#fff; }
+    .briefing-box p { color:#dbe4e0; }
+    .briefing-box .cite { color:var(--ee-gold-soft); }
+
+    /* CASE STUDY CALLOUT */
+    .case-callout { background:var(--ee-gold-soft); border:1px solid #e6d8ac; border-left:4px solid var(--ee-gold); border-radius:8px; padding:1.25rem 1.5rem; margin:1.25rem 0; }
+    .case-callout-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--ee-gold); margin-bottom:0.5rem; }
+    .case-callout p.paraphrase { font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:16px; color:var(--navy-mid); line-height:1.6; margin:0 0 0.75rem; }
+    .case-callout .case-note { font-size:13px; color:#6b5a2e; }
+
+    /* DIAGRAMS, plain HTML/CSS, no JS dependency, no SVG. Text content
+       is the accessible alternative, not a separate description. */
+    .ee-diagram { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; margin:1.5rem 0; }
+    .ee-diagram-caption { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .ee-struct-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:8px; align-items:center; }
+    .ee-struct-box { background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:0.9rem 0.85rem; text-align:center; }
+    .ee-struct-box.licensee { border-color:var(--ee-gold); background:var(--ee-gold-soft); }
+    .ee-struct-box-title { font-size:13px; font-weight:700; color:var(--navy); }
+    .ee-struct-box-sub { font-size:11.5px; color:#6b7280; margin-top:4px; line-height:1.45; }
+    .ee-struct-arrow { text-align:center; color:#9ca3af; font-size:20px; }
+    .ee-struct-obligation { margin-top:1.1rem; background:#fff; border:1px dashed var(--ee-gold); border-radius:8px; padding:0.75rem 1rem; font-size:12.5px; color:#6b5a2e; text-align:center; }
+    @media(max-width:640px) {
+      .ee-struct-row { grid-template-columns:1fr; }
+      .ee-struct-arrow { transform:rotate(90deg); }
+    }
+
+    .ee-timeline { list-style:none; }
+    .ee-timeline li { display:grid; grid-template-columns:110px 1fr; gap:1rem; padding:0.85rem 0; border-bottom:1px solid var(--border); }
+    .ee-timeline li:last-child { border-bottom:none; }
+    .ee-timeline-date { font-size:12.5px; font-weight:700; color:var(--ee-gold); }
+    .ee-timeline-body { font-size:13.5px; color:#374151; line-height:1.5; }
+    .ee-timeline-body strong { color:var(--navy); }
+    @media(max-width:520px) {
+      .ee-timeline li { grid-template-columns:1fr; gap:0.2rem; }
+    }
+
+    /* SCENARIO */
+    .dilemma-card { border:1px solid var(--ee-platinum-line); border-radius:10px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy-mid); color:#fff; padding:0.9rem 1.1rem; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; }
+    .dilemma-scenario { padding:1.1rem; background:#f8fafc; border-bottom:1px solid var(--border); font-size:14px; color:#374151; line-height:1.65; }
+    .dilemma-scenario strong { color:var(--navy); }
+    .dilemma-options { padding:1rem; display:flex; flex-direction:column; gap:0.6rem; }
+    .dilemma-option { text-align:left; background:#fff; border:1.5px solid var(--border); border-radius:8px; padding:0.85rem 1rem; font-size:13.5px; color:var(--text); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .dilemma-option:hover:not(:disabled) { border-color:var(--ee-gold); }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-option.picked-best { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.picked-defensible { border-color:var(--warning); background:#fffbeb; }
+    .dilemma-option.picked-weak { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option.picked-unsafe { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-verdict { display:none; padding:1.1rem; border-top:1px solid var(--border); font-size:13.5px; line-height:1.65; }
+    .dilemma-verdict.show { display:block; }
+    .dilemma-verdict-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.4rem; }
+    .dilemma-verdict.tier-best .dilemma-verdict-label { color:var(--success); }
+    .dilemma-verdict.tier-defensible .dilemma-verdict-label { color:var(--warning); }
+    .dilemma-verdict.tier-weak .dilemma-verdict-label, .dilemma-verdict.tier-unsafe .dilemma-verdict-label { color:var(--danger); }
+    .dilemma-lesson { margin-top:0.9rem; padding-top:0.9rem; border-top:1px dashed var(--ee-platinum-line); font-size:13px; color:#6b7280; font-style:italic; }
+
+    /* PATTERN CARD, Risk/Signal/Response. Matches sitewide .pattern-card
+       exactly, deliberately reused so it picks up brand.css's sitewide
+       [class*="card"] hover-lift and scroll-reveal, this is desired. */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:30px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.1rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) {
+      .pattern-ttd { grid-template-columns:1fr; }
+      .pattern-grid { grid-template-columns:1fr; }
+    }
+
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--ee-gold); color:var(--ee-gold); }
+    .save-img-btn:disabled { opacity:0.6; cursor:default; }
+
+    /* QUIZ */
+    .quiz-q { margin-bottom:1.5rem; }
+    .quiz-q-text { font-size:14.5px; font-weight:600; color:var(--navy); margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:0.5rem; }
+    .quiz-opt { text-align:left; background:#fff; border:1.5px solid var(--border); border-radius:8px; padding:0.75rem 1rem; font-size:13.5px; color:var(--text); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .quiz-opt:hover:not(:disabled) { border-color:var(--ee-gold); }
+    .quiz-opt:disabled { cursor:default; }
+    .quiz-opt.correct { border-color:var(--success); background:#f0fdf4; }
+    .quiz-opt.incorrect { border-color:var(--danger); background:#fef2f2; }
+    .quiz-feedback { font-size:13px; color:#374151; margin-top:0.5rem; padding:0.6rem 0.85rem; background:#f8fafc; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { display:none; text-align:center; padding:1.5rem; background:var(--navy-mid); border-radius:10px; color:#fff; margin-top:1rem; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:var(--ee-gold-soft); }
+    .quiz-score-label { font-size:13px; color:#cbd5e1; margin-top:0.4rem; }
+
+    /* FAQ */
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-item:last-child { border-bottom:none; }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:1rem 0; font-size:14.5px; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; font-family:'Inter',sans-serif; }
+    .faq-q-icon { flex-shrink:0; transition:transform 0.2s; color:var(--ee-gold); }
+    .faq-q[aria-expanded="true"] .faq-q-icon { transform:rotate(45deg); }
+    .faq-a { display:none; font-size:14px; color:#374151; padding-bottom:1rem; line-height:1.65; }
+    .faq-a.show { display:block; }
+
+    /* SOURCES */
+    .sources-list { list-style:none; counter-reset:src; }
+    .sources-list li { counter-increment:src; padding:0.65rem 0; border-bottom:1px solid var(--border); font-size:13.5px; color:#374151; line-height:1.6; }
+    .sources-list li:last-child { border-bottom:none; }
+    .sources-list li::before { content:"[" counter(src) "] "; color:var(--ee-gold); font-weight:700; }
+    .sources-list a { color:var(--teal); word-break:break-word; }
+
+    /* SCENARIO LAB INVITE */
+    .sl-invite { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); border-radius:12px; padding:1.75rem; text-align:center; }
+    .sl-invite h3 { color:#fff; margin-bottom:0.5rem; }
+    .sl-invite p { color:#dbe4e0; font-size:14px; margin-bottom:1.1rem; }
+    .sl-invite a { display:inline-block; padding:10px 22px; background:var(--ee-gold); color:#1a1206 !important; border-radius:8px; font-weight:700; font-size:14px; text-decoration:none; }
+
+    .byline-inline { font-size:12.5px; color:var(--muted); }
+
+    /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    /* MOBILE */
+    @media(max-width:800px) {
+      .ee-layout { grid-template-columns:1fr; }
+      .ee-toc { position:static; order:2; }
+      .ee-source-panel { position:static; order:3; max-height:none; }
+      .ee-body { order:1; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .ee-struct-row { grid-template-columns:1fr; }
+    }
+    @media(max-width:480px) {
+      .ee-hero { padding:2rem 1rem 1.75rem; }
+      .ee-layout { padding:1.5rem 1rem 2rem; }
+      .ee-section { padding:1.25rem; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool &rarr;</a>
+</div>
+
+<div class="experiment-note">This guide uses an experimental "Evidence Essay" layout, a one-off format test. <a href="/methodology.html#format">Read why</a>.</div>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <a href="/knowledge.html?domain=fraud-detection">Fraud</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span aria-current="page">Gambling's White-Label Blind Spot</span>
+</nav>
+
+<header class="ee-hero">
+  <div class="ee-hero-inner">
+    <div class="ee-eyebrow">Evidence Essay &middot; Gambling &amp; AML</div>
+    <h1>Gambling's white-label blind spot</h1>
+    <p class="ee-standfirst">A licensed operator supplies the licence. A separate brand supplies the front end. When something goes wrong, UKGC's own investigations show the gap between them is exactly where accountability gets lost.</p>
+    <p class="ee-byline">Written by <a href="/about.html">Pratik Zanke</a>, Financial Crime Specialist and former Acting MLRO</p>
+  </div>
+</header>
+
+<div class="ee-layout">
+
+  <aside class="ee-toc" aria-label="Contents">
+    <div class="ee-toc-title">Contents</div>
+    <a href="#briefing" data-toc>Executive briefing</a>
+    <a href="#ch1" data-toc>1. The structure</a>
+    <a href="#ch2" data-toc>2. What UKGC found</a>
+    <a href="#ch3" data-toc>3. The enforcement pattern</a>
+    <a href="#ch4" data-toc>4. Worked scenario</a>
+    <a href="#ch5" data-toc>5. Counterfactual</a>
+    <a href="#knowledge-check" data-toc>Knowledge check</a>
+    <a href="#faq" data-toc>FAQ</a>
+    <a href="#glance" data-toc>At a glance</a>
+    <a href="#sources" data-toc>Sources</a>
+    <a href="#methodology" data-toc>Methodology</a>
+  </aside>
+
+  <main class="ee-body">
+
+    <div class="ee-section briefing-box" id="briefing">
+      <div class="ee-eyebrow-sm">Executive briefing</div>
+      <h2>Where the accountability gap actually opens</h2>
+      <p>White-label gambling lets a third-party brand operate under an established operator's licence, infrastructure, and compliance framework. The commercial logic is straightforward: the brand gets fast market access, the licence holder gets distribution it would not otherwise reach. The AML logic is where it breaks down.</p>
+      <p>UKGC's 2026 money laundering and terrorist financing risk assessment, published 30 July 2026, rates "inadequate due diligence on white-label partnerships" as a high risk, high impact vulnerability <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>, unchanged in rating from the prior assessment despite reworded guidance, meaning the Commission does not consider this problem to be improving. The licensed operator carries the compliance obligation regardless of who owns the customer facing brand. Weak partner level checks let higher risk businesses, unusual payment arrangements, or unvetted customers into the regulated market without the scrutiny a direct relationship would get.</p>
+      <p>This guide works through where that accountability gap actually opens, using UKGC's own case material and a recurring pattern of enforcement across licensed operators between 2024 and 2025.</p>
+    </div>
+
+    <div class="ee-section" id="ch1">
+      <div class="ee-eyebrow-sm">Chapter 1</div>
+      <h2>The structure</h2>
+      <p>A white-label arrangement has three parties in practice, even though only two hold any formal position with the regulator. The licensee is the operator UKGC has actually authorised: the entity that passed fit and proper checks, submitted a personal and business risk assessment, and holds the licence conditions that make gambling activity lawful in Great Britain. The partner brand is the commercial front end, the website or app a customer actually sees and signs up to, running on the licensee's platform and, critically, under the licensee's licence. The customer interacts only with the partner brand and often has no visibility at all into which entity is legally responsible for the relationship.</p>
+      <p>That legal responsibility does not move. Whatever the commercial agreement says about who monitors transactions day to day, who runs first line checks, or who handles customer support, the licence, and every obligation attached to it, sits with the licensee. UKGC does not licence the partner brand. If the partner brand's own conduct, or the conduct of its customers, creates a regulatory problem, the Commission's action lands on the licensee, not on the brand the customer actually recognises.</p>
+      <p>This is why due diligence on a white-label partner has to work on two separate levels, not one. The obvious level is customer due diligence: checking the individuals and businesses that open accounts and move money through the partner's platform. The level that gets missed is due diligence on the partner itself, as a business relationship in its own right. Who actually owns and controls the partner entity. Where its own funding comes from. Whether its own commercial activity is lawful, in Britain and in whatever territory it actually operates from. A licensee's own risk assessment obligations under the Money Laundering Regulations apply to that partner relationship exactly as they would to any other high risk business relationship, not as a lighter touch check because the partner already holds a commercial agreement.</p>
+      <div class="ee-diagram" id="structDiagram">
+        <div class="ee-diagram-caption">Where the obligation sits, regardless of who the customer sees</div>
+        <div class="ee-struct-row">
+          <div class="ee-struct-box licensee">
+            <div class="ee-struct-box-title">Licensee</div>
+            <div class="ee-struct-box-sub">Holds the UKGC licence. Carries the AML obligation, always.</div>
+          </div>
+          <div class="ee-struct-arrow" aria-hidden="true">&rarr;</div>
+          <div class="ee-struct-box">
+            <div class="ee-struct-box-title">Partner brand</div>
+            <div class="ee-struct-box-sub">Customer facing. Runs on the licensee's platform and licence.</div>
+          </div>
+          <div class="ee-struct-arrow" aria-hidden="true">&rarr;</div>
+          <div class="ee-struct-box">
+            <div class="ee-struct-box-title">End customer</div>
+            <div class="ee-struct-box-sub">Sees only the partner brand. Usually cannot see the licensee at all.</div>
+          </div>
+        </div>
+        <div class="ee-struct-obligation">The compliance obligation runs back to the licensee regardless of which box the customer actually interacted with.</div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="ch2">
+      <div class="ee-eyebrow-sm">Chapter 2</div>
+      <h2>What UKGC actually found</h2>
+      <p>UKGC's 2026 risk assessment does not leave this as an abstract concern. Section 9 of the assessment, covering remote betting, includes a real investigation finding, anonymised, that reads as close to a textbook version of the structural failure Chapter 1 describes <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>.</p>
+      <div class="case-callout">
+        <div class="case-callout-label">UKGC investigation finding, Section 9 (paraphrased)</div>
+        <p class="paraphrase">A licensed operator with white-label partnerships had failed to carry out effective due diligence on the ownership of the third party and on the source of funds for the business relationship. The operator had also not sufficiently considered whether the white-label partner's own activity was lawful, either in Britain or in the territory where it was actually conducted.</p>
+        <div class="case-note">UKGC does not name the operator in its published finding.</div>
+      </div>
+      <p>Read against Chapter 1's structure, this is the second level of due diligence failing, not the first. The finding is not that the operator missed a suspicious customer transaction somewhere in the partner's platform. It is that the operator never properly checked the partner itself: who actually controlled it, where the money behind the arrangement came from, and whether the partner's own activity was even lawful in the place it was actually being carried out. Three separate checks, three separate gaps, on the one relationship a licensee cannot delegate away.</p>
+      <p>UKGC does not name the operator involved. That is a genuine limit on this source, not something to gloss over. It is disclosed openly here because this guide's own sourcing standard treats an honestly flagged limitation as worth more than a more dramatic claim the primary source cannot actually support. The <a href="#methodology">Methodology and limitations</a> section explains why this guide still treats the finding as the strongest available real world illustration of the pattern, despite the anonymisation.</p>
+    </div>
+
+    <div class="ee-section" id="ch3">
+      <div class="ee-eyebrow-sm">Chapter 3</div>
+      <h2>The enforcement pattern, not a single event</h2>
+      <p>None of the enforcement actions below is a UKGC action specifically for a white-label control failure by name. That distinction belongs to Chapter 2's case alone. What this timeline shows instead is that the same licensee level AML weaknesses, inadequate due diligence, over reliance on customer or partner assurances, and insufficient monitoring, recur across operators managing multi-brand and white-label-adjacent portfolios, across 2024 and 2025, not in one quarter.</p>
+      <div class="ee-diagram">
+        <div class="ee-diagram-caption">Six enforcement actions, licensee level AML and social responsibility failures, verified individually against UKGC's own published articles</div>
+        <ol class="ee-timeline">
+          <li>
+            <div class="ee-timeline-date">Jan 2024</div>
+            <div class="ee-timeline-body"><strong>Gamesys Operations Limited, &pound;6m.</strong> AML and social responsibility failures across 12 sites operated under one licence <a class="cite" href="#src-2" data-src="2" aria-label="View source 2">[2]</a>.</div>
+          </li>
+          <li>
+            <div class="ee-timeline-date">May 2025</div>
+            <div class="ee-timeline-body"><strong>Spreadex Limited, &pound;2,022,000.</strong> Second enforcement action after an earlier 2022 penalty, AML and social responsibility failures <a class="cite" href="#src-3" data-src="3" aria-label="View source 3">[3]</a>.</div>
+          </li>
+          <li>
+            <div class="ee-timeline-date">Aug 2025</div>
+            <div class="ee-timeline-body"><strong>ProgressPlay Limited, &pound;1m.</strong> No adequate money laundering and terrorist financing risk assessment in place <a class="cite" href="#src-4" data-src="4" aria-label="View source 4">[4]</a>.</div>
+          </li>
+          <li>
+            <div class="ee-timeline-date">Oct 2025</div>
+            <div class="ee-timeline-body"><strong>Platinum Gaming Limited (unibet.co.uk, uk.bingo.com), &pound;10m.</strong> Second penalty in under three years <a class="cite" href="#src-5" data-src="5" aria-label="View source 5">[5]</a>.</div>
+          </li>
+          <li>
+            <div class="ee-timeline-date">Nov 2025</div>
+            <div class="ee-timeline-body"><strong>Videoslots Limited, &pound;650,000.</strong> Gaps in AML policy, record keeping, over reliance on an automated scoring system <a class="cite" href="#src-6" data-src="6" aria-label="View source 6">[6]</a>.</div>
+          </li>
+          <li>
+            <div class="ee-timeline-date">Dec 2025</div>
+            <div class="ee-timeline-body"><strong>Paddy Power Betfair, &pound;2m.</strong> Harm detection systems failed to identify high velocity spending without manual review <a class="cite" href="#src-7" data-src="7" aria-label="View source 7">[7]</a>.</div>
+          </li>
+        </ol>
+      </div>
+      <p>Verified separately against UKGC's own full enforcement list rather than taken from any secondary report: the Commission recorded <strong>12 operator level regulatory actions</strong>, fines and licence suspensions, between 1 July and 31 December 2025 alone, excluding individual criminal cases such as arrests and sentencing <a class="cite" href="#src-8" data-src="8" aria-label="View source 8">[8]</a>. Not all 12 were AML specific, some were social responsibility or unfair terms actions. The figure is offered as evidence of a high enforcement tempo generally across the sector, not as 12 white-label failures specifically. The <a href="#methodology">Methodology and limitations</a> section sets out exactly how this figure was checked.</p>
+    </div>
+
+    <div class="ee-section" id="ch4">
+      <div class="ee-eyebrow-sm">Chapter 4 &middot; Worked scenario</div>
+      <h2>The Distant Principal</h2>
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">Situation</div>
+        <div class="dilemma-scenario">
+          <p style="margin-bottom:0.75rem;">Your firm holds the licence. A white-label partner's own transaction monitoring flags unusual deposit velocity on an account operating under your infrastructure: three deposits totalling &pound;18,000 within 40 minutes, from a customer onboarded four days earlier. The partner's compliance team has opened an internal review but has not yet reached a conclusion.</p>
+          <p><strong>Material facts.</strong> Your firm's own AML policy requires SAR consideration on velocity patterns of this kind, regardless of source. The partnership agreement gives the partner first line monitoring responsibility, but the licence, and the underlying legal obligation, sit with your firm alone. No information sharing agreement specifies a maximum time for a partner to escalate a finding.</p>
+        </div>
+        <div class="dilemma-options" id="scenario1-options">
+          <button class="dilemma-option" data-tier="best" onclick="showVerdict('scenario1','A',this)">A. Escalate under your firm's own SAR process immediately, independent of the partner's ongoing review.</button>
+          <button class="dilemma-option" data-tier="defensible" onclick="showVerdict('scenario1','B',this)">B. Request the partner's findings and set a 48 hour deadline before escalating independently.</button>
+          <button class="dilemma-option" data-tier="weak" onclick="showVerdict('scenario1','C',this)">C. Log the flag internally and wait for the partner's review to conclude before deciding.</button>
+          <button class="dilemma-option" data-tier="unsafe" onclick="showVerdict('scenario1','D',this)">D. Take no action until the partner formally reports the outcome through the agreed contractual channel.</button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict"></div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="ch5">
+      <div class="ee-eyebrow-sm">Chapter 5</div>
+      <h2>Counterfactual</h2>
+      <p>Change one fact: the white-label partner is itself independently licensed by UKGC for a related activity, not merely operating under your firm's licence for this product line. Does the analysis change?</p>
+      <p>Partially. Where the partner holds its own separate licence for other activity, it carries its own independent AML obligations for that activity, and UKGC can act against it directly. But for the specific product operating under your firm's licence, the legal obligation still sits with you as the licensing operator. The partner's own separate licensing status does not transfer or dilute your firm's obligation for activity conducted under your licence.</p>
+      <p>This is the distinction UKGC's case study makes explicit <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>: the operator had also not sufficiently considered whether any activity by the white-label partner was illegal, either in Britain or the territory in which it was conducted, a check that exists independently of whatever licences the partner separately holds elsewhere.</p>
+    </div>
+
+    <div class="ee-section" id="patterns">
+      <div class="ee-eyebrow-sm">The four patterns</div>
+      <h2>Risk, signal, response</h2>
+      <p>Four recurring failure patterns behind the case and the timeline above, each with the risk it creates, the signal that should catch it, and the response that closes it.</p>
+
+      <div class="pattern-card" data-pattern="distant-principal" style="background:#eff6ff;border-color:#bfdbfe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">&#128100;</div>
+          <div class="pattern-name" style="color:#1d4ed8;">The Distant Principal</div>
+        </div>
+        <div class="pattern-line">A partner's suspicious pattern goes unescalated because no one owns it end to end.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Risk</div><div class="ttd-text">Diffused accountability across the licensee and partner boundary.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Signal</div><div class="ttd-text">Slow or absent escalation from the partner side.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Response</div><div class="ttd-text">The licensee's own SAR obligation runs independently of the partner's review, always.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-pattern="unchecked-owner" style="background:#f0fdf4;border-color:#bbf7d0;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">&#128274;</div>
+          <div class="pattern-name" style="color:#15803d;">The Unchecked Owner</div>
+        </div>
+        <div class="pattern-line">A partnership goes live on brand strength alone, without the licensee ever verifying who actually controls the partner entity.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#15803d;">Risk</div><div class="ttd-text">Onboarding a partner without ownership level due diligence.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#15803d;">Signal</div><div class="ttd-text">Partnership approved on commercial terms with no compliance sign off on beneficial ownership.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#15803d;">Response</div><div class="ttd-text">Apply the same ownership scrutiny to a partner entity that you would apply to a direct high risk customer.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-pattern="borrowed-assurance" style="background:var(--ee-gold-soft);border-color:#e6d8ac;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">&#128203;</div>
+          <div class="pattern-name" style="color:#8a6d1f;">The Borrowed Assurance</div>
+        </div>
+        <div class="pattern-line">A licensee accepts a partner's own compliance claims about its funding sources without independent verification.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#8a6d1f;">Risk</div><div class="ttd-text">Relying on a partner's self attestation instead of evidence.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#8a6d1f;">Signal</div><div class="ttd-text">No documentary source of funds trail exists for the business relationship itself, only for individual end customers.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#8a6d1f;">Response</div><div class="ttd-text">Verify the partner's own funding and ownership with the same evidentiary standard used for customer source of funds checks.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-pattern="legality-gap" style="background:#fef2f2;border-color:#fecaca;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">&#9878;</div>
+          <div class="pattern-name" style="color:#b91c1c;">The Legality Gap</div>
+        </div>
+        <div class="pattern-line">A partner's activity turns out to be unlawful in its own operating territory, something the licensee never checked because the partner held a UK facing brand.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#b91c1c;">Risk</div><div class="ttd-text">Assuming a partner's activity is lawful because the partnership itself is UK licensed.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#b91c1c;">Signal</div><div class="ttd-text">No documented assessment of the partner's activity against the law of the territory where it actually operates.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#b91c1c;">Response</div><div class="ttd-text">Assess partner activity against both UK law and the law of the partner's operating jurisdiction, not UK law alone.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="knowledge-check">
+      <div class="ee-eyebrow-sm">Knowledge check</div>
+      <h2>Test your understanding</h2>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. Under UKGC's case study, what specifically did the licensed operator fail to check about its white-label partner?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq1','A')">A. Whether the partner's customers had been through KYC</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq1','B')">B. The partner's ownership, source of funds for the relationship, and whether the partner's activity was lawful</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq1','C')">C. Whether the partner had its own UKGC licence</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq1','D')">D. The partner's marketing compliance</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. In the worked scenario, why is option A better supported than option C, even though both eventually involve escalation?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq2','A')">A. Option A is faster to type up</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq2','B')">B. The licence carries the obligation regardless of contractual monitoring allocation, so waiting on the partner's timeline is itself the failure</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq2','C')">C. Option C is only wrong if the partner's review takes more than 48 hours</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq2','D')">D. There is no real difference between A and C</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. Which of the following changes if a white-label partner holds its own separate UKGC licence for unrelated activity?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq3','A')">A. Your firm's AML obligation for activity under your own licence is unchanged, the partner's separate licence covers only its own separate activity</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq3','B')">B. Your firm's obligation transfers entirely to the partner</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq3','C')">C. Neither party has any obligation once a second licence exists</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq3','D')">D. UKGC can no longer act against your firm</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. Approximately how many operator level UKGC regulatory actions were recorded in the second half of 2025?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq4','A')">A. 6</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq4','B')">B. 12</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq4','C')">C. 20</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq4','D')">D. 3</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. Why does this guide use an anonymised UKGC case study rather than a named operator for its central case?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq5','A')">A. Naming the operator was legally impossible to research</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq5','B')">B. Genuine primary sourcing was prioritised over a more dramatic but unverifiable naming, since UKGC's own published finding does not name the operator</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq5','C')">C. The case is entirely hypothetical</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq5','D')">D. Every UKGC case study is always anonymised as a matter of policy</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="faq">
+      <div class="ee-eyebrow-sm">FAQ</div>
+      <h2>Common questions</h2>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Is a white-label partnership itself against the rules?<span class="faq-q-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">No. White-label partnerships are a legitimate, common commercial structure in UK gambling. UKGC's own risk assessment does not say the model itself is the problem, it says due diligence on the partner as a business relationship, not just on the partner's customers, is the recurring gap.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Who is actually fined if a white-label partner's customer turns out to be a money laundering risk?<span class="faq-q-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">The licensee. UKGC licenses the operator holding the licence, not the customer facing partner brand. The partnership agreement can allocate day to day monitoring tasks to the partner, but it cannot reassign the legal AML obligation that comes with the licence itself.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Were any of the six enforcement actions in Chapter 3 specifically about white-label failures?<span class="faq-q-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">No, and this guide does not claim otherwise. None of the six named actions is a UKGC action specifically for a white-label control failure by name, that is Chapter 2's case alone. The six actions show a recurring pattern of licensee level AML weaknesses across operators running multi-brand portfolios, which is the same underlying discipline gap the white-label structure depends on getting right.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Does the 12 figure for H2 2025 mean 12 white-label failures?<span class="faq-q-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">No. It is 12 operator level regulatory actions of any kind recorded by UKGC in that six month window, not all of them AML related and none of them labelled a white-label failure specifically. It is offered as evidence of enforcement tempo across the sector generally, not as a white-label specific count. The <a href="#methodology">Methodology and limitations</a> section explains exactly how this figure was checked.</div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="glance">
+      <div class="ee-eyebrow-sm">Quick reference</div>
+      <h2>At a glance</h2>
+      <p>Four patterns, the risk that makes each one look routine, the signal that actually gives it away, and the response that fits.</p>
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">&#128190; Save as image</button>
+      </div>
+      <div class="pattern-grid" id="glanceCardGrid" aria-label="Summary of the four Risk, Signal, Response patterns, same content as introduced above"></div>
+      <p class="byline-inline" id="glanceNoJsNote">With JavaScript enabled, this section mirrors the four pattern cards above automatically. Without JavaScript, see the same four cards under "Risk, signal, response" earlier on this page, the content is identical, just not duplicated here.</p>
+    </div>
+
+    <div class="ee-section" id="sources">
+      <div class="ee-eyebrow-sm">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. Every article page was opened and read individually, not taken from the enforcement index listing alone.</p>
+      <ol class="sources-list">
+        <li id="src-1">UK Gambling Commission, <em>The 2026 money laundering and terrorist financing risks within the British gambling industry</em>, Section 9 (Betting, remote), published 30 July 2026, including the white-label case study. <a href="https://www.gamblingcommission.gov.uk/guidance/the-2026-money-laundering-and-terrorist-financing-risks-within-the-british-gambling-industry/2026-money-laundering-and-risks-betting-remote" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-2">UKGC enforcement action, Gamesys Operations Limited, &pound;6m, 10 January 2024. <a href="https://www.gamblingcommission.gov.uk/news/article/gbp6m-fine-for-online-operator-gamesys" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-3">UKGC enforcement action, Spreadex Limited, &pound;2,022,000, 15 May 2025. <a href="https://www.gamblingcommission.gov.uk/news/article/gbp2m-fine-for-online-operator-spreadex-limited" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-4">UKGC enforcement action, ProgressPlay Limited, &pound;1m, 21 August 2025. <a href="https://www.gamblingcommission.gov.uk/news/article/gbp1m-fine-for-online-operator-progressplay-limited" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-5">UKGC enforcement action, Platinum Gaming Limited, &pound;10m, 22 October 2025. <a href="https://www.gamblingcommission.gov.uk/news/article/gbp10m-fine-for-online-operator-platinum-gaming-limited" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-6">UKGC enforcement action, Videoslots Limited, &pound;650,000, 20 November 2025. <a href="https://www.gamblingcommission.gov.uk/news/article/gbp650-000-fine-for-online-operator-videoslots-limited" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-7">UKGC enforcement action, Paddy Power Betfair, &pound;2m, 17 December 2025. <a href="https://www.gamblingcommission.gov.uk/news/article/paddy-power-betfair-to-pay-gbp2m-for-regulatory-failures" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+        <li id="src-8">UKGC, full enforcement action list, used to independently count 12 operator level regulatory actions between 1 July and 31 December 2025, verified by reading the complete list rather than an index summary. <a href="https://www.gamblingcommission.gov.uk/news/enforcement-action" target="_blank" rel="noopener">gamblingcommission.gov.uk</a></li>
+      </ol>
+    </div>
+
+    <div class="ee-section" id="methodology">
+      <div class="ee-eyebrow-sm">Methodology and limitations</div>
+      <h2>How this guide was built and checked</h2>
+      <p><strong>The anonymised case.</strong> Chapter 2's spine case comes directly from UKGC's own 2026 risk assessment, which does not name the operator involved. That is disclosed here rather than hidden: this guide treats a genuine, primary sourced finding from the regulator itself as stronger material than a more dramatic but unverifiable claim naming an operator UKGC never actually named. Knowledge check question 5 tests this same point directly, because the sourcing choice is meant to be visible to the reader, not smoothed over.</p>
+      <p><strong>The corrected H2 2025 figure.</strong> An earlier count of enforcement actions in the second half of 2025 was checked directly against UKGC's own full enforcement list rather than accepted from a secondary report, and against an index summary that itself first appeared to undercount the real figure. The complete list was read in full and every operator level regulatory action between 1 July and 31 December 2025 was counted individually: Taichi Tech (3 Jul), ProgressPlay (21 Aug), Maple International Ventures (17 Sep), Petfre Gibraltar (1 Oct), Platinum Gaming (22 Oct), Spribe (30 Oct), VGC Leeds (31 Oct), NetBet (5 Nov), Videoslots (20 Nov), Deadheat Racing (21 Nov), Done Brothers (3 Dec), and Paddy Power Betfair (17 Dec), 12 in total, excluding two individual criminal matters in the same window that are not operator level sanctions.</p>
+      <p><strong>Two corrections made during this final verification pass.</strong> Spreadex's enforcement action is dated 15 May 2025 on UKGC's own article, not an earlier date used in an interim draft. Platinum Gaming's October 2025 fine names unibet.co.uk and uk.bingo.com as the operator's brands, it does not name 32Red, which was fined alongside Platinum Gaming in a separate, earlier 2023 action.</p>
+      <p><strong>Illustrative detail.</strong> The specific figures in Chapter 4's worked scenario, the &pound;18,000, the 40 minutes, the four day account age, are original composite teaching detail built around the real regulatory principle in Chapter 2's case. They are not tied to a specific real customer or case and are correctly uncited, consistent with this project's standard that illustrative worked examples do not carry a citation the way a regulatory or enforcement claim does.</p>
+      <p><strong>Format.</strong> This guide uses an experimental layout, an "Evidence Essay" with a source record panel, distinct from both the standard Knowledge Hub card format and the PEP and SAR series' narrative format. See <a href="/methodology.html#format">the note on format</a> for why the site's guides do not all look the same.</p>
+    </div>
+
+    <div class="ee-section sl-invite">
+      <h3>Practice the underlying judgement</h3>
+      <p>The licensee versus partner accountability question in Chapter 4 is one version of a pattern that comes up across financial crime investigation generally, not just gambling. FinCrimeRadar's Scenario Lab puts related judgement calls in front of you under time pressure, free, no signup required.</p>
+      <a href="/scenario-lab.html">Try Scenario Lab &rarr;</a>
+    </div>
+
+  </main>
+
+  <aside class="ee-source-panel" id="sourcePanel" aria-label="Source record" aria-live="polite">
+    <div class="ee-source-panel-title">Source record</div>
+    <div id="sourcePanelBody"><p class="ee-source-empty">Select a citation marker like <span class="cite" style="cursor:default;">[1]</span> anywhere in the guide to see exactly what it supports, who published it, and when it was verified.</p></div>
+  </aside>
+
+</div>
+
+<div id="site-footer"></div>
+
+<script>
+// SOURCE DATA, single source of truth for the Sources list, the inline
+// citation markers, and the source record panel. Citations remain real
+// <a href="#src-N"> anchors to the Sources section regardless of JS, this
+// script only adds the panel as an enhancement on top of already
+// functional links, per this guide's no-JS requirement.
+var SOURCES = {
+  "1": {
+    claim: "UKGC's 2026 risk assessment rates inadequate white-label due diligence as high risk, high impact, and contains the anonymised case study used throughout this guide.",
+    title: "The 2026 money laundering and terrorist financing risks within the British gambling industry, Section 9 (Betting, remote)",
+    publisher: "UK Gambling Commission",
+    date: "30 July 2026",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/guidance/the-2026-money-laundering-and-terrorist-financing-risks-within-the-british-gambling-industry/2026-money-laundering-and-risks-betting-remote",
+    limit: "Does not name the operator in the case study. Confirms the rating is unchanged from the prior assessment, does not itself explain why the underlying problem has not improved."
+  },
+  "2": {
+    claim: "Gamesys Operations Limited fined £6m, AML and social responsibility failures across 12 sites under one licence.",
+    title: "£6m fine for online operator Gamesys",
+    publisher: "UK Gambling Commission",
+    date: "10 January 2024",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/article/gbp6m-fine-for-online-operator-gamesys",
+    limit: "Not a white-label control failure specifically, a multi-brand licensee's own AML and social responsibility failures."
+  },
+  "3": {
+    claim: "Spreadex Limited fined £2,022,000, second enforcement action, dated 15 May 2025.",
+    title: "£2m fine for online operator Spreadex Limited",
+    publisher: "UK Gambling Commission",
+    date: "15 May 2025",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/article/gbp2m-fine-for-online-operator-spreadex-limited",
+    limit: "Not a white-label case. Included as one data point in the broader licensee-level enforcement pattern."
+  },
+  "4": {
+    claim: "ProgressPlay Limited fined £1m for having no adequate AML and terrorist financing risk assessment.",
+    title: "£1m fine for online operator ProgressPlay Limited",
+    publisher: "UK Gambling Commission",
+    date: "21 August 2025",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/article/gbp1m-fine-for-online-operator-progressplay-limited",
+    limit: "Not a white-label case. Included as one data point in the broader licensee-level enforcement pattern."
+  },
+  "5": {
+    claim: "Platinum Gaming Limited fined £10m, operates unibet.co.uk and uk.bingo.com, second penalty in under three years.",
+    title: "£10m fine for online operator Platinum Gaming Limited",
+    publisher: "UK Gambling Commission",
+    date: "22 October 2025",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/article/gbp10m-fine-for-online-operator-platinum-gaming-limited",
+    limit: "Does not name 32Red as a brand of this operator, that was a separate 2023 joint action, corrected in this guide after direct verification."
+  },
+  "6": {
+    claim: "Videoslots Limited fined £650,000, gaps in AML policy and over-reliance on an automated scoring system.",
+    title: "£650,000 fine for online operator Videoslots Limited",
+    publisher: "UK Gambling Commission",
+    date: "20 November 2025",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/article/gbp650-000-fine-for-online-operator-videoslots-limited",
+    limit: "Not a white-label case. Included as one data point in the broader licensee-level enforcement pattern."
+  },
+  "7": {
+    claim: "Paddy Power Betfair fined £2m, harm detection failed to flag high-velocity spending without manual review.",
+    title: "Paddy Power Betfair to pay £2m for regulatory failures",
+    publisher: "UK Gambling Commission",
+    date: "17 December 2025",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/article/paddy-power-betfair-to-pay-gbp2m-for-regulatory-failures",
+    limit: "Not a white-label case. Included as one data point in the broader licensee-level enforcement pattern."
+  },
+  "8": {
+    claim: "12 operator-level UKGC regulatory actions recorded between 1 July and 31 December 2025, independently counted from the full list.",
+    title: "Enforcement action, full list",
+    publisher: "UK Gambling Commission",
+    date: "Ongoing, list as read 13 August 2026",
+    verified: "13 August 2026",
+    url: "https://www.gamblingcommission.gov.uk/news/enforcement-action",
+    limit: "This is a rolling, continuously updated page, not an archived snapshot. Revisiting it later will show a different, larger list. The count of 12 applies specifically to the 1 July to 31 December 2025 window as it stood when checked, not a live or self-updating figure."
+  }
+};
+
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s == null ? '' : String(s);
+  return d.innerHTML;
+}
+
+function showSource(id) {
+  var s = SOURCES[id];
+  var body = document.getElementById('sourcePanelBody');
+  if (!s || !body) return;
+  body.innerHTML = [
+    '<div class="ee-source-claim">' + escapeHtml(s.claim) + '</div>',
+    '<div class="ee-source-field-label">Source</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.title) + '</div>',
+    '<div class="ee-source-field-label">Publisher</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.publisher) + '</div>',
+    '<div class="ee-source-field-label">Published</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.date) + '</div>',
+    '<div class="ee-source-field-label">Verified by FinCrimeRadar</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.verified) + '</div>',
+    '<a class="ee-source-link" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">Open source &rarr;</a>',
+    '<div class="ee-source-field-label">What this does not establish</div>',
+    '<div class="ee-source-limit">' + escapeHtml(s.limit) + '</div>'
+  ].join('');
+}
+
+(function () {
+  "use strict";
+
+  // CITATIONS -> SOURCE PANEL. Each citation is a real <a href="#src-N">,
+  // native keyboard operation (Enter activates, Tab focuses) and the jump
+  // to the Sources entry both work with no JS at all. This listener only
+  // adds the panel preview on top, it never has to reimplement anchor
+  // activation.
+  document.querySelectorAll('.cite[data-src]').forEach(function (el) {
+    el.addEventListener('click', function () { showSource(el.getAttribute('data-src')); });
+  });
+
+  // SHARED RISK/SIGNAL/RESPONSE OBJECTS. The four pattern-card elements
+  // above are the single source of truth, real static HTML, fully usable
+  // without JS. This clones those same nodes into the closing grid so the
+  // two occurrences can never drift out of sync with each other, rather
+  // than hand-typing the same four cards twice the way other guides on
+  // this site currently do.
+  var grid = document.getElementById('glanceCardGrid');
+  if (grid) {
+    document.querySelectorAll('#patterns > .pattern-card').forEach(function (card) {
+      grid.appendChild(card.cloneNode(true));
+    });
+    var note = document.getElementById('glanceNoJsNote');
+    if (note) note.style.display = 'none';
+  }
+
+  // MOBILE NAV
+  window.toggleMobileNav = function () {
+    var nav = document.getElementById('mobileNav');
+    var btn = document.getElementById('navHamburger');
+    if (!nav || !btn) return;
+    var open = nav.classList.toggle('open');
+    btn.innerHTML = open ? '&#10005;' : '&#9776;';
+  };
+
+  // READING PROGRESS + ACTIVE CHAPTER, single scroll listener, not
+  // registered more than once.
+  var progressBar = document.getElementById('progressBar');
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.ee-toc a[data-toc]'));
+  var sectionIds = tocLinks.map(function (a) { return a.getAttribute('href').slice(1); });
+  var scrollHandlerAttached = false;
+
+  function onScroll() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+    if (progressBar) progressBar.style.width = pct + '%';
+
+    var current = sectionIds[0];
+    for (var i = 0; i < sectionIds.length; i++) {
+      var el = document.getElementById(sectionIds[i]);
+      if (el && el.getBoundingClientRect().top <= 140) current = sectionIds[i];
+    }
+    tocLinks.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  if (!scrollHandlerAttached) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    scrollHandlerAttached = true;
+    onScroll();
+  }
+
+  // FAQ ACCORDION
+  window.toggleFaq = function (btn) {
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    var answer = btn.nextElementSibling;
+    btn.setAttribute('aria-expanded', String(!expanded));
+    if (answer) answer.classList.toggle('show', !expanded);
+  };
+
+})();
+
+// SCENARIO GRADING
+var SCENARIO_VERDICTS = {
+  scenario1: {
+    A: { tier: 'best', label: 'Best supported', text: 'The licence, and the legal obligation attached to it, sit with the licensee regardless of contractual arrangements about who monitors first. Waiting on a partner’s internal timeline creates exactly the accountability gap UKGC’s case study describes.' },
+    B: { tier: 'defensible', label: 'Defensible with conditions', text: 'A short, explicit deadline is better than an open-ended wait, but it still delays a decision the licensee is legally positioned to make now. Defensible only if the 48 hours is genuinely used to add material information, not simply to defer ownership.' },
+    C: { tier: 'weak', label: 'Weakly supported', text: 'This treats the partner’s monitoring as a substitute for the licensee’s own obligation rather than an input to it. It is the pattern UKGC’s case study identifies as the failure mode, not a neutral holding position.' },
+    D: { tier: 'unsafe', label: 'Unsafe or unsupported', text: 'This makes the SAR decision contingent on a commercial partner’s own timeline and judgement, which is precisely the diffusion of accountability the risk assessment rates as a high-impact vulnerability.' }
+  }
+};
+var LESSON = {
+  scenario1: 'A partnership agreement can allocate monitoring tasks. It cannot reassign the legal obligation that sits with the licence.'
+};
+
+function showVerdict(scenarioId, choice, btnEl) {
+  // Input validation: only accept a choice this scenario actually defines.
+  var verdicts = SCENARIO_VERDICTS[scenarioId];
+  if (!verdicts || !Object.prototype.hasOwnProperty.call(verdicts, choice)) return;
+  var optionsWrap = document.getElementById(scenarioId + '-options');
+  var verdictEl = document.getElementById(scenarioId + '-verdict');
+  if (!optionsWrap || !verdictEl) return;
+  // Prevent re-answering once a choice has been made for this scenario.
+  if (optionsWrap.dataset.answered === 'true') return;
+  optionsWrap.dataset.answered = 'true';
+
+  Array.prototype.slice.call(optionsWrap.querySelectorAll('.dilemma-option')).forEach(function (b) {
+    b.disabled = true;
+    if (b === btnEl) b.classList.add('picked-' + b.getAttribute('data-tier'));
+  });
+
+  var v = verdicts[choice];
+  verdictEl.className = 'dilemma-verdict show tier-' + v.tier;
+  verdictEl.innerHTML = [
+    '<div class="dilemma-verdict-label">' + escapeHtml(v.label) + '</div>',
+    '<div>' + escapeHtml(v.text) + '</div>',
+    '<div class="dilemma-lesson"><strong>Operational lesson.</strong> ' + escapeHtml(LESSON[scenarioId] || '') + '</div>'
+  ].join('');
+}
+
+// KNOWLEDGE CHECK
+var QUIZ_ANSWERS = { qq1: 'B', qq2: 'B', qq3: 'A', qq4: 'B', qq5: 'B' };
+var QUIZ_EXPLAIN = {
+  qq1: 'The finding names three specific gaps: ownership of the third party, source of funds for the relationship, and whether the partner’s own activity was lawful. Not customer-level checks, partner-level checks.',
+  qq2: 'Both eventually escalate, but option C treats the partner’s review as something to wait on first. The licence carries the obligation regardless of who was contractually first in line to monitor.',
+  qq3: 'A separate licence covers only the partner’s own separate activity. It does not transfer or dilute your firm’s obligation for the product operating under your own licence.',
+  qq4: 'UKGC recorded 12 operator-level regulatory actions, fines and licence suspensions, between 1 July and 31 December 2025, verified directly against the Commission’s own full list.',
+  qq5: 'UKGC’s own published finding does not name the operator. This guide treats that honestly rather than inventing or guessing a name for a more dramatic read.'
+};
+var quizAnswered = 0;
+var quizCorrect = 0;
+var quizAnsweredSet = {};
+
+function answerQuiz(qid, choice) {
+  // Input validation: only accept a question id and choice this quiz defines.
+  if (!Object.prototype.hasOwnProperty.call(QUIZ_ANSWERS, qid)) return;
+  if (['A', 'B', 'C', 'D'].indexOf(choice) === -1) return;
+  var qEl = document.getElementById(qid);
+  if (!qEl) return;
+  if (quizAnsweredSet[qid]) return; // prevent double counting on repeat clicks
+  quizAnsweredSet[qid] = true;
+
+  var opts = qEl.querySelectorAll('.quiz-opt');
+  var correct = QUIZ_ANSWERS[qid];
+  var isCorrect = choice === correct;
+
+  opts.forEach(function (btn) {
+    btn.disabled = true;
+    var letter = btn.getAttribute('data-letter');
+    if (letter === correct) btn.classList.add('correct');
+    else if (letter === choice) btn.classList.add('incorrect');
+  });
+
+  var fb = document.getElementById(qid + '-fb');
+  if (fb) {
+    fb.classList.add('show');
+    fb.textContent = (isCorrect ? 'Correct. ' : 'Not quite. ') + (QUIZ_EXPLAIN[qid] || '');
+  }
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    var scoreDiv = document.getElementById('quiz-score');
+    var scoreNum = document.getElementById('quiz-score-num');
+    var scoreLbl = document.getElementById('quiz-score-label');
+    if (scoreDiv && scoreNum && scoreLbl) {
+      scoreDiv.classList.add('show');
+      scoreNum.textContent = quizCorrect + '/5';
+      var labels = [
+        'Keep studying, the licensee-versus-partner distinction is worth a second read.',
+        'Getting there, go back through the case and the scenario for the parts you missed.',
+        'Solid foundation, a few gaps to close.',
+        'Good grasp, you would catch most white-label accountability gaps in time.',
+        'Strong, practitioner-level judgement on where this obligation actually sits.',
+        'Perfect score. You read the case, the scenario, and the enforcement pattern as one connected argument, not five separate facts.'
+      ];
+      scoreLbl.textContent = labels[quizCorrect];
+    }
+  }
+}
+
+// SAVE AS IMAGE
+// Renders the closing pattern-card grid (cloned from the same nodes as
+// the inline cards, see above) to a downloadable PNG using native
+// Canvas 2D only, no external library, matching the sitewide standard
+// (saveCardsAsImage pattern). Extended with a footer band carrying
+// attribution, verification date, source markers, and a "not a complete
+// policy" disclaimer, since the sitewide version does not carry that yet.
+function wrapCanvasText(ctx, text, maxWidth) {
+  var words = text.split(' ');
+  var lines = [];
+  var line = '';
+  words.forEach(function (word) {
+    var test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  var grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  var btn = document.getElementById('saveCardsImgBtn');
+  var originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  var cardEls = Array.prototype.slice.call(grid.querySelectorAll(':scope > .pattern-card'));
+  var cards = cardEls.map(function (card) {
+    var icon = card.querySelector('.pattern-icon').textContent.trim();
+    var name = card.querySelector('.pattern-name').textContent.trim();
+    var oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    var ttdItems = Array.prototype.slice.call(card.querySelectorAll('.pattern-ttd-item')).map(function (item) {
+      return { label: item.querySelector('.ttd-label').textContent.trim(), text: item.querySelector('.ttd-text').textContent.trim() };
+    });
+    var accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon: icon, name: name, oneLiner: oneLiner, ttdItems: ttdItems, accentColor: accentColor };
+  });
+
+  var WIDTH = 1200;
+  var OUTER_PAD = 20;
+  var contentWidth = WIDTH - OUTER_PAD * 2;
+  var CARD_PAD = 20;
+  var TITLE_H = 64;
+  var FOOTER_H = 92;
+  var HEAD_FONT = '700 20px Georgia, serif';
+  var NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  var LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  var LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  var TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  var FOOT_FONT = '12px Inter, system-ui, sans-serif';
+  var LINE_H = 17;
+  var ICON_SIZE = 32;
+
+  var measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    var lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    var ttdLineCounts = card.ttdItems.map(function (item) { return wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length; });
+    var ttdHeight = ttdLineCounts.reduce(function (sum, n) { return sum + 22 + n * LINE_H; }, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines: lineLines, ttdLineCounts: ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  var cardMeasurements = cards.map(measureCard);
+  var totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce(function (sum, m) { return sum + m.height + 14; }, 0) + FOOTER_H;
+
+  var canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  var ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#FAF8F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  var cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#071912';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Gambling’s White-Label Blind Spot: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  var y = cardY + TITLE_H + 14;
+
+  cards.forEach(function (card, i) {
+    var m = cardMeasurements[i];
+    var blockX = cardX + 10;
+    var blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    var cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#071912';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(function (line) { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach(function (item, ti) {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#071912';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      var lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach(function (line, li) { ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H); });
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  // Footer band: attribution, date, source markers, disclaimer.
+  var footY = cardY + cardH - FOOTER_H;
+  ctx.strokeStyle = '#E3E8E3';
+  ctx.beginPath();
+  ctx.moveTo(cardX + 10, footY);
+  ctx.lineTo(cardX + cardW - 10, footY);
+  ctx.stroke();
+
+  ctx.textBaseline = 'top';
+  ctx.font = '700 13px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#071912';
+  ctx.fillText('FinCrimeRadar.org · Gambling’s White-Label Blind Spot', cardX + CARD_PAD, footY + 14);
+
+  ctx.font = FOOT_FONT;
+  ctx.fillStyle = '#6B7280';
+  ctx.fillText('Verified 13 August 2026. Sources 1 to 8, see fincrimeradar.org/gambling-white-label-blind-spot-guide.html', cardX + CARD_PAD, footY + 36);
+
+  var disclaimerLines = wrapCanvasText(ctx, 'This image is a summary of one guide, not complete regulatory guidance and not a substitute for your own firm’s policy.', cardW - CARD_PAD * 2);
+  disclaimerLines.forEach(function (line, li) { ctx.fillText(line, cardX + CARD_PAD, footY + 54 + li * 16); });
+
+  canvas.toBlob(function (blob) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'gambling-white-label-blind-spot-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<!-- Accessible text equivalent of the exported summary image, for screen
+     reader and non-visual users, matching the four cards' own content. -->
+<p class="byline-inline" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+  The exported summary image contains: guide title, FinCrimeRadar.org, verification date 13 August 2026, source markers 1 to 8, a statement that the image is a summary and not complete regulatory guidance, and the four Risk, Signal, Response cards already present as readable text earlier on this page.
+</p>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

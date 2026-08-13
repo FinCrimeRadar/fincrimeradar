@@ -1618,5 +1618,125 @@
     "verifiedOn": "2026-08-12",
     "reviewDue": "2027-08-12",
     "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.ukgc-white-label-case.001",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "UKGC's 2026 money laundering and terrorist financing risk assessment (Section 9, Betting remote), published 30 July 2026, rates inadequate due diligence on white-label partnerships as high likelihood x high impact (high overall risk), unchanged in rating from the prior assessment (new wording only). It contains an anonymised investigation finding that a licensed operator with white-label partnerships had failed to carry out effective due diligence on the ownership of the third party and the source of funds for the business relationship, and had not sufficiently considered whether the partner's activity was illegal in Britain or the territory in which it was conducted.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The 2026 money laundering and terrorist financing risks within the British gambling industry, Section 9 (Betting, remote)",
+      "url": "https://www.gamblingcommission.gov.uk/guidance/the-2026-money-laundering-and-terrorist-financing-risks-within-the-british-gambling-industry/2026-money-laundering-and-risks-betting-remote",
+      "publisher": "UK Gambling Commission",
+      "date": "2026-07-30"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.gamesys-fine.002",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "Gamesys Operations Limited was fined 6,000,000 GBP on 10 January 2024 for AML and social responsibility failures, operating multiple sites under one licence.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "GBP6m fine for online operator Gamesys",
+      "url": "https://www.gamblingcommission.gov.uk/news/article/gbp6m-fine-for-online-operator-gamesys",
+      "publisher": "UK Gambling Commission",
+      "date": "2024-01-10"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.spreadex-fine.003",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "Spreadex Limited was fined 2,022,000 GBP on 15 May 2025, its second enforcement action after an earlier 2022 penalty, for AML and social responsibility failures. Corrected during final verification from an earlier logged date of 7 May 2025.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "GBP2m fine for online operator Spreadex Limited",
+      "url": "https://www.gamblingcommission.gov.uk/news/article/gbp2m-fine-for-online-operator-spreadex-limited",
+      "publisher": "UK Gambling Commission",
+      "date": "2025-05-15"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.progressplay-fine.004",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "ProgressPlay Limited was fined 1,000,000 GBP on 21 August 2025 for not having an adequate money laundering and terrorist financing risk assessment.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "GBP1m fine for online operator ProgressPlay Limited",
+      "url": "https://www.gamblingcommission.gov.uk/news/article/gbp1m-fine-for-online-operator-progressplay-limited",
+      "publisher": "UK Gambling Commission",
+      "date": "2025-08-21"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.platinum-gaming-fine.005",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "Platinum Gaming Limited, which operates unibet.co.uk and uk.bingo.com, was fined 10,000,000 GBP on 22 October 2025, its second penalty in under three years (2023: 2,900,000 GBP). Corrected during final verification: the article names only unibet.co.uk and uk.bingo.com as this operator's brands, not 32Red, which was fined alongside Platinum Gaming in a separate 2023 action.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "GBP10m fine for online operator Platinum Gaming Limited",
+      "url": "https://www.gamblingcommission.gov.uk/news/article/gbp10m-fine-for-online-operator-platinum-gaming-limited",
+      "publisher": "UK Gambling Commission",
+      "date": "2025-10-22"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.videoslots-fine.006",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "Videoslots Limited was fined 650,000 GBP on 20 November 2025 for gaps in AML policy and procedures, record management omissions, and over-reliance on an automated scoring system.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "GBP650,000 fine for online operator Videoslots Limited",
+      "url": "https://www.gamblingcommission.gov.uk/news/article/gbp650-000-fine-for-online-operator-videoslots-limited",
+      "publisher": "UK Gambling Commission",
+      "date": "2025-11-20"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.paddy-power-betfair-fine.007",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "Paddy Power Betfair was fined 2,000,000 GBP on 17 December 2025 after harm detection systems failed to identify high-velocity spending without manual review, among other social responsibility failures.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Paddy Power Betfair to pay GBP2m for regulatory failures",
+      "url": "https://www.gamblingcommission.gov.uk/news/article/paddy-power-betfair-to-pay-gbp2m-for-regulatory-failures",
+      "publisher": "UK Gambling Commission",
+      "date": "2025-12-17"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
+  },
+  {
+    "claimId": "gambling-white-label-blind-spot-guide.h2-2025-enforcement-count.008",
+    "guide": "gambling-white-label-blind-spot-guide.html",
+    "claimText": "UKGC recorded 12 operator-level regulatory actions (fines and licence suspensions) between 1 July and 31 December 2025, excluding individual criminal cases. Independently counted by reading UKGC's complete enforcement list rather than a summary: Taichi Tech (3 Jul), ProgressPlay (21 Aug), Maple International Ventures (17 Sep), Petfre Gibraltar (1 Oct), Platinum Gaming (22 Oct), Spribe (30 Oct), VGC Leeds (31 Oct), NetBet (5 Nov), Videoslots (20 Nov), Deadheat Racing (21 Nov), Done Brothers (3 Dec), Paddy Power Betfair (17 Dec). Not all 12 are AML-specific. This corrects an originally logged, unverified figure of 13.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Enforcement action, full list",
+      "url": "https://www.gamblingcommission.gov.uk/news/enforcement-action",
+      "publisher": "UK Gambling Commission",
+      "date": "2026-08-13"
+    },
+    "verifiedOn": "2026-08-13",
+    "reviewDue": "2027-08-13",
+    "status": "verified"
   }
 ]
