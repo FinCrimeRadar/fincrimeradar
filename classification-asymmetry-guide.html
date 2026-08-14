@@ -12,7 +12,7 @@
   <meta property="og:description" content="A fraudster steals from one bank. The money lands at another as an unremarkable deposit. Each institution sees a different crime, and fraud-style behavioural scoring can miss the laundering side entirely while producing false positives on genuine fraud victims." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://fincrimeradar.org/classification-asymmetry-guide.html" />
-  <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
+  <meta property="og:image" content="https://fincrimeradar.org/classification-asymmetry-guide-summary-snapshot.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -50,7 +50,7 @@
       },
       "url": "https://fincrimeradar.org/classification-asymmetry-guide.html",
       "datePublished": "2026-08-14",
-      "image": "https://fincrimeradar.org/og-image.png",
+      "image": "https://fincrimeradar.org/classification-asymmetry-guide-summary-snapshot.png",
       "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": "https://fincrimeradar.org/classification-asymmetry-guide.html"
@@ -102,6 +102,12 @@
     html { scroll-behavior: smooth; }
     body { font-family:'Inter',system-ui,sans-serif; background:var(--ee-warm); color:var(--text); line-height:1.7; }
     h1, h2, h3 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; color:var(--navy-mid); }
+
+    /* SKIP LINK, standard accessibility pattern, visually hidden until
+       keyboard focus. Class name checked against brand.css's watched
+       selectors (bare nav/footer/table, [class*="card"]), no collision. */
+    .skip-link { position:absolute; left:-9999px; top:0; background:var(--teal); color:#fff; padding:10px 16px; z-index:1000; border-radius:0 0 6px 0; font-size:14px; font-weight:600; text-decoration:none; }
+    .skip-link:focus { left:0; }
 
     /* NAV */
     nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
@@ -317,6 +323,7 @@
 <link rel="stylesheet" href="/brand.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's article text, worked scenario, and knowledge check questions are all readable without JavaScript. The worked scenario's graded verdict and the knowledge check's feedback and score require JavaScript to appear. The site footer at the bottom of the page also requires JavaScript to load.</div></noscript>
 
 <div class="progress-bar" id="progressBar"></div>
@@ -376,7 +383,7 @@
     <a href="#methodology" data-toc>Methodology</a>
   </aside>
 
-  <main class="ee-body">
+  <main class="ee-body" id="main-content">
 
     <div class="ee-section briefing-box" id="briefing">
       <div class="ee-eyebrow-sm">Executive briefing</div>
@@ -850,7 +857,7 @@ function showSource(id) {
 // SCENARIO GRADING
 var SCENARIO_VERDICTS = {
   scenario1: {
-    A: { tier: 'best', label: 'Best supported', text: 'Reasonable grounds under section 330 can be built from a pattern of otherwise unremarkable transactions. Legislation.gov.uk’s own explanatory notes establish the underlying standard, reasonable grounds, not proof of a single obviously wrong transaction, applying that standard to this fact pattern, four similarly sized payments from unconnected payers is exactly the kind of pattern it is built to catch.' },
+    A: { tier: 'best', label: 'Best supported', text: 'Reasonable grounds under section 330 can be built from a pattern of otherwise unremarkable transactions. Legislation.gov.uk’s own explanatory notes establish the underlying standard, reasonable grounds, not proof of a single obviously wrong transaction, applying that standard to this fact pattern, four similarly sized payments from unconnected payers may contribute to reasonable grounds when assessed in context, not a single transaction read in isolation.' },
     B: { tier: 'defensible', label: 'Defensible with conditions', text: 'Legitimate as a next step, provided it does not become a way to avoid the underlying assessment. A request for information is not itself a substitute for reasonable-grounds judgement, and it has to be made without tipping off.' },
     C: { tier: 'weak', label: 'Weakly supported', text: 'This treats “no single transaction looks wrong alone” as the test. Section 330’s own wording does not require a single transaction to be individually suspicious, a pattern across several is exactly the kind of reasonable grounds the offence is built around.' },
     D: { tier: 'unsafe', label: 'Unsafe or unsupported', text: 'This is the exact excuse Chapter 3 closes off. POCA’s own trigger is self-contained to what B itself knows or has reasonable grounds to suspect, it does not require or wait for visibility into what happened at another institution.' }
@@ -890,7 +897,7 @@ var QUIZ_ANSWERS = { qq1: 'A', qq2: 'B', qq3: 'C', qq4: 'B', qq5: 'B' };
 var QUIZ_EXPLAIN = {
   qq1: 'The patent’s own background section frames fraud as behavioural-deviation detection and money laundering as pattern-based detection that works even with no deviation. A system tuned only for deviation misses laundering and over-flags fraud victims.',
   qq2: 'Institution A only ever sees the fraud side, Institution B only ever sees the receiving side. Neither system has any default, unprompted reason to connect the two, that is the asymmetry, not a technology failure.',
-  qq3: 'A single payment looking ordinary is not the test. Four similarly sized payments from four different, unconnected-looking payers is a pattern, exactly the kind of reasonable grounds section 330 is built around.',
+  qq3: 'A single payment looking ordinary is not the test. Four similarly sized payments from four different, unconnected-looking payers is a pattern that may contribute to reasonable grounds when assessed in context, not proof from any single transaction.',
   qq4: 'The trigger is the institution’s own knowledge, suspicion, or reasonable grounds for suspicion, based on information that came to it in its own business, not a report or referral from anywhere else.',
   qq5: 'Section 330’s trigger is self-contained. It does not require, or wait for, visibility into what happened at another institution before reasonable grounds can exist.'
 };
