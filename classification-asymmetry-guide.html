@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classification Asymmetry: The Fraud vs AML Divide That Lets Both Crimes Through | FinCrimeRadar</title>
+  <meta name="description" content="A fraudster steals from one bank. The money lands at another as an unremarkable deposit. A granted US patent explains why detection systems built to catch fraud and money laundering together, using shared behavioural signals, get worse at catching either." />
+  <meta name="keywords" content="classification asymmetry, fraud vs money laundering, FRAML, transaction monitoring, POCA section 330, suspicious activity report, shared detection signals, reasonable grounds" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/classification-asymmetry-guide.html" />
+  <meta property="og:title" content="Classification Asymmetry: The Fraud vs AML Divide" />
+  <meta property="og:description" content="A fraudster steals from one bank. The money lands at another as an unremarkable deposit. Each institution sees a different crime, and a detection system built to catch both at once gets worse at catching either." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/classification-asymmetry-guide.html" />
+  <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Classification Asymmetry: The Fraud vs AML Divide That Lets Both Crimes Through",
+      "description": "A fraudster steals from one bank. The money lands at another as an unremarkable deposit. Each institution sees a different crime, and a detection system built to catch both at once gets worse at catching either.",
+      "about": [
+          {
+              "@type": "Thing",
+              "name": "Fraud vs Money Laundering Detection"
+          },
+          {
+              "@type": "Thing",
+              "name": "Transaction Monitoring"
+          },
+          {
+              "@type": "Thing",
+              "name": "Proceeds of Crime Act 2002"
+          }
+      ],
+      "author": {
+          "@type": "Organization",
+          "name": "FinCrimeRadar"
+      },
+      "publisher": {
+          "@type": "Organization",
+          "name": "FinCrimeRadar",
+          "url": "https://fincrimeradar.org"
+      },
+      "url": "https://fincrimeradar.org/classification-asymmetry-guide.html",
+      "datePublished": "2026-08-14",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://fincrimeradar.org/classification-asymmetry-guide.html"
+      }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Fraud","item":"https://fincrimeradar.org/knowledge.html?domain=fraud-detection"},{"@type":"ListItem","position":3,"name":"Classification Asymmetry","item":"https://fincrimeradar.org/classification-asymmetry-guide.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      /* --off, --border, --muted, --text, --navy, --danger, --success, --warning
+         are brand.css tokens, deliberately not redeclared here, brand.css loads
+         after this block so a local redeclaration would only be dead code. */
+      --white:#ffffff; --navy-mid:#071912; --navy-light:#0e3226;
+      --hero-bg-1:#071912; --hero-bg-2:#0e3226;
+      /* Evidence Essay layer: warm white, platinum grey, restrained gold,
+         layered on top of the existing brand palette, not replacing it.
+         Identical token set to the Gambling guide, reused deliberately so
+         the second Evidence Essay guide reads as the same family. */
+      --ee-warm:#faf8f3; --ee-platinum:#e5e4e2; --ee-platinum-line:#d6d4d0;
+      --ee-gold:#a9812f; --ee-gold-soft:#f3ecd9;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--ee-warm); color:var(--text); line-height:1.7; }
+    h1, h2, h3 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; color:var(--navy-mid); }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:var(--muted); text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--teal); }
+    .nav-cta { padding:7px 16px; background:var(--teal); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid var(--border); flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--teal); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--ee-gold); z-index:199; transition:width 0.1s; }
+
+    /* EXPERIMENT NOTE */
+    .experiment-note { background:var(--navy-mid); color:#cbd5e1; font-size:12px; text-align:center; padding:8px 1rem; }
+    .experiment-note a { color:var(--ee-gold-soft); }
+
+    /* HERO */
+    .ee-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); padding:3rem 1.5rem 2.5rem; }
+    .ee-hero-inner { max-width:820px; margin:0 auto; }
+    .ee-eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--ee-gold-soft); margin-bottom:0.9rem; }
+    .ee-hero h1 { font-size:clamp(1.7rem,4vw,2.5rem); color:#fff; line-height:1.25; margin-bottom:1rem; }
+    .ee-standfirst { font-size:16.5px; color:#dbe4e0; line-height:1.7; max-width:640px; }
+    .ee-byline { font-size:13px; color:#93c5fd; margin-top:1.25rem; }
+    .ee-byline a { color:#93c5fd; text-decoration:underline; }
+
+    /* 3-COLUMN LAYOUT */
+    .ee-layout { max-width:1280px; margin:0 auto; display:grid; grid-template-columns:210px 1fr 300px; gap:1.75rem; padding:2rem 1.5rem 3rem; align-items:start; }
+    .ee-body { min-width:0; }
+    .ee-toc, .ee-source-panel { position:sticky; top:90px; }
+    .ee-toc { background:#fff; border:1px solid var(--ee-platinum-line); border-radius:12px; padding:1.1rem; }
+    .ee-toc-title { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .ee-toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:5px 0 5px 10px; border-left:2px solid transparent; transition:all 0.15s; line-height:1.4; }
+    .ee-toc a:hover { color:var(--ee-gold); }
+    .ee-toc a.active { color:var(--navy-mid); font-weight:600; border-left-color:var(--ee-gold); }
+
+    /* SOURCE PANEL, right column. Deliberately calm and static: no
+       live-updating numbers, no unrelated metrics, only changes on
+       citation click. Not a dashboard. */
+    .ee-source-panel { background:#fff; border:1px solid var(--ee-platinum-line); border-radius:12px; padding:1.1rem; font-size:13px; max-height:calc(100vh - 110px); overflow-y:auto; }
+    .ee-source-panel-title { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .ee-source-empty { color:var(--muted); font-size:12.5px; line-height:1.6; }
+    .ee-source-claim { font-size:13px; color:var(--text); line-height:1.55; margin-bottom:0.75rem; padding-bottom:0.75rem; border-bottom:1px solid var(--ee-platinum-line); }
+    .ee-source-field-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--ee-gold); margin-top:0.6rem; }
+    .ee-source-field-value { font-size:13px; color:var(--text); line-height:1.5; }
+    .ee-source-link { display:inline-block; margin-top:0.75rem; font-size:12.5px; color:var(--teal); text-decoration:none; word-break:break-word; }
+    .ee-source-link:hover { text-decoration:underline; }
+    .ee-source-limit { font-size:12px; color:var(--muted); line-height:1.5; margin-top:0.6rem; font-style:italic; }
+
+    .cite { color:var(--ee-gold); font-weight:700; text-decoration:none; cursor:pointer; padding:0 1px; border-radius:3px; }
+    .cite:hover, .cite:focus-visible { background:var(--ee-gold-soft); }
+
+    /* ARTICLE SECTIONS */
+    .ee-section { background:#fff; border:1px solid var(--ee-platinum-line); border-radius:12px; padding:1.75rem; margin-bottom:1.5rem; }
+    .ee-section h2 { font-size:1.5rem; margin-bottom:0.9rem; }
+    .ee-section h3 { font-size:1.1rem; margin:1.25rem 0 0.5rem; color:var(--navy); }
+    .ee-section p { font-size:15px; color:#374151; margin-bottom:1rem; }
+    .ee-section p:last-child { margin-bottom:0; }
+    .ee-section ul, .ee-section ol { padding-left:1.25rem; margin-bottom:1rem; font-size:15px; color:#374151; }
+    .ee-section li { margin-bottom:0.4rem; }
+    .ee-eyebrow-sm { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--ee-gold); margin-bottom:0.6rem; }
+
+    .briefing-box { background:var(--navy-mid); color:#e5e7eb; border-radius:12px; padding:1.75rem; margin-bottom:1.5rem; }
+    .briefing-box .ee-eyebrow-sm { color:var(--ee-gold-soft); }
+    .briefing-box h2 { color:#fff; }
+    .briefing-box p { color:#dbe4e0; }
+    .briefing-box .cite { color:var(--ee-gold-soft); }
+
+    /* CASE STUDY CALLOUT */
+    .case-callout { background:var(--ee-gold-soft); border:1px solid #e6d8ac; border-left:4px solid var(--ee-gold); border-radius:8px; padding:1.25rem 1.5rem; margin:1.25rem 0; }
+    .case-callout-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--ee-gold); margin-bottom:0.5rem; }
+    .case-callout p.paraphrase, .case-callout blockquote.direct-quote { font-family:'DM Serif Display',Georgia,serif; font-style:italic; font-size:16px; color:var(--navy-mid); line-height:1.6; margin:0 0 0.75rem; }
+    .case-callout .case-note { font-size:13px; color:#6b5a2e; }
+    .case-callout .case-attribution { font-size:13px; color:#6b5a2e; font-weight:600; }
+
+    /* DIAGRAMS, plain HTML/CSS, no JS dependency, no SVG. Text content
+       is the accessible alternative, not a separate description. */
+    .ee-diagram { background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; margin:1.5rem 0; }
+    .ee-diagram-caption { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .ee-struct-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:8px; align-items:center; }
+    .ee-struct-box { background:#fff; border:1.5px solid var(--border); border-radius:10px; padding:0.9rem 0.85rem; text-align:center; }
+    .ee-struct-box.licensee { border-color:var(--ee-gold); background:var(--ee-gold-soft); }
+    .ee-struct-box-title { font-size:13px; font-weight:700; color:var(--navy); }
+    .ee-struct-box-sub { font-size:11.5px; color:#6b7280; margin-top:4px; line-height:1.45; }
+    .ee-struct-arrow { text-align:center; color:#9ca3af; font-size:20px; }
+    .ee-struct-obligation { margin-top:1.1rem; background:#fff; border:1px dashed var(--ee-gold); border-radius:8px; padding:0.75rem 1rem; font-size:12.5px; color:#6b5a2e; text-align:center; }
+    @media(max-width:640px) {
+      .ee-struct-row { grid-template-columns:1fr; }
+      .ee-struct-arrow { transform:rotate(90deg); }
+    }
+
+    /* SCENARIO */
+    .dilemma-card { border:1px solid var(--ee-platinum-line); border-radius:10px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy-mid); color:#fff; padding:0.9rem 1.1rem; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; }
+    .dilemma-scenario { padding:1.1rem; background:#f8fafc; border-bottom:1px solid var(--border); font-size:14px; color:#374151; line-height:1.65; }
+    .dilemma-scenario strong { color:var(--navy); }
+    .dilemma-options { padding:1rem; display:flex; flex-direction:column; gap:0.6rem; }
+    .dilemma-option { text-align:left; background:#fff; border:1.5px solid var(--border); border-radius:8px; padding:0.85rem 1rem; font-size:13.5px; color:var(--text); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .dilemma-option:hover:not(:disabled) { border-color:var(--ee-gold); }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-option.picked-best { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.picked-defensible { border-color:var(--warning); background:#fffbeb; }
+    .dilemma-option.picked-weak { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option.picked-unsafe { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-verdict { display:none; padding:1.1rem; border-top:1px solid var(--border); font-size:13.5px; line-height:1.65; }
+    .dilemma-verdict.show { display:block; }
+    .dilemma-verdict-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.4rem; }
+    .dilemma-verdict.tier-best .dilemma-verdict-label { color:var(--success); }
+    .dilemma-verdict.tier-defensible .dilemma-verdict-label { color:var(--warning); }
+    .dilemma-verdict.tier-weak .dilemma-verdict-label, .dilemma-verdict.tier-unsafe .dilemma-verdict-label { color:var(--danger); }
+    .dilemma-lesson { margin-top:0.9rem; padding-top:0.9rem; border-top:1px dashed var(--ee-platinum-line); font-size:13px; color:#6b7280; font-style:italic; }
+
+    /* PATTERN CARD, Risk/Signal/Response. Matches sitewide .pattern-card
+       exactly, deliberately reused so it picks up brand.css's sitewide
+       [class*="card"] hover-lift and scroll-reveal, this is desired. */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:30px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.1rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) {
+      .pattern-ttd { grid-template-columns:1fr; }
+      .pattern-grid { grid-template-columns:1fr; }
+    }
+
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--ee-gold); color:var(--ee-gold); }
+    .save-img-btn:disabled { opacity:0.6; cursor:default; }
+
+    /* SUMMARY SNAPSHOT (static pre-rendered image, distinct from the dynamic Save as image button above) */
+    .summary-snapshot-img { max-width:100%; height:auto; display:block; border-radius:8px; border:1px solid var(--border); margin:0 auto 1.25rem; }
+    .summary-snapshot-download { display:inline-flex; align-items:center; gap:6px; }
+    .itp-btn { background:var(--teal); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--teal-h); }
+
+    /* QUIZ */
+    .quiz-q { margin-bottom:1.5rem; }
+    .quiz-q-text { font-size:14.5px; font-weight:600; color:var(--navy); margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:0.5rem; }
+    .quiz-opt { text-align:left; background:#fff; border:1.5px solid var(--border); border-radius:8px; padding:0.75rem 1rem; font-size:13.5px; color:var(--text); cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .quiz-opt:hover:not(:disabled) { border-color:var(--ee-gold); }
+    .quiz-opt:disabled { cursor:default; }
+    .quiz-opt.correct { border-color:var(--success); background:#f0fdf4; }
+    .quiz-opt.incorrect { border-color:var(--danger); background:#fef2f2; }
+    .quiz-feedback { font-size:13px; color:#374151; margin-top:0.5rem; padding:0.6rem 0.85rem; background:#f8fafc; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { display:none; text-align:center; padding:1.5rem; background:var(--navy-mid); border-radius:10px; color:#fff; margin-top:1rem; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:var(--ee-gold-soft); }
+    .quiz-score-label { font-size:13px; color:#cbd5e1; margin-top:0.4rem; }
+
+    /* FAQ */
+    /* Native <details>/<summary>, works with no JS. The custom marker
+       replaces the browser default rather than hiding disclosure entirely. */
+    .faq-item { border-bottom:1px solid var(--border); }
+    .faq-item:last-child { border-bottom:none; }
+    .faq-q { width:100%; text-align:left; padding:1rem 0; font-size:14.5px; font-weight:600; color:var(--navy); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; font-family:'Inter',sans-serif; list-style:none; }
+    .faq-q::-webkit-details-marker { display:none; }
+    .faq-q-icon { flex-shrink:0; transition:transform 0.2s; color:var(--ee-gold); }
+    .faq-item[open] .faq-q-icon { transform:rotate(45deg); }
+    .faq-a { font-size:14px; color:#374151; padding-bottom:1rem; line-height:1.65; }
+
+    /* SOURCES */
+    .sources-list { list-style:none; counter-reset:src; }
+    .sources-list li { counter-increment:src; padding:0.65rem 0; border-bottom:1px solid var(--border); font-size:13.5px; color:#374151; line-height:1.6; }
+    .sources-list li:last-child { border-bottom:none; }
+    .sources-list li::before { content:"[" counter(src) "] "; color:var(--ee-gold); font-weight:700; }
+    .sources-list a { color:var(--teal); word-break:break-word; }
+
+    /* SCENARIO LAB INVITE */
+    .sl-invite { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); border-radius:12px; padding:1.75rem; text-align:center; }
+    .sl-invite h3 { color:#fff; margin-bottom:0.5rem; }
+    .sl-invite p { color:#dbe4e0; font-size:14px; margin-bottom:1.1rem; }
+    .sl-invite a { display:inline-block; padding:10px 22px; background:var(--ee-gold); color:#1a1206 !important; border-radius:8px; font-weight:700; font-size:14px; text-decoration:none; }
+
+    .byline-inline { font-size:12.5px; color:var(--muted); }
+
+    /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    /* MOBILE */
+    @media(max-width:800px) {
+      .ee-layout { grid-template-columns:1fr; }
+      .ee-toc { position:static; order:2; }
+      .ee-source-panel { position:static; order:3; max-height:none; }
+      .ee-body { order:1; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .ee-struct-row { grid-template-columns:1fr; }
+    }
+    @media(max-width:480px) {
+      .ee-hero { padding:2rem 1rem 1.75rem; }
+      .ee-layout { padding:1.5rem 1rem 2rem; }
+      .ee-section { padding:1.25rem; }
+    }
+  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool &rarr;</a>
+</div>
+
+<div class="experiment-note">This guide uses an experimental "Evidence Essay" layout, a second one-off format test. <a href="/methodology.html#format">Read why</a>.</div>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <a href="/knowledge.html?domain=fraud-detection">Fraud</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span aria-current="page">Classification Asymmetry</span>
+</nav>
+
+<header class="ee-hero">
+  <div class="ee-hero-inner">
+    <div class="ee-eyebrow">Evidence Essay &middot; Fraud &amp; AML</div>
+    <h1>Classification asymmetry: the fraud vs AML divide</h1>
+    <p class="ee-standfirst">A fraudster steals from one bank. The money lands at another as an unremarkable deposit. Each institution sees a different crime, and a detection system built to catch both at once gets worse at catching either.</p>
+    <p class="ee-byline">Written by <a href="/about.html">Pratik Zanke</a>, Financial Crime Specialist and former Acting MLRO</p>
+  </div>
+</header>
+
+<div class="ee-layout">
+
+  <aside class="ee-toc" aria-label="Contents">
+    <div class="ee-toc-title">Contents</div>
+    <a href="#briefing" data-toc>Executive briefing</a>
+    <a href="#ch1" data-toc>1. Two mechanisms</a>
+    <a href="#ch2" data-toc>2. The asymmetry</a>
+    <a href="#ch3" data-toc>3. The obligation</a>
+    <a href="#composite" data-toc>Composite case</a>
+    <a href="#scenario" data-toc>Worked scenario</a>
+    <a href="#knowledge-check" data-toc>Knowledge check</a>
+    <a href="#faq" data-toc>FAQ</a>
+    <a href="#glance" data-toc>At a glance</a>
+    <a href="#sources" data-toc>Sources</a>
+    <a href="#methodology" data-toc>Methodology</a>
+  </aside>
+
+  <main class="ee-body">
+
+    <div class="ee-section briefing-box" id="briefing">
+      <div class="ee-eyebrow-sm">Executive briefing</div>
+      <h2>Where the two crimes stop looking like each other</h2>
+      <p>Financial institutions increasingly buy detection systems that promise to catch fraud and money laundering together, on the theory that both are "transactional risk" and both can be flagged by a change in behaviour. A granted US patent on alert-system design, cited here for its analysis of the detection problem, not as a legal or regulatory authority, states the problem with that theory plainly: fraud can be detected because a fraudster who has stolen a victim's identity or financial instrument behaves differently from the victim, but this same behavioural-deviation logic "cannot detect many basic money laundering activities," which are built to look like ordinary, cooperative account activity, not a deviation from it <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>.</p>
+      <p>The clearest version of the failure: a fraudster steals funds from Institution A. Those funds move to Institution B, where they arrive looking like an ordinary deposit, no fraud occurred at B, nothing about the transaction looks unusual from B's side. Institution A sees a fraud case. Institution B, if it sees anything at all, sees a potential money laundering case, an incoming deposit with no clear source. Neither institution sees the whole picture, because neither has any structural reason to connect its side of the transaction to the other's.</p>
+      <p>This guide works through why that gap exists structurally, not just as a data-sharing problem, what UK law actually requires of the institution receiving the deposit, and what an analyst on either side of it can actually do about it.</p>
+    </div>
+
+    <div class="ee-section" id="ch1">
+      <div class="ee-eyebrow-sm">Chapter 1</div>
+      <h2>Two different mechanisms, not two flavours of the same risk</h2>
+      <p>Fraud and money laundering get bundled together in a lot of vendor pitches as "transactional financial crime," a single risk that a single sufficiently clever model can be trained to catch. The mechanism each one is actually detected by does not support that framing. A granted US patent on alert-system design, filed individually by inventors Yuh-Shen Song, Catherine Lew, Alexander Song and Victoria Song rather than a major institutional vendor, states the distinction in its own background section: fraud is detectable through behavioural deviation, because "a fraudster that has stolen a victim's identity (or financial instrument) behaves differently from the victim" <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>. The account starts spending in a new city, at a new time of day, on categories it never touched before. That deviation from the account's own baseline is the signal a fraud model is built to catch.</p>
+      <p>Money laundering does not reliably produce that same signal, and the patent is explicit about why: it states that fraud-oriented "real-time risk scoring, real-time detection, daily risk scoring, and daily detection methods... cannot detect many basic money laundering activities" <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>. A money launderer generally wants the receiving account to look ordinary, not deviant, an account behaving exactly as a legitimate business or customer account would. The patent's own answer is that laundering has to be caught a different way, through known transactional patterns, structuring, layering, a recurring shape across multiple transactions or multiple periods, rather than a single transaction looking wrong in isolation: "even if there is no change of behavior, a money laundering activity can be detected based on the transactional pattern" <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a>.</p>
+      <p>Put the two mechanisms next to each other and the problem with a single shared-signal system becomes concrete. A system tuned to flag behavioural deviation will miss laundering that never deviates from a normal-looking pattern. The same system will also generate false laundering positives on genuine fraud victims, whose accounts are, correctly, behaving abnormally, because they have just been defrauded, not because they are laundering anything. Sharing a data pipeline between fraud and AML detection is not the problem the patent describes. Collapsing two different detection logics into one shared signal is.</p>
+    </div>
+
+    <div class="ee-section" id="ch2">
+      <div class="ee-eyebrow-sm">Chapter 2</div>
+      <h2>The asymmetry, worked through</h2>
+      <p>Chapter 1 explains why fraud and money laundering need different detection logic. This chapter works through what happens when the same transaction crosses an institutional boundary, the structural pattern the patent's own background section uses to illustrate why a combined system misses cases neither institution alone was ever positioned to catch.</p>
+      <div class="case-callout">
+        <div class="case-callout-label">US Patent 12,086,874, background section</div>
+        <blockquote class="direct-quote">&ldquo;A fraudster may use financial institution A to launder the money, which the fraudster has stolen from financial institution B. To financial institution B, this is a fraud case. To financial institution A, this is a money laundering case. Neither of financial institution A nor financial institution B, however, sees both the fraud case and the money laundering case occurring to this same customer.&rdquo;</blockquote>
+        <div class="case-attribution">Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song, &quot;Intelligent Alert System&quot; <a class="cite" href="#src-1" data-src="1" aria-label="View source 1">[1]</a></div>
+      </div>
+      <p>This is the guide's spine insight, and it is worth being precise about where it comes from. It is a granted patent's own background section, describing a mechanism the inventors observed well enough to design a detection system around, not a marketing claim, and not evidence of any specific real case. The patent is cited here for that mechanism and that insight alone, it is not a regulatory or legal authority, and nothing in this guide treats it as one.</p>
+      <div class="ee-diagram" id="asymmetryDiagram">
+        <div class="ee-diagram-caption">Where the picture actually splits</div>
+        <div class="ee-struct-row">
+          <div class="ee-struct-box">
+            <div class="ee-struct-box-title">Institution A</div>
+            <div class="ee-struct-box-sub">The fraud victim's own bank. Opens a fraud case: a customer's funds stolen and moved out.</div>
+          </div>
+          <div class="ee-struct-arrow" aria-hidden="true">&rarr;</div>
+          <div class="ee-struct-box licensee">
+            <div class="ee-struct-box-title">No shared visibility</div>
+            <div class="ee-struct-box-sub">Neither institution can see across this gap. The funds move on with no institutional record trailing them.</div>
+          </div>
+          <div class="ee-struct-arrow" aria-hidden="true">&rarr;</div>
+          <div class="ee-struct-box">
+            <div class="ee-struct-box-title">Institution B</div>
+            <div class="ee-struct-box-sub">The receiving bank. Sees, at most, an unremarkable deposit or a potential money-laundering case, no fraud occurred on B's own side.</div>
+          </div>
+        </div>
+        <div class="ee-struct-obligation">Both institutions carry their own independent obligation. Neither's is contingent on knowing what happened at the other.</div>
+      </div>
+      <p>Institution A's fraud team, if the victim reported quickly, may open a case within hours. Institution B's own systems see none of that: a deposit that matches the receiving account's stated activity, nothing in the transaction itself deviates from that account's own recent pattern. Both institutions are behaving exactly as their own detection logic tells them to. Neither is behaving incorrectly on its own terms. The asymmetry is not a failure of either institution's system, it is a structural consequence of each system only ever seeing one side of a transaction that, in reality, has two.</p>
+      <p>This structural gap describes the default position, not an absolute one. Sections 339ZB to 339ZD of POCA 2002, inserted by the Criminal Finances Act 2017, create a voluntary gateway letting a person in the regulated sector share information with another regulated-sector person about a suspicion of money laundering, and, where that sharing happens within the statutory timeframe, submit a joint disclosure report to the NCA, sometimes called a "Super SAR," which can itself satisfy the section 330 reporting requirement in place of an individual SAR. The gateway is genuinely voluntary on both sides: it requires an affirmative request and disclosure, either institution can decline, and nothing about it happens automatically once a suspicious transaction occurs. It does not change this guide's core point or Verdict D's reasoning below: absent that voluntary step actually being taken, neither institution has any default, unprompted visibility into the other's side of the transaction, and Institution B's own section 330 duty stands on its own terms whether or not the gateway is ever used <a class="cite" href="#src-5" data-src="5" aria-label="View source 5">[5]</a>.</p>
+    </div>
+
+    <div class="ee-section" id="ch3">
+      <div class="ee-eyebrow-sm">Chapter 3</div>
+      <h2>The obligation does not wait for the other side of the story</h2>
+      <p>Chapter 2 explains why the asymmetry exists. This chapter explains why it is not a legal excuse.</p>
+      <p>Under section 330 of the Proceeds of Crime Act 2002, a person working in the regulated sector commits an offence if they know, suspect, or have reasonable grounds for knowing or suspecting that another person is engaged in money laundering, and fail to disclose that knowledge or suspicion as soon as practicable, either to their firm's nominated officer or directly to the National Crime Agency. Legislation.gov.uk's own explanatory notes describe subsection (2)(b) as introducing a negligence-style test: the offence is committed where a person "has reasonable grounds for knowing or suspecting that another person is engaged in money laundering, even if they did not actually know or suspect" <a class="cite" href="#src-2" data-src="2" aria-label="View source 2">[2]</a>. The trigger is deliberately self-contained, what the individual institution itself knows or has reasonable grounds to suspect, based on information that came to it in the course of its own regulated-sector business, not what a different institution has separately reported, flagged, or discovered.</p>
+      <p>Institution B's obligation to consider filing a Suspicious Activity Report exists in full the moment B has reasonable grounds for suspicion about a deposit, whether or not Institution A's fraud case is visible to B, has been reported anywhere, or even exists as far as B's own systems can tell. Independent legal commentary on section 330 reaches the same reading of the trigger: the obligation turns on information that actually came to the regulated person in the course of their own business, an internally self-contained standard, not one that depends on coordination or knowledge-sharing between institutions <a class="cite" href="#src-3" data-src="3" aria-label="View source 3">[3]</a>.</p>
+      <p>This closes off the most tempting excuse the asymmetry creates: "we had no way of knowing this was connected to a fraud elsewhere." Section 330 does not ask whether an institution could see the whole picture. It asks whether that institution, on its own information, had reasonable grounds to suspect. A deposit that looks unremarkable in isolation, and would look very different with visibility into Institution A's fraud report, is exactly the scenario section 330's own wording was built to cover, reasonable grounds does not require certainty, and it does not require the full picture.</p>
+      <p>SARs in the UK go to the NCA's UKFIU under POCA Part 7 (and the Terrorism Act 2000 for terrorist financing). A Defence Against Money Laundering can be sought where a firm intends to proceed with a transaction it suspects may involve criminal property. The current DAML threshold is &pound;3,000, raised from &pound;1,000 on 31 July 2025, which itself had been raised from &pound;250 on 5 January 2023, two separate increases, not one <a class="cite" href="#src-4" data-src="4" aria-label="View source 4">[4]</a>. The DAML threshold governs when a firm can proceed with a low-value transaction without seeking consent first, it does not change or lower the underlying section 330 obligation to consider disclosure at all.</p>
+    </div>
+
+    <div class="ee-section" id="composite">
+      <div class="ee-eyebrow-sm">Composite case</div>
+      <h2>The deposit that looked like nothing</h2>
+      <p>This is a composite case, not a real, publicly documented incident. No real case demonstrating this exact asymmetry, with a citable regulatory or enforcement source naming both sides of the same transaction, was identified after a genuine search for one. It is built around the real mechanism in Chapters 1 and 2 and the real obligation in Chapter 3, using a plausible, unnamed scenario rather than inventing a specific real-sounding company or incident.</p>
+      <div class="case-callout">
+        <div class="case-callout-label">Composite, built to illustrate the mechanism above</div>
+        <p class="paraphrase">A phishing email convinces a customer at Institution A to authorise a payment to what they believe is their own new savings account. The funds move through two intermediate accounts before landing at Institution B as a deposit into a business account, styled as an invoice payment for consulting services. Institution A's fraud team opens a case within hours, the customer reported the loss almost immediately. Institution B's systems see none of this: a business account receiving a client payment that matches its stated line of work, nothing about the transaction deviates from the account's own recent pattern. The deposit clears normally. Three weeks later, Institution A's investigation traces the funds to the intermediate accounts and, eventually, to Institution B, by which point the money has moved on again.</p>
+        <div class="case-note">Composite scenario. No specific real customer, company, or institution is depicted. The illustrative figures used in the worked scenario below are original teaching detail, not tied to any real case, and are correctly left uncited, consistent with this project's own standard for illustrative versus material claims.</div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="scenario">
+      <div class="ee-eyebrow-sm">Worked scenario</div>
+      <h2>The Business Account</h2>
+      <p>The mechanism and the obligation above show up as a concrete decision, not abstract policy. This is the judgement call Institution B's own analyst actually faces.</p>
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">Situation</div>
+        <div class="dilemma-scenario">
+          <p style="margin-bottom:0.75rem;">You are a transaction monitoring analyst at Institution B. A business account you monitor receives a &pound;14,000 payment described as &quot;consulting invoice #2291.&quot; The account's stated business is marketing consulting, and the amount is broadly consistent with invoices it has received before, though slightly larger than its recent average. Nothing in Institution B's own systems flags fraud, sanctions, or PEP exposure. You have no visibility into any other institution's records.</p>
+          <p><strong>Material facts.</strong> Section 330 POCA does not require certainty or visibility into the sender's own institution, only reasonable grounds for knowing or suspecting money laundering, based on what is actually available to you. The account has received four similarly sized &quot;consulting&quot; payments in the past two months from four different, unconnected-looking payers.</p>
+        </div>
+        <div class="dilemma-options" id="scenario1-options">
+          <button class="dilemma-option" data-tier="best" onclick="showVerdict('scenario1','A',this)">A. Treat the pattern of similarly sized payments from multiple unconnected payers, not any single transaction, as the basis for reasonable grounds, and escalate for a suspicion assessment rather than waiting for a single transaction to look wrong in isolation.</button>
+          <button class="dilemma-option" data-tier="defensible" onclick="showVerdict('scenario1','B',this)">B. Request further information from the customer about the nature of the consulting relationships before deciding, provided this is done without tipping off and within a reasonable timeframe.</button>
+          <button class="dilemma-option" data-tier="weak" onclick="showVerdict('scenario1','C',this)">C. Clear the transaction because no single payment individually breaches a threshold or looks unusual on its own.</button>
+          <button class="dilemma-option" data-tier="unsafe" onclick="showVerdict('scenario1','D',this)">D. Decide reasonable grounds cannot exist because Institution B has no visibility into whether a fraud occurred elsewhere.</button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="knowledge-check">
+      <div class="ee-eyebrow-sm">Knowledge check</div>
+      <h2>Test your understanding</h2>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. According to the patent's own framing, why does a detection system built to catch fraud and money laundering together, using shared behavioural signals, get worse at catching either?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq1','A')">A. Fraud is detected through behavioural deviation, but money laundering often involves no deviation at all, a system tuned for deviation misses laundering and over-flags genuine fraud victims</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq1','B')">B. Because fraud and money laundering are legally defined as the same offence in the UK</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq1','C')">C. Because shared signals only fail once transaction volumes exceed what a system can process</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq1','D')">D. Because behavioural deviation is actually a stronger signal for money laundering than for fraud</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Why did neither Institution A nor Institution B in the patent's own example see the whole picture?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq2','A')">A. Both institutions were running outdated detection software</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq2','B')">B. Each institution only sees its own side of the transaction, the same customer's activity looks like fraud from one side and an unremarkable deposit or laundering case from the other, with no default, unprompted link between the two views</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq2','C')">C. The fraudster used a different legal identity at each institution</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq2','D')">D. UK data protection law prohibits institutions from ever sharing fraud information</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. In the composite case's worked scenario, what is the strongest basis for Institution B's suspicion, rather than any single transaction?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq3','A')">A. The size of the &pound;14,000 payment on its own</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq3','B')">B. The account's stated line of business being marketing consulting</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq3','C')">C. Four similarly sized &quot;consulting&quot; payments received from four different, unconnected-looking payers over two months</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq3','D')">D. The customer's failure to respond to a request for information</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. Under section 330 of POCA 2002, what actually triggers the failure-to-disclose offence?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq4','A')">A. A formal referral or fraud report received from another financial institution</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq4','B')">B. Knowledge, suspicion, or reasonable grounds for knowing or suspecting money laundering, based on what the regulated person's own institution actually knows</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq4','C')">C. A criminal conviction for money laundering already secured at another institution</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq4','D')">D. A specific direction from the NCA naming the customer involved</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. In the worked scenario, why is option D, deciding reasonable grounds cannot exist because Institution B has no visibility into any fraud elsewhere, unsafe?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" data-letter="A" onclick="answerQuiz('qq5','A')">A. Because Institution B is legally required to contact Institution A directly before deciding</button>
+          <button class="quiz-opt" data-letter="B" onclick="answerQuiz('qq5','B')">B. Because section 330's trigger is self-contained to what the institution itself knows or has reasonable grounds to suspect, it does not require or wait for visibility into another institution's records</button>
+          <button class="quiz-opt" data-letter="C" onclick="answerQuiz('qq5','C')">C. Because option D would only be unsafe if the payment were under &pound;3,000</button>
+          <button class="quiz-opt" data-letter="D" onclick="answerQuiz('qq5','D')">D. Because the NCA automatically forwards every fraud report to the receiving institution</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="faq">
+      <div class="ee-eyebrow-sm">FAQ</div>
+      <h2>Common questions</h2>
+      <details class="faq-item">
+        <summary class="faq-q">Is there a real, named case showing this exact fraud-to-laundering asymmetry?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No, and this guide does not claim otherwise. A genuine search for a real, publicly documented case, with a citable regulatory or enforcement source demonstrating this exact pattern, funds stolen at one institution landing at another with neither connecting the two, did not turn one up. The Composite case section is clearly labelled as composite for that reason, built around the real mechanism the patent describes and the real obligation in Chapter 3, not around a specific real incident.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does this mean combined fraud and AML detection tooling is always the wrong choice?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No, and this guide does not argue that. The patent's own point, and Chapter 1's, is about detection logic, not infrastructure. A shared data pipeline is not the problem. Collapsing fraud's behavioural-deviation signal and money laundering's pattern-based signal into one shared signal, so a single model output is expected to catch both, is what produces the blind spot. Two distinct detection logics can run on shared infrastructure without that collapse.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does the higher DAML threshold mean smaller deposits like the one in this scenario don't need a SAR?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No, and the two are easy to conflate. The Defence Against Money Laundering threshold, currently &pound;3,000, governs when a firm can proceed with a low-value transaction without first seeking the NCA's consent. It is not a threshold for whether the underlying suspicious activity report obligation applies at all. Section 330's own trigger, reasonable grounds for suspicion, is not value-gated, a &pound;14,000 payment sits well above the DAML threshold regardless.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">If Institution A never reports its fraud case anywhere, does that reduce Institution B's own obligation under section 330?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No. This is the exact excuse Chapter 3 closes off. Section 330's obligation is self-contained to what Institution B itself knows or has reasonable grounds to suspect, based on information that came to it in its own business. Whether Institution A ever files a report, and whether that report is ever visible to B, does not change what B's own information already supports.</div>
+      </details>
+    </div>
+
+    <div class="ee-section" id="patterns">
+      <div class="ee-eyebrow-sm">The three patterns</div>
+      <h2>Risk, signal, response</h2>
+      <p>Three recurring failure patterns behind the mechanism and the obligation above, each with the risk it creates, the signal that should catch it, and the response that closes it.</p>
+
+      <div class="pattern-card" data-pattern="split-picture" style="background:#eff6ff;border-color:#bfdbfe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">&#128257;</div>
+          <div class="pattern-name" style="color:#1d4ed8;">The Split Picture</div>
+        </div>
+        <div class="pattern-line">Institution A sees fraud. Institution B sees an ordinary deposit. Neither sees both.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Risk</div><div class="ttd-text">A detection system tuned for behavioural deviation misses laundering that never deviates.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Signal</div><div class="ttd-text">A deposit that looks unremarkable in isolation but sits inside a pattern across several senders or several periods.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#1d4ed8;">Response</div><div class="ttd-text">Build suspicion from pattern, not from a single transaction looking wrong alone.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-pattern="borrowed-excuse" style="background:#fef2f2;border-color:#fecaca;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">&#128683;</div>
+          <div class="pattern-name" style="color:#b91c1c;">The Borrowed Excuse</div>
+        </div>
+        <div class="pattern-line">&quot;We had no way of knowing&quot; is not a legal defence under section 330.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#b91c1c;">Risk</div><div class="ttd-text">Treating lack of cross-institution visibility as equivalent to lack of reasonable grounds.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#b91c1c;">Signal</div><div class="ttd-text">A suspicion decision deferred indefinitely pending information that will never arrive from another institution.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#b91c1c;">Response</div><div class="ttd-text">Assess reasonable grounds on your own institution's own information, that is what the statute actually asks for.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-pattern="combined-blind-spot" style="background:var(--ee-gold-soft);border-color:#e6d8ac;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">&#9881;&#65039;</div>
+          <div class="pattern-name" style="color:#8a6d1f;">The Combined System's Blind Spot</div>
+        </div>
+        <div class="pattern-line">A detection system built to catch both fraud and money laundering with shared signals gets worse at both.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#8a6d1f;">Risk</div><div class="ttd-text">Fraud's behavioural-deviation signal and money laundering's pattern-based signal are different mechanisms, not the same risk wearing two labels.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#8a6d1f;">Signal</div><div class="ttd-text">High false-positive rates on genuine fraud victims, alongside missed laundering that never deviates from a normal-looking pattern.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:#8a6d1f;">Response</div><div class="ttd-text">Keep the two detection logics distinct even where the underlying data pipeline is shared.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ee-section" id="glance">
+      <div class="ee-eyebrow-sm">Quick reference</div>
+      <h2>At a glance</h2>
+      <p>Three patterns, the risk that makes each one look routine, the signal that actually gives it away, and the response that fits.</p>
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">&#128190; Save as image</button>
+      </div>
+      <div class="pattern-grid" id="glanceCardGrid" aria-label="Summary of the three Risk, Signal, Response patterns, same content as introduced above"></div>
+      <p class="byline-inline" id="glanceNoJsNote">With JavaScript enabled, this section mirrors the three pattern cards above automatically. Without JavaScript, see the same three cards under "Risk, signal, response" earlier on this page, the content is identical, just not duplicated here.</p>
+    </div>
+
+    <div class="ee-section" id="summary-snapshot">
+      <div class="ee-eyebrow-sm">Quick reference</div>
+      <h2>Summary snapshot</h2>
+      <p>The full guide in one image, for quick reference or sharing.</p>
+      <figure>
+        <img
+          src="/classification-asymmetry-guide-summary-snapshot.png"
+          alt="Classification Asymmetry summary infographic showing the Institution A / Institution B split from US Patent 12,086,874, why fraud detection relies on behavioural deviation while money laundering detection relies on transactional pattern, the section 330 POCA reasonable-grounds obligation, and the three Risk, Signal, Response patterns: The Split Picture, The Borrowed Excuse, and The Combined System's Blind Spot."
+          width="512"
+          height="768"
+          loading="lazy"
+          class="summary-snapshot-img"
+        />
+      </figure>
+      <a href="/classification-asymmetry-guide-summary-snapshot.png" download class="itp-btn summary-snapshot-download">&#11015;&#65039; Download summary</a>
+    </div>
+
+    <div class="ee-section" id="sources">
+      <div class="ee-eyebrow-sm">Verification</div>
+      <h2>Sources</h2>
+      <p style="font-size:14px;color:var(--muted);">Each numbered claim above is checked against the specific source below it. The patent's full text was retrieved and read directly, not taken from a secondary description of it.</p>
+      <ol class="sources-list">
+        <li id="src-1">Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song, US Patent 12,086,874 B2, &quot;Intelligent Alert System,&quot; filed individually rather than by an institutional vendor, priority date 13 February 2019, granted 10 September 2024. Cited for its mechanism and insight only, not as a legal or regulatory authority. <a href="https://patents.google.com/patent/US12086874B2/en" target="_blank" rel="noopener">patents.google.com</a></li>
+        <li id="src-2">Proceeds of Crime Act 2002, Section 330 (Failure to disclose: regulated sector) and its Explanatory Notes, on the reasonable-grounds negligence-style trigger. <a href="https://www.legislation.gov.uk/ukpga/2002/29/section/330/notes" target="_blank" rel="noopener">legislation.gov.uk</a></li>
+        <li id="src-3">Kingsley Napley, &quot;Will the CPS' decision to update its guidance mean an increase in prosecutions for failure to disclose under section 330 of POCA 2002?&quot;, corroborating legal commentary on the self-contained knowledge trigger. <a href="https://www.kingsleynapley.co.uk/insights/blogs/criminal-law-blog/will-the-cps-decision-to-update-its-guidance-mean-an-increase-in-prosecutions-for-failure-to-disclose-under-section-330-of-poca-2002" target="_blank" rel="noopener">kingsleynapley.co.uk</a></li>
+        <li id="src-4">The Proceeds of Crime (Money Laundering) (Threshold Amount) (Amendment) Order 2025 (SI 2025/877), raising the DAML threshold under section 339A from &pound;1,000 to &pound;3,000, effective 31 July 2025. <a href="https://www.legislation.gov.uk/uksi/2025/877/made" target="_blank" rel="noopener">legislation.gov.uk</a></li>
+        <li id="src-5">Criminal Finances Act 2017, Explanatory Notes, division 6 (paras. 101 to 104), on sections 339ZB to 339ZD of POCA 2002, the voluntary regulated-sector information-sharing gateway and joint disclosure report mechanism. <a href="https://www.legislation.gov.uk/ukpga/2017/22/notes/division/6/index.htm" target="_blank" rel="noopener">legislation.gov.uk</a></li>
+      </ol>
+    </div>
+
+    <div class="ee-section" id="methodology">
+      <div class="ee-eyebrow-sm">Methodology and limitations</div>
+      <h2>How this guide was built and checked</h2>
+      <p><strong>The patent's individual-filer status.</strong> US Patent 12,086,874 is a real, granted US patent, and its background section states this guide's spine insight almost exactly. It is worth being precise about what it is not: the inventors filed individually, Yuh-Shen Song, Catherine Lew, Alexander Song and Victoria Song, not on behalf of a major institutional vendor such as FICO or NICE. That does not weaken the underlying mechanism it describes, which was independently checked against the patent's own full text, but the guide does not imply the patent carries the institutional weight a major vendor's own published research would.</p>
+      <p><strong>A quote this guide chose not to make.</strong> An earlier description of this guide's content characterised the patent as stating that money launderers &quot;usually pretend to be good customers,&quot; as if quoting the patent directly. Independent verification against the patent's own retrieved text did not locate that exact phrase. The underlying point it was trying to make, that laundering activity can be detected through transactional pattern &quot;even if there is no change of behavior&quot;, is genuinely in the patent and is quoted directly in Chapter 1. The unverified phrasing was dropped rather than presented as a quotation this guide could not confirm.</p>
+      <p><strong>The corrected inventor list.</strong> An earlier description of this content named only two inventors, Yuh-Shen Song and Catherine Lew. The patent's own record lists four: Song, Lew, Alexander Song, and Victoria Song. Corrected here after direct verification against the patent itself.</p>
+      <p><strong>The corrected DAML threshold.</strong> An earlier description of this content stated the current DAML threshold as &pound;1,000, raised from &pound;250 on 5 January 2023. That was the position as of that increase, but a second increase has since taken effect: the threshold rose again, from &pound;1,000 to &pound;3,000, on 31 July 2025, under a separate statutory instrument. This guide states the current, &pound;3,000 figure and discloses both increases, rather than repeating a since-superseded figure.</p>
+      <p><strong>Corroborating commentary substitution.</strong> Two independent legal commentary sources were originally identified to corroborate the section 330 reading: Kingsley Napley and Croner Navigate. Croner Navigate's relevant page sits behind a subscription wall that could not be independently verified during this build, so it is not cited. Kingsley Napley's own published commentary, publicly accessible, is cited in its place and independently supports the same reading of the self-contained trigger.</p>
+      <p><strong>Illustrative detail.</strong> The specific figures in the worked scenario, the &pound;14,000 payment and the pattern of four similarly sized payments, are original composite teaching detail built around the real mechanism and obligation described above. They are not tied to a specific real customer or case and are correctly uncited, consistent with this project's standard that illustrative worked examples do not carry a citation the way a regulatory or enforcement claim does.</p>
+      <p><strong>Format.</strong> This guide uses the same experimental &quot;Evidence Essay&quot; layout, with a source-record panel, first built for the Gambling's White-Label Blind Spot guide, distinct from both the standard Knowledge Hub card format and the PEP and SAR series' narrative format. This is the format's second use, still under evaluation, not yet a standing decision. See <a href="/methodology.html#format">the note on format</a> for why the site's guides do not all look the same.</p>
+    </div>
+
+    <div class="ee-section sl-invite">
+      <h3>Practice the underlying judgement</h3>
+      <p>The reasonable-grounds question in the worked scenario above is one version of a pattern that comes up across financial crime investigation generally, not just this specific asymmetry. FinCrimeRadar's Scenario Lab puts related judgement calls in front of you under time pressure, free, no signup required.</p>
+      <a href="/scenario-lab.html">Try Scenario Lab &rarr;</a>
+    </div>
+
+  </main>
+
+  <aside class="ee-source-panel" id="sourcePanel" aria-label="Source record" aria-live="polite">
+    <div class="ee-source-panel-title">Source record</div>
+    <div id="sourcePanelBody"><p class="ee-source-empty">Select a citation marker like <span class="cite" style="cursor:default;">[1]</span> anywhere in the guide to see exactly what it supports, who published it, and when it was verified.</p></div>
+  </aside>
+
+</div>
+
+<div id="site-footer"></div>
+
+<script>
+// SOURCE DATA, single source of truth for the Sources list, the inline
+// citation markers, and the source record panel. Citations remain real
+// <a href="#src-N"> anchors to the Sources section regardless of JS, this
+// script only adds the panel as an enhancement on top of already
+// functional links, per this guide's no-JS requirement.
+var SOURCES = {
+  "1": {
+    claim: "The patent's own background section: fraud is detected via behavioural deviation, money laundering detection via transactional pattern even with no deviation, and neither Institution A nor B sees both sides of the same asymmetric case. Cited for mechanism and insight only, never as a legal or regulatory authority.",
+    title: "US Patent 12,086,874 B2, \"Intelligent Alert System\"",
+    publisher: "Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song (individual filers, granted via USPTO)",
+    date: "10 September 2024",
+    verified: "14 August 2026",
+    url: "https://patents.google.com/patent/US12086874B2/en",
+    limit: "A granted patent's background section is the inventors' own account of the problem their invention solves. It is not a regulatory authority, an enforcement record, or evidence of any specific real case, and this guide does not use it as any of those."
+  },
+  "2": {
+    claim: "Section 330 POCA 2002's failure-to-disclose offence, and its explanatory notes' description of the reasonable-grounds trigger as a negligence-style test, self-contained to the regulated person's own information.",
+    title: "Proceeds of Crime Act 2002, Section 330 and Explanatory Notes",
+    publisher: "legislation.gov.uk (UK National Archives)",
+    date: "Current at time of verification",
+    verified: "14 August 2026",
+    url: "https://www.legislation.gov.uk/ukpga/2002/29/section/330/notes",
+    limit: "Explanatory notes describe Parliament's intent behind the section, they are an interpretive aid, not the operative legal text itself. The operative text is section 330 as enacted and subsequently amended."
+  },
+  "3": {
+    claim: "Independent legal commentary corroborating the reading that section 330's trigger depends on information that actually came to the regulated person in their own business, not on coordination with another institution.",
+    title: "Will the CPS' decision to update its guidance mean an increase in prosecutions for failure to disclose under section 330 of POCA 2002?",
+    publisher: "Kingsley Napley LLP, Criminal Law Blog",
+    date: "Current at time of verification",
+    verified: "14 August 2026",
+    url: "https://www.kingsleynapley.co.uk/insights/blogs/criminal-law-blog/will-the-cps-decision-to-update-its-guidance-mean-an-increase-in-prosecutions-for-failure-to-disclose-under-section-330-of-poca-2002",
+    limit: "A law firm's own commentary, not a primary legal source. Used here to corroborate the explanatory notes' reading, not as a substitute for the statute itself."
+  },
+  "4": {
+    claim: "The current Defence Against Money Laundering threshold is £3,000, raised from £1,000 on 31 July 2025, itself raised from £250 on 5 January 2023.",
+    title: "The Proceeds of Crime (Money Laundering) (Threshold Amount) (Amendment) Order 2025 (SI 2025/877)",
+    publisher: "legislation.gov.uk (UK National Archives)",
+    date: "31 July 2025 (effective date)",
+    verified: "14 August 2026",
+    url: "https://www.legislation.gov.uk/uksi/2025/877/made",
+    limit: "Governs the section 339A threshold for proceeding with a low-value transaction without seeking consent first. It does not change the underlying section 330 obligation to consider disclosure, which is not value-gated."
+  },
+  "5": {
+    claim: "Sections 339ZB to 339ZD of POCA 2002, inserted by the Criminal Finances Act 2017, create a voluntary information-sharing gateway between regulated-sector institutions, and a joint disclosure report mechanism that can itself satisfy the section 330 reporting requirement, subject to conditions including an affirmative request and prior NCA notification, not an automatic mechanism triggered by a suspicious transaction.",
+    title: "Criminal Finances Act 2017, Explanatory Notes, Division 6 (paras. 101-104)",
+    publisher: "legislation.gov.uk (UK National Archives)",
+    date: "Current at time of verification",
+    verified: "14 August 2026",
+    url: "https://www.legislation.gov.uk/ukpga/2017/22/notes/division/6/index.htm",
+    limit: "Describes Parliament's intent behind the inserted sections, an interpretive aid, not the operative statutory text itself. The gateway requires affirmative use by a regulated person choosing to share, it does not create a standing or automatic channel of visibility between institutions."
+  }
+};
+
+function escapeHtml(s) {
+  var d = document.createElement('div');
+  d.textContent = s == null ? '' : String(s);
+  return d.innerHTML;
+}
+
+function showSource(id) {
+  var s = SOURCES[id];
+  var body = document.getElementById('sourcePanelBody');
+  if (!s || !body) return;
+  body.innerHTML = [
+    '<div class="ee-source-claim">' + escapeHtml(s.claim) + '</div>',
+    '<div class="ee-source-field-label">Source</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.title) + '</div>',
+    '<div class="ee-source-field-label">Publisher</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.publisher) + '</div>',
+    '<div class="ee-source-field-label">Published</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.date) + '</div>',
+    '<div class="ee-source-field-label">Verified by FinCrimeRadar</div>',
+    '<div class="ee-source-field-value">' + escapeHtml(s.verified) + '</div>',
+    '<a class="ee-source-link" href="' + escapeHtml(s.url) + '" target="_blank" rel="noopener">Open source &rarr;</a>',
+    '<div class="ee-source-field-label">What this does not establish</div>',
+    '<div class="ee-source-limit">' + escapeHtml(s.limit) + '</div>'
+  ].join('');
+}
+
+(function () {
+  "use strict";
+
+  // CITATIONS -> SOURCE PANEL. Each citation is a real <a href="#src-N">,
+  // native keyboard operation (Enter activates, Tab focuses) and the jump
+  // to the Sources entry both work with no JS at all. This listener only
+  // adds the panel preview on top, it never has to reimplement anchor
+  // activation.
+  //
+  // On mobile, the panel is moved inline to sit directly after the
+  // clicked citation's containing block, matching the approved layout
+  // spec (an inline reveal next to the citation, not a panel detached at
+  // the bottom of the page). It is the same single panel node, moved, not
+  // duplicated, so there is only ever one source of truth for its content.
+  var MOBILE_QUERY = window.matchMedia('(max-width:800px)');
+  var sourcePanelEl = document.getElementById('sourcePanel');
+  var sourcePanelHomeParent = sourcePanelEl ? sourcePanelEl.parentNode : null;
+  var sourcePanelHomeNext = sourcePanelEl ? sourcePanelEl.nextSibling : null;
+
+  function restoreSourcePanelHome() {
+    if (sourcePanelEl && sourcePanelHomeParent) {
+      sourcePanelHomeParent.insertBefore(sourcePanelEl, sourcePanelHomeNext);
+    }
+  }
+
+  document.querySelectorAll('.cite[data-src]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      showSource(el.getAttribute('data-src'));
+      if (MOBILE_QUERY.matches && sourcePanelEl) {
+        var anchor = el.closest('p, .case-attribution, .ee-timeline-body') || el.parentElement;
+        if (anchor && anchor.parentNode) {
+          anchor.insertAdjacentElement('afterend', sourcePanelEl);
+        }
+      }
+    });
+  });
+
+  if (MOBILE_QUERY.addEventListener) {
+    MOBILE_QUERY.addEventListener('change', function (e) {
+      if (!e.matches) restoreSourcePanelHome();
+    });
+  }
+
+  // SHARED RISK/SIGNAL/RESPONSE OBJECTS. The three pattern-card elements
+  // above are the single source of truth, real static HTML, fully usable
+  // without JS. This clones those same nodes into the closing grid so the
+  // two occurrences can never drift out of sync with each other, rather
+  // than hand-typing the same three cards twice.
+  var grid = document.getElementById('glanceCardGrid');
+  if (grid) {
+    document.querySelectorAll('#patterns > .pattern-card').forEach(function (card) {
+      grid.appendChild(card.cloneNode(true));
+    });
+    var note = document.getElementById('glanceNoJsNote');
+    if (note) note.style.display = 'none';
+  }
+
+  // MOBILE NAV
+  window.toggleMobileNav = function () {
+    var nav = document.getElementById('mobileNav');
+    var btn = document.getElementById('navHamburger');
+    if (!nav || !btn) return;
+    var open = nav.classList.toggle('open');
+    btn.innerHTML = open ? '&#10005;' : '&#9776;';
+  };
+
+  // READING PROGRESS + ACTIVE CHAPTER, single scroll listener, not
+  // registered more than once.
+  var progressBar = document.getElementById('progressBar');
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.ee-toc a[data-toc]'));
+  var sectionIds = tocLinks.map(function (a) { return a.getAttribute('href').slice(1); });
+  var scrollHandlerAttached = false;
+
+  function onScroll() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+    if (progressBar) progressBar.style.width = pct + '%';
+
+    var current = sectionIds[0];
+    for (var i = 0; i < sectionIds.length; i++) {
+      var el = document.getElementById(sectionIds[i]);
+      if (el && el.getBoundingClientRect().top <= 140) current = sectionIds[i];
+    }
+    tocLinks.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  if (!scrollHandlerAttached) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    scrollHandlerAttached = true;
+    onScroll();
+  }
+
+})();
+
+// SCENARIO GRADING
+var SCENARIO_VERDICTS = {
+  scenario1: {
+    A: { tier: 'best', label: 'Best supported', text: 'Reasonable grounds under section 330 can be built from a pattern of otherwise unremarkable transactions, that is precisely how legislation.gov.uk’s own explanatory notes describe the negligence-style trigger: reasonable grounds, not proof of a single obviously wrong transaction.' },
+    B: { tier: 'defensible', label: 'Defensible with conditions', text: 'Legitimate as a next step, provided it does not become a way to avoid the underlying assessment. A request for information is not itself a substitute for reasonable-grounds judgement, and it has to be made without tipping off.' },
+    C: { tier: 'weak', label: 'Weakly supported', text: 'This treats “no single transaction looks wrong alone” as the test. Section 330’s own wording does not require a single transaction to be individually suspicious, a pattern across several is exactly the kind of reasonable grounds the offence is built around.' },
+    D: { tier: 'unsafe', label: 'Unsafe or unsupported', text: 'This is the exact excuse Chapter 3 closes off. POCA’s own trigger is self-contained to what B itself knows or has reasonable grounds to suspect, it does not require or wait for visibility into what happened at another institution.' }
+  }
+};
+var LESSON = {
+  scenario1: 'The absence of visibility into another institution’s fraud case is not a defence, section 330’s own obligation does not require that visibility to exist.'
+};
+
+function showVerdict(scenarioId, choice, btnEl) {
+  // Input validation: only accept a choice this scenario actually defines.
+  var verdicts = SCENARIO_VERDICTS[scenarioId];
+  if (!verdicts || !Object.prototype.hasOwnProperty.call(verdicts, choice)) return;
+  var optionsWrap = document.getElementById(scenarioId + '-options');
+  var verdictEl = document.getElementById(scenarioId + '-verdict');
+  if (!optionsWrap || !verdictEl) return;
+  // Prevent re-answering once a choice has been made for this scenario.
+  if (optionsWrap.dataset.answered === 'true') return;
+  optionsWrap.dataset.answered = 'true';
+
+  Array.prototype.slice.call(optionsWrap.querySelectorAll('.dilemma-option')).forEach(function (b) {
+    b.disabled = true;
+    if (b === btnEl) b.classList.add('picked-' + b.getAttribute('data-tier'));
+  });
+
+  var v = verdicts[choice];
+  verdictEl.className = 'dilemma-verdict show tier-' + v.tier;
+  verdictEl.innerHTML = [
+    '<div class="dilemma-verdict-label">' + escapeHtml(v.label) + '</div>',
+    '<div>' + escapeHtml(v.text) + '</div>',
+    '<div class="dilemma-lesson"><strong>Operational lesson.</strong> ' + escapeHtml(LESSON[scenarioId] || '') + '</div>'
+  ].join('');
+}
+
+// KNOWLEDGE CHECK
+var QUIZ_ANSWERS = { qq1: 'A', qq2: 'B', qq3: 'C', qq4: 'B', qq5: 'B' };
+var QUIZ_EXPLAIN = {
+  qq1: 'The patent’s own background section frames fraud as behavioural-deviation detection and money laundering as pattern-based detection that works even with no deviation. A system tuned only for deviation misses laundering and over-flags fraud victims.',
+  qq2: 'Institution A only ever sees the fraud side, Institution B only ever sees the receiving side. Neither system has any default, unprompted reason to connect the two, that is the asymmetry, not a technology failure.',
+  qq3: 'A single payment looking ordinary is not the test. Four similarly sized payments from four different, unconnected-looking payers is a pattern, exactly the kind of reasonable grounds section 330 is built around.',
+  qq4: 'The trigger is the institution’s own knowledge, suspicion, or reasonable grounds for suspicion, based on information that came to it in its own business, not a report or referral from anywhere else.',
+  qq5: 'Section 330’s trigger is self-contained. It does not require, or wait for, visibility into what happened at another institution before reasonable grounds can exist.'
+};
+var quizAnswered = 0;
+var quizCorrect = 0;
+var quizAnsweredSet = {};
+
+function answerQuiz(qid, choice) {
+  // Input validation: only accept a question id and choice this quiz defines.
+  if (!Object.prototype.hasOwnProperty.call(QUIZ_ANSWERS, qid)) return;
+  if (['A', 'B', 'C', 'D'].indexOf(choice) === -1) return;
+  var qEl = document.getElementById(qid);
+  if (!qEl) return;
+  if (quizAnsweredSet[qid]) return; // prevent double counting on repeat clicks
+  quizAnsweredSet[qid] = true;
+
+  var opts = qEl.querySelectorAll('.quiz-opt');
+  var correct = QUIZ_ANSWERS[qid];
+  var isCorrect = choice === correct;
+
+  opts.forEach(function (btn) {
+    btn.disabled = true;
+    var letter = btn.getAttribute('data-letter');
+    if (letter === correct) btn.classList.add('correct');
+    else if (letter === choice) btn.classList.add('incorrect');
+  });
+
+  var fb = document.getElementById(qid + '-fb');
+  if (fb) {
+    fb.classList.add('show');
+    fb.textContent = (isCorrect ? 'Correct. ' : 'Not quite. ') + (QUIZ_EXPLAIN[qid] || '');
+  }
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    var scoreDiv = document.getElementById('quiz-score');
+    var scoreNum = document.getElementById('quiz-score-num');
+    var scoreLbl = document.getElementById('quiz-score-label');
+    if (scoreDiv && scoreNum && scoreLbl) {
+      scoreDiv.classList.add('show');
+      scoreNum.textContent = quizCorrect + '/5';
+      var labels = [
+        'Keep studying, the asymmetry and the section 330 trigger are worth a second read.',
+        'Getting there, go back through the mechanism and the obligation for the parts you missed.',
+        'Making progress, a few core distinctions are still worth re-reading.',
+        'Good grasp, you would catch most reasonable-grounds judgement calls in time.',
+        'Strong, practitioner-level judgement on where this obligation actually sits.',
+        'Perfect score. You read the mechanism, the obligation, and the scenario as one connected argument, not five separate facts.'
+      ];
+      scoreLbl.textContent = labels[quizCorrect];
+    }
+  }
+}
+
+// SAVE AS IMAGE
+// Renders the closing pattern-card grid (cloned from the same nodes as
+// the inline cards, see above) to a downloadable PNG using native
+// Canvas 2D only, no external library, matching the sitewide standard
+// (saveCardsAsImage pattern).
+function wrapCanvasText(ctx, text, maxWidth) {
+  var words = text.split(' ');
+  var lines = [];
+  var line = '';
+  words.forEach(function (word) {
+    var test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = test;
+    }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  var grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  var btn = document.getElementById('saveCardsImgBtn');
+  var originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  var cardEls = Array.prototype.slice.call(grid.querySelectorAll(':scope > .pattern-card'));
+  var cards = cardEls.map(function (card) {
+    var icon = card.querySelector('.pattern-icon').textContent.trim();
+    var name = card.querySelector('.pattern-name').textContent.trim();
+    var oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    var ttdItems = Array.prototype.slice.call(card.querySelectorAll('.pattern-ttd-item')).map(function (item) {
+      return { label: item.querySelector('.ttd-label').textContent.trim(), text: item.querySelector('.ttd-text').textContent.trim() };
+    });
+    var accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon: icon, name: name, oneLiner: oneLiner, ttdItems: ttdItems, accentColor: accentColor };
+  });
+
+  var WIDTH = 1200;
+  var OUTER_PAD = 20;
+  var contentWidth = WIDTH - OUTER_PAD * 2;
+  var CARD_PAD = 20;
+  var TITLE_H = 64;
+  var FOOTER_H = 92;
+  var HEAD_FONT = '700 20px Georgia, serif';
+  var NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  var LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  var LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  var TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  var FOOT_FONT = '12px Inter, system-ui, sans-serif';
+  var LINE_H = 17;
+  var ICON_SIZE = 32;
+
+  var measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    var lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    var ttdLineCounts = card.ttdItems.map(function (item) { return wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length; });
+    var ttdHeight = ttdLineCounts.reduce(function (sum, n) { return sum + 22 + n * LINE_H; }, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines: lineLines, ttdLineCounts: ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  var cardMeasurements = cards.map(measureCard);
+  var totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce(function (sum, m) { return sum + m.height + 14; }, 0) + FOOTER_H;
+
+  var canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  var ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#FAF8F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  var cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#071912';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Classification Asymmetry: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  var y = cardY + TITLE_H + 14;
+
+  cards.forEach(function (card, i) {
+    var m = cardMeasurements[i];
+    var blockX = cardX + 10;
+    var blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    var cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#071912';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(function (line) { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach(function (item, ti) {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#071912';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      var lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach(function (line, li) { ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H); });
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  // Footer band: attribution, date, source markers, disclaimer.
+  var footY = cardY + cardH - FOOTER_H;
+  ctx.strokeStyle = '#E3E8E3';
+  ctx.beginPath();
+  ctx.moveTo(cardX + 10, footY);
+  ctx.lineTo(cardX + cardW - 10, footY);
+  ctx.stroke();
+
+  ctx.textBaseline = 'top';
+  ctx.font = '700 13px Inter, system-ui, sans-serif';
+  ctx.fillStyle = '#071912';
+  ctx.fillText('FinCrimeRadar.org · Classification Asymmetry', cardX + CARD_PAD, footY + 14);
+
+  ctx.font = FOOT_FONT;
+  ctx.fillStyle = '#6B7280';
+  ctx.fillText('Verified 14 August 2026. Sources 1 to 4, see fincrimeradar.org/classification-asymmetry-guide.html', cardX + CARD_PAD, footY + 36);
+
+  var disclaimerLines = wrapCanvasText(ctx, 'This image is a summary of one guide, not complete regulatory guidance and not a substitute for your own firm’s policy.', cardW - CARD_PAD * 2);
+  disclaimerLines.forEach(function (line, li) { ctx.fillText(line, cardX + CARD_PAD, footY + 54 + li * 16); });
+
+  canvas.toBlob(function (blob) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'classification-asymmetry-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<!-- Accessible text equivalent of the exported summary image, for screen
+     reader and non-visual users, matching the three cards' own content. -->
+<p class="byline-inline" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+  The exported summary image contains: guide title, FinCrimeRadar.org, verification date 14 August 2026, source markers 1 to 4, a statement that the image is a summary and not complete regulatory guidance, and the three Risk, Signal, Response cards already present as readable text earlier on this page.
+</p>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

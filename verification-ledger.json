@@ -1,5 +1,80 @@
 [
   {
+    "claimId": "classification-asymmetry-guide.patent-mechanism.001",
+    "guide": "classification-asymmetry-guide.html",
+    "claimText": "US Patent 12,086,874 B2, \"Intelligent Alert System\" (Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song, priority 13 February 2019, granted 10 September 2024), states in its background section that fraud is detected via behavioural deviation while money laundering can be detected via transactional pattern even with no behavioural deviation, and that neither of two institutions involved in an asymmetric fraud/laundering case sees both sides. Cited for mechanism and insight only, never as a legal or regulatory authority.",
+    "claimType": "definition",
+    "source": {
+      "title": "US Patent 12,086,874 B2, \"Intelligent Alert System\"",
+      "url": "https://patents.google.com/patent/US12086874B2/en",
+      "publisher": "Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song (individual filers, granted via USPTO)",
+      "date": "2024-09-10"
+    },
+    "verifiedOn": "2026-08-14",
+    "reviewDue": "2027-08-14",
+    "status": "verified"
+  },
+  {
+    "claimId": "classification-asymmetry-guide.poca-s330-trigger.001",
+    "guide": "classification-asymmetry-guide.html",
+    "claimText": "Under section 330 of the Proceeds of Crime Act 2002, the failure-to-disclose offence is triggered by knowledge, suspicion, or reasonable grounds for knowing or suspecting money laundering, based on the regulated person's own information, a self-contained, negligence-style trigger per legislation.gov.uk's own Explanatory Notes to subsection (2)(b), independent of whether another institution has separately reported or discovered anything.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, Section 330 and Explanatory Notes",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/330/notes",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-14",
+    "reviewDue": "2027-08-14",
+    "status": "verified"
+  },
+  {
+    "claimId": "classification-asymmetry-guide.kingsley-napley-s330.001",
+    "guide": "classification-asymmetry-guide.html",
+    "claimText": "Corroborating legal commentary supporting the reading that section 330's trigger depends on information that actually came to the regulated person in the course of their own business, a self-contained standard not dependent on coordination between institutions.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Will the CPS' decision to update its guidance mean an increase in prosecutions for failure to disclose under section 330 of POCA 2002?",
+      "url": "https://www.kingsleynapley.co.uk/insights/blogs/criminal-law-blog/will-the-cps-decision-to-update-its-guidance-mean-an-increase-in-prosecutions-for-failure-to-disclose-under-section-330-of-poca-2002",
+      "publisher": "Kingsley Napley LLP, Criminal Law Blog",
+      "date": "2024-01-01"
+    },
+    "verifiedOn": "2026-08-14",
+    "reviewDue": "2027-08-14",
+    "status": "verified"
+  },
+  {
+    "claimId": "classification-asymmetry-guide.poca-s339zb-info-sharing-gateway.001",
+    "guide": "classification-asymmetry-guide.html",
+    "claimText": "Sections 339ZB to 339ZD of POCA 2002, inserted by section 11 of the Criminal Finances Act 2017, create a voluntary information-sharing gateway between regulated-sector institutions for suspected money laundering, subject to conditions (an affirmative request from the recipient or the NCA, prior NCA notification), not an automatic mechanism, and can lead to a joint disclosure report to the NCA (a 'Super SAR') that can itself satisfy the section 330 reporting requirement.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Criminal Finances Act 2017, Explanatory Notes, Division 6 (paras. 101-104)",
+      "url": "https://www.legislation.gov.uk/ukpga/2017/22/notes/division/6/index.htm",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-10-31"
+    },
+    "verifiedOn": "2026-08-14",
+    "reviewDue": "2027-08-14",
+    "status": "verified"
+  },
+  {
+    "claimId": "classification-asymmetry-guide.daml-threshold-3000.001",
+    "guide": "classification-asymmetry-guide.html",
+    "claimText": "The current Defence Against Money Laundering (DAML) threshold under section 339A POCA 2002 is £3,000, raised from £1,000 on 31 July 2025 by SI 2025/877, itself raised from £250 on 5 January 2023, two separate increases.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Proceeds of Crime (Money Laundering) (Threshold Amount) (Amendment) Order 2025 (SI 2025/877)",
+      "url": "https://www.legislation.gov.uk/uksi/2025/877/made",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2025-07-10"
+    },
+    "verifiedOn": "2026-08-14",
+    "reviewDue": "2027-02-14",
+    "status": "verified"
+  },
+  {
     "claimId": "tm-guide.canaccord-penalty.001",
     "guide": "tm-guide.html",
     "claimText": "The Canaccord Genuity consent order, issued in March 2026, found at least 160 SARs unfiled and thousands of suspicious transactions flowing undetected",
