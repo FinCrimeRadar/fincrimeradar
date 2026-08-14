@@ -2,12 +2,12 @@
   {
     "claimId": "classification-asymmetry-guide.patent-mechanism.001",
     "guide": "classification-asymmetry-guide.html",
-    "claimText": "US Patent 12,086,874 B2, \"Intelligent Alert System\" (Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song, priority 13 February 2019, granted 10 September 2024), states in its background section that fraud is detected via behavioural deviation while money laundering can be detected via transactional pattern even with no behavioural deviation, and that neither of two institutions involved in an asymmetric fraud/laundering case sees both sides. Cited for mechanism and insight only, never as a legal or regulatory authority.",
+    "claimText": "US Patent 12,086,874 B2, \"Intelligent Alert System\" (Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song, priority 13 February 2019, granted 10 September 2024, current assignee Apex Techlink, Inc.), states in its background section that fraud is detected via behavioural deviation while money laundering can be detected via transactional pattern even with no behavioural deviation, that neither of two institutions involved in an asymmetric fraud/laundering case sees both sides, and, in its detailed description, that money launderers \"usually pretend to be good customers because they need the financial institutions' assistance to accomplish their schemes.\" Cited for mechanism and insight only, never as a legal or regulatory authority.",
     "claimType": "definition",
     "source": {
       "title": "US Patent 12,086,874 B2, \"Intelligent Alert System\"",
       "url": "https://patents.google.com/patent/US12086874B2/en",
-      "publisher": "Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song (individual filers, granted via USPTO)",
+      "publisher": "Inventors: Yuh-Shen Song, Catherine Lew, Alexander Song, Victoria Song (individual filers). Issuing authority: USPTO. Current assignee: Apex Techlink, Inc.",
       "date": "2024-09-10"
     },
     "verifiedOn": "2026-08-14",
@@ -62,7 +62,7 @@
   {
     "claimId": "classification-asymmetry-guide.daml-threshold-3000.001",
     "guide": "classification-asymmetry-guide.html",
-    "claimText": "The current Defence Against Money Laundering (DAML) threshold under section 339A POCA 2002 is £3,000, raised from £1,000 on 31 July 2025 by SI 2025/877, itself raised from £250 on 5 January 2023, two separate increases.",
+    "claimText": "Section 339A POCA 2002 exempts two specific circumstances from needing a Defence Against Money Laundering before proceeding, not a general low-value-transaction allowance: a deposit-taking body, e-money institution, or payment institution operating an account below the threshold (subsection 2), and a regulated-sector person paying away property when terminating a business relationship (subsection 6A). Both thresholds are currently £3,000, raised from £1,000 on 31 July 2025 by SI 2025/877, itself raised from £250 on 5 January 2023, two separate increases.",
     "claimType": "regulatory",
     "source": {
       "title": "The Proceeds of Crime (Money Laundering) (Threshold Amount) (Amendment) Order 2025 (SI 2025/877)",
