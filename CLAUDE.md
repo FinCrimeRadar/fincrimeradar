@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+**This document is the canonical source for enforcement rules, sourcing requirements, security constraints, component isolation, and review triggers. Guide structure, editorial presentation, interaction requirements, and format treatments (including Evidence Essay) are defined in GUIDE_STANDARD.md, not here, and are not restated in this file.**
+
 ## Formatting rule
 
 Never use em dashes or en dashes in any response, explanation, or code comment. Use commas, periods, parentheses, or separate sentences instead.
@@ -50,6 +52,24 @@ This is the same class of gap the Review policy already exists to close for scor
 Any new guide making a specific regulatory-obligation, legal-scope, or statutory-applicability claim (which regulation applies to which entity type, what a licence condition actually requires, what an authority's finding does or does not establish) requires an external adversarial review of those specific claims before publication, run manually outside the Claude Code session, same as the existing high-stakes logic review. This applies regardless of the guide's visual format or interactivity level, it is about the claims, not the layout.
 
 Claude Code should flag which claims in a new guide fall into this category as part of its own delivery report, the same way it already flags new scoring/grading logic requiring review, so the human knows what needs the external pass before shipping, rather than discovering the gap after publication.
+
+## Sourcing process verification
+
+A guide's own Methodology section can misstate its own verification process, not just the underlying facts it's meant to be checking. Found and corrected during the classification-asymmetry-guide.html revision (2026-08-14): a quote was wrongly declared unverifiable in the guide's own Methodology section when it was genuinely present in the source, a false statement about the guide's own sourcing rigor sitting inside the one section whose job is to prove that rigor. Neither the project's sourcing checklist nor its in-browser verification is built to catch this, both check for missing citations and broken interactions, not for whether a guide's narrative about its own verification process is itself accurate.
+
+Add to the adversarial review checklist: verify that every statement the guide makes about its own sourcing, search process, source availability, verification result, or inability to confirm a claim is itself accurate and supported by the retained verification record.
+
+## Stale-asset synchronisation
+
+Found independently twice: the MLRO Handbook Part 2 stale CFP Management fine figure, and classification-asymmetry-guide.html's summary snapshot shipping before a corrective text pass had caught up to it. Both were material-claim changes that did not propagate to a derived asset.
+
+When a material claim, figure, legal interpretation, case detail, or conclusion changes, review and synchronise every derived representation before publication. This includes summary images, metadata, structured data, social copy, stat strips, quizzes, scenario feedback, closing cards, and Knowledge Hub descriptions. Publication is blocked until the synchronisation check passes.
+
+## Scenario reasoning distinction
+
+Closes a pattern found twice on the same guide: classification-asymmetry-guide.html's "precisely how the explanatory notes describe" and "exactly the kind of reasonable grounds" overclaims, both describing the guide's own inference as if it were the cited authority's own language.
+
+Scenario reasoning must distinguish clearly between what a source or law expressly establishes, the guide's application of that authority to the illustrative facts, and the guide's operational recommendation. Do not describe an inference or recommendation as the precise, exact, or required meaning of the cited authority. Applies alongside the existing scoring-logic review requirement above, to every scenario verdict and quiz feedback string, not only to new guides.
 
 ## Session tooling
 
