@@ -1,0 +1,37 @@
+name: Sync Scenario Lab cases to fincrimeradar-api
+
+# fincrimeradar-api mirrors this repo's scenario-lab/data/cases.json as its
+# own Scenario Lab fixture, not a live read (see routes_scenario_lab.py
+# there). That mirror went stale for six weeks, one manual copy on
+# 2026-07-07, never updated through two later module launches on this repo,
+# before it was caught by a user-reported empty case picker in production.
+# This workflow is the piece that actually closes the gap: it fires only
+# when this specific file changes on main, and triggers a fincrimeradar-api
+# redeploy so that service's own build-time fetch (see render.yaml there)
+# picks up the fresh file. Without this, the build-time fetch alone only
+# keeps deploys that happen anyway from being stale, it does nothing if
+# nobody remembers to trigger one.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scenario-lab/data/cases.json"
+
+# No checkout step and no GitHub API calls anywhere in this job, only an
+# outbound curl to an external Render URL using a repo secret, so the
+# GITHUB_TOKEN needs zero scope, not even read access to repo contents.
+permissions: {}
+
+jobs:
+  trigger-api-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger fincrimeradar-api Render deploy
+        env:
+          RENDER_DEPLOY_HOOK_FINCRIMERADAR_API: ${{ secrets.RENDER_DEPLOY_HOOK_FINCRIMERADAR_API }}
+        run: |
+          if [ -z "$RENDER_DEPLOY_HOOK_FINCRIMERADAR_API" ]; then
+            echo "::error::RENDER_DEPLOY_HOOK_FINCRIMERADAR_API secret is not set, cannot trigger the fincrimeradar-api deploy. Add it in this repo's Settings > Secrets and variables > Actions, value from the Render dashboard, fincrimeradar-api service > Settings > Deploy Hook."
+            exit 1
+          fi
+          curl -fsSL -X POST "$RENDER_DEPLOY_HOOK_FINCRIMERADAR_API"
