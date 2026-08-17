@@ -606,7 +606,7 @@
     "entity_id": "risk-country-flag-101",
     "name": "Meridian Textiles Wholesale",
     "title": "The Country Flag That Is Not the Risk",
-    "briefing": "Meridian Textiles Wholesale has an established banking relationship with a supplier based in a jurisdiction identified as high risk under MLR 2017. Review the signals below, then decide.",
+    "briefing": "Meridian Textiles Wholesale has an established banking relationship with a supplier based in a jurisdiction on the FATF Call for Action list. The bank is currently reviewing an outbound trade payment to that supplier. Review the signals below, then decide.",
     "layout": "cross_reference",
     "header_scene": {
       "nodes": [
@@ -655,7 +655,7 @@
       { "key": "block_sar", "label": "Block or SAR" }
     ],
     "correct_disposition": ["edd"],
-    "rationale": "MLR 2017 regulation 33 establishes that a business relationship or transaction connected to a high risk third country requires Enhanced Due Diligence, applied as soon as that jurisdictional connection exists, not only once other risk indicators appear. Applying that to this file, the third country link is present, but every other signal (consistent volumes, documented source of funds, a supplier relationship that matches the customer's stated business, and an adverse media hit that does not match on date of birth or location) points to otherwise low underlying risk. The proportionate action is Enhanced Due Diligence with the reasoning documented on file, not an automatic escalation to Block or SAR on the strength of the geography flag alone, and not Standard monitoring, which would skip a mandatory reg 33 obligation the file has already engaged.",
+    "rationale": "MLR 2017 regulation 33(1)(b) requires Enhanced Due Diligence and enhanced ongoing monitoring where the firm has a business relationship with a person established in a high risk third country, or conducts a relevant transaction where either party is established there. Since 30 June 2026, following the Money Laundering and Terrorist Financing (Amendment) Regulations 2026, the automatic statutory trigger applies specifically to countries on FATF's Call for Action list, a narrower test than the previous high risk third country list. Applying that here, the payment under review is a relevant transaction with a party established in a Call for Action jurisdiction, so regulation 33 is engaged on the facts, not merely inferred from a general commercial connection. Every other signal in the file (consistent volumes, documented source of funds, a supplier relationship that matches the customer's stated business, and an adverse media hit that does not match on date of birth or location) points to otherwise low underlying risk. The proportionate action is Enhanced Due Diligence with the reasoning documented on file, not an automatic escalation to Block or SAR on the strength of the jurisdiction flag alone, and not Standard monitoring, which would skip a mandatory regulation 33 obligation the file has already engaged.",
     "related_guide": {
       "title": "The Onboarding Dilemma",
       "url": "/kyc-onboarding-dilemma.html",
@@ -666,9 +666,9 @@
     "module": "risk_scoring",
     "case_number": 2,
     "entity_id": "risk-domestic-pep-102",
-    "name": "Councillor Grant Family Trust Account",
+    "name": "New Personal Account, Sitting Member of Parliament",
     "title": "The PEP Who Should Not Be Declined",
-    "briefing": "A new personal banking customer is confirmed, via screening, as a domestic PEP. Review the signals below, then decide.",
+    "briefing": "A new personal banking customer is confirmed, via screening, as a sitting Member of Parliament, a domestic PEP under MLR 2017. Review the signals below, then decide.",
     "layout": "cross_reference",
     "header_scene": {
       "nodes": [
@@ -687,7 +687,7 @@
       {
         "icon": "id",
         "title": "PEP screening hit",
-        "body": "Screening confirms the applicant is a domestic Politically Exposed Person, an elected local councillor. This status alone triggers the Enhanced Due Diligence requirement under MLR 2017 regulation 35."
+        "body": "Screening confirms the applicant is a sitting Member of Parliament, a domestic Politically Exposed Person under MLR 2017 regulation 35(12). This status triggers the mandatory Enhanced Due Diligence measures in regulation 35(5), including senior management approval, establishing source of wealth and source of funds, and enhanced ongoing monitoring."
       },
       {
         "icon": "pattern",
@@ -697,7 +697,7 @@
       {
         "icon": "credit",
         "title": "Source of wealth",
-        "body": "Source of wealth is clear and unremarkable: a documented councillor's allowance plus salary from an unrelated full time employer, both independently verifiable."
+        "body": "Source of wealth is clear and unremarkable: a Parliamentary salary, a matter of public record, plus documented rental income from a single co-owned residential property, independently verifiable against Land Registry data."
       },
       {
         "icon": "cash",
@@ -717,7 +717,7 @@
       { "key": "block_sar", "label": "Block or SAR" }
     ],
     "correct_disposition": ["edd"],
-    "rationale": "MLR 2017 regulation 35 and FCA guidance FG17/6 establish that PEP status requires Enhanced Due Diligence, and that a domestic PEP starts from a materially lower risk baseline than a foreign PEP in the absence of other aggravating factors. Applying that here, the file has PEP status and nothing else, no adverse media, a documented and unremarkable source of wealth, and ordinary product usage. The proportionate response is Enhanced Due Diligence, applied because the status requires it, not because anything found so far justifies more. Treating the list hit itself as grounds to decline the relationship is the common error this case is built to correct, PEP status is a trigger for closer checking, not a finding against the customer.",
+    "rationale": "MLR 2017 regulation 35 requires Enhanced Due Diligence where the customer genuinely meets the PEP definition in regulation 35(12), and regulation 35(3A), in force since January 2024, establishes that a domestic PEP's assessment must start from a lower level of risk than a non-domestic PEP's, absent enhanced risk factors. FCA guidance FG25/3 (July 2025, superseding the earlier FG17/6) confirms this starting point and supports proportionate, less intrusive measures for a lower risk domestic PEP. Applying that here, the file has genuine domestic PEP status and nothing else, no adverse media, a documented and unremarkable source of wealth, and ordinary product usage. The proportionate response is Enhanced Due Diligence, applied because the status requires it, not because anything found so far justifies more. Treating the PEP status itself as grounds to decline the relationship is the common error this case is built to correct, PEP status is a trigger for closer, proportionate checking, not a finding against the customer.",
     "related_guide": {
       "title": "PEP Due Diligence: What Good Looks Like",
       "url": "/pep-guide-part2.html",
@@ -733,8 +733,8 @@
     "briefing": "Tradewind Capital Partners Ltd has applied for onboarding. The entity itself returns no direct sanctions match. Build out the ownership tree and screen each shareholder, then decide.",
     "layout": "ownership_tree",
     "track_listed_ownership_aggregate": true,
-    "correct_disposition": ["block_sar"],
-    "rationale": "OFAC's 50 Percent Rule establishes that an entity owned 50 percent or more in the aggregate by one or more blocked persons is itself treated as blocked, whether or not the entity appears on the SDN list in its own name. Applying that rule to this file, two separate shareholders (30 percent and 25 percent) each return a screening match against the OFAC SDN list, and summed together their combined stake is 55 percent, above the 50 percent aggregation threshold. The correct action is Block or SAR, the entity's own clean direct screening result does not change that outcome once the aggregate ownership calculation is done. A separate point for a UK analyst: OFSI's ownership and control test is not the same rule, and it is assessed per designated person, not by summing separate designated persons' stakes the way the OFAC aggregation rule does. Under the UK regime a single designated person meets the ownership limb by holding, on their own, more than 50 percent of the shares or voting rights, or the right to appoint or remove a majority of the board; the control limb is a separate, qualitative test, met where it is reasonable to expect that person could ensure the entity's affairs are conducted in accordance with their wishes, assessed case by case. Do not assume the OFAC aggregate rule maps one to one onto the UK position, they are separate tests applied by separate regimes.",
+    "correct_disposition": ["escalate_mlro", "block_sar"],
+    "rationale": "OFAC's 50 Percent Rule establishes that an entity owned 50 percent or more in the aggregate by one or more blocked persons is itself treated as blocked, whether or not the entity appears on the SDN list in its own name, and no single blocked person needs to individually hold 50 percent. Applying that rule to this file, two separate shareholders (30 percent and 25 percent) each return a screening match against the OFAC SDN list, and summed together their combined stake is 55 percent, above the 50 percent aggregation threshold. If the entity, its property, or the proposed transaction is subject to United States jurisdiction, it must be treated as blocked and the applicable OFAC restrictions and reporting obligations followed. A UK firm must separately assess whether UK sanctions apply, through a UK designation, a UK ownership or control finding, or another applicable UK prohibition, rather than assuming the OFAC match alone imposes a UK blocking obligation. The correct first action is to escalate to the MLRO to establish jurisdiction and determine the applicable UK response; Block or SAR follows once US jurisdiction is confirmed or a UK designation independently applies. A separate point for a UK analyst: OFSI's ownership and control test is not the same rule as OFAC's, and OFSI does not ordinarily aggregate entirely independent holdings held by separate designated persons, though joint holdings, joint arrangements, or one designated person controlling another's rights can change that analysis. Under the UK regime a single designated person meets the ownership limb by holding, on their own, more than 50 percent of the shares or voting rights, or the right to appoint or remove a majority of the board; the control limb is a separate, qualitative test, met where it is reasonable to expect that person could ensure the entity's affairs are conducted in accordance with their wishes, assessed case by case. Any required OFSI report must be made separately, and an NCA SAR should be considered only where there is an independent suspicion of money laundering or terrorist financing, it is not a substitute for sanctions restrictions or reporting. Do not assume the OFAC aggregate rule maps one to one onto the UK position, they are separate tests applied by separate regimes.",
     "related_guide": {
       "title": "Sanctions Compliance: OFAC, OFSI and Beyond",
       "url": "/sanctions-compliance-guide.html",
@@ -861,8 +861,8 @@
       { "key": "escalate_mlro", "label": "Escalate to MLRO" },
       { "key": "block_sar", "label": "Block or SAR" }
     ],
-    "correct_disposition": ["standard", "edd"],
-    "rationale": "MLR 2017's risk based approach (regulations 18 to 19) establishes that a firm's risk assessment has to inform proportionate, judged action, a numeric score is an input to that judgement, not a substitute for it. Applying that here, the automated model's High output is produced by simply adding four flags together, and every one of those flags is individually minor: online onboarding is the bank's normal channel, the foreign transfer is low value with a documented family reason, the fuzzy match sits below the tool's own surfacing threshold, and every account is new once. None of the four is individually material, and stacking immaterial flags does not manufacture a material one. The proportionate response is to override the model's High output to Standard monitoring, or Standard with light EDD, with the override reasoning documented on file, not to escalate or block on the strength of an additive score alone, and not to accept the High output silently without recording why it was overridden.",
+    "correct_disposition": ["standard"],
+    "rationale": "MLR 2017 regulations 18 and 19 require a firm to identify and assess its money laundering and terrorist financing risks and maintain proportionate policies, controls and procedures to manage them. The regulations do not themselves prescribe a particular scoring model or state that a numerical result must always be overridden by human judgement, but FCA guidance and findings on risk assessment expect firms to apply judgement and common sense, document their methodology, and test and review automated risk assessment processes rather than treat a score as a final answer. Applying that expectation here, the automated model's High output is produced by simply adding four flags together, and every one of those flags is individually minor: online onboarding is the bank's normal channel, the foreign transfer is low value with a documented family reason, the fuzzy match sits below the tool's own surfacing threshold, and every account is new once. This case's model gives disproportionate cumulative weight to weak, non-corroborating indicators, that is a weighting and calibration failure, not a demonstration that minor indicators can never collectively establish higher risk in other cases. The proportionate response here is to override the model's High output to Standard monitoring, with the override reasoning documented on file, not to escalate or block on the strength of an additive score alone, and not to accept the High output silently without recording why it was overridden. Enhanced Due Diligence remains necessary wherever a statutory trigger or a properly documented high risk assessment actually requires it, this case's facts simply do not.",
     "related_guide": {
       "title": "UK AML Compliance: Core Obligations",
       "url": "/aml-guide-part2.html",
