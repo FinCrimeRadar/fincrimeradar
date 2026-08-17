@@ -87,6 +87,7 @@
         state.kycCases = cases.filter((c) => (c.module || "kyc") === "kyc");
         state.fraudCases = cases.filter((c) => c.module === "fraud");
         state.riskCases = cases.filter((c) => c.module === "risk_scoring");
+        assertCase4ScoresHigh(cases);
         renderDashboard(dashboard, workspace, state);
       })
       .catch((err) => {
@@ -596,9 +597,12 @@
   // regardless of how the tuning slider is set, mis-tuning a screening
   // tool does not un-list a sanctioned person. Used only for Case 3's
   // aggregate ownership panel below, matchSurfaced (threshold-gated) is
-  // still what drives the tree/node-detail UI's own match display.
+  // still what drives the tree/node-detail UI's own match display. Checks
+  // both result and list_source, not just result !== "no_match" alone, so
+  // a malformed screening object (a match result with no list source) is
+  // never silently counted either.
   function isListedMatch(node) {
-    return !!node.screening && node.screening.result !== "no_match";
+    return !!node.screening && node.screening.result !== "no_match" && !!node.screening.list_source;
   }
 
   // A node indicates a PEP connection when its screening data flags one,
@@ -1175,6 +1179,29 @@
     return { score, breakdown };
   }
 
+  // Case 4's entire teaching point depends on its naive additive model
+  // landing on High from individually minor flags. If a later edit to the
+  // points values in cases.json, or to bandForScore's thresholds, ever
+  // moves that sum out of "high", the case silently stops teaching what
+  // its rationale claims it teaches. Fail loudly rather than silently, per
+  // the project's fail-loudly rule, so this gets caught at load time
+  // instead of discovered by an analyst mid-case.
+  function assertCase4ScoresHigh(cases) {
+    const overScored = cases.find((c) => c.entity_id === "risk-over-scored-104");
+    if (!overScored || !overScored.risk_signals) return;
+    const { score } = computeSignalScore(overScored.risk_signals);
+    if (bandForScore(score) !== "high") {
+      console.error(
+        "Scenario Lab: Case 4 (risk-over-scored-104) risk_signals now sum to " +
+          score +
+          ", band '" +
+          bandForScore(score) +
+          "', not 'high'. The case's rationale and disposition assume a High score, check " +
+          "the points values in cases.json or bandForScore's thresholds."
+      );
+    }
+  }
+
   function updateRiskScoreDisplay(scoreArea, caseData, state) {
     const { score, breakdown } = computeRiskScore(caseData, state);
     renderRiskScoreDisplay(scoreArea, score, breakdown);
@@ -1298,11 +1325,13 @@
     if (state.caseIndex < state.cases.length) {
       if (state.currentModule === "kyc") loadCase(workspace, state);
       else if (state.currentModule === "risk_scoring") loadRiskCaseByLayout(workspace, state);
-      else loadFraudCaseByLayout(workspace, state);
+      else if (state.currentModule === "fraud") loadFraudCaseByLayout(workspace, state);
+      else console.error("Scenario Lab: advanceToNextCase, unknown state.currentModule: " + state.currentModule);
     } else {
       if (state.currentModule === "kyc") renderCompletionScreen(workspace, state);
       else if (state.currentModule === "risk_scoring") renderRiskCompletionScreen(workspace, state);
-      else renderFraudCompletionScreen(workspace, state);
+      else if (state.currentModule === "fraud") renderFraudCompletionScreen(workspace, state);
+      else console.error("Scenario Lab: advanceToNextCase, unknown state.currentModule: " + state.currentModule);
     }
   }
 
