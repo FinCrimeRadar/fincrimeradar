@@ -591,6 +591,16 @@
     return node.screening.match_confidence >= state.fuzzyThreshold;
   }
 
+  // Ground truth, deliberately independent of the analyst's own fuzzy
+  // threshold: a shareholder who genuinely is a sanctions match stays one
+  // regardless of how the tuning slider is set, mis-tuning a screening
+  // tool does not un-list a sanctioned person. Used only for Case 3's
+  // aggregate ownership panel below, matchSurfaced (threshold-gated) is
+  // still what drives the tree/node-detail UI's own match display.
+  function isListedMatch(node) {
+    return !!node.screening && node.screening.result !== "no_match";
+  }
+
   // A node indicates a PEP connection when its screening data flags one,
   // whether via an explicit pep flag, a pep result, or a PEP list source.
   function isPepConnected(node) {
@@ -994,6 +1004,7 @@
       state.fuzzyThreshold = Number(fuzzySlider.value);
       fuzzyValue.textContent = state.fuzzyThreshold + "%";
       refreshMatchVisibility(state);
+      refreshOwnershipAggregate(state);
     });
     container.appendChild(fuzzySlider);
 
@@ -1041,19 +1052,22 @@
   }
 
   // Sums ownership_pct across only the nodes the analyst has actually
-  // screened AND whose result surfaces as a match at the current fuzzy
-  // threshold, mirroring matchSurfaced's own gating exactly, so this never
-  // credits a shareholder the analyst hasn't screened or one screening
-  // cleared. Same .sl-risk-score visual component as the KYC calculator,
-  // banded against the 50 percent aggregation threshold rather than the
-  // calculator's points-based bands, the semantics differ (a percentage of
-  // ownership, not an additive risk score) even though the look matches.
+  // screened AND whose ground-truth screening result is a match
+  // (isListedMatch, not matchSurfaced), so this never credits a
+  // shareholder the analyst hasn't screened, but also never drops one
+  // just because the fuzzy threshold slider has been dragged loose since:
+  // a sanctioned aggregate is a fact about the shareholders, not an
+  // artifact of the analyst's current tool tuning. Same .sl-risk-score
+  // visual component as the KYC calculator, banded against the 50 percent
+  // aggregation threshold rather than the calculator's points-based bands,
+  // the semantics differ (a percentage of ownership, not an additive risk
+  // score) even though the look matches.
   function computeListedOwnershipAggregate(caseData, state) {
     let pct = 0;
     const breakdown = [];
     caseData.nodes.forEach((n) => {
       const ns = state.nodeState[n.id];
-      if (!ns.screened || !matchSurfaced(n, state) || n.ownership_pct == null) return;
+      if (!ns.screened || !isListedMatch(n) || n.ownership_pct == null) return;
       pct += n.ownership_pct;
       breakdown.push(n.label + ": +" + n.ownership_pct + "%");
     });
@@ -1198,7 +1212,10 @@
     // unchanged. Risk Scoring's Case 3 supplies its own four-option graded
     // set (Standard/EDD/Escalate to MLRO/Block or SAR) via disposition_options,
     // same shape the cross-reference cases already use.
-    const dispositions = caseData.disposition_options || DEFAULT_KYC_DISPOSITIONS;
+    const dispositions =
+      caseData.disposition_options && caseData.disposition_options.length
+        ? caseData.disposition_options
+        : DEFAULT_KYC_DISPOSITIONS;
     dispositions.forEach((opt) => {
       const btn = document.createElement("button");
       btn.className = "sl-btn";
