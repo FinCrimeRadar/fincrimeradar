@@ -39,6 +39,7 @@
       cases: [],
       kycCases: [],
       fraudCases: [],
+      riskCases: [],
       caseIndex: 0,
       currentCase: null,
       nodeState: {}, // nodeId -> { identified: bool, screened: bool }
@@ -876,6 +877,7 @@
     renderNodeDetail(nodeDetail, caseData, state, nodeId);
     refreshActionFooterState(state);
     refreshRiskScore(state);
+    refreshOwnershipAggregate(state);
   }
 
   function renderNodeDetail(nodeDetail, caseData, state, nodeId) {
@@ -1014,9 +1016,69 @@
       refreshMatchVisibility(state);
     });
 
+    // Aggregate listed ownership, Case 3 (risk-aggregate-ownership-103)
+    // only: always visible when the case opts in, no manual toggle, since
+    // it starts at 0% with nothing identified/screened yet and only grows
+    // as the analyst actually screens each shareholder, the running total
+    // is never shown ahead of the work that produces it.
+    let aggregateArea = null;
+    if (caseData.track_listed_ownership_aggregate) {
+      const aggHeading = document.createElement("div");
+      aggHeading.className = "sl-toggle-row";
+      aggHeading.innerHTML = "<span>Aggregate listed ownership</span>";
+      container.appendChild(aggHeading);
+
+      aggregateArea = document.createElement("div");
+      container.appendChild(aggregateArea);
+    }
+
     container._scoreArea = scoreArea;
     container._caseData = caseData;
+    container._aggregateArea = aggregateArea;
     state.toolsPanel = container;
+
+    if (aggregateArea) updateOwnershipAggregateDisplay(aggregateArea, caseData, state);
+  }
+
+  // Sums ownership_pct across only the nodes the analyst has actually
+  // screened AND whose result surfaces as a match at the current fuzzy
+  // threshold, mirroring matchSurfaced's own gating exactly, so this never
+  // credits a shareholder the analyst hasn't screened or one screening
+  // cleared. Same .sl-risk-score visual component as the KYC calculator,
+  // banded against the 50 percent aggregation threshold rather than the
+  // calculator's points-based bands, the semantics differ (a percentage of
+  // ownership, not an additive risk score) even though the look matches.
+  function computeListedOwnershipAggregate(caseData, state) {
+    let pct = 0;
+    const breakdown = [];
+    caseData.nodes.forEach((n) => {
+      const ns = state.nodeState[n.id];
+      if (!ns.screened || !matchSurfaced(n, state) || n.ownership_pct == null) return;
+      pct += n.ownership_pct;
+      breakdown.push(n.label + ": +" + n.ownership_pct + "%");
+    });
+    return { pct, breakdown };
+  }
+
+  function ownershipAggregateBand(pct) {
+    if (pct >= 50) return "high";
+    if (pct >= 25) return "medium";
+    return "low";
+  }
+
+  function updateOwnershipAggregateDisplay(aggregateArea, caseData, state) {
+    const { pct, breakdown } = computeListedOwnershipAggregate(caseData, state);
+    aggregateArea.innerHTML = [
+      '<div class="sl-risk-score ' + ownershipAggregateBand(pct) + '">' + pct + "%</div>",
+      '<div class="sl-risk-breakdown">' +
+        (breakdown.length ? breakdown.map(escapeHtml).join("<br>") : "No listed ownership identified yet.") +
+        "</div>",
+    ].join("");
+  }
+
+  function refreshOwnershipAggregate(state) {
+    if (!state.toolsPanel || !state.toolsPanel._aggregateArea) return;
+    updateOwnershipAggregateDisplay(state.toolsPanel._aggregateArea, state.toolsPanel._caseData, state);
   }
 
   // Re-render the tree and any open node detail so fuzzy threshold and PEP
@@ -1153,7 +1215,10 @@
     // Listen for screening completions bubbling up from node detail cards.
     // Guarded so this attaches once per workspace element, not once per case load.
     if (!workspace._slScreeningListenerAttached) {
-      workspace.addEventListener("sl:node-screened", () => refreshActionFooterState(state));
+      workspace.addEventListener("sl:node-screened", () => {
+        refreshActionFooterState(state);
+        refreshOwnershipAggregate(state);
+      });
       workspace._slScreeningListenerAttached = true;
     }
   }
