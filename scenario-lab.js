@@ -87,7 +87,17 @@
         state.kycCases = cases.filter((c) => (c.module || "kyc") === "kyc");
         state.fraudCases = cases.filter((c) => c.module === "fraud");
         state.riskCases = cases.filter((c) => c.module === "risk_scoring");
-        assertCase4ScoresHigh(cases);
+        // A guard that can crash the app is worse than no guard: this call
+        // sits inside the shared cases.then() ahead of every module's own
+        // render, so any unexpected throw here (malformed risk_signals,
+        // anything assertCase4ScoresHigh doesn't already handle) must never
+        // propagate into the outer .catch below and take down KYC/Fraud/
+        // Risk Scoring together over a Case 4 data problem.
+        try {
+          assertCase4ScoresHigh(cases);
+        } catch (err) {
+          console.error("Scenario Lab: assertCase4ScoresHigh failed unexpectedly, continuing:", err);
+        }
         renderDashboard(dashboard, workspace, state);
       })
       .catch((err) => {
@@ -1188,14 +1198,15 @@
   // instead of discovered by an analyst mid-case.
   function assertCase4ScoresHigh(cases) {
     const overScored = cases.find((c) => c.entity_id === "risk-over-scored-104");
-    if (!overScored || !overScored.risk_signals) return;
+    if (!overScored || !Array.isArray(overScored.risk_signals)) return;
     const { score } = computeSignalScore(overScored.risk_signals);
-    if (bandForScore(score) !== "high") {
+    const band = bandForScore(score);
+    if (band !== "high") {
       console.error(
         "Scenario Lab: Case 4 (risk-over-scored-104) risk_signals now sum to " +
           score +
           ", band '" +
-          bandForScore(score) +
+          band +
           "', not 'high'. The case's rationale and disposition assume a High score, check " +
           "the points values in cases.json or bandForScore's thresholds."
       );
@@ -1322,16 +1333,18 @@
   // ever knowing how to advance its own original module.
   function advanceToNextCase(workspace, state) {
     state.caseIndex += 1;
+    const unknownModuleError =
+      "Scenario Lab: advanceToNextCase, unknown state.currentModule: " + state.currentModule;
     if (state.caseIndex < state.cases.length) {
       if (state.currentModule === "kyc") loadCase(workspace, state);
       else if (state.currentModule === "risk_scoring") loadRiskCaseByLayout(workspace, state);
       else if (state.currentModule === "fraud") loadFraudCaseByLayout(workspace, state);
-      else console.error("Scenario Lab: advanceToNextCase, unknown state.currentModule: " + state.currentModule);
+      else console.error(unknownModuleError);
     } else {
       if (state.currentModule === "kyc") renderCompletionScreen(workspace, state);
       else if (state.currentModule === "risk_scoring") renderRiskCompletionScreen(workspace, state);
       else if (state.currentModule === "fraud") renderFraudCompletionScreen(workspace, state);
-      else console.error("Scenario Lab: advanceToNextCase, unknown state.currentModule: " + state.currentModule);
+      else console.error(unknownModuleError);
     }
   }
 
