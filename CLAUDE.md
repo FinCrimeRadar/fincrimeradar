@@ -67,6 +67,14 @@ Found independently twice: the MLRO Handbook Part 2 stale CFP Management fine fi
 
 When a material claim, figure, legal interpretation, case detail, or conclusion changes, review and synchronise every derived representation before publication. This includes summary images, metadata, structured data, social copy, stat strips, quizzes, scenario feedback, closing cards, and Knowledge Hub descriptions. Publication is blocked until the synchronisation check passes.
 
+## Production/local verification gap
+
+A third class of gap, distinct from the Review policy's code-logic review and the Regulatory-claim adversarial review above: those two catch code that is wrong or content that is wrong. This one is neither, code and content can both be correct and thoroughly verified in-browser, and production can still be broken, because the verification never touched production.
+
+Found during the Risk Scoring module build (2026-08-17): `fincrimeradar-api`'s `cases.json`, backing the live `/scenario-lab/cases` endpoint `fincrimeradar.org` actually calls in production, was a manually maintained mirror of `fincrimeradar`'s `scenario-lab/data/cases.json`, silently stale since a single commit on 2026-07-07, through two later module launches. Discovered six weeks later by a user's screenshot of an empty case picker, not by this project's own process: every in-browser check that session ran, including extensive device-width and interaction testing, exercised frontend logic against local or test-harness data, never once against the real deployed API.
+
+For any change that depends on a separately deployed service or a second repository actually being current, not just this repo's own code or content being correct, flag that dependency explicitly and run a live smoke check against the real, deployed endpoint before considering the change verified. Local and test-harness verification, however thorough, does not substitute for it. See BACKLOG.md's Polish Loop for this incident's own closed entry and the standing checklist item it left in place.
+
 ## Scenario reasoning distinction
 
 Closes a pattern found twice on the same guide: classification-asymmetry-guide.html's "precisely how the explanatory notes describe" and "exactly the kind of reasonable grounds" overclaims, both describing the guide's own inference as if it were the cited authority's own language.
