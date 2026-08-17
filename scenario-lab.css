@@ -622,6 +622,7 @@
 
 .sl-action-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 

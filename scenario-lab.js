@@ -6,22 +6,21 @@
  * Public entry point: initScenarioLab(rootEl, options)
  * options.apiBase  optional string, if set fetches `${apiBase}/scenario-lab/cases`
  *                   instead of the local /scenario-lab/data/cases.json file.
- *                   KYC and Fraud Detection fall back to the local file on a
- *                   failed or slow (>15s) live fetch, see fetchCases below,
- *                   local/scenario-lab/data/cases.json already contains both
- *                   modules' cases and stays the resilience path even though
- *                   apiBase is now always set to the live Render service.
+ *                   KYC, Fraud Detection, and Risk Scoring fall back to the
+ *                   local file on a failed or slow (>15s) live fetch, see
+ *                   fetchCases below, local/scenario-lab/data/cases.json
+ *                   already contains all three modules' cases and stays the
+ *                   resilience path even though apiBase is now always set to
+ *                   the live Render service.
  */
 (function () {
   "use strict";
 
-  const LOCKED_MODULES = [
-    {
-      key: "risk_scoring",
-      title: "Risk Scoring",
-      description: "Standalone deep dive into the risk calculator already running inside Investigation Tools.",
-    },
-  ];
+  // No locked modules remain once Risk Scoring ships. appendNextModuleTeaser
+  // already no-ops on an empty array, so this stays the single source of
+  // truth for what's still "coming soon" without any other code needing to
+  // change when the next module unlocks.
+  const LOCKED_MODULES = [];
 
   // SAR Sandbox module. Has its own case picker, renderSarCasePicker, kept
   // separate from KYC/Fraud's renderCasePicker since SAR cases don't share
@@ -86,6 +85,7 @@
         // than requiring every existing case entry to be touched.
         state.kycCases = cases.filter((c) => (c.module || "kyc") === "kyc");
         state.fraudCases = cases.filter((c) => c.module === "fraud");
+        state.riskCases = cases.filter((c) => c.module === "risk_scoring");
         renderDashboard(dashboard, workspace, state);
       })
       .catch((err) => {
@@ -170,6 +170,17 @@
     ].join("");
     sarTile.addEventListener("click", () => startSarModule(dashboard, workspace, state));
     dashboard.appendChild(sarTile);
+
+    const riskTile = document.createElement("div");
+    riskTile.className = "sl-tile active";
+    riskTile.innerHTML = [
+      "<div>",
+      "<h3>Risk Scoring</h3>",
+      "<p>Weigh a profile of risk signals and choose the proportionate response, then see what was material and what was noise, across six cases.</p>",
+      "</div>",
+    ].join("");
+    riskTile.addEventListener("click", () => startRiskModule(dashboard, workspace, state));
+    dashboard.appendChild(riskTile);
 
     LOCKED_MODULES.forEach((mod) => {
       const tile = document.createElement("div");
@@ -266,14 +277,16 @@
   // analyst chose to start, exactly like the original sequential flow.
   function renderCasePicker(workspace, state, moduleKey) {
     state.currentModule = moduleKey;
-    const cases = moduleKey === "kyc" ? state.kycCases : state.fraudCases;
+    const cases =
+      moduleKey === "kyc" ? state.kycCases : moduleKey === "fraud" ? state.fraudCases : state.riskCases;
     state.cases = cases;
     workspace.dataset.total = String(cases.length);
 
     workspace.innerHTML = "";
     const picker = document.createElement("div");
     picker.className = "sl-case-picker";
-    const title = moduleKey === "kyc" ? "KYC and Sanctions Investigation" : "Fraud Detection";
+    const title =
+      moduleKey === "kyc" ? "KYC and Sanctions Investigation" : moduleKey === "fraud" ? "Fraud Detection" : "Risk Scoring";
     picker.innerHTML = [
       "<h2>" + title + "</h2>",
       "<p>Choose any case to start. Progress on each one is saved on this device.</p>",
@@ -297,6 +310,8 @@
         state.caseIndex = idx;
         if (moduleKey === "kyc") {
           loadCase(workspace, state);
+        } else if (moduleKey === "risk_scoring") {
+          loadRiskCaseByLayout(workspace, state);
         } else {
           loadFraudCaseByLayout(workspace, state);
         }
@@ -345,6 +360,14 @@
     dashboard.style.display = "none";
     workspace.classList.add("visible");
     renderCasePicker(workspace, state, "kyc");
+  }
+
+  function startRiskModule(dashboard, workspace, state) {
+    state.results = [];
+    state.startedAt = Date.now();
+    dashboard.style.display = "none";
+    workspace.classList.add("visible");
+    renderCasePicker(workspace, state, "risk_scoring");
   }
 
   function loadCase(workspace, state) {
@@ -1045,19 +1068,49 @@
     return { score, breakdown };
   }
 
-  function updateRiskScoreDisplay(scoreArea, caseData, state) {
-    const { score, breakdown } = computeRiskScore(caseData, state);
-    let band = "low";
-    if (score >= 12) band = "high";
-    else if (score >= 6) band = "medium";
+  function bandForScore(score) {
+    if (score >= 12) return "high";
+    if (score >= 6) return "medium";
+    return "low";
+  }
 
+  // Shared by the KYC tree's live risk score toggle and Risk Scoring's
+  // Case 4 signal panel below: same score dial, same band colours, same
+  // breakdown list, whether the score comes from ownership/jurisdiction
+  // data (computeRiskScore) or a flat list of case-supplied flags
+  // (computeSignalScore). Only the score source differs.
+  function renderRiskScoreDisplay(scoreArea, score, breakdown) {
     scoreArea.innerHTML = [
-      '<div class="sl-risk-score ' + band + '">' + score + "</div>",
+      '<div class="sl-risk-score ' + bandForScore(score) + '">' + score + "</div>",
       '<div class="sl-risk-breakdown">' + breakdown.map(escapeHtml).join("<br>") + "</div>",
     ].join("");
   }
 
+  // Case 4's naive additive model: every flag in caseData.risk_signals just
+  // adds its points, no jurisdiction/ownership logic involved, deliberately
+  // mirroring the false precision the case is built to critique.
+  function computeSignalScore(signals) {
+    let score = 0;
+    const breakdown = [];
+    signals.forEach((s) => {
+      score += s.points;
+      breakdown.push(s.label + ": +" + s.points);
+    });
+    return { score, breakdown };
+  }
+
+  function updateRiskScoreDisplay(scoreArea, caseData, state) {
+    const { score, breakdown } = computeRiskScore(caseData, state);
+    renderRiskScoreDisplay(scoreArea, score, breakdown);
+  }
+
   // ---- Action footer, disposition logic ----
+  const DEFAULT_KYC_DISPOSITIONS = [
+    { key: "approve", label: "Approve" },
+    { key: "reject", label: "Reject" },
+    { key: "request_more_info", label: "Request more information" },
+  ];
+
   function nodesRequiringScreening(caseData) {
     return caseData.nodes.filter((n) => n.screening !== null);
   }
@@ -1078,12 +1131,18 @@
 
     const btnRow = document.createElement("div");
     btnRow.className = "sl-action-buttons";
-    ["approve", "reject", "request_more_info"].forEach((disposition) => {
+    // KYC's five original cases carry no disposition_options field, so the
+    // three-way approve/reject/request-more-info default covers them
+    // unchanged. Risk Scoring's Case 3 supplies its own four-option graded
+    // set (Standard/EDD/Escalate to MLRO/Block or SAR) via disposition_options,
+    // same shape the cross-reference cases already use.
+    const dispositions = caseData.disposition_options || DEFAULT_KYC_DISPOSITIONS;
+    dispositions.forEach((opt) => {
       const btn = document.createElement("button");
       btn.className = "sl-btn";
-      btn.textContent = displayLabel(disposition);
+      btn.textContent = opt.label;
       btn.disabled = !allRequiredScreeningsDone(caseData, state);
-      btn.addEventListener("click", () => decide(disposition, footer, banner, workspace, state, caseData));
+      btn.addEventListener("click", () => decide(opt.key, footer, banner, workspace, state, caseData));
       btnRow.appendChild(btn);
     });
     footer.appendChild(btnRow);
@@ -1131,12 +1190,6 @@
     banner.appendChild(card);
   }
 
-  function displayLabel(disposition) {
-    if (disposition === "approve") return "Approve";
-    if (disposition === "reject") return "Reject";
-    return "Request more information";
-  }
-
   function decide(disposition, footer, banner, workspace, state, caseData) {
     const isCorrect = caseData.correct_disposition.includes(disposition);
 
@@ -1149,14 +1202,26 @@
 
     footer.querySelectorAll("button").forEach((b) => (b.disabled = true));
 
-    appendBackToCaseListControl(workspace, state, banner, () => {
-      state.caseIndex += 1;
-      if (state.caseIndex < state.cases.length) {
-        loadCase(workspace, state);
-      } else {
-        renderCompletionScreen(workspace, state);
-      }
-    });
+    appendBackToCaseListControl(workspace, state, banner, () => advanceToNextCase(workspace, state));
+  }
+
+  // Every decide function's "Next case" callback funnels through here so
+  // state.currentModule (set by renderCasePicker) decides which loader and
+  // completion screen to advance to, rather than each decide function
+  // hardcoding its own module's pair. Keeps decide()/decideFraud()/
+  // decideCrossReference() reusable across modules instead of each one only
+  // ever knowing how to advance its own original module.
+  function advanceToNextCase(workspace, state) {
+    state.caseIndex += 1;
+    if (state.caseIndex < state.cases.length) {
+      if (state.currentModule === "kyc") loadCase(workspace, state);
+      else if (state.currentModule === "risk_scoring") loadRiskCaseByLayout(workspace, state);
+      else loadFraudCaseByLayout(workspace, state);
+    } else {
+      if (state.currentModule === "kyc") renderCompletionScreen(workspace, state);
+      else if (state.currentModule === "risk_scoring") renderRiskCompletionScreen(workspace, state);
+      else renderFraudCompletionScreen(workspace, state);
+    }
   }
 
   // Returns to the dashboard from a completion screen, re-rendering it so
@@ -1375,6 +1440,20 @@
       loadCrossReferenceCase(workspace, state);
     } else {
       loadFraudCase(workspace, state);
+    }
+  }
+
+  // Risk Scoring's Case 3 (aggregate ownership) carries "layout":
+  // "ownership_tree" and reuses the KYC module's loadCase unchanged, nodes,
+  // edges, and screening already there. Every other Risk Scoring case
+  // reuses the cross-reference fact-card component above, same as Fraud's
+  // Cases 5/6, per docs/risk-scoring-module-spec.md's component reuse map.
+  function loadRiskCaseByLayout(workspace, state) {
+    const c = state.cases[state.caseIndex];
+    if (c.layout === "ownership_tree") {
+      loadCase(workspace, state);
+    } else {
+      loadCrossReferenceCase(workspace, state);
     }
   }
 
@@ -1707,17 +1786,11 @@
     banner.textContent = (isCorrect ? "Correct. " : "Not quite. ") + c.rationale;
     appendRelatedGuide(banner, c);
 
-    appendBackToCaseListControl(state.workspace, state, banner, () => {
-      state.caseIndex += 1;
-      if (state.caseIndex < state.cases.length) {
-        loadFraudCaseByLayout(state.workspace, state);
-      } else {
-        renderFraudCompletionScreen(state.workspace, state);
-      }
-    });
+    appendBackToCaseListControl(state.workspace, state, banner, () => advanceToNextCase(state.workspace, state));
   }
 
-  // ---- Cross-reference fact card component (Cases 5/6) ----
+  // ---- Cross-reference fact card component (Cases 5/6, and Risk Scoring's
+  // Cases 1/2/4/5/6, see docs/risk-scoring-module-spec.md) ----
   // Reuses the header scene renderer, disposition panel button/banner
   // pattern, and back-to-case-list/related-guide helpers unchanged. The
   // only new interactive surface is the fact card grid immediately below:
@@ -1816,13 +1889,61 @@
 
     state.bodyEl.innerHTML = '<p class="fd-decision-intro">All facts reviewed. What is your disposition?</p>';
 
+    // Risk Scoring's Case 4 (the "over scored customer") is the only case
+    // carrying risk_signals: it reuses the same illustrative additive score
+    // display Investigation Tools already shows on the KYC tree, wired to
+    // this case's own flags instead of ownership/jurisdiction data. See
+    // computeSignalScore/renderRiskScoreDisplay below.
+    if (c.risk_signals) {
+      const scorePanel = document.createElement("div");
+      scorePanel.className = "sl-risk-signals-panel";
+      const { score, breakdown } = computeSignalScore(c.risk_signals);
+      renderRiskScoreDisplay(scorePanel, score, breakdown);
+      const note = document.createElement("p");
+      note.style.fontSize = "0.8rem";
+      note.style.color = "var(--sl-text-muted)";
+      note.style.marginTop = "8px";
+      note.textContent = "Illustrative training model, not a regulatory risk weighting.";
+      scorePanel.appendChild(note);
+      state.bodyEl.appendChild(scorePanel);
+    }
+
+    // A case can require a documented override rationale (Case 4: the score
+    // says High, the analyst has to write down why they're not following
+    // it) before any disposition button enables, so a silent override isn't
+    // possible. The buttons are built after this so their initial disabled
+    // state can already account for the empty textarea.
+    let overrideFilled = !c.requires_override_note;
+    if (c.requires_override_note) {
+      const label = document.createElement("label");
+      label.className = "fd-decision-intro";
+      label.style.display = "block";
+      label.style.marginTop = "12px";
+      label.textContent = "Document your rationale before deciding:";
+      state.bodyEl.appendChild(label);
+
+      const noteInput = document.createElement("textarea");
+      noteInput.className = "sl-textarea";
+      noteInput.rows = 3;
+      noteInput.placeholder = "Why does (or doesn't) the model's score reflect the actual risk here?";
+      noteInput.setAttribute("aria-label", "Documented override rationale");
+      state.bodyEl.appendChild(noteInput);
+
+      noteInput.addEventListener("input", () => {
+        overrideFilled = noteInput.value.trim().length > 0;
+        state.bodyEl.querySelectorAll(".fd-decision-buttons button").forEach((b) => {
+          b.disabled = state.decisionMade || !overrideFilled;
+        });
+      });
+    }
+
     const btnRow = document.createElement("div");
     btnRow.className = "fd-decision-buttons";
     c.disposition_options.forEach((opt) => {
       const btn = document.createElement("button");
       btn.className = "sl-btn";
       btn.textContent = opt.label;
-      btn.disabled = state.decisionMade;
+      btn.disabled = state.decisionMade || !overrideFilled;
       btn.addEventListener("click", () => decideCrossReference(state, opt.key));
       btnRow.appendChild(btn);
     });
@@ -1838,6 +1959,10 @@
     const c = state.currentCase;
     if (state.decisionMade) return; // defense in depth against a stray double click
     if (!allFactsRevealed(state)) return;
+    if (c.requires_override_note) {
+      const noteInput = state.bodyEl.querySelector(".sl-textarea");
+      if (!noteInput || !noteInput.value.trim()) return; // defense in depth, buttons are already disabled for this
+    }
 
     state.decisionMade = true;
     const isCorrect = c.correct_disposition.includes(dispositionKey);
@@ -1851,14 +1976,7 @@
     banner.textContent = (isCorrect ? "Correct. " : "Not quite. ") + c.rationale;
     appendRelatedGuide(banner, c);
 
-    appendBackToCaseListControl(state.workspace, state, banner, () => {
-      state.caseIndex += 1;
-      if (state.caseIndex < state.cases.length) {
-        loadFraudCaseByLayout(state.workspace, state);
-      } else {
-        renderFraudCompletionScreen(state.workspace, state);
-      }
-    });
+    appendBackToCaseListControl(state.workspace, state, banner, () => advanceToNextCase(state.workspace, state));
   }
 
   function renderFraudCompletionScreen(workspace, state) {
@@ -1873,6 +1991,23 @@
       state,
       "fraud",
       "Fraud Detection preview, " + totalCases + " case" + (totalCases === 1 ? "" : "s") + "."
+    );
+    complete.prepend(backToDashboardButton(workspace, state));
+    appendNextModuleTeaser(complete, state);
+  }
+
+  function renderRiskCompletionScreen(workspace, state) {
+    workspace.innerHTML = "";
+    const complete = document.createElement("div");
+    complete.className = "sl-complete";
+    workspace.appendChild(complete);
+    const totalCases = state.cases.length;
+    renderCompletionBody(
+      complete,
+      workspace,
+      state,
+      "risk_scoring",
+      "Risk Scoring, " + totalCases + " case" + (totalCases === 1 ? "" : "s") + "."
     );
     complete.prepend(backToDashboardButton(workspace, state));
     appendNextModuleTeaser(complete, state);
