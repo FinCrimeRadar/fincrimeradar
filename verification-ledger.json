@@ -2102,5 +2102,213 @@
     "reviewDue": "2027-02-18",
     "status": "verified",
     "note": "Real correction found and fixed during this sourcing pass, not just a citation add: the guide's original text stated 'military officials are NOT classified as PEPs' in two places (the 2026-changes callout and the FAQ). Checked against the FCA's own FG25/3 PDF (fetched directly, not a secondary summary): the guidance explicitly lists 'ambassadors, charges d'affaires and high-ranking officers in the armed forces' as a PEP category, scoped to Permanent Secretary-equivalent rank (Vice Admiral, Lieutenant General, or Air Marshal). Only junior/mid-ranking military personnel are excluded, the same threshold that excludes junior civil servants generally, not military officials as a category. Both occurrences reworded to state the accurate, narrower scope before citing, per the instruction not to cite an inaccurate paraphrase."
+  },
+  {
+    "claimId": "aml-guide-part1.samla-commencement.004",
+    "guide": "aml-guide-part1.html",
+    "claimText": "SAMLA received Royal Assent on 23 May 2018 and was commenced in stages from that date, rather than being wholly 'in force' on 23 May 2018.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Sanctions and Anti-Money Laundering Act 2018, Section 64 and Commencement No. 1 Regulations 2018",
+      "url": "https://www.legislation.gov.uk/ukpga/2018/13/section/64",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2018-05-23"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Corrected an imprecise 'in force' date claim: Royal Assent and substantive commencement are distinct events for SAMLA, confirmed directly against s.64 and the Commencement No. 1 Regulations 2018."
+  },
+  {
+    "claimId": "aml-guide-part1.ta2000-commencement.005",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The Terrorism Act 2000 was principally in force from 19 February 2001, per the Terrorism Act 2000 (Commencement No. 3) Order 2001, Article 2.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Terrorism Act 2000 (Commencement No. 3) Order 2001, Article 2",
+      "url": "https://www.legislation.gov.uk/uksi/2001/421/article/2/made",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2001-02-19"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "'Principally in force from' is more accurate than a bare 'in force' date given staged TA 2000 commencement; confirmed against the Commencement No. 3 Order directly."
+  },
+  {
+    "claimId": "aml-guide-part1.ta2000-ss15-17-18-22.006",
+    "guide": "aml-guide-part1.html",
+    "claimText": "TA 2000 s.15 covers inviting, receiving, or providing money or property intended, known, or reasonably suspected to be available for terrorist purposes. S.17 covers entering into or becoming concerned in a funding arrangement while knowing or having reasonable cause to suspect the property will or may be used for terrorism. S.18 covers entering into or becoming concerned in an arrangement facilitating another person's retention or control of terrorist property, subject to a defence where the person lacked knowledge or reasonable cause to suspect. Penalties are set out in s.22.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Terrorism Act 2000, Sections 15, 17, 18, and 22",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/11/section/15",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2000-07-20"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Replaced loose paraphrases of ss.15/17/18 with wording matching the sections' actual statutory elements (including the reasonable-cause-to-suspect standard and the s.18 defence); s.16 description was left unchanged as it was not part of this correction."
+  },
+  {
+    "claimId": "aml-guide-part1.ta2000-s21a-disclosure.007",
+    "guide": "aml-guide-part1.html",
+    "claimText": "TA 2000 s.21A requires disclosure by persons in the regulated sector to a constable or the person's nominated officer, not to 'the police or NCA' generally; 'constable' includes an authorised NCA officer.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Terrorism Act 2000, Section 21A",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/11/section/21A",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2001-02-19"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Corrected an imprecise recipient description; s.21A itself names the disclosure recipients as 'a constable' or 'the person's nominated officer', with authorised NCA officers included within the definition of constable for this purpose."
+  },
+  {
+    "claimId": "aml-guide-part1.sysc-6-1-1r.008",
+    "guide": "aml-guide-part1.html",
+    "claimText": "SYSC 6.1.1R requires firms to have adequate policies and procedures sufficient to ensure compliance with the regulatory system and to counter the risk that the firm might be used to further financial crime.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, SYSC 6.1.1R",
+      "url": "https://www.handbook.fca.org.uk/handbook/SYSC/6/1.html",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Replaced a paraphrase ('robust governance arrangements, effective processes, and adequate internal control mechanisms') that did not match the rule's actual wording with the rule's own operative language, confirmed against the FCA Handbook directly."
+  },
+  {
+    "claimId": "aml-guide-part1.fcg-chapter-table.009",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The FCA Financial Crime Guide (FCG) is organised as: FCG 1 Introduction, FCG 2 Financial crime systems and controls, FCG 3 Money laundering and terrorist financing, FCG 4 Fraud, FCG 5 Data security, FCG 6 Bribery and corruption, FCG 7 Sanctions, asset freezes and proliferation financing, FCG 8 Insider dealing and market manipulation.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide (FCG)",
+      "url": "https://www.handbook.fca.org.uk/handbook/FCG/",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "The guide's original 7-row table (with 'financial crime governance' and 'market abuse' chapters) did not match the FCG's actual current 8-chapter structure; replaced wholesale after reading the FCG's own contents directly, not a secondary summary."
+  },
+  {
+    "claimId": "aml-guide-part1.smf17-smcr-conduct-rules.010",
+    "guide": "aml-guide-part1.html",
+    "claimText": "Where the SMCR requires a firm's MLRO to perform the money laundering reporting function, that function is SMF17 and requires FCA approval before the individual starts. The individual is subject to the applicable fitness and propriety assessment, Senior Manager Conduct Rules (including SC4, the obligation to disclose appropriately), and personal accountability where the statutory and regulatory conditions for enforcement are met.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, SUP 10C.6.2R, FIT 1 and FIT 2, COCON 2.2.4R",
+      "url": "https://www.handbook.fca.org.uk/handbook/SUP/10C/6.html",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Original text stated SMF17/personal accountability as a universal, unconditional requirement; reworded to reflect that it applies where the SMCR conditions for the MLRO function are actually met, and enforcement depends on the statutory/regulatory conditions being satisfied. Also corrected 'Conduct Rule 4' to 'Senior Manager Conduct Rule SC4', the correct rule label under COCON. SUP 10C.6.2R's exact text was not independently retrievable verbatim via automated fetch; its designation of the money laundering reporting function as SMF17 was cross-confirmed via secondary FCA-sourced material, sufficient since the guide cites but does not quote the rule directly."
+  },
+  {
+    "claimId": "aml-guide-part1.fsma-s166-skilled-person.011",
+    "guide": "aml-guide-part1.html",
+    "claimText": "Under FSMA 2000 s.166(3), the FCA can either require a firm to commission an independent skilled person report, or appoint the skilled person itself; the power is not limited to the former route.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Services and Markets Act 2000, Section 166(3)",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/8/section/166",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2001-12-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Original text described only the firm-commissions-the-report route; s.166(3) itself provides the FCA a second route of appointing the skilled person directly, confirmed against the statute's text."
+  },
+  {
+    "claimId": "aml-guide-part1.nca-sars-figure-2023-24.012",
+    "guide": "aml-guide-part1.html",
+    "claimText": "872,048 SARs were submitted to the UKFIU in 2023/24, not 'over 900,000'.",
+    "claimType": "statistic",
+    "source": {
+      "title": "National Crime Agency, SARs Annual Report 2024",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications",
+      "publisher": "National Crime Agency (NCA)",
+      "date": "2024-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Original figure was a rounded overstatement; the NCA's own SARs Annual Report 2024 reports the precise 2023/24 total as 872,048."
+  },
+  {
+    "claimId": "aml-guide-part1.mlr-reg14-hvd-threshold.013",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The MLR 2017 Regulation 14 high-value dealer cash threshold is (as of 30 June 2026) £10,000, not €10,000; the currency was changed by S.I. 2026/621, regulation 9.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 14, as amended by S.I. 2026/621",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/14",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Independently re-confirmed per explicit user instruction given how recent this change is (S.I. 2026/621 only took effect 30 June 2026): checked legislation.gov.uk's own Regulation 14 page directly, which shows an 'F2' amendment marker recording the sum 'substituted (30.6.2026)' by S.I. 2026/621, regulation 9, changing the threshold from EUR 10,000 to GBP 10,000. Confirmed accurate, not taken on the prior verification alone."
+  },
+  {
+    "claimId": "aml-guide-part1.fca-enforcement-financial-crime-share-2024-25.014",
+    "guide": "aml-guide-part1.html",
+    "claimText": "17 of 23 FCA enforcement operations opened in 2024/25 were financial-crime-related, per Table 7 of the FCA's 2024/25 enforcement data, not '74% of FCA investigations involve financial crime'.",
+    "claimType": "statistic",
+    "source": {
+      "title": "FCA Operating Service Metrics 2024/25, Enforcement Data, Table 7",
+      "url": "https://www.fca.org.uk/data/fca-operating-service-metrics-2024-25/enforcement-data",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Original '74% of FCA investigations' stat could not be traced to any FCA source; replaced with a directly-sourced figure from the FCA's own Table 7 raw data ('Reducing and preventing financial crime' row: 17 of 23 total enforcement operations opened in 2024/25)."
+  },
+  {
+    "claimId": "aml-guide-part1.timeline-mar2022-jan2024-pep.015",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The March 2022 timeline entry covers the emergency expansion of UK sanctions legislation following Russia's invasion of Ukraine (Russia sanctions regulation amendments and Economic Crime Act 2022 reforms). The domestic PEP amendments actually took effect in January 2024, not November 2023, and domestic PEPs remain within Regulation 35 with a lower statutory starting-point risk rather than being excluded from EDD.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering and Terrorist Financing (Amendment) Regulations 2023",
+      "url": "https://www.legislation.gov.uk/uksi/2023/1371/contents/made",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2024-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Two corrections: (1) the March 2022 entry's description was too vague to be checked against a specific instrument, reworded to name the actual legislative changes; (2) the domestic PEP amendment's in-force date was wrong (November 2023 vs the amendment regulations' actual January 2024 effective date), and the original 'not automatically subject to EDD' description overstated the effect, domestic PEPs stay within Regulation 35 with a lower baseline risk rating, not an EDD exclusion."
+  },
+  {
+    "claimId": "aml-guide-part1.depp-6-5-penalty-methodology.016",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The FCA's five-step penalty methodology under DEPP 6.5 is: (1) removal of financial benefit derived directly from the breach, (2) a figure reflecting the seriousness of the breach (relevant revenue for firms, relevant income for individuals), (3) adjustment for aggravating/mitigating factors, (4) upward adjustment for deterrence, (5) settlement discount (up to 30%, applied during Stage 1, not to the disgorgement step).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, DEPP 6.5, 6.5A, and 6.7",
+      "url": "https://www.handbook.fca.org.uk/handbook/DEPP/6/5.html",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Original text had the step sequence and step 1 basis wrong for both firms ('revenue figure' at step 1) and individuals ('benefit received' at step 1); DEPP 6.5's actual step 1 is disgorgement of the financial benefit for both firm and individual cases, with the revenue/income figure entering at step 2. Confirmed the 'up to 30%' settlement discount figure was correct but scoped it to Stage 1 and clarified it does not apply to the disgorgement step, per DEPP 6.7."
   }
 ]
