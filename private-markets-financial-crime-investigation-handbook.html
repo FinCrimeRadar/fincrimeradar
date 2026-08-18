@@ -265,6 +265,35 @@
     .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
     .save-img-btn:hover { border-color:var(--c-structure); color:var(--c-structure); }
 
+    /* KNOWLEDGE CHECK, reused verbatim from adverse-media-intelligence-guide.html /
+       money-mule-financial-crime-networks-handbook.html's proven quiz component */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION, native <details>/<summary>, reused from
+       classification-asymmetry-guide.html's proven pattern, not the older
+       custom-JS-toggle version still used on some earlier merged-card guides. */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; list-style:none; gap:1rem; }
+    .faq-q::-webkit-details-marker { display:none; }
+    .faq-q-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-item[open] .faq-q-icon { transform:rotate(45deg); }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
+
     /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
     footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
     footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
@@ -732,11 +761,106 @@
       </div>
     </div>
 
-    <!-- Knowledge check and FAQ intentionally omitted: not yet drafted as of
-         2026-08-18 build. Per GUIDE_STANDARD.md's Global core both are
-         normally required; this is a logged, deliberate gap against the
-         standard (see BACKLOG.md), not an oversight. Insert both sections
-         here, in that order, once the content is supplied. -->
+    <!-- KNOWLEDGE CHECK QUIZ -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions. How well do you read the ownership chain and the beneficial-ownership thresholds?</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. Under Regulation 28(3A)/(4), when a firm's customer's beneficial owner is itself a legal person or trust, what must the firm do?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Nothing further, once the immediate beneficial owner is named the file is complete</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - Take reasonable measures to understand that beneficial owner's own ownership and control structure in turn</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Automatically decline the relationship</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - Rely solely on any registry filing available for that entity</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. What does Regulation 5(3) require for an individual to count as a partnership's beneficial owner?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - More than 10% of capital or profits</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - More than 50% of voting rights, and nothing else counts</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - More than 25% of capital, profits, or voting rights, held directly or indirectly</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - Any ownership stake at all, regardless of size</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. After tracing dilution through every layer of a fund-of-funds structure, a PEP's effective entitlement in the customer partnership comes to 22%. What follows?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - EDD applies automatically under Regulation 35, since the individual is a PEP regardless of percentage</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - Regulation 35's automatic PEP measures don't engage since the Regulation 5(3) threshold isn't met, though Regulation 33(1)(a) may still require EDD on a risk-assessed basis</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - EDD applies only if the individual is a foreign PEP rather than a domestic one</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - No further consideration is needed once the beneficial-ownership threshold isn't met</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. Under Regulation 28(9), can a firm satisfy its beneficial-ownership verification obligation by relying solely on a Companies House PSC filing?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Yes, a PSC filing is conclusive evidence of beneficial ownership</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - No, Reg 28(9) prevents relying solely on registrar-delivered information, a filing can inform the firm's own assessment but can't replace it</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Yes, but only for UK-incorporated entities specifically</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - No independent verification is ever required once any PSC filing exists</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. What is the FCA's 22 July 2026 findings publication?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - New binding legal requirements that replace parts of the MLRs 2017</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - A supervisory findings and good/poor practice publication, distinct from new legislation</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - A formal consultation seeking industry feedback before rules are set</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - An enforcement notice naming specific firms</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-structure)">Frequently Asked</div>
+      <h2>FAQ</h2>
+
+      <details class="faq-item">
+        <summary class="faq-q">Does this guide apply to funds regulated outside the UK?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No. It's built specifically around the UK's MLRs 2017 regime. US and EU private fund AML obligations are materially different regimes and aren't covered here, consistent with this site's standing rule against blending jurisdictions.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What's the difference between a fund's "investors" generally and its legal beneficial owners?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Every LP is an investor, but only those meeting the statutory threshold (Regulation 5 for partnerships, Regulation 6 for trusts) count as beneficial owners for CDD purposes. The two categories overlap but aren't identical, an investor below the threshold is still an investor, just not one that triggers the beneficial-ownership-specific obligations.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is 25% always the exact line, or can a smaller stake still matter?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">25% (partnerships) is the statutory beneficial-ownership threshold under Regulation 5(3). A smaller stake doesn't trigger the automatic beneficial-ownership route, but it can still feed into a firm's broader risk assessment under Regulation 33(1)(a), which operates independently and isn't capped by that threshold.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Why does this guide use a composite case study instead of a real enforcement action?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No UK enforcement action specifically against a private markets fund manager for beneficial-ownership or ownership-chain failure was found during sourcing. The closest candidate, an FCA final notice against a brokerage, was deliberately not used, citing it as private-markets precedent would misrepresent what it actually is.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How is source of wealth different from source of funds?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Regulation 35(5)(b) names them separately. Source of wealth is the overall origin of a person's total assets and how they built their wealth generally. Source of funds is narrower, specifically where the money involved in this relationship or transaction came from. EDD requires adequate measures to establish both, not one as a substitute for the other.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What should a firm do if it genuinely can't identify a beneficial owner after real effort?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Regulation 28(6)/(7) allows treating the senior person responsible for managing a body corporate customer as its beneficial owner, but only where the firm has exhausted all possible means and either failed or isn't satisfied the individual identified is correct, and Regulation 28(8) requires every step taken to be recorded in writing. It's a documented last resort, not a shortcut.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does outsourcing CDD to a fund administrator reduce the firm's own liability?<span class="faq-q-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No. Regulation 39 permits relying on another UK relevant person or an equivalent third-country party under specific conditions, but the relevant person remains liable for any failure to apply the required measures regardless of what a third party did or didn't do.</div>
+      </details>
+    </div>
 
     <!-- AT A GLANCE, closing card grid -->
     <div class="article-section" id="glance">
@@ -885,6 +1009,8 @@
       <a href="#case-study">Composite Case</a>
       <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-structure);"></span> 01 &middot; Upstream Ownership</a>
       <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-diligence);"></span> 02 &middot; PEP Exposure</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
       <a href="#glance">At a Glance</a>
       <a href="#conclusion">Conclusion</a>
       <a href="#sources">Sources</a>
@@ -1045,6 +1171,53 @@ const SCENARIO_SYNTHESIS = {
   scenario2a: 'Regulation 5(3) establishes a specific, quantified test for partnership beneficial ownership that expressly covers indirect entitlement, a fund-of-funds layer doesn’t itself defeat the test. Regulation 35(1) independently requires systems to determine PEP status; Regulation 35(13) then provides the specific bridge, for the purposes of Regulation 35(5) only, once a beneficial owner is established. This guide concludes that a fund-of-funds structure creates no special exemption from the Regulation 5(3) test, but equally creates no special extension of it, the same threshold applies regardless of how many intermediate layers sit between the investor and the customer, provided the individual’s effective entitlement is actually calculated and evidenced after accounting for every layer. It recommends firms obtain enough underlying-investor information to actually apply the test, including tracing dilution and aggregation through intermediate vehicles, rather than assuming look-through applies to everyone or assuming a fund-of-funds wrapper insulates the firm from ever finding out.',
   scenario2b: 'Regulation 5(3) establishes the same quantified 25% test regardless of which side of the threshold a given fact pattern falls on; nothing in the regulation lowers the bar for a PEP-adjacent investor. Regulation 33(1)(a) separately and independently establishes a risk-based EDD trigger that doesn’t depend on the Regulation 5 threshold being met. This guide concludes that missing the beneficial-ownership threshold closes the Regulation 35(13) route but does not close the analysis, and recommends that the risk assessment, and its reasoning, be documented explicitly rather than treating "beneficial ownership not established" as the end of the enquiry.'
 };
+
+// QUIZ LOGIC
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'Regulation 28(3A)/(4) requires the firm to take reasonable measures to understand that further beneficial owner’s own ownership and control structure in turn, not to stop once the immediate layer is named.' },
+  qq2: { correct: 'C', fb: 'Regulation 5(3) sets a quantified threshold: more than 25% of a partnership’s capital, profits, or voting rights, held directly or indirectly, not a fixed 10% test or a voting-rights-only test.' },
+  qq3: { correct: 'B', fb: '22% sits below the Regulation 5(3) threshold, so Regulation 35’s automatic PEP measures don’t engage on beneficial-ownership grounds alone, but Regulation 33(1)(a) can still require EDD on a separate, risk-assessed basis.' },
+  qq4: { correct: 'B', fb: 'Regulation 28(9) prevents a firm from satisfying its beneficial-ownership verification obligation by relying solely on registrar-delivered information; a PSC filing can inform the firm’s own assessment but can’t replace it.' },
+  qq5: { correct: 'B', fb: 'The FCA’s 22 July 2026 publication is a supervisory findings and good/poor practice report, not new binding legislation, a consultation, or an enforcement notice against named firms.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the ownership chain and the Regulation 5(3) threshold are worth another pass.','Getting there, go back through the scenarios you missed.','Solid foundation, a few gaps to close.','Good grasp, you’re reading these thresholds correctly.','Excellent, practitioner-level command of the beneficial-ownership tests.','Perfect, you’re ready to trace a real ownership chain.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
 
 // SAVE AS IMAGE
 // Renders the closing pattern-card grid to a downloadable PNG using
