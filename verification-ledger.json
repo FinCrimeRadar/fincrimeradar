@@ -2138,7 +2138,7 @@
   {
     "claimId": "aml-guide-part1.ta2000-ss15-17-18-22.006",
     "guide": "aml-guide-part1.html",
-    "claimText": "TA 2000 s.15 covers inviting, receiving, or providing money or property intended, known, or reasonably suspected to be available for terrorist purposes. S.17 covers entering into or becoming concerned in a funding arrangement while knowing or having reasonable cause to suspect the property will or may be used for terrorism. S.18 covers entering into or becoming concerned in an arrangement facilitating another person's retention or control of terrorist property, subject to a defence where the person lacked knowledge or reasonable cause to suspect. Penalties are set out in s.22.",
+    "claimText": "TA 2000 s.15 covers inviting or receiving money or property while intending, or having reasonable cause to suspect, that it may be used for terrorism, or providing it while knowing, or having reasonable cause to suspect, that it will or may be so used. S.17 covers entering into or becoming concerned in a funding arrangement while knowing or having reasonable cause to suspect the property will or may be used for terrorism. S.18 covers entering into or becoming concerned in an arrangement facilitating another person's retention or control of terrorist property; a defence is available where the person proves (conjunctively) that they did not know AND had no reasonable cause to suspect the arrangement related to terrorist property. Penalties are set out in s.22.",
     "claimType": "regulatory",
     "source": {
       "title": "Terrorism Act 2000, Sections 15, 17, 18, and 22",
@@ -2149,7 +2149,7 @@
     "verifiedOn": "2026-08-18",
     "reviewDue": "2027-02-18",
     "status": "verified",
-    "note": "Replaced loose paraphrases of ss.15/17/18 with wording matching the sections' actual statutory elements (including the reasonable-cause-to-suspect standard and the s.18 defence); s.16 description was left unchanged as it was not part of this correction."
+    "note": "Corrected twice on the same claim. Round 2 (this ledger entry's prior version) replaced loose paraphrases with wording that itself contained two further errors, caught by an external adversarial review, not this project's own checklist: (1) s.15 conflated the 'intending or reasonable cause to suspect' standard that applies to inviting/receiving with the narrower 'knowing or reasonable cause to suspect' standard that applies only to providing, presenting one unified standard where the statute actually sets two different ones for the two limbs of the offence; (2) s.18's defence was described as available if the person lacked knowledge OR reasonable cause to suspect (disjunctive, either limb sufficient), when s.18(2) actually requires the person to prove BOTH limbs conjunctively (no knowledge AND no reasonable cause to suspect) to make out the defence. Both fixed in this entry and in the guide's on-page text. s.16 description remains out of scope, per the original correction's own boundary."
   },
   {
     "claimId": "aml-guide-part1.ta2000-s21a-disclosure.007",
@@ -2310,5 +2310,21 @@
     "reviewDue": "2027-02-18",
     "status": "verified",
     "note": "Original text had the step sequence and step 1 basis wrong for both firms ('revenue figure' at step 1) and individuals ('benefit received' at step 1); DEPP 6.5's actual step 1 is disgorgement of the financial benefit for both firm and individual cases, with the revenue/income figure entering at step 2. Confirmed the 'up to 30%' settlement discount figure was correct but scoped it to Stage 1 and clarified it does not apply to the disgorgement step, per DEPP 6.7."
+  },
+  {
+    "claimId": "aml-guide-part1.timeline-mar2022-russia-sanctions.017",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The March 2022 timeline entry covers the emergency expansion of UK sanctions legislation following Russia's invasion of Ukraine, including amendments to the Russia sanctions regulations and reforms under the Economic Crime (Transparency and Enforcement) Act 2022.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "GOV.UK, Financial sanctions: Russia (amendments to the Russia sanctions regulations) and GOV.UK, New measures to tackle corrupt elites and dirty money become law",
+      "url": "https://www.gov.uk/guidance/look-up-amendments-to-the-russia-sanctions-regulations",
+      "publisher": "GOV.UK (HM Government)",
+      "date": "2022-03-15"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Split out from claimId .015 (aml-guide-part1.timeline-mar2022-jan2024-pep), which round 2 had cited to the January 2024 domestic PEP amendment regulations, a source about a different timeline entry entirely. Caught by external adversarial review, not this project's own checklist. The March 2022 entry now carries its own citation to the actual Russia sanctions amendment record and the Economic Crime Act 2022 announcement; claimId .015 remains attached to the January 2024 PEP entry only."
   }
 ]
