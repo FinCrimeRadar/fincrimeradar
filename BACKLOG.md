@@ -192,19 +192,9 @@ Guide structure and presentation standard: see GUIDE_STANDARD.md.
   own review of the regime runs into December 2026 so this has a natural
   update trigger already scheduled.
 
-- [ ] **Gambling's White-Label Blind Spot.** Strongest candidate found in
-  this research pass. UKGC's own 31 July 2026 risk assessment names
-  insufficient scrutiny of white-label and B2B partnerships as the
-  gambling sector's primary AML vulnerability. Real enforcement density to
-  anchor a case study or summary snapshot: Platinum Gaming £10m (October
-  2025, largest single iGaming AML penalty of the year), Gamesys £6m,
-  Videoslots £650,000, Spreadex £2m, 13 operators sanctioned in H2 2025
-  alone. Every existing piece of content is a vendor KYC-basics explainer
-  (Sumsub, Shufti, AML Watcher), none address the specific accountability
-  question the regulator itself just flagged, who's actually liable when
-  a licensed operator doesn't fully control a white-label relationship.
-  UK-jurisdiction fit is exact, matches the site's existing regulatory
-  focus directly.
+  **Sourcing flag, 2026-08-18, resolve before drafting:** PSR claim volumes confirmed clean against the PSR's own Q4 2025 dashboard, roughly 352,000 total claims, 243,000 in scope. The reimbursement cap figure is NOT clean: PS25/5 states £85,000 as the Faster Payments maximum, but at least one other source in circulation states £415,000 for the same figure, and this project already has an open caution on this exact number from the Money Mule ledger correction (the December 2026 recalibration consultation). Resolve the cap figure against PS25/5 and the PSR's current live guidance page directly before this guide is drafted, don't inherit the ambiguity from a secondary source a second time.
+
+- [x] **Gambling's White-Label Blind Spot, stale duplicate removed, 2026-08-18.** This Next Up candidate entry was never struck when `gambling-white-label-blind-spot-guide.html` actually shipped, already live and referenced elsewhere in this file (skip-nav retrofit item above, the 2026-08-13 regulatory-claim revision noted in CLAUDE.md).
 
 **Six content research candidates logged as of August 2026 (four from the first gap-scan pass, two more from a second pass covering professional services gatekeepers and correspondent banking). Roughly four to five weeks of guides at the 2-3/week target. Remaining pipeline to fill a full two-month runway needs a further systematic pass, not additional ad hoc sampling, flagged to avoid lowering the differentiation bar just to hit a topic count.**
 
@@ -222,6 +212,10 @@ Guide structure and presentation standard: see GUIDE_STANDARD.md.
   need EDD. Plays directly to the AUSTRAC jurisdiction already covered in
   the author's background, worth weighting up the build queue for that
   reason.
+
+  **Verification note, 2026-08-18:** dates confirmed against multiple independent trackers, obligations commence 1 July 2026, AUSTRAC enrolment deadline 29 July 2026 (28 days after commencement). Content landscape is heavy on enrolment mechanics and checklist material; the judgement-call angle (when does ordinary complexity become suspicion, when should a matter be stopped) remains the differentiator, not the topic itself. Priority raised, build second after Private Markets (see the Investigation Handbook series build-order note below).
+
+- [ ] **Sanctions Ownership and Control: The 50 Percent Rule Is Not Enough, promoted from Reserve tier, 2026-08-18.** OFSI launched a call for evidence on the ownership and control test on 16 February 2026, closed 13 April 2026, confirmed against OFSI's own blog post. Genuine practitioner problem: firms report difficulty assessing "hypothetical control" through complex or opaque structures. **Shelf-life caution:** government has stated it is actively exploring aligning the UK's 50% threshold with an EU/US-style aggregation model, this guide's core mechanic could change once the consultation outcome lands. Frame the guide explicitly as "the rule as it stands today, plus the live consultation that could change it," not as settled ground, and set a review-due date tied to the consultation outcome rather than treating this as evergreen content.
 
 - [ ] **The De-Risking Judgement Call.** FATF's own position is that
   wholesale de-risking, terminating entire regions or categories of
@@ -249,7 +243,8 @@ Guide structure and presentation standard: see GUIDE_STANDARD.md.
 8. [x] **AI synthetic identity fraud at KYC**, shipped as `synthetic-identity-device-network-guide.html`, commit `557275d`. Scenario Lab Cases 5/6 `related_guide` gap now closed.
 9. [x] **Crypto Travel Rule sunrise problem**, shipped as a standalone guide, `crypto-travel-rule-sunrise-guide.html`, not folded into the six-part Crypto Guide series. Built with a net-new `dtree-*` decision-tree component (data-driven, generic renderer, no per-node markup) covering both the outbound and inbound sides of a transfer, the EU TFR's two distinct thresholds, and real enforcement grounding (French AMF Q4 2025 notices, BaFin's blocking of six offshore exchange domains). One outstanding item before this is considered fully verified: a real mobile device check, only a static CSS review and an iframe-viewport walkthrough were done at ship time.
 10. [x] **Perpetual KYC framework**, shipped, `perpetual-kyc-framework-guide.html`, commit `319bf3e`. **Marked done by BACKLOG audit, 2026-08-13**, confirmed already live (1287 lines) and already referenced elsewhere in this file (Content Loop Done above notes it has its own proven SVG cheat-sheet component), this item was simply never checked off.
-11. [ ] **Shadow Fleet maritime sanctions evasion.** AIS transponder blackout patterns, vessel re-flagging and renaming, ship-to-ship transfers in international waters, and ownership layering through shell companies in open registries. Standard interactivity format, plus a risk-scoring checklist (transfer location, draft-level variance, AIS dark-time duration) as the visual element. Lowest priority of the five topics from this content review, needs real research time before writing, not a paraphrase of existing maritime intelligence reporting.
+10a. [ ] **Private Markets Financial Crime Investigation Handbook, new candidate, added 2026-08-18.** FCA published findings from its review of financial crime controls across the asset management and alternatives sector on 22 July 2026, engagement with 242 firms (87% questionnaire response rate), weaknesses found in business-wide risk assessment, customer risk assessment methodology, transaction monitoring, sanctions screening, and outsourced CDD oversight; private markets firms (private equity, private credit, infrastructure, real assets, secondaries) flagged as the higher inherent-risk cohort. Verified directly against the FCA's own publication page, not secondary commentary alone. Search results currently dominated by law firm and consultancy summaries restating the findings (Gibson Dunn, Stephenson Harwood, Sidley, Freshfields, TLT, Suntera all independently confirmed doing the same restate-and-advise pattern), no operational investigator-level content found covering the topic. Proposed structure follows the fund ownership chain (LP to Fund to GP to SPV to portfolio company to underlying assets) with an investigation point at each layer: who requires CDD, where beneficial ownership terminates, reliance conditions, fund-of-funds complexity, offshore SPVs, PEP and sovereign wealth investor exposure, source of wealth versus source of funds, subscription and redemption anomalies, related-party transactions, sanctions exposure, introducer risk, outsourced administrator risk. **Build order:** promoted ahead of Shadow Fleet (item 11 below) on timing and scarcity grounds; Shadow Fleet's own numbered sequence position in this series is unchanged, this is a build-order decision, not a renumbering.
+11. [ ] **Shadow Fleet maritime sanctions evasion.** AIS transponder blackout patterns, vessel re-flagging and renaming, ship-to-ship transfers in international waters, and ownership layering through shell companies in open registries. Standard interactivity format, plus a risk-scoring checklist (transfer location, draft-level variance, AIS dark-time duration) as the visual element. Lowest priority of the five topics from this content review, needs real research time before writing, not a paraphrase of existing maritime intelligence reporting. **Build order note, 2026-08-18:** Private Markets Financial Crime Investigation Handbook (item 10a above) now builds ahead of this item; this item's numbered position in the series is otherwise unchanged.
 12. [x] **Transaction Monitoring guide**, shipped, `tm-guide.html`. **Marked done by BACKLOG audit, 2026-08-13**, confirmed mature and already extensively referenced elsewhere in this file (12 verification-ledger entries, cited throughout the Polish and Content Loop Done logs), this item described it as unbuilt despite having shipped well before this file was written.
 13. [ ] **Enforcement case library** — strongest differentiation idea in this batch, a free properly root-cause-tagged enforcement case library is something paid compliance intelligence services charge for, and extends what's already proven working (Sonali Bank, CFP Management in the MLRO Handbook). Not a single article and not a database build upfront, start as a slowly growing case library page, add one case at a time to the same depth standard as existing cases, only consider real database/search infrastructure once it's proven itself as content first. Can run alongside whichever other loop is active rather than needing a dedicated push.
 
@@ -271,7 +266,6 @@ Queue now, at current 2-3/week cadence and current guide depth, no format or tax
 - [ ] AI in AML: Where the Model Stops and the Control Begins
 - [ ] Agentic AI in AML: What Should an AI Agent Never Be Allowed to Do Alone?
 - [ ] Companies House Identity Verification and the KYB Trust Gap
-- [ ] Sanctions Ownership and Control: The 50 Percent Rule Is Not Enough
 
 Hold for explicit review before queuing, flagged risk:
 - [ ] Any nationality or ethnicity-labelled network guide (Chinese, Russian speaking, daigou), needs mechanism-first retitling and content review before it goes anywhere near the queue.
