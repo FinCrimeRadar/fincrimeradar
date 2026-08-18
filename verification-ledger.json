@@ -2038,5 +2038,21 @@
     "reviewDue": "2027-02-18",
     "status": "verified",
     "note": "Not in the draft's own 'Draft verification-ledger.json entries' list, added independently during the HTML build because The Borrowed Check card cited Regulation 39 without a corresponding ledger entry. Verified directly against legislation.gov.uk's own text before citing."
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.reg40-2a-reg28-16-record-retention.013",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Regulation 40(2)(a) requires a relevant person to retain a copy of any documents and information obtained to satisfy the customer due diligence requirements in regulations 28, 29 and 33 to 37 (and related provisions). Regulation 28(16) separately requires the relevant person to be able to demonstrate to its supervisory authority that the extent of the CDD measures it took was appropriate in view of the risks of money laundering and terrorist financing. Neither provision expressly requires a standalone memorandum for every negative beneficial-ownership threshold conclusion, but both establish a retention and demonstrability obligation that survives a conclusion that no beneficial owner was identified.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 40",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/40",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Added following Codex's round 3 regulatory-claim review of Scenario 2 Variant B option D. Regulation 40(2)(a) and Regulation 28(16) text both confirmed directly against legislation.gov.uk before citing; Regulation 28(16)'s demonstrability requirement is covered by the same Regulation 28 source already cited as entry 006, cross-referenced here rather than duplicated as a separate source object."
   }
 ]
