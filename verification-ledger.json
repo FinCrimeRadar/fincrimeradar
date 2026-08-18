@@ -1858,5 +1858,185 @@
     "verifiedOn": "2026-08-13",
     "reviewDue": "2027-08-13",
     "status": "verified"
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.fca-review-scope.001",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "FCA engaged with 242 asset management and alternatives firms in its 2025/26 review of financial crime controls, 87% questionnaire response rate.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Asset management and alternative firms: financial crime controls",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/asset-management-alternative-firms-financial-crime-controls",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-22"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified"
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.complex-ownership-structures.002",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Around a fifth of private markets firms report over 30% of customers use complex ownership structures, against 85% of non-private-markets firms reporting none.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Asset management and alternative firms: financial crime controls",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/asset-management-alternative-firms-financial-crime-controls",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-22"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Denominator is the 242-firm sample; must be reproduced with that qualification, not stated as sector-wide."
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.pep-customer-base.003",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "32% of private markets firms report PEPs in their customer base, against 9% for non-private-markets firms.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Asset management and alternative firms: financial crime controls",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/asset-management-alternative-firms-financial-crime-controls",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-22"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified"
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.bwra-gaps.004",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Just over a fifth of all firms had no business-wide risk assessment (BWRA) or an incomplete one; 18% of private markets firms said their BWRA didn't specifically cover private markets risk.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Asset management and alternative firms: financial crime controls",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/asset-management-alternative-firms-financial-crime-controls",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-22"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified"
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.outsourced-cdd-oversight.005",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "40% of firms outsource CDD/EDD, but only 36% of those had full oversight of the third party's onboarding process.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Asset management and alternative firms: financial crime controls",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/asset-management-alternative-firms-financial-crime-controls",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-22"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "36% is a subset denominator (firms that outsource), not 36% of all 242 firms. Flagged and corrected during Codex round 1."
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.reg28-3a-4-ownership-structure.006",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Regulation 28(3A)/(4) MLRs 2017: a relevant person must take reasonable measures to understand the ownership and control structure of a customer, and identify and take reasonable measures to verify the customer's beneficial owner, including that beneficial owner's own ownership and control structure where it is itself a legal person, trust, or similar arrangement.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 28",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified"
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.reg28-9-registrar-reliance.007",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Regulation 28(9), amended 18 November 2025: a firm cannot satisfy its beneficial ownership obligations by relying solely on information delivered to the UK registrars defined in Regulation 28(9A), principally the Companies House PSC framework and the overseas entities register.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 28",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified"
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.reg5-3-partnership-beneficial-ownership.008",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Regulation 5(3): beneficial ownership of a partnership is a quantified test, an individual who is ultimately entitled to or controls, directly or indirectly, more than 25% of the partnership's capital or profits, or more than 25% of its voting rights.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 5",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/5",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Load-bearing citation for Scenario 2. Confirmed to cover indirect entitlement through intermediary structures (fund-of-funds) via Codex round 2 review, subject to effective-entitlement tracing, not a bare intermediary-level percentage."
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.reg35-13-pep-bridge.009",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Regulation 35(13): for the purposes of Regulation 35(5), a relationship with an individual includes a relationship with an entity of which that individual is a beneficial owner.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 35",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Scope corrected during Codex round 2: operates specifically within Reg 35(5), does not itself trigger Reg 35(1)."
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.reg33-1a-high-risk-edd.010",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Regulation 33(1)(a): EDD is required where the relevant person identifies a case as one presenting a high risk of money laundering or terrorist financing, independent of the Regulation 35 PEP-specific trigger.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 33",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified"
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.composite-case-study-no-precedent-found.011",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "No genuine, on-point real UK enforcement action against a private markets firm specifically for beneficial-ownership or ownership-chain failure was found. Composite case study used instead.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "unverifiable-remove",
+    "note": "Closest candidate, FCA final notice against ADM Investor Services International, rejected as a citable private-markets precedent: it is a brokerage, not a private markets fund manager. Same pattern as the Money Mule RUSI correction and the Crypto Travel Rule AMF finding."
+  },
+  {
+    "claimId": "private-markets-financial-crime-investigation-handbook.reg39-third-party-reliance.012",
+    "guide": "private-markets-financial-crime-investigation-handbook.html",
+    "claimText": "Regulation 39 permits a relevant person to rely on another UK relevant person or a qualifying third-country person subject to equivalent CDD and record-keeping requirements and supervision, and separately addresses agents and outsourcing service providers under Regulation 39(7), but in every case the relevant person remains liable for any failure to apply the required customer due diligence measures.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 39",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/39",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Not in the draft's own 'Draft verification-ledger.json entries' list, added independently during the HTML build because The Borrowed Check card cited Regulation 39 without a corresponding ledger entry. Verified directly against legislation.gov.uk's own text before citing."
   }
 ]
