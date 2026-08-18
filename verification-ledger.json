@@ -2054,5 +2054,53 @@
     "reviewDue": "2027-02-18",
     "status": "verified",
     "note": "Added following Codex's round 3 regulatory-claim review of Scenario 2 Variant B option D. Regulation 40(2)(a) and Regulation 28(16) text both confirmed directly against legislation.gov.uk before citing; Regulation 28(16)'s demonstrability requirement is covered by the same Regulation 28 source already cited as entry 006, cross-referenced here rather than duplicated as a separate source object."
+  },
+  {
+    "claimId": "aml-guide-part1.fca-2024-25-enforcement-fines-final-notices.001",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The FCA issued total financial penalties of over £186m (£186,412,508: £179,096,835 against firms across 16 penalties, £7,315,673 against individuals across 13 penalties) and 37 Final Notices via its Enforcement division in 2024/25.",
+    "claimType": "statistic",
+    "source": {
+      "title": "FCA Operating Service Metrics 2024/25, Enforcement Data",
+      "url": "https://www.fca.org.uk/data/fca-operating-service-metrics-2024-25/enforcement-data",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "The FCA's own page also reports 900 Final Notices in total for 2024/25, but that figure combines Enforcement (37) with the separate Threshold Conditions Team (863). The guide's '37 Final Notices' claim is scoped correctly to the Enforcement-specific figure, matching the guide's own financial-crime-enforcement context."
+  },
+  {
+    "claimId": "aml-guide-part1.poca-s330-s334-penalties.002",
+    "guide": "aml-guide-part1.html",
+    "claimText": "Section 330 of the Proceeds of Crime Act 2002 (failure to disclose) carries a maximum penalty, on conviction on indictment, of 5 years' imprisonment or a fine or both (s.334(2)(b)). The principal money laundering offences under sections 327, 328, and 329 carry a maximum penalty, on conviction on indictment, of 14 years' imprisonment or a fine or both (s.334(1)(b)).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, Sections 330 and 334",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/334",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2003-02-24"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Section 330 itself defines the offence but does not state the penalty; the penalty provisions for both s.330 (5 years) and ss.327-329 (14 years) sit in s.334, confirmed directly against legislation.gov.uk's own text for both sections."
+  },
+  {
+    "claimId": "aml-guide-part1.fg25-3-pep-exclusions.003",
+    "guide": "aml-guide-part1.html",
+    "claimText": "FG25/3 (July 2025) confirms UK (domestic) PEPs are treated as lower risk than foreign PEPs as a starting point (Regulation 35(3A)). Non-executive board members of central government boards in the UK are not treated as PEPs (unless they separately meet the PEP definition in another capacity). Junior or mid-ranking civil servants are not treated as PEPs. Military officials are NOT categorically excluded: the guidance explicitly includes high-ranking officers in the armed forces as a PEP category, scoped to those at Permanent Secretary/Deputy Permanent Secretary-equivalent rank (Vice Admiral, Lieutenant General, or Air Marshal). A firm's MLRO need not personally sign off every PEP relationship provided a suitably senior person does so and the MLRO retains oversight. Firms must document their rationale where they apply continued EDD to a former PEP beyond the standard baseline (Regulation 35(9)(b)).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FG25/3: The treatment of politically exposed persons for anti-money laundering purposes",
+      "url": "https://www.fca.org.uk/publications/finalised-guidance/fg25-3-treatment-politically-exposed-persons",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-18",
+    "reviewDue": "2027-02-18",
+    "status": "verified",
+    "note": "Real correction found and fixed during this sourcing pass, not just a citation add: the guide's original text stated 'military officials are NOT classified as PEPs' in two places (the 2026-changes callout and the FAQ). Checked against the FCA's own FG25/3 PDF (fetched directly, not a secondary summary): the guidance explicitly lists 'ambassadors, charges d'affaires and high-ranking officers in the armed forces' as a PEP category, scoped to Permanent Secretary-equivalent rank (Vice Admiral, Lieutenant General, or Air Marshal). Only junior/mid-ranking military personnel are excluded, the same threshold that excludes junior civil servants generally, not military officials as a category. Both occurrences reworded to state the accurate, narrower scope before citing, per the instruction not to cite an inaccurate paraphrase."
   }
 ]
