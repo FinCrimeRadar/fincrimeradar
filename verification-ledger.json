@@ -2457,5 +2457,56 @@
     "status": "verified",
     "location": "pep-guide-part1.html, Section 06 (Key changes under FG25/3, Former PEP documentation bullet)",
     "note": "Split from claimId pep-guide-part1.fg253-mlro-and-former-pep-documentation.001. Narrowed from a general \"document reasons for continuing or reducing\" claim, per external review finding the guidance's \"must\" language in 2.10 is softened to \"should\" in the operative Annex 1 text."
+  },
+  {
+    "claimId": "sar-guide-part1.ncr-sars-2023-24-volume.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "Over 870,000 SARs were submitted to the UK's National Crime Agency in 2023/24 (872,048 exact)",
+    "claimType": "statistic",
+    "source": {
+      "title": "National Crime Agency, UKFIU SARs Annual Report 2023/24 (published 28 March 2025)",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/706-sars-annual-report-2024/file",
+      "publisher": "National Crime Agency (NCA)",
+      "date": "2025-03-28"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Introduction paragraph and stat card",
+    "note": "Corrects a stale \"900K+\" figure. That figure belongs to 2022/23 (901,255), not 2023/24, a stale-asset error already caught and corrected once before on aml-guide-part1.html for the same underlying statistic."
+  },
+  {
+    "claimId": "sar-guide-part1.ncr-daml-2023-24-assets.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "£240M+ in assets were refused/denied under DAML in 2023/24",
+    "claimType": "statistic",
+    "source": {
+      "title": "National Crime Agency, UKFIU SARs Annual Report 2023/24, corroborated by the 2024/25 report's own year-on-year comparison (\"£382.6 million, up 59% from £240.1 million\")",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/706-sars-annual-report-2024/file",
+      "publisher": "National Crime Agency (NCA)",
+      "date": "2025-03-28"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Introduction stat card",
+    "note": "Corrects an unsourced \"£258M+\" figure that matched neither the 2023/24 nor 2024/25 reported totals."
+  },
+  {
+    "claimId": "sar-guide-part1.daml-moratorium-vs-notice-period.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "The DAML moratorium period is 31 calendar days, triggered after the NCA refuses consent; the separate 7 working day notice period precedes deemed consent if the NCA does not respond",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, sections 335-336 (statutory basis for the two periods), corroborated by NCA UKFIU guidance describing the same two-stage structure",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/335",
+      "publisher": "legislation.gov.uk (UK Public General Acts); National Crime Agency (NCA)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Introduction stat card (previously mislabelled) and Section 05 DAML process table (already correct)",
+    "note": "Corrects an internal document contradiction, the stat card previously mislabelled the 7-day notice period as the \"moratorium period\", while the guide's own DAML table correctly stated 31 days for the actual moratorium."
   }
 ]
