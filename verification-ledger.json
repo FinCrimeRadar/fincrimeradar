@@ -2733,7 +2733,7 @@
   {
     "claimId": "aml-guide-part1.poca-daml-s338-consent.006",
     "guide": "aml-guide-part1.html",
-    "claimText": "The DAML defence arises under Sections 327(2)(a), 328(2)(a) and 329(2)(a) where a person makes an authorised disclosure under Section 338; appropriate consent may be express, deemed where no refusal is given before the seven working day notice period expires (which begins on the first working day after the disclosure is made, Section 335(5)), or deemed where consent was refused but the further 31-day moratorium period has since expired without a restraint or other order extending it — not general NCA permission to proceed",
+    "claimText": "The DAML defence, provided by Sections 327(2)(a), 328(2)(a) or 329(2)(a) for a specified act that would otherwise constitute an offence under the corresponding subsection (1), arises where a person makes an authorised disclosure under Section 338; appropriate consent may be express, deemed where no refusal is given before the seven working day notice period expires (which begins on the first working day after the disclosure is made, Section 335(5)), or deemed where consent was refused but the further 31-day moratorium period has since expired without a restraint or other order extending it, not general NCA permission to proceed",
     "claimType": "regulatory",
     "source": {
       "title": "POCA 2002, sections 335, 336, 338; NCA DAML guidance",
@@ -2745,7 +2745,7 @@
     "reviewDue": "2027-08-19",
     "status": "verified",
     "location": "aml-guide-part1.html, DAML section",
-    "note": "Rewritten this round per CLAUDE.md's Correction discipline rule 3: the defence arises in ss327(2)(a)/328(2)(a)/329(2)(a) via a Section 338 authorised disclosure, not under Section 338 itself; both deemed-consent routes and the Section 335(5) notice-period start are now stated."
+    "note": "Rewritten this round per CLAUDE.md's Correction discipline rule 3: the defence arises in ss327(2)(a)/328(2)(a)/329(2)(a) via a Section 338 authorised disclosure, not under Section 338 itself; both deemed-consent routes and the Section 335(5) notice-period start are now stated. Third-round correction, 2026-08-19: external review found the second-round wording described the defence limbs (2)(a) as if they were the offence-creating provisions; corrected to identify (1) as the offence and (2)(a) as the defence, per Correction discipline rule 1 (structural match, not subject match)."
   },
   {
     "claimId": "aml-guide-part1.poca-asset-recovery-uwo-classification.007",
