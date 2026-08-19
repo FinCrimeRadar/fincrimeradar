@@ -69,6 +69,19 @@ Three rules, all mandatory for any correction involving a specific statutory or 
 
 Budget for at least two correction rounds as the default expectation on any guide with statutory or regulatory content, not as a sign something went wrong the first time. A single-pass sourcing effort that is never re-checked against a source's actual structure is not equivalent in rigour to a two-round correction, even if both eventually produce the same final wording, because the first has no mechanism for catching what it does not know it is missing.
 
+## Citation density and guide-drafting workflow
+
+Found 2026-08-19, after aml-guide-part1.html required two full correction rounds across two separate batches, twenty-two individual regulatory claims corrected, several needing a second round even after external review: the repeated Claude-Codex-Claude-Codex correction cycle is not primarily a review-thoroughness problem, it is a symptom of how guides get drafted. Dense, subsection-level citation throughout ordinary body prose creates many small opportunities for structural mismatch, each one requiring its own verification round. The fix is upstream of review.
+
+For any new guide, or any substantial rewrite of an existing one:
+
+1. Build a verified source pack before drafting any guide prose. List every statutory or regulatory proposition the guide will need to make, pull and verify each one directly against its primary source once, and record the exact source wording and citation. Draft prose from the verified pack afterward, not the reverse.
+2. Calibrate citation density to what the reader needs, not to maximum available precision. Cite at section level in general body prose (e.g. "Section 330 POCA") unless subsection-level distinction is itself the specific teaching point of that passage. Reserve subsection-level precision for worked scenarios and knowledge-check questions, where GUIDE_STANDARD.md already requires depth. Precision that does not change a reader's practical takeaway is pure correction-cycle risk with no reader benefit, drop it.
+3. Cap external review at two rounds per guide as the default target, not an open-ended cycle. One full structural pass covering every flagged candidate at once, one application and ledger-reconciliation pass, one confirmation pass. If a third round is genuinely needed, that is a signal the guide's citation density was too high going in, not just bad luck, and worth a density pass before further correction.
+4. When retrofitting an existing dense guide, do not assume it needs the same treatment as a from-scratch build. Triage first: low citation density, narrative-style guides likely need far fewer rounds and should be confirmed as such before assuming aml-guide-part1.html's pace applies.
+
+This does not relax the underlying accuracy bar (see Regulatory-claim adversarial review and Correction discipline above), it changes how much needs reviewing by reducing how much precision is asserted in the first place.
+
 ## Sourcing process verification
 
 A guide's own Methodology section can misstate its own verification process, not just the underlying facts it's meant to be checking. Found and corrected during the classification-asymmetry-guide.html revision (2026-08-14): a quote was wrongly declared unverifiable in the guide's own Methodology section when it was genuinely present in the source, a false statement about the guide's own sourcing rigor sitting inside the one section whose job is to prove that rigor. Neither the project's sourcing checklist nor its in-browser verification is built to catch this, both check for missing citations and broken interactions, not for whether a guide's narrative about its own verification process is itself accurate.
