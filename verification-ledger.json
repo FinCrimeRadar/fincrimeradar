@@ -2461,7 +2461,7 @@
   {
     "claimId": "sar-guide-part1.ncr-sars-2023-24-volume.001",
     "guide": "sar-guide-part1.html",
-    "claimText": "Over 870,000 SARs were submitted to the UK's National Crime Agency in 2023/24 (872,048 exact)",
+    "claimText": "In 2023/24, the UKFIU received 872,048 SARs — representing the collective financial intelligence gathered from across the UK's reporting sectors, translated into actionable information for law enforcement.",
     "claimType": "statistic",
     "source": {
       "title": "National Crime Agency, UKFIU SARs Annual Report 2023/24 (published 28 March 2025)",
@@ -2508,5 +2508,143 @@
     "status": "verified",
     "location": "sar-guide-part1.html, Introduction stat card (previously mislabelled) and Section 05 DAML process table (already correct)",
     "note": "Corrects an internal document contradiction, the stat card previously mislabelled the 7-day notice period as the \"moratorium period\", while the guide's own DAML table correctly stated 31 days for the actual moratorium."
+  },
+  {
+    "claimId": "sar-guide-part1.fca-al-rayan-bank-2023-final-notice.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "In its 2023 Al Rayan Bank Final Notice, the FCA found management had communicated to some frontline staff that they should accept money regardless, and found little source of funds questioning and reluctance to request further evidence",
+    "claimType": "enforcement",
+    "source": {
+      "title": "FCA, Al Rayan Bank PLC Final Notice (11 January 2023), paragraphs 4.95-4.97",
+      "url": "https://www.fca.org.uk/publication/final-notices/al-rayan-bank-plc-2023.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2023-01-11"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Section 02 (the \"ostrich\" problem callout)",
+    "note": "Replaces an unsupported \"FCA enforcement action against wilful blindness training\" claim with no named case."
+  },
+  {
+    "claimId": "sar-guide-part1.poca-schedule9-vs-mlr2017-scope.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "POCA's regulated sector (Schedule 9) and MLR 2017's relevant person regime (Regulations 8/15) are closely aligned but legally distinct definitions",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, Schedule 9; Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulations 8 and 15",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/schedule/9",
+      "publisher": "legislation.gov.uk (UK Public General Acts and Statutory Instruments)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Section 03 (Who must file a SAR intro paragraph)",
+    "note": "Corrects an equivalence claim that treated the two regimes as \"the same broad category.\"",
+    "additionalSources": [
+      {
+        "title": "MLR 2017, Regulation 8 (customer due diligence measures, definitions feeding \"relevant person\")",
+        "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/8",
+        "publisher": "legislation.gov.uk"
+      },
+      {
+        "title": "MLR 2017, Regulation 15 (application, defines \"relevant person\")",
+        "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/15",
+        "publisher": "legislation.gov.uk"
+      }
+    ]
+  },
+  {
+    "claimId": "sar-guide-part1.fca-tr19-4-sar-documentation.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "The FCA's TR19/4 states that the rationale for a decision not to submit a SAR should be clearly documented and recorded",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, TR19/4, \"Understanding the money laundering risks in the capital markets\" (10 June 2019), paragraph 2.58",
+      "url": "https://www.fca.org.uk/publication/thematic-reviews/tr19-004.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2019-06-10"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Section 04 (Documenting non-filing decisions callout)",
+    "note": "Replaces an unsourced \"frequently finds inadequate documentation\" claim with the actual TR19/4 finding. TR19/4 is a sector-focused review of 19 capital markets participants (paragraph 2.58, under \"Other barriers to reporting\"); the documentation principle itself is stated in general, unqualified terms within that review, not limited to capital markets products or practices. Guide wording updated to name TR19/4's actual scope for reader transparency, per external review, 2026-08-19. Publication date corrected from 4 June 2019 to 10 June 2019 per the FCA's own official publication page; FCG 3.2.10 added as a supporting source for the general documentation-expectation sentence.",
+    "additionalSources": [
+      {
+        "title": "FCA Financial Crime Guide, chapter 3, paragraph 3.2.10 (supporting source for the general documentation-expectation sentence)",
+        "url": "https://www.handbook.fca.org.uk/handbook/FCG/3/2.html",
+        "publisher": "Financial Conduct Authority (FCA)"
+      }
+    ]
+  },
+  {
+    "claimId": "sar-guide-part1.fca-nca-defensive-sars-quality.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "FCA guidance identifies passing every internal report to the NCA without assessment as poor practice; the NCA separately warns poor quality reporting can delay processing",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Financial Crime Guide, Chapter 3; NCA, Suspicious Activity Reports guidance",
+      "url": "https://www.handbook.fca.org.uk/handbook/FCG/3/",
+      "publisher": "Financial Conduct Authority (FCA); National Crime Agency (NCA)",
+      "date": "2026-08-19"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Section 07 (Quality matters more than quantity callout)",
+    "note": "Corrects an unsupported joint \"NCA and FCA have been explicit\" attribution with no primary source for the combined claim."
+  },
+  {
+    "claimId": "sar-guide-part1.poca-s342-scope-and-application.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "Section 342 POCA makes it an offence, where a person knows or suspects that an appropriate officer is acting or proposing to act in connection with a listed investigation (confiscation, civil recovery, detained cash, detained property, frozen funds, cryptoasset, exploitation proceeds, or money laundering), to make a disclosure likely to prejudice that investigation, or to falsify, conceal, destroy or otherwise dispose of (or cause or permit the falsification, concealment, destruction or disposal of) relevant documents, subject to statutory defences under section 342(3); conduct connected with a SAR may engage this offence depending on the circumstances, rather than a false SAR automatically constituting it",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 342",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/342",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Section 02 offence card and Section 07 FAQ",
+    "note": "Closes a real gap, both corrected instances of this claim were live in the guide with no ledger entry, caught during a routine ledger cross-check rather than at the point of the original edit. Claim text rewritten to match the corrected two-limb offence card and FAQ wording applied this round, the previously ledgered wording no longer matches either live location."
+  },
+  {
+    "claimId": "sar-guide-part1.poca-s330-disclosure-conditions.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "Section 330 POCA requires disclosure as soon as practicable to a nominated officer or a person authorised for Part 7 purposes by the NCA Director General, once the section 330(3A) conditions are met; suspicion alone, without a qualifying disclosure failure, is not sufficient",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 330",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/330",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Section 02 (Section 330 offence card) and Section 03 (Track 1 description)",
+    "note": "Rewritten this turn to match the corrected oc-desc wording and the corrected Track 1 paragraph, both updated in the same session. Split out from the previously combined section 330/333A entry."
+  },
+  {
+    "claimId": "sar-guide-part1.poca-s333a-tipping-off-scope-penalty.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "Section 333A POCA covers disclosing that a disclosure under Part 7 has been made, or that an investigation into allegations that a Part 7 offence has been committed is contemplated or underway, where the disclosure is likely to prejudice the investigation and the information arose in the course of regulated sector business; sections 333B-333D permit certain disclosures; penalty is 2 years on indictment (unlimited fine) or 3 months/level 5 fine/both on summary conviction",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 333A",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "sar-guide-part1.html, Section 02 (Section 333A offence card) and Section 06 (tipping off intro paragraph)",
+    "note": "Rewritten this turn to match the corrected oc-desc, oc-penalty, and Section 06 intro wording, all updated in the same session. Split out from the previously combined section 330/333A entry."
   }
 ]
