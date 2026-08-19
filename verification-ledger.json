@@ -2831,5 +2831,165 @@
     "status": "verified",
     "location": "aml-guide-part1.html, MLR law-card subtitle and Key amendments timeline (2026 entry)",
     "note": "Previously-uncaught internal-consistency gap found during the second-round structural review: the timeline entry still said \"2026 (expected)\" after the SI had already come into force, caught this round rather than left as a stale claim."
+  },
+  {
+    "claimId": "aml-guide-part1.ftpf-ps24-17-spss-dates-attribution.012",
+    "guide": "aml-guide-part1.html",
+    "claimText": "FTPF in force from 1 September 2025; PS24/17 published and effective 29 November 2024; the FCA becoming SPSS was a 21 October 2025 Government decision, not an FCA confirmation, subject to legislation and transition",
+    "claimType": "regulatory",
+    "source": {
+      "title": "ECCTA 2023 commencement regulations (SI 2025/349, regulation 3); FCA PS24/17 (29 November 2024); HM Treasury AML/CTF supervision reform consultation response (21 October 2025)",
+      "url": "https://www.legislation.gov.uk/uksi/2025/349",
+      "publisher": "legislation.gov.uk; Financial Conduct Authority (FCA); HM Treasury",
+      "date": "2025-10-21"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, 2025-2026 updates callout"
+  },
+  {
+    "claimId": "aml-guide-part1.fca-strategic-priorities-quote.013",
+    "guide": "aml-guide-part1.html",
+    "claimText": "\"Fighting financial crime is one of the FCA's four priorities for 2025 to 2030.\" is a general paraphrase of the FCA's 2025-2030 Strategy (\"fight financial crime, focusing on those who seek to use the fact they are regulated to do harm\"), not a verbatim quotation specifically attributable to the Steve Smart speech; the second sentence (\"disrupt criminals and support firms as an effective line of defence\") also draws on the Strategy's own language rather than a single speech; the previously-quoted second sentence could not be traced verbatim to any FCA publication and has been removed from quotation marks",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, \"FCA launches 5-year strategy to support growth and improve lives\" (2025-2030 Strategy)",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-launches-5-year-strategy-support-growth-and-improve-lives",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-03-25"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, pull-quote after SYSC/FCG paragraph",
+    "note": "Corrects a fabricated-attribution risk, a sentence with no traceable primary source was previously presented as a verbatim FCA quotation. Corrected 2026-08-19: claimText's quoted fragment previously read '4 strategic priorities', the live guide (and the underlying FCA source) reads 'four priorities for 2025 to 2030'. Corrected 2026-08-19: claim previously attributed both sentences to the Steve Smart speech specifically; the first sentence is a paraphrase of the FCA's 2025-2030 Strategy itself, now cited as the primary source, with the speech retained as a supporting source.",
+    "additionalSources": [
+      {
+        "title": "FCA, \"Showing financial crime the red card\" (Steve Smart speech, 11 September 2025)",
+        "url": "https://www.fca.org.uk/news/speeches/showing-financial-crime-red-card",
+        "publisher": "Financial Conduct Authority (FCA)"
+      }
+    ]
+  },
+  {
+    "claimId": "aml-guide-part1.fca-crypto-supervision-scope-ps24-17-content.014",
+    "guide": "aml-guide-part1.html",
+    "claimText": "FCA's MLR supervisory role from 10 January 2020 covers cryptoasset exchange providers and custodian wallet providers specifically, not cryptoasset businesses generally, with a statutory transition period for existing providers; PS24/17 updated FCG guidance on sanctions, proliferation financing and transaction monitoring specifically",
+    "claimType": "regulatory",
+    "source": {
+      "title": "SI 2019/1511 (MLR amendment), regulations 1(2), 3(2)(a), 4(1)(b), 56A; FCA PS24/17",
+      "url": "https://www.legislation.gov.uk/uksi/2019/1511",
+      "publisher": "legislation.gov.uk; Financial Conduct Authority (FCA)",
+      "date": "2020-01-10"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, timeline entries (January 2020, November 2024)"
+  },
+  {
+    "claimId": "aml-guide-part1.fca-sanctions-role-ofsi-enforcement-removal.015",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The FCA supervises the adequacy of sanctions systems and controls at firms within its remit, including through SYSC where applicable; OFSI, not the FCA, monitors and enforces compliance with financial sanctions law; a prior claim that FCA 2024/25 enforcement 'focused heavily' on sanctions compliance failures was unsupported by FCA's own published enforcement data and has been removed",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Financial Crime Guide chapter 7 (FCG 7.1.1); FCA Operating Service Metrics 2024/25; FCA Freedom of Information response on sanctions systems and controls investigations (November 2024)",
+      "url": "https://www.handbook.fca.org.uk/handbook/FCG/7/",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2024-11-01"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, sanctions bodies list and Russia sanctions callout"
+  },
+  {
+    "claimId": "aml-guide-part1.mlro-role-structure.016",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The MLRO function commonly combines several distinct statutory/regulatory roles: MLR regulation 21(1)(a) compliance officer, regulation 21(3) nominated officer, FCA MLRO under SYSC 6.3.9R, and POCA section 331 nominated officer, each with its own conditions rather than a single undifferentiated 'two hats' framing",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 regulation 21; FCA Handbook SYSC 6.3; POCA 2002 section 331",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "legislation.gov.uk; Financial Conduct Authority (FCA)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, MLRO's dual role callout"
+  },
+  {
+    "claimId": "aml-guide-part1.ftpf-threshold-precision.017",
+    "guide": "aml-guide-part1.html",
+    "claimText": "FTPF large-organisation test is turnover >£36m, balance sheet total >£18m (not 'assets'), or >250 employees, meeting two of three, assessed in the financial year preceding the offence, with a group test for parent undertakings under section 202 and a reasonable-procedures defence under section 199(4)",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, sections 199, 201, 202",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/199",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, Failure to Prevent Fraud callout"
+  },
+  {
+    "claimId": "aml-guide-part1.spss-implementation-status.018",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The FCA's future role as Single Professional Services Supervisor follows a 21 October 2025 Government decision; the current professional services population is split across 23 supervisors; the Financial Services and Markets Bill contains enabling provisions but no official operational start date has been confirmed.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "HM Treasury, AML Supervision Reform Response Document (21 October 2025)",
+      "url": "https://assets.publishing.service.gov.uk/media/68f609dc2f0fc56403a3d0c7/AML_Supervision_Reform_Response_Document_FINAL.pdf",
+      "publisher": "HM Treasury",
+      "date": "2025-10-21"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, SPSS callout heading and body",
+    "note": " Rewritten 2026-08-19 as a direct restatement of the live page text, not an editorial note about the correction. Corrected 2026-08-19: the previous consultation URL was replaced with the actual HM Treasury response document URL, and the Financial Services and Markets Bill added as a supporting source.",
+    "additionalSources": [
+      {
+        "title": "Financial Services and Markets Bill [HL], HL Bill 5 of 2026-27",
+        "url": "https://bills.parliament.uk/bills/4129",
+        "publisher": "UK Parliament"
+      }
+    ]
+  },
+  {
+    "claimId": "aml-guide-part1.mlr-vs-poca-faq-structural.019",
+    "guide": "aml-guide-part1.html",
+    "claimText": "MLR 2017 has its own civil and criminal enforcement regime including Regulation 86, not solely compliance-framework obligations; POCA covers offences, disclosure offences and asset recovery powers, not solely criminal offences; the two regimes can apply independently or simultaneously",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 regulation 86; POCA 2002 sections 327-331 and Parts 2-5, 8",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/86",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments and Public General Acts)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, MLR vs POCA FAQ"
+  },
+  {
+    "claimId": "aml-guide-part1.emi-payment-institution-crypto-scope.020",
+    "guide": "aml-guide-part1.html",
+    "claimText": "EMIs and payment institutions fall within MLR 2017 scope via regulations 8(2)(b)/10(2)(a) and Schedule 2 paragraphs 4/15 based on listed activities, not as universally-named categories; account information services are excluded from Schedule 2 paragraph 4; FCA authorisation alone does not determine MLR scope; cryptoasset exchange providers/custodian wallet providers became separate relevant person categories on 10 January 2020",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 regulations 8, 10, Schedule 2, regulation 7",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/8",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, fintech/EMI FAQ"
   }
 ]
