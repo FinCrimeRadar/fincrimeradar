@@ -2330,18 +2330,19 @@
   {
     "claimId": "pep-guide-part1.category-source-attribution.001",
     "guide": "pep-guide-part1.html",
-    "claimText": "PEP categories are drawn from FATF's definitional guidance and reflected in UK regulatory practice, not enumerated directly in MLR 2017 Regulation 35(12)",
+    "claimText": "MLR 2017 Regulation 35(14) supplies a non-exhaustive statutory list of eight types of prominent public function, supplementing the principle-based definition in Regulation 35(12)(a)",
     "claimType": "regulatory",
     "source": {
-      "title": "FATF Recommendation 12 interpretive note / glossary (PEP category enumeration); Regulation 35(12)(a), Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017",
+      "title": "Regulation 35(14), Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017",
       "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
-      "publisher": "legislation.gov.uk (UK Statutory Instruments); FATF",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
       "date": "2017-06-26"
     },
     "verifiedOn": "2026-08-19",
     "reviewDue": "2027-08-19",
     "status": "verified",
-    "note": "Corrects a misattribution, the six categories are FATF/practice-derived, not a statutory enumeration under Reg 35(12) itself. Regulation 35(12)(a) sets out a single broad, principle-based definition with no enumerated categories, confirmed directly against legislation.gov.uk."
+    "location": "pep-guide-part1.html, Section 02 (categories intro paragraph and the eight pep-cat cards)",
+    "note": "Second-round correction. First correction this session wrongly attributed the category breakdown to FATF/practice rather than statute, missing that Regulation 35(14) itself supplies an eight-item enumerated list. Caught by external Codex review, independently confirmed against legislation.gov.uk before this rewrite."
   },
   {
     "claimId": "pep-guide-part1.former-pep-edd-duration-subsection.001",
@@ -2424,12 +2425,12 @@
     "note": "Figure itself was already accurate, reframed from a stated fact to an attributed DOJ allegation for precision. justice.gov blocks automated fetch, so verified against an IRS.gov page quoting DOJ language verbatim: \"from 2009 through 2015, high-level officials of 1MDB, their associates... misappropriated more than $4.5 billion in funds belonging to 1MDB.\""
   },
   {
-    "claimId": "pep-guide-part1.fg253-mlro-and-former-pep-documentation.001",
+    "claimId": "pep-guide-part1.fg253-mlro-approval.001",
     "guide": "pep-guide-part1.html",
-    "claimText": "FG25/3's MLRO sign-off provision (suitably senior sign-off with MLRO oversight of the overall framework, not personal approval of every relationship) and its former-PEP documentation provision (documented rationale specifically when continuing enhanced measures beyond the 12-month period under Regulation 35(9)(b))",
+    "claimText": "The MLRO need not personally approve each PEP/family member/RCA relationship, provided the approver meets the statutory senior management test and the MLRO retains oversight of the overall PEP control framework",
     "claimType": "regulatory",
     "source": {
-      "title": "FCA, Finalised Guidance FG25/3, \"The treatment of politically exposed persons for anti-money laundering purposes\"",
+      "title": "FCA, Finalised Guidance FG25/3, \"The treatment of politically exposed persons for anti-money laundering purposes\" (7 July 2025, PDF revised 15 July 2025), Annex 1",
       "url": "https://www.fca.org.uk/publication/finalised-guidance/fg25-3.pdf",
       "publisher": "Financial Conduct Authority (FCA)",
       "date": "2025-07-07"
@@ -2437,6 +2438,24 @@
     "verifiedOn": "2026-08-19",
     "reviewDue": "2027-08-19",
     "status": "verified",
-    "note": "Corrects two overstatements: guide previously implied blanket MLRO sign-off removal (FG25/3 actually requires MLRO oversight of the overall framework, not personal approval of every relationship) and a general documentation requirement for all de-escalation decisions (FG25/3 actually requires documented rationale specifically when continuing enhanced measures beyond the 12-month period under Regulation 35(9)(b))."
+    "location": "pep-guide-part1.html, Section 06 (Key changes under FG25/3, MLRO bullet)",
+    "note": "Split from claimId pep-guide-part1.fg253-mlro-and-former-pep-documentation.001 into two entries, one per corrected bullet under Section 06, so each claim carries its own precise FG25/3 citation."
+  },
+  {
+    "claimId": "pep-guide-part1.fg253-former-pep-documentation-scope.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "FG25/3 expects firms to document their rationale when continuing Regulation 35(5)/(8) measures beyond 12 months under Regulation 35(9)(b); it does not state an equivalent specific requirement for ending those measures after the minimum period",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Finalised Guidance FG25/3, \"The treatment of politically exposed persons for anti-money laundering purposes\" (7 July 2025, PDF revised 15 July 2025), paragraph 2.10 and Annex 1",
+      "url": "https://www.fca.org.uk/publication/finalised-guidance/fg25-3.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "pep-guide-part1.html, Section 06 (Key changes under FG25/3, Former PEP documentation bullet)",
+    "note": "Split from claimId pep-guide-part1.fg253-mlro-and-former-pep-documentation.001. Narrowed from a general \"document reasons for continuing or reducing\" claim, per external review finding the guidance's \"must\" language in 2.10 is softened to \"should\" in the operative Annex 1 text."
   }
 ]
