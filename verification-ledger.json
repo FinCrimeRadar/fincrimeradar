@@ -2646,5 +2646,168 @@
     "status": "verified",
     "location": "sar-guide-part1.html, Section 02 (Section 333A offence card) and Section 06 (tipping off intro paragraph)",
     "note": "Rewritten this turn to match the corrected oc-desc, oc-penalty, and Section 06 intro wording, all updated in the same session. Split out from the previously combined section 330/333A entry."
+  },
+  {
+    "claimId": "aml-guide-part1.mlr2017-commencement-scope.001",
+    "guide": "aml-guide-part1.html",
+    "claimText": "MLR 2017 came into force 26 June 2017, revoked and replaced MLR 2007 subject to transitional provisions, implemented 4MLD in part, applies to relevant persons under Regulation 8 subject to Regulation 15",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017, Regulations 1(2), 8, 15, 110; official transposition note",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, Section 01 intro paragraph and timeline entry"
+  },
+  {
+    "claimId": "aml-guide-part1.mlr2017-six-theme-recordkeeping-training.002",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The guide's six core obligation bullets are an editorial grouping of MLR 2017's principal duties, not a statutory count; record-keeping deletion is governed by Regulation 40 and its exceptions, not UK GDPR; training covers relevant employees and qualifying agents",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017, Regulations 18, 19, 21, 24, 27, 28, 40",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/40",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, Core obligations section"
+  },
+  {
+    "claimId": "aml-guide-part1.poca-part7-scope.003",
+    "guide": "aml-guide-part1.html",
+    "claimText": "Sections 327-329 are not confined to the regulated sector; Sections 330, 331, 333A carry narrower regulated sector conditions",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002, sections 327-329, 330, 331, 333A",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/part/7",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, POCA intro paragraph"
+  },
+  {
+    "claimId": "aml-guide-part1.poca-s330-four-conditions.004",
+    "guide": "aml-guide-part1.html",
+    "claimText": "Section 330 failure to disclose requires all four conditions: knowledge/suspicion or reasonable grounds, regulated sector information source, identification/assistance condition, failure to make required disclosure as soon as practicable to a nominated officer or NCA-authorised person under 330(3A)",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002, section 330",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/330",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, SAR regime section"
+  },
+  {
+    "claimId": "aml-guide-part1.poca-s333a-subsections-penalty.005",
+    "guide": "aml-guide-part1.html",
+    "claimText": "Section 333A covers two circumstances (333A(1)/(2) and 333A(3)) each requiring regulated sector information and likely prejudice; penalty is 2 years/fine on indictment or 3 months/level 5 fine/both on summary conviction",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002, section 333A",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, Tipping off callout",
+    "note": "Same correction class as sar-guide-part1.html's equivalent fix this session."
+  },
+  {
+    "claimId": "aml-guide-part1.poca-daml-s338-consent.006",
+    "guide": "aml-guide-part1.html",
+    "claimText": "DAML defence arises under Section 338 authorised disclosure and appropriate consent (express or deemed after the 7 working day notice period), not general NCA permission to proceed",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002, sections 335, 336, 338; NCA DAML guidance",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/338",
+      "publisher": "legislation.gov.uk (UK Public General Acts); National Crime Agency (NCA)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, DAML section"
+  },
+  {
+    "claimId": "aml-guide-part1.poca-asset-recovery-uwo-classification.007",
+    "guide": "aml-guide-part1.html",
+    "claimText": "UWOs are an investigative order, not a recovery mechanism; the 2022 Act reformed UWOs specifically, the 2023 Act expanded confiscation and civil recovery including for cryptoassets",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 Parts 2-5, 8; Economic Crime (Transparency and Enforcement) Act 2022; Economic Crime and Corporate Transparency Act 2023",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/part/8",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, Asset recovery powers section"
+  },
+  {
+    "claimId": "aml-guide-part1.poca-vs-ta2000-property-framing.008",
+    "guide": "aml-guide-part1.html",
+    "claimText": "POCA addresses criminal property from criminal conduct; TA 2000 addresses terrorist property, which may include legitimate funds intended for terrorism",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 section 340(3); Terrorism Act 2000 sections 14-18",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/340",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, TA 2000 section"
+  },
+  {
+    "claimId": "aml-guide-part1.sysc-3-2-6r-applicability-scope.009",
+    "guide": "aml-guide-part1.html",
+    "claimText": "SYSC 3.2.6R applies to firms within SYSC 3's application (per SYSC 1 Annex 1), not firms generally",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, SYSC 1 Annex 1, SYSC 3.2.6R",
+      "url": "https://www.handbook.fca.org.uk/handbook/SYSC/3/2.html",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-08-19"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, SYSC rules section",
+    "note": "Closes a gap, this rule had zero ledger coverage despite two appearances in the guide."
+  },
+  {
+    "claimId": "aml-guide-part1.ofsi-cmp-cap-structure.010",
+    "guide": "aml-guide-part1.html",
+    "claimText": "OFSI CMPs under Policing and Crime Act 2017 section 146(3)/(4) are the greater of £1 million or 50% of estimated breach value where estimable, £1 million where not",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Policing and Crime Act 2017, section 146; OFSI monetary penalty guidance",
+      "url": "https://www.legislation.gov.uk/ukpga/2017/3/section/146",
+      "publisher": "legislation.gov.uk (UK Public General Acts); Office of Financial Sanctions Implementation (OFSI), gov.uk",
+      "date": "2017-01-31"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, Civil monetary penalties section and penalty card",
+    "note": "Independently corroborated by Claude chat against Skadden, Lexology and gov.uk sources beyond Codex's own citation."
   }
 ]
