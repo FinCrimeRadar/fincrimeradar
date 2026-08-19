@@ -2666,7 +2666,7 @@
   {
     "claimId": "aml-guide-part1.mlr2017-six-theme-recordkeeping-training.002",
     "guide": "aml-guide-part1.html",
-    "claimText": "The guide's six core obligation bullets are an editorial grouping of MLR 2017's principal duties, not a statutory count; record-keeping deletion is governed by Regulation 40 and its exceptions, not UK GDPR; training covers relevant employees and qualifying agents",
+    "claimText": "The guide's six core obligation bullets are an editorial grouping of MLR 2017's principal duties, not a statutory count; records specified by Regulation 40 must be kept for the applicable retention period, after which personal data must be deleted unless a Regulation 40(5) retention ground applies; training covers relevant employees and qualifying agents",
     "claimType": "regulatory",
     "source": {
       "title": "MLR 2017, Regulations 18, 19, 21, 24, 27, 28, 40",
@@ -2677,7 +2677,8 @@
     "verifiedOn": "2026-08-19",
     "reviewDue": "2027-08-19",
     "status": "verified",
-    "location": "aml-guide-part1.html, Core obligations section"
+    "location": "aml-guide-part1.html, Core obligations section",
+    "note": "Rewritten this round per CLAUDE.md's Correction discipline rule 3, to match the corrected record-keeping bullet (Regulation 40(5) retention grounds, not UK GDPR)."
   },
   {
     "claimId": "aml-guide-part1.poca-part7-scope.003",
@@ -2698,7 +2699,7 @@
   {
     "claimId": "aml-guide-part1.poca-s330-four-conditions.004",
     "guide": "aml-guide-part1.html",
-    "claimText": "Section 330 failure to disclose requires all four conditions: knowledge/suspicion or reasonable grounds, regulated sector information source, identification/assistance condition, failure to make required disclosure as soon as practicable to a nominated officer or NCA-authorised person under 330(3A)",
+    "claimText": "Section 330 failure to disclose requires all four conditions: knowledge/suspicion or reasonable grounds, regulated sector information source, identification/assistance condition, and failure to make the required disclosure to a nominated officer or a person authorised for Part 7 purposes by the NCA Director General (Section 330(4)) as soon as practicable after the information described in Section 330(3) comes to them",
     "claimType": "regulatory",
     "source": {
       "title": "POCA 2002, section 330",
@@ -2709,12 +2710,13 @@
     "verifiedOn": "2026-08-19",
     "reviewDue": "2027-08-19",
     "status": "verified",
-    "location": "aml-guide-part1.html, SAR regime section"
+    "location": "aml-guide-part1.html, SAR regime section",
+    "note": "Rewritten this round per CLAUDE.md's Correction discipline rule 3: the timing trigger runs from Section 330(3) (information receipt), not 330(3A), and the disclosure route is 330(4)."
   },
   {
     "claimId": "aml-guide-part1.poca-s333a-subsections-penalty.005",
     "guide": "aml-guide-part1.html",
-    "claimText": "Section 333A covers two circumstances (333A(1)/(2) and 333A(3)) each requiring regulated sector information and likely prejudice; penalty is 2 years/fine on indictment or 3 months/level 5 fine/both on summary conviction",
+    "claimText": "Section 333A covers two circumstances: 333A(1)/(2), disclosing that a disclosure falling within Section 337 or 338 has been made, requiring both that the underlying disclosure was itself based on regulated-sector information and that the further disclosure's own information came to the discloser in the regulated sector (the 333A(2) information-origin condition); and 333A(3), disclosing that an investigation into a Part 7 offence is contemplated or underway. The offence is subject to the permitted disclosure provisions in Sections 333B to 333D. Penalty is 2 years' imprisonment or a fine, or both, on indictment; 3 months, a level 5 fine, or both, on summary conviction.",
     "claimType": "regulatory",
     "source": {
       "title": "POCA 2002, section 333A",
@@ -2726,12 +2728,12 @@
     "reviewDue": "2027-08-19",
     "status": "verified",
     "location": "aml-guide-part1.html, Tipping off callout",
-    "note": "Same correction class as sar-guide-part1.html's equivalent fix this session."
+    "note": "Same correction class as sar-guide-part1.html's equivalent fix this session. Rewritten this round per CLAUDE.md's Correction discipline rule 3 to add the 333A(2) information-origin condition and the 333B-333D carve-out."
   },
   {
     "claimId": "aml-guide-part1.poca-daml-s338-consent.006",
     "guide": "aml-guide-part1.html",
-    "claimText": "DAML defence arises under Section 338 authorised disclosure and appropriate consent (express or deemed after the 7 working day notice period), not general NCA permission to proceed",
+    "claimText": "The DAML defence arises under Sections 327(2)(a), 328(2)(a) and 329(2)(a) where a person makes an authorised disclosure under Section 338; appropriate consent may be express, deemed where no refusal is given before the seven working day notice period expires (which begins on the first working day after the disclosure is made, Section 335(5)), or deemed where consent was refused but the further 31-day moratorium period has since expired without a restraint or other order extending it — not general NCA permission to proceed",
     "claimType": "regulatory",
     "source": {
       "title": "POCA 2002, sections 335, 336, 338; NCA DAML guidance",
@@ -2742,12 +2744,13 @@
     "verifiedOn": "2026-08-19",
     "reviewDue": "2027-08-19",
     "status": "verified",
-    "location": "aml-guide-part1.html, DAML section"
+    "location": "aml-guide-part1.html, DAML section",
+    "note": "Rewritten this round per CLAUDE.md's Correction discipline rule 3: the defence arises in ss327(2)(a)/328(2)(a)/329(2)(a) via a Section 338 authorised disclosure, not under Section 338 itself; both deemed-consent routes and the Section 335(5) notice-period start are now stated."
   },
   {
     "claimId": "aml-guide-part1.poca-asset-recovery-uwo-classification.007",
     "guide": "aml-guide-part1.html",
-    "claimText": "UWOs are an investigative order, not a recovery mechanism; the 2022 Act reformed UWOs specifically, the 2023 Act expanded confiscation and civil recovery including for cryptoassets",
+    "claimText": "UWOs are an investigative order, not a recovery mechanism; the 2022 Act reformed UWOs specifically, the 2023 Act expanded confiscation and civil recovery mechanisms in relation to cryptoassets; an account freezing order (AFO) is a freezing step under Section 303Z9 that may precede forfeiture, not a recovery mechanism in itself",
     "claimType": "regulatory",
     "source": {
       "title": "POCA 2002 Parts 2-5, 8; Economic Crime (Transparency and Enforcement) Act 2022; Economic Crime and Corporate Transparency Act 2023",
@@ -2758,12 +2761,13 @@
     "verifiedOn": "2026-08-19",
     "reviewDue": "2027-08-19",
     "status": "verified",
-    "location": "aml-guide-part1.html, Asset recovery powers section"
+    "location": "aml-guide-part1.html, Asset recovery powers section",
+    "note": "Rewritten this round per CLAUDE.md's Correction discipline rule 3: 'including for cryptoassets' corrected to 'in relation to cryptoassets', and the AFO/Section 303Z9 reframing added."
   },
   {
     "claimId": "aml-guide-part1.poca-vs-ta2000-property-framing.008",
     "guide": "aml-guide-part1.html",
-    "claimText": "POCA addresses criminal property from criminal conduct; TA 2000 addresses terrorist property, which may include legitimate funds intended for terrorism",
+    "claimText": "POCA criminal property is property that constitutes, or represents (wholly or partly, directly or indirectly), a person's benefit from criminal conduct, where the alleged offender knows or suspects it constitutes or represents such a benefit (Section 340(3)); TA 2000 terrorist property comprises money or other property likely to be used for the purposes of terrorism (including the resources of a proscribed organisation), the proceeds of the commission of acts of terrorism, and the proceeds of acts carried out for the purposes of terrorism (Section 14)",
     "claimType": "regulatory",
     "source": {
       "title": "POCA 2002 section 340(3); Terrorism Act 2000 sections 14-18",
@@ -2774,12 +2778,13 @@
     "verifiedOn": "2026-08-19",
     "reviewDue": "2027-08-19",
     "status": "verified",
-    "location": "aml-guide-part1.html, TA 2000 section"
+    "location": "aml-guide-part1.html, TA 2000 section",
+    "note": "Rewritten this round per CLAUDE.md's Correction discipline rule 3 to the complete Section 340(3) formulation and the full three-part TA 2000 Section 14 property definition."
   },
   {
     "claimId": "aml-guide-part1.sysc-3-2-6r-applicability-scope.009",
     "guide": "aml-guide-part1.html",
-    "claimText": "SYSC 3.2.6R applies to firms within SYSC 3's application (per SYSC 1 Annex 1), not firms generally",
+    "claimText": "SYSC 3.2.6R applies to insurers, UK Insurance Special Purpose Vehicles (ISPVs), managing agents and the Society, per SYSC 1 Annex 1's application and exceptions, not firms generally",
     "claimType": "regulatory",
     "source": {
       "title": "FCA Handbook, SYSC 1 Annex 1, SYSC 3.2.6R",
@@ -2791,12 +2796,12 @@
     "reviewDue": "2027-08-19",
     "status": "verified",
     "location": "aml-guide-part1.html, SYSC rules section",
-    "note": "Closes a gap, this rule had zero ledger coverage despite two appearances in the guide."
+    "note": "Closes a gap, this rule had zero ledger coverage despite two appearances in the guide. Rewritten this round per CLAUDE.md's Correction discipline rule 3 to name the actual covered entities rather than the circular 'firms within SYSC 3's application' phrasing."
   },
   {
     "claimId": "aml-guide-part1.ofsi-cmp-cap-structure.010",
     "guide": "aml-guide-part1.html",
-    "claimText": "OFSI CMPs under Policing and Crime Act 2017 section 146(3)/(4) are the greater of £1 million or 50% of estimated breach value where estimable, £1 million where not",
+    "claimText": "OFSI CMPs under Policing and Crime Act 2017 section 146(3)/(4) are the greater of £1 million or 50% of the estimated value of the particular funds or economic resources to which the breach relates, where that value can be estimated; in any other case, the maximum is £1 million",
     "claimType": "regulatory",
     "source": {
       "title": "Policing and Crime Act 2017, section 146; OFSI monetary penalty guidance",
@@ -2808,6 +2813,23 @@
     "reviewDue": "2027-08-19",
     "status": "verified",
     "location": "aml-guide-part1.html, Civil monetary penalties section and penalty card",
-    "note": "Independently corroborated by Claude chat against Skadden, Lexology and gov.uk sources beyond Codex's own citation."
+    "note": "Independently corroborated by Claude chat against Skadden, Lexology and gov.uk sources beyond Codex's own citation. Rewritten this round per CLAUDE.md's Correction discipline rule 3 to the 'any other case' fallback language, not 'where the value cannot be estimated'."
+  },
+  {
+    "claimId": "aml-guide-part1.mlr-2026-si-in-force.011",
+    "guide": "aml-guide-part1.html",
+    "claimText": "The Money Laundering and Terrorist Financing Amendment Regulations 2026 (S.I. 2026/621) took effect 30 June 2026, implementing the July 2025 MLR reform decisions including the high-value dealer cash threshold change to £10,000, rather than remaining an 'expected' early-2026 instrument",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering and Terrorist Financing (Amendment) Regulations 2026, S.I. 2026/621",
+      "url": "https://www.legislation.gov.uk/uksi/2026/621",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "location": "aml-guide-part1.html, MLR law-card subtitle and Key amendments timeline (2026 entry)",
+    "note": "Previously-uncaught internal-consistency gap found during the second-round structural review: the timeline entry still said \"2026 (expected)\" after the SI had already come into force, caught this round rather than left as a stale claim."
   }
 ]
