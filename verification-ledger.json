@@ -2326,5 +2326,117 @@
     "reviewDue": "2027-02-18",
     "status": "verified",
     "note": "Split out from claimId .015 (aml-guide-part1.timeline-mar2022-jan2024-pep), which round 2 had cited to the January 2024 domestic PEP amendment regulations, a source about a different timeline entry entirely. Caught by external adversarial review, not this project's own checklist. The March 2022 entry now carries its own citation to the actual Russia sanctions amendment record and the Economic Crime Act 2022 announcement; claimId .015 remains attached to the January 2024 PEP entry only."
+  },
+  {
+    "claimId": "pep-guide-part1.category-source-attribution.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "PEP categories are drawn from FATF's definitional guidance and reflected in UK regulatory practice, not enumerated directly in MLR 2017 Regulation 35(12)",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FATF Recommendation 12 interpretive note / glossary (PEP category enumeration); Regulation 35(12)(a), Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments); FATF",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "note": "Corrects a misattribution, the six categories are FATF/practice-derived, not a statutory enumeration under Reg 35(12) itself. Regulation 35(12)(a) sets out a single broad, principle-based definition with no enumerated categories, confirmed directly against legislation.gov.uk."
+  },
+  {
+    "claimId": "pep-guide-part1.former-pep-edd-duration-subsection.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "MLR 2017 Regulation 35(9)(a) and (b) requires 12 months' continued EDD for former PEPs",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Regulation 35(9)(a)/(b), Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017; corroborated by FCA GC17/02 consultation (para 2.14 area, explicitly cites \"Regulation 35(9)(a) and (b)\" for this rule)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments); FCA",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "note": "Corrects a wrong subsection citation, guide previously cited Regulation 35(4)."
+  },
+  {
+    "claimId": "pep-guide-part1.fca-2024-multifirm-pep-review.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "The FCA's 2024 multi-firm review found room for improvement in every firm it examined in detail",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, \"The treatment of Politically Exposed Persons, multi-firm review\" (18 July 2024)",
+      "url": "https://www.fca.org.uk/publications/multi-firm-reviews/treatment-politically-exposed-persons",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2024-07-18"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "note": "Corrects both a naming error, guide previously called it a \"thematic review\", the FCA's own title is \"multi-firm review\", and a precision understatement, guide previously said \"a significant proportion of firms\", the FCA's own finding was room for improvement in all 15 firms examined in detail."
+  },
+  {
+    "claimId": "pep-guide-part1.star-2007-corrupt-money-estimate.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "US$20B to US$40B, imprecise 2007 estimate of annual corrupt money linked to public officials in developing and transition countries",
+    "claimType": "statistic",
+    "source": {
+      "title": "World Bank / UNODC, Stolen Asset Recovery (StAR) Initiative report (2007)",
+      "url": "https://www.unodc.org/pdf/Star_Report.pdf",
+      "publisher": "World Bank; United Nations Office on Drugs and Crime (UNODC)",
+      "date": "2007-09-17"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "retained-as-estimate",
+    "note": "Replaces an unsourced \"£2.5B+\" figure with no confirmed primary source. The World Bank/UNODC figure is itself explicitly flagged by its own authors as an imprecise estimate, so it is logged as retained-as-estimate rather than verified precise."
+  },
+  {
+    "claimId": "pep-guide-part1.obiang-doj-forfeiture-assets.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "Teodorin Obiang's spending included a $38.5 million Gulfstream jet and a $30 million Malibu mansion, purchased despite an official government salary under $100,000 a year against which he amassed over $100 million in assets",
+    "claimType": "enforcement",
+    "source": {
+      "title": "US Department of Justice, \"Department of Justice Seeks to Recover More Than $70.8 Million in Proceeds of Corruption From Government Minister\" (2011)",
+      "url": "https://www.justice.gov/archives/opa/pr/department-justice-seeks-recover-more-708-million-proceeds-corruption-government-minister",
+      "publisher": "US Department of Justice, Office of Public Affairs",
+      "date": "2011-10-25"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "note": "Corrects a fabricated $38 million yacht and an unsourced sub-$2,000 per capita GDP claim, neither appears in DOJ's own forfeiture materials or any independently checked contemporaneous reporting."
+  },
+  {
+    "claimId": "pep-guide-part1.1mdb-doj-allegation-reframe.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "The US Department of Justice alleged that, between 2009 and 2015, more than $4.5 billion belonging to 1MDB was misappropriated by senior officials and their associates",
+    "claimType": "enforcement",
+    "source": {
+      "title": "US Department of Justice, 1MDB civil forfeiture press releases (Kleptocracy Asset Recovery Initiative), corroborated verbatim by IRS Criminal Investigation summary of DOJ language",
+      "url": "https://www.irs.gov/compliance/criminal-investigation/justice-department-repatriates-1-point-4b-misappropriated-1mdb-funds-to-malaysia",
+      "publisher": "US Department of Justice, Office of Public Affairs; mirrored by IRS Criminal Investigation",
+      "date": "2016-07-20"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "note": "Figure itself was already accurate, reframed from a stated fact to an attributed DOJ allegation for precision. justice.gov blocks automated fetch, so verified against an IRS.gov page quoting DOJ language verbatim: \"from 2009 through 2015, high-level officials of 1MDB, their associates... misappropriated more than $4.5 billion in funds belonging to 1MDB.\""
+  },
+  {
+    "claimId": "pep-guide-part1.fg253-mlro-and-former-pep-documentation.001",
+    "guide": "pep-guide-part1.html",
+    "claimText": "FG25/3's MLRO sign-off provision (suitably senior sign-off with MLRO oversight of the overall framework, not personal approval of every relationship) and its former-PEP documentation provision (documented rationale specifically when continuing enhanced measures beyond the 12-month period under Regulation 35(9)(b))",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Finalised Guidance FG25/3, \"The treatment of politically exposed persons for anti-money laundering purposes\"",
+      "url": "https://www.fca.org.uk/publication/finalised-guidance/fg25-3.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-19",
+    "reviewDue": "2027-08-19",
+    "status": "verified",
+    "note": "Corrects two overstatements: guide previously implied blanket MLRO sign-off removal (FG25/3 actually requires MLRO oversight of the overall framework, not personal approval of every relationship) and a general documentation requirement for all de-escalation decisions (FG25/3 actually requires documented rationale specifically when continuing enhanced measures beyond the 12-month period under Regulation 35(9)(b))."
   }
 ]
