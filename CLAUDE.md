@@ -55,6 +55,20 @@ Any new guide making a specific regulatory-obligation, legal-scope, or statutory
 
 Claude Code should flag which claims in a new guide fall into this category as part of its own delivery report, the same way it already flags new scoring/grading logic requiring review, so the human knows what needs the external pass before shipping, rather than discovering the gap after publication.
 
+## Correction discipline
+
+Found repeatedly this week (pep-guide-part1.html's Regulation 35(12)/(14) categories claim, sar-guide-part1.html's Section 342 offence structure): a first correction round routinely fixes a claim's general direction while still misstating its actual structure, because the correction was checked against a summary of the source rather than the source's own subsections. The error that survives a first correction is rarely lexical, it is usually which subsection governs what, which limb of a disjunctive test applies, or what conditions gate an obligation. Checking whether corrected wording sounds right against the general subject matter does not catch this. Checking it against the primary source's actual clause-by-clause structure does.
+
+Three rules, all mandatory for any correction involving a specific statutory or regulatory citation:
+
+1. **Structural match, not subject match.** Before marking a statutory or regulatory correction as final, confirm the corrected wording matches the primary source's actual internal structure (which subsection, which limb, which condition), not just its general topic. A correction that is accurate about what a source generally covers but wrong about its structure is not finished.
+
+2. **Internal consistency sweep.** The same claim, figure, or citation frequently appears in more than one place in a single guide (an intro stat card and a body paragraph, an offence card and a FAQ answer, a table and its own summary sentence). After correcting any instance, search the full guide for every other occurrence of the same underlying claim before considering the correction complete. A correction applied to only one of several instances is a new internal contradiction, not a finished fix.
+
+3. **Ledger-to-live-text reconciliation.** Whenever a single claim is corrected more than once within one session (a correction to a correction), the associated verification-ledger.json entry's claimText must be re-checked against the live guide text as an explicit final step before the guide is considered done, not assumed still accurate because it was accurate when first written. This is not optional cleanup, treat it as part of the correction itself.
+
+Budget for at least two correction rounds as the default expectation on any guide with statutory or regulatory content, not as a sign something went wrong the first time. A single-pass sourcing effort that is never re-checked against a source's actual structure is not equivalent in rigour to a two-round correction, even if both eventually produce the same final wording, because the first has no mechanism for catching what it does not know it is missing.
+
 ## Sourcing process verification
 
 A guide's own Methodology section can misstate its own verification process, not just the underlying facts it's meant to be checking. Found and corrected during the classification-asymmetry-guide.html revision (2026-08-14): a quote was wrongly declared unverifiable in the guide's own Methodology section when it was genuinely present in the source, a false statement about the guide's own sourcing rigor sitting inside the one section whose job is to prove that rigor. Neither the project's sourcing checklist nor its in-browser verification is built to catch this, both check for missing citations and broken interactions, not for whether a guide's narrative about its own verification process is itself accurate.
