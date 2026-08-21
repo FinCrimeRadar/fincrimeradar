@@ -4304,5 +4304,101 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "EU cash-control confiscation/penalty mechanism confirmed via WebSearch against Regulation (EU) 2018/1672's own declaration and penalty provisions. Item 2 (Recommendation 1 country/firm-level distinction, lines 405-406) was checked against live text and found already accurate, no correction applied. The user's batch description referenced 9 findings but only 8 were itemised in the request; all 8 itemised findings were addressed, no 9th finding was identified or fabricated."
+  },
+  {
+    "claimId": "aml-guide-part1.crossguide-fcdo-publishes-uk-sanctions-list.043",
+    "guide": "aml-guide-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Cross-guide contradiction correction: the FCDO publishes the UK Sanctions List, the authoritative source for UK sanctions designations; OFSI implements and enforces UK financial sanctions and issues licences, it does not itself publish the sanctions list. Corrected the sanctions architecture bullet list and the 'Search the OFSI Consolidated List' tool prompt, which referenced the OFSI Consolidated List that closed on 28 January 2026.",
+    "source": {
+      "title": "UK Sanctions List; Financial sanctions guidance",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets",
+      "publisher": "Foreign, Commonwealth & Development Office; Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Matches wording already correctly established in sanctions-compliance-guide.html and screening-alerts-guide.html this session, and the OFSI Consolidated List closure date already ledgered via crypto-guide-part4.html's prior entries."
+  },
+  {
+    "claimId": "aml-guide-part3.crossguide-fcdo-publishes-uk-sanctions-list.012",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Cross-guide contradiction correction: the FAQ's rescreening-cadence answer attributed the UK Sanctions List to OFSI ('OFSI's UK Sanctions List'). Corrected to attribute publication to the FCDO, with OFSI's implementation/enforcement role stated separately.",
+    "source": {
+      "title": "UK Sanctions List; Financial sanctions guidance",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets",
+      "publisher": "Foreign, Commonwealth & Development Office; Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Matches wording already correctly established in sanctions-compliance-guide.html and screening-alerts-guide.html this session."
+  },
+  {
+    "claimId": "fatf-guide-part2.crossguide-fcdo-publishes-uk-sanctions-list.006",
+    "guide": "fatf-guide-part2.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Cross-guide contradiction correction: the Myanmar desk-scenario screening instruction named 'OFSI and UN lists' as the screening source. Corrected to name the FCDO's UK Sanctions List (OFSI implements and enforces the sanctions it contains) and the UN Consolidated List.",
+    "source": {
+      "title": "UK Sanctions List; Financial sanctions guidance",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets",
+      "publisher": "Foreign, Commonwealth & Development Office; Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Matches wording already correctly established in sanctions-compliance-guide.html and screening-alerts-guide.html this session."
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.crossguide-reg28-proportionate-identification-fields.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Cross-guide contradiction correction: MLR 2017 Regulation 28 requires firms to identify the customer and verify identity from a reliable, independent source under a risk-based, proportionate standard; it does not itself enumerate a fixed set of data points (the guide previously implied only 'name and date of birth' were regulation-mandated, with address relegated to a matter of firm CIP policy alone). Name, date of birth, and residential address are the standard identifying particulars firms typically collect as a matter of practice, address included; the regulation does not specify a fixed verification method (such as a utility bill) for any of them.",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 28",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "First ledger entry for this guide. Matches the guide's own already-correct treatment of this same distinction in its scenario-1 answer key (risk-based, proportionate address verification, not a binary regulatory gate). Confirmed via WebSearch that Regulation 28's text requires risk-based identification and verification without enumerating fixed data fields or fixed verification methods."
+  },
+  {
+    "claimId": "tm-guide.crossguide-no-uk-fixed-cash-reporting-threshold.013",
+    "guide": "tm-guide.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Cross-guide contradiction correction: the structuring/smurfing typology card and knowledge-check quiz explanation implied a UK statutory cash reporting threshold (comparable to the US's fixed $10,000 CTR threshold) that firms structure deposits to evade. The UK has no equivalent fixed statutory cash reporting threshold; the £10,000/£9,500 figures used in the typology card and TM rule-logic example are illustrative transaction-monitoring rule thresholds a firm might set internally, not a legal reporting line. UK suspicious activity reporting is suspicion-based under POCA 2002, not threshold-triggered.",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, Part 7 (ss.327-340)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/part/7",
+      "publisher": "legislation.gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Matches wording already correctly established in fraud-red-flags-guide.html this session (no UK equivalent to the US CTR threshold, suspicion-based reporting under POCA 2002)."
+  },
+  {
+    "claimId": "aml-guide-part2.crossguide-reg24-no-fixed-training-retention-period.002",
+    "guide": "aml-guide-part2.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Cross-guide contradiction correction: the record-keeping table stated a fixed '5 years' retention period for training records. MLR 2017 Regulation 24 requires a written record of the training measures taken but specifies no fixed retention period for that record; the MLRs' explicit five-year retention period under Regulation 40 applies to CDD evidence and transaction records specifically, not training records. Many firms retain training records for 5 years as a matter of policy alignment, not because Regulation 24 requires it.",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulations 24 and 40",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/24",
+      "publisher": "legislation.gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Matches wording already correctly established in aml-guide-part3.html's training-records section this session."
   }
 ]
