@@ -356,15 +356,15 @@
       <p>OFAC has been adding cryptocurrency wallet addresses directly to the SDN List since 2018, starting with addresses tied to Iranian ransomware operators. The process is the same administrative mechanism used for any SDN designation: OFAC identifies a nexus between a wallet and a sanctioned party, typically through blockchain analytics, intelligence gathering, or coordination with law enforcement, then publishes the address alongside the underlying designation.</p>
 
       <h3>The scale has grown substantially</h3>
-      <p>A single action in July 2026 added 134 wallet addresses tied to ISIS-K financing in one designation. A May 2026 action against Sinaloa Cartel-linked individuals added six Ethereum addresses, five of them attributed to a single individual, a pattern OFAC itself flagged as multi-wallet fragmentation used to layer funds. That detail matters operationally: a firm screening only the named addresses on the SDN list, without examining the wallet clusters and counterparty relationships around them, will miss exposure sitting one or two hops away from a listed address.</p>
+      <p>A single action in July 2026 added 134 wallet addresses tied to ISIS-K financing in one designation. A May 2026 action against Sinaloa Cartel-linked individuals added six Ethereum addresses, five of them attributed to a single individual, a pattern industry blockchain-analytics commentary has described as consistent with multi-wallet fragmentation used to layer funds, though that's analyst interpretation, not something OFAC's own designation notice itself states. That detail matters operationally: a firm screening only the named addresses on the SDN list, without examining the wallet clusters and counterparty relationships around them, will miss exposure sitting one or two hops away from a listed address.</p>
 
       <h3>Blocked property doesn't require an individual listing</h3>
       <p>A wallet doesn't need to be individually listed to be blocked property. This is the detail that catches firms out.</p>
       <div class="callout info">
         <div class="callout-icon">💡</div>
         <div class="callout-body">
-          <div class="callout-title">OFAC FAQ 646</div>
-          <div class="callout-text">OFAC's own guidance is explicit: any wallet in which a sanctioned person has a property interest must be blocked, regardless of whether OFAC has published that specific address. The published list is there to help industry, it isn't the exhaustive boundary of what's actually prohibited.</div>
+          <div class="callout-title">OFAC FAQ 563</div>
+          <div class="callout-text">OFAC's own guidance is explicit: digital currency address listings on the SDN list are not likely to be exhaustive, any wallet in which a sanctioned person has a property interest must be blocked, regardless of whether OFAC has published that specific address. The published list is there to help industry, it isn't the exhaustive boundary of what's actually prohibited.</div>
         </div>
       </div>
     </section>
@@ -409,9 +409,9 @@
         </div>
       </div>
 
-      <p>OFSI has flagged a specific, recurring failure pattern in how UK firms handle this: identifying a sanctioned transaction only retrospectively, once the firm gains access to better blockchain analytics, well after the transaction has already occurred. That delay creates a reporting problem on top of the underlying exposure, since UK firms classed as relevant firms are legally required to report to OFSI once they know or suspect a breach, and a late-discovered breach is still a breach that needed reporting when it was found, not when it happened.</p>
+      <p>OFSI has flagged a specific, recurring failure pattern in how UK firms handle this: identifying a sanctioned transaction only retrospectively, once the firm gains access to better blockchain analytics, well after the transaction has already occurred. That delay creates a reporting problem on top of the underlying exposure, since UK firms classed as relevant firms are legally required to report to OFSI as soon as practicable once they know or have reasonable cause to suspect a breach, and a late-discovered breach is still a breach that needed reporting when it was found, not when it happened.</p>
 
-      <p>A structural point worth understanding, not just memorising: unlike a bank, a crypto-asset firm generally can't simply reject an incoming transaction the way a bank can decline to open an account. Once value arrives on-chain, the firm has to deal with what's now sitting in a wallet it controls, freeze it, report it, and manage it under license conditions, rather than having declined it at the door. That changes the practical shape of sanctions compliance in this sector compared to traditional finance.</p>
+      <p>A structural point worth understanding, not just memorising: unlike a bank, a crypto-asset firm generally can't simply reject an incoming transaction the way a bank can decline to open an account. Once value that turns out to be blocked property arrives on-chain, the firm has to deal with what's now sitting in a wallet it controls, freeze it, report it, and manage it under license conditions, rather than having declined it at the door; incoming transactions that don't involve blocked property carry no such obligation. That changes the practical shape of sanctions compliance in this sector compared to traditional finance.</p>
     </section>
 
     <section class="article-section" id="red-flags">
@@ -443,8 +443,8 @@
       <h2>What this actually means for screening design</h2>
       <p>The practical takeaway isn't "screen wallet addresses too", most teams already know that much. It's that wallet screening needs a fundamentally different design than name screening:</p>
       <ol>
-        <li><strong>Exact match isn't enough, but neither is fuzzy match.</strong> A wallet address is a cryptographic string, there's no "close enough" the way there is with name spelling variants. What's needed instead is cluster-level screening, checking whether an address has ever transacted with a known designated wallet, not just whether it matches one directly.</li>
-        <li><strong>Screening needs to be near-real-time, not point-in-time.</strong> OFSI's own assessment flags retrospective discovery as a recurring, reportable failure. A wallet clean at onboarding can become exposed the moment it receives funds from a newly designated source.</li>
+        <li><strong>Exact match isn't enough, but neither is fuzzy match.</strong> A wallet address is a cryptographic string, there's no "close enough" the way there is with name spelling variants. Cluster-level screening, checking whether an address has ever transacted with a known designated wallet across its historical hops, not just whether it matches one directly, is a recommended design choice for closing that gap, not a prescribed statutory method.</li>
+        <li><strong>Near-real-time monitoring reduces the retrospective-discovery risk OFSI has flagged.</strong> OFSI's own assessment flags retrospective discovery as a recurring, reportable failure. A wallet clean at onboarding can become exposed the moment it receives funds from a newly designated source; how frequently to rescreen is a firm's own risk-based design decision, not a fixed statutory cadence.</li>
         <li><strong>The old OFSI Consolidated List is dead as a data source.</strong> If your tooling, or a vendor's, hasn't migrated to the UK Sanctions List as the primary source, that's a live gap worth checking today, not filed away as background reading.</li>
       </ol>
 

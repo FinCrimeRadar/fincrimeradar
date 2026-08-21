@@ -4214,5 +4214,63 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "Confirmed via WebSearch corroboration, direct treasury.gov fetch not attempted given the established timeout pattern this session."
+  },
+  {
+    "claimId": "crypto-guide-part4.batch3-fragmentation-faq563-blocked-property-screening-design.001",
+    "guide": "crypto-guide-part4.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Four corrections: (1) the 'multi-wallet fragmentation' characterisation of the May 2026 Sinaloa Cartel-linked designation is industry blockchain-analytics commentary (TRM Labs), not a statement made in OFAC's own designation notice; (2) the callout on non-exhaustive SDN wallet listings cites OFAC FAQ 563, not FAQ 646 (FAQ 646 concerns holding/reporting blocked virtual currency mechanics, not list exhaustiveness); (3) UK relevant firms must report a suspected sanctions breach 'as soon as practicable' once they know or have reasonable cause to suspect it, and the freeze/report/manage obligation applies specifically to incoming value that turns out to be blocked property, not to every incoming transaction; (4) cluster-level screening and near-real-time rescreening cadence are recommended risk-based design choices for closing the retrospective-discovery gap OFSI has flagged, not prescribed statutory methods or a fixed statutory cadence.",
+    "source": {
+      "title": "OFAC FAQ 563; OFSI Monetary Penalties for Breaches of Financial Sanctions guidance",
+      "url": "https://ofac.treasury.gov/faqs/563",
+      "publisher": "Office of Foreign Assets Control (OFAC), US Department of the Treasury; Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "FAQ 563 source already used elsewhere in this guide's ledger (crypto-guide-part4.ofac-wallet-identifiers-non-exhaustive.001); the reasonable-cause-to-suspect/as-soon-as-practicable reporting formulation confirmed via WebSearch against the UK sanctions regulations' standard reporting obligation wording."
+  },
+  {
+    "claimId": "source-of-wealth-investigation-handbook.batch3-precision-hedging-and-scope.001",
+    "guide": "source-of-wealth-investigation-handbook.html",
+    "claimType": "definition",
+    "status": "retained-as-estimate",
+    "claimText": "Five precision corrections, none requiring a new primary source: (1) reworded 'consistent' failure-mode framing to 'recur often'; (2) the third-party-gift pattern reworded from an unsourced 'most common' ranking to an in-house observation without a named comparative study; (3) escalation-to-SAR language reworded so a SAR is contingent on the analyst's knowledge or suspicion actually meeting POCA's statutory threshold, not automatic; (4) source of wealth verification scoped explicitly to customers where MLR 2017 Regulation 35 or a firm's own higher-risk EDD triggers actually require it, not framed as a universal obligation; (5) two worked-scenario answer keys softened from absolute claims ('already generates', 'blockchain activity itself is a public, permanent record for on-chain transactions') to qualified ones acknowledging privacy-focused chains and mixing services can obscure attribution.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "These are epistemic-framing and scope precision fixes to the guide's own illustrative and scenario content, not new statutory claims; no material claim required a fresh citation."
+  },
+  {
+    "claimId": "pep-guide-part3.batch3-standard-chartered-scope-reg35-5-fca25-3.001",
+    "guide": "pep-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Five corrections: (1) the FCA's 2019 Standard Chartered £102.2m Final Notice finding concerned the bank's UK Wholesale Bank Correspondent Banking business and its UAE branches specifically, not private banking; (2) MLR 2017 Regulation 35(5) sets three statutory EDD measures for PEPs, senior management approval, source of wealth/funds measures, and enhanced ongoing monitoring, not four; (3) the guide's 'top five PEP enforcement triggers' and 'file review test' are FinCrimeRadar's own synthesis of recurring patterns across published Final Notices, not an FCA-named list or quoted FCA test; (4) the PEP EDD checklist's sections map to Regulation 35(5)'s three statutory measures plus the Regulation 35(1) identification duty, with the specific evidence sub-items being recommended good practice rather than independently mandated line items; (5) FG25/3's specific documentation requirement applies to continuing EDD measures beyond the 12-month minimum under Regulation 35(9)(b), it does not state an equivalent specific requirement for documenting a decision to end those measures.",
+    "source": {
+      "title": "Standard Chartered Bank Final Notice (2019); Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 35; FCA FG25/3 Politically Exposed Persons guidance",
+      "url": "https://www.fca.org.uk/publication/final-notices/standard-chartered-bank-2019.pdf",
+      "publisher": "Financial Conduct Authority; legislation.gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Standard Chartered scope confirmed via WebSearch against the FCA Final Notice's own findings. Regulation 35(5)/35(9)(b) structure and FG25/3 documentation-duty asymmetry consistent with the correction already established and verified this session on pep-guide-part1.html and aml-guide-part1.html."
+  },
+  {
+    "claimId": "sar-guide-part3.batch3-daml-2023-24-figure-and-annual-report-framing.001",
+    "guide": "sar-guide-part3.html",
+    "claimType": "statistic",
+    "status": "verified",
+    "claimText": "Two corrections: (1) the value of assets denied to suspected criminals via DAML in 2023/24 was £240.1 million, not £258 million, per the NCA's own 2023-2024 SARs Annual Report; (2) FCA guidance supports at-least-annual board reporting on SAR activity and control deficiencies, but the guide's specific eight-item report content list is FinCrimeRadar's own recommended governance content, not an FCA-prescribed statutory minimum.",
+    "source": {
+      "title": "Suspicious Activity Reports 2023-2024 Annual Report",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file",
+      "publisher": "National Crime Agency, UK Financial Intelligence Unit",
+      "date": "2025-03-31"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "£240.1m figure confirmed via WebSearch cross-referencing multiple secondary summaries of the NCA's own published 2023-2024 annual report; direct NCA PDF fetch not required given consistent independent corroboration. The remaining five items from the 2026-08-19 audit's sar-guide-part3.html findings (illustrative KPI labelling, the unsourced peer-review causal claim, the s.331 ML/TF conflation, the AI-support/2026-FCA-focus claim, and the 'as soon as practicable' late-disclosure framing) were already resolved by this session's earlier 2026-08-20-audit-based correction pass on this same guide (see sar-guide-part3.original-internal-targets-and-ai-2026-claim.001 and sar-guide-part3.poca-s331-vs-ta-s21a-nominated-officer.001); reconfirmed against current live text as part of this Batch 3 pass, no further change needed."
   }
 ]
