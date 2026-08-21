@@ -3950,5 +3950,21 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "General characterisation of what each index/list measures, not tied to a single primary source fetched this session; both organisations' own published methodologies support the distinction (FATF's mutual evaluation methodology assesses AML/CFT technical compliance and effectiveness, not corruption directly; TI's CPI methodology assesses perceived corruption specifically), but not independently re-verified against each source's methodology document in this pass."
+  },
+  {
+    "claimId": "sar-guide-part1.daml-s338-not-limited-to-regulated-firms.001",
+    "guide": "sar-guide-part1.html",
+    "claimText": "POCA s.338 authorised disclosures (the statutory basis for seeking DAML/appropriate consent) are available to \"the alleged offender\" generally, not restricted to regulated firms; any person seeking the statutory defence against the principal POCA money laundering offences can make one, though in practice regulated firms are the most common users.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 s.338 (Authorised disclosures)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/338",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Fresh finding logged 2026-08-19, confirmed still open at Step 0 re-pull 2026-08-21, now fixed. Ten previously-ledgered corrections for this guide were confirmed not to have regressed (git status clean, no drift from origin/main)."
   }
 ]
