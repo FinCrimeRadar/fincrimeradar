@@ -3966,5 +3966,67 @@
     "reviewDue": "2027-08-21",
     "status": "verified",
     "note": "Fresh finding logged 2026-08-19, confirmed still open at Step 0 re-pull 2026-08-21, now fixed. Ten previously-ledgered corrections for this guide were confirmed not to have regressed (git status clean, no drift from origin/main)."
+  },
+  {
+    "claimId": "aml-guide-part1.original-composite-enforcement-cases.021",
+    "guide": "aml-guide-part1.html",
+    "claimType": "statistic",
+    "status": "unverifiable-remove",
+    "claimText": "The 'Recent FCA enforcement cases' table (challenger bank, payment institution, traditional bank, cryptoasset firm rows) was presented without a composite/illustrative label, giving the impression of named real cases. No identifiable Final Notice underlies any of the four rows.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Confirmed still open at the 2026-08-21 Step 0 re-pull, part of the 2026-08-19 continuation audit. Added an explicit illustrative/composite disclaimer above the table."
+  },
+  {
+    "claimId": "aml-guide-part1.adverse-media-not-universal-mlr-requirement.022",
+    "guide": "aml-guide-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Adverse media screening is not itself an express universal MLR 2017 requirement; MLR obligations cover risk-based CDD, PEP detection/measures (Regulation 35), and ongoing monitoring (Regulation 28), while sanctions prohibitions arise under a separate regime. Adverse media is a widely used risk-management practice, not a standalone statutory duty.",
+    "source": {
+      "title": "MLR 2017 (general scope of Part 3 customer due diligence provisions)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Same class of finding already corrected this project across multiple guides (screening-alerts-guide.html, aml-guide-part3.html)."
+  },
+  {
+    "claimId": "aml-guide-part1.reg35-9b-fg253-mlro-peps-sync.023",
+    "guide": "aml-guide-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "FG25/3 does not require individual MLRO sign-off on every PEP relationship, provided another suitably senior person approves it; the MLRO retains oversight of the firm's overall PEP process rather than approving each relationship personally. Separately, under Regulation 35(9)(b), firms must document their reasoning when continuing EDD measures for a former PEP beyond the 12-month minimum, a narrower, specifically-scoped documentation duty than a general 'document reasons for former PEPs' framing.",
+    "source": {
+      "title": "FCA FG25/3 (Finalised Guidance on politically exposed persons); MLR 2017 Regulation 35(9)(b)",
+      "url": "https://www.fca.org.uk/publication/finalised-guidance/fg25-3.pdf",
+      "publisher": "Financial Conduct Authority (FCA); legislation.gov.uk",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Corrects 2 locations (lines 860, 963-964) that had drifted from a properly-scoped reference version the original finding cited at 'line 682'; that line no longer contains the reference text after later edits, so the corrected wording was drafted fresh rather than copied from a stale in-file anchor. Also fixes an additional overclaim found via the internal consistency sweep, not in the original finding: 'MLRO oversight of all PEP relationships remains required' at line 963, same blanket-oversight pattern already corrected in pep-guide-part3.html and aml-guide-part3.html this project."
+  },
+  {
+    "claimId": "aml-guide-part1.original-unsourced-s166-fee-claims.024",
+    "guide": "aml-guide-part1.html",
+    "claimType": "statistic",
+    "status": "unverifiable-remove",
+    "claimText": "\"Six-figure fees are common\" for s166 skilled person reviews, and s166 reviews \"often precede formal enforcement action,\" were presented as facts with no named FCA or industry source.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Reworded to attribute the fee-range observation as unsourced (no dataset to cite) and the enforcement-precedence framing as an industry operational observation, not a stated FCA position."
+  },
+  {
+    "claimId": "aml-guide-part1.original-vast-majority-banks-quality-slogan.025",
+    "guide": "aml-guide-part1.html",
+    "claimType": "statistic",
+    "status": "unverifiable-remove",
+    "claimText": "\"The vast majority\" of the 872,048 2023/24 SARs being from banks and other financial institutions, and \"quality over quantity is the FCA's message,\" were both presented as sourced facts. No precise published breakdown of SAR volume by submitter type, and no FCA publication using that exact framing, could be located.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "The 872,048 SARs figure itself remains correctly cited [12] and unchanged. Reworded the surrounding claims to attribute the bank-share observation honestly (largest share, no precise breakdown available) and the quality-over-quantity framing as this guide's own editorial position, not an FCA quotation."
   }
 ]
