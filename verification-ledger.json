@@ -3176,5 +3176,99 @@
     "status": "retained-as-estimate",
     "note": "Finding 6 primary corrections (not recurrences): the hero-quote 95%/5% split, the intro paragraph 85-95% industry range and adverse-media 95% benchmark claim, and the first three rows of the threshold table (the fourth row, originally flagged separately as a recurrence, is covered by the existing line667-threshold-table-completion entry; all four rows were corrected together into one non-numeric list).",
     "location": "screening-alerts-guide.html, hero-quote pull quote, 'Nobody told you it would be like this' intro paragraph, Challenge 05 threshold behaviour list (formerly a data-table)"
+  },
+  {
+    "claimId": "crypto-guide-part4.ofsi-list-closure-fcdo-transition.001",
+    "guide": "crypto-guide-part4.html",
+    "claimText": "The OFSI Consolidated List closed on 28 January 2026; the FCDO's UK Sanctions List is now the single authoritative source for all UK sanctions designations.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial sanctions: guidance (update history, entry confirming OFSI Consolidated List closure 28 January 2026)",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-general-guidance",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI) / HM Treasury, gov.uk",
+      "date": "2026-01-28"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Same underlying OFSI/FCDO single-list transition fact already sourced for screening-alerts-guide.html and sanctions-compliance-guide.html via a different gov.uk page; here confirmed directly against the guidance page update history."
+  },
+  {
+    "claimId": "crypto-guide-part4.ofac-wallet-identifiers-non-exhaustive.001",
+    "guide": "crypto-guide-part4.html",
+    "claimText": "OFAC's digital currency address listings on the SDN list are not likely to be exhaustive; a wallet not listed is not itself evidence that it is unconnected to a designated person.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "OFAC FAQ 563, Questions on Virtual Currency",
+      "url": "https://ofac.treasury.gov/faqs/563",
+      "publisher": "Office of Foreign Assets Control (OFAC), US Department of the Treasury",
+      "date": "2018-11-28"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Direct fetch of ofac.treasury.gov timed out repeatedly in this environment; confirmed via WebSearch corroboration of the FAQ text instead (consistent with the known government-site fetch limitation logged in BACKLOG.md)."
+  },
+  {
+    "claimId": "crypto-guide-part4.ofac-isis-k-wallet-designation-2026.001",
+    "guide": "crypto-guide-part4.html",
+    "claimText": "On 1 July 2026, OFAC updated its ISIS-K designation to add 134 cryptocurrency wallet addresses as identifiers (131 on TRON, 3 on Monero).",
+    "claimType": "enforcement",
+    "source": {
+      "title": "OFAC Sanctions 100+ ISIS-K Crypto Addresses",
+      "url": "https://www.chainalysis.com/blog/isis-designation-crypto-addresses-july-2026/",
+      "publisher": "Chainalysis (blockchain analytics reporting on the OFAC action; direct treasury.gov recent-actions page could not be fetched, see note)",
+      "date": "2026-07-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Direct fetch of ofac.treasury.gov/recent-actions/20260701 timed out repeatedly; corroborated via Chainalysis and multiple independent crypto-news outlets reporting the same wallet count and date. Not a primary OFAC source directly fetched, flagged as such rather than presented as if it were."
+  },
+  {
+    "claimId": "synthetic-identity-device-network-guide.fca-monzo-final-notice-2025.001",
+    "guide": "synthetic-identity-device-network-guide.html",
+    "claimText": "The FCA imposed a financial penalty of £21,091,300 on Monzo Bank Limited (Final Notice, reference 730427, dated 7 July 2025) for breaching Principle 3 and contravening a Voluntary Requirement (VREQ), for financial crime systems and controls failings during onboarding.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Final Notice: Monzo Bank Limited (Reference Number 730427)",
+      "url": "https://www.fca.org.uk/publication/final-notices/monzo-bank-limited.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Confirmed by directly reading the Final Notice PDF text (WebFetch failed on this PDF's binary stream, consistent with the known PDF-extraction limitation logged in BACKLOG.md; the Read tool extracted it successfully). Distinct from the existing kyc-onboarding-dilemma.fca-monzo-final-notice-2025.001 entry, which cites the FCA press release and rounds the figure to £21m for a different guide."
+  },
+  {
+    "claimId": "fraud-red-flags-guide.psr-app-reimbursement-cap-2024.001",
+    "guide": "fraud-red-flags-guide.html",
+    "claimText": "The PSR's mandatory APP scams reimbursement requirement for Faster Payments took effect 7 October 2024, with a maximum reimbursement level of £85,000 per claim, covering 99.8% of scams by volume and 90% by value.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "PS24/7 Faster Payments APP scams reimbursement requirement: Confirming the maximum level of reimbursement",
+      "url": "https://www.psr.org.uk/publications/policy-statements/ps247-faster-payments-app-scams-reimbursement-requirement-confirming-the-maximum-level-of-reimbursement/",
+      "publisher": "Payment Systems Regulator (PSR)",
+      "date": "2024-06-11"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "fraud-red-flags-guide.frontier-economics-73m-reduction-2026.001",
+    "guide": "fraud-red-flags-guide.html",
+    "claimText": "An independent Frontier Economics evaluation (published 1 July 2026) found APP fraud losses sent over Faster Payments fell by approximately 21% following the reimbursement requirement's implementation, equivalent to a reduction of £73 million per year in APP scam losses.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Payment scam policies reduce fraud and improve consumer protection",
+      "url": "https://www.frontier-economics.com/uk/en/news-and-insights/news/news-article-i22383-app-payment-scam-policies-reducing-fraud/",
+      "publisher": "Frontier Economics",
+      "date": "2026-07-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified"
   }
 ]
