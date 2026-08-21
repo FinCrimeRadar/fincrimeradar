@@ -4164,5 +4164,55 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "Corrected 2 locations: the conclusion section and a recurrence in the qq4 quiz feedback string, found via the internal consistency sweep, not named in the original finding."
+  },
+  {
+    "claimId": "screening-alerts-guide.batch2-soc-stat-cross-industry-and-framing.001",
+    "guide": "screening-alerts-guide.html",
+    "claimType": "statistic",
+    "status": "retained-as-estimate",
+    "claimText": "Three framing corrections: the SOC (cybersecurity Security Operations Centre) 10,000-hours/$500,000 statistic is a cross-industry cybersecurity benchmark, not an AML-specific study, and the box's original heading currency (£500k) didn't match the body text's dollar figure ($500,000), corrected to $500k; the 'FCA scrutiny two years from now' framing reworded to non-specific 'months or years later'; and the '60-70% documentation time reduction' claim reworded to recommend measuring the firm's own before-and-after time rather than citing a fixed industry percentage, matching the framing already applied to neighbouring solution cards.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "sanctions-compliance-guide.jorge-rodriguez-professions-illustrative.006",
+    "guide": "sanctions-compliance-guide.html",
+    "claimType": "statistic",
+    "status": "retained-as-estimate",
+    "claimText": "The claim that 'screening research has documented' the Jorge Rodriguez name pattern generating false alerts against a named television doctor, minor league baseball player, and business executive was presented as a cited research finding. No specific published study documenting this exact case was identified; the underlying claim (common names create collision risk) is retained, the specific professions relabelled as illustrative of the pattern rather than a documented research finding.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "sanctions-compliance-guide.ofac-faq124-weak-aka-no-prescribed-regime.007",
+    "guide": "sanctions-compliance-guide.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "OFAC's regulations do not prescribe a specific screening regime; firms design their own risk-based approach. Per OFAC FAQ 124, OFAC does not expect firms to proactively screen for weak AKAs specifically, but expects a weak AKA may help confirm whether a match arising from other identifying information is accurate, this is a narrower and more specific position than \"OFAC does not even expect firms to screen against it directly.\"",
+    "source": {
+      "title": "OFAC FAQ 124",
+      "url": "https://ofac.treasury.gov/faqs/124",
+      "publisher": "Office of Foreign Assets Control (OFAC), US Department of the Treasury",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Direct WebFetch of ofac.treasury.gov timed out, consistent with the established pattern this session on that domain; confirmed via WebSearch corroboration of the FAQ's own text."
+  },
+  {
+    "claimId": "sanctions-compliance-guide.sdn-blocking-scope-not-just-us-assets.008",
+    "guide": "sanctions-compliance-guide.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "SDN property is blocked when it is within the United States or within the possession or control of a US person, not only \"assets in the US,\" subject to the specific sanctions programme's rules and any applicable exceptions or licences.",
+    "source": {
+      "title": "Specially Designated Nationals and Blocked Persons List; Basic Information on OFAC and Sanctions",
+      "url": "https://ofac.treasury.gov/faqs/topic/1631",
+      "publisher": "Office of Foreign Assets Control (OFAC), US Department of the Treasury",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Confirmed via WebSearch corroboration, direct treasury.gov fetch not attempted given the established timeout pattern this session."
   }
 ]
