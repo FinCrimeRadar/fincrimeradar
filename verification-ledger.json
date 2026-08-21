@@ -3893,5 +3893,62 @@
     "reviewDue": "2027-08-21",
     "status": "retained-as-estimate",
     "note": "PRECISION finding, the last of the five originally flagged for this guide. Not independently verified against a single primary source for each of the three regimes given time constraints; reworded away from the false equivalence rather than asserted as freshly sourced fact."
+  },
+  {
+    "claimId": "pep-guide-part1.reg35-1-5-rca-duty-not-12.001",
+    "guide": "pep-guide-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 35(1) requires firms to determine whether a customer or beneficial owner is a family member or known close associate (RCA) of a PEP; Regulation 35(5) requires the EDD measures for that relationship. Regulation 35(12) supplies definitions only, it does not itself create the identification or EDD duty.",
+    "source": {
+      "title": "MLR 2017 Regulation 35 (Enhanced customer due diligence: politically exposed persons)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "pep-guide-part1.reg35-9-vs-11-rca-stops-immediately.001",
+    "guide": "pep-guide-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 35(9) requires continuation of the PEP's own EDD measures for at least 12 months after leaving office (or longer if risk warrants). Regulation 35(11) sets a different rule for the PEP's family members and known close associates: those RCA-specific measures stop as soon as the person is no longer a PEP, regardless of whether the 35(9) period has expired.",
+    "source": {
+      "title": "MLR 2017 Regulation 35, subsections (9) and (11)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Corrected the intro paragraph, added a dedicated RCA row to the former-PEP timeline table, and rescoped the FG25/3 documentation callout to align with the already-correctly-scoped equivalent statement at line 683 (from an earlier correction round), which specifies the documentation duty applies to continuing measures beyond 12 months, not an equivalent named requirement for ending them."
+  },
+  {
+    "claimId": "pep-guide-part1.fg253-local-councillor-categorical-exclusion.001",
+    "guide": "pep-guide-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "FG25/3 excludes local councillors from the PEP definition categorically, regardless of seniority or financial power within local government; this is not a risk-based or judgement-dependent determination that firms can expand.",
+    "source": {
+      "title": "FCA Finalised Guidance FG25/3, treatment of politically exposed persons",
+      "url": "https://www.fca.org.uk/publications/finalised-guidance/fg25-3-treatment-politically-exposed-persons",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Corrected 2 recurrences of the same error: the FAQ answer at line 744-745 and the 'Who is NOT a PEP' table row at line 707, found via the internal consistency sweep, not in the original finding list."
+  },
+  {
+    "claimId": "pep-guide-part1.fatf-listing-vs-cpi-distinct-measures.001",
+    "guide": "pep-guide-part1.html",
+    "claimType": "regulatory",
+    "status": "retained-as-estimate",
+    "claimText": "FATF grey/black list status and Transparency International's Corruption Perceptions Index are distinct, non-interchangeable measures: the CPI measures perceived public-sector corruption directly, while FATF listing measures a jurisdiction's AML/CFT regime deficiencies, not corruption as such, though the two often correlate in practice.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "General characterisation of what each index/list measures, not tied to a single primary source fetched this session; both organisations' own published methodologies support the distinction (FATF's mutual evaluation methodology assesses AML/CFT technical compliance and effectiveness, not corruption directly; TI's CPI methodology assesses perceived corruption specifically), but not independently re-verified against each source's methodology document in this pass."
   }
 ]
