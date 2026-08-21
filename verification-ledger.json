@@ -4070,5 +4070,99 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "Conceptual/definitional distinction, not tied to a single external primary source. Synced 2 locations (lines 408 and 472) to match the comparative matrix table's already-correctly-qualified wording at line 493 (from an earlier, unidentified correction round). Lines 485 and 492 were checked and found already adequately qualified, not changed."
+  },
+  {
+    "claimId": "crypto-guide-part2.sysc3-applicable-not-named-checklist-item.001",
+    "guide": "crypto-guide-part2.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "SYSC 3 (Senior Management Arrangements, Systems and Controls) is applicable governance material the FCA expects cryptoasset firms to meet as part of authorisation, consistent with FCA guidance describing readiness \"in line with... SYSC 3.\" It is general Handbook material, not a separate, explicitly-named \"SYSC 3 governance\" checklist item distinct from the firm's other governance obligations.",
+    "source": {
+      "title": "FCA cryptoasset authorisation readiness guidance (SYSC 3 governance expectations)",
+      "url": "https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/how-gateway-will-operate",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Reworded 3 instances (checklist item, instructional bullet, SVG diagram label) from bare 'SYSC 3 governance' to 'applicable governance and systems requirements (SYSC 3)'. Paragraph at line 432 and citation at line 474 were already accurate, left unchanged."
+  },
+  {
+    "claimId": "crypto-guide-part3.mixer-link-severance-protocol-dependent.001",
+    "guide": "crypto-guide-part3.html",
+    "claimType": "definition",
+    "status": "retained-as-estimate",
+    "claimText": "Whether a mixing/tumbling service fully breaks the traceable on-chain link between a deposit and withdrawal address depends on the specific protocol's design; some achieve strong unlinkability, others remain vulnerable to timing analysis, clustering heuristics, or known implementation weaknesses. \"No verifiable on-chain link\" is not a safe universal assumption for every mixer.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "General blockchain-forensics characterisation, not tied to a single external primary source. Reworded the mixing/tumbling paragraph accordingly."
+  },
+  {
+    "claimId": "crypto-guide-part3.peel-chain-liquidity-lock-indicators-not-facts.002",
+    "guide": "crypto-guide-part3.html",
+    "claimType": "definition",
+    "status": "retained-as-estimate",
+    "claimText": "\"Peel chains are the on-chain equivalent of structuring\" and \"legitimate projects typically lock liquidity\" are investigative heuristics/indicators, not universal technical classifications or facts; reworded to indicator framing.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "crypto-guide-part5.batch1-operational-differences-not-absolutes.001",
+    "guide": "crypto-guide-part5.html",
+    "claimType": "definition",
+    "status": "retained-as-estimate",
+    "claimText": "Four framing corrections: bank/payment-processor transaction holds are a typical, not universal, capability; a bridge or mixer weakening the traceable link to a fund's origin depends on the specific protocol, not a guaranteed severance; on-chain finality timing varies by chain and consensus mechanism rather than being uniformly near-immediate; and the claim that wallet-graph reading isn't covered in AML certification courses is reframed as FinCrimeRadar's own observation about the curricula it's familiar with, not a survey of all AML certification courses.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "crypto-guide-part6.common-input-ownership-utxo-scoped.001",
+    "guide": "crypto-guide-part6.html",
+    "claimType": "definition",
+    "status": "verified",
+    "claimText": "The common-input-ownership heuristic (inferring that addresses spent together as inputs in one transaction are controlled by the same entity) is a UTXO-chain concept, the basis of Bitcoin-style clustering. Account-based chains like Ethereum don't have multi-input transactions in the same way, so this specific heuristic doesn't transfer directly; clustering on account-based chains relies on other signals such as contract deployment analysis and operational patterns.",
+    "source": {
+      "title": "Address clustering heuristics for Ethereum (IFCA FC'20 preproceedings); Common-Input-Ownership Heuristic glossary",
+      "url": "https://www.ifca.ai/fc20/preproceedings/31.pdf",
+      "publisher": "International Financial Cryptography Association (IFCA)",
+      "date": "2020-02-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "crypto-guide-part6.batch1-obscure-not-sever-illustrative-recommendations.002",
+    "guide": "crypto-guide-part6.html",
+    "claimType": "definition",
+    "status": "retained-as-estimate",
+    "claimText": "Three further framing corrections: mixers obscure the on-chain link between deposit and withdrawal addresses to a degree that depends on the specific protocol, not an invariable, complete severance; a custodial exchange wallet representing \"thousands\" of pooled users is illustrative of scale for a major exchange, not a fixed figure; and the five wallet-screening 'design requirements' are relabelled as product recommendations, with 'near real time' monitoring describing a goal rather than a prescribed cadence.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "fraud-red-flags-guide.psr-published-frontier-economics-not-own-evaluation.003",
+    "guide": "fraud-red-flags-guide.html",
+    "claimType": "statistic",
+    "status": "verified",
+    "claimText": "The £73 million/year Faster Payments scam-loss reduction finding is from an independent evaluation conducted by Frontier Economics, published by the Payment Systems Regulator (PSR) on 1 July 2026, not an evaluation the PSR itself conducted.",
+    "source": {
+      "title": "APP scams evaluation, final technical report (26 June 2026)",
+      "url": "https://www.frontier-economics.com/media/bcxpzalg/app-scams-evaluation-final-technical-report-26-06-26.pdf",
+      "publisher": "Frontier Economics, published via the Payment Systems Regulator",
+      "date": "2026-07-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Same source already used for this guide's earlier frontier-economics-73m-reduction-2026.001 entry; this entry specifically corrects the authorship attribution (\"PSR's own... evaluation\" implied PSR conducted it)."
+  },
+  {
+    "claimId": "false-positive-playbook.auditable-rationale-not-survives-review.001",
+    "guide": "false-positive-playbook.html",
+    "claimType": "definition",
+    "status": "retained-as-estimate",
+    "claimText": "\"Survives review\" implied a specific external or regulatory review standard being met. No such standard is being cited; the actual point is that a documented, specific rationale (e.g. DOB confirmed populated and mismatched) is auditable, reworded to say so directly rather than imply passing an unnamed review process.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Corrected 2 locations: the conclusion section and a recurrence in the qq4 quiz feedback string, found via the internal consistency sweep, not named in the original finding."
   }
 ]

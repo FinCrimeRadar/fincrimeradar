@@ -348,7 +348,7 @@
     <section class="article-section" id="mixing">
       <div class="section-num">Breakdown 02</div>
       <h2>Mixing and tumbling break the assumption clustering relies on</h2>
-      <p>Address clustering heuristics generally work by inferring that addresses used together in the same transaction are likely controlled by the same entity. A mixing service exists specifically to break that inference, pooling funds from many unrelated users and redistributing them so that the on-chain link between a deposit and a withdrawal address is deliberately severed. This is exactly why <a href="/crypto-guide-part3.html">Part 3</a> framed mixer usage as a red flag requiring further review rather than an automatic red flag against the receiving address itself, mixing is genuinely dual-use, and a screening design that treats every address that's ever touched a mixer as automatically tainted will flag a large volume of entirely legitimate activity alongside the genuinely suspicious activity it's trying to catch.</p>
+      <p>Address clustering heuristics, most notably the common-input-ownership heuristic, work by inferring that addresses spent together as inputs in the same transaction are likely controlled by the same entity. That heuristic is a UTXO-chain concept, it's how clustering works on Bitcoin and similar chains; account-based chains like Ethereum don't have multi-input transactions in the same way, so this specific heuristic doesn't transfer directly, clustering there relies on other signals such as contract deployment analysis and operational patterns. A mixing service exists specifically to break the UTXO-chain inference, pooling funds from many unrelated users and redistributing them so that the on-chain link between a deposit and a withdrawal address is deliberately obscured, how completely depends on the specific protocol, not invariably and completely severed. This is exactly why <a href="/crypto-guide-part3.html">Part 3</a> framed mixer usage as a red flag requiring further review rather than an automatic red flag against the receiving address itself, mixing is genuinely dual-use, and a screening design that treats every address that's ever touched a mixer as automatically tainted will flag a large volume of entirely legitimate activity alongside the genuinely suspicious activity it's trying to catch.</p>
     </section>
 
     <section class="article-section" id="cross-chain">
@@ -360,16 +360,16 @@
     <section class="article-section" id="custodial">
       <div class="section-num">Breakdown 04</div>
       <h2>Custodial wallets hide the individual behind the exchange</h2>
-      <p>A wallet address belonging to a cryptocurrency exchange represents potentially thousands of individual users pooled together. Activity that looks like one entity's behaviour from the outside, high volume, frequent counterparties, is often just the exchange's own operational wallet doing what exchange wallets do. Distinguishing a genuine custodial exchange wallet from a wallet exhibiting exchange-like behaviour for less legitimate reasons requires attribution data most raw on-chain analysis alone can't supply, exchange wallet labelling depends on external intelligence, not just transaction graph analysis.</p>
+      <p>A wallet address belonging to a cryptocurrency exchange can represent a large number of individual users pooled together, potentially thousands for a major exchange, though the exact scale varies by exchange and wallet architecture. Activity that looks like one entity's behaviour from the outside, high volume, frequent counterparties, is often just the exchange's own operational wallet doing what exchange wallets do. Distinguishing a genuine custodial exchange wallet from a wallet exhibiting exchange-like behaviour for less legitimate reasons requires attribution data most raw on-chain analysis alone can't supply, exchange wallet labelling depends on external intelligence, not just transaction graph analysis.</p>
     </section>
 
     <section class="article-section" id="requirements">
       <div class="section-num">Section 05</div>
       <h2>What good wallet screening actually requires, in practice</h2>
-      <p>Pulling the above together into design requirements, not just warnings:</p>
+      <p>Pulling the above together into product recommendations, not prescribed technical requirements or a fixed cadence:</p>
       <ol>
         <li><strong>Cluster-aware screening, not single-address matching</strong>, with an explicit, adjustable confidence threshold rather than a fixed, opaque cutoff.</li>
-        <li><strong>Ongoing, near-real-time monitoring</strong>, not point-in-time screening at onboarding, given how fast a clean wallet can become exposed.</li>
+        <li><strong>Ongoing, frequent monitoring</strong> rather than point-in-time screening at onboarding, given how fast a clean wallet can become exposed; "near real time" describes the goal, not a specific mandated interval.</li>
         <li><strong>Multi-chain visibility built in from the start</strong>, not treated as a future enhancement, since single-chain tooling systematically understates genuine risk.</li>
         <li><strong>Mixer interaction treated as a risk factor triggering review</strong>, not an automatic disqualifier, consistent with the dual-use reality covered in <a href="/crypto-guide-part3.html">Part 3</a>.</li>
         <li><strong>Exchange wallet labelling maintained as a distinct data source</strong>, since transaction graph analysis alone can't reliably tell a custodial wallet from an unusually active individual one.</li>

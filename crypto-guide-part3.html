@@ -362,13 +362,13 @@
       <p>In fiat laundering, layering means moving funds through multiple accounts and jurisdictions to obscure the trail. On-chain, the same goal is achieved differently, and faster.</p>
 
       <h3>Mixing and tumbling</h3>
-      <p>Mixing and tumbling services pool funds from many users and redistribute them, breaking the direct on-chain link between a deposit and a withdrawal address. The mechanics vary, some use smart contract pools, others coordinate off-chain, but the effect is the same: a clean address that received funds from a mixer has no verifiable on-chain link back to the original source, even though the mixer itself may be entirely legitimate infrastructure used by both privacy-conscious ordinary users and launderers alike. That dual-use nature is exactly why a screening approach based on "did this address touch a mixer" needs nuance, not a blanket reject.</p>
+      <p>Mixing and tumbling services pool funds from many users and redistribute them, aiming to break the direct on-chain link between a deposit and a withdrawal address. The mechanics vary, some use smart contract pools, others coordinate off-chain, and so does how completely that link actually breaks: some protocols achieve strong unlinkability, others remain vulnerable to timing analysis, clustering heuristics, or known weaknesses in their specific implementation, so "no verifiable on-chain link" isn't a safe universal assumption for every mixer. A clean address that received funds from a mixer may still be traceable back to the original source depending on which protocol was used, even though the mixer itself may be entirely legitimate infrastructure used by both privacy-conscious ordinary users and launderers alike. That dual-use nature is exactly why a screening approach based on "did this address touch a mixer" needs nuance, not a blanket reject.</p>
 
       <h3>Chain-hopping</h3>
       <p>Chain-hopping moves value across multiple blockchains via bridges or cross-chain swaps. Each hop can reset the assumptions a monitoring tool has built up about an address's history, and bridge protocols vary enormously in the transaction data they preserve versus discard. An address history that looks clean on one chain may simply mean the funds arrived via a bridge from a chain your tooling doesn't have visibility into.</p>
 
       <h3>Peel chains</h3>
-      <p>Peel chains are the on-chain equivalent of structuring. A large sum moves through a sequence of addresses, peeling off a smaller amount at each hop while the bulk continues onward, mimicking normal transactional behaviour rather than one large, conspicuous transfer. The individual peeled amounts often sit comfortably under whatever threshold triggers automated review, which is precisely the point.</p>
+      <p>Peel chains resemble the on-chain equivalent of structuring, an investigative indicator, not a fixed technical classification. A large sum moves through a sequence of addresses, peeling off a smaller amount at each hop while the bulk continues onward, mimicking normal transactional behaviour rather than one large, conspicuous transfer. The individual peeled amounts often sit comfortably under whatever threshold triggers automated review, which is precisely the point.</p>
 
       <div class="peel-chain-wrap">
         <div class="peel-chain-strip">
@@ -442,7 +442,7 @@
       <p>Rather than relying on hindsight:</p>
       <ul>
         <li><strong>Concentrated token ownership.</strong> A small number of wallets holding a large percentage of total supply is a structural risk regardless of what the project claims about its tokenomics.</li>
-        <li><strong>Unlocked or short-locked liquidity.</strong> Legitimate projects typically lock liquidity for a meaningful period, verifiable on-chain. Liquidity that can be withdrawn immediately, or that unlocks unusually soon after launch, is a genuine structural red flag, not paranoia.</li>
+        <li><strong>Unlocked or short-locked liquidity.</strong> Locked liquidity for a meaningful period is a positive indicator many legitimate projects demonstrate, verifiable on-chain, though its absence alone doesn't prove bad intent and its presence alone doesn't prove legitimacy. Liquidity that can be withdrawn immediately, or that unlocks unusually soon after launch, is a genuine structural red flag worth investigating, not paranoia.</li>
         <li><strong>Anonymous team with no verifiable history.</strong> Anonymity alone isn't disqualifying in crypto generally, but combined with the two factors above it meaningfully raises risk.</li>
         <li><strong>Contract permissions that allow minting new supply or blocking specific wallets from selling.</strong> Both are checkable directly in the smart contract code, and both have been used in documented rug pull cases to trap holders while the team exits.</li>
       </ul>
