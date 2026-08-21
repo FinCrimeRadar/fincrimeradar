@@ -3270,5 +3270,63 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "status": "verified"
+  },
+  {
+    "claimId": "sar-guide-part3.nca-sar-volume-2018-2024.001",
+    "guide": "sar-guide-part3.html",
+    "claimText": "NCA UKFIU SAR volumes: 478,437 SARs received in 2018/19, 872,048 in 2023/24.",
+    "claimType": "statistic",
+    "source": {
+      "title": "UK Financial Intelligence Unit Suspicious Activity Reports Annual Report 2019; SARs Annual Report 2024",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/390-sars-annual-report-2019/file",
+      "publisher": "National Crime Agency (NCA), UKFIU",
+      "date": "2019-01-01"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sar-guide-part3.html, Section 03 'The SAR reform agenda', intro paragraph"
+  },
+  {
+    "claimId": "sar-guide-part3.cfa2017-moratorium-vs-eccta2023-daml.001",
+    "guide": "sar-guide-part3.html",
+    "claimText": "The moratorium-extension mechanism (court extension of the 31-day moratorium, on application by a senior officer, up to six further 31-day periods, 186 days maximum) was introduced by section 10 of the Criminal Finances Act 2017, inserting POCA section 336A, not by ECCTA 2023. ECCTA 2023's actual DAML-related reforms are separate: section 183's 'mixed property' exemption (letting firms transact with the non-suspect portion of a mixed account without a DAML) and enhanced NCA information-gathering powers.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Criminal Finances Act 2017 s.10 (inserting POCA s.336A); Economic Crime and Corporate Transparency Act 2023 s.183 and explanatory notes",
+      "url": "https://www.legislation.gov.uk/ukpga/2017/22/section/10/enacted",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2017-04-27"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sar-guide-part3.html, Section 03, 'The Economic Crime and Corporate Transparency Act 2023' callout"
+  },
+  {
+    "claimId": "sar-guide-part3.poca-s331-vs-ta-s21a-nominated-officer.001",
+    "guide": "sar-guide-part3.html",
+    "claimText": "POCA s.331 (failure to disclose: nominated officers in the regulated sector) applies to the 'nominated officer', a specific statutory role, not generically to 'the MLRO' as a job title, though most firms designate their MLRO to hold it. Section 331 covers money laundering specifically; the parallel terrorist-financing obligation sits separately in TA 2000 s.21A. Section 330 applies to any person in the regulated sector who meets its four statutory conditions, not exclusively the MLRO.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 s.331 (Failure to disclose: nominated officers in the regulated sector) and s.330; TA 2000 s.21A",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/331",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sar-guide-part3.html, FAQ 'How should we handle a situation where a business line pushes back against filing a SAR?', FAQ 'Can we use AI to help write or triage SARs?', FAQ 'What happens if we discover we should have filed a SAR six months ago but didn't?' (3 locations)"
+  },
+  {
+    "claimId": "sar-guide-part3.original-internal-targets-and-ai-2026-claim.001",
+    "guide": "sar-guide-part3.html",
+    "claimText": "Original claims presented as if sourced: SAR quality metric targets (>95% subject completeness, 10% monthly narrative review, <5 business days timeliness, <5% defensive SAR rate, <48 hour MLRO review time), the '10% sample review produces significant improvement over 6-12 months' claim, the UKFIU internal workflow table, and 'the FCA has flagged AI governance in financial crime as an emerging supervisory focus area for 2026.' No NCA or FCA publication could be found supporting any of these as official standards or a named 2026 supervisory focus. Reworded as explicit editorial/illustrative framing (FinCrimeRadar's own suggested benchmarks and summary of the public SAR process) rather than implied regulatory sourcing.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove",
+    "note": "The underlying content (illustrative quality metrics, general SAR intelligence flow description) is retained on the page, reworded as editorial framing rather than removed outright, since it is reasonable operational guidance, not a numeric claim needing a primary source."
   }
 ]
