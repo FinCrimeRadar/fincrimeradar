@@ -245,7 +245,7 @@
     <section class="article-section" id="what">
       <div class="section-num">Start here</div>
       <h2>What a sanction actually is</h2>
-      <p>Strip away the legal language and a sanction is simple. A government decides someone, or some country, should not get access to the financial system, so it publishes a list and tells every bank in its jurisdiction, do not deal with these names. Miss that instruction and process a payment for a listed name anyway, and the bank itself is now breaking the law, not just the sanctioned party.</p>
+      <p>Strip away the legal language and the core idea is straightforward: a government identifies a person, entity, or country it wants to restrict, and prohibits specific dealings with them, primarily freezing their funds and economic resources, and barring transactions involving any entity they own or control, subject to whatever exceptions and licences the regime allows. It is not simply "do not deal with this name" though: the prohibition is defined by specific conduct, dealing with the funds or economic resources of a designated person, directly or through something they own or control, within that regime's jurisdictional reach, not a blanket ban on any transaction that happens to touch the name. Process a payment that genuinely falls within a prohibition anyway, and the bank itself is breaking the law, not just the sanctioned party, but whether a given payment falls within the prohibition is a legal question with real exceptions and licensing routes, not an automatic yes because a name matched.</p>
 
       <div class="analogy-box">
         <div class="analogy-icon">🚫</div>
@@ -255,7 +255,7 @@
         </div>
       </div>
 
-      <p>There is no single global sanctions authority. The United Nations, the United States through OFAC, the United Kingdom through OFSI, the European Union, and dozens of other governments each run their own list, their own legal basis, and their own penalties. A name can sit on one list and not another, which is exactly why screening against only one source is a false sense of security, not compliance.</p>
+      <p>There is no single global sanctions authority. The United Nations, the United States through OFAC, the United Kingdom (financial sanctions implemented and enforced by OFSI, designations published on the FCDO's UK Sanctions List), the European Union, and dozens of other governments each run their own list, their own legal basis, and their own penalties. A name can sit on one list and not another, which is exactly why screening against only one source is a false sense of security, not compliance.</p>
     </section>
 
     <section class="article-section" id="types">
@@ -268,7 +268,7 @@
           <div class="type-card-head"><span class="type-icon">👤</span><span class="type-name">Individual and entity sanctions</span></div>
           <div class="type-sub">Named people or companies</div>
           <span class="type-card-toggle">Tap to expand</span>
-          <div class="type-detail">The most common form. A specific person or company is named, added to a list such as the OFAC SDN list or the OFSI UK Sanctions List, and any asset belonging to them is frozen the moment the designation takes effect. This is what most screening tools check for first.</div>
+          <div class="type-detail">The most common form. A specific person or company is named, added to a list such as the OFAC SDN list or the FCDO's UK Sanctions List, and any asset belonging to them is frozen the moment the designation takes effect. This is what most screening tools check for first.</div>
         </div>
         <div class="type-card" onclick="this.classList.toggle('open')">
           <div class="type-card-head"><span class="type-icon">🏭</span><span class="type-name">Sectoral sanctions</span></div>
@@ -280,7 +280,7 @@
           <div class="type-card-head"><span class="type-icon">🌍</span><span class="type-name">Country and comprehensive sanctions</span></div>
           <div class="type-sub">An entire nation, no exceptions</div>
           <span class="type-card-toggle">Tap to expand</span>
-          <div class="type-detail">The most severe form. North Korea, Iran, and Cuba have historically faced comprehensive embargoes where almost any transaction connected to the country is prohibited, regardless of who the individual counterparty is or how innocent the transaction looks.</div>
+          <div class="type-detail">The most severe form. North Korea faces close to a comprehensive embargo under UN Security Council sanctions, reinforced by US and UK measures. Iran and Cuba are often cited alongside it, but the actual scope varies sharply by regime and by period: Iran's UK and EU measures are targeted rather than a blanket embargo, and Cuba's comprehensive embargo is specifically a US programme, the UK has no equivalent Cuba-wide embargo. Treat "country-wide embargo" as regime-specific and date-specific, not a single fixed category.</div>
         </div>
         <div class="type-card" onclick="this.classList.toggle('open')">
           <div class="type-card-head"><span class="type-icon">🔗</span><span class="type-name">Secondary sanctions</span></div>
@@ -311,7 +311,7 @@
         </thead>
         <tbody>
           <tr><td>SDN list</td><td>OFAC, United States Treasury</td><td>Individual and entity</td><td><span class="badge-red">Major</span></td></tr>
-          <tr><td>UK Sanctions List</td><td>OFSI, HM Treasury</td><td>Individual and entity</td><td><span class="badge-red">Major</span></td></tr>
+          <tr><td>UK Sanctions List</td><td>FCDO (financial sanctions on the list are implemented and enforced by OFSI, HM Treasury)</td><td>Individual and entity</td><td><span class="badge-red">Major</span></td></tr>
           <tr><td>Consolidated Financial Sanctions List</td><td>European Union</td><td>Individual and entity</td><td><span class="badge-red">Major</span></td></tr>
           <tr><td>UN Security Council Consolidated List</td><td>United Nations</td><td>Individual and entity</td><td><span class="badge-red">Major</span></td></tr>
           <tr><td>Non-SDN and sectoral lists</td><td>OFAC, United States Treasury</td><td>Sectoral</td><td><span class="badge-yellow">Major</span></td></tr>
@@ -343,7 +343,7 @@
         <div class="case-card known">
           <span class="case-tag">Well known</span>
           <div class="case-name">Roman Abramovich</div>
-          <div class="case-body">Designated by OFSI on <strong>10 March 2022</strong> under the Russia Sanctions Regulations, for his links to Vladimir Putin and his ownership stake in Evraz. The designation carries a full asset freeze, travel ban and transport sanctions. His name comes with a specific date of birth, place of birth, multiple passport numbers across three nationalities, and one of the most heavily reported business profiles in the world, the former owner of Chelsea Football Club.</div>
+          <div class="case-body">Designated under the Russia (Sanctions) (EU Exit) Regulations on <strong>10 March 2022</strong>, published on what is now the FCDO's UK Sanctions List (OFSI implements and enforces the resulting financial sanctions), for his links to Vladimir Putin and his ownership stake in Evraz. The designation carries a full asset freeze, travel ban and transport sanctions. His name comes with a specific date of birth, place of birth, multiple passport numbers across three nationalities, and one of the most heavily reported business profiles in the world, the former owner of Chelsea Football Club.</div>
         </div>
         <div class="case-card obscure">
           <span class="case-tag">Genuinely obscure</span>
@@ -435,8 +435,8 @@
         </div>
         <div class="flash-card" onclick="this.classList.toggle('flipped')">
           <div class="flash-inner">
-            <div class="flash-face flash-front"><div class="flash-term">Fifty percent rule</div><div class="flash-hint">tap to flip</div></div>
-            <div class="flash-face flash-back">A company is treated as sanctioned if designated persons own fifty percent or more of it combined, even if no single owner is listed alone.</div>
+            <div class="flash-face flash-front"><div class="flash-term">OFAC's 50 Percent Rule</div><div class="flash-hint">tap to flip</div></div>
+            <div class="flash-face flash-back">The US-specific rule: a company is treated as blocked if designated persons own fifty percent or more of it combined, even if no single owner individually holds that much. The UK's OFSI test is different, it looks at each designated person's holding individually against the 50% threshold (plus a separate control test) and generally does not aggregate separate designated persons' stakes unless there's a joint arrangement or one controls the other.</div>
           </div>
         </div>
         <div class="flash-card" onclick="this.classList.toggle('flipped')">
@@ -492,15 +492,15 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Is OFSI the same as OFAC? <span class="faq-icon">+</span></div>
-        <div class="faq-a">No. OFAC is the United States Treasury's sanctions authority. OFSI, the Office of Financial Sanctions Implementation, is its UK equivalent under HM Treasury. Both maintain separate lists with separate legal force, and a name can appear on one without appearing on the other.</div>
+        <div class="faq-a">No. OFAC is the United States Treasury's sanctions authority, and it does maintain the SDN list directly. OFSI, the Office of Financial Sanctions Implementation, is a UK equivalent for financial sanctions specifically, under HM Treasury, but it implements and enforces UK financial sanctions rather than publishing the master list itself, that's the FCDO's UK Sanctions List. Either way, the two countries run separate regimes with separate legal force, and a name can appear on one without appearing on the other.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">If a name is not on any sanctions list, is it definitely safe? <span class="faq-icon">+</span></div>
-        <div class="faq-a">No. Sanctions screening is one control among several. A name can be entirely unsanctioned and still carry politically exposed person risk, adverse media risk, or ownership ties to a sanctioned entity under the fifty percent rule, none of which show up on a plain name check alone.</div>
+        <div class="faq-a">No. Sanctions screening is one control among several. A name can be entirely unsanctioned and still carry politically exposed person risk, adverse media risk, or ownership/control ties to a sanctioned entity, whether through OFAC's aggregate 50% rule, OFSI's individual-basis ownership and control test, or an equivalent test under another regime, none of which show up on a plain name check alone.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Why do sanctions lists update so often? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Geopolitical events move faster than annual review cycles. New designations, delistings and amendments happen on a rolling basis, which is why a one time screen at onboarding is never enough, ongoing rescreening against a live feed is the actual requirement.</div>
+        <div class="faq-a">Geopolitical events move faster than annual review cycles. New designations, delistings and amendments happen on a rolling basis, which is why a one time screen at onboarding is never enough. UK and other sanctions regimes require you to comply with the prohibitions at all times, they don't prescribe a specific rescreening cadence, but ongoing rescreening against a live, regularly updated feed is, in our view, the practical control that actually keeps you compliant as lists change.</div>
       </div>
     </section>
 
@@ -584,7 +584,7 @@
         <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#475569;margin-bottom:.875rem;">Data Sources</div>
         <div style="display:flex;flex-direction:column;gap:.5rem;">
           <span style="font-size:13px;color:#64748b;">OpenSanctions (OFAC, UN, EU)</span>
-          <span style="font-size:13px;color:#64748b;">OFSI (UK Sanctions List)</span>
+          <span style="font-size:13px;color:#64748b;">FCDO (UK Sanctions List), OFSI</span>
           <span style="font-size:13px;color:#64748b;">OpenSanctions PEP Dataset</span>
           <span style="font-size:13px;color:#64748b;">FCA, NCA, BBC, OCCRP</span>
           <span style="font-size:13px;color:#64748b;">HM Treasury, FATF</span>

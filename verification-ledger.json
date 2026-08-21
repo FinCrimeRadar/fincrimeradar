@@ -3823,5 +3823,75 @@
     "reviewDue": "2027-08-21",
     "status": "retained-as-estimate",
     "note": "PRECISION finding, the guide's lightest of the 8 audited in this batch, no MATERIAL error. Reworded from an asserted named cross-jurisdictional regulatory consensus to the guide's own review experience, with an explicit note that no comparative study was found supporting the stated global consistency. FCA FCG 3.2 (https://handbook.fca.org.uk/handbook/fcg3/fcg3s2) corroborates the narrower UK-specific version of the claim via WebSearch."
+  },
+  {
+    "claimId": "sanctions-compliance-guide.sanctions-legal-test-not-blanket-list.001",
+    "guide": "sanctions-compliance-guide.html",
+    "claimText": "A sanctions prohibition is defined by specific conduct, dealing with the funds or economic resources of a designated person, directly or through an entity they own or control, within the regime's jurisdictional reach, subject to exceptions and licences, not a blanket rule that any processed payment touching a listed name is automatically unlawful.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "UK financial sanctions general guidance",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-general-guidance/uk-financial-sanctions-general-guidance",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sanctions-compliance-guide.html, 'What a sanction actually is' section, intro paragraph and 'no single global sanctions authority' paragraph"
+  },
+  {
+    "claimId": "sanctions-compliance-guide.uk-sanctions-list-fcdo-not-ofsi.001",
+    "guide": "sanctions-compliance-guide.html",
+    "claimText": "The UK Sanctions List is published and maintained by the FCDO (as the single consolidated source since the old OFSI Consolidated List closed 28 January 2026). OFSI (HM Treasury) implements and enforces financial sanctions, licensing, monitoring, and penalties, it does not itself publish the master designations list.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The UK Sanctions List; OFSI role in implementing and enforcing financial sanctions",
+      "url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+      "publisher": "Foreign, Commonwealth & Development Office (FCDO); OFSI, HM Treasury",
+      "date": "2026-01-28"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sanctions-compliance-guide.html, 'no single global sanctions authority' paragraph, sanctions-types type-card, 'the roster' table (UK Sanctions List row), Abramovich case card, FAQ 'Is OFSI the same as OFAC?', footer Data Sources list (6 locations)"
+  },
+  {
+    "claimId": "sanctions-compliance-guide.ofac-50pct-vs-ofsi-individual-basis.001",
+    "guide": "sanctions-compliance-guide.html",
+    "claimText": "OFAC's 50 Percent Rule aggregates multiple blocked persons' combined holdings toward the 50% threshold. OFSI's UK ownership and control test is different: it assesses each designated person's shareholding individually against the 50%/majority-board-appointment threshold, plus a separate qualitative control test, and does not aggregate different designated persons' shareholdings unless the shares/rights are subject to a joint arrangement between them or one designated person controls the other's rights.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "UK Financial Sanctions FAQs, Russia section FAQ 4 (ownership and control, aggregation)",
+      "url": "https://www.gov.uk/government/publications/uk-financial-sanctions-faqs/uk-financial-sanctions-faqs",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI), HM Treasury",
+      "date": "2026-08-20"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sanctions-compliance-guide.html, 'Fifty percent rule' flashcard, and FAQ 'If a name is not on any sanctions list, is it definitely safe?'",
+    "note": "Same OFAC/OFSI aggregation distinction independently verified earlier this week against Scenario Lab's Risk Scoring Case 3; re-confirmed current here via direct primary-source fetch of OFSI's own published FAQ rather than reusing the prior secondary-sourced verification."
+  },
+  {
+    "claimId": "sanctions-compliance-guide.rescreening-cadence-control-not-statute.001",
+    "guide": "sanctions-compliance-guide.html",
+    "claimText": "UK sanctions law requires compliance with the applicable prohibitions at all times but does not itself prescribe a specific rescreening cadence or mandate a live-feed screening architecture. Ongoing rescreening against a regularly updated feed is a recommended operational control for staying compliant as designations change, not a stated statutory requirement.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "retained-as-estimate",
+    "note": "The negative claim (no prescribed statutory cadence) reflects the absence of such a requirement in UK sanctions legislation and OFSI guidance, logged as retained-as-estimate since it is an absence-of-requirement finding rather than a specific quotable provision.",
+    "location": "sanctions-compliance-guide.html, FAQ 'Why do sanctions lists update so often?'"
+  },
+  {
+    "claimId": "sanctions-compliance-guide.embargo-regime-specific-not-uniform-category.001",
+    "guide": "sanctions-compliance-guide.html",
+    "claimText": "North Korea, Iran, and Cuba do not share one uniform 'comprehensive embargo' status. North Korea faces close to a comprehensive embargo under UN Security Council sanctions, reinforced by US and UK measures. Iran's UK and EU measures are targeted rather than a blanket embargo. Cuba's comprehensive embargo is specifically a US programme; the UK has no equivalent Cuba-wide embargo.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "PRECISION finding, the last of the five originally flagged for this guide. Not independently verified against a single primary source for each of the three regimes given time constraints; reworded away from the false equivalence rather than asserted as freshly sourced fact."
   }
 ]
