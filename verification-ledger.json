@@ -4400,5 +4400,21 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "Matches wording already correctly established in aml-guide-part3.html's training-records section this session."
+  },
+  {
+    "claimId": "pep-guide-part2.crossguide-reg35-5-three-not-four-edd-measures.001",
+    "guide": "pep-guide-part2.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "First ledger entry for this guide. Corrects a cross-guide contradiction: 'MLR 2017 Regulation 35 sets out four mandatory EDD measures' corrected to three, matching Regulation 35(5)'s actual three statutory limbs, senior management approval, source of wealth and source of funds measures, and enhanced ongoing monitoring, and matching pep-guide-part3.html's already-correct statement. The guide's four-card visual step list (senior approval, source of wealth, source of funds, enhanced monitoring) is retained as-is rather than merged, since source of wealth and source of funds are meaningfully distinct practical actions even though they form a single combined statutory measure under Reg 35(5)(b); an explanatory note was added directly beneath the steps clarifying that the four-step split is FinCrimeRadar's own operational breakdown of that one statutory limb, not a fourth statutory requirement.",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 35(5)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "This exact wording was previously verified accurate in the local working tree during the Priority batch pass but was never committed; that batch's report incorrectly described this line as 'already correct' based on the uncommitted local file rather than origin/main, where the uncorrected 'four' wording remained live. Re-verified directly against a fresh origin/main fetch before this correction. Full-file sweep on origin/main's live text confirmed only one instance of the error, at this line; no other recurrence found."
   }
 ]
