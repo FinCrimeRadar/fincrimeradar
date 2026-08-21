@@ -3328,5 +3328,126 @@
     "reviewDue": "2027-08-20",
     "status": "unverifiable-remove",
     "note": "The underlying content (illustrative quality metrics, general SAR intelligence flow description) is retained on the page, reworded as editorial framing rather than removed outright, since it is reasonable operational guidance, not a numeric claim needing a primary source."
+  },
+  {
+    "claimId": "fatf-guide-part1.grey-listing-not-mandatory-edd.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "FATF grey listing (jurisdictions under increased monitoring) does not itself mandate EDD at every financial institution worldwide. FATF is explicit that grey-list status is an input to the risk-based approach, not an automatic EDD trigger; black listing carries a stronger expectation of countermeasures. This corrects a direct contradiction with fatf-guide-part2.html's own correct framing of the same point.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FATF, Jurisdictions under Increased Monitoring statement (June 2026 plenary)",
+      "url": "https://www.fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-june-2026.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2026-06-19"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "fatf-guide-part1.html, 'Who the FATF is' callout, and R.19 summary card"
+  },
+  {
+    "claimId": "fatf-guide-part1.mlr-reg35-domestic-pep-lower-risk-not-exempt.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "Under UK MLR 2017 Regulation 35, domestic PEPs are not exempt from EDD, the same PEP-specific measures (senior management approval, source of wealth/funds, enhanced ongoing monitoring) apply to them as to any PEP. Regulation 35 sets a lower-risk starting presumption for domestic PEPs absent other risk factors, so those measures can be calibrated lighter (e.g. lower-seniority sign-off, less exhaustive source-of-wealth steps per FCA FG25/3), not skipped.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 35; FCA FG25/3 (July 2025, Annex 1 sign-off and lower-risk-measures sections)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk; Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "fatf-guide-part1.html, R.12 section, 'The three PEP categories under FATF' list ('EDD' bullet and 'Domestic PEPs' bullet)"
+  },
+  {
+    "claimId": "fatf-guide-part1.fatf-r18-vs-uk-smf17-scope.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "FATF Recommendation 18 requires a 'compliance officer at management level' as a general international standard. UK's SMF17 is a specific FCA Senior Managers and Certification Regime implementation, applying only to firms within SM&CR scope. MLR-regulated firms outside SM&CR scope (e.g. HMRC-supervised or professional-body-supervised sectors) still need a named compliance officer/nominated officer under MLR 2017 Regulation 21, without ever holding an SMF17 designation.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FATF Recommendation 18; MLR 2017 Regulation 21; FCA SM&CR SMF17",
+      "url": "https://handbook.fca.org.uk/handbook/sup10c/sup10cs6",
+      "publisher": "FATF; Financial Conduct Authority (FCA); legislation.gov.uk",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "fatf-guide-part1.html, R.18 section, 'Designated compliance officer (MLRO)' bullet and 'The MLRO accountability trap' callout"
+  },
+  {
+    "claimId": "fatf-guide-part1.fatf-r20-vs-poca-s330-s331-allocation.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "FATF Recommendation 20 places the SAR reporting obligation on financial institutions and DNFBPs generally. UK law allocates this by specific statutory role: POCA s.330 creates an offence for any regulated-sector person meeting its conditions; s.331 creates a separate offence specifically for the nominated officer (the role most firms designate their MLRO to hold) who fails to make the onward disclosure to the NCA. It is not accurately described as applying to 'all employees, with the MLRO making the final decision' as one undifferentiated obligation.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 s.330 and s.331",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/331",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "fatf-guide-part1.html, R.20 section, 'The obligation in operational terms' paragraph"
+  },
+  {
+    "claimId": "fatf-guide-part1.poca-daml-moratorium-and-tipping-off-scope.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "The DAML notice period is 7 working days from filing, after which consent is deemed granted if the NCA does neither grants nor refuses. If consent is refused within that period, a further statutory moratorium of 31 days runs from the day of refusal (POCA s.336A), during which the transaction cannot proceed; that moratorium can be extended by court application in further 31-day periods, up to 186 days total. Separately, the POCA s.333A tipping-off offence requires a regulated-sector disclosure that a SAR has been filed or an investigation is being contemplated/carried out, where that disclosure is likely to prejudice the investigation, it is not a blanket ban on all customer communication.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 s.335 (notice period), s.336A (court-extended moratorium, inserted by Criminal Finances Act 2017 s.10), s.333A (tipping off)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/336A",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "fatf-guide-part1.html, R.20 'At Your Desk: The DAML Situation' desk-scenario, and R.21 summary card"
+  },
+  {
+    "claimId": "fatf-guide-part1.fatf-r24-r25-adoption-dates.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "FATF's beneficial ownership standard changes affecting nominee arrangements and verification (not mere declaration) requirements came from the Recommendation 24 revision, adopted March 2022, and the Recommendation 25 revision, adopted February 2023, not from the June 2026 consolidated Recommendations republication, which compiles the current standard as of that date rather than being the source of these specific substantive changes.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FATF Public Statement on revisions to R.24 (March 2022); FATF Recommendation 25 revision (February 2023 plenary outcomes)",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R24-statement-march-2022.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2022-03-04"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "fatf-guide-part1.html, beneficial ownership section, 'The Strengthened Beneficial Ownership Standard' failure-box"
+  },
+  {
+    "claimId": "fatf-guide-part1.fatf-r6-r7-un-vs-uk-domestic-sanctions.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "FATF Recommendations 6 and 7 concern implementation of UN Security Council targeted financial sanctions specifically, not a combined UN/OFAC/OFSI/EU minimum. For a UK firm, UK sanctions law (OFSI-enforced, FCDO UK Sanctions List, the domestic implementation of UN measures) is the starting point; OFAC and EU designations matter only with an actual jurisdictional nexus to the US or EU, or contractual adoption, not as a universal FATF requirement.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FATF Recommendations 6-7; UK financial sanctions guidance",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-general-guidance/uk-financial-sanctions-general-guidance",
+      "publisher": "Financial Action Task Force (FATF); OFSI/HM Treasury",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "fatf-guide-part1.html, R.6 summary card"
+  },
+  {
+    "claimId": "fatf-guide-part1.original-three-data-sources-every-recommendation.001",
+    "guide": "fatf-guide-part1.html",
+    "claimText": "Original claim: \"PEPs, sanctions, and adverse media -- the three data sources that activate the EDD requirements in every recommendation above.\" No FATF mechanism unifies these three under one EDD-activation rule, sanctions prohibitions, PEP EDD (Rec 12 / Reg 35), and adverse media are governed by separate rules, and no single recommendation frames all three as a joint trigger. Removed and replaced with a plain, non-legal-sounding statement (\"PEP, sanctions, and adverse media data all feed into the EDD decisions this guide covers\") that asserts nothing beyond what is already sourced elsewhere in the guide.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove"
   }
 ]
