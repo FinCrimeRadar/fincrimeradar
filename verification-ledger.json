@@ -3771,5 +3771,21 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "PRECISION finding, 3 locations corrected (questionnaire phase, on-site visit, and average listing-period callout)."
+  },
+  {
+    "claimId": "crypto-guide-part2.fca-saving-provision-applies-within-window-only.001",
+    "guide": "crypto-guide-part2.html",
+    "claimText": "The FCA's cryptoasset-authorisation saving provision protects a firm only if it applies during the formal application period (30 September 2026 to 28 February 2027) and the application remains pending when the regime commences on 25 October 2027. An application made after the window closes does not obtain the saving provision merely because it is pending.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA direction on the relevant application period for a cryptoasset permission; FCA cryptoassets regulation authorisations Q&A webinar",
+      "url": "https://www.fca.org.uk/publication/documents/cryptoassets-regulation-authorisations-introductory-webinar-qa-jan-2026.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-02-20"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "The guide had this exactly backwards, stating a firm that misses the application window still gets the saving provision while its late application is pending. Confirmed via direct read of the FCA relevant-application-period direction PDF (dates) and WebSearch corroboration of the saving provision mechanism (direct WebFetch of the introductory-webinar Q&A PDF failed on its binary stream)."
   }
 ]
