@@ -3544,5 +3544,165 @@
     "reviewDue": "2027-08-21",
     "status": "verified",
     "note": "Same S.I. 2026/621 commencement-date fact already verified and applied to multiple other guides this project (aml-guide-part1.html, kyc-onboarding-dilemma.html, fatf-guide-part1.html)."
+  },
+  {
+    "claimId": "aml-guide-part3.reg21-relevant-employee-functional-test.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 21(2) defines 'relevant employee' by a functional test (work relevant to MLR compliance, or capable of contributing to identifying/mitigating ML/TF/proliferation-financing risk), not as a blanket category covering every job title. Regulation 24 separately extends the training duty to agents, a distinct limb from the 'relevant employee' definition. Board members and senior management are relevant employees only where their actual role meets the functional test, not automatically by seniority.",
+    "source": {
+      "title": "MLR 2017 Regulation 21 (Miscellaneous definitions) and Regulation 24 (Training)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "aml-guide-part3.reg24-no-fixed-training-frequency-or-5yr-retention.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 24 requires training to be given 'regularly' with no fixed minimum cycle (e.g. annual), and requires a written record of training measures with no specified retention period. The MLRs' explicit 5-year retention period applies to Regulation 40's CDD evidence and transaction records, not training records.",
+    "source": {
+      "title": "MLR 2017 Regulation 24 (Training) and Regulation 40 (Record-keeping)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/24",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "aml-guide-part3.smf17-scope-and-nominated-officer-distinction.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "SMF17 is a specific FCA/SM&CR implementation, not a universal feature of every MLR-regulated firm; firms outside SM&CR scope still need a named compliance officer under MLR 2017 Regulation 21 without holding an SMF17 designation. The statutory duty to review internal SAR referrals and decide on onward disclosure to the NCA belongs to the nominated officer role under POCA s.331, a role most firms designate their MLRO to hold, not to 'MLRO' or 'SMF17' as job titles per se.",
+    "source": {
+      "title": "MLR 2017 Regulation 21; FCA SM&CR SMF17; POCA 2002 s.331",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/331",
+      "publisher": "legislation.gov.uk; Financial Conduct Authority (FCA)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "aml-guide-part3.fg25-3-mlro-pep-oversight-not-individual-approval.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "FCA FG25/3 does not require the MLRO to personally approve every individual PEP relationship where another suitably senior person does so; the MLRO retains oversight of the firm's overall PEP process.",
+    "source": {
+      "title": "FCA FG25/3 (Finalised Guidance on politically exposed persons)",
+      "url": "https://www.fca.org.uk/publication/finalised-guidance/fg25-3.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Same fact and source already verified this session for pep-guide-part3.html and aml-guide-part3.html's own related MLRO-role finding."
+  },
+  {
+    "claimId": "aml-guide-part3.reg28-monitoring-not-universal-rescreening-mandate.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 28's ongoing-monitoring duty concerns scrutinising transactions and keeping CDD information current; it does not itself create a specific sanctions-rescreening rule or prescribe a screening cadence. Sanctions rescreening obligations flow from the applicable sanctions regime's own prohibitions, not from Regulation 28. Adverse media screening is not itself an express universal MLR obligation.",
+    "source": {
+      "title": "MLR 2017 Regulation 28 (Ongoing monitoring); UK financial sanctions guidance",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk; OFSI/HM Treasury",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Corrects two instances of the same conflation: the screening-control-framework intro/step 4, and the FAQ on rescreening frequency."
+  },
+  {
+    "claimId": "aml-guide-part3.186m-fines-overall-not-financial-crime-specific.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "statistic",
+    "status": "verified",
+    "claimText": "The FCA's £186m+ in fines across 37 Final Notices in 2024/25 is its overall enforcement total for the year, not a financial-crime-specific figure. Financial crime accounted for 17 of the FCA's 23 new investigation operations opened in 2024/25. Financial-crime-specific supervisory data separately records 546 AML assessments and 965 financial crime supervision cases opened in 2024/25, alongside named penalties: Starling Bank (£28,959,426, sanctions-screening failings, October 2024) and Metro Bank (£16,675,200, Principle 3 breaches, November 2024).",
+    "source": {
+      "title": "FCA Annual Report and Accounts 2024/25; FCA press releases on Starling Bank and Metro Bank penalties",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-fines-starling-bank-failings-financial-crime-systems-and-controls",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2024-10-02"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Direct WebFetch of the FCA's 2024/25 Annual Report PDF failed on its binary stream (7.9MB, same class of PDF-extraction limitation logged in BACKLOG.md); the 546 AML assessments, 37 Final Notices/£186m overall total, and 17/23 financial-crime-related operations figures were corroborated via WebSearch of secondary reporting on the same report. Starling and Metro penalty figures confirmed via WebSearch corroboration of contemporaneous law-firm and press reporting."
+  },
+  {
+    "claimId": "aml-guide-part3.mlr86-two-years-not-fourteen.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 86 sets the maximum penalty for an MLR breach offence at 2 years' imprisonment on conviction on indictment (3 months on summary conviction), not 14 years. Fourteen years applies to the separate principal money laundering offences under POCA, not to a breach of the MLRs themselves.",
+    "source": {
+      "title": "MLR 2017 Regulation 86 (Criminal offence)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/86",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "The 2026-08-20 Codex audit itself cited this as 'Regulation 92,' which is a different provision (offence by bodies corporate/partnerships). Independently verified against legislation.gov.uk before drafting and found the correct citation is Regulation 86, corrected here rather than transcribed from the audit report, consistent with this session's structural-match-not-just-topic-match discipline."
+  },
+  {
+    "claimId": "aml-guide-part3.si-2026-621-in-force-not-prospective.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "S.I. 2026/621, tying mandatory country-based EDD under MLR 2017 Regulation 33 to FATF Call for Action (blacklist) countries, took effect on 30 June 2026 and is already in force, not a prospective 'early 2026' or 'July 2025' change still awaiting Parliament.",
+    "source": {
+      "title": "The Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (S.I. 2026/621)",
+      "url": "https://www.legislation.gov.uk/uksi/2026/621",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Same S.I. 2026/621 commencement fact already independently verified and applied to aml-guide-part1.html, kyc-onboarding-dilemma.html, fatf-guide-part1.html, and pep-guide-part3.html this project. Corrects 3 instances in this guide: the outlook callout, the gap-analysis bullet, and the try-tool blurb."
+  },
+  {
+    "claimId": "aml-guide-part3.original-unsourced-fca-quote.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "statistic",
+    "status": "unverifiable-remove",
+    "claimText": "\"We are not just checking that firms have policies. We are assessing whether those policies actually work to prevent financial crime, and whether senior management genuinely understands and owns the risks.\" presented as a direct FCA quotation attributed to 'FCA Supervisory focus, 2025'. No FCA publication carrying this exact quotation could be located.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Reworded to an explicit paraphrase of the FCA's stated approach in FCG 1.1, no longer presented as a direct quotation."
+  },
+  {
+    "claimId": "aml-guide-part3.original-unsourced-benchmarks-and-composite-cases.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "statistic",
+    "status": "unverifiable-remove",
+    "claimText": "The 80% training-assessment pass mark, the three named-sounding but unnamed enforcement case cards presented without an illustrative label, and the FCA auto-clearance expectations FAQ answer were presented with implied regulatory sourcing. No NCA or FCA publication supports 80% as a mandated pass mark; the three enforcement cards have no identifiable underlying Final Notice; the auto-clearance guidance is FinCrimeRadar's own operational recommendation, not a cited FCA position.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Reworded: the 80% figure labelled as industry convention not a mandated figure; an explicit illustrative/composite disclaimer added before the three enforcement cards; the auto-clearance FAQ reworded to attribute the recommendation to FinCrimeRadar rather than implying it is FCA-sourced."
+  },
+  {
+    "claimId": "aml-guide-part3.fca-single-supervisor-timing-not-fixed.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "HM Treasury has confirmed the FCA will become the single AML supervisor for professional services currently supervised by 23 professional body supervisors, but implementation timing (including any estimate around 2027) depends on primary legislation and parliamentary timing and should not be presented as a fixed date until that legislation is introduced.",
+    "source": {
+      "title": "AML Supervision Reform Response Document",
+      "url": "https://assets.publishing.service.gov.uk/media/68f609dc2f0fc56403a3d0c7/AML_Supervision_Reform_Response_Document_FINAL.pdf",
+      "publisher": "HM Treasury",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
   }
 ]
