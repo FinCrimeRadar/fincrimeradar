@@ -462,8 +462,8 @@
     <!-- OVERVIEW -->
     <section class="article-section" id="overview">
       <div class="section-num">Introduction</div>
-      <h2>The five core compliance obligations</h2>
-      <p>The Money Laundering Regulations 2017 impose five core operational obligations on every firm in scope. These are not optional best practices — they are legal requirements, breaches of which can result in FCA enforcement action, criminal prosecution of the MLRO, and unlimited fines.</p>
+      <h2>Five core compliance obligations, FinCrimeRadar's practical grouping</h2>
+      <p>The Money Laundering Regulations 2017 impose numerous specific legal requirements. For working purposes, we group them here into five core operational obligations every firm in scope needs to get right, this is FinCrimeRadar's own editorial grouping for practical clarity, not a fixed statutory list of five items. Each requirement within it, however grouped, is a genuine legal requirement, breaches of which can result in FCA enforcement action, criminal prosecution of the MLRO, and unlimited fines.</p>
       <div class="steps">
         <div class="step"><div class="step-n">1</div><div class="step-body"><h4>Firm-wide risk assessment</h4><p>Identify and document your organisation's exposure to ML/TF risk across products, customers, geographies, and channels.</p></div></div>
         <div class="step"><div class="step-n">2</div><div class="step-body"><h4>Customer Due Diligence (CDD)</h4><p>Identify and verify your customers and beneficial owners. Apply SDD, standard CDD, or EDD proportionate to risk.</p></div></div>
@@ -471,14 +471,14 @@
         <div class="step"><div class="step-n">4</div><div class="step-body"><h4>Record keeping</h4><p>Retain CDD documents and transaction records for 5 years. Delete after 5 years under UK GDPR (with limited exceptions).</p></div></div>
         <div class="step"><div class="step-n">5</div><div class="step-body"><h4>Staff training</h4><p>Ensure all relevant employees understand AML law, the firm's risk assessment, CDD procedures, and how to report suspicions.</p></div></div>
       </div>
-      <div class="pull-quote">"MLR 2017 is not a compliance checklist. It is a risk-based framework — and the FCA will assess whether your controls are proportionate to the risks your firm actually faces, not whether you have ticked boxes."</div>
+      <div class="pull-quote">MLR 2017 is not a compliance checklist, in our view. It is a risk-based framework, and the FCA assesses whether your controls are proportionate to the risks your firm actually faces, not whether you have ticked boxes.</div>
     </section>
 
     <!-- RISK ASSESSMENT -->
     <section class="article-section" id="risk-assessment">
       <div class="section-num">Obligation 01</div>
       <h2>Firm-wide risk assessment</h2>
-      <p>The firm-wide risk assessment (FWRA) is the foundation of your entire AML programme. Under Regulation 18 MLR 2017, every relevant person must identify and assess the risks of money laundering and terrorist financing to which their business is subject — and must document this assessment in writing.</p>
+      <p>The firm-wide risk assessment (FWRA) is the foundation of your entire AML programme. Under Regulation 18(1) MLR 2017, every relevant person must take appropriate steps to identify and assess the risks of money laundering and terrorist financing to which their business is subject, considering the factors listed in Regulation 18(2). Regulation 18(4) requires the firm to keep an up-to-date written record of those steps, unless its supervisory authority has notified it in writing that a written record isn't required, a firm-specific exemption, not a default option. Separately, Regulation 18A requires an equivalent risk assessment for proliferation financing, considering the same categories of risk factor, it is not covered by the ML/TF assessment under Regulation 18.</p>
 
       <h3>What the FWRA must cover</h3>
       <p>The MLR 2017 specifies that the FWRA must take into account at least the following risk factors:</p>
@@ -536,7 +536,7 @@
         <div class="callout-icon">⚠️</div>
         <div class="callout-body">
           <div class="callout-title">Common FCA finding — generic risk assessments</div>
-          <div class="callout-text">The FCA's risk assessment thematic review (2024) found that many firms produce risk assessments that are too generic — describing industry risks rather than the firm's specific risk profile. A risk assessment that could apply to any payment firm in the sector is unlikely to satisfy the FCA. Your FWRA should reflect your specific products, your specific customers, your specific geographies — not a template.</div>
+          <div class="callout-text">The FCA's multi-firm review of risk assessment processes and controls (published 11 November 2025) found that while most firms had a business-wide risk assessment on paper, many were too generic or not tailored to the specific business, some oversimplified their risks and failed to explain how each one actually affected the firm. A risk assessment that could apply to any payment firm in the sector is unlikely to satisfy the FCA. Your FWRA should reflect your specific products, your specific customers, your specific geographies — not a template.</div>
         </div>
       </div>
 
@@ -561,12 +561,10 @@
         <div class="cdd-tier sdd">
           <div class="cdd-tier-label">🟢 Lower risk</div>
           <h3>Simplified Due Diligence (SDD)</h3>
-          <p>Applied where risk is demonstrably low. Less intensive checks — though basic identity verification is still required.</p>
+          <p>Applied on a risk-based determination where risk is demonstrably low, not automatically because a customer falls into a category. Basic identity verification is still required.</p>
           <ul>
-            <li>Listed companies on regulated markets</li>
-            <li>UK public authorities</li>
-            <li>Low-value e-money products (≤€150)</li>
-            <li>Regulated financial institutions</li>
+            <li>Being a public authority, publicly owned enterprise, listed company on a regulated market, or regulated financial institution is a lower-risk factor to weigh under Reg 37(3), not an automatic SDD class on its own</li>
+            <li>Low-value e-money is a separate, conditional full CDD exemption under Reg 38, not SDD: non-reloadable, used only for goods/services, no anonymous funding, capped at €150 stored value with a €100 cash redemption limit</li>
           </ul>
         </div>
         <div class="cdd-tier standard">
@@ -575,7 +573,7 @@
           <p>The default level. Identify the customer, verify identity, understand the relationship, and conduct ongoing monitoring.</p>
           <ul>
             <li>Verify name, address, DOB (individuals)</li>
-            <li>Identify UBO (>25% ownership threshold)</li>
+            <li>Identify UBO (Reg 5: over 25% shares/voting rights, or a separate management/control test, either limb qualifies)</li>
             <li>Understand purpose of relationship</li>
             <li>Ongoing monitoring of transactions</li>
           </ul>
@@ -606,7 +604,7 @@
         <li>Name, legal form, registered address</li>
         <li>Constitutional documents (articles of association, trust deed)</li>
         <li>Names of senior persons responsible for operations</li>
-        <li>Identification of ultimate beneficial owners (UBOs) — individuals owning >25% shares or voting rights, or exercising significant control</li>
+        <li>Identification of ultimate beneficial owners (UBOs) — Reg 5 sets two separate limbs, an individual owning or controlling more than 25% of shares or voting rights, or an individual exercising ultimate control over management, meeting either limb is enough</li>
         <li>Verification of UBO identity</li>
       </ul>
 
@@ -618,7 +616,7 @@
           <tr><td>Occasional transaction ≥€15,000</td><td>✅ Yes</td><td>Single or linked transactions</td></tr>
           <tr><td>Suspicion of ML/TF</td><td>✅ Yes — regardless of thresholds</td><td>Even if relationship pre-dates suspicion</td></tr>
           <tr><td>Doubt about previous verification</td><td>✅ Yes</td><td>Refresh CDD when reliability doubted</td></tr>
-          <tr><td>Periodic review (existing customers)</td><td>✅ Yes — risk-based</td><td>High risk: annually; Medium: 2–3yr; Low: 3–5yr</td></tr>
+          <tr><td>Periodic review (existing customers)</td><td>✅ Yes — risk-based</td><td>Illustrative cycle, not a statutory requirement: firms commonly use annual for high risk, 2–3yr medium, 3–5yr low, set your own per your risk assessment</td></tr>
           <tr><td>Change in customer circumstances</td><td>✅ Yes — trigger-based</td><td>Change of ownership, new product, higher risk activity</td></tr>
         </tbody>
       </table>
@@ -626,14 +624,14 @@
       <div class="callout info">
         <div class="callout-icon">💡</div>
         <div class="callout-body">
-          <div class="callout-title">Beneficial ownership — the 25% threshold</div>
-          <div class="callout-text">Under MLR 2017, you must identify any individual who owns more than 25% of shares or voting rights in a legal entity, or who otherwise exercises significant control. This threshold is a minimum, not a ceiling — where risks are higher, you should look through lower ownership levels. If no individual meets the 25% threshold, you should identify the most senior person responsible for managing the entity as the beneficial owner.</div>
+          <div class="callout-title">Beneficial ownership — ownership OR control, not one blended test</div>
+          <div class="callout-text">Under MLR 2017 Regulation 5, you must identify any individual who owns or controls more than 25% of shares or voting rights in a legal entity, or, on a separate limb, any individual who exercises ultimate control over its management, either limb qualifies on its own. This threshold is a minimum, not a ceiling — where risks are higher, you should look through lower ownership levels. Only once you have exhausted all possible means of identifying a beneficial owner under Regulation 28(6)-(7), and recorded in writing the actions taken and the difficulties encountered, may you treat the senior managing official as the beneficial owner instead (Reg 28(8)), both conditions have to be met, this is a documented last resort, not a shortcut for whenever no one obviously clears 25%.</div>
         </div>
       </div>
 
       <div class="quiz" id="q1">
         <div class="quiz-label">🧠 Knowledge check</div>
-        <div class="quiz-q">Under MLR 2017, what is the beneficial ownership threshold that triggers the requirement to identify and verify an individual's ownership of a company?</div>
+        <div class="quiz-q">Under MLR 2017 Regulation 5, what is the ownership/voting-rights threshold on the ownership limb of the beneficial-owner test (the separate control limb has no percentage threshold)?</div>
         <div class="quiz-opts">
           <button class="quiz-opt" onclick="doQuiz('q1',this,false)">A) 10%</button>
           <button class="quiz-opt" onclick="doQuiz('q1',this,true)">B) 25%</button>
@@ -657,7 +655,7 @@
     <section class="article-section" id="edd">
       <div class="section-num">Obligation 02b</div>
       <h2>Enhanced Due Diligence (EDD)</h2>
-      <p>Enhanced Due Diligence is mandatory — not discretionary — in certain circumstances defined by MLR 2017. It requires additional measures beyond standard CDD to manage elevated risks.</p>
+      <p>Enhanced Due Diligence is mandatory — not discretionary — in certain circumstances defined by MLR 2017. Which specific measures are actually required depends on why EDD is triggered, though: Regulation 33(3A) sets a fixed package for FATF "Call for Action" countries specifically, other high-risk cases instead use Regulation 33(5)'s proportionate, risk-based measures, not that same fixed package as a default.</p>
 
       <h3>When is EDD mandatory?</h3>
       <ul>
@@ -668,7 +666,8 @@
         <li><strong>Any other situation assessed as high risk</strong> — under the firm's risk-based approach</li>
       </ul>
 
-      <h3>What does EDD involve?</h3>
+      <h3>What does EDD actually require?</h3>
+      <p>For customers connected to a FATF "Call for Action" country, Regulation 33(3A) sets a fixed six-part package: additional information on the customer and beneficial owner, on the intended nature of the relationship, on source of funds and source of wealth, on the reasons for the transactions, senior management approval, and enhanced ongoing monitoring. For other high-risk cases, Regulation 33(5) instead lists measures a firm "may" apply, proportionate to the risk actually identified, not a fixed checklist, seeking additional independent sources to verify information, and better understanding the customer's background, ownership, and financial situation, among others. In practice, the measures below are commonly applied across both routes, but they are a fixed legal requirement only in the Regulation 33(3A) case:</p>
       <ul>
         <li><strong>Source of funds (SoF)</strong> — documentary evidence of where the specific funds being used originate (e.g. sale proceeds, salary, inheritance)</li>
         <li><strong>Source of wealth (SoW)</strong> — broader evidence of how the customer accumulated their overall wealth (e.g. business ownership, investment history, inheritance)</li>
@@ -757,7 +756,7 @@
         <div class="sf-arrow">↓</div>
         <div class="sf-step">
           <div class="sf-dot green">✅</div>
-          <div class="sf-body"><h4>Step 5 — Await consent / proceed</h4><p>For DAML SARs: the NCA has 7 working days to respond. Consent granted (or no response) = proceed. Consent refused = do NOT proceed. The MLRO must document all decisions including reasons for NOT filing a SAR.</p></div>
+          <div class="sf-body"><h4>Step 5 — Await consent / proceed</h4><p>For DAML SARs: the NCA has 7 working days (the statutory notice period) to respond. Consent granted, or no response within that period (deemed consent), means you may proceed. Consent refused starts a 31-day statutory moratorium period during which you must not proceed; this can be extended by court order in further 31-day increments up to 186 days total (Criminal Finances Act 2017 s.10, inserting POCA s.336A), after which, absent a restraint or forfeiture order, the transaction may proceed. The MLRO must document all decisions including reasons for NOT filing a SAR.</p></div>
         </div>
       </div>
 
@@ -782,15 +781,16 @@
 
       <h3>SAR statistics — the scale of the regime</h3>
       <table class="data-table">
-        <thead><tr><th>Metric</th><th>2023/24</th></tr></thead>
+        <thead><tr><th>Metric</th><th>2024/25</th><th>2023/24</th></tr></thead>
         <tbody>
-          <tr><td>Total SARs submitted to UKFIU</td><td>~900,000+</td></tr>
-          <tr><td>Percentage from banking sector</td><td>~65%</td></tr>
-          <tr><td>DAML (consent) requests</td><td>~35,000</td></tr>
-          <tr><td>Consent refused by NCA</td><td>&lt;1% of DAML requests</td></tr>
-          <tr><td>Value of assets refused under DAML</td><td>£258 million+</td></tr>
+          <tr><td>Total SARs submitted to UKFIU</td><td>866,616</td><td>872,048</td></tr>
+          <tr><td>Percentage from banking sector</td><td>~85.5%</td><td>~78.5%</td></tr>
+          <tr><td>DAML (consent) requests</td><td>57,666</td><td>57,081</td></tr>
+          <tr><td>DAML requests refused by NCA</td><td>3,276 (~6%)</td><td>2,881 (~5%)</td></tr>
+          <tr><td>Value of assets denied under DAML</td><td>£382.6 million</td><td>£240.1 million</td></tr>
         </tbody>
       </table>
+      <p style="font-size:12px;color:var(--muted);">Source: NCA UKFIU SARs Annual Report 2024/25 (the most recent published), with the prior year shown for trend.</p>
 
       <div class="quiz" id="q2">
         <div class="quiz-label">🧠 Knowledge check</div>
@@ -809,7 +809,7 @@
     <section class="article-section" id="record-keeping">
       <div class="section-num">Obligation 04</div>
       <h2>Record keeping</h2>
-      <p>Record keeping is the audit trail that proves compliance. Under Regulation 40 MLR 2017, firms must retain specific records for defined periods — and, critically, must <em>delete</em> personal data after the retention period under UK GDPR (with limited exceptions).</p>
+      <p>Record keeping is the audit trail that proves compliance. Under Regulation 40(3) MLR 2017, firms must retain specific records for a five-year statutory period (up to 10 years in some cases for transaction records, Regulation 40(4)) — and, critically, must <em>delete</em> personal data after the retention period under UK GDPR, subject to Regulation 40(5)'s own statutory exceptions.</p>
 
       <h3>What records must be kept?</h3>
       <table class="data-table">
@@ -829,7 +829,7 @@
         <div class="callout-icon">⚠️</div>
         <div class="callout-body">
           <div class="callout-title">The deletion obligation — MLR 2017 meets UK GDPR</div>
-          <div class="callout-text">MLR 2017 requires retention for 5 years. UK GDPR requires deletion when data is no longer needed. These obligations interact directly: after the 5-year retention period, you must delete personal data collected for AML purposes unless a specific exemption applies (e.g. ongoing legal proceedings, law enforcement request). Failure to delete is a UK GDPR breach. This means your AML record-keeping system must have automated deletion functionality — a manual process is unlikely to be reliable or auditable at scale. Note: record keeping requirements are not subject to the risk-based approach — there is no discretion on whether or how to comply.</div>
+          <div class="callout-text">MLR 2017 Regulation 40(3) requires retention for 5 years. UK GDPR requires deletion when data is no longer needed. These obligations interact directly: after the retention period, you must delete personal data collected for AML purposes unless a Regulation 40(5) exception applies (retention required by another enactment, needed for court proceedings, retained with the data subject's consent, or reasonably anticipated to be needed for legal proceedings). Failure to delete without one of those exceptions is a UK GDPR breach. In our view, automated deletion functionality is a sensible operational control given the scale involved, but it is not itself a statutory requirement, Regulation 40 sets the retention period and its exceptions, not how you implement deletion. Note: the retention period itself is not subject to the risk-based approach — there is no discretion on whether or how long to retain.</div>
         </div>
       </div>
 
@@ -861,17 +861,17 @@
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">What is the difference between SDD, CDD, and EDD? <span class="faq-icon">+</span></div>
-        <div class="faq-a">All three are customer due diligence measures — they differ in intensity. Simplified Due Diligence (SDD) can be applied to demonstrably lower-risk customers (e.g. regulated financial institutions, listed companies) and requires less intensive checks. Standard CDD is the default — full identity verification, beneficial ownership identification, and ongoing monitoring. Enhanced Due Diligence (EDD) is mandatory for PEPs, certain correspondent relationships, high-risk third countries, and unusually complex transactions — it requires additional measures including source of funds/wealth, senior management approval, and enhanced monitoring. The firm's risk assessment determines which tier applies to each customer.</div>
+        <div class="faq-a">All three are customer due diligence measures — they differ in intensity. Simplified Due Diligence (SDD) can be applied on a risk-based determination to demonstrably lower-risk customers, being a regulated financial institution or listed company is a lower-risk factor under Reg 37(3), not an automatic entitlement to SDD, and requires less intensive checks. Standard CDD is the default — full identity verification, beneficial ownership identification, and ongoing monitoring. Enhanced Due Diligence (EDD) is mandatory for PEPs, certain correspondent relationships, high-risk third countries, and unusually complex transactions, but what it actually requires depends on why it's triggered: Reg 33(3A)'s fixed package (source of funds/wealth, senior management approval, enhanced monitoring, and more) applies specifically to FATF "Call for Action" countries, other high-risk cases use Reg 33(5)'s proportionate measures instead. The firm's risk assessment determines which tier applies to each customer.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Can we rely on a third party to conduct CDD on our behalf? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Yes — Regulation 39 MLR 2017 allows firms to rely on third parties to conduct CDD, provided: (1) the third party is itself a relevant person under MLR 2017 or is subject to equivalent requirements; (2) you have a written agreement requiring the third party to provide CDD data within 2 working days on request; (3) the third party retains records in accordance with MLR 2017. Critically: you cannot delegate liability. If the third party's CDD is inadequate, the relying firm remains responsible. The FCA has been clear that "we relied on our outsource partner" is not an adequate defence.</div>
+        <div class="faq-a">Yes — Regulation 39 MLR 2017 allows firms to rely on third parties to conduct CDD, provided: (1) the third party is itself a relevant person under MLR 2017 or is subject to equivalent requirements; (2) under Regulation 39(2), you immediately obtain the required CDD information from the third party, and have arrangements enabling you to obtain copies of identification and verification data immediately on request, not within a set number of working days; (3) the third party retains records in accordance with MLR 2017. Critically: you cannot delegate liability. If the third party's CDD is inadequate, the relying firm remains responsible. The FCA has been clear that "we relied on our outsource partner" is not an adequate defence.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">What is the "reasonable grounds" test for filing a SAR? <span class="faq-icon">+</span></div>
-        <div class="faq-a">The Section 330 POCA obligation to file a SAR is triggered when a person knows or suspects — or has reasonable grounds to know or suspect — that another person is engaged in ML/TF. "Reasonable grounds" is an objective test: would a reasonable person with the same information and training have suspected money laundering? This is lower than the civil standard of balance of probabilities. You do not need to be certain, or even more likely than not, that ML/TF is occurring. If a reasonable compliance professional would have suspected it, the obligation to file is triggered — regardless of whether you personally believed it was suspicious.</div>
+        <div class="faq-a">Section 330 POCA covers money laundering specifically, the parallel obligation for terrorist financing sits in section 21A of the Terrorism Act 2000, they're separate offences under separate Acts, not one combined "ML/TF" section. Section 330 requires all four conditions together: you know, suspect, or have reasonable grounds to know or suspect that another person is engaged in money laundering; the information came to you in the course of business in the regulated sector; you can identify the other person or the laundered property, or believe (or it's reasonable to expect you'd believe) the information will help identify them; and you fail to disclose to a nominated officer or the NCA as soon as practicable. "Reasonable grounds" is an objective test: would a reasonable person with the same information and training have suspected money laundering? This is lower than the civil standard of balance of probabilities. You do not need to be certain, or even more likely than not, that money laundering is occurring. If a reasonable compliance professional would have suspected it, the obligation to disclose is triggered, regardless of whether you personally believed it was suspicious, provided the other three conditions are also met.</div>
       </div>
 
       <div class="faq-item">
@@ -900,7 +900,7 @@
   </main>
 </div>
 
-<div id="page-disclaimer" data-disclaimer="This guide is for educational purposes only and does not constitute legal advice. Always consult qualified legal counsel for compliance matters. Last updated July 2025."></div>
+<div id="page-disclaimer" data-disclaimer="This guide is for educational purposes only and does not constitute legal advice. Always consult qualified legal counsel for compliance matters. Last updated August 2026."></div>
 <div id="site-footer"></div>
 
 <script>
@@ -927,8 +927,8 @@
     document.querySelectorAll(`#${id} .quiz-opt`).forEach(b => b.disabled = true);
     btn.classList.add(correct ? 'correct' : 'wrong');
     fb.classList.add('show', correct ? 'correct' : 'wrong');
-    if (id === 'q1') fb.textContent = correct ? '✅ Correct! 25% is the UBO threshold under MLR 2017 — any individual owning more than 25% of shares or voting rights, or exercising significant control, must be identified and verified.' : '❌ Not quite. The threshold is 25% under MLR 2017. Note: this is a minimum — firms should look through lower ownership levels in higher-risk situations.';
-    if (id === 'q2') fb.textContent = correct ? '✅ Correct! Under the DAML regime, the NCA has 7 working days to respond to a consent request. If no response is received within 7 working days, consent is deemed to have been granted and you may proceed.' : '❌ Not quite. The correct answer is 7 working days. This "moratorium period" is defined in POCA and gives the NCA time to investigate before a suspicious transaction proceeds.';
+    if (id === 'q1') fb.textContent = correct ? '✅ Correct! 25% is the ownership/voting-rights limb of the Reg 5 UBO test. The separate control limb, exercising ultimate control over management, has no percentage threshold of its own, either limb qualifies someone as a beneficial owner.' : '❌ Not quite. The ownership limb\'s threshold is 25% under MLR 2017 Reg 5. Note: this is a minimum — firms should look through lower ownership levels in higher-risk situations, and the separate control limb can catch someone below 25% entirely.';
+    if (id === 'q2') fb.textContent = correct ? '✅ Correct! Under the DAML regime, the NCA has 7 working days, the statutory notice period, to respond to a consent request. If no response is received within 7 working days, consent is deemed to have been granted and you may proceed. If consent is refused instead, a separate 31-day moratorium period begins, extendable up to 186 days.' : '❌ Not quite. The correct answer is 7 working days. This is the statutory notice period defined in POCA, distinct from the 31-day moratorium period that only begins if consent is refused.';
   }
   function toggleFaq(el) {
     el.nextElementSibling.classList.toggle('open');
