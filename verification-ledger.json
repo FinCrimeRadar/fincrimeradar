@@ -3449,5 +3449,100 @@
     "verifiedOn": "2026-08-20",
     "reviewDue": "2027-08-20",
     "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "pep-guide-part3.danske-bank-200bn-not-all-suspicious.001",
+    "guide": "pep-guide-part3.html",
+    "claimText": "Danske Bank's Estonian branch non-resident portfolio saw approximately €200 billion in payment flow between 2007 and 2015. Danske Bank's own investigation found the portfolio overwhelmingly high-risk and inadequately controlled but stated it could not reliably estimate what proportion of that total flow was actually suspicious.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Danske Bank press release announcing the findings of the investigation into the Estonian branch",
+      "url": "https://danskebank.com/news-and-insights/news-archive/press-releases/2018/pr19092018",
+      "publisher": "Danske Bank A/S",
+      "date": "2018-09-19"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Corrects the guide's original framing of the full €200bn flow as itself 'suspicious transactions'; the investigation established total flow, not a suspicious-amount finding."
+  },
+  {
+    "claimId": "pep-guide-part3.raiffeisen-fma-correspondent-kyc-not-pep-finding.001",
+    "guide": "pep-guide-part3.html",
+    "claimText": "Austria's FMA fined Raiffeisen Bank International €2.07 million in June 2024 over correspondent-banking know-your-customer due diligence, RBI had not sufficiently satisfied itself that two correspondent banks maintained appropriate due diligence procedures. The FMA explicitly stated this did not establish that money laundering or another crime had occurred. This is a correspondent-banking KYC finding, not a PEP-specific enforcement finding; no named decision establishes the PEP-control failures the guide's case study previously asserted as fact.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Raiffeisen Bank International press release on the FMA administrative proceeding",
+      "url": "https://www.rbinternational.com/en/raiffeisen/media-hub/press-releases/2024/fma-administrative-proceeding.html",
+      "publisher": "Raiffeisen Bank International AG",
+      "date": "2024-06-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "PRECISION finding. Reworded the case study from an asserted 'PEP failures' enforcement case to an illustrative-risk-factors framing, since the only named decision (the FMA proceeding) concerns correspondent-banking KYC, not PEP EDD, and the ECB's separate Russia-business pressure is not itself a PEP enforcement finding either."
+  },
+  {
+    "claimId": "pep-guide-part3.reg35-no-fixed-mlro-frequency-mandate.001",
+    "guide": "pep-guide-part3.html",
+    "claimText": "MLR 2017 Regulation 35 requires senior management approval, source of wealth/funds measures, and enhanced ongoing monitoring for PEPs, but does not itself prescribe specific review frequencies (e.g. quarterly adverse media, daily sanctions rescreening, annual continuance review) or mandate that the MLRO specifically be the approver in every case; these are firm governance design choices, not statutory mandates.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 35 (Enhanced customer due diligence: politically exposed persons); FCA FG25/3",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk; Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Corrects 5 instances presenting specific frequencies and the MLRO role as fixed programme requirements (governance step card, checklist MLRO-oversight item, adverse-media/sanctions-rescreening frequency items, senior-management continuance review item); all reworded to firm-risk-based framing."
+  },
+  {
+    "claimId": "pep-guide-part3.ofsi-no-fixed-14-day-deadline.001",
+    "guide": "pep-guide-part3.html",
+    "claimText": "There is no fixed statutory deadline (such as 14 days) for reporting a suspected sanctions breach or knowledge of a designated person to OFSI; relevant firms must report as soon as practicable. Not every appearance on the UK Sanctions List necessarily triggers an asset freeze, since the list also records other designation types, and some transactions may fall within an applicable exception or licence.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Suspected breach of financial sanctions: what to do",
+      "url": "https://www.gov.uk/guidance/suspected-breach-of-financial-sanctions-what-to-do",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI), gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "pep-guide-part3.commercial-pep-database-not-mandated.001",
+    "guide": "pep-guide-part3.html",
+    "claimText": "Neither the MLRs nor FCA FG25/3 mandates use of a commercial PEP database specifically. FATF's own PEP guidance states that commercial databases are not sufficient on their own for Recommendation 12 compliance and that FATF does not require their use; the FCA expects screening systems proportionate to a firm's size, complexity and risk profile.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FATF Guidance: Politically Exposed Persons (Recommendations 12 and 22)",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Peps-r12-r22.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2013-06-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "PRECISION finding. Direct fetch of fatf-gafi.org returned HTTP 403 in this environment; confirmed via WebSearch corroboration of the guidance's actual text instead."
+  },
+  {
+    "claimId": "pep-guide-part3.si-2026-621-30-june-2026-not-july-2025.001",
+    "guide": "pep-guide-part3.html",
+    "claimText": "The FATF Call for Action (blacklist) country EDD trigger under MLR 2017 Regulation 33 took effect via S.I. 2026/621 on 30 June 2026, not under 'July 2025 MLR reforms'. Real-time monitoring and board-level approval are not fixed additional requirements imposed on every PEP relationship connected to a Call for Action country; Regulation 33 and Regulation 35 measures apply according to the specific relationship and risk assessment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (S.I. 2026/621)",
+      "url": "https://www.legislation.gov.uk/uksi/2026/621",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Same S.I. 2026/621 commencement-date fact already verified and applied to multiple other guides this project (aml-guide-part1.html, kyc-onboarding-dilemma.html, fatf-guide-part1.html)."
   }
 ]
