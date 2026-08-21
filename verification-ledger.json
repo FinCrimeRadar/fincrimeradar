@@ -2991,5 +2991,168 @@
     "reviewDue": "2027-08-19",
     "status": "verified",
     "location": "aml-guide-part1.html, fintech/EMI FAQ"
+  },
+  {
+    "claimId": "screening-alerts-guide.line467-alert-count-units.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "Illustrative example: at a 95% false positive rate, 10,000 alerts produce 9,500 false positive alerts. The remaining 500 alerts fall outside the false positive count. These are alert counts, not analyst hours. Converting them into time requires a stated average handling time.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Arithmetic recalculation from the guide's own stated premise (10,000 alerts, 95% false positive rate)",
+      "url": "https://fincrimeradar.org/screening-alerts-guide.html",
+      "publisher": "FinCrimeRadar internal arithmetic verification; no external primary source required for a self-contained numeric recalculation",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Corrects a units error: the original text converted an alert count directly into analyst hours with no stated handling time. Re-verified against production fetch 2026-08-21.",
+    "location": "screening-alerts-guide.html, stat-highlight box, 'An illustrative false positive rate'"
+  },
+  {
+    "claimId": "screening-alerts-guide.line544-daily-to-annual-conversion.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "A compliance team processing 10,000 alerts each day at an illustrative 90% false positive rate would receive 9,000 false positive alerts each day. At an average of 30 minutes per false positive alert, that is 9,000 x 0.5 = 4,500 analyst hours each day. Annualisation must use the organisation's operating calendar: 4,500 x 365 = 1,642,500 analyst hours for a continuous operation, while 4,500 x 260 = 1,170,000 analyst hours for 260 operating days. At 2,080 hours per full-time equivalent, those totals are approximately 790 and 563 full-time equivalents respectively.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Arithmetic recalculation from the guide's own stated premise (10,000 alerts/day, 90% false positive rate, 30 minutes per alert), rebuilt with explicit operating-day and FTE-hour assumptions",
+      "url": "https://fincrimeradar.org/screening-alerts-guide.html",
+      "publisher": "FinCrimeRadar internal arithmetic verification; no external primary source required for a self-contained numeric recalculation",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Original text jumped from a daily premise to an annual total (45,000 hours, 22 FTE) without stating an operating-day or annual-hours assumption. Rebuilt on the original 10,000-alert premise with no premise changes. Re-verified against production fetch 2026-08-21.",
+    "location": "screening-alerts-guide.html, Challenge 01 card body"
+  },
+  {
+    "claimId": "screening-alerts-guide.line622-missed-alert-not-automatic-breach.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "Missing a genuine sanctions alert does not by itself establish that a sanctions breach occurred. A breach arises where prohibited conduct occurs, such as dealing with frozen funds or making funds available without an applicable exception or licence, or where another applicable statutory obligation is not met.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Starter guide to UK sanctions",
+      "url": "https://www.gov.uk/guidance/starter-guide-to-uk-sanctions",
+      "publisher": "Foreign, Commonwealth & Development Office (FCDO) / Office of Financial Sanctions Implementation (OFSI), gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Reworded away from the original claim that a missed alert automatically constitutes a sanctions breach. Government guidance defines breach by reference to prohibited conduct, not by the existence of a missed screening alert.",
+    "location": "screening-alerts-guide.html, Challenge 03 callout 'The regulatory consequence of alert fatigue'"
+  },
+  {
+    "claimId": "screening-alerts-guide.line673-missed-alert-not-automatic-breach-recurrence.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "Legal: \"A missed alert is a control failure. If it allows prohibited activity or another applicable obligation to be missed, the firm may face breach and enforcement risk.\"",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Starter guide to UK sanctions",
+      "url": "https://www.gov.uk/guidance/starter-guide-to-uk-sanctions",
+      "publisher": "Foreign, Commonwealth & Development Office (FCDO) / Office of Financial Sanctions Implementation (OFSI), gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Internal-consistency recurrence of the same automatic-breach overclaim corrected at line 622, found in the threshold calibration meeting dialogue and corrected with the same source.",
+    "location": "screening-alerts-guide.html, Challenge 05 humour block, threshold calibration meeting dialogue"
+  },
+  {
+    "claimId": "screening-alerts-guide.uk-sanctions-regime-structure.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "The relevant screening sources are global, not four UK sanctions regimes. For UK designations, the authoritative source is the FCDO's UK Sanctions List. OFSI implements and enforces UK financial sanctions. From 28 January 2026, the FCDO's UK Sanctions List is the single authoritative source for UK sanctions designations and the OFSI Consolidated List is no longer updated. OFAC, the United Nations and the European Union maintain separate sources for their respective frameworks; the European Union list was not retained by the UK or independently maintained by the UK post-Brexit.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Moving to a Single List for UK Sanctions Designations - HMG Webinar (17 December 2025); The UK Sanctions List; About OFSI",
+      "url": "https://assets.publishing.service.gov.uk/media/69480c531a2e540ccd8a543a/Moving_to_a_Single_List_for_UK_Sanctions_Designations_-_HMG_Webinar_17_December_2025.pdf",
+      "publisher": "HM Government; Office of Financial Sanctions Implementation (OFSI), gov.uk",
+      "date": "2025-12-17"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Corrects the claim that OFAC, UN, EU and OFSI are 'four UK sanctions regimes' and that the UK retained/independently maintains the EU list post-Brexit. Matched clause-by-clause to repository sanctions-compliance-guide.html lines 314 to 316. Additional sources: https://www.gov.uk/government/publications/the-uk-sanctions-list ; https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation/about",
+    "location": "screening-alerts-guide.html, Challenge 06, 'List sprawl' section"
+  },
+  {
+    "claimId": "screening-alerts-guide.line839-mlro-not-general-statutory-function.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "Resolving every borderline sanctions, PEP or adverse media alert is not a general statutory MLRO function. POCA's nominated officer function is distinct and concerns disclosures of suspected money laundering and, where the statutory conditions are met, disclosure to the National Crime Agency.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, Section 331 (Nominated officers: disclosures of suspicions)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/331",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Corrects the claim that an MLRO resolving a borderline screening alert is exercising a statutory function. POCA s.331 applies to a nominated officer receiving a s.330 disclosure concerning suspected money laundering, not to every screening decision.",
+    "location": "screening-alerts-guide.html, survival kit FAQ, 'What should I do if I'm genuinely unsure whether an alert is a false positive?'"
+  },
+  {
+    "claimId": "screening-alerts-guide.line834-mlro-approval-governance-defined.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "Any suppression or matching adjustment must pass documented approval, testing and change control, referred to the senior function authorised under the firm's governance, not necessarily the MLRO specifically.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, Section 331 (Nominated officers: disclosures of suspicions)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/331",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Recurrence of the line 839 MLRO-statutory-function overclaim: softened the universal 'must be approved by the MLRO' instruction to a governance-defined senior reviewer, consistent with POCA s.331's narrower nominated-officer scope.",
+    "location": "screening-alerts-guide.html, survival kit FAQ, 'How do we handle the same false positive pattern appearing repeatedly?'"
+  },
+  {
+    "claimId": "screening-alerts-guide.hero-99pct-800-precision-recurrence.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "The hero section's '99%' meta description figure, decorative '99%' background numeral, and '800 alerts / 760 false positives' worked example are illustrative framing, not benchmarked industry statistics. No independently benchmarked primary dataset exists for a universal false positive rate across the regulated population.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "Recurrence of the unsupported-precision finding: the meta description and decorative hero numeral (originally '99%') were removed/reworded to non-numeric framing; the '800/760' worked example was prefixed 'Illustrative queue'. No external source exists for these figures; retained as illustrative per CLAUDE.md's material-versus-illustrative split.",
+    "location": "screening-alerts-guide.html, lines 11 (og:description), 402 (hero-bg-num), 405 (hero sub)"
+  },
+  {
+    "claimId": "screening-alerts-guide.95pct-working-day-framing-recurrence.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "References to analysts spending '95% of their working day' or clearing '800 alerts a day with 95% false positives' as a general, non-illustrative claim are unsupported precision with no independently benchmarked primary dataset for the regulated population.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "Recurrence of the same unsupported-95%-framing issue corrected at line 467 (which is retained only inside the explicitly labelled illustrative example box). These three additional occurrences were reworded to 'most' / 'a high proportion' / 'a high volume' framing with no specific percentage asserted.",
+    "location": "screening-alerts-guide.html, lines 464 (stat-highlight heading), 539 (Challenge 01 card heading), 819 (MLRO section paragraph)"
+  },
+  {
+    "claimId": "screening-alerts-guide.line667-threshold-table-completion.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "Match scores are vendor specific and are not comparable across systems. Threshold behaviour categories (near exact, restrictive, broader, very broad matching) are illustrative, not universal score bands with fixed percentage cutoffs.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "The fourth row of the threshold table (originally 'Low (below 70%)') was missed from the initial correction scope and caught only in the recurrence sweep; corrected together with the other three rows into a non-numeric illustrative list. No primary source exists for universal vendor-agnostic threshold percentage bands.",
+    "location": "screening-alerts-guide.html, Challenge 05, threshold behaviour list (formerly a data-table)"
+  },
+  {
+    "claimId": "screening-alerts-guide.js-visual-95-5-split-recurrence.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "A hardcoded 95%/5% width split in an IntersectionObserver script (targeting '.ac-bar-bad' / '.ac-bar-good') had no corresponding HTML markup anywhere in the page, so the split never rendered to any reader; the dead script block was removed rather than relabelled, since there was no visual left to label as illustrative.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "Recurrence of the unsupported-95%-figure issue found in orphaned JavaScript. Confirmed via grep that no '.ac-bar-wrap' / '.ac-bar-bad' / '.ac-bar-good' element exists in the page body; removed the dead observer block entirely rather than leaving a hardcoded, unrendered numeric split in the source.",
+    "location": "screening-alerts-guide.html, closing <script> block (formerly lines 883-884)"
   }
 ]
