@@ -3131,7 +3131,7 @@
     "reviewDue": "2027-08-21",
     "status": "retained-as-estimate",
     "note": "Recurrence of the same unsupported-95%-framing issue corrected at line 467 (which is retained only inside the explicitly labelled illustrative example box). These three additional occurrences were reworded to 'most' / 'a high proportion' / 'a high volume' framing with no specific percentage asserted.",
-    "location": "screening-alerts-guide.html, lines 464 (stat-highlight heading), 539 (Challenge 01 card heading), 819 (MLRO section paragraph)"
+    "location": "screening-alerts-guide.html, lines 464 (stat-highlight number), 539 (Challenge 01 card heading), 817 (MLRO section paragraph)"
   },
   {
     "claimId": "screening-alerts-guide.line667-threshold-table-completion.001",
@@ -3154,5 +3154,27 @@
     "status": "retained-as-estimate",
     "note": "Recurrence of the unsupported-95%-figure issue found in orphaned JavaScript. Confirmed via grep that no '.ac-bar-wrap' / '.ac-bar-bad' / '.ac-bar-good' element exists in the page body; removed the dead observer block entirely rather than leaving a hardcoded, unrendered numeric split in the source.",
     "location": "screening-alerts-guide.html, closing <script> block (formerly lines 883-884)"
+  },
+  {
+    "claimId": "screening-alerts-guide.solutions-faq-unsupported-reduction-percentages.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "Auto-clearance and machine-learning false-positive reduction percentages (originally 20-30% and 20-60%), a target false-positive-rate range with an FCA-calibration attribution, and an FCA auto-clearance endorsement claim are unsupported precision with no independently benchmarked primary dataset for the regulated population. Reworded to measured, evidence-based framing (validated pilot testing, controlled testing measuring recall/missed-matches/drift, internally evidenced ranges); the FCA attribution and endorsement claims were removed rather than replaced with another unsourced regulatory claim.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "Finding 6 primary corrections (not recurrences): the auto-clear reduction claim, the ML reduction claim, the target false-positive-rate FAQ, and the auto-clearance FAQ. No primary dataset exists for any of the four; retained as illustrative/measured framing per CLAUDE.md material-versus-illustrative split.",
+    "location": "screening-alerts-guide.html, solution cards 'Auto-clear obvious false positives' and 'AI-assisted triage', survival kit FAQs 'What is a reasonable false positive rate' and 'Can we auto-clear some alerts without human review'"
+  },
+  {
+    "claimId": "screening-alerts-guide.hero-quote-and-threshold-table-unsupported-precision.001",
+    "guide": "screening-alerts-guide.html",
+    "claimText": "The hero pull-quote's '95%/5%' split, the intro paragraph's '85% to 95%' industry-wide false-positive-rate range and '95% industry benchmark' claim for adverse media, and three of the four threshold-table rows' fixed percentage score bands (near-exact, high, medium match-score cutoffs) are unsupported precision with no independently benchmarked primary dataset for the regulated population and no vendor-agnostic standard for match-score thresholds. Reworded to non-numeric illustrative framing.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "Finding 6 primary corrections (not recurrences): the hero-quote 95%/5% split, the intro paragraph 85-95% industry range and adverse-media 95% benchmark claim, and the first three rows of the threshold table (the fourth row, originally flagged separately as a recurrence, is covered by the existing line667-threshold-table-completion entry; all four rows were corrected together into one non-numeric list).",
+    "location": "screening-alerts-guide.html, hero-quote pull quote, 'Nobody told you it would be like this' intro paragraph, Challenge 05 threshold behaviour list (formerly a data-table)"
   }
 ]
