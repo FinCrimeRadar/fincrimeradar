@@ -3813,5 +3813,15 @@
     "reviewDue": "2027-08-21",
     "status": "unverifiable-remove",
     "note": "Reworded in 3 locations (2 hero-stat-tile captions, 1 intro paragraph) to attribute the 85-95% figure honestly as vendor-reported rather than benchmarked, and to state AMLA's actual supervision timeline (2028) rather than implying an operational 95% supervisory-flag policy since 2025."
+  },
+  {
+    "claimId": "source-of-wealth-investigation-handbook.original-cross-jurisdictional-regulator-consistency-claim.001",
+    "guide": "source-of-wealth-investigation-handbook.html",
+    "claimText": "Regulators reviewing enhanced due diligence files 'across the UK, EU, US, and Asia consistently flag the same failure pattern' (SOW/SOF confusion, unverified narrative assessments, unfollowable audit trails), presented as an established cross-jurisdictional regulatory finding. No named comparative review or study establishing this specific multi-jurisdiction consistency was found. FCA material (FCG 3.2) does support that confusing source of wealth with source of funds is a common finding in FCA financial crime supervisory reviews specifically, a narrower, UK-only claim.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "retained-as-estimate",
+    "note": "PRECISION finding, the guide's lightest of the 8 audited in this batch, no MATERIAL error. Reworded from an asserted named cross-jurisdictional regulatory consensus to the guide's own review experience, with an explicit note that no comparative study was found supporting the stated global consistency. FCA FCG 3.2 (https://handbook.fca.org.uk/handbook/fcg3/fcg3s2) corroborates the narrower UK-specific version of the claim via WebSearch."
   }
 ]
