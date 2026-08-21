@@ -379,13 +379,13 @@
     <div class="hero-stats">
       <div class="hero-stat-tile">
         <div class="hero-stat-num">$<span class="stat-num-anim" data-target="20">0</span>B+</div>
-        <div class="hero-stat-label">Annual US losses, Boston Fed estimate</div>
-        <div class="hero-stat-source">Federal Reserve Bank of Boston estimate of annual US financial institution losses to synthetic identity fraud</div>
+        <div class="hero-stat-label">US losses in 2020, Boston Fed estimate</div>
+        <div class="hero-stat-source">Federal Reserve Bank of Boston's estimated $20 billion in US financial institution losses to synthetic identity fraud in 2020, not an evergreen annual figure</div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="2021">0</span></div>
-        <div class="hero-stat-label">Federal Reserve's definition, still current</div>
-        <div class="hero-stat-source">"The use of a combination of personally identifiable information to fabricate a person or entity"</div>
+        <div class="hero-stat-label">Voluntary industry definition, Fed-convened group</div>
+        <div class="hero-stat-source">"The use of a combination of personally identifiable information to fabricate a person or entity in order to commit a dishonest act for personal or financial gain" — industry-recommended, not a regulatory definition; adoption is voluntary</div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num">£21,091,300</div>
@@ -405,7 +405,7 @@
       <div class="section-eyebrow" style="color:var(--c-clean)">Two Problems, One Set of Tools</div>
       <h2>Nobody teaches the judgement once the alert is already in your queue.</h2>
       <p>Search "synthetic identity fraud detection" and you get device fingerprinting vendors, graph-clustering platforms, and biometric verification products, all explaining how their technology spots the pattern. Genuinely useful technology, and none of it tells you what to actually do once one of these alerts lands in front of you, no fabricated identity announces itself, no device cluster hands you a conclusion, and the same vendor content routinely treats two fundamentally different problems as one technique.</p>
-      <p>Synthetic identity fraud is a fabricated person, real fragments of stolen or invented data stitched into someone who does not exist. There is no single victim to call and confirm with, because the identity was never anyone's.</p>
+      <p>Synthetic identity fraud is a fabricated person, real fragments of stolen or invented data stitched into someone who does not exist. No single victim exists in that sense, though a real person's fragment, an ID number, an address, may be used without their knowledge, so there usually isn't one person to call and confirm the whole fabricated identity with.</p>
       <p>Device-network fraud is usually the opposite problem: a real person, correctly identified, operating multiple accounts from shared infrastructure. The identity is genuine. The question is what they are actually doing with it.</p>
       <p>Confusing the two leads to the wrong investigation every time. This guide keeps them separate.</p>
 
@@ -469,7 +469,7 @@
           <div class="pattern-name" style="color:var(--c-category);">The Wrong Category</div>
         </div>
         <div class="pattern-line">Is this a fabricated person, or one real person running several accounts? The answer changes the entire investigation.</div>
-        <p style="margin-bottom:1rem;">Synthetic identity and device-network fraud get investigated as though they were the same problem because the same tools, fingerprinting, clustering, flag both. They are not the same problem. A device-network case usually involves one real, identifiable person, and there is a genuine account holder to act against. A synthetic identity case involves no such person, only assembled fragments, which changes what evidence even means and what the resolution looks like.</p>
+        <p style="margin-bottom:1rem;">Synthetic identity and device-network fraud get investigated as though they were the same problem because the same tools, fingerprinting, clustering, flag both. They are not the same problem. A device-network case usually involves one real, identifiable person, and there is a genuine account holder to act against. A synthetic identity case doesn't resolve to one real person in the same way, only assembled fragments, though a real individual's data may sit inside those fragments without their knowledge, which changes what evidence even means and what the resolution looks like.</p>
         <div class="pattern-ttd">
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Risk</div><div class="ttd-text">Both cases arrive through similar-looking network alerts and get treated with the same playbook.</div></div>
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-category);">Signal</div><div class="ttd-text">Establishing whether a single real identity sits behind the accounts, or whether the identity itself doesn't resolve to a real person, changes everything downstream.</div></div>

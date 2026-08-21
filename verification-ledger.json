@@ -4028,5 +4028,47 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "The 872,048 SARs figure itself remains correctly cited [12] and unchanged. Reworded the surrounding claims to attribute the bank-share observation honestly (largest share, no precise breakdown available) and the quality-over-quantity framing as this guide's own editorial position, not an FCA quotation."
+  },
+  {
+    "claimId": "synthetic-identity-device-network-guide.boston-fed-20bn-2020-specific.001",
+    "guide": "synthetic-identity-device-network-guide.html",
+    "claimType": "statistic",
+    "status": "verified",
+    "claimText": "The Federal Reserve Bank of Boston estimated $20 billion in US financial institution losses to synthetic identity fraud in 2020 specifically, this is not an evergreen annual figure.",
+    "source": {
+      "title": "A victimless crime? Hardly (Federal Reserve Bank of Boston)",
+      "url": "https://www.bostonfed.org/news-and-events/news/2022/08/synthetic-identity-fraud-is-not-a-victimless-crime-costs-billions-damages-lives.aspx",
+      "publisher": "Federal Reserve Bank of Boston",
+      "date": "2022-08-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "From the 2026-08-19 Codex audit, never applied by the 2026-08-20 correction pass (which found this guide clean overall). Corrected the hero stat tile label from \"Annual US losses\" to \"US losses in 2020\"."
+  },
+  {
+    "claimId": "synthetic-identity-device-network-guide.fed-2021-sif-definition-voluntary.002",
+    "guide": "synthetic-identity-device-network-guide.html",
+    "claimType": "definition",
+    "status": "verified",
+    "claimText": "The Federal Reserve's 2021 synthetic identity fraud definition (\"the use of a combination of personally identifiable information to fabricate a person or entity in order to commit a dishonest act for personal or financial gain\") is a voluntary, industry-recommended definition from a Fed-convened focus group, not an official regulatory definition; adoption is voluntary and the definition is not intended to create regulatory or reporting requirements.",
+    "source": {
+      "title": "Synthetic Identity Fraud Defined",
+      "url": "https://fedpaymentsimprovement.org/strategic-initiatives/payments-security/synthetic-identity-payments-fraud/synthetic-identity-fraud-defined/",
+      "publisher": "FedPayments Improvement (Federal Reserve)",
+      "date": "2021-04-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Completed the previously-truncated quotation and corrected the hero stat label from \"Federal Reserve's definition, still current\" (implying official/regulatory status) to \"Voluntary industry definition, Fed-convened group\"."
+  },
+  {
+    "claimId": "synthetic-identity-device-network-guide.no-single-victim-not-absolute.003",
+    "guide": "synthetic-identity-device-network-guide.html",
+    "claimType": "definition",
+    "status": "retained-as-estimate",
+    "claimText": "A synthetic identity is not tied to one real person the way a stolen identity is, but this is not an absolute \"no victim exists\" claim: a real individual's data fragment (an ID number, an address) can be used within a synthetic identity without their knowledge, so there usually isn't one person to call and confirm the whole fabricated identity with, rather than there being no real-world victim at all.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Conceptual/definitional distinction, not tied to a single external primary source. Synced 2 locations (lines 408 and 472) to match the comparative matrix table's already-correctly-qualified wording at line 493 (from an earlier, unidentified correction round). Lines 485 and 492 were checked and found already adequately qualified, not changed."
   }
 ]
