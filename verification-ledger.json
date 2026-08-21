@@ -3704,5 +3704,72 @@
     },
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "fatf-guide-part2.reg33-defined-edd-triggers-not-vague-nexus.001",
+    "guide": "fatf-guide-part2.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 33(1)(b) triggers EDD for a Call for Action country via two defined tests: a business relationship with a person established in that country, or a relevant transaction where either party is established there, not a broad, undefined 'nexus' to the jurisdiction. Regulation 33(3A) sets the required measures once triggered.",
+    "source": {
+      "title": "MLR 2017 Regulation 33 (High-risk third countries: enhanced due diligence)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "Corrects 2 instances of the same overbroad 'any nexus' framing in the countermeasures table (EDD row and the Introducing-EDD-for-Business-Relationships row), only the first was explicitly flagged, the second is the same recurring error caught in the internal consistency sweep."
+  },
+  {
+    "claimId": "fatf-guide-part2.sanctions-specific-prohibitions-not-mere-connection.001",
+    "guide": "fatf-guide-part2.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Financial sanctions prohibit specified conduct involving designated persons, and their owned or controlled entities, funds, or economic resources; mere connection to a designated party is not itself the statutory test, and exceptions or licences can permit otherwise-prohibited activity.",
+    "source": {
+      "title": "UK financial sanctions guidance",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-general-guidance/uk-financial-sanctions-general-guidance",
+      "publisher": "Office of Financial Sanctions Implementation (OFSI), gov.uk",
+      "date": "2026-08-21"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21"
+  },
+  {
+    "claimId": "fatf-guide-part2.myanmar-edd-not-countermeasures-recurrence-example.001",
+    "guide": "fatf-guide-part2.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "A Call for Action (black list) country need not be non-cooperative or have refused to address deficiencies; Myanmar remains listed (confirmed 19 June 2026) with limited progress but is subject to enhanced due diligence, not the countermeasures applied to Iran and North Korea, and is not characterised by FATF as having refused to cooperate.",
+    "source": {
+      "title": "High-Risk Jurisdictions subject to a Call for Action — 19 June 2026",
+      "url": "https://www.fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/call-for-action-june-2026.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2026-06-19"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "PRECISION finding. Direct fatf-gafi.org fetch not attempted given the established 403 pattern this session on that domain; verified via WebSearch corroboration of the FATF statement's own reported content."
+  },
+  {
+    "claimId": "fatf-guide-part2.original-universal-grey-list-edd-default-claim.001",
+    "guide": "fatf-guide-part2.html",
+    "claimType": "statistic",
+    "status": "unverifiable-remove",
+    "claimText": "\"Virtually every major bank, payment institution, and compliance programme treats grey-listed counterparties as requiring EDD by default\" presented as an operational fact. No named dataset or survey supporting this specific universality claim was found.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "PRECISION finding. Reworded to note many firms lean this way without asserting it as a benchmarked, near-universal fact."
+  },
+  {
+    "claimId": "fatf-guide-part2.original-mutual-evaluation-fixed-benchmarks.001",
+    "guide": "fatf-guide-part2.html",
+    "claimType": "statistic",
+    "status": "unverifiable-remove",
+    "claimText": "A 12-18 month questionnaire phase, a 10-15 person assessor team, a 2-3 week on-site visit, and a 2-4 year average grey-list listing period were presented as fixed FATF procedural benchmarks. FATF does not publish these as universal values; mutual evaluation timelines and team sizes vary by assessment scope and complexity, and listing duration varies by country circumstance.",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "note": "PRECISION finding, 3 locations corrected (questionnaire phase, on-site visit, and average listing-period callout)."
   }
 ]
