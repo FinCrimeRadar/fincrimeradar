@@ -3787,5 +3787,31 @@
     "reviewDue": "2027-08-21",
     "status": "verified",
     "note": "The guide had this exactly backwards, stating a firm that misses the application window still gets the saving provision while its late application is pending. Confirmed via direct read of the FCA relevant-application-period direction PDF (dates) and WebSearch corroboration of the saving provision mechanism (direct WebFetch of the introductory-webinar Q&A PDF failed on its binary stream)."
+  },
+  {
+    "claimId": "adverse-media-intelligence-guide.fatf-r12-peps-not-mandatory-adverse-media.001",
+    "guide": "adverse-media-intelligence-guide.html",
+    "claimText": "FATF Recommendation 12 concerns PEP identification, senior management approval, source of wealth/funds, and enhanced ongoing monitoring; it does not itself make adverse media screening a universal mandatory CDD component. Internet/media research appears in FATF PEP guidance as one potentially useful information source for identifying PEPs, not as the legal basis for mandatory adverse media screening generally.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FATF Recommendation 12 methodology; FATF Guidance: Politically Exposed Persons (Recommendations 12 and 22)",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Peps-r12-r22.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2013-06-01"
+    },
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "verified",
+    "note": "Same FATF R.12/PEP-guidance fact and source already independently verified this session for pep-guide-part3.html (commercial-database finding), direct fatf-gafi.org fetch returns 403 in this environment, confirmed via WebSearch corroboration."
+  },
+  {
+    "claimId": "adverse-media-intelligence-guide.original-vendor-fp-range-and-amla-flag-claim.001",
+    "guide": "adverse-media-intelligence-guide.html",
+    "claimText": "The 85-95% adverse-media false-positive range attributed to a 2026 vendor report, and the claim that AMLA (operational since 2025) treats a false-positive rate above 95% as a supervisory flag in its own right, were presented with implied regulatory/benchmarked authority. AMLA assumed its powers 1 July 2025 but its direct supervision of obliged entities does not begin until January 2028, and no AMLA publication stating a 95%+ false-positive rate is itself a supervisory flag could be found.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-21",
+    "reviewDue": "2027-08-21",
+    "status": "unverifiable-remove",
+    "note": "Reworded in 3 locations (2 hero-stat-tile captions, 1 intro paragraph) to attribute the 85-95% figure honestly as vendor-reported rather than benchmarked, and to state AMLA's actual supervision timeline (2028) rather than implying an operational 95% supervisory-flag policy since 2025."
   }
 ]
