@@ -4246,160 +4246,160 @@
     "guide": "pep-guide-part3.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Five corrections: (1) the FCA's 2019 Standard Chartered £102.2m Final Notice finding concerned the bank's UK Wholesale Bank Correspondent Banking business and its UAE branches specifically, not private banking; (2) MLR 2017 Regulation 35(5) sets three statutory EDD measures for PEPs, senior management approval, source of wealth/funds measures, and enhanced ongoing monitoring, not four; (3) the guide's 'top five PEP enforcement triggers' and 'file review test' are FinCrimeRadar's own synthesis of recurring patterns across published Final Notices, not an FCA-named list or quoted FCA test; (4) the PEP EDD checklist's sections map to Regulation 35(5)'s three statutory measures plus the Regulation 35(1) identification duty, with the specific evidence sub-items being recommended good practice rather than independently mandated line items; (5) FG25/3's specific documentation requirement applies to continuing EDD measures beyond the 12-month minimum under Regulation 35(9)(b), it does not state an equivalent specific requirement for documenting a decision to end those measures.",
+    "claimText": "Three corrections confirmed against current live guide text: (1) the FCA's 2019 Standard Chartered £102.2m Final Notice finding concerned the bank's UK wholesale correspondent banking business and its UAE branches specifically, not private banking; (2) MLR 2017 Regulation 35(5) sets three statutory EDD measures for PEPs, senior management approval, source of wealth/funds measures, and enhanced ongoing monitoring, not four; (3) the guide's 'file review test' is labelled explicitly as FinCrimeRadar's own in-house heuristic, not an FCA-named list or quoted FCA test.",
     "source": {
       "title": "Standard Chartered Bank Final Notice (2019); Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 35; FCA FG25/3 Politically Exposed Persons guidance",
       "url": "https://www.fca.org.uk/publication/final-notices/standard-chartered-bank-2019.pdf",
       "publisher": "Financial Conduct Authority; legislation.gov.uk",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "Standard Chartered scope confirmed via WebSearch against the FCA Final Notice's own findings. Regulation 35(5)/35(9)(b) structure and FG25/3 documentation-duty asymmetry consistent with the correction already established and verified this session on pep-guide-part1.html and aml-guide-part1.html."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition, while the corrected text remained live in pep-guide-part3.html throughout (confirmed at line 453, Standard Chartered scope; line 464, Reg 35(5) three-measures framing; line 496, 'file review test' labelled 'our own heuristic'). Restored under the original claimId rather than a new one. The original entry's findings (4) PEP EDD checklist mapping to Reg 35(5)/35(1) and (5) FG25/3 documentation-requirement scope were not individually re-verified in this restoration pass; this entry is scoped to the three findings directly confirmed live."
   },
   {
     "claimId": "sar-guide-part3.batch3-daml-2023-24-figure-and-annual-report-framing.001",
     "guide": "sar-guide-part3.html",
     "claimType": "statistic",
     "status": "verified",
-    "claimText": "Two corrections: (1) the value of assets denied to suspected criminals via DAML in 2023/24 was £240.1 million, not £258 million, per the NCA's own 2023-2024 SARs Annual Report; (2) FCA guidance supports at-least-annual board reporting on SAR activity and control deficiencies, but the guide's specific eight-item report content list is FinCrimeRadar's own recommended governance content, not an FCA-prescribed statutory minimum.",
+    "claimText": "The value of assets denied to suspected criminals via DAML in 2023/24 was £240.1 million, not £258 million, per the NCA's own 2023-2024 SARs Annual Report, confirmed live in the guide's stat strip. FCA guidance supports at-least-annual board reporting on SAR activity and control deficiencies, but the guide's specific report-content list is FinCrimeRadar's own recommended governance content, not an FCA-prescribed statutory minimum.",
     "source": {
       "title": "Suspicious Activity Reports 2023-2024 Annual Report",
       "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/747-sars-annual-report-2024/file",
       "publisher": "National Crime Agency, UK Financial Intelligence Unit",
       "date": "2025-03-31"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "£240.1m figure confirmed via WebSearch cross-referencing multiple secondary summaries of the NCA's own published 2023-2024 annual report; direct NCA PDF fetch not required given consistent independent corroboration. The remaining five items from the 2026-08-19 audit's sar-guide-part3.html findings (illustrative KPI labelling, the unsourced peer-review causal claim, the s.331 ML/TF conflation, the AI-support/2026-FCA-focus claim, and the 'as soon as practicable' late-disclosure framing) were already resolved by this session's earlier 2026-08-20-audit-based correction pass on this same guide (see sar-guide-part3.original-internal-targets-and-ai-2026-claim.001 and sar-guide-part3.poca-s331-vs-ta-s21a-nominated-officer.001); reconfirmed against current live text as part of this Batch 3 pass, no further change needed."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition, while the corrected £240.1M figure remained live in sar-guide-part3.html throughout (confirmed at line 398, 'Assets refused via DAML 2023/24'). Restored under the original claimId rather than a new one. The board-report-content-list framing (original finding 2) was not individually re-verified line-by-line in this restoration pass."
   },
   {
     "claimId": "aml-guide-part2.batch4-reg18-reg5-reg33-reg39-reg40-poca330-336a-moratorium.001",
     "guide": "aml-guide-part2.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "First ledger entry for this guide, covering a combined correction pass against all 12 findings from the 2026-08-19 Codex audit: (1) the guide's 'five core obligations' framing is FinCrimeRadar's own editorial grouping, and its pull-quote is presented as the guide's own editorial view, not an unattributed FCA quotation; (2) MLR 2017 Regulation 18(1) risk assessment duty, 18(2) risk factors, 18(4) written-record duty with its supervisor-granted exemption, and the separate Regulation 18A proliferation-financing assessment; (3) the FCA's risk assessment thematic review is a multi-firm review published 11 November 2025, not a '2024 FCA thematic review'; (4) listed companies, public authorities, and regulated institutions are lower-risk factors under Regulation 37(3), not automatic SDD classes; the EMI low-value e-money provision is a specific conditional Regulation 38 exemption, not general SDD; (5) Regulation 5's beneficial-ownership test has two limbs, greater-than-25% ownership/voting rights OR a separate management/control test, either qualifies; Regulation 28(6)-(8) permits treating a senior managing official as beneficial owner only after all possible means of identification are exhausted and the actions/difficulties are recorded in writing, both conditions required; (6) periodic CDD review cycles (annual/2-3yr/3-5yr) are illustrative internal policy examples, not a statutory requirement; (7) Regulation 33(3A) sets a fixed EDD package (source of wealth/funds, senior approval, enhanced monitoring) specifically for FATF Call for Action countries; other higher-risk cases use Regulation 33(5)'s proportionate measures instead; (8) a DAML consent refusal starts a 31-day statutory moratorium period, extendable by court order in further 31-day increments up to 186 days total under Criminal Finances Act 2017 s.10 (inserting POCA s.336A), not an unqualified 'do not proceed'; (9) 2023/24 NCA SAR figures corrected to 872,048 total SARs, 57,081 DAML requests, 2,881 refused, £240.1m denied, with 2024/25's 866,616/57,666/3,276/£382.6m also shown for trend; (10) Regulation 40(3) sets a five-year statutory retention period with Regulation 40(5) exceptions; automated deletion is a sensible operational control, not itself a prescribed statutory requirement; (11) Regulation 39(2) requires CDD information and copies of identification/verification data to be obtained and made available immediately on request, not within a stated working-day period; (12) POCA s.330 concerns money laundering specifically (terrorist financing sits separately under TA 2000 s.21A) and requires all four statutory conditions together before the offence applies.",
+    "claimText": "Three corrections confirmed against current live guide text, restored from the original combined 12-finding pass: findings 2,3,4,5,7,9,10,11,12 now each have their own dedicated ledger entry and are not repeated here. (1) The guide's 'Five core compliance obligations' heading is labelled FinCrimeRadar's own practical grouping, and its pull-quote is explicitly presented as the guide's own editorial view ('in our view'), not an unattributed FCA quotation; (6) periodic CDD review cycles (annual for high risk, 2-3yr medium, 3-5yr low) are labelled an illustrative cycle, not a statutory requirement; (8) a DAML consent refusal starts a 31-day statutory moratorium period, extendable by court order in further 31-day increments up to 186 days total under Criminal Finances Act 2017 s.10 (inserting POCA s.336A), not an unqualified 'do not proceed'.",
     "source": {
-      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017 (Regs 5, 18, 18A, 28, 33, 37, 38, 39, 40); Proceeds of Crime Act 2002 (s.330, s.335, s.336A); Criminal Finances Act 2017 s.10; NCA Suspicious Activity Reports 2023-2024 and 2024-2025 Annual Reports; FCA multi-firm review of risk assessment processes and controls (11 November 2025)",
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017; Proceeds of Crime Act 2002 (s.336A); Criminal Finances Act 2017 s.10",
       "url": "https://www.legislation.gov.uk/uksi/2017/692/contents",
-      "publisher": "legislation.gov.uk; National Crime Agency; Financial Conduct Authority",
+      "publisher": "legislation.gov.uk",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "Ten of these twelve items (2-7, 9-12) were found already corrected in the working tree, matching prior verified corrections applied elsewhere this session to the same statutory provisions (pep-guide-part1.html, sar-guide-part3.html, aml-guide-part1.html); reconfirmed against current live text rather than re-derived. Items 1 (pull-quote attribution) and 8 (DAML moratorium/expiry structure) were genuinely open and corrected in this pass, including the corresponding quiz-feedback JS string. Full internal consistency sweep run for both newly corrected patterns, no other instances found."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22, scoped to findings 1, 6, and 8 only: this original entry documented 12 combined findings; 9 of them (2,3,4,5,7,9,10,11,12) already have their own dedicated replacement entries elsewhere in this ledger (mlr-reg18-reg18a-fwra.001, fca-multi-firm-review-2025.001, mlr-reg37-reg38-sdd-emoney.001, mlr-reg5-reg28-ubo-fallback.001, mlr-reg33-3a-vs-5-edd-package.001, nca-sars-annual-report-2024-25.001, mlr-reg40-retention-not-automated-deletion.001, mlr-reg39-2-immediate-not-2-days.001, poca-s330-vs-ta-s21a-four-conditions.001), not restored here to avoid duplication. Findings 1, 6, and 8 had no replacement anywhere and are confirmed live: finding 1 at line 465 ('FinCrimeRadar's practical grouping') and line 474 (pull-quote 'in our view'); finding 6 at line 619; finding 8 at line 759."
   },
   {
     "claimId": "fatf-guide-part1.batch4-90pct-framing-r10-r24-25pct-r26-27-r32-r34-r35-attribution.001",
     "guide": "fatf-guide-part1.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Eight further corrections beyond the grey-list/EDD contradiction already fixed on this guide: (1) 'the seven that drive 90% of your daily decisions' reframed as FinCrimeRadar's own prioritisation, not a cited statistic (two instances, hero subtitle and stat box); (2) Recommendation 1's country-level FATF standard already correctly distinguished from firm-level obligations arising via domestic legislation, confirmed accurate, no change needed; (3) 'the FCA's enforcement cases... repeatedly cite' and 'the FCA has cited exactly this pattern' reworded to describe a recurring pattern across published cases rather than asserting specific named FCA findings; (4) FATF's Interpretive Note to Recommendation 10 gives 25% ownership as an example threshold, not a universal mandated figure; the UK's actual binding threshold is MLR 2017 Regulation 5's greater-than-25% ownership/voting-rights limb plus a separate management/control limb; Recommendation 24 is primarily a country-level obligation to make beneficial ownership information available to authorities, it does not itself impose a direct firm duty, the firm-level obligation comes from Regulation 5; (5) FCA enforcement powers arise from UK domestic legislation, not directly from FATF R.26/R.27, that legislation supports the UK's implementation of the FATF standard; (6) the EU's €10,000 cash declaration requirement under Regulation (EU) 2018/1672 implements Recommendation 32, failure to declare is not itself an automatic confiscation trigger, EU law permits temporary administrative detention of the cash plus member-state-set effective, proportionate and dissuasive penalties; (7) the FCA does not publish a document titled 'AML Annual Reports'; Recommendation 34 is recast around FCA supervisory guidance and thematic reviews, UKFIU SAR feedback, and JMLSG guidance, industry guidance rather than FCA guidance, that carries evidential weight once approved by HM Treasury; (8) FCA financial penalties under Recommendation 35 are domestic implementation, the FCA's power to impose them comes from UK legislation, not directly from FATF.",
+    "claimText": "Eight corrections confirmed against current live guide text: (1) 'the seven that drive 90% of your daily decisions' reframed as FinCrimeRadar's own prioritisation, not a cited statistic; (2) Recommendation 1's country-level FATF standard correctly distinguished from firm-level obligations arising via domestic legislation; (3) 'the FCA's enforcement cases... repeatedly cite' reworded to describe a recurring pattern across published cases rather than asserting specific named FCA findings; (4) FATF's Interpretive Note to Recommendation 10 gives 25% ownership as an example threshold, not a universal mandated figure, the UK's actual binding threshold is MLR 2017 Regulation 5's greater-than-25% ownership/voting-rights limb plus a separate management/control limb; (5) FCA enforcement powers arise from UK domestic legislation, not directly from FATF R.26/R.27; (6) the EU's €10,000 cash declaration requirement under Regulation (EU) 2018/1672 implements Recommendation 32, failure to declare is not itself an automatic confiscation trigger; (7) the FCA does not publish a document titled 'AML Annual Reports', Recommendation 34 is recast around FCA supervisory guidance and thematic reviews, UKFIU SAR feedback, and JMLSG guidance; (8) FCA financial penalties under Recommendation 35 are domestic implementation via UK legislation, not directly from FATF.",
     "source": {
       "title": "FATF 40 Recommendations, Interpretive Note to Recommendation 10; Money Laundering Regulations 2017 Regulation 5; Regulation (EU) 2018/1672 on controls on cash entering or leaving the Union; Joint Money Laundering Steering Group Guidance",
       "url": "https://www.fatf-gafi.org/en/topics/fatf-recommendations.html",
       "publisher": "Financial Action Task Force; legislation.gov.uk; EUR-Lex",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "EU cash-control confiscation/penalty mechanism confirmed via WebSearch against Regulation (EU) 2018/1672's own declaration and penalty provisions. Item 2 (Recommendation 1 country/firm-level distinction, lines 405-406) was checked against live text and found already accurate, no correction applied. The user's batch description referenced 9 findings but only 8 were itemised in the request; all 8 itemised findings were addressed, no 9th finding was identified or fabricated."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition anywhere (the 6 other new fatf-guide-part1 entries added elsewhere in this WIP cover entirely different findings, R18/SMF17, R20/s.330-331, DAML moratorium/tipping-off scope, R24/R25 adoption dates, R6/R7, and the 'three data sources' claim, none overlapping this finding's 8 points). Spot-checked 4 of the 8 corrections directly against live text: (1) confirmed at line 327 ('FinCrimeRadar's own prioritisation'); (6) confirmed at line 982 (€10,000 EU cash declaration/R32 framing); (7) confirmed at line 1000 ('The FCA does not publish a document titled \"AML Annual Reports\"'); (4) confirmed at line 454 (25%-example-threshold/MLR Reg 5 framing). Findings 2, 3, 5, 8 not individually re-checked line-by-line in this restoration pass. Restored under the original claimId rather than a new one."
   },
   {
     "claimId": "aml-guide-part1.crossguide-fcdo-publishes-uk-sanctions-list.043",
     "guide": "aml-guide-part1.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Cross-guide contradiction correction: the FCDO publishes the UK Sanctions List, the authoritative source for UK sanctions designations; OFSI implements and enforces UK financial sanctions and issues licences, it does not itself publish the sanctions list. Corrected the sanctions architecture bullet list and the 'Search the OFSI Consolidated List' tool prompt, which referenced the OFSI Consolidated List that closed on 28 January 2026.",
+    "claimText": "Cross-guide contradiction correction, confirmed against current live guide text: the FCDO publishes the UK Sanctions List, the authoritative source for UK sanctions designations; OFSI implements and enforces UK financial sanctions and issues licences, it does not itself publish the sanctions list. The sanctions architecture bullet list correctly attributes this live.",
     "source": {
       "title": "UK Sanctions List; Financial sanctions guidance",
       "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets",
       "publisher": "Foreign, Commonwealth & Development Office; Office of Financial Sanctions Implementation (OFSI), HM Treasury",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "Matches wording already correctly established in sanctions-compliance-guide.html and screening-alerts-guide.html this session, and the OFSI Consolidated List closure date already ledgered via crypto-guide-part4.html's prior entries."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition, while the corrected text remained live in aml-guide-part1.html throughout (confirmed at line 776, 'FCDO... publishes the UK Sanctions List, the authoritative source for UK sanctions designations'; the old 'Search the OFSI Consolidated List' tool prompt no longer appears anywhere in the file). Restored under the original claimId rather than a new one. This is one of three per-guide instances of the same underlying fact (see also aml-guide-part3.crossguide-fcdo-publishes-uk-sanctions-list.012 and fatf-guide-part2.crossguide-fcdo-publishes-uk-sanctions-list.006), the crossguide naming convention is one ledger entry per guide, not one shared entry, each guide's own passage needs its own restoration."
   },
   {
     "claimId": "aml-guide-part3.crossguide-fcdo-publishes-uk-sanctions-list.012",
     "guide": "aml-guide-part3.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Cross-guide contradiction correction: the FAQ's rescreening-cadence answer attributed the UK Sanctions List to OFSI ('OFSI's UK Sanctions List'). Corrected to attribute publication to the FCDO, with OFSI's implementation/enforcement role stated separately.",
+    "claimText": "Cross-guide contradiction correction, confirmed against current live guide text: the FAQ's rescreening-cadence answer correctly attributes the UK Sanctions List's publication to the FCDO, with OFSI's implementation/enforcement role stated separately, not attributed to OFSI as publisher.",
     "source": {
       "title": "UK Sanctions List; Financial sanctions guidance",
       "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets",
       "publisher": "Foreign, Commonwealth & Development Office; Office of Financial Sanctions Implementation (OFSI), HM Treasury",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "Matches wording already correctly established in sanctions-compliance-guide.html and screening-alerts-guide.html this session."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition, while the corrected text remained live in aml-guide-part3.html throughout (confirmed at line 811, \"the FCDO's UK Sanctions List (which OFSI implements and enforces)\", in the rescreening-cadence FAQ answer). Restored under the original claimId rather than a new one. One of three per-guide instances of the same underlying fact, see aml-guide-part1.crossguide-fcdo-publishes-uk-sanctions-list.043 for the convention note."
   },
   {
     "claimId": "fatf-guide-part2.crossguide-fcdo-publishes-uk-sanctions-list.006",
     "guide": "fatf-guide-part2.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Cross-guide contradiction correction: the Myanmar desk-scenario screening instruction named 'OFSI and UN lists' as the screening source. Corrected to name the FCDO's UK Sanctions List (OFSI implements and enforces the sanctions it contains) and the UN Consolidated List.",
+    "claimText": "Cross-guide contradiction correction, confirmed against current live guide text: the Myanmar desk-scenario screening instruction correctly names the FCDO's UK Sanctions List (OFSI implements and enforces the sanctions it contains) and the UN Consolidated List as the screening source, not 'OFSI and UN lists'.",
     "source": {
       "title": "UK Sanctions List; Financial sanctions guidance",
       "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets",
       "publisher": "Foreign, Commonwealth & Development Office; Office of Financial Sanctions Implementation (OFSI), HM Treasury",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "Matches wording already correctly established in sanctions-compliance-guide.html and screening-alerts-guide.html this session."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition, while the corrected text remained live in fatf-guide-part2.html throughout (confirmed at line 671, \"sanctions screen the Myanmar recipient against the FCDO's UK Sanctions List and the UN Consolidated List\"). Restored under the original claimId rather than a new one. One of three per-guide instances of the same underlying fact, see aml-guide-part1.crossguide-fcdo-publishes-uk-sanctions-list.043 for the convention note."
   },
   {
     "claimId": "kyc-onboarding-dilemma.crossguide-reg28-proportionate-identification-fields.001",
     "guide": "kyc-onboarding-dilemma.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Cross-guide contradiction correction: MLR 2017 Regulation 28 requires firms to identify the customer and verify identity from a reliable, independent source under a risk-based, proportionate standard; it does not itself enumerate a fixed set of data points (the guide previously implied only 'name and date of birth' were regulation-mandated, with address relegated to a matter of firm CIP policy alone). Name, date of birth, and residential address are the standard identifying particulars firms typically collect as a matter of practice, address included; the regulation does not specify a fixed verification method (such as a utility bill) for any of them.",
+    "claimText": "Cross-guide contradiction correction, confirmed against current live guide text: MLR 2017 Regulation 28 requires firms to identify the customer and verify identity from a reliable, independent source under a risk-based, proportionate standard; it does not itself enumerate a fixed set of data points or a fixed verification method. Name, date of birth, and residential address are the standard identifying particulars firms typically collect as a matter of practice, address included, but the regulation does not specify that address must be verified through a utility bill specifically.",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulation 28",
       "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
       "publisher": "legislation.gov.uk",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "First ledger entry for this guide. Matches the guide's own already-correct treatment of this same distinction in its scenario-1 answer key (risk-based, proportionate address verification, not a binary regulatory gate). Confirmed via WebSearch that Regulation 28's text requires risk-based identification and verification without enumerating fixed data fields or fixed verification methods."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition, while the corrected text remained live in kyc-onboarding-dilemma.html throughout (confirmed at line 483, near-verbatim match to this claimText). Restored under the original claimId rather than a new one. Singleton crossguide fact, no other guide in the ledger carries a sibling entry for this specific point."
   },
   {
     "claimId": "tm-guide.crossguide-no-uk-fixed-cash-reporting-threshold.013",
     "guide": "tm-guide.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Cross-guide contradiction correction: the structuring/smurfing typology card and knowledge-check quiz explanation implied a UK statutory cash reporting threshold (comparable to the US's fixed $10,000 CTR threshold) that firms structure deposits to evade. The UK has no equivalent fixed statutory cash reporting threshold; the £10,000/£9,500 figures used in the typology card and TM rule-logic example are illustrative transaction-monitoring rule thresholds a firm might set internally, not a legal reporting line. UK suspicious activity reporting is suspicion-based under POCA 2002, not threshold-triggered.",
+    "claimText": "Cross-guide contradiction correction, confirmed against current live guide text: the UK has no fixed statutory cash reporting threshold comparable to the US's fixed $10,000 CTR threshold; the £10,000/£9,500 figures used in the structuring/smurfing typology card and TM rule-logic example are illustrative transaction-monitoring rule thresholds a firm might set internally, not a legal reporting line. UK suspicious activity reporting is suspicion-based under POCA 2002, not threshold-triggered.",
     "source": {
       "title": "Proceeds of Crime Act 2002, Part 7 (ss.327-340)",
       "url": "https://www.legislation.gov.uk/ukpga/2002/29/part/7",
       "publisher": "legislation.gov.uk",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "Matches wording already correctly established in fraud-red-flags-guide.html this session (no UK equivalent to the US CTR threshold, suspicion-based reporting under POCA 2002)."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition anywhere (no tm-guide entry exists elsewhere in this WIP). Confirmed live at line 530, near-verbatim match to this claimText ('The UK has no fixed statutory cash reporting threshold the way the US does; the £10,000/£9,500 figures below are illustrative TM rule thresholds a firm might set, not a legal reporting line.'). Restored under the original claimId rather than a new one. Singleton crossguide fact, no other guide in the ledger carries a sibling entry for this specific point."
   },
   {
     "claimId": "aml-guide-part2.crossguide-reg24-no-fixed-training-retention-period.002",
     "guide": "aml-guide-part2.html",
     "claimType": "regulatory",
     "status": "verified",
-    "claimText": "Cross-guide contradiction correction: the record-keeping table stated a fixed '5 years' retention period for training records. MLR 2017 Regulation 24 requires a written record of the training measures taken but specifies no fixed retention period for that record; the MLRs' explicit five-year retention period under Regulation 40 applies to CDD evidence and transaction records specifically, not training records. Many firms retain training records for 5 years as a matter of policy alignment, not because Regulation 24 requires it.",
+    "claimText": "Cross-guide contradiction correction, confirmed against current live guide text: MLR 2017 Regulation 24 requires a written record of the training measures taken but specifies no fixed retention period for that record; the MLRs' explicit five-year retention period under Regulation 40 applies to CDD evidence and transaction records specifically, not training records. Many firms retain training records for 5 years as a matter of policy alignment, not because Regulation 24 requires it.",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, Regulations 24 and 40",
       "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/24",
       "publisher": "legislation.gov.uk",
       "date": "2026-08-21"
     },
-    "verifiedOn": "2026-08-21",
-    "reviewDue": "2027-08-21",
-    "note": "Matches wording already correctly established in aml-guide-part3.html's training-records section this session."
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "RESTORED 2026-08-22: this entry was found missing from the working tree, dropped by the uncommitted 5-guide-batch WIP with no re-addition (none of the 9 other new aml-guide-part2 entries added elsewhere in this WIP cover Regulation 24 training retention). Confirmed live at line 821, near-verbatim match to this claimText ('No fixed period under Regulation 24, a written record is required but its retention duration isn't specified; many firms align it to 5 years as a matter of policy, not a Reg 40 requirement'). Restored under the original claimId rather than a new one. Singleton crossguide fact, no other guide in the ledger carries a sibling entry for this specific point."
   },
   {
     "claimId": "pep-guide-part2.crossguide-reg35-5-three-not-four-edd-measures.001",
