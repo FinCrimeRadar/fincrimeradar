@@ -389,9 +389,9 @@
         <div class="hero-stat-source">DSIT/PUBLIC, Deepfake Detection Technology, 26 March 2026</div>
       </div>
       <div class="hero-stat-tile">
-        <div class="hero-stat-num"><span class="stat-num-anim" data-target="46">0</span></div>
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="47">0</span></div>
         <div class="hero-stat-label">Fraudulent accounts, one man, one bank, one onboarding flow</div>
-        <div class="hero-stat-source">ABN AMRO deepfake onboarding case, convicted June 2026</div>
+        <div class="hero-stat-source">ABN AMRO deepfake onboarding case, court's final figure, convicted June 2026</div>
       </div>
     </div>
   </div>
@@ -670,12 +670,12 @@
     <div class="article-section" id="case-study">
       <div class="section-eyebrow" style="color:var(--c-repeat)">Real, Court-Confirmed, Not Hypothetical</div>
       <h2>The ABN AMRO deepfake onboarding case</h2>
-      <p>A 34-year-old man in Amsterdam collected stolen identity documents, partly by posting a fake rental property listing on Marktplaats and asking prospective tenants to send copies of their passports "for verification".<sup>[3]</sup> He then used face-swap software to blend his own facial features onto the stolen ID photos, closely enough that automated selfie-to-ID matching accepted them. Using this method he opened 46 fraudulent accounts at ABN AMRO through the bank's standard mobile onboarding flow, which asks an applicant to photograph an ID document and then take a selfie for automated comparison.<sup>[3]</sup></p>
+      <p>A 34-year-old man in Amsterdam collected stolen identity documents, partly by posting a fake rental property listing on Marktplaats and asking prospective tenants to send copies of their passports "for verification".<sup>[3]</sup> He then used face-swap software to blend his own facial features onto the stolen ID photos, closely enough that automated selfie-to-ID matching accepted them. Using this method he opened 47 fraudulent accounts<sup>[2]</sup> at ABN AMRO through the bank's standard mobile onboarding flow, which asks an applicant to photograph an ID document and then take a selfie for automated comparison.<sup>[3]</sup></p>
       <p>The fraud came to light only when one application's submitted ID photo showed a woman while the accompanying selfie showed a man, a mismatch that triggered ABN AMRO's own investigation into the wider pattern.<sup>[3]</sup> He was convicted in June 2026 and sentenced to 30 months, six of them suspended, and ordered to repay ABN AMRO more than EUR13,000.<sup>[2]</sup></p>
 
       <div class="callout callout-navy">
         <strong>Disclosure</strong>
-        <p>This is a Dutch case, prosecuted under Dutch law, not a UK enforcement action. It's included because it is the clearest real, court-confirmed example currently available of exactly the attack pattern this guide addresses, a face-swap defeating a bank's own onboarding flow at scale before detection, not because it reflects UK regulatory practice specifically. Reporting on the exact account count varies slightly between sources (46 to 47), the figure used throughout this guide follows DutchNews.nl's reporting.</p>
+        <p>This is a Dutch case, prosecuted under Dutch law, not a UK enforcement action. It's included because it is the clearest real, court-confirmed example currently available of exactly the attack pattern this guide addresses, a face-swap defeating a bank's own onboarding flow at scale before detection, not because it reflects UK regulatory practice specifically. Two account-count figures appear in reporting on this case: 46 was the prosecution's pre-verdict allegation, reported by DutchNews.nl while the trial was still underway (18 March 2026, "a court has been told"); 47 is the Amsterdam District Court's final established figure, stated in the court's own verdict press release (17 June 2026).<sup>[2]</sup> This guide uses 47, the court-confirmed figure, throughout.</p>
       </div>
 
       <p>Why this case matters for the judgement, not just the technology: no single flagged session in isolation triggered detection. It was the cross-application pattern, caught by a human noticing an inconsistency the automated system hadn't decisively flagged, that surfaced the fraud. This directly supports Scenario 3's reasoning above.</p>
