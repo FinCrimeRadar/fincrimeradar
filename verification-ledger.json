@@ -4416,5 +4416,413 @@
     "verifiedOn": "2026-08-21",
     "reviewDue": "2027-08-21",
     "note": "This exact wording was previously verified accurate in the local working tree during the Priority batch pass but was never committed; that batch's report incorrectly described this line as 'already correct' based on the uncommitted local file rather than origin/main, where the uncorrected 'four' wording remained live. Re-verified directly against a fresh origin/main fetch before this correction. Full-file sweep on origin/main's live text confirmed only one instance of the error, at this line; no other recurrence found."
+  },
+  {
+    "claimId": "mlro-handbook-part1.smf16-smf17-not-universal-scope.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Not every regulated firm requires both SMF16 and SMF17. All dual-regulated firms require SMF16; for solo-regulated firms, whether SMF16 applies depends on the firm's regulatory status, firm type, and permissions. The Senior Managers and Certification Regime also applies differently across its Enhanced, Core, and Limited Scope tiers, this is not a single uniform requirement applying identically to every firm.",
+    "source": {
+      "title": "Senior Managers Regime; SUP 10C.6",
+      "url": "https://www.fca.org.uk/firms/senior-managers-and-certification-regime/senior-managers-regime",
+      "publisher": "Financial Conduct Authority (FCA); FCA Handbook",
+      "date": "2026-07-13"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 1 finding 1 (MATERIAL). Senior Managers Regime page first published 29 March 2023, updated 13 July 2026; SUP 10C.6 (https://www.handbook.fca.org.uk/handbook/SUP/10C/6.html) current text accessed 22 August 2026. Corrects the guide's original \"sits at the centre of every regulated firm's defence\" framing.",
+    "location": "mlro-handbook-part1.html, Section 1 intro paragraph"
+  },
+  {
+    "claimId": "mlro-handbook-part1.smf16-duty-conditional-not-absolute.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "SMF16 personal accountability under the Duty of Responsibility is conditional on a firm contravention in an area the individual was responsible for and a failure to take reasonably expected steps, not absolute liability for every FCA rule.",
+    "source": {
+      "title": "Senior Managers Regime; FSMA 2000, section 66A",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/8/section/66A",
+      "publisher": "Financial Conduct Authority (FCA); The National Archives",
+      "date": "2026-07-13"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 1 finding 2 (PRECISION). Senior Managers Regime page updated 13 July 2026; FSMA 2000 s.66A current text accessed 22 August 2026. Corrects the guide's original \"personally accountable for the firm's compliance with FCA rules\" framing, which implied blanket liability.",
+    "location": "mlro-handbook-part1.html, Section 1 intro paragraph"
+  },
+  {
+    "claimId": "mlro-handbook-part1.reg21-notification-not-nca-direct-contact.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 regulation 21 requires a firm to appoint a nominated officer (SMF17) and notify the relevant supervisory authority of that individual's identity within 14 days. It does not impose a stated notification or direct-contact requirement in favour of the National Crime Agency, as the guide previously implied.",
+    "source": {
+      "title": "Money Laundering Regulations 2017, regulation 21",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "The National Archives",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 1 finding 4 (MATERIAL). Current version effective 30 June 2026. Corrects the guide's original claim that SMF17 is who the FCA \"and the National Crime Agency\" expect to name and reach directly.",
+    "location": "mlro-handbook-part1.html, Section 1 intro paragraph"
+  },
+  {
+    "claimId": "mlro-handbook-part1.duty-not-independent-of-employer.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The Duty of Responsibility under FSMA 2000 section 66A is not independent of the employer. It remains conditional on a contravention by the authorised firm, the individual having responsibility for the relevant activities, and the individual failing to take the steps a person in that position could reasonably be expected to take. Enforcement may occur after the person leaves the firm, but the duty itself is not a standalone duty that exists independently of the employer.",
+    "source": {
+      "title": "FSMA 2000, section 66A",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/8/section/66A",
+      "publisher": "The National Archives",
+      "date": "2026-08-22"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 1 finding 6 (MATERIAL). Current text accessed 22 August 2026. Corrects the guide's original claim that the Duty of Responsibility \"survives independently of your employer.\"",
+    "location": "mlro-handbook-part1.html, Section 1, second paragraph"
+  },
+  {
+    "claimId": "mlro-handbook-part1.no-fca-first-question-claim.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "No FCA source establishes a specific \"first question\" the FCA asks after an AML control failure, whether framed as prose or as a quoted regulatory test. The statutory Duty of Responsibility under FSMA 2000 s.66A, contravention by the firm, the individual's responsibility for the relevant area, and failure to take reasonably expected steps, is what actually governs individual liability, not a stated first-question test.",
+    "source": {
+      "title": "FSMA 2000, section 66A; Senior Managers Regime",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/8/section/66A",
+      "publisher": "The National Archives; Financial Conduct Authority (FCA)",
+      "date": "2026-08-22"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 1 finding 7 (MATERIAL). Senior Managers Regime page updated 13 July 2026. Corrects the guide's original claim, repeated as a pull-quote, that the FCA's first question after an AML control failure concerns what the SMF17 holder knew and did; the pull-quote has been removed.",
+    "location": "mlro-handbook-part1.html, Section 1, second paragraph (pull-quote removed)"
+  },
+  {
+    "claimId": "mlro-handbook-part1.no-20m-threshold-smcr-categorisation.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "There is no general £20 million revenue threshold governing whether SMF16 and SMF17 can be combined in one person. Current Enhanced-firm categorisation is set by six separate tests, for example £65bn in assets under management, £45m in intermediary regulated business revenue, £130m in regulated consumer credit lending revenue, or 10,000 regulated mortgages, and SMF16 applicability depends on regulatory status, firm type, and permissions rather than a single revenue figure.",
+    "source": {
+      "title": "SMCR categorisation for solo regulated firms; Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/senior-managers-certification-regime/categorisation-solo-regulated-firms",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-17"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 1 finding 8 (MATERIAL), same fabricated threshold also flagged as Section 5 finding 1 (see mlro-handbook-part1.enhanced-categorisation-not-single-threshold.001). SMCR categorisation page first published 30 July 2019, updated 17 July 2026; Heads of compliance and MLROs page (https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros) first published 28 January 2022, updated 8 December 2022, does not establish the guide's original claimed routine market practice or a corresponding mandatory split above a revenue figure either. Corrects every instance of the fabricated £20m figure across the guide: the Section 1 intro, the firm-panel label, and the cheat sheet's COMBINE SMF16/17 card.",
+    "location": "mlro-handbook-part1.html, Section 1 intro, firm-panel label, cheat sheet COMBINE SMF16/17 card"
+  },
+  {
+    "claimId": "mlro-handbook-part1.junior-experience-can-help-not-common-route.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA says a background in a more junior compliance role, compliance manager, deputy MLRO, or equivalent, can help an SMF16/17 application. It does not describe this as a common route or quantify its prevalence.",
+    "source": {
+      "title": "Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 2 finding 2 (PRECISION). Page updated 8 December 2022. Corrects the guide's original claim that junior compliance experience is \"a legitimate and common route in.\"",
+    "location": "mlro-handbook-part1.html, Section 2 intro paragraph"
+  },
+  {
+    "claimId": "mlro-handbook-part1.fca-named-backgrounds-not-internal-audit.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA expressly names compliance teams, legal teams, lawyers, accountants, and consultants as accepted professional backgrounds for SMF16/17. Internal audit is not in that published list, though the FCA's current assessment guidance allows relevant experience from other sectors to be considered.",
+    "source": {
+      "title": "Heads of compliance and MLROs; How we assess senior management function applications",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 2 finding 4 (PRECISION). Heads of compliance and MLROs page updated 8 December 2022; How we assess senior management function applications (https://www.fca.org.uk/firms/senior-management-functions/how-we-assess) first published 11 May 2015, updated 27 March 2026. Corrects the guide's original list (\"Legal, accountancy, consultancy, and internal audit backgrounds are all considered\") which named internal audit as an explicitly accepted FCA example when it isn't in the FCA's own published list.",
+    "location": "mlro-handbook-part1.html, Section 2, professional backgrounds list item"
+  },
+  {
+    "claimId": "mlro-handbook-part1.seniority-independence-no-equal-weighting.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA identifies authority, seniority, conflicts, independence, skills, knowledge, and experience as relevant factors for SMF16/17 candidates. It does not assign equal weighting between seniority/independence and technical knowledge.",
+    "source": {
+      "title": "Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 2 finding 6 (PRECISION). Page updated 8 December 2022. Corrects the guide's original claim that \"seniority and independence matter as much as technical knowledge.\"",
+    "location": "mlro-handbook-part1.html, Section 2, list item"
+  },
+  {
+    "claimId": "mlro-handbook-part1.four-fca-themes-training-experience-support-capacity.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA's published guidance on what separates a strong SMF16/17 application from a weak one has four headings: training, experience, third-party support, and capacity. Physical location is one factor assessed within capacity, not a separate fourth category replacing experience.",
+    "source": {
+      "title": "Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 3 finding 1 (PRECISION). Page updated 8 December 2022. Corrects the guide's original four-heading structure, which substituted \"Physical and operational presence\" for the FCA's actual \"experience\" heading.",
+    "location": "mlro-handbook-part1.html, Section 3 intro paragraph and heading structure"
+  },
+  {
+    "claimId": "mlro-handbook-part1.assessed-training-demonstrates-gained-not-retained.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA says training containing an assessment or examination component is better at demonstrating that relevant knowledge has been gained than attendance alone. It does not make the stronger comparative claim that such training demonstrates retained knowledge far better than attendance alone.",
+    "source": {
+      "title": "Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 3 finding 3 (PRECISION). Page updated 8 December 2022.",
+    "location": "mlro-handbook-part1.html, Section 3, 'Depth of training' subsection"
+  },
+  {
+    "claimId": "mlro-handbook-part1.part-time-tend-unsuccessful-not-outright-rejected.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA has sometimes accepted part-time SMF16/17 arrangements at smaller firms, and says candidates proposing only a few hours a week tend to be unsuccessful. It does not state that such applications are rejected automatically or outright.",
+    "source": {
+      "title": "Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 3 finding 5 (PRECISION). Page updated 8 December 2022. Corrects the guide's original claim that applications proposing a handful of hours \"have a track record of being rejected outright.\"",
+    "location": "mlro-handbook-part1.html, Section 3, 'Genuine, proportionate time commitment' subsection"
+  },
+  {
+    "claimId": "mlro-handbook-part1.external-support-optional-not-necessary.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA describes external compliance and legal advice as optional, expressly stating it is not a requirement. It does confirm an application will probably be refused if external support is the firm's only compliance resource.",
+    "source": {
+      "title": "Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 3 finding 7 (MATERIAL). Page updated 8 December 2022. Corrects the guide's original claim that external consultants and law firms are \"a normal and often necessary part of running a compliance function.\"",
+    "location": "mlro-handbook-part1.html, Section 3, 'Internal competence, not outsourced competence' subsection"
+  },
+  {
+    "claimId": "mlro-handbook-part1.no-uk-based-approval-track-record.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Current FCA guidance expressly welcomes overseas SMF16/17 candidates, takes overseas experience into account, and states that processing an application takes no longer than for a UK-based candidate; some activities are permitted from overseas provided the individual's actual presence stays consistent with their responsibilities. No comparative approval rate or stronger approval track record for UK-based candidates over overseas or remote candidates is published anywhere.",
+    "source": {
+      "title": "Heads of compliance and MLROs; How we assess senior management function applications",
+      "url": "https://www.fca.org.uk/firms/senior-management-functions/how-we-assess",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-03-27"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 3 finding 9 (MATERIAL). Heads of compliance and MLROs page (the 2022 version) says the principal UK place of business is \"ideal\"; current 2026 guidance (updated 27 March 2026) supersedes that framing for actual candidate assessment. Corrects the guide's original claim, repeated in the cheat sheet as \"UK-based\", that UK-premises candidates have \"a stronger track record of approval,\" and the self-assessment quiz's Q5 scoring, rewritten to ask about consistency between location and responsibilities rather than UK-versus-overseas.",
+    "location": "mlro-handbook-part1.html, Section 3 (formerly 'Physical and operational presence'), self-assessment Q5, cheat sheet WHAT IT TAKES card"
+  },
+  {
+    "claimId": "mlro-handbook-part1.approval-process-omits-evidence-fees-outcomes.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Current FCA guidance describes the SMF application process via Connect as including a required application form, mandatory supporting evidence (Form A requires ten years of employment history), application fees where applicable, and post-submission assessment. Outcomes include approval, conditional or time-limited approval, and refusal, not only approval or further questions.",
+    "source": {
+      "title": "Apply for a senior management function; How we assess senior management function applications",
+      "url": "https://www.fca.org.uk/firms/senior-management-functions/how-apply",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-14"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 4 finding 1 (MATERIAL). \"Apply for a senior management function\" page first published 12 March 2025, updated 14 July 2026; \"How we assess senior management function applications\" (https://www.fca.org.uk/firms/senior-management-functions/how-we-assess) updated 27 March 2026. Corrects the guide's original five-stage process description, which omitted mandatory supporting evidence, application fees, and two of the real possible outcomes (conditional/time-limited approval, refusal).",
+    "location": "mlro-handbook-part1.html, Section 4, step 2 and step 4"
+  },
+  {
+    "claimId": "mlro-handbook-part1.fit-proper-three-factors-include-reputation.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA's fit and proper standard (FIT 1.3) identifies honesty, integrity and reputation as its first factor, alongside competence and capability, and financial soundness. \"Reputation\" is a distinct, named element of the first factor, not implicitly folded into honesty and integrity.",
+    "source": {
+      "title": "FIT 1.3; Senior Managers Regime",
+      "url": "https://www.handbook.fca.org.uk/handbook/FIT/1/3.html",
+      "publisher": "FCA Handbook; Financial Conduct Authority (FCA)",
+      "date": "2026-07-13"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 4 finding 2 (PRECISION). Senior Managers Regime page updated 13 July 2026. Corrects the guide's original three-factor list, which gave \"honesty and integrity\" rather than \"honesty, integrity and reputation.\"",
+    "location": "mlro-handbook-part1.html, Section 4, step 1"
+  },
+  {
+    "claimId": "mlro-handbook-part1.cv-not-mandatory-responsibility-map-enhanced-only.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA expressly says a CV is not mandatory for an SMF application; Form A requires ten years of employment history instead. Current common delay reasons include an incomplete application form and inadequate explanation of how responsibilities are allocated. An out-of-date management responsibilities map is relevant to Enhanced firms specifically, the FCA does not state that every application requires such a map or that a missing CV causes incompleteness.",
+    "source": {
+      "title": "Apply for a senior management function",
+      "url": "https://www.fca.org.uk/firms/senior-management-functions/how-apply",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-14"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 4 finding 4 (MATERIAL). Page updated 14 July 2026. Corrects the guide's original claim that \"a missing or thin CV\" is a common cause of an incomplete application.",
+    "location": "mlro-handbook-part1.html, Section 4, step 2"
+  },
+  {
+    "claimId": "mlro-handbook-part1.interviews-risk-based-no-published-proportion.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FCA describes SMF interviews as a risk-based possibility, it may interview where there are fitness concerns, the firm has been challenged, or the role carries significant potential impact. No proportion of applications going to interview is published in the FCA's own guidance.",
+    "source": {
+      "title": "How we assess senior management function applications",
+      "url": "https://www.fca.org.uk/firms/senior-management-functions/how-we-assess",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-03-27"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 4 finding 5 (MATERIAL). Page updated 27 March 2026. Corrects the guide's original claim that the FCA conducts interviews \"in a meaningful proportion of cases.\"",
+    "location": "mlro-handbook-part1.html, Section 4, step 3"
+  },
+  {
+    "claimId": "mlro-handbook-part1.rejection-patterns-not-formally-measured.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "retained-as-estimate",
+    "claimText": "FCA guidance says a few hours a week tends to be unsuccessful, external support as the only compliance resource will probably result in refusal, and conflicts of interest or inadequate competency evidence generate questions or scrutiny. The FCA does not publish these collectively as a formally measured set of recurring rejection categories.",
+    "source": {
+      "title": "Heads of compliance and MLROs; How we assess senior management function applications",
+      "url": "https://www.fca.org.uk/firms/approved-persons/heads-compliance-mlros",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2022-12-08"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 4 finding 7 (PRECISION). Heads of compliance and MLROs page updated 8 December 2022; How we assess senior management function applications updated 27 March 2026. Retained as estimate rather than verified: the underlying individual patterns are each positively sourced elsewhere in this ledger, but the claim that they are collectively an unmeasured, non-formal set is itself an absence-of-a-published-list finding, not a specific quotable provision.",
+    "location": "mlro-handbook-part1.html, Section 4, step 4"
+  },
+  {
+    "claimId": "mlro-handbook-part1.approval-precedes-start-duty-conditional-s66a.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Approval must be obtained before the candidate starts performing the SMF16/17 function, approval and commencement are distinct events. The Duty of Responsibility under FSMA 2000 s.66A applies when the person is a senior manager responsible for the activities connected to the firm's contravention and failed to take reasonably expected steps, it is not triggered merely by the fact or timestamp of approval.",
+    "source": {
+      "title": "Apply for a senior management function; FSMA 2000, section 66A",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/8/section/66A",
+      "publisher": "Financial Conduct Authority (FCA); The National Archives",
+      "date": "2026-07-14"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 4 finding 8 (MATERIAL), treated as load-bearing per this correction pass's own instruction, a genuine legal-mechanism error rather than a wording tweak. \"Apply for a senior management function\" page updated 14 July 2026. Corrects the guide's original claim, repeated in the cheat sheet, that \"ongoing responsibility begins immediately on approval.\"",
+    "location": "mlro-handbook-part1.html, Section 4, step 5, and cheat sheet five-step diagram, circle 5"
+  },
+  {
+    "claimId": "mlro-handbook-part1.duty-of-responsibility-statutory-conditions-not-automatic.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "A problem alone does not trigger individual liability under the Duty of Responsibility. The statutory conditions under FSMA 2000 s.66A require a firm contravention in an area managed by the senior manager and a failure by that person to take the steps a person in that position could reasonably be expected to take; the Statement of Responsibilities and Duty of Responsibility define what that test is measured against, they are not themselves an automatic standard the FCA applies whenever something goes wrong.",
+    "source": {
+      "title": "FSMA 2000, section 66A; Senior Managers Regime",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/8/section/66A",
+      "publisher": "The National Archives; Financial Conduct Authority (FCA)",
+      "date": "2026-08-22"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 4 finding 9 (PRECISION). Senior Managers Regime page updated 13 July 2026. Corrects the guide's original framing that the Statement of Responsibilities and Duty of Responsibility are simply \"the standard the FCA will hold the individual to if something goes wrong later.\"",
+    "location": "mlro-handbook-part1.html, Section 4, step 5"
+  },
+  {
+    "claimId": "mlro-handbook-part1.enhanced-categorisation-not-single-threshold.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Enhanced-firm categorisation is not a single threshold and does not itself determine whether SMF16 or SMF17 applies, or whether the functions can be combined. SMF16 applicability depends on the firm's regulatory status, firm type, and permissions, not a single Enhanced-tier revenue marker.",
+    "source": {
+      "title": "SMCR categorisation for solo regulated firms; Senior Managers Regime",
+      "url": "https://www.fca.org.uk/firms/senior-managers-certification-regime/categorisation-solo-regulated-firms",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-17"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 5 finding 1 (MATERIAL), the same fabricated £20m/Enhanced-threshold marker also flagged as Section 1 finding 8 (see mlro-handbook-part1.no-20m-threshold-smcr-categorisation.001, both corrected together in the same text pass). Senior Managers Regime page updated 13 July 2026. Corrects the guide's original framing that \"firms under the Enhanced tier threshold\" face the combination choice, as if Enhanced categorisation were a single dividing line.",
+    "location": "mlro-handbook-part1.html, Section 5 intro paragraph"
+  },
+  {
+    "claimId": "mlro-handbook-part1.no-specific-periodic-reconsideration-expectation.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "retained-as-estimate",
+    "claimText": "The FCA requires ongoing fitness and propriety assessment of SMF holders at least annually, which examines capacity and conflicts among other things. No identified FCA source establishes a specific, named expectation that firms periodically reconsider a prior SMF16/SMF17 combination decision, beyond that general at-least-annual review.",
+    "source": {
+      "title": "Senior Managers Regime; Heads of compliance and MLROs",
+      "url": "https://www.fca.org.uk/firms/senior-managers-and-certification-regime/senior-managers-regime",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-07-13"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 5 finding 2 (MATERIAL). Senior Managers Regime page updated 13 July 2026; Heads of compliance and MLROs page updated 8 December 2022. Retained as estimate rather than verified: this is an absence-of-a-specific-expectation finding, not a specific quotable provision establishing periodic reconsideration one way or the other. Corrects the guide's original claim that \"the FCA expects firms... to revisit that assessment periodically.\"",
+    "location": "mlro-handbook-part1.html, Section 5 intro paragraph"
+  },
+  {
+    "claimId": "mlro-handbook-part1.combined-holder-not-sole-accountability.001",
+    "guide": "mlro-handbook-part1.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "Individual accountability under a combined SMF16/SMF17 role does not displace the authorised firm's own obligations, senior management or board-level responsibilities, or the independent audit arrangements required where appropriate under MLR 2017 regulation 21. A combined role holder concentrates two functions in one person but is not the sole legal point of accountability for the firm's entire AML framework.",
+    "source": {
+      "title": "Money Laundering Regulations 2017, regulation 21; FSMA 2000, section 66A",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "The National Archives",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-22",
+    "reviewDue": "2027-08-22",
+    "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 5 finding 4 (MATERIAL). MLR 2017 reg 21 current version effective 30 June 2026; FSMA 2000 s.66A current text accessed 22 August 2026. Corrects the guide's original claim that a combined role holder is \"the sole point of accountability for both general regulatory compliance and the firm's entire AML defence.\"",
+    "location": "mlro-handbook-part1.html, Section 5, second paragraph"
   }
 ]
