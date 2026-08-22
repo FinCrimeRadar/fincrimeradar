@@ -394,15 +394,7 @@
       <p>What nobody tells you is what happens when a new customer walks in and the answer is not obvious. Is this sole trader a KYC case or a KYB case? Does this charity with cash donations need SDD or EDD? Who exactly is the "beneficial owner" of a sovereign wealth fund?</p>
       <p>These are the dilemmas that separate a functional compliance programme from one that creates regulatory exposure. This guide walks through six real-world archetypes — each with a decision point where the wrong call carries consequences. At each stop, you will make the call yourself before seeing the correct answer and the reasoning behind it.</p>
 
-      <div class="stat-row">
-        <div class="stat-box">
-          <div class="num">£3.8bn</div>
-          <div class="lbl">global AML fines in 2024, many linked to onboarding failures</div>
-        </div>
-        <div class="stat-box">
-          <div class="num">68%</div>
-          <div class="lbl">of SAR reporters cite inadequate CDD at onboarding as a root cause</div>
-        </div>
+      <div class="stat-row" style="grid-template-columns:1fr;max-width:280px;margin:1.5rem auto;">
         <div class="stat-box">
           <div class="num">4 layers</div>
           <div class="lbl">average corporate structure depth before the true UBO is reached</div>
@@ -674,15 +666,15 @@
         <li>Confirmation of current registered address and trading address if different</li>
         <li>Memorandum and Articles of Association (or confirmation of model articles)</li>
         <li>Full register of directors — verified against Companies House PSC register</li>
-        <li>UBO identification: all individuals with more than 25% ownership or control</li>
+        <li>UBO identification: all individuals who own or control more than 25% of shares or voting rights, or who separately exercise ultimate control over management (MLR 2017 Reg 5, two distinct limbs, not a blended test)</li>
         <li>KYC on each UBO individually: identity document, PEP check, sanctions check, adverse media search</li>
         <li>Nature of business and expected transaction profile documented</li>
         <li>Source of funds: where is the business revenue coming from?</li>
       </ul>
 
       <div class="callout callout-purple">
-        <strong>The 25% Threshold — and What It Misses</strong>
-        <p>FATF and UK MLRs define a UBO as someone owning or controlling more than 25% of the entity. But control can exist without ownership. A director with veto rights over all transactions, a contractual controlling party, or a shadow director can all exercise effective control without holding a single share. Your policy must address control as well as ownership.</p>
+        <strong>Ownership OR Control — Two Separate Tests, Not One Threshold</strong>
+        <p>MLR 2017 Regulation 5 sets two separate limbs, not one blended test: an individual who owns or controls more than 25% of the shares or voting rights, or an individual who exercises ultimate control over management. Meeting either limb on its own is enough. FATF's Interpretive Note to Recommendation 10 treats 25% as an illustrative example threshold, not a global rule, some jurisdictions set it lower. A Companies House PSC register entry is a related but legally distinct concept from MLR beneficial ownership, the two tests can produce different answers for the same company, so treat a PSC filing as evidence to check against Reg 5, not as a substitute for it. A director with veto rights over all transactions, a contractual controlling party, or a shadow director can all satisfy the control limb without holding a single share.</p>
       </div>
 
       <!-- DILEMMA 3 -->
@@ -775,8 +767,8 @@
       </div>
 
       <h3>Why this structure demands EDD before anything else</h3>
-      <p>Four red flags activate EDD simultaneously here. First: a high-risk jurisdiction in the ownership chain (BVI is on the FATF and OFSI monitoring list for corporate opacity). Second: an unidentified beneficiary class — "family members" is not a UBO. Third: a power of attorney arrangement, which creates a control layer that bypasses normal governance. Fourth: the business activity (property investment) is a known typology for layered money laundering.</p>
-      <p>EDD in this context means: requesting the trust deed, identifying every named beneficiary, running full KYC on each natural person in the Okafor family who benefits from the trust, obtaining an intelligence report on the Okafor family from a specialist provider, verifying source of wealth for the £12 million property portfolio, and obtaining senior management approval before the account is opened — regardless of how straightforward the directors present the arrangement.</p>
+      <p>Several red flags contribute to an EDD requirement here. First: a high-risk jurisdiction in the ownership chain (BVI is on the FATF list of jurisdictions under increased monitoring, one contributing risk factor here, not an automatic EDD trigger on its own). Second: an unidentified beneficiary class — "family members" is not a UBO. Third: a power of attorney arrangement, which creates a control layer that bypasses normal governance. Fourth: the business activity (property investment) is a known typology for layered money laundering.</p>
+      <p>Proportionate EDD measures here, scaled to the risk under Regulation 33, could include: requesting the trust deed, identifying the class of beneficiaries and any individual with a fixed or vested interest (MLR 2017 Reg 6 permits identifying a beneficiary class where individuals are not yet determined, alongside the trust's controllers, it does not require naming every discretionary beneficiary as a substitute UBO), running KYC on the identified beneficiaries and controllers of the trust, considering a specialist intelligence report on the Okafor family where the risk profile warrants it, verifying source of wealth for the £12 million property portfolio, and obtaining senior management approval before the account is opened. This is not a fixed statutory checklist, it is what proportionate EDD looks like for a structure with this risk profile.</p>
 
       <div class="callout callout-red">
         <strong>The Power of Attorney Trap</strong>
@@ -859,7 +851,7 @@
           </div>
           <div class="tree-connector"></div>
           <div class="tree-row">
-            <div class="tree-node high-risk">Partner Orgs<br><span style="font-weight:400;font-size:10px;">Lebanon · Jordan · Libya — High-risk jurisdictions</span></div>
+            <div class="tree-node high-risk">Partner Orgs<br><span style="font-weight:400;font-size:10px;">Lebanon (FATF-monitored) · Jordan · Libya (conflict-zone risk)</span></div>
           </div>
         </div>
       </div>
@@ -872,10 +864,10 @@
 
       <h3>Why charities are not low-risk by default</h3>
       <p>The FATF Typologies Report and the Charity Commission's own guidance make this explicit: the charity sector is actively exploited for terrorist financing, not because charities are complicit, but because the features that make charities legitimate — public trust, cash donations, international remittance, informal governance — also make them attractive to those seeking to move funds through them without detection.</p>
-      <p>Three specific risk factors activate EDD triggers here. One: the fund destination includes Libya, which is a FATF-identified jurisdiction with significant financial crime risk. Two: the funding model relies on anonymous cash donations, which cannot be source-of-funds verified. Three: the partner organisations in the destination countries require their own due diligence as downstream recipients of your customer's funds.</p>
+      <p>Three specific risk factors activate EDD triggers here. One: the fund destinations include Lebanon, a jurisdiction FATF currently lists as under increased monitoring, and Libya, a conflict-affected jurisdiction with weak institutional oversight even though it is not currently on the FATF list itself, both raise the destination-country risk profile. Two: the funding model relies on anonymous cash donations, a heightened risk factor for source-of-funds verification, not an automatic bar to verification. Three: the partner organisations in the destination countries require their own due diligence as downstream recipients of your customer's funds.</p>
 
       <h3>Who is the UBO of a charity?</h3>
-      <p>This is a question that trips up many onboarding teams. Charities do not have shareholders. They do not have beneficial owners in the corporate sense. Under UK MLRs, for charities and other non-profit legal arrangements, the equivalent obligation is to identify the senior managing officials — the trustees — and verify their identities individually. Each trustee requires a KYC check. The charity's governing documents must be reviewed. And the nature of the charitable purpose must be assessed for financial crime risk, not just accepted at face value because a Charity Commission number exists.</p>
+      <p>This is a question that trips up many onboarding teams. Charities do not have shareholders. They do not have beneficial owners in the corporate sense, and the trustees are not a substitute UBO class in the way a >25% shareholder is. Under UK MLRs, for charities and other non-profit legal arrangements, the applicable obligation is to identify the senior managing officials, which in practice means the trustees, and verify their identities individually. The charity's governing documents must be reviewed. And the nature of the charitable purpose must be assessed for financial crime risk, not just accepted at face value because a Charity Commission number exists.</p>
 
       <div class="callout callout-amber">
         <strong>Charity Commission Registration is Not Due Diligence</strong>
@@ -905,7 +897,7 @@
           </button>
           <button class="dilemma-option" onclick="showVerdict('d5','correct',this)">
             <span class="opt-label">C</span>
-            <span>Escalate to the MLRO. The unverifiable partner in a high-risk jurisdiction is a terrorist financing red flag that requires a deliberate decision at the highest level, documented in writing, before any onboarding decision is made. The MLRO may also need to consider a Defence Against Money Laundering (DAML) SAR before proceeding.</span>
+            <span>Escalate to the MLRO. The unverifiable partner in a high-risk jurisdiction is a terrorist financing red flag that requires a deliberate decision at the highest level, documented in writing, before any onboarding decision is made. If the firm intends to make a payment to that partner, it may also need to request a Defence Against Terrorist Financing (DATF) under section 21ZA of the Terrorism Act 2000 before making that payment.</span>
           </button>
           <button class="dilemma-option" onclick="showVerdict('d5','wrong',this)">
             <span class="opt-label">D</span>
@@ -955,7 +947,7 @@
           </div>
           <div class="tree-connector"></div>
           <div class="tree-row">
-            <div class="tree-node high-risk">Ruling Family<br><span style="font-weight:400;font-size:10px;">All key state positions — PEP exposure: systemic</span></div>
+            <div class="tree-node high-risk">Ruling Family<br><span style="font-weight:400;font-size:10px;">All key state positions — multiple individual PEPs</span></div>
           </div>
           <div style="margin-top:10px;font-size:11px;color:var(--edd);font-weight:600;">⚠ No individual UBO exists — but PEP exposure is pervasive</div>
         </div>
@@ -972,11 +964,11 @@
       <p>FATF guidance acknowledges this. For sovereign wealth funds and state-owned entities, the applicable approach is to: identify the entity's mandate and legal basis, identify the senior managing officials (fund directors, board members, controlling ministers), subject each to PEP screening as a matter of course, assess the jurisdiction risk of the home country, and apply EDD based on the combination of PEP exposure and jurisdiction risk — not to attempt to "solve" the beneficial ownership question by identifying the head of state as a UBO.</p>
 
       <h3>SDD for listed governments — when it applies</h3>
-      <p>There is one scenario where SDD applies to government-related entities: when the entity itself is a publicly listed company on a regulated exchange in a FATF-compliant jurisdiction, or when the entity is a regulated financial institution subject to equivalent AML obligations. A sovereign wealth fund that is not listed and operates in a jurisdiction with elevated FATF risk does not qualify for SDD. The SDD carve-out for government bodies applies to the government itself as a counterparty in low-risk, transparent transactional relationships — not to sovereign funds managing hundreds of billions in global investments.</p>
+      <p>Under Regulation 37(3), being a public administration or publicly owned enterprise, a listed company on a regulated market, or a regulated and supervised financial institution, is a lower-risk factor to weigh in the SDD determination, not an automatic simplified-due-diligence class. A sovereign wealth fund that is not itself listed or regulated, and that operates in connection with a jurisdiction carrying elevated risk, does not present the lower-risk profile Regulation 37(3) is pointing to, so the risk-based case for SDD is weak here regardless of the entity being government-owned. SDD can never cure an unresolved identity or beneficial-ownership verification requirement, it only ever adjusts how much verification effort is proportionate once identification itself is sound.</p>
 
       <div class="callout callout-red">
         <strong>The Prestige Trap</strong>
-        <p>Sovereign wealth funds represent enormous commercial opportunity. The institutional prestige of onboarding a government fund can cause firms to apply lighter scrutiny than they would to a private offshore structure of identical risk profile. This is a documented regulatory failure mode. The FATF mutual evaluation process has cited exactly this pattern in multiple jurisdictions.</p>
+        <p>Sovereign wealth funds represent enormous commercial opportunity. The institutional prestige of onboarding a government fund can cause firms to apply lighter scrutiny than they would to a private offshore structure of identical risk profile, a bias practitioners and regulators widely recognise as a risk in high-value relationships generally. Guard against it deliberately: risk rating should track the structure's actual risk profile, not the prestige of the counterparty.</p>
       </div>
 
       <!-- DILEMMA 6 -->
@@ -1002,7 +994,7 @@
           </button>
           <button class="dilemma-option" onclick="showVerdict('d6','correct',this)">
             <span class="opt-label">C</span>
-            <span>Senior management approval is legally required under Regulation 35 of the UK MLRs 2017 for any business relationship involving a PEP. This means board-level or equivalent sign-off — not just MLRO or Head of Compliance. Additionally, ongoing enhanced monitoring and senior approval for each significant transaction is required for the life of the relationship.</span>
+            <span>Senior management approval is legally required under Regulation 35(5)(a) of the UK MLRs 2017 before establishing or continuing a business relationship with a PEP. "Senior management" under Reg 3 is defined by sufficient knowledge of the firm's risk exposure and sufficient authority to act on it, not by job title or board membership, though for a relationship of this scale that bar will typically sit high in the organisation. Regulation 35(5) also requires establishing source of wealth and source of funds, and ongoing enhanced monitoring of the relationship for its duration.</span>
           </button>
           <button class="dilemma-option" onclick="showVerdict('d6','partial',this)">
             <span class="opt-label">D</span>
@@ -1040,7 +1032,7 @@
       </div>
 
       <div class="quiz-q" id="qq2">
-        <div class="quiz-q-text">2. Under UK MLRs 2017, what is the UBO ownership threshold that triggers identification and verification?</div>
+        <div class="quiz-q-text">2. Under UK MLRs 2017 Reg 5, what is the ownership/voting-rights threshold on the ownership limb of the beneficial-owner test (the separate control limb has no percentage threshold)?</div>
         <div class="quiz-opts">
           <button class="quiz-opt" onclick="answerQuiz('qq2','A','C')">A — 10%</button>
           <button class="quiz-opt" onclick="answerQuiz('qq2','B','C')">B — 20%</button>
@@ -1088,7 +1080,7 @@
         <div class="quiz-opts">
           <button class="quiz-opt" onclick="answerQuiz('qq6','A','C')">A — SDD — government entities are explicitly low risk under FATF guidance</button>
           <button class="quiz-opt" onclick="answerQuiz('qq6','B','C')">B — Standard CDD — the fund is a regulated institutional investor</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq6','C','C')">C — EDD — PEP exposure at the controlling level is systemic and mandatory EDD applies</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq6','C','C')">C — EDD — the fund's directors and controlling ministers individually meet the PEP definition, which triggers EDD under Regulation 33</button>
           <button class="quiz-opt" onclick="answerQuiz('qq6','D','C')">D — No due diligence required — sovereign immunity applies to state entities</button>
         </div>
         <div class="quiz-feedback" id="qq6-fb"></div>
@@ -1209,7 +1201,7 @@ const verdicts = {
   d1: {
     correct: {
       title: '✅ Correct — SDD with documented exception',
-      body: 'Option B is technically more defensible but option C is the correct risk-based approach for a genuinely low-risk individual where identity is verified but address is incomplete. Under a risk-based approach, SDD can be applied where the customer is demonstrably low risk and the identification gap is documented with a remediation plan. Key: you must record the gap, set a timeframe for resolution, and not leave it open indefinitely. The common mistake is treating address verification as binary — it is a risk factor to be managed, not an absolute gate for low-risk individuals.',
+      body: 'Option B is technically more defensible but option C is the correct risk-based approach for a genuinely low-risk individual whose core identity, name and date of birth, is independently verified from the passport, with only the address element of CIP still open. SDD does not cure an unresolved identity verification requirement, it never substitutes for verifying who the customer actually is, but a documented, time-bound address gap on an otherwise identity-verified low-risk individual is a risk factor to manage under SDD, not an identity verification failure. Key: you must record the gap, set a timeframe for resolution, and not leave it open indefinitely. The common mistake is treating address verification as binary — it is a risk factor to be managed, not an absolute gate for low-risk individuals.',
       hint: 'The risk-based approach allows flexibility where identity is clear and risk is genuinely low.'
     },
     wrong: {
@@ -1243,12 +1235,12 @@ const verdicts = {
   d3: {
     correct: {
       title: '✅ Correct — Halt. No exceptions.',
-      body: 'A PSC holding 26% is above the 25% threshold that triggers mandatory UBO identification under UK MLRs 2017. Commercial urgency does not create a regulatory exemption. The correct call is to halt onboarding, explain the legal requirement clearly to the directors, and set a firm deadline for the third PSC to provide the required KYC documents. The "forgot to mention" explanation warrants scrutiny — it is a yellow flag that should be noted in the file. If the directors withdraw the application rather than provide the information, that itself is a potential indicator of suspicion that should be considered for SAR purposes.',
+      body: 'A PSC register entry showing 26% is strong evidence this individual crosses the ownership/voting-rights limb of the MLR 2017 Reg 5 beneficial-owner test (over 25%), independently of whether they also meet the control limb. PSC status is a related but legally distinct register from MLR beneficial ownership, so treat it as evidence to act on, not as an automatic substitute for the Reg 5 test. Commercial urgency does not create a regulatory exemption. The correct call is to halt onboarding, explain the legal requirement clearly to the directors, and set a firm deadline for the third PSC to provide the required KYC documents. The "forgot to mention" explanation warrants scrutiny — it is a yellow flag that should be noted in the file. If the directors withdraw the application rather than provide the information, that itself is a potential indicator of suspicion that should be considered for SAR purposes.',
       hint: 'Urgency is a pressure tactic, not a compliance exemption. The 25% threshold is a hard rule.'
     },
     wrong: {
       title: '❌ Incorrect',
-      body: 'Option A (accept the explanation and defer) and Option B (open immediately) both create a documented compliance failure. You know a PSC exists. You know they have not been verified. Opening the account in either scenario means you have knowingly onboarded a customer with an unresolved UBO — which is a breach of MLR 2017 that the FCA has fined firms for repeatedly.',
+      body: 'Option A (accept the explanation and defer) and Option B (open immediately) both create a documented compliance failure. You know a PSC exists. You know they have not been verified. Opening the account in either scenario means you have knowingly onboarded a customer with an unresolved UBO — which is a breach of MLR 2017. Weak or incomplete customer due diligence at onboarding is a recurring theme in FCA enforcement, most recently in the FCA\'s £21.1 million fine against Monzo Bank Ltd (July 2025) for failing to design and maintain adequate customer onboarding, risk assessment, and transaction monitoring systems.',
       hint: 'A known, unresolved UBO is not a documentation gap — it is a breach of your legal obligation.'
     },
     partial: {
@@ -1276,36 +1268,36 @@ const verdicts = {
   },
   d5: {
     correct: {
-      title: '✅ Correct — MLRO escalation, possible DAML SAR',
-      body: 'An unverifiable partner organisation in a FATF high-risk jurisdiction that is receiving charitable funds is one of the most documented terrorist financing typologies in FATF and NCA guidance. This is not a CDD decision or even an EDD decision at analyst level — it is an MLRO decision. The MLRO needs to assess whether the circumstances give rise to knowledge or suspicion of terrorist financing. If they do, a Defence Against Money Laundering (DAML) SAR must be filed with the NCA before any funds are sent, and the firm must await the NCA\'s response before proceeding. Proceeding without that analysis creates personal criminal liability for those involved.',
+      title: '✅ Correct — MLRO escalation, possible DATF request',
+      body: 'An unverifiable recipient in a high risk jurisdiction is a terrorist financing risk indicator, but it does not automatically establish statutory suspicion. Escalating to the MLRO is sound internal practice, but the disclosure duties below fall on the relevant person under the Terrorism Act 2000, not solely on the MLRO role, so internal escalation does not by itself discharge individual statutory exposure. The MLRO should assess and document whether the facts create suspicion or belief that identified money or other property is terrorist property, and whether a disclosure is required under section 19 or, within the regulated sector, section 21A of the Terrorism Act 2000. If the firm intends to make a specified payment and doing so would risk an offence under sections 15 to 18, it should request a Defence Against Terrorist Financing under section 21ZA before making that payment. If relying on section 21ZA, the payment must not be made unless the UKFIU expressly grants the defence or the seven working day notice period expires without refusal. If the request is refused, there is no POCA style moratorium for a DATF and no defence exists unless and until the UKFIU grants it. Proceeding without satisfying the applicable provisions may expose those involved to criminal liability.',
       hint: 'Unverifiable fund recipients in high-risk jurisdictions are a terrorist financing red flag requiring MLRO assessment.'
     },
     wrong: {
       title: '❌ Incorrect',
-      body: 'Option A (accept and monitor) is the most common and most dangerous response to this scenario. Post-onboarding monitoring does not address the known risk of an unverifiable counterparty — it simply creates evidence that funds were sent after you knew the recipient could not be verified. Option D (automatic rejection) is procedurally clean but misses the MLRO obligation: the circumstances may require a SAR regardless of whether you onboard, and rejecting without a SAR analysis could itself be a failure to report.',
+      body: 'Option A (accept and monitor) is the most common and most dangerous response to this scenario. Post-onboarding monitoring does not address the known risk of an unverifiable counterparty — it simply creates evidence that funds were sent after you knew the recipient could not be verified. Option D (automatic rejection) is procedurally clean but misses the statutory reporting obligation: the circumstances may require a SAR regardless of whether you onboard, and rejecting without a SAR analysis could itself be a failure to report.',
       hint: 'Knowing and rejecting without SAR analysis is not always the right answer either.'
     },
     partial: {
       title: '🟡 Pragmatic — but it sidesteps the core obligation',
-      body: 'Option B (block the Libya partner, allow Lebanon and Jordan) is commercially pragmatic and operationally possible. However, it does not address the underlying MLRO obligation: if the circumstances give rise to suspicion of terrorist financing, a SAR analysis is required regardless of whether the Libya payments are blocked. You may end up needing to file a SAR on the charity even if you only onboard them for the lower-risk jurisdictions.',
+      body: 'Option B (block the Libya partner, allow Lebanon and Jordan) is commercially pragmatic and operationally possible. However, it does not address the underlying statutory reporting obligation: if the circumstances give rise to suspicion of terrorist financing, a SAR analysis is required regardless of whether the Libya payments are blocked. You may end up needing to file a SAR on the charity even if you only onboard them for the lower-risk jurisdictions.',
       hint: 'Restricting a relationship does not replace the obligation to assess whether a SAR is required.'
     }
   },
   d6: {
     correct: {
-      title: '✅ Correct — Board-level senior management approval, mandatory',
-      body: 'Regulation 35 of the UK MLRs 2017 is explicit: before entering into or continuing a business relationship with a PEP, or immediately after a customer becomes a PEP during the relationship, senior management approval is required. The regulation does not define "senior management" as MLRO or Head of Compliance — it means a member of senior management at board level or equivalent. For a relationship involving systemic PEP exposure at the controlling level of a $340 billion fund, this means board sign-off is the correct interpretation. Additionally, ongoing enhanced monitoring of the relationship and senior management approval for each significant transaction are required for the life of the relationship under Reg 35(3).',
+      title: '✅ Correct — Senior management approval under Reg 35, mandatory',
+      body: 'Regulation 35(5)(a) of the UK MLRs 2017 is explicit: before entering into or continuing a business relationship with a PEP, senior management approval is required. Regulation 3 defines "senior management" by sufficient knowledge of the firm\'s money laundering and terrorist financing risk exposure and sufficient authority to act on it, not by job title, so it is not automatically the MLRO, the Head of Compliance, or the board, whoever in the firm meets that knowledge-and-authority test is senior management for this purpose. For a relationship where the fund\'s directors and controlling ministers individually meet the PEP definition, in practice that bar will sit high in the organisation. Regulation 35(5) also requires establishing source of wealth and source of funds, plus ongoing enhanced monitoring of the relationship for its duration, it does not require fresh senior management approval for every subsequent transaction.',
       hint: 'Regulation 35 MLRs 2017 — senior management approval for PEPs is a legal requirement, not a best practice.'
     },
     wrong: {
       title: '❌ Incorrect',
-      body: 'Option A (Head of Compliance) and Option B (MLRO alone) both under-calibrate the seniority of approval required by Regulation 35. The EDD file being thorough satisfies the documentation obligation but not the approval obligation — these are separate requirements. Neither the MLRO nor the Head of Compliance is "senior management" for the purposes of Regulation 35 in most firms, unless they sit on the board. This is a documented area of regulatory misapplication.',
+      body: 'Option A (Head of Compliance) and Option B (MLRO alone) both assume that job title settles the question. The EDD file being thorough satisfies the documentation obligation but not the approval obligation under Regulation 35(5)(a) — these are separate requirements. Regulation 3 defines "senior management" by sufficient knowledge of the firm\'s risk exposure and sufficient authority to act on it, not by job title, so the MLRO or Head of Compliance could in principle satisfy that test in a given firm\'s structure, but approving in that capacity without demonstrating the requisite knowledge and authority for a relationship of this scale is a common area of regulatory misapplication.',
       hint: 'EDD documentation and senior management approval are two separate regulatory requirements under Regulation 35.'
     },
     partial: {
-      title: '🟡 The DAML SAR instinct is wrong here',
-      body: 'A DAML SAR is filed when you have knowledge or suspicion of money laundering or terrorist financing and you want to proceed with a transaction. It is not a precautionary filing for a relationship that has passed EDD scrutiny. Filing an unnecessary DAML SAR when you have no grounds for suspicion is a misuse of the SAR regime and burdens the NCA with noise. The correct additional step here is senior management approval under Regulation 35, not a precautionary SAR.',
-      hint: 'SARs are filed on grounds of suspicion, not as precautionary compliance cover.'
+      title: '🟡 The precautionary defence-request instinct is wrong here',
+      body: 'A DAML and a DATF are parallel defence requests under different statutes, not precautionary compliance approvals. A DAML concerns a specified future act involving property known or suspected to be criminal property where the act risks an offence under sections 327 to 329 of POCA. A DATF concerns a specified future transaction or arrangement involving money or other property suspected or believed to be terrorist property where proceeding risks an offence under sections 15 to 18 of the Terrorism Act 2000. Neither request is justified merely because a relationship is high risk or has undergone EDD, completing EDD does not itself establish that no suspicion exists, suspicion has to be assessed separately. On the stated facts, if there is no relevant suspicion and no specified proposed act requiring a defence, the additional requirement is senior management approval under Regulation 35, not a precautionary defence request.',
+      hint: 'DAMLs and DATFs are sought on grounds of suspicion tied to a specified act, not as precautionary compliance cover.'
     }
   }
 };
@@ -1346,11 +1338,11 @@ function showVerdict(dilemmaId, type, btn) {
 // QUIZ LOGIC
 const quizFeedback = {
   qq1: { correct: 'B', fb: 'A sole trader is a natural person — no separate legal entity exists regardless of trading name, employees, or turnover. KYC applies.' },
-  qq2: { correct: 'C', fb: '25% is the international FATF standard, implemented in UK MLRs 2017. Some jurisdictions set it lower, but 25% is the baseline.' },
+  qq2: { correct: 'C', fb: '25% is the ownership/voting-rights limb of the UK MLR 2017 Reg 5 beneficial-owner test, illustrative under FATF\'s Interpretive Note to Recommendation 10 rather than a fixed global rule. Reg 5\'s separate control limb catches anyone who exercises ultimate control over management even below 25% ownership, with no percentage threshold of its own.' },
   qq3: { correct: 'B', fb: 'Regulation 35 MLRs 2017 specifically governs PEP relationships and requires senior management approval before establishing or continuing the relationship.' },
   qq4: { correct: 'C', fb: 'For charities, the equivalent obligation is to identify and verify senior managing officials — the trustees. There are no shareholders or beneficial owners in the corporate sense.' },
   qq5: { correct: 'B', fb: 'UBO identification and verification must be completed before the account is opened. There is no regulatory provision for post-opening UBO completion.' },
-  qq6: { correct: 'C', fb: 'PEP exposure at the controlling level of a sovereign fund is systemic. EDD is mandatory under Regulation 33 MLRs 2017, and senior management approval under Regulation 35 is required before proceeding.' }
+  qq6: { correct: 'C', fb: 'The fund\'s directors, board members, and controlling ministers individually meet the PEP definition. That PEP status triggers mandatory EDD under Regulation 33 MLRs 2017 for each of them, with the specific PEP measures, senior management approval, source of wealth, and enhanced ongoing monitoring, set out separately in Regulation 35.' }
 };
 
 function answerQuiz(questionId, chosen, correct) {

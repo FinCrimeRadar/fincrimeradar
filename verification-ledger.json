@@ -2993,6 +2993,478 @@
     "location": "aml-guide-part1.html, fintech/EMI FAQ"
   },
   {
+    "claimId": "kyc-onboarding-dilemma.mlr-reg5-two-limb-ubo-test.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "MLR 2017 Regulation 5 sets two separate beneficial-owner limbs for a body corporate, not one blended test: an individual who owns or controls more than 25% of shares or voting rights, or an individual who exercises ultimate control over management; either limb independently qualifies. FATF Interpretive Note to Recommendation 10 treats 25% as an illustrative example threshold, not a global rule. A Companies House PSC register entry is a related but legally distinct concept from MLR beneficial ownership.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 5 (Meaning of beneficial owner)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/5",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Archetype 3 KYB checklist, the Ownership OR Control callout, Dilemma 3 verdict, quiz Q2 and feedback"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.mlr-reg6-trust-beneficiary-class.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "MLR 2017 Regulation 6 defines a trust beneficial owner as each of: the settlor, the trustees, the beneficiaries, where individuals benefiting from the trust have not been determined, the class of persons in whose main interest the trust operates, and any individual with control over the trust. It does not require naming every individual beneficiary as a precondition for EDD.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 6 (Beneficial owner: trusts)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/6",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Archetype 4 (Greystone/BVI trust) EDD paragraph and Archetype 5 charity UBO section"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.fatf-grey-list-bvi-libya-lebanon.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "As of the FATF June 2026 plenary, the British Virgin Islands and Lebanon are on the FATF list of jurisdictions under increased monitoring (grey list); Libya is not on either the grey list or the black list. No FATF/OFSI joint corporate-opacity monitoring list exists.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Black and grey lists (FATF jurisdictions under increased monitoring, June 2026 plenary outcomes)",
+      "url": "https://www.fatf-gafi.org/en/countries/black-and-grey-lists.html",
+      "publisher": "Financial Action Task Force (FATF)",
+      "date": "2026-06-19"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2026-12-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Archetype 4 EDD paragraph, Archetype 5 ownership tree and EDD-triggers paragraph",
+    "note": "Fast-refresh reviewDue set to 4 months given FATF grey list changes at each plenary (next plenary expected around October 2026)."
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.terrorism-act-datf-not-daml.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "The UKFIU describes a request for a defence against terrorist financing under section 21ZA of the Terrorism Act 2000 as a Defence Against Terrorist Financing, or DATF. This is operationally distinct from a Defence Against Money Laundering under POCA. Section 21ZA remains headed 'Arrangements with prior consent' and continues to use consent terminology. Current NCA guidance treats DATF and prior consent as equivalent descriptions, although granted letters now use defence terminology.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "UKFIU Chapter 3: Understanding DAMLs and DATFs (December 2025, version 1.1); Terrorism Act 2000 s.21ZA",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/776-ukfiu-chapter-3-understanding-damls-and-datfs/file",
+      "publisher": "National Crime Agency (NCA); legislation.gov.uk (s.21ZA text)",
+      "date": "2025-12-01"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Dilemma 5 option C and correct verdict (line 900, 1272), Dilemma 5 wrong and partial verdicts (line 1277, 1282), Dilemma 6 partial verdict (line 1299)",
+    "note": "Round 2 correction (2026-08-20), following external Codex regulatory review of the round-1 diff. Round 1 fixed the wrong-statute error (DAML vs DATF). Round 2 fixed three further defects in the corrected text: an inverted deemed-consent mechanism (s.21ZA is a 7-working-day deemed-consent regime, not an 'await the NCA's response' approval-only model), a misstated suspicion threshold (conflated general suspicion with the specific statutory suspicion re criminal/terrorist property, and omitted the specified-act requirement), and an overstated automatic-DATF-on-suspicion framing. Also corrected an exclusive-MLRO-obligation framing across 3 locations, ss.19/21A/21ZA duties fall on the relevant person, not solely the MLRO role."
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.mlr-reg37-sdd-risk-factors.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "MLR 2017 Regulation 37(3) lists factors, including being a public administration or publicly owned enterprise, a listed company on a regulated market, or a regulated/supervised financial institution, to weigh in determining whether simplified due diligence is appropriate. These are lower-risk factors in a risk-based determination, not automatic SDD classes; the presence of one factor does not itself establish low risk.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 37 (Application of simplified customer due diligence)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/37",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Archetype 6 'SDD for listed governments' section and Dilemma 1 correct verdict"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.mlr-reg35-reg3-senior-management.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "MLR 2017 Regulation 35(5)(a) requires senior management approval before establishing or continuing a PEP business relationship, plus (under 35(5)) source of wealth/funds measures and ongoing enhanced monitoring; it does not require fresh senior management approval for every subsequent significant transaction. Regulation 3 defines \"senior management\" functionally, an officer or employee with sufficient knowledge of the firm's ML/TF risk exposure and sufficient authority to take decisions affecting it, not by job title or board membership.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 35 (PEPs) and Regulation 3 (General interpretation, definition of senior management)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Dilemma 6 option C and correct/wrong verdicts, quiz Q3"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.mlr-reg33-pep-edd-trigger.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "MLR 2017 Regulation 33 lists PEP status (along with high-risk third countries, complex/unusually large transactions, and other risk-assessment-flagged cases) as an EDD trigger; the specific enhanced PEP measures, senior management approval, source of wealth/funds, enhanced monitoring, are then set out separately in Regulation 35. A sovereign fund's EDD requirement rests on named individuals (directors, controlling ministers) meeting the PEP definition, not on an abstract \"systemic\" characterisation of the entity.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 33 (Enhanced customer due diligence)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Archetype 6 ownership tree, Dilemma 6 verdicts, quiz Q6 and feedback"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.fca-monzo-final-notice-2025.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "The FCA fined Monzo Bank Ltd £21,091,300 (7 July 2025) for failing to design, implement and maintain adequate customer onboarding, customer risk assessment, and transaction monitoring systems, including onboarding customers on the basis of limited or implausible information.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "FCA fines Monzo £21m for failings in financial crime controls",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-fines-monzo-21m-failings-financial-crime-controls",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "kyc-onboarding-dilemma.html, Dilemma 3 wrong verdict"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.original-stat-3-8bn-aml-fines.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "Original, since-removed claim: \"£3.8bn global AML fines in 2024, many linked to onboarding failures.\" No primary source could be found supporting this figure or its onboarding-failure attribution. Removed rather than retained as an estimate, no identifiable dataset to estimate from.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.original-stat-68pct-sar-cdd.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "Original, since-removed claim: \"68% of SAR reporters cite inadequate CDD at onboarding as a root cause.\" No primary source could be found supporting this figure. Removed rather than retained as an estimate, no identifiable dataset to estimate from.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "kyc-onboarding-dilemma.original-fatf-prestige-trap-claim.001",
+    "guide": "kyc-onboarding-dilemma.html",
+    "claimText": "Original, since-reworded claim: \"This is a documented regulatory failure mode. The FATF mutual evaluation process has cited exactly this pattern in multiple jurisdictions.\" No specific, findable FATF Mutual Evaluation Report finding could be located to support this precise claim. Reworded to honest framing (a widely recognised risk, not a cited FATF finding) rather than retained as an estimate, the original claim asserted a specific evidentiary source that could not be located, not a numeric estimate.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "pep-guide-part2.mlr-reg35-5-three-limbs.001",
+    "guide": "pep-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 35(5) sets out three statutory EDD measures for PEP relationships, not four: (a) senior management approval, (b) adequate measures to establish source of wealth and source of funds (one combined limb), and (c) enhanced ongoing monitoring once the relationship is entered into. A guide teaching four practical steps for analysts (splitting SoW and SoF into two) is legitimate operational guidance but must not be labelled as four statutory measures.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 35(5) (Politically exposed persons)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "pep-guide-part2.html, Overview section intro paragraph and the four-step practical checklist"
+  },
+  {
+    "claimId": "pep-guide-part2.mlr-reg35-5a-reg3-senior-management.001",
+    "guide": "pep-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 35(5)(a) requires senior management approval for establishing OR continuing a PEP business relationship, not only at initial onboarding. Regulation 3 defines 'senior management' functionally (sufficient knowledge of the firm's ML/TF/PF risk exposure and sufficient authority to act on it), not by job title or board membership. FG25/3 (July 2025, para 2.13, Annex 1) confirms sign-off can sit at a lower level of seniority for lower-risk PEPs provided the signatory meets the Reg 3 test and the decision is documented; it does not require board-level sign-off.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 35(5)(a) and Regulation 3 (senior management definition); FCA FG25/3 Annex 1, paras 2.12-2.14",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk; Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "pep-guide-part2.html, Section 03 'Senior management approval' (intro paragraph and seniority-tier list), and the 'FG25/3 change' callout (line 522), corrected 2026-08-20 to state the sign-off-flexibility principle as risk-based generally rather than scoped to domestic PEPs specifically.",
+    "note": "Extended 2026-08-20 (seventh correction, same session): the FG25/3 callout at line 522 previously scoped MLRO sign-off flexibility to 'domestic PEPs' specifically. Re-checked against the FG25/3 PDF already fetched for this entry (para 2.13, Annex 1 sign-off section): the flexibility is framed as a general risk-based principle for lower-risk PEP relationships, not restricted to the domestic PEP category. Callout corrected to match."
+  },
+  {
+    "claimId": "pep-guide-part2.mlr-reg35-5c-enhanced-monitoring-citation.001",
+    "guide": "pep-guide-part2.html",
+    "claimText": "Enhanced ongoing monitoring of a PEP relationship is required under MLR 2017 Regulation 35(5)(c), once the business relationship is entered into. There is no sub-paragraph (d) in this limb structure; the guide previously cited 35(5)(d), a direct citation error.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 35(5)(c) (Politically exposed persons)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/35",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "pep-guide-part2.html, Section 04 'Enhanced ongoing monitoring of PEP relationships'"
+  },
+  {
+    "claimId": "pep-guide-part2.poca-333a-tipping-off-elements.001",
+    "guide": "pep-guide-part2.html",
+    "claimText": "POCA s.333A(3) tipping off requires a disclosure that a report/qualifying disclosure has been made, or that an investigation is being contemplated or carried out, where that disclosure is likely to prejudice any investigation that might follow, and the information came to the discloser in the course of business in the regulated sector. Account closure alone, with no accompanying disclosure, does not automatically satisfy the disclosure element, though closing an account together with a SAR-referencing explanation, or in a manner that lets the customer infer the reason, can.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 s.333A(3) (tipping off: regulated sector)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "pep-guide-part2.html, Section 06 'Exiting PEP relationships', tipping-off-on-exit paragraph"
+  },
+  {
+    "claimId": "pep-guide-part2.fg25-3-unable-to-apply-pep-edd.001",
+    "guide": "pep-guide-part2.html",
+    "claimText": "FG25/3 (Annex 1, page 10): 'If, having assessed the risk and decided on an appropriate level of enhanced due diligence measures in line with this guidance, a firm is unable to apply those measures, a firm needs to comply with the requirement not to establish, or to terminate, a business relationship.' This is the PEP-specific outcome for inability to apply EDD; it is distinct from MLR 2017 Regulation 31, which concerns inability to apply Regulation 28 customer due diligence generally, not PEP-specific EDD under Regulation 35.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA FG25/3, The treatment of politically exposed persons for anti-money laundering purposes, Annex 1 (Final Guidance), page 10",
+      "url": "https://www.fca.org.uk/publication/finalised-guidance/fg25-3.pdf",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2025-07-07"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "pep-guide-part2.html, FAQ 'What if the PEP refuses to provide source of wealth information?'"
+  },
+  {
+    "claimId": "pep-guide-part2.original-one-line-approval-fca-claim.001",
+    "guide": "pep-guide-part2.html",
+    "claimText": "Original claim: 'A one-line approval note is unlikely to satisfy the FCA.' No traceable named FCA guidance or enforcement source could be found stating this specifically. Reworded to explicit editorial framing ('In our editorial view, a one-line approval note is unlikely to stand up to scrutiny') rather than an implied sourced FCA position. The underlying documentation-quality point is retained as editorial guidance, not removed, since it is a reasonable practitioner inference from the general 'genuinely engaged with the risk' documentation expectation, not a numeric or factual claim needing an estimate label.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove",
+    "note": "Logged as unverifiable-remove for the specific sourced-FCA-claim framing that was removed, not for the editorial sentence itself, which remains on the page reworded."
+  },
+  {
+    "claimId": "sar-guide-part2.no-uk-cash-reporting-threshold.001",
+    "guide": "sar-guide-part2.html",
+    "claimText": "The UK has no statutory equivalent of the US Bank Secrecy Act's $10,000 Currency Transaction Report threshold, no fixed amount above which a bank must automatically report a cash transaction to authorities. UK AML relies on suspicion-based SAR reporting (no de minimis threshold) rather than automatic currency-transaction reporting; any 'cash reporting threshold' referenced in guide examples is the firm's own internal monitoring threshold, not a statutory figure. (Checked the one plausibly-confusable UK instrument, the Proceeds of Crime (Money Laundering) (Threshold Amount) (Amendment) Order 2025, SI 2025/877, which is the POCA s.339A ongoing-relationship threshold amount for DAML coverage, not a cash-transaction reporting threshold.)",
+    "claimType": "regulatory",
+    "source": {
+      "title": "General UK AML regime characterisation (suspicion-based SAR reporting, no CTR-style fixed threshold); The Proceeds of Crime (Money Laundering) (Threshold Amount) (Amendment) Order 2025 (SI 2025/877), ruled out as a candidate cash-reporting-threshold source",
+      "url": "https://www.legislation.gov.uk/uksi/2025/877",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sar-guide-part2.html, Section 03 'why it's suspicious' example bullet list, Section 04 Example 1 (already correctly worded, reference point), Section 06 SAR-writing checklist item"
+  },
+  {
+    "claimId": "sar-guide-part2.daml-causal-chain-poca-offence.001",
+    "guide": "sar-guide-part2.html",
+    "claimText": "Failing to seek a DAML does not itself constitute a POCA offence. The offence depends on the underlying act independently meeting the statutory elements of section 327, 328, or 329 POCA, with no defence or exemption applying. A DAML provides a defence to proceeding with an act that would otherwise risk one of those offences, it is not the source of the offence itself.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 ss.327-329 (money laundering offences) and s.335 (appropriate consent / DAML)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/327",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sar-guide-part2.html, Section 05 'The most common SAR mistakes', Mistake 05 'No DAML when needed'"
+  },
+  {
+    "claimId": "sar-guide-part2.poca-333b-333c-permitted-disclosures.001",
+    "guide": "sar-guide-part2.html",
+    "claimText": "POCA ss.333B and 333C are two separate, limited exceptions to the s.333A tipping-off offence, not one blended 'regulated sector, AML purpose' test. Section 333B permits specified disclosures within the same undertaking, within the same group of credit/financial institutions, or between professional advisers under common ownership/management/control. Section 333C permits disclosure between institutions or advisers of a matching type only (credit-to-credit, financial-to-financial, professional-to-professional of the same kind), and only where ALL of the following apply: a shared/former shared client or a transaction/service involving both parties; sole purpose of preventing a Part 7 POCA offence; recipient situated in the UK, an EEA state, or an equivalent-regime country; and equivalent duties of professional confidentiality and data protection.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 s.333B (permitted disclosures within an undertaking or group etc) and s.333C (other permitted disclosures between institutions etc)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333C",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "sar-guide-part2.html, FAQ 'Can we share information from one SAR with another reporting entity?'"
+  },
+  {
+    "claimId": "crypto-guide-part1.mlr-reg34a-correspondent-scope.001",
+    "guide": "crypto-guide-part1.html",
+    "claimText": "MLR 2017 Regulation 34A (inserted by regulation 20 of the Money Laundering and Terrorist Financing (Amendment) Regulations 2026, SI 2026/621, in force 1 February 2027) requires a cryptoasset exchange provider or custodian wallet provider (the 'correspondent') that has or proposes a correspondent relationship with a similar provider based in a third country (the 'respondent') to conduct enhanced due diligence: understanding the respondent's business, assessing its reputation and supervision quality from credible public sources, and assessing its AML/CTF controls, mirroring the Reg 33/34 correspondent banking EDD model. It is narrow, specified correspondent relationships with similar third-country providers, not a general rule about unhosted wallets or low-transparency jurisdictions.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (SI 2026/621), regulation 20, inserting MLR 2017 Regulation 34A",
+      "url": "https://www.legislation.gov.uk/uksi/2026/621/made",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2026-01-01"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-02-01",
+    "status": "verified",
+    "location": "crypto-guide-part1.html, Section 05 'kyc-angle', correspondent EDD paragraph",
+    "note": "reviewDue set to the 1 February 2027 commencement date rather than the usual +1 year, so this entry gets rechecked once the provision is actually in force."
+  },
+  {
+    "claimId": "crypto-guide-part1.mlr-duties-vs-sanctions-separate-regimes.001",
+    "guide": "crypto-guide-part1.html",
+    "claimText": "A registered cryptoasset business's MLR duties (risk assessment, CDD/EDD, transaction monitoring, staff training, SAR reporting) are MLR 2017 obligations whose exact application varies by the specific regulated activity performed. Sanctions and PEP screening are not MLR duties, they sit under UK financial sanctions law (a separate regime), and that obligation applies regardless of MLR registration status. The two should not be described as one blended set of 'core duties.'",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 (customer due diligence and reporting obligations) as distinct from UK financial sanctions legislation (e.g. Sanctions and Anti-Money Laundering Act 2018 and related regulations)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "crypto-guide-part1.html, Section 04 'The AML and sanctions obligations that sit underneath both regimes', intro paragraph"
+  },
+  {
+    "claimId": "crypto-guide-part1.original-unnamed-legal-commentary.001",
+    "guide": "crypto-guide-part1.html",
+    "claimText": "Original claim: 'recent FCA facing legal commentary describes perimeter uncertainty ... as something regulators increasingly treat as a governance and risk management issue.' No named source could be verified for this specific characterisation; candidate law-firm client-alert commentary found (BCLP, Freshfields, Mondaq, Lexology) is secondary, non-primary commentary, not relied on. Reworded to explicit editorial framing, with the FCA's real, dated CP26/13 consultation (15 April 2026, cryptoasset perimeter guidance, proposed new PERG Chapter 19) cited honestly for what it actually is, a live FCA effort to clarify perimeter scope, not as direct proof of the removed 'governance finding' characterisation, which CP26/13 does not itself state.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA CP26/13, Cryptoasset perimeter guidance",
+      "url": "https://www.fca.org.uk/publications/consultation-papers/cp26-13-cryptoasset-perimeter-guidance",
+      "publisher": "Financial Conduct Authority (FCA)",
+      "date": "2026-04-15"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "retained-as-estimate",
+    "note": "Logged as retained-as-estimate rather than unverifiable-remove because the underlying editorial point (perimeter uncertainty is worth treating seriously now) is retained on the page, reworded as opinion and paired with a real, correctly-characterised primary source (CP26/13), rather than removed outright."
+  },
+  {
+    "claimId": "crypto-guide-part1.mlr-part7a-travel-rule-mechanism.001",
+    "guide": "crypto-guide-part1.html",
+    "claimText": "MLR 2017 Part 7A does not gate on a monetary threshold. (1) Perimeter: Part 7A applies only to a 'cryptoasset transfer' as defined in Reg 64B, either a transfer between cryptoasset businesses or an unhosted wallet transfer as there defined. (2) Exclusions, not threshold-based: Reg 64A(2) excludes transfers within Article 3.9 of the funds transfer regulation; Reg 64A(3) excludes transfers where both originator and beneficiary are cryptoasset businesses acting on their own behalf. (3) Universal base requirement: Reg 64C(1) and (5) require the originator's business to attach both parties' names, registered/trading name for any party that is a firm, and account numbers or a unique transaction identifier for both originator and beneficiary, with no monetary threshold; the transfer must not proceed without it (Reg 64C(9)); a narrow batch-file exception under Reg 64C(7) lets qualifying transfers to a beneficiary business wholly outside the UK carry this information at the batch level. (4) Additional (paragraph 6) information runs on two separate routes: Reg 64C(2), no threshold, applies where every executing business operates in the UK and the beneficiary's business requests it (3 working day response); Reg 64C(4) applies where not every executing business is UK-based, and requires the extra information once the transfer, aggregated with linked transfers, meets or exceeds £800 (amended from EUR 1,000 by SI 2026/621 reg 32, effective 30 June 2026); for an individual originator, paragraph (6) is alternatives (customer ID number, address, identity document number, or date/place of birth), not a cumulative list. (5) Unhosted wallet transfers run under a separate rule, Reg 64G, with their own £800 threshold (amended from EUR 1,000 by the same SI 2026/621, reg 33) for enhanced information, distinct from the Reg 64C(4) threshold.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Part 7A (regs 64A-64H); Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (SI 2026/621), regs 32 and 33 (threshold amendments, effective 30 June 2026)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/part/7A",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "crypto-guide-part1.html, Section 04 flow-steps diagram (5 steps), the paragraph immediately following it, and the FAQ 'What is the single most crypto specific AML obligation...'",
+    "note": "This claim replaces the guide's original central mechanism error (a single value threshold gating whether Part 7A applies at all) with the verified statutory structure. Confirmed via direct legislation.gov.uk fetches of Part 7A, Reg 64C, and SI 2026/621 regs 1 (commencement), 32, and 33, plus an independent external Codex regulatory review of the correction before it was written, which surfaced the Reg 64B perimeter definition, the Reg 64C(7) batch-file exception, the Reg 64C(2) no-threshold route, and the separate Reg 64G(1)(b) threshold, none of which were in the original audit brief. Checked crypto-travel-rule-sunrise-guide.html (a related, separately-sourced guide covering the EU TFR regime, not UK MLR Part 7A) for the same error: not present, that guide already correctly distinguishes 'no threshold for data transmission' from 'EUR 1,000 verification trigger' for its own (EU) mechanism."
+  },
+  {
+    "claimId": "ubo-investigation-handbook.cjeu-2022-eu-register-access.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "The CJEU's 22 November 2022 judgment (Joined Cases C-37/20 and C-601/20, WM and Sovim SA v Luxembourg Business Registers) invalidated unrestricted public access to EU beneficial ownership registers. Reaction was fast: Luxembourg, Austria, Belgium, the Netherlands, and Malta among others restricted or suspended public access within days; most other member states followed within months. Italy's register spent years suspended after the ruling and only began a phased reopening in 2026 under a new tiered access model, following a further, Italy-specific CJEU judgment (21 May 2026) and an implementing decree (Legislative Decree No. 210 of 31 December 2025, in force January 2026; definitive implementing decree 4 June 2026).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "CJEU Joined Cases C-37/20 and C-601/20 (22 November 2022); reporting on member state reactions (BDO, AKD, eucrim); Italy-specific 2026 developments (LCA Studio Legale, Belluzzo International Partners)",
+      "url": "https://eucrim.eu/news/cjeu-no-unrestricted-access-to-data-of-beneficial-owners/",
+      "publisher": "Court of Justice of the European Union; secondary legal commentary corroborating member-state reactions",
+      "date": "2022-11-22"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-02-20",
+    "status": "retained-as-estimate",
+    "note": "Core CJEU ruling and date are primary-sourced and solid. Member-state reaction speed and Italy's current 2026 status are corroborated only via secondary legal commentary, not directly fetched primary sources (Italian Gazzetta Ufficiale, Council of State docket), and Italy's position is still actively moving (formally suspended pending a Council of State decision even after the June 2026 decree), so logged as retained-as-estimate with a short 6-month reviewDue rather than the usual 12 months, given how fast this specific fact pattern is still changing.",
+    "location": "ubo-investigation-handbook.html, intro section, CJEU/register-access paragraph"
+  },
+  {
+    "claimId": "ubo-investigation-handbook.eu-amlr-2024-1624-vs-amld6.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "The EU's substantive beneficial-ownership definition and threshold rules sit in Regulation (EU) 2024/1624 (the AML Regulation, 'AMLR'), directly applicable in all member states with no transposition needed, not in AMLD6 (Directive (EU) 2024/1640), which is a separate instrument governing national supervisory architecture, FIUs, and registers, requiring transposition by 10 July 2027. Regulation (EU) 2024/1624 Articles 51-54 set ownership (Article 52, 25% of shares/voting rights/other ownership interest) and control (Article 53) as two separate limbs, not one blended test. A lower ownership threshold (floor of 15%) can only be set by a future European Commission delegated act under Article 52(2) and Article 85, following an EU-wide risk assessment of higher-risk corporate entity categories due by 10 July 2029, not by individual member states with ad hoc Commission approval.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Regulation (EU) 2024/1624 of 31 May 2024 (AMLR), Articles 51-54, 85; Directive (EU) 2024/1640 of 31 May 2024 (AMLD6)",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj/eng",
+      "publisher": "EUR-Lex (Official Journal of the European Union)",
+      "date": "2024-05-31"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "ubo-investigation-handbook.html, intro section, UBO-percentage-precision paragraph"
+  },
+  {
+    "claimId": "ubo-investigation-handbook.us-cta-march-2025-exemption.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "The US Corporate Transparency Act's 25%-plus-substantial-control ownership test remains accurate in principle, but a FinCEN interim final rule (21 March 2025), made final in August 2026, exempts domestic US entities and US persons from CTA beneficial ownership reporting entirely. Only entities formed under foreign law and registered to do business in a US state or tribal jurisdiction remain reporting companies.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FinCEN, 'FinCEN Removes Beneficial Ownership Reporting Requirements for U.S. Companies and U.S. Persons, Sets New Deadlines for Foreign Companies' (21 March 2025); Federal Register final rule (14 August 2026)",
+      "url": "https://www.fincen.gov/news/news-releases/fincen-removes-beneficial-ownership-reporting-requirements-us-companies-and-us",
+      "publisher": "Financial Crimes Enforcement Network (FinCEN), US Department of the Treasury",
+      "date": "2025-03-21"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "ubo-investigation-handbook.html, intro section, UBO-percentage-precision paragraph"
+  },
+  {
+    "claimId": "ubo-investigation-handbook.original-six-country-threshold-catalogue.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "Original claim: a specific six-country beneficial-ownership threshold catalogue (India 10%, South Africa 5% for certain financial institutions, Nigeria 5%, Colombia 5%, Kenya 10%, Ghana 'all shareholders disclosed for domestic extractives regardless of stake'). Checked against available secondary sourcing: India (10%, Companies Act 2013 / 2018 SBO Rules), Nigeria (5%, CAMA Act), Colombia (5%, DIAN Resolution 000164 of 2021) and Kenya (10%) found reasonable secondary corroboration; South Africa's 'for certain financial institutions' qualifier could not be confirmed (FIC guidance appears to be a general lowered threshold, not sector-limited); Ghana's claim was found to be actively wrong against available sourcing (Ghana's actual structure is a risk-based tiered threshold, 5% for high-risk sectors and 20% for other sectors, under draft Companies Regulations Regulation 54, not a blanket 'all shareholders' rule for extractives). Given the mixed reliability and that even the corroborated figures rest on secondary commentary rather than directly-fetched primary legislation, the catalogue was removed rather than partially patched, per this item's own instructed fallback.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "ubo-investigation-handbook.control-limb-not-universal.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "A shareholder structured just under a jurisdiction's ownership threshold (e.g. 24.9%) but holding board appointment rights or an effective veto may be a beneficial owner in substance under a framework that includes an independent control limb (e.g. UK/EU). This is not a universal rule that applies regardless of a specific jurisdiction's own legal test, some frameworks may not recognise an independent control limb the same way.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "retained-as-estimate",
+    "note": "The underlying point (control matters beyond a bare ownership percentage) is well-supported for UK/EU frameworks specifically (see the Reg 5 / AMLR Article 53 entries elsewhere in this ledger), but a claim that this applies 'everywhere' across all national frameworks was not independently verified jurisdiction by jurisdiction and has been scoped down rather than asserted as universal."
+  },
+  {
+    "claimId": "ubo-investigation-handbook.open-ownership-psc-data-quality.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "Open Ownership and Tax Justice Network research (Jofre & Knobel, 'Insights from the United Kingdom's People with Significant Control Register,' 13 May 2025) found that roughly 20% of UK Companies House PSC entries name no individual beneficial owner at all, and separately documented cases of implausible aggregate ownership, including one instance of a single entity listing 41 beneficial owners whose declared voting rights summed to well over 100%.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Insights from the United Kingdom's People with Significant Control Register",
+      "url": "https://www.openownership.org/en/publications/insights-from-the-united-kingdoms-people-with-significant-control-register/",
+      "publisher": "Open Ownership, in collaboration with Tax Justice Network",
+      "date": "2025-05-13"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "ubo-investigation-handbook.html, 'The 100% Problem' memory card, Scenario 1 correct-verdict body, quiz Q1 option B, and quiz Q1 feedback"
+  },
+  {
+    "claimId": "ubo-investigation-handbook.original-open-ownership-further-20pct-100pct.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "Original claim: 'a further 20% show combined declared ownership exceeding 100%.' Checked against the actual Open Ownership/Tax Justice Network report (13 May 2025): the report documents implausible aggregate ownership as an illustrative case (one entity, 41 declared beneficial owners, combined voting rights well over 100%), not as a stated 20%-of-entries statistic. No source could be found supporting the specific '20%' figure for this claim. Removed and replaced with an honest description of the actual documented case.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "unverifiable-remove",
+    "note": "Found and corrected at four locations, not just the two originally flagged (394, 889): also repeated, unflagged, in quiz Q1's option B and Q1's feedback string, found via the ledger scan tool's automated candidate check after the initial manual consistency sweep missed them (the manual grep pattern used for this guide's sweep did not include 'Open Ownership' or '100%' terms). All four now consistently describe the actual documented case rather than the unverified '20%' figure."
+  },
+  {
+    "claimId": "ubo-investigation-handbook.mlr-reg6-1-d-beneficiary-class.001",
+    "guide": "ubo-investigation-handbook.html",
+    "claimText": "MLR 2017 Regulation 6(1) defines a trust's beneficial owner as each of: (a) the settlor, (b) the trustees, (c) the beneficiaries, (d) where individual beneficiaries have not been determined, the class of persons in whose main interest the trust is set up or operates, (e) any individual with control over the trust. Reg 6(1)(d) permits identifying the beneficiary class itself as the beneficial owner where individuals are undetermined, it does not always require naming every current class member individually; anyone actually currently receiving a benefit or distribution should still be individually identified.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 6 (Beneficial owner: trusts)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/6",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "ubo-investigation-handbook.html, Scenario 3 option C (line 641), quiz Q4 option B and feedback, quick-reference table 'Unnamed Class' row, Scenario 3 verdict title and body"
+  },
+  {
     "claimId": "screening-alerts-guide.line467-alert-count-units.001",
     "guide": "screening-alerts-guide.html",
     "claimText": "Illustrative example: at a 95% false positive rate, 10,000 alerts produce 9,500 false positive alerts. The remaining 500 alerts fall outside the false positive count. These are alert counts, not analyst hours. Converting them into time requires a stated average handling time.",

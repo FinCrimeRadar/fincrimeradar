@@ -423,7 +423,7 @@
         <div class="callout-icon">💡</div>
         <div class="callout-body">
           <div class="callout-title">Perimeter uncertainty is becoming a finding, not a grey area</div>
-          <div class="callout-text">As of this year, recent FCA facing legal commentary describes perimeter uncertainty, not knowing whether your firm's activity is in scope of the new regime, as something regulators increasingly treat as a governance and risk management issue, not a neutral grey area to sort out later. Treating this as tomorrow's problem is itself becoming today's finding.</div>
+          <div class="callout-text">In our view, perimeter uncertainty, not knowing whether your firm's activity is in scope of the new regime, is not a neutral grey area to sort out later, it is increasingly a governance and risk management issue in its own right. The FCA's April 2026 consultation on cryptoasset perimeter guidance (CP26/13) is itself a signal that firms are expected to reach a clear, defensible position on scope well ahead of the authorisation gateway opening, not treat classification as something to work out once enforcement pressure arrives. Treating this as tomorrow's problem is itself becoming today's finding.</div>
         </div>
       </div>
     </section>
@@ -458,31 +458,36 @@
     <section class="article-section" id="aml-sanctions-layer">
       <div class="section-num">Section 04</div>
       <h2>The AML and sanctions obligations that sit underneath both regimes</h2>
-      <p>A registered cryptoasset business carries the same core duties as any regulated firm: a business wide risk assessment, customer due diligence and enhanced due diligence where warranted, sanctions and PEP screening, ongoing transaction monitoring, staff training, and suspicious activity reporting, with an MLRO who genuinely understands cryptoassets, not a traditional finance background stretched thin to cover it.</p>
+      <p>A registered cryptoasset business carries the core MLR duties any MLR-regulated firm carries, though exactly how those duties apply varies by the specific regulated activity the firm performs: a business wide risk assessment, customer due diligence and enhanced due diligence where warranted, ongoing transaction monitoring, staff training, and suspicious activity reporting. Sanctions and PEP screening sit under a separate regime, UK financial sanctions law, not the MLRs, and that obligation applies regardless of MLR registration status. Either way, the firm needs an MLRO who genuinely understands cryptoassets, not a traditional finance background stretched thin to cover it.</p>
 
       <h3>The Travel Rule, the one obligation that is genuinely crypto specific</h3>
       <div class="flow-steps">
         <div class="flow-step">
           <div class="fs-dot" style="background:#dbeafe; color:#1e40af;">1</div>
-          <div class="fs-body"><h4>Customer initiates a cryptoasset transfer above the applicable threshold</h4><p>The transfer enters the regulated pathway once it clears the threshold at which the information requirement applies.</p></div>
+          <div class="fs-body"><h4>Part 7A only applies to a defined "cryptoasset transfer"</h4><p>Regulation 64B defines this narrowly: either a transfer between cryptoasset businesses, or an unhosted wallet transfer as defined there. Not every movement of a cryptoasset on a blockchain is a "cryptoasset transfer" for Part 7A purposes.</p></div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
           <div class="fs-dot" style="background:#dbeafe; color:#1e40af;">2</div>
-          <div class="fs-body"><h4>Originator information is attached to the transfer before it leaves</h4><p>Name and account identifier for the originator travel with the transfer itself, not separately after the fact.</p></div>
+          <div class="fs-body"><h4>Two transfer types are excluded entirely, not by value</h4><p>Regulation 64A(2) excludes transfers within Article 3.9 of the funds transfer regulation. Regulation 64A(3) excludes transfers where both the originator and the beneficiary are cryptoasset businesses acting on their own behalf. Neither exclusion depends on the transfer's value.</p></div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
           <div class="fs-dot" style="background:#dbeafe; color:#1e40af;">3</div>
-          <div class="fs-body"><h4>Receiving cryptoasset business must confirm it can identify the beneficiary</h4><p>The business on the receiving side has to be able to identify who is receiving the value.</p></div>
+          <div class="fs-body"><h4>Base originator and beneficiary information travels with every covered transfer, no threshold</h4><p>Regulation 64C(1) and (5) require the originator's business to attach both parties' names, the registered or trading name of any party that is a firm, and account numbers or a unique transaction identifier for both originator and beneficiary. No monetary threshold applies, and the transfer must not proceed without it. A narrow batch-file exception under Regulation 64C(7) lets qualifying transfers to a beneficiary business operating wholly outside the UK carry this information at the batch level instead of on every constituent transfer.</p></div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
-          <div class="fs-dot" style="background:#fee2e2; color:#991b1b;">4</div>
-          <div class="fs-body"><h4>If the counterparty is an unhosted wallet, there is no regulated party on the other end</h4><p>With no regulated business to exchange this information with, this is where most real friction sits.</p></div>
+          <div class="fs-dot" style="background:#dbeafe; color:#1e40af;">4</div>
+          <div class="fs-body"><h4>Extra verification-grade information runs on two separate routes, not one threshold</h4><p>If every cryptoasset business executing the transfer operates in the UK, the beneficiary's business can request the further Regulation 64C(6) information and must receive it within three working days, no threshold on this route (Reg 64C(2)). If not every executing business is UK-based, that further information must automatically accompany the transfer once it, aggregated with linked transfers, reaches £800 (Reg 64C(4), amended from EUR 1,000 by SI 2026/621 reg 32, effective 30 June 2026). For an individual originator, paragraph (6) asks for one of: a customer identification number, an address, an identity document number, or date and place of birth — alternatives, not a checklist to satisfy in full.</p></div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="fs-dot" style="background:#fee2e2; color:#991b1b;">5</div>
+          <div class="fs-body"><h4>Unhosted wallet transfers run under their own rule, with their own £800 threshold</h4><p>A transfer to or from an unhosted wallet is itself a defined "cryptoasset transfer" under Regulation 64B, not a gap in the regime. With no receiving business to exchange full Part 7A information with, Regulation 64G instead lets the firm request specified information from its own customer, with enhanced information required once the transfer meets £800 (Reg 64G(1)(b), amended from EUR 1,000 by the same SI 2026/621, reg 33) — a separate threshold from Reg 64C(4)'s, not the same provision. This is where most real friction sits.</p></div>
         </div>
       </div>
-      <p>Since 1 September 2023, Part 7A of the Money Laundering Regulations has required this information to travel with certain cryptoasset transfers. It is the direct crypto equivalent of correspondent banking information requirements.</p>
+      <p>Since 1 September 2023, Part 7A of the Money Laundering Regulations has applied this regime to every cryptoasset transfer within Regulation 64B's definition, unless a Regulation 64A(2) or (3) exclusion applies. Whether Part 7A applies at all does not depend on value, only specific additional-information elements within it do, and those run on different rules depending on where the businesses involved are based. It is the direct crypto equivalent of correspondent banking information requirements.</p>
     </section>
 
     <section class="article-section" id="kyc-angle">
@@ -495,7 +500,7 @@
           <div class="callout-text">Standard due diligence confirms who opened the account. It tells you nothing about where the coins already sitting in that wallet came from before your customer took control of them. Source of funds, for a crypto customer, increasingly means tracing on chain activity backward, not just reading a bank statement.</div>
         </div>
       </div>
-      <p>Crypto specific enhanced due diligence requirements for certain correspondent style relationships come into force on 1 February 2027, formalising what many firms already do informally, treating unhosted wallet counterparties and lower transparency jurisdictions with a materially higher bar than a standard retail crypto customer.</p>
+      <p>From 1 February 2027, Regulation 34A introduces a specific enhanced due diligence requirement for cryptoasset exchange providers and custodian wallet providers that have, or propose to have, a correspondent relationship with a similar provider based in a third country, mirroring the correspondent banking EDD model: understanding the respondent's business, assessing its reputation and supervision quality from credible public sources, and assessing its AML/CTF controls. It does not create a general rule about unhosted wallets or lower transparency jurisdictions across the board, those remain matters for the firm's own risk-based judgement outside this specific correspondent relationship gateway.</p>
     </section>
 
     <section class="article-section" id="quiz">
@@ -547,7 +552,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">What is the single most crypto specific AML obligation, separate from standard KYC and screening? <span class="faq-icon">+</span></div>
-        <div class="faq-a">The Travel Rule, in force since 1 September 2023, requiring originator and beneficiary information to travel with qualifying cryptoasset transfers.</div>
+        <div class="faq-a">The Travel Rule (Part 7A MLR 2017), in force since 1 September 2023, requires originator and beneficiary information to travel with every cryptoasset transfer that falls within Regulation 64B's definition, with no value threshold on that base requirement. Only certain additional verification details are gated by a threshold, currently £800, and which threshold applies (Reg 64C(4) or Reg 64G(1)(b)) depends on where the cryptoasset businesses involved are based, and whether an unhosted wallet is involved.</div>
       </div>
 
       <div class="part-footer">
