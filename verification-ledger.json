@@ -5296,5 +5296,105 @@
     "reviewDue": "2027-08-22",
     "note": "Codex first-pass adversarial sourcing audit, 22 August 2026, Section 5 finding 4 (MATERIAL). MLR 2017 reg 21 current version effective 30 June 2026; FSMA 2000 s.66A current text accessed 22 August 2026. Corrects the guide's original claim that a combined role holder is \"the sole point of accountability for both general regulatory compliance and the firm's entire AML defence.\"",
     "location": "mlro-handbook-part1.html, Section 5, second paragraph"
+  },
+  {
+    "claimId": "aml-guide-part3.tm-alert-fp-range-and-enforcement-target-framing.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "statistic",
+    "status": "retained-as-estimate",
+    "claimText": "The transaction-monitoring false positive rate of 95-99% and the characterisation of transaction monitoring as 'one of the FCA's primary enforcement targets in 2024/25' were presented as unqualified fact. No FCA or NCA publication benchmarks a specific false positive rate range for transaction monitoring, and no FCA publication ranks transaction monitoring as a named enforcement priority category for 2024/25; both are industry-commonly-cited figures and FinCrimeRadar's own reading of published enforcement patterns respectively, reworded with explicit epistemic framing rather than presented as sourced fact.",
+    "verifiedOn": "2026-08-23",
+    "reviewDue": "2027-08-23",
+    "note": "2026-08-19 Codex audit finding 3 (partial), reconciled 2026-08-22 and corrected 2026-08-23: the 80% pass-mark and ~2027 SPSS-date sub-parts of this finding were already covered by original-unsourced-benchmarks-and-composite-cases.001 and fca-single-supervisor-timing-not-fixed.001; this entry closes the two remaining sub-parts (95-99% alert range, 'primary enforcement targets' framing), which had no ledger coverage and were still live as unqualified claims. Corrected at lines ~582 and ~595."
+  },
+  {
+    "claimId": "aml-guide-part3.reg21-1a-appointment-conditional-not-universal.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "MLR 2017 Regulation 21(1)(a) requires a relevant person to appoint a member of the board (or of senior management, where there is no board) as the officer responsible for compliance with the MLRs only where appropriate with regard to the size and nature of the firm's business. It is not an unconditional appointment mandate applying to every relevant person regardless of scale.",
+    "source": {
+      "title": "MLR 2017 Regulation 21 (Miscellaneous definitions)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-23",
+    "reviewDue": "2027-08-23",
+    "note": "2026-08-19 Codex audit finding 4, distinct from the existing smf17-scope-and-nominated-officer-distinction.001 entry (which addresses SMF17 scope, not the Reg 21(1)(a) appointment condition itself). The 'Board and senior management responsibilities' section previously stated the appointment as an unconditional requirement under MLR 2017; corrected at line 635 to state the size/nature conditionality."
+  },
+  {
+    "claimId": "aml-guide-part3.fsma-s166-3-fca-appointed-route.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "FSMA 2000 section 166 skilled person reviews are not always firm-commissioned. Under s.166(3), the FCA may itself appoint the skilled person, rather than the firm choosing one even if agreed with the FCA, still at the firm's expense, where the FCA considers that appropriate. Describing every s.166 review as 'commissioned by the firm' omits this second route, and calling the process purely non-enforcement is too categorical, since a s.166 finding of serious failings often precedes or runs alongside a subsequent enforcement investigation.",
+    "source": {
+      "title": "Financial Services and Markets Act 2000, section 166 (Reports by skilled persons)",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/8/section/166",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2000-06-14"
+    },
+    "verifiedOn": "2026-08-23",
+    "reviewDue": "2027-08-23",
+    "note": "2026-08-19 Codex audit finding 8. The 'Section 166 review vs FCA investigation' FAQ (line 816) previously described only the firm-commissioned route and called the process 'not enforcement'; corrected to add the s.166(3) FCA-appointed route and soften to 'not itself an enforcement action'."
+  },
+  {
+    "claimId": "aml-guide-part3.mlro-credential-prevalence-unsourced.001",
+    "guide": "aml-guide-part3.html",
+    "claimType": "statistic",
+    "status": "retained-as-estimate",
+    "claimText": "The claim that 'most MLROs at regulated firms hold qualifications such as ICA Certificate or Diploma in AML, CAMS (ACAMS)' was presented as an established fact about credential prevalence. No independently benchmarked data on MLRO qualification prevalence across the regulated population was found. The FCA's actual test is fitness and propriety (relevant knowledge and experience, seniority, time allocation, absence of conflicts, clean regulatory/criminal history), not a specific credential; the claim is reworded to note these qualifications can support a fitness and propriety case without asserting how common they actually are.",
+    "verifiedOn": "2026-08-23",
+    "reviewDue": "2027-08-23",
+    "note": "2026-08-19 Codex audit finding 9. 'MLRO qualifications' FAQ (line 826) previously stated the prevalence claim as fact; corrected to retain the qualifications as relevant/supportive examples while removing the unsupported 'most MLROs... hold' framing, per BACKLOG's original guidance to 'retain only actual fitness/propriety requirements'."
+  },
+  {
+    "claimId": "fatf-guide-part2.grey-list-tree-vs-bulgaria-example-reconciled.001",
+    "guide": "fatf-guide-part2.html",
+    "claimType": "internal-consistency",
+    "status": "verified",
+    "claimText": "The Grey List Risk Decision Framework's 'Customer IS from grey-listed country — primary nexus' branch previously read 'EDD almost always warranted', which directly contradicted the guide's own Bulgaria worked example (a live instance of exactly that fact pattern), which explicitly concludes that grey-listed nationality alone does not trigger automatic EDD and that standard CDD is the correct starting point. The branch label is corrected to match the worked example's actual position: document the risk factor and assess against the country's specific FATF-identified deficiencies, not automatic EDD.",
+    "source": {
+      "title": "fatf-guide-part2.html, Bulgaria worked example section",
+      "url": "https://fincrimeradar.org/fatf-guide-part2.html#scenarios",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-08-22"
+    },
+    "verifiedOn": "2026-08-23",
+    "reviewDue": "2027-08-23",
+    "note": "2026-08-19 Codex audit finding 3. This is an internal-consistency check against the guide's own Bulgaria worked example (Scenario 1, 'scenarios' section), not an external regulatory source, no new external factual claim is introduced. Corrected at line 582."
+  },
+  {
+    "claimId": "sanctions-compliance-guide.non-sanctions-lists-delisted-from-legal-weight-ranking.001",
+    "guide": "sanctions-compliance-guide.html",
+    "claimType": "internal-consistency",
+    "status": "verified",
+    "claimText": "The 'Every major and minor list you actually need to know' table previously ranked the FATF grey/black list, Interpol Red Notices, and World Bank debarred parties on the same Major/Moderate/Minor legal-weight axis as binding sanctions and export-control lists (SDN, UK Sanctions List, EU/UN consolidated lists, DFAT, SEMA, SECO), despite the table's own description column already correctly noting these three are 'not a sanction' / 'not a freeze' / 'procurement ban only'. The three non-sanctions rows are moved to a separate table with no legal-weight ranking column, since they are not the same kind of instrument as the binding sanctions lists above them.",
+    "source": {
+      "title": "sanctions-compliance-guide.html, 'Every major and minor list' table section",
+      "url": "https://fincrimeradar.org/sanctions-compliance-guide.html#lists",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-08-22"
+    },
+    "verifiedOn": "2026-08-23",
+    "reviewDue": "2027-08-23",
+    "note": "2026-08-19 Codex audit finding 2 (partial); the FCDO/OFSI publisher sub-point of the same finding was already covered by uk-sanctions-list-fcdo-not-ofsi.001. This is an internal-consistency check against the guide's own 'lists' section content (a structural restructuring of already-present, unchanged facts, no new external claim introduced), not an external regulatory source. Corrected at lines 305-334."
+  },
+  {
+    "claimId": "adverse-media-intelligence-guide.dropped-charge-retention-proportionality.001",
+    "guide": "adverse-media-intelligence-guide.html",
+    "claimType": "regulatory",
+    "status": "verified",
+    "claimText": "The FAQ 'Does a dropped charge mean the adverse media hit should be deleted from the file?' previously answered with a blanket rule that the historical record is 'still accurate and worth retaining'. Retention of criminal-allegation data is properly a contextual assessment: it must be necessary, proportionate, and accurate for the purpose it is held for under the applicable UK GDPR data protection principles (Article 5(1)(c) data minimisation, Article 5(1)(e) storage limitation), not an indefinite blanket retention rule.",
+    "source": {
+      "title": "UK GDPR Article 5(1) — Principles relating to processing of personal data",
+      "url": "https://www.legislation.gov.uk/eur/2016/679/article/5",
+      "publisher": "legislation.gov.uk (UK GDPR, retained EU law)",
+      "date": "2018-05-25"
+    },
+    "verifiedOn": "2026-08-23",
+    "reviewDue": "2027-08-23",
+    "note": "2026-08-19 Codex audit finding 4. Corrected at line 725 to frame retention as a necessity/proportionality assessment rather than a blanket 'keep everything' rule, per BACKLOG's original guidance to 'rewrite as a contextual retention assessment'."
   }
 ]
