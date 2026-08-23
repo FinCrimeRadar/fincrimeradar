@@ -15,12 +15,19 @@
     try {
       var consent = localStorage.getItem('fcr_cookie_consent');
       if (consent === 'accepted') {
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied'
+        });
       }
     } catch (e) {}
   })();
   gtag('config', 'G-FC1VMTE7JH');
 </script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />

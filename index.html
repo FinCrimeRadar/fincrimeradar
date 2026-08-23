@@ -189,12 +189,19 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
     try {
       var consent = localStorage.getItem('fcr_cookie_consent');
       if (consent === 'accepted') {
-        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied'
+        });
       }
     } catch (e) {}
   })();
   gtag('config', 'G-FC1VMTE7JH');
 </script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
 
 </head>
@@ -454,6 +461,7 @@ async function heroCtaSignup(){
             <a href="/privacy.html" class="footer-link">Privacy Policy</a>
             <a href="/editorial-standards.html" class="footer-link">Editorial Standards</a>
             <a href="/methodology.html" class="footer-link">Methodology</a>
+            <a href="#" onclick="window.googlefc && window.googlefc.callbackQueue && window.googlefc.callbackQueue.push([window.googlefc.CALLBACK_QUEUE_TYPE_KEY.MANAGE_CONSENT_OVERLAY]); return false;" class="footer-link">Manage cookie preferences</a>
             <a href="/terms.html" class="footer-link">Terms of Service</a>
             <a href="https://github.com/FinCrimeRadar/fincrimeradar" target="_blank" rel="noopener" class="footer-link">Open Source</a>
           </div>

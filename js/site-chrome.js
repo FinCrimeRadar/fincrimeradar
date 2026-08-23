@@ -79,7 +79,12 @@
   function acceptCookies() {
     localStorage.setItem('fcr_cookie_consent', 'accepted');
     if (typeof gtag === 'function') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'denied'
+      });
     }
     document.getElementById('cookieBanner').style.display = 'none';
   }
@@ -87,7 +92,12 @@
   function rejectCookies() {
     localStorage.setItem('fcr_cookie_consent', 'rejected');
     if (typeof gtag === 'function') {
-      gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      gtag('consent', 'update', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
     }
     document.getElementById('cookieBanner').style.display = 'none';
   }
