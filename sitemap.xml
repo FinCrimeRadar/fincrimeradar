@@ -169,6 +169,18 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Shadow Fleet series -->
+  <url>
+    <loc>https://fincrimeradar.org/shadow-fleet-guide-part1.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/shadow-fleet-guide-part2.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- UK AML Compliance series -->
   <url>
     <loc>https://fincrimeradar.org/aml-guide-part1.html</loc>
