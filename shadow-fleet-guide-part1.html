@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is | FinCrimeRadar</title>
+  <meta name="description" content="Designated vs specified, the six routes a party can be caught by a vessel sanction, and why IMO number beats name-based screening. Part 1 of 2, with two decision scenarios and a real SMYRTOS case study." />
+  <meta name="keywords" content="shadow fleet, dark fleet, vessel sanctions, Russia sanctions, OFSI, OFAC SDN, ownership and control, IMO number, ship specification, sanctions screening" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/shadow-fleet-guide-part1.html" />
+  <meta property="og:title" content="Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is" />
+  <meta property="og:description" content="Designated vs specified, the six routes a party can be caught by a vessel sanction, and why IMO number beats name-based screening. Part 1 of 2." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/shadow-fleet-guide-part1.html" />
+  <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is",
+      "description": "Designated vs specified, the six routes a party can be caught by a vessel sanction, and why IMO number beats name-based screening. Part 1 of 2, with two decision scenarios and a real SMYRTOS case study.",
+      "author": { "@type": "Organization", "name": "FinCrimeRadar" },
+      "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
+      "url": "https://fincrimeradar.org/shadow-fleet-guide-part1.html",
+      "datePublished": "2026-08-24",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fincrimeradar.org/shadow-fleet-guide-part1.html" }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Sanctions & PEP","item":"https://fincrimeradar.org/knowledge.html?domain=screening-pep"},{"@type":"ListItem","position":3,"name":"Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is","item":"https://fincrimeradar.org/shadow-fleet-guide-part1.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied'
+        });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-mech:#2563eb; --c-mech-light:#eff6ff;
+      --c-ghost:#7c3aed; --c-ghost-light:#f5f3ff;
+      --c-cascade:#dc2626; --c-cascade-light:#fef2f2;
+      --c-wander:#d97706; --c-wander-light:#fffbeb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    .skip-link { position:absolute; left:-9999px; top:0; background:var(--accent); color:#fff; padding:10px 16px; z-index:1000; border-radius:0 0 6px 0; font-size:14px; font-weight:600; text-decoration:none; }
+    .skip-link:focus { left:0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+    }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-mech); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%); }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-mech); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-ghost); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-cascade); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(93,202,165,0.5); } 50%{ box-shadow:0 0 0 6px rgba(93,202,165,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+    .hero-stat-source a { color:#93c5fd; }
+    .hero-note { font-size:12px; color:#93c5fd; margin-top:0.9rem; line-height:1.6; font-style:italic; }
+
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-mech); border-left-color:var(--c-mech); }
+    .toc a.active { color:var(--c-mech); border-left-color:var(--c-mech); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    .part-nav-card { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .part-nav-card p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .part-nav-card a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .part-nav-card a:hover { background:var(--accent-h); }
+
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.6rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+    .cite { font-size:12px; color:var(--c-mech); text-decoration:none; font-weight:700; vertical-align:super; }
+    .cite:hover { text-decoration:underline; }
+
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-ghost { background:var(--c-ghost-light); color:var(--c-ghost); border:1px solid #ddd6fe; }
+    .badge-cascade { background:var(--c-cascade-light); color:var(--c-cascade); border:1px solid #fecaca; }
+    .badge-wander { background:var(--c-wander-light); color:var(--c-wander); border:1px solid #fde68a; }
+
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD (icon, name, one-liner, Risk/Signal/Response) */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) { .pattern-ttd { grid-template-columns:1fr; } .pattern-grid { grid-template-columns:1fr; } }
+
+    /* SIX ROUTES LIST */
+    .route-list { counter-reset:route; list-style:none; padding-left:0; }
+    .route-item { counter-increment:route; position:relative; padding:0.9rem 0 0.9rem 2.6rem; border-bottom:1px solid #f3f4f6; }
+    .route-item:last-child { border-bottom:none; }
+    .route-item::before { content:counter(route); position:absolute; left:0; top:0.9rem; width:1.8rem; height:1.8rem; border-radius:50%; background:var(--c-mech-light); color:var(--c-mech); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
+    .route-item strong { color:var(--navy); }
+
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-mech); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-icon.open { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
+    .faq-a.open { max-height:300px; padding:0 1.1rem 1rem; }
+
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-mech); color:var(--c-mech); }
+
+    /* SOURCES AND METHODOLOGY */
+    .sources-list { list-style:none; padding-left:0; counter-reset:src; }
+    .sources-list li { counter-increment:src; position:relative; padding-left:2.2rem; font-size:13.5px; color:#374151; margin-bottom:0.9rem; line-height:1.6; }
+    .sources-list li::before { content:'[' counter(src) ']'; position:absolute; left:0; top:0; color:var(--c-mech); font-weight:700; font-size:12.5px; }
+    .sources-list a { color:var(--c-mech); word-break:break-word; }
+    .sources-list .src-jur { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); background:#f3f4f6; border-radius:4px; padding:1px 6px; margin-right:6px; }
+
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    @media(max-width:768px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .hero-stats { flex-direction:column; }
+      .route-item { padding-left:2.4rem; }
+    }
+  </style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">›</span>
+  <a href="/knowledge.html?domain=screening-pep">Sanctions &amp; PEP</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is</span>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-nodes"><div class="hero-node"></div><div class="hero-node"></div><div class="hero-node"></div></div>
+  <div class="hero-inner">
+    <div class="series-tag">🚢 Shadow Fleet Series · Part 1 of 2</div>
+    <h1>Vessel Sanctions Fundamentals:<br><em>What the Shadow Fleet Actually Is</em></h1>
+    <p class="hero-sub">Designated vs specified, the six routes a party can be caught, and why IMO number beats name-based screening every time.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 14 min read</span>
+      <span>🔎 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 2 Scenarios</span>
+    </div>
+
+    <div class="hero-eyebrow-row"><span class="pulse-dot" aria-hidden="true"></span><span>Why this matters</span></div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="3400">0</span>+</div>
+        <div class="hero-stat-label">Individuals, entities and ships under UK Russia sanctions</div>
+        <div class="hero-stat-source">Hill Dickinson, citing UK Government figures <a class="cite" href="#sources">[1]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="19">0</span></div>
+        <div class="hero-stat-label">New designations, UK's 6 August 2026 package, 6 shadow fleet vessels</div>
+        <div class="hero-stat-source">Corroborated by five further outlets <a class="cite" href="#sources">[2]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="82">0</span>%</div>
+        <div class="hero-stat-label">Of a 940-tanker sample lacked identified P&amp;I coverage</div>
+        <div class="hero-stat-source">S&amp;P Global study, data to May 2025 <a class="cite" href="#sources">[3]</a></div>
+      </div>
+    </div>
+    <p class="hero-note">This guide does not quote a single headline total for the size of the shadow or dark fleet, see the section below for why.</p>
+  </div>
+</div>
+
+<div class="article-layout">
+  <main class="article-body" id="main-content">
+
+    <div class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Series Introduction</div>
+      <h2>What the shadow fleet actually is, and why "dark fleet" isn't automatically the same thing</h2>
+      <p>There is no single, universally binding legal definition separating "shadow fleet" from "dark fleet," and different maritime intelligence providers use different taxonomies. Windward, for instance, uses "shadow fleet" as an umbrella term containing both a "dark fleet" and a "grey fleet" subset within one internal framework, while other material uses the two terms more interchangeably. For analytical purposes, this guide uses a behavioural distinction: <strong>shadow fleet</strong> as the wider population of vessels operating outside the normal Western-aligned compliance ecosystem (outside the International Group of P&amp;I Clubs, outside mainstream Western financing, often outside conventional flag registries, and often looking entirely unremarkable on paper), and <strong>dark fleet</strong> as the subset within that wider population actively displaying concealment behaviour: AIS transponders switched off ("going dark"), GNSS location spoofing, fraudulent flag claims, and identity laundering through repeated renaming and reflagging.</p>
+      <p>On vessel counts specifically: this guide deliberately avoids quoting a single headline total for either category, different trackers use different methodologies and produce very different numbers, sometimes by a factor of six or more for what's nominally the same category. Part 2 covers why that variation exists and why chasing one "correct" figure is the wrong instinct.</p>
+      <p>The practical difference for a compliance analyst: a vessel that never appears on a sanctions list, has never gone AIS-dark, and files ordinary port calls can still be part of the wider shadow fleet if its insurance, financing, or ownership chain sits outside the mainstream system. Screening only for AIS anomalies or list hits misses this entire layer, which is exactly why the insurance angle covered in Part 2 matters as much as it does.</p>
+
+      <div class="callout callout-navy">
+        <strong>How to use this guide</strong>
+        <p>Read the mechanics sections first, designated vs specified, the six routes, and IMO-number screening. Then work both scenarios and read why, for the right answer and every wrong one. The knowledge check pulls the same mechanics from new angles. Part 2, The Shadow Fleet Investigation Playbook, builds directly on what's established here and doesn't re-cover it.</p>
+      </div>
+    </div>
+
+    <div class="article-section" id="mechanics">
+      <div class="section-eyebrow" style="color:var(--c-mech)">The Legal Mechanism</div>
+      <h2>What a vessel sanction actually is, mechanically</h2>
+      <p>This is where most existing content stays vague, and where getting the terminology precisely right matters, because the two words aren't interchangeable and mixing them up misstates how the legal mechanism actually works.</p>
+      <p>Under the UK's Sanctions and Anti-Money Laundering Act 2018, a person (which includes companies and other entities) is <strong>designated</strong>. A ship is <strong>specified</strong> <a class="cite" href="#sources">[4]</a>. These are legally distinct mechanisms with different consequences. Specification can subject a ship to restrictions including port access prohibitions, detention, movement directions, registration restrictions, and prohibitions on providing certain services to it <a class="cite" href="#sources">[5]</a>. The asset freeze is a separate mechanism entirely: it attaches to designated persons and to entities they own or control, not to a specified ship as blocked property in its own right.</p>
+      <p>Vessels are identified by their <strong>IMO number</strong>, an identifier intended to remain permanently assigned for the life of the hull <a class="cite" href="#sources">[6]</a>. A vessel can be renamed, reflagged to a different country, sold on paper to a new shell company, and repainted, and the IMO number is designed to stay fixed through all of it. That said, "intended to remain permanent" is not the same as "impossible to obscure": sanctioned actors can and do attempt to falsify, misrepresent, or manipulate how the identifier is displayed or broadcast, so IMO-number screening is the strongest available anchor, not an infallible one. Every serious screening approach anchors on IMO number for exactly this reason, name-based or flag-based screening alone is far more easily defeated.</p>
+      <p>For a designated person, the practical effect under UK and EU regimes is an asset freeze: economic resources cannot be made available, directly or indirectly, to them <a class="cite" href="#sources">[7]</a>. Under US regimes (OFAC's SDN List), the effect is comparable, all property and interests in property subject to US jurisdiction are blocked, and US persons are generally barred from transacting with the listed party <a class="cite" href="#sources">[8]</a>. A specified ship, separately, faces the transport-focused restrictions described above, not an asset freeze in its own right, the two mechanisms run in parallel, not as one combined effect.</p>
+    </div>
+
+    <div class="article-section" id="regimes">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Three Regimes, Not Four</div>
+      <h2>Who imposes vessel sanctions, and why "sanctioned" isn't a single status</h2>
+      <p>There is no single global sanctions list, and Russia-related vessel measures specifically run through <strong>three separate legal regimes, not four</strong>. The United Nations Security Council has not passed a sanctions resolution relating to Russia's invasion of Ukraine at all, Russia holds a permanent Security Council seat and veto, and has used it to block exactly such resolutions <a class="cite" href="#sources">[9]</a>. Russia sanctions in this space are a unilaterally coordinated effort led by the UK, EU, US, and a wider G7-aligned coalition, not a UN Security Council regime. A general UN Consolidated List still exists for other, unrelated sanctions regimes, but it is not a fourth Russia-vessel regime and shouldn't be presented as one.</p>
+      <p>The three regimes that do apply here:</p>
+      <ul>
+        <li><strong>UK:</strong> administered by OFSI (Office of Financial Sanctions Implementation) and OTSI (Office of Trade Sanctions Implementation), under the Sanctions and Anti-Money Laundering Act 2018. Designations appear on the UK Sanctions List <a class="cite" href="#sources">[10]</a>.</li>
+        <li><strong>EU:</strong> Russia-related vessel measures principally operate through Council Regulation 833/2014, with targeted vessel measures under Annex XLII, most recently expanded under the 21st sanctions package (adopted 23 July 2026) <a class="cite" href="#sources">[11]</a>. These can impose port access and maritime services restrictions without necessarily constituting the same legal mechanism as an EU asset-freeze listing, "EU Consolidated List" alone understates the actual architecture.</li>
+        <li><strong>US:</strong> OFAC's Specially Designated Nationals and Blocked Persons (SDN) List, a distinct asset-blocking mechanism from the UK's designation/specification split described above <a class="cite" href="#sources">[8]</a>.</li>
+      </ul>
+      <p>A vessel can appear on one regime's measures and not another's, and even where it appears on more than one, the legal mechanism and practical effect can differ (an EU port-access restriction under Annex XLII is not the same thing as a UK asset freeze on a designated person, even when both concern the same hull). This is not a technicality, a bank or insurer screening only against one list, or assuming "sanctioned" means the same thing everywhere it appears, can miss real exposure or misjudge its nature. The UK's 6 August 2026 package and the EU's 23 July 2026 package targeted overlapping but not identical sets of vessels.</p>
+    </div>
+
+    <div class="article-section" id="six-routes">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Six Routes, Not One Chain</div>
+      <h2>Who actually gets targeted: six separate routes, not one automatic chain</h2>
+      <p>This is the section most existing content skips entirely, or covers so vaguely it's not actually useful for a compliance decision. Under UK financial sanctions guidance, six distinct categories of party can be affected in connection with a single vessel, but each is caught through its own separate legal route, not through one vessel sanction automatically radiating out to freeze everyone connected to it. Getting this distinction right matters: a fraudulent insurer, a suspicious price-cap pattern, or a compromised connection does not, on its own, trigger an automatic freeze on everyone in the chain. The ownership-and-control cascade (route 4 below) requires an actual designated person plus the applicable ownership or control test being met, it isn't a general-purpose consequence of any of the other five routes.</p>
+
+      <ol class="route-list">
+        <li class="route-item"><strong>The specified vessel itself.</strong> Faces the transport-focused restrictions described above (port access, detention, movement directions), identified and tracked by IMO number. This is not an asset freeze.</li>
+        <li class="route-item"><strong>The registered owner.</strong> May be separately designated in their own right. The legal entity holding title is often, in shadow fleet structures, a single-vessel shell company with no operating history <a class="cite" href="#sources">[12]</a>.</li>
+        <li class="route-item"><strong>The operator.</strong> Distinct from the owner under most sanctions regimes, and may or may not be caught depending on the specific regime and facts. Sanctions regimes differ on whether operator status alone constitutes "control" for designation purposes, this is a genuine grey area, not a settled rule <a class="cite" href="#sources">[13]</a>.</li>
+        <li class="route-item"><strong>Entities owned or controlled by a designated person.</strong> This is the ownership-and-control cascade, and it requires a designated person to exist as the starting point. Where a designated person owns more than 50% of an entity's shares or voting rights, can appoint or remove a majority of its board, or otherwise satisfies the applicable control test, that entity becomes subject to financial sanctions without needing to be separately named <a class="cite" href="#sources">[14]</a>. Ownership (the shareholding limb) and control (board rights, or the ability to ensure the entity's affairs are conducted in accordance with the designated person's wishes) are separate tests, not one combined threshold. This is the single most consequential mechanic in the whole system precisely because it's easy to miss: checking only the name on the list and stopping there is not adequate screening once a designated person exists anywhere upstream.</li>
+        <li class="route-item"><strong>Insurers.</strong> Can face separate restrictions under the UK's maritime services and Russian oil price cap sanctions framework, a different legal basis from Regulation 29A, which is specifically limited to aviation and space insurance and does not extend to maritime shipping insurance <a class="cite" href="#sources">[15]</a>. Insurance therefore requires its own sanctions assessment rather than simply inheriting the vessel's screening result, which is exactly why the insurance angle in Part 2 is a genuine, separate compliance obligation, not just a useful red flag.</li>
+        <li class="route-item"><strong>Individuals.</strong> Masters and captains can be prosecuted personally, separate from any corporate designation. The Russian shadow fleet tanker SMYRTOS, detained near Weymouth by British authorities since June 2026 after being boarded by Royal Marine Commandos, is a live, active example: its captain has been charged with an alleged sanctions offence, breaching Russian sanctions by directly or indirectly supplying or delivering prohibited Russian oil <a class="cite" href="#sources">[16]</a>. Those proceedings remain active and the charge has not been determined by a court. The case demonstrates that personal prosecution is a real possibility under this regime, not that guilt has been established in this instance.</li>
+      </ol>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-wander-light);">🛳️</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · IMO screening vs name-based screening</div>
+          <div class="scenario-name">The Renamed Tanker</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;"><span class="badge badge-wander">The Wandering Identity</span></div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>What do you do?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-scenario">
+          <p>A UK trade finance analyst is screening a chartered vessel named Northgate Pioneer, Panama-flagged, no direct hits on the UK Sanctions List, EU Consolidated List, or OFAC SDN List under that name. The vessel's flag history, however, shows three flag changes and two name changes in the past fourteen months, most recently switching from a Cameroon flag to Panama four months ago. The current registered owner is a single-vessel company incorporated eleven months ago.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)"><span class="opt-label">A</span><span>Screen as clear, since no name-based hit exists on any of the four lists.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)"><span class="opt-label">B</span><span>Escalate for IMO-number-based and ownership-chain screening before clearing the transaction.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)"><span class="opt-label">C</span><span>Reject the charter outright, the flag and name history alone prove sanctions evasion.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)"><span class="opt-label">D</span><span>Ask the chartering company to explain the flag changes before deciding anything.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict" aria-live="polite"><div id="scenario1-content"></div></div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-cascade-light);">🧊</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · The ownership-and-control cascade</div>
+          <div class="scenario-name">The Silent Freeze</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;"><span class="badge badge-cascade">The Cascading Freeze</span></div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>What do you do?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-scenario">
+          <p>A UK-regulated insurer is asked to underwrite marine cargo cover for a shipment. The chartering company, cargo, and named vessel all screen clean individually. Three weeks later, the chartering company's ultimate parent is designated under the UK Sanctions List for an unrelated reason, no announcement is made about the chartering subsidiary itself, and it never appears by name on any list.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)"><span class="opt-label">A</span><span>Continue providing cover, the freeze cannot apply to an entity that was never itself named.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)"><span class="opt-label">B</span><span>Recognise that the freeze already applies to dealings with this counterparty, absent an applicable exception or licence.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)"><span class="opt-label">C</span><span>Wait for OFSI to publicly confirm the subsidiary is caught before changing anything.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)"><span class="opt-label">D</span><span>Continue cover, but only because the vessel itself still screens clean.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict" aria-live="polite"><div id="scenario2-content"></div></div>
+      </div>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Screening a vessel, owner, or counterparty?</strong><span>Run a free sanctions and PEP check before proceeding, no account required.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an entity →</a>
+      </div>
+    </div>
+
+    <!-- PATTERNS, MERGED CARDS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Three Patterns</div>
+      <h2>Three patterns, three cards</h2>
+      <p>Most vessel-screening misjudgments trace back to one of these three shapes.</p>
+
+      <div class="pattern-card" style="background:var(--c-ghost-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head"><div class="pattern-icon">👻</div><div class="pattern-name" style="color:var(--c-ghost);">The Ghost Owner</div></div>
+        <div class="pattern-line">A single-vessel shell company owns the ship, with no operating history and often an address shared by dozens of other single-vessel entities.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-ghost);">Risk</div><div class="ttd-text">Ownership designed to be untraceable to any real controlling party.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-ghost);">Signal</div><div class="ttd-text">Company incorporated shortly before vessel acquisition; no other vessels under the same manager.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-ghost);">Response</div><div class="ttd-text">Trace beneficial ownership past the registered owner, don't stop at the name on the certificate.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-cascade-light);border-color:#fecaca;">
+        <div class="pattern-card-head"><div class="pattern-icon">🧊</div><div class="pattern-name" style="color:var(--c-cascade);">The Cascading Freeze</div></div>
+        <div class="pattern-line">A counterparty was never itself designated, but its ownership structure changed.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cascade);">Risk</div><div class="ttd-text">Sanctions exposure through automatic ownership-and-control cascade, invisible to name-based screening.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cascade);">Signal</div><div class="ttd-text">Upstream parent or controlling entity gets designated, no announcement affects the subsidiary directly.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cascade);">Response</div><div class="ttd-text">Monitor ownership and control structure changes continuously, not just at onboarding, re-run both the shareholding test and the separate control test whenever upstream structure shifts.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-wander-light);border-color:#fde68a;">
+        <div class="pattern-card-head"><div class="pattern-icon">🧭</div><div class="pattern-name" style="color:var(--c-wander);">The Wandering Identity</div></div>
+        <div class="pattern-line">The vessel has changed name, flag, or both multiple times in a short period.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-wander);">Risk</div><div class="ttd-text">Identity laundering to defeat name-based sanctions screening.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-wander);">Signal</div><div class="ttd-text">Multiple flag or name changes within twelve to eighteen months, especially clustered around a designation event.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-wander);">Response</div><div class="ttd-text">Always screen by IMO number, never by current name or flag alone.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY -->
+    <div class="article-section" id="case-study">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Real Case Study</div>
+      <h2>SMYRTOS</h2>
+      <p>The Russian shadow fleet tanker SMYRTOS was intercepted and boarded by Royal Marine Commandos in June 2026 and, as of 17 August 2026, remains detained by the Department for Transport at a port near Weymouth. Its captain has been charged with breaching Russian sanctions by directly or indirectly supplying or delivering prohibited Russian oil, an active charge that has not been determined by a court. Twenty-two of the twenty-five original crew members were repatriated in July 2026. Russia has criticised the detention and warned of reciprocal action; the UK maintains the boarding and detention were conducted fully in accordance with international maritime law <a class="cite" href="#sources">[16]</a>.</p>
+      <p>This case anchors two of the guide's core points concretely, without overstating what's actually been established: individuals, not just companies, can face real personal prosecution under this regime, and enforcement now extends to physical interdiction, not only asset freezes on paper. The proceedings themselves remain ongoing.</p>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions on the mechanics this guide establishes.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. Under UK sanctions law, is a ship "designated" or "specified"?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Designated, the same term used for persons</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - Specified, a legally distinct mechanism from designation with different consequences</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Neither term applies to ships</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - Both terms are interchangeable in UK law</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. What identifier survives a vessel's renaming and reflagging, and why does that make it the correct basis for screening?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - The vessel's current name, since owners rarely change it</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - The IMO number, intended to remain fixed for the life of the hull regardless of renaming, reflagging, or sale</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - The flag state, since flags rarely change</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - The insurer's policy number</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. In Worked Scenario 2, why does the freeze apply to the subsidiary even though it was never named on any sanctions list?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - It doesn't apply until OFSI names the subsidiary directly</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - The ownership-and-control cascade applies automatically once a designated person owns or controls it under the applicable test, regardless of whether it's separately named</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - Only the vessel itself would be affected, not the chartering company</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - The freeze only applies once a court confirms the ownership link</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. What does the SMYRTOS captain's charge demonstrate about who can be personally prosecuted under this regime, as distinct from what it demonstrates about guilt?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - It proves the captain is guilty, since a charge has been filed</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - It demonstrates individuals, not just companies, can face real personal prosecution, while the charge itself remains undetermined by a court</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - It shows only vessel owners, never captains, can be prosecuted</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - It demonstrates that UK courts have no jurisdiction over foreign-flagged vessels</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. Name the three separate legal regimes covering Russia-related vessel sanctions, and why has the UN Security Council not passed a Russia-Ukraine sanctions resolution?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - UK, EU, US; the UN Security Council hasn't acted because Russia holds a permanent seat and veto and has blocked such resolutions</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - UK, EU, UN; the US applies EU measures directly</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - UN, NATO, G7; the UN Security Council already passed a Russia-Ukraine resolution in 2022</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - There is only one unified global regime, not three</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score" aria-live="polite"><div class="quiz-score-num" id="quiz-score-num">0/5</div><div class="quiz-score-label" id="quiz-score-label"></div></div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Frequently Asked</div>
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is the shadow fleet only a Russia problem? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No. The mechanics described here (ownership opacity, reflagging, insurance avoidance) are used by vessels connected to multiple sanctioned jurisdictions; this guide focuses on the Russia-related shadow fleet because it's the largest and most currently active example, and the one behind the news hook this guide was built around.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">If a vessel isn't on any sanctions list, is it automatically safe to deal with? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No, not if it's owned or controlled, directly or indirectly, by a designated person, even without being separately listed. See the ownership-and-control cascade above.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's the difference between a flag state being "linked to" the shadow fleet and a flag state itself being sanctioned? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Flag states themselves are generally not sanctioned entities; they're encouraged by OFSI and the IMO to share registry information more actively, but a flag of convenience being commonly used by shadow fleet vessels doesn't make every vessel under that flag sanctioned.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Where can I check a vessel's actual sanctions status? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Against the specific regime(s) relevant to your jurisdiction, by IMO number, not vessel name. Part 2 of this guide covers the practical insurer-verification step that a compliance workflow can miss even when vessel and counterparty screening are otherwise clean.</div>
+      </div>
+    </div>
+
+    <!-- AT A GLANCE, closing grid -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Three patterns, the risk that makes each one look routine, the signal that gives it away, and the response that fits.</p>
+
+      <div class="save-img-row"><button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button></div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-ghost-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head"><div class="pattern-icon">👻</div><div class="pattern-name" style="color:var(--c-ghost);">The Ghost Owner</div></div>
+          <div class="pattern-line">A single-vessel shell company owns the ship, with no operating history.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-ghost);">Risk</div><div class="ttd-text">Ownership designed to be untraceable to any real controlling party.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-ghost);">Signal</div><div class="ttd-text">Company incorporated shortly before vessel acquisition; no other vessels under the same manager.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-ghost);">Response</div><div class="ttd-text">Trace beneficial ownership past the registered owner.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-cascade-light);border-color:#fecaca;">
+          <div class="pattern-card-head"><div class="pattern-icon">🧊</div><div class="pattern-name" style="color:var(--c-cascade);">The Cascading Freeze</div></div>
+          <div class="pattern-line">A counterparty was never designated, but its ownership structure changed.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cascade);">Risk</div><div class="ttd-text">Sanctions exposure through automatic ownership-and-control cascade.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cascade);">Signal</div><div class="ttd-text">Upstream parent gets designated, no announcement affects the subsidiary directly.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cascade);">Response</div><div class="ttd-text">Monitor structure changes continuously, re-run both tests whenever it shifts.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-wander-light);border-color:#fde68a;">
+          <div class="pattern-card-head"><div class="pattern-icon">🧭</div><div class="pattern-name" style="color:var(--c-wander);">The Wandering Identity</div></div>
+          <div class="pattern-line">The vessel has changed name, flag, or both multiple times.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-wander);">Risk</div><div class="ttd-text">Identity laundering to defeat name-based sanctions screening.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-wander);">Signal</div><div class="ttd-text">Multiple flag or name changes clustered around a designation event.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-wander);">Response</div><div class="ttd-text">Always screen by IMO number, never name or flag alone.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRIDGE TO PART 2 -->
+    <div class="article-section" id="bridge">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Continue The Series</div>
+      <h2>Bridge to Part 2</h2>
+      <p>Part 1 has established the mechanics: what specification means and how it differs from an asset freeze, which of the six routes above can catch a party connected to a vessel, and why IMO-number screening beats name-based screening. Part 2, <a href="/shadow-fleet-guide-part2.html" style="color:var(--c-mech);font-weight:600;">The Shadow Fleet Investigation Playbook</a>, doesn't re-cover any of this. It moves to insurance status as a live enforcement lever, using the Seaguard P&amp;I case and a full trade-finance decision scenario.</p>
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Continue to Part 2</strong><span>The Shadow Fleet Investigation Playbook: insurance verification, price cap patterns, and two more worked scenarios.</span></div>
+        <a href="/shadow-fleet-guide-part2.html" class="itp-btn">Read Part 2 →</a>
+      </div>
+    </div>
+
+    <!-- SOURCES AND METHODOLOGY -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Sources and Methodology</div>
+      <h2>Sources and methodology</h2>
+      <p style="font-size:13px;color:var(--muted);">Legal and regulatory sources were last reviewed on 24 August 2026. Vessel and counterparty status should always be checked against the applicable official sanctions sources at the point of decision. This guide is an educational resource for financial crime, sanctions, and maritime risk professionals. It does not constitute legal advice.</p>
+      <ol class="sources-list">
+        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em>, citing UK Government figures (3,400+ total designations). <a href="https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026" target="_blank" rel="noopener">hilldickinson.com</a></li>
+        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em> (19 designations, 6 August 2026 package), independently corroborated by five further outlets including two law firm sanctions trackers.</li>
+        <li><span class="src-jur">Industry</span>World Ports Organization, <em>Skuld CEO worried about shadow fleet's lack of insurance cover</em>, citing an S&amp;P Global Market Intelligence study covering data to May 2025, reported July 2025.</li>
+        <li><span class="src-jur">UK</span>GOV.UK, <em>Ownership and Control: Public Officials and Control guidance</em> (designated vs specified).</li>
+        <li><span class="src-jur">UK</span>GOV.UK, <em>Transport sanctions guidance</em> (specification restrictions).</li>
+        <li><span class="src-jur">Int'l</span>International Maritime Organization, <em>IMO identification number schemes</em>.</li>
+        <li><span class="src-jur">UK/EU</span>Dryad Global, <em>Sanctions lists explained</em> (asset freeze mechanism).</li>
+        <li><span class="src-jur">US</span>Office of Foreign Assets Control, US Department of the Treasury, <em>Specially Designated Nationals and Blocked Persons List</em>.</li>
+        <li><span class="src-jur">Int'l</span>United Nations, Dag Hammarskjöld Library, <em>Security Council – Veto List</em> (UN Charter Art. 27(3) permanent-member veto).</li>
+        <li><span class="src-jur">UK</span>GOV.UK, Office of Financial Sanctions Implementation; Sanctions and Anti-Money Laundering Act 2018 (legislation.gov.uk).</li>
+        <li><span class="src-jur">EU</span>EUR-Lex, Council of the European Union, Council Regulation (EU) No 833/2014, Annex XLII.</li>
+        <li><span class="src-jur">Industry</span>TSG, <em>What Is the Dark Fleet?</em> (single-vessel shell company ownership pattern).</li>
+        <li><span class="src-jur">Industry</span>International Compliance Association, <em>Sanctions circumvention at sea</em> (operator status grey area).</li>
+        <li><span class="src-jur">UK</span>GOV.UK, <em>Ownership and control: consolidated guidance</em> (the &gt;50%/board/control test).</li>
+        <li><span class="src-jur">UK</span>GOV.UK, <em>UK maritime services ban and oil price cap: industry guidance</em>.</li>
+        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em>; Crown Prosecution Service charge notice (SMYRTOS).</li>
+      </ol>
+      <p style="font-size:12px;color:var(--muted);margin-top:1rem;">Additional legal-commentary corroboration: Bryan Cave Leighton Paisner (BCLP), <em>New OFSI Decision gives best guidance yet on sanctions due diligence</em> (Worked Scenario 2 reasoning).</p>
+    </div>
+
+  </main>
+
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#intro">What The Shadow Fleet Is</a>
+      <a href="#mechanics">The Legal Mechanism</a>
+      <a href="#regimes">Three Regimes, Not Four</a>
+      <a href="#six-routes">Six Routes</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-wander);"></span> 01 · Renamed Tanker</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-cascade);"></span> 02 · Silent Freeze</a>
+      <a href="#patterns">Three Patterns</a>
+      <a href="#case-study">SMYRTOS Case Study</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#bridge">Part 2 →</a>
+      <a href="#sources">Sources</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 2</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+
+    <div class="part-nav-card">
+      <p>Part 2, The Shadow Fleet Investigation Playbook, covers insurance verification and price cap patterns.</p>
+      <a href="/shadow-fleet-guide-part2.html">Read Part 2 →</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+
+(function () {
+  const nums = document.querySelectorAll('.stat-num-anim');
+  if (!nums.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateNum(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if (prefersReduced) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+  const heroEl = document.querySelector('.article-hero');
+  if (!heroEl) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { nums.forEach(animateNum); observer.disconnect(); }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(heroEl);
+})();
+
+let scenarioResults = {};
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 2';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+const answerKeys = { scenario1: 'B', scenario2: 'B' };
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: B, Escalate for IMO-number-based and ownership-chain screening',
+    body: [
+      'A name-based screen alone is close to worthless against this pattern. IMO number is the one identifier that survives every rename and reflag, and it must be checked directly, not inferred from the current name. A vessel with three flag changes and two renames in fourteen months, paired with an eleven-month-old single-vessel ownership entity, matches the exact concealment pattern this guide describes.',
+      'This is not proof of wrongdoing on its own, but a pattern that specifically warrants the deeper ownership-chain check, including whether that single-vessel entity is itself majority-owned by anything already designated. Option A relies on exactly the screening gap this pattern is built to exploit. Option C overstates what the pattern alone proves, a flag and rename history is a strong signal, not conclusive evidence. Option D introduces friction and tipping-off risk when the correct first step is IMO-based and ownership-chain screening, not a direct question to the counterparty.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: B, The freeze already applies, automatically, once the ownership or control test is met',
+    body: [
+      'The freeze already applies to the insurer\'s dealings, automatically, once the parent\'s designation means it owns or controls the subsidiary under the applicable test, regardless of whether the subsidiary is separately named anywhere. Ownership and control are separate legal tests, not one combined threshold, majority shareholding is one route, board appointment rights or de facto control over the entity\'s affairs are others, and any one of them can trigger the freeze independently.',
+      'This is the single most common way UK firms actually breach sanctions, not through a direct list hit, but through failing to track that a previously clean counterparty became caught the moment its upstream ownership or control position changed. OFSI\'s own enforcement guidance treats an incorrect ownership-and-control assessment as an aggravating factor in penalty decisions, not a mitigating one. Option A and Option D both wrongly assume a name-based hit is required. Option C introduces a delay the law doesn\'t provide, the cascade applies the moment the test is met, not once OFSI separately confirms it.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => { b.disabled = true; b.style.opacity = '0.6'; b.style.cursor = 'default'; });
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+  contentDiv.innerHTML = `<div class="${bgClass}"><div class="verdict-icon">${icon}</div><div class="verdict-title">${v.title}</div><div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div></div>`;
+  verdictDiv.classList.add('show');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+function toggleFaq(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.faq-icon').classList.toggle('open');
+}
+
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'A ship is specified, a person is designated, these are legally distinct mechanisms with different consequences under the Sanctions and Anti-Money Laundering Act 2018.' },
+  qq2: { correct: 'B', fb: 'The IMO number is intended to remain fixed for the life of the hull through renaming, reflagging, or sale, making it the strongest anchor for screening, though not an infallible one.' },
+  qq3: { correct: 'B', fb: 'The ownership-and-control cascade applies automatically once a designated person owns or controls an entity under the applicable test, regardless of whether that entity is separately named on any list.' },
+  qq4: { correct: 'B', fb: 'The charge demonstrates individuals can face real personal prosecution under this regime, separate from any corporate designation, while the charge itself remains undetermined by a court, guilt has not been established.' },
+  qq5: { correct: 'A', fb: 'UK, EU, and US are the three separate regimes. The UN Security Council has not passed a Russia-Ukraine sanctions resolution because Russia holds a permanent seat and veto and has used it to block such resolutions.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the six routes are worth re-reading.','Getting there, revisit the ownership-and-control cascade.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the mechanics correctly.','Excellent, practitioner-level vessel sanctions judgement.','Perfect, ready for Part 2\'s investigation angle.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200, OUTER_PAD = 20, contentWidth = WIDTH - OUTER_PAD * 2, CARD_PAD = 20, TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif', NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif', LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif', LINE_H = 17, ICON_SIZE = 32;
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines, ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH; canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#F4F6F3'; ctx.fillRect(0, 0, WIDTH, totalHeight);
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF'; ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+  ctx.fillStyle = '#0C1B2A'; ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF'; ctx.font = HEAD_FONT; ctx.textBaseline = 'middle';
+  ctx.fillText('Vessel Sanctions Fundamentals: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10, blockW = cardW - 20;
+    ctx.fillStyle = '#FAFBFA'; ctx.strokeStyle = '#E3E8E3'; ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill(); ctx.stroke();
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif'; ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+    ctx.font = NAME_FONT; ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+    ctx.font = LINE_FONT; ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT; ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT; ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'shadow-fleet-guide-part1-at-a-glance.png';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel; btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

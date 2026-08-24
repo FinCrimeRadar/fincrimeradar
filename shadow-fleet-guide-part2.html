@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Shadow Fleet Investigation Playbook | FinCrimeRadar</title>
+  <meta name="description" content="Why insurance, not AIS tracking, is where fraud actually hides. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2." />
+  <meta name="keywords" content="shadow fleet, P&I insurance fraud, Seaguard, International Group of P&I Clubs, oil price cap, sanctions evasion, vessel insurance verification, Russia sanctions" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/shadow-fleet-guide-part2.html" />
+  <meta property="og:title" content="The Shadow Fleet Investigation Playbook" />
+  <meta property="og:description" content="Why insurance, not AIS tracking, is where fraud actually hides. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/shadow-fleet-guide-part2.html" />
+  <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Shadow Fleet Investigation Playbook",
+      "description": "Why insurance, not AIS tracking, is where fraud actually hides. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2.",
+      "author": { "@type": "Organization", "name": "FinCrimeRadar" },
+      "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
+      "url": "https://fincrimeradar.org/shadow-fleet-guide-part2.html",
+      "datePublished": "2026-08-24",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fincrimeradar.org/shadow-fleet-guide-part2.html" }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Sanctions & PEP","item":"https://fincrimeradar.org/knowledge.html?domain=screening-pep"},{"@type":"ListItem","position":3,"name":"The Shadow Fleet Investigation Playbook","item":"https://fincrimeradar.org/shadow-fleet-guide-part2.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied'
+        });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-mech:#2563eb; --c-mech-light:#eff6ff;
+      --c-insurer:#2563eb; --c-insurer-light:#eff6ff;
+      --c-cap:#d97706; --c-cap-light:#fffbeb;
+      --c-registry:#7c3aed; --c-registry-light:#f5f3ff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    .skip-link { position:absolute; left:-9999px; top:0; background:var(--accent); color:#fff; padding:10px 16px; z-index:1000; border-radius:0 0 6px 0; font-size:14px; font-weight:600; text-decoration:none; }
+    .skip-link:focus { left:0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+    }
+
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-mech); z-index:199; transition:width 0.1s; }
+
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%); }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-insurer); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-registry); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-cap); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(93,202,165,0.5); } 50%{ box-shadow:0 0 0 6px rgba(93,202,165,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:2rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+    .hero-stat-source a { color:#93c5fd; }
+    .hero-note { font-size:12px; color:#93c5fd; margin-top:0.9rem; line-height:1.6; font-style:italic; }
+
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-mech); border-left-color:var(--c-mech); }
+    .toc a.active { color:var(--c-mech); border-left-color:var(--c-mech); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    .part-nav-card { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .part-nav-card p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .part-nav-card a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .part-nav-card a:hover { background:var(--accent-h); }
+
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.6rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+    .cite { font-size:12px; color:var(--c-mech); text-decoration:none; font-weight:700; vertical-align:super; }
+    .cite:hover { text-decoration:underline; }
+
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-insurer { background:var(--c-insurer-light); color:var(--c-insurer); border:1px solid #bfdbfe; }
+    .badge-cap { background:var(--c-cap-light); color:var(--c-cap); border:1px solid #fde68a; }
+    .badge-registry { background:var(--c-registry-light); color:var(--c-registry); border:1px solid #ddd6fe; }
+
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) { .pattern-ttd { grid-template-columns:1fr; } .pattern-grid { grid-template-columns:1fr; } }
+
+    /* IG CLUBS VERIFICATION FLOW */
+    .verify-flow { display:flex; align-items:center; gap:0; margin:1.5rem 0; flex-wrap:wrap; }
+    .verify-step { flex:1; min-width:150px; background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:1rem; text-align:center; }
+    .verify-step-num { width:28px; height:28px; border-radius:50%; background:var(--c-insurer-light); color:var(--c-insurer); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; }
+    .verify-step-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .verify-arrow { flex-shrink:0; font-size:20px; color:var(--muted); padding:0 8px; }
+    @media(max-width:700px) { .verify-flow { flex-direction:column; } .verify-arrow { transform:rotate(90deg); padding:4px 0; } .verify-step { width:100%; } }
+
+    .ig-stat-box { display:flex; gap:14px; margin:1.25rem 0; flex-wrap:wrap; }
+    .ig-stat-tile { flex:1; min-width:150px; background:var(--c-insurer-light); border:1px solid #bfdbfe; border-radius:10px; padding:1rem; text-align:center; }
+    .ig-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:1.8rem; color:var(--c-insurer); }
+    .ig-stat-label { font-size:12px; color:var(--muted); margin-top:4px; }
+
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-mech); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-icon.open { transform:rotate(45deg); }
+    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
+    .faq-a.open { max-height:320px; padding:0 1.1rem 1rem; }
+
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-mech); color:var(--c-mech); }
+
+    .sources-list { list-style:none; padding-left:0; counter-reset:src; }
+    .sources-list li { counter-increment:src; position:relative; padding-left:2.2rem; font-size:13.5px; color:#374151; margin-bottom:0.9rem; line-height:1.6; }
+    .sources-list li::before { content:'[' counter(src) ']'; position:absolute; left:0; top:0; color:var(--c-mech); font-weight:700; font-size:12.5px; }
+    .sources-list a { color:var(--c-mech); word-break:break-word; }
+    .sources-list .src-jur { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); background:#f3f4f6; border-radius:4px; padding:1px 6px; margin-right:6px; }
+
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    @media(max-width:768px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .hero-stats { flex-direction:column; }
+    }
+  </style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">›</span>
+  <a href="/knowledge.html?domain=screening-pep">Sanctions &amp; PEP</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">The Shadow Fleet Investigation Playbook</span>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-nodes"><div class="hero-node"></div><div class="hero-node"></div><div class="hero-node"></div></div>
+  <div class="hero-inner">
+    <div class="series-tag">🚢 Shadow Fleet Series · Part 2 of 2</div>
+    <h1>The Shadow Fleet<br><em>Investigation Playbook</em></h1>
+    <p class="hero-sub">Why insurance, not AIS tracking, is where fraud actually hides, and the cheap check most compliance workflows skip.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 13 min read</span>
+      <span>🔎 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 2 Scenarios</span>
+    </div>
+
+    <div class="hero-eyebrow-row"><span class="pulse-dot" aria-hidden="true"></span><span>Why this matters</span></div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="20">0</span>+</div>
+        <div class="hero-stat-label">Shadow fleet tankers reported to have sailed on fake "Seaguard P&amp;I" certificates since Sept 2025</div>
+        <div class="hero-stat-source">Association for the Reintegration of Crimea's own investigation <a class="cite" href="#sources">[1]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="19">0</span></div>
+        <div class="hero-stat-label">Designations, UK's 6 August 2026 package, 6 named tankers</div>
+        <div class="hero-stat-source">Five independently corroborating outlets, see Part 1 <a class="cite" href="#sources">[2]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="82">0</span>%</div>
+        <div class="hero-stat-label">Of a 940-tanker sample lacked identified P&amp;I coverage</div>
+        <div class="hero-stat-source">S&amp;P Global study, data to May 2025 <a class="cite" href="#sources">[3]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num"><span class="stat-num-anim" data-target="70">0</span>%</div>
+        <div class="hero-stat-label">Of sanctioned vessels changed flag at least once during 2025</div>
+        <div class="hero-stat-source">Lloyd's List-derived methodology <a class="cite" href="#sources">[4]</a></div>
+      </div>
+    </div>
+    <p class="hero-note">Different trackers define "shadow fleet" differently and produce very different totals: Brookings counted 343 Russia-linked ships (April 2025), S&amp;P counted 940 by size threshold (May 2025), Windward's behavioural definition put its dark fleet subset at 2,186 (Q2 2026) <a class="cite" href="#sources">[5]</a>. This guide deliberately avoids quoting one figure as settled.</p>
+  </div>
+</div>
+
+<div class="article-layout">
+  <main class="article-body" id="main-content">
+
+    <div class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">Series Introduction</div>
+      <h2>Why insurance, not AIS tracking, is where this guide focuses</h2>
+      <p>Much existing shadow fleet content covers a similar core set of mechanics: AIS transponders going dark, vessels changing flag, ownership hidden behind shell companies. All of that is real, and <a href="/shadow-fleet-guide-part1.html" style="color:var(--c-insurer);font-weight:600;">Part 1</a> already covers those mechanics. This part focuses instead on insurance status, which functions as more than a red flag, it carries its own separate legal dimension under the UK's maritime services and price cap framework, and it is a point in the chain where a shadow fleet vessel's paperwork can contain an outright fabrication rather than just an omission, as the Seaguard P&amp;I case below demonstrates concretely. A vessel can be flagged in a jurisdiction that asks few questions, can be owned by a shell company incorporated recently, and can still present a certificate that looks completely normal on its face. The Seaguard case shows that certificate content and certificate authenticity are two separate questions, one that document review alone does not answer.</p>
+
+      <div class="callout callout-navy">
+        <strong>Builds directly on Part 1</strong>
+        <p>This guide does not re-explain designated vs specified, IMO screening, or the ownership/control cascade, see <a href="/shadow-fleet-guide-part1.html" style="color:var(--navy);font-weight:600;">Part 1</a> for those. What follows assumes you already know why IMO number beats name-based screening and how the ownership-and-control cascade works.</p>
+      </div>
+    </div>
+
+    <!-- CASE STUDY -->
+    <div class="article-section" id="case-study">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">Real Case Study</div>
+      <h2>Seaguard P&amp;I</h2>
+      <p>In April 2026, Ukraine's Foreign Intelligence Service assessed, reported by Bloomberg on 16 April 2026, that a company calling itself "Seaguard P&amp;I" had issued insurance certificates to Russian shadow fleet tankers, including the Paz, a tanker already under sanction by the US, UK, and EU. Seaguard claimed to be based in Pinneberg, Germany. Ukraine's intelligence assessment found no such commercial entity registered in Germany; the address on the certificate corresponded to an ordinary residential apartment building <a class="cite" href="#sources">[6]</a>. This is presented here as an intelligence assessment, not a judicially established fact, that distinction matters and is preserved throughout this guide rather than flattened into certainty.</p>
+      <p>At least five tankers were confirmed at the time of the initial report to have used Seaguard certificates, one of them, the Deyna, flying the Mozambican flag, had already been seized by French maritime authorities in March 2026 under Article 110 of the UN Convention on the Law of the Sea, on suspicion of sailing under a false flag while carrying Russian oil out of Murmansk <a class="cite" href="#sources">[7]</a>. The Association for the Reintegration of Crimea's own follow-up investigation identified more than twenty vessels it assessed had sailed on Seaguard certificates since September 2025, several by IMO number <a class="cite" href="#sources">[1]</a>, this later, larger figure traces to that single investigation rather than to separate independent verification. Seaguard's name closely resembled that of a legitimate, unrelated Nigerian maritime service, a similarity worth flagging as a pattern for readers to watch for, though the connection between the two names has not been established as anything more than a naming coincidence or deliberate imitation, this guide does not assert which. Seaguard's website went offline shortly after the story broke.</p>
+      <p>This is the mechanism worth teaching, not the individual vessel names. A certificate existing, formatted correctly, with a policy number and a claims stamp, is not evidence that real cover exists behind it. The only thing that actually establishes real cover is checking the named insurer against a source that isn't the certificate itself.</p>
+    </div>
+
+    <!-- VERIFICATION STEP -->
+    <div class="article-section" id="verification">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">The Fix</div>
+      <h2>The verification step this guide recommends adding</h2>
+      <p>The International Group of P&amp;I Clubs currently has <strong>12 member clubs</strong>, following the February 2023 merger of the North of England P&amp;I Association and the Standard Club into NorthStandard. Each of the 12 is independently named and verifiable through the Group's own published membership list, together covering roughly 87% of global oceangoing tonnage <a class="cite" href="#sources">[8]</a>. Most mainstream, Western-aligned commercial shipping is insured through one of these 12. A certificate naming an insurer outside that list is not automatically fraudulent, smaller regional and niche insurers genuinely exist, but it is a certificate that warrants one extra step: checking the named insurer against a real, independent, third-party source, not just trusting the document as presented.</p>
+
+      <div class="ig-stat-box">
+        <div class="ig-stat-tile"><div class="ig-stat-num">12</div><div class="ig-stat-label">IG member clubs</div></div>
+        <div class="ig-stat-tile"><div class="ig-stat-num">~87%</div><div class="ig-stat-label">Of global oceangoing tonnage covered</div></div>
+        <div class="ig-stat-tile"><div class="ig-stat-num">Feb 2023</div><div class="ig-stat-label">NorthStandard merger, last count change</div></div>
+      </div>
+
+      <div class="verify-flow" aria-label="Insurer verification process">
+        <div class="verify-step"><div class="verify-step-num">1</div><div class="verify-step-text">Certificate names an insurer</div></div>
+        <div class="verify-arrow" aria-hidden="true">→</div>
+        <div class="verify-step"><div class="verify-step-num">2</div><div class="verify-step-text">Check against the IG Clubs' own published 12-name list</div></div>
+        <div class="verify-arrow" aria-hidden="true">→</div>
+        <div class="verify-step"><div class="verify-step-num">3</div><div class="verify-step-text">Not a member? Verify existence and registration independently</div></div>
+        <div class="verify-arrow" aria-hidden="true">→</div>
+        <div class="verify-step"><div class="verify-step-num">4</div><div class="verify-step-text">Accept, escalate, or reject based on what's actually found</div></div>
+      </div>
+      <p>This is a cheap check against an expensive fraud. It should be as routine as checking a vessel's IMO number against a sanctions list.</p>
+    </div>
+
+    <!-- SCENARIO 3 -->
+    <div class="article-section" id="scenario3">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-insurer-light);">📄</div>
+        <div>
+          <div class="scenario-num">Scenario 03 · Certificate authenticity vs certificate content</div>
+          <div class="scenario-name">The Reassuring Certificate</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;"><span class="badge badge-insurer">The Unverified Insurer</span></div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario3">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>What do you do?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-scenario">
+          <p>A UK trade finance desk is asked to confirm a letter of credit for a cargo of refined product loading from a non-sanctioned port. The chartered vessel's P&amp;I certificate names "Seaguard P&amp;I, Pinneberg," policy number formatted correctly, claims stamp present. The vessel itself screens clean by IMO number against all relevant sanctions regimes, and AIS has been continuous for the voyage so far.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario3','A',this)"><span class="opt-label">A</span><span>Approve, given clean vessel screening and a certificate on file.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','B',this)"><span class="opt-label">B</span><span>Escalate before approving, verify the named insurer against the IG Clubs' own published list first.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','C',this)"><span class="opt-label">C</span><span>Reject outright, any insurer outside the IG Clubs is automatically fraudulent.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario3','D',this)"><span class="opt-label">D</span><span>Approve, since clean AIS for the voyage rules out anything suspicious.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario3-verdict" aria-live="polite"><div id="scenario3-content"></div></div>
+      </div>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Screening a vessel or counterparty?</strong><span>Run a free sanctions and PEP check before proceeding, no account required.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an entity →</a>
+      </div>
+    </div>
+
+    <!-- SCENARIO 4 -->
+    <div class="article-section" id="scenario4">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-cap-light);">💷</div>
+        <div>
+          <div class="scenario-num">Scenario 04 · Pattern vs single transaction</div>
+          <div class="scenario-name">The Payment That Almost Cleared</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;"><span class="badge badge-cap">The Cap-Line Pattern</span></div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario4">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>What do you do?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-scenario">
+          <p>A correspondent bank processes a payment instruction relating to a cargo of crude oil. The counterparty, cargo, and vessel all screen clean. The payment references a price per barrel that sits exactly at the G7 oil price cap threshold, a level the compliance analyst has seen on several transactions from this same corridor over the past two months, each one just at, never above, the cap.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario4','A',this)"><span class="opt-label">A</span><span>Process, since the price is technically within the permitted cap.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','B',this)"><span class="opt-label">B</span><span>Escalate the pattern for review, examining invoices, freight, ancillary costs, and attestations across the corridor.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','C',this)"><span class="opt-label">C</span><span>Block the payment outright, a repeated at-cap pattern proves circumvention.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario4','D',this)"><span class="opt-label">D</span><span>Process, but only flag it if the price ever exceeds the cap.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario4-verdict" aria-live="polite"><div id="scenario4-content"></div></div>
+      </div>
+    </div>
+
+    <!-- PATTERNS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">Three Patterns</div>
+      <h2>Three patterns, three cards</h2>
+      <p>Most insurance and price-cap misjudgments trace back to one of these three shapes.</p>
+
+      <div class="pattern-card" style="background:var(--c-insurer-light);border-color:#bfdbfe;">
+        <div class="pattern-card-head"><div class="pattern-icon">📄</div><div class="pattern-name" style="color:var(--c-insurer);">The Unverified Insurer</div></div>
+        <div class="pattern-line">A P&amp;I certificate names an insurer that isn't one of the 12 International Group member clubs.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-insurer);">Risk</div><div class="ttd-text">Non-membership is a verification trigger, not proof of fraud, legitimate insurers do operate outside the IG, but a non-member name is exactly the case where a certificate's authenticity hasn't actually been checked against anything independent.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-insurer);">Signal</div><div class="ttd-text">Unfamiliar insurer name, especially one closely resembling a real, unrelated firm's name.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-insurer);">Response</div><div class="ttd-text">Check the named insurer against the IG Clubs' own published list; if not a member, verify existence and registration independently, don't reject automatically, but don't accept automatically either.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-cap-light);border-color:#fde68a;">
+        <div class="pattern-card-head"><div class="pattern-icon">💷</div><div class="pattern-name" style="color:var(--c-cap);">The Cap-Line Pattern</div></div>
+        <div class="pattern-line">Repeated payments cluster exactly at the sanctions price cap threshold.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cap);">Risk</div><div class="ttd-text">Not proof of circumvention on its own, but a pattern that specifically warrants closer review rather than routine processing.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cap);">Signal</div><div class="ttd-text">Multiple transactions from the same corridor or counterparty landing precisely at the cap, never meaningfully below it.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cap);">Response</div><div class="ttd-text">Examine invoices, freight and ancillary costs, attestations, and market pricing for the pattern, analysed across the corridor, not transaction by transaction in isolation.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-registry-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head"><div class="pattern-icon">🏴</div><div class="pattern-name" style="color:var(--c-registry);">The Suspended Registry Period</div></div>
+        <div class="pattern-line">A vessel's flag history includes a period under a registry later found to have serious fraud problems (Cameroon suspended new international ship registrations in February 2026 amid fraudulent registrations, and subsequently removed suspect vessels <a class="cite" href="#sources">[9]</a>).</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Risk</div><div class="ttd-text">A claimed registration during the affected period should trigger direct registry verification.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Signal</div><div class="ttd-text">Flag history includes a jurisdiction that later suspended new registrations over fraud concerns.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Response</div><div class="ttd-text">Verify directly against the registry for that period. A Cameroon-registry period should not automatically be treated as evidence the vessel knowingly used a fraudulent flag, verification, not assumption, is the correct response.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions on the mechanics this guide establishes.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. What did Ukraine's Foreign Intelligence Service assess about the Seaguard P&amp;I certificates, and why is "assessed" the right word rather than "proved"?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - It assessed no genuine commercial entity was registered in Germany under that name; "assessed" is used because this is an intelligence finding, not a judicially established fact</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - It proved in court that Seaguard was a fraudulent operation</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - It assessed that Seaguard was a legitimate but under-capitalised insurer</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - It found Seaguard was a rebrand of a sanctioned entity</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Which of the following would catch a fake P&amp;I certificate that a clean sanctions-list screen would miss?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - Re-running the same sanctions list screen a second time</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - Checking the named insurer against the International Group of P&amp;I Clubs' own published membership list</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - Confirming the vessel's IMO number matches its current name</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - Checking whether AIS has been continuous for the current voyage</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. In Worked Scenario 4, why does a single transaction at the price cap threshold differ from a repeated pattern at that threshold, and why is even the repeated pattern not proof on its own?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - There's no meaningful difference, both should always be blocked</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - A single at-cap transaction is normal legitimate trade; a repeated pattern across a corridor warrants closer review, but the pattern is a prompt for further checking, not a finding in itself</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - A repeated pattern is definitive proof of price cap circumvention</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - Only transactions above the cap ever warrant review</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. Which country's flag registry suspended new international ship registrations in February 2026 amid fraudulent registration concerns, and why should that history trigger verification rather than an automatic assumption of wrongdoing?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Panama; because Panama is the world's largest registry by tonnage</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Cameroon; because a registration during the affected period is a verification trigger, not proof the vessel knowingly used a fraudulent flag</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Mozambique; because it is the flag under which the Deyna was seized</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - Germany; because Seaguard falsely claimed to be based there</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. How many member clubs does the International Group of P&amp;I Clubs have, and why does that number matter for verification purposes?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - 13, unchanged since before the 2023 merger</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - 12, following the 2023 NorthStandard merger; it's a short, publicly available list that makes checking a named insurer's membership a fast, routine step</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - Over 50, one per major flag state</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - The number is not published anywhere</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score" aria-live="polite"><div class="quiz-score-num" id="quiz-score-num">0/5</div><div class="quiz-score-label" id="quiz-score-label"></div></div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">Frequently Asked</div>
+      <h2>FAQ</h2>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">If a vessel's insurer isn't an IG Club member, does that automatically mean it's fraudulent? <span class="faq-icon">+</span></div>
+        <div class="faq-a">No. Smaller, legitimate regional insurers exist outside the International Group. It means the certificate needs independent verification against a real source before being accepted, not automatic rejection.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Why did Seaguard's fraud work for as long as it did? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Because a certificate that's correctly formatted, with a policy number and a claims stamp, looks sufficient on its face, and checking the named insurer against an independent source is a step that's easy to treat as unnecessary once the document itself looks complete. This guide doesn't have a documented methodology establishing how widespread that gap is across institutions generally, only that the Seaguard case shows it can go unchecked long enough for at least twenty vessels to rely on it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is checking the IG Clubs' membership list something a compliance team can realistically do for every transaction? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes, it's a short, publicly available, 12-name list. The barrier isn't difficulty, it's that this specific check is easy to overlook when a certificate otherwise looks complete and correctly formatted.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How does this connect to the price cap pattern in Worked Scenario 4? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Both worked scenarios in this guide make a related point: a single, isolated check (does a certificate exist, is one transaction within the cap) can look clean while missing the thing that actually matters, whether the certificate is genuine, or whether the pattern across a corridor tells a different story than any single transaction does. Neither scenario's pattern is proof by itself, both warrant independent verification or deeper examination before being cleared.</div>
+      </div>
+    </div>
+
+    <!-- AT A GLANCE -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Three patterns, the risk that makes each one look routine, the signal that gives it away, and the response that fits.</p>
+
+      <div class="save-img-row"><button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button></div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-insurer-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head"><div class="pattern-icon">📄</div><div class="pattern-name" style="color:var(--c-insurer);">The Unverified Insurer</div></div>
+          <div class="pattern-line">A P&amp;I certificate names an insurer outside the 12 IG member clubs.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-insurer);">Risk</div><div class="ttd-text">Non-membership is a verification trigger, not proof of fraud.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-insurer);">Signal</div><div class="ttd-text">Unfamiliar insurer name, possibly resembling a real, unrelated firm.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-insurer);">Response</div><div class="ttd-text">Check against the IG Clubs' list; verify independently if not a member.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-cap-light);border-color:#fde68a;">
+          <div class="pattern-card-head"><div class="pattern-icon">💷</div><div class="pattern-name" style="color:var(--c-cap);">The Cap-Line Pattern</div></div>
+          <div class="pattern-line">Repeated payments cluster exactly at the price cap threshold.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cap);">Risk</div><div class="ttd-text">Not proof on its own, but warrants closer review, not routine processing.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cap);">Signal</div><div class="ttd-text">Multiple transactions landing precisely at the cap, never meaningfully below it.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-cap);">Response</div><div class="ttd-text">Examine invoices, costs, and attestations across the corridor, not in isolation.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-registry-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head"><div class="pattern-icon">🏴</div><div class="pattern-name" style="color:var(--c-registry);">The Suspended Registry Period</div></div>
+          <div class="pattern-line">Flag history includes a registry later found to have fraud problems.</div>
+          <div class="pattern-ttd">
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Risk</div><div class="ttd-text">A claimed registration in the affected period should trigger verification.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Signal</div><div class="ttd-text">Flag history includes a jurisdiction that later suspended registrations.</div></div>
+            <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Response</div><div class="ttd-text">Verify against the registry; don't assume knowing use of a fraudulent flag.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CROSS-REFERENCE BACK TO PART 1 -->
+    <div class="article-section" id="cross-reference">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">Continue The Series</div>
+      <h2>Cross-reference back to Part 1</h2>
+      <p>The ownership-and-control cascade established in <a href="/shadow-fleet-guide-part1.html" style="color:var(--c-insurer);font-weight:600;">Part 1</a> (a designated person owning or controlling an entity, whether through the shareholding test or the separate control test) applies to any entity behind a confirmed-fraudulent insurer or a confirmed sanctions-circumvention structure, once a designated person is established somewhere in that chain, not automatically merely because an insurer looks suspicious or a payment pattern looks unusual. Part 1 sets out exactly when that cascade is, and isn't, triggered.</p>
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Start from Part 1</strong><span>Vessel Sanctions Fundamentals: designated vs specified, the six routes, and IMO-number screening.</span></div>
+        <a href="/shadow-fleet-guide-part1.html" class="itp-btn">Read Part 1 →</a>
+      </div>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-insurer)">Sources and Methodology</div>
+      <h2>Sources and methodology</h2>
+      <p style="font-size:13px;color:var(--muted);">Legal and regulatory sources were last reviewed on 24 August 2026. Vessel and counterparty status should always be checked against the applicable official sanctions sources at the point of decision. This guide is an educational resource for financial crime, sanctions, and maritime risk professionals. It does not constitute legal advice.</p>
+      <ol class="sources-list">
+        <li><span class="src-jur">Intel</span>Association for the Reintegration of Crimea, follow-up investigation, 21 April 2026 (20+ vessels sailed on Seaguard certificates since September 2025). Attribution: this is the source of the larger, later figure, not independent corroboration of the primary Bloomberg/Ukraine FIS finding below.</li>
+        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em> (19 designations, 6 August 2026 package); see Part 1 for the full corroboration record.</li>
+        <li><span class="src-jur">Industry</span>World Ports Organization, <em>Skuld CEO worried about shadow fleet's lack of insurance cover</em>, citing an S&amp;P Global Market Intelligence study, data to May 2025.</li>
+        <li><span class="src-jur">Industry</span>Center for International Maritime Security, 13 July 2026 (70% reflagging figure, Lloyd's List-derived methodology).</li>
+        <li><span class="src-jur">Industry</span>Fault-Line, 23 July 2026 (shadow/dark fleet vessel-count methodology comparison: Brookings, S&amp;P Global, Windward).</li>
+        <li><span class="src-jur">Intel</span>Bloomberg, via Insurance Journal, 16 April 2026 (Ukraine Foreign Intelligence Service assessment of Seaguard P&amp;I). Attribution: primary intelligence finding, not a judicially established fact.</li>
+        <li><span class="src-jur">Enforcement</span>United24 Media, 16 April 2026 (Deyna interception under UNCLOS Article 110).</li>
+        <li><span class="src-jur">Industry</span>International Group of P&amp;I Clubs, published member list (12 clubs, ~87% of global oceangoing tonnage).</li>
+        <li><span class="src-jur">Enforcement</span>Cameroon Ministry of Transport (February 2026 registration suspension); International Maritime Organization fraudulent registration notices.</li>
+      </ol>
+      <p style="font-size:12px;color:var(--muted);margin-top:1rem;">Worked Scenario 4 additionally cites GOV.UK, <em>UK maritime services ban and oil price cap: industry guidance</em>, the same primary source underpinning Part 1's insurer route (route 5 of the six-route breakdown).</p>
+    </div>
+
+  </main>
+
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#intro">Why Insurance</a>
+      <a href="#case-study">Seaguard Case Study</a>
+      <a href="#verification">The Verification Step</a>
+      <a href="#scenario3" class="toc-scenario"><span class="toc-dot" style="background:var(--c-insurer);"></span> 03 · Reassuring Certificate</a>
+      <a href="#scenario4" class="toc-scenario"><span class="toc-dot" style="background:var(--c-cap);"></span> 04 · Payment That Almost Cleared</a>
+      <a href="#patterns">Three Patterns</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#cross-reference">Part 1 →</a>
+      <a href="#sources">Sources</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 2</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+
+    <div class="part-nav-card">
+      <p>Part 1, Vessel Sanctions Fundamentals, covers the legal mechanics this guide builds on.</p>
+      <a href="/shadow-fleet-guide-part1.html">Read Part 1 →</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+
+(function () {
+  const nums = document.querySelectorAll('.stat-num-anim');
+  if (!nums.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateNum(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if (prefersReduced) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+  const heroEl = document.querySelector('.article-hero');
+  if (!heroEl) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { nums.forEach(animateNum); observer.disconnect(); }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(heroEl);
+})();
+
+let scenarioResults = {};
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 2';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+const answerKeys = { scenario3: 'B', scenario4: 'B' };
+
+const verdicts = {
+  scenario3: {
+    title: 'Correct answer: B, Verify the named insurer against the IG Clubs\' own published list before approving',
+    body: [
+      'A certificate existing is not the same as a certificate being real. The International Group of P&I Clubs has 12 named, independently verifiable members. "Seaguard P&I" is not one of them, and Ukraine\'s Foreign Intelligence Service assessed that no such commercial entity is registered in Germany under its claimed name.',
+      'Clean AIS on a single voyage doesn\'t rule out a vessel simply not yet flagged, insurance fraud and sanctions evasion are frequently sequential problems on the same hull, not the same red flag showing up twice. The actual control point here isn\'t sanctions screening at all, it\'s verifying the named insurer against the IG Clubs\' own published list before the certificate is accepted as genuine cover. Option A and Option D both treat clean screening elsewhere as if it answers the insurer-authenticity question, it doesn\'t. Option C overcorrects, non-membership alone isn\'t automatic proof of fraud.'
+    ]
+  },
+  scenario4: {
+    title: 'Correct answer: B, Escalate the pattern for review across the corridor',
+    body: [
+      'A single transaction landing exactly at the price cap is not itself suspicious, the cap exists precisely so legitimate trade can continue at that level. A repeated pattern of multiple transactions landing at exactly the cap threshold, never below it by any meaningful margin, is not proof of circumvention on its own.',
+      'What the pattern legitimately warrants is deeper examination: checking invoices, freight and ancillary costs, attestations, and market pricing more broadly. The individual transaction is not the unit of analysis here, the pattern across the corridor is, but the pattern is a prompt for further checking, not a finding in itself. Option A ignores the pattern entirely. Option C overstates what a pattern alone proves. Option D would only catch violations that are already the easiest kind to spot, and misses the entire point of a pattern check.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => { b.disabled = true; b.style.opacity = '0.6'; b.style.cursor = 'default'; });
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+  contentDiv.innerHTML = `<div class="${bgClass}"><div class="verdict-icon">${icon}</div><div class="verdict-title">${v.title}</div><div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div></div>`;
+  verdictDiv.classList.add('show');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+function toggleFaq(el) {
+  el.nextElementSibling.classList.toggle('open');
+  el.querySelector('.faq-icon').classList.toggle('open');
+}
+
+const quizFeedback = {
+  qq1: { correct: 'A', fb: 'Ukraine\'s Foreign Intelligence Service assessed no genuine commercial entity was registered in Germany under the Seaguard name; "assessed" is the correct word because this is an intelligence finding, not a judicially established fact.' },
+  qq2: { correct: 'B', fb: 'Checking the named insurer against the International Group of P&I Clubs\' own published membership list is the check that catches a fake certificate a clean sanctions screen would miss entirely.' },
+  qq3: { correct: 'B', fb: 'A single at-cap transaction is normal legitimate trade. A repeated pattern across a corridor warrants closer review, but the pattern is a prompt for further checking, not proof of circumvention by itself.' },
+  qq4: { correct: 'B', fb: 'Cameroon suspended new international ship registrations in February 2026 amid fraudulent registrations; a registration during that period is a verification trigger, not automatic evidence of knowing fraud.' },
+  qq5: { correct: 'B', fb: 'The International Group of P&I Clubs has 12 member clubs following the 2023 NorthStandard merger, a short, publicly available list that makes checking membership a fast, routine step.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the IG Clubs verification step is worth re-reading.','Getting there, revisit the certificate authenticity vs content distinction.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the patterns correctly.','Excellent, practitioner-level shadow fleet investigation judgement.','Perfect, you\'re ready to apply this in practice.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200, OUTER_PAD = 20, contentWidth = WIDTH - OUTER_PAD * 2, CARD_PAD = 20, TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif', NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif', LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif', LINE_H = 17, ICON_SIZE = 32;
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines, ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH; canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#F4F6F3'; ctx.fillRect(0, 0, WIDTH, totalHeight);
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF'; ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+  ctx.fillStyle = '#0C1B2A'; ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF'; ctx.font = HEAD_FONT; ctx.textBaseline = 'middle';
+  ctx.fillText('The Shadow Fleet Investigation Playbook: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10, blockW = cardW - 20;
+    ctx.fillStyle = '#FAFBFA'; ctx.strokeStyle = '#E3E8E3'; ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill(); ctx.stroke();
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif'; ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+    ctx.font = NAME_FONT; ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+    ctx.font = LINE_FONT; ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT; ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT; ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'shadow-fleet-guide-part2-at-a-glance.png';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel; btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

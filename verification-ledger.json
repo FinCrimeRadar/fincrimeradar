@@ -5396,5 +5396,505 @@
     "verifiedOn": "2026-08-23",
     "reviewDue": "2027-08-23",
     "note": "2026-08-19 Codex audit finding 4. Corrected at line 725 to frame retention as a necessity/proportionality assessment rather than a blanket 'keep everything' rule, per BACKLOG's original guidance to 'rewrite as a contextual retention assessment'."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g01-designated-vs-specified.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "Under UK sanctions law (Sanctions and Anti-Money Laundering Act 2018), a person is designated; a ship is specified. These are legally distinct mechanisms with different consequences.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Ownership and Control: Public Officials and Control guidance",
+      "publisher": "GOV.UK",
+      "date": "2026-01-01",
+      "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets/consolidated-list-of-targets"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'What a vessel sanction actually is, mechanically'",
+    "note": "Jurisdiction: UK. Approved wording distinguishes the two mechanisms (designation of a person vs specification of a ship) and their different consequences; does not conflate an asset freeze with vessel-specific restrictions."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g01-specification-restrictions.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "Specification can subject a ship to restrictions including port access prohibitions, detention, movement directions, registration restrictions, and prohibitions on providing certain services to it.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Transport sanctions guidance",
+      "publisher": "GOV.UK",
+      "date": "2026-01-01",
+      "url": "https://www.gov.uk/guidance/transport-sanctions-guidance"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'What a vessel sanction actually is, mechanically'; Route 1 of the six-route breakdown",
+    "note": "Jurisdiction: UK. Confirms specification is a transport-focused restriction regime, not an asset freeze."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g10-imo-number-permanence.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "Vessels are identified by their IMO number, an identifier intended to remain permanently assigned for the life of the hull, though it is not immune to falsification or misrepresentation attempts.",
+    "claimType": "definition",
+    "source": {
+      "title": "IMO identification number schemes",
+      "publisher": "International Maritime Organization",
+      "date": "2025-01-01",
+      "url": "https://www.imo.org/en/OurWork/MSAS/Pages/IMO-identification-number-scheme.aspx"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'What a vessel sanction actually is, mechanically'; Worked Scenario 1 reasoning",
+    "note": "Approved wording qualifies 'intended to remain permanent' against attempted falsification/manipulation, not asserting the identifier is infallible."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g05-us-ofac-sdn-mechanics.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "Under US regimes (OFAC's SDN List), all property and interests in property subject to US jurisdiction are blocked, and US persons are generally barred from transacting with the listed party.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Specially Designated Nationals and Blocked Persons List (SDN) Human Readable Lists",
+      "publisher": "Office of Foreign Assets Control, US Department of the Treasury",
+      "date": "2026-01-01",
+      "url": "https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'What a vessel sanction actually is, mechanically'",
+    "note": "Jurisdiction: US. Distinct blocking mechanism from the UK designation/specification split described in the same section."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g06-no-un-russia-vessel-regime.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "The United Nations Security Council has not passed a sanctions resolution relating to Russia's invasion of Ukraine; Russia holds a permanent Security Council seat and veto and has used it to block such resolutions. A general UN Consolidated List exists for other, unrelated sanctions regimes, but is not a fourth Russia-vessel regime.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Security Council – Veto List",
+      "publisher": "United Nations, Dag Hammarskjöld Library",
+      "date": "2026-01-01",
+      "url": "https://research.un.org/en/docs/sc/quick"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who imposes vessel sanctions, and why sanctioned isn't a single status'",
+    "note": "Jurisdiction: international/UN. Confirms both the absence of a UNSC Russia-Ukraine sanctions resolution and the structural reason (P5 veto power under UN Charter Art. 27(3)); prevents the guide's own three-regime framing from being miscounted as four."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g04-eu-annex-xlii.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "EU Russia-related vessel measures principally operate through Council Regulation 833/2014, with targeted vessel measures under Annex XLII, most recently expanded under the 21st sanctions package (adopted 23 July 2026).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Council Regulation (EU) No 833/2014 concerning restrictive measures in view of Russia's actions destabilising the situation in Ukraine",
+      "publisher": "EUR-Lex, Council of the European Union",
+      "date": "2014-07-31",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0833"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who imposes vessel sanctions'; three-regime breakdown",
+    "note": "Jurisdiction: EU. Review trigger: superseded automatically if a 22nd sanctions package is adopted; check EUR-Lex consolidated text for the current package number before republishing."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g02-ownership-control-test.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "Where a designated person owns more than 50% of an entity's shares or voting rights, can appoint or remove a majority of its board, or otherwise satisfies the applicable control test, that entity becomes subject to financial sanctions without needing to be separately named. Ownership (the shareholding limb) and control (board rights, or the ability to ensure the entity's affairs are conducted in accordance with the designated person's wishes) are separate tests, not one combined threshold.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Ownership and control: consolidated guidance",
+      "publisher": "GOV.UK",
+      "date": "2026-01-01",
+      "url": "https://www.gov.uk/government/publications/ownership-and-control"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who actually gets targeted', route 4; Worked Scenario 2",
+    "note": "Jurisdiction: UK. This is the single most consequential mechanic in the guide; approved wording keeps the shareholding limb and the control limb explicitly separate rather than one combined threshold."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g02-ofsi-enforcement-aggravating-factor.002",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "OFSI's own enforcement guidance treats an incorrect ownership-and-control assessment as an aggravating factor in penalty decisions, not a mitigating one.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "New OFSI Decision gives best guidance yet on sanctions due diligence",
+      "publisher": "Bryan Cave Leighton Paisner (BCLP)",
+      "date": "2026-01-01",
+      "url": "https://www.bclplaw.com/en-US/events-insights-news/new-ofsi-decision-gives-best-guidance-yet-on-sanctions-due-diligence.html"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, Worked Scenario 2 reasoning",
+    "note": "Jurisdiction: UK. Secondary legal-commentary source describing OFSI's own enforcement decision; corroborates the guide's framing of ownership/control errors as aggravating rather than mitigating."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g02-shell-company-ownership-pattern.003",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "The legal entity holding title to a shadow fleet vessel is often a single-vessel shell company with no operating history.",
+    "claimType": "definition",
+    "source": {
+      "title": "What Is the Dark Fleet?",
+      "publisher": "TSG",
+      "date": "2025-01-01",
+      "url": "https://www.tsg.co.uk/insights/what-is-the-dark-fleet"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who actually gets targeted', route 2 (registered owner); Risk/Signal/Response Card 1",
+    "note": "Illustrative-adjacent structural pattern, cited to a named industry source rather than presented as an uncited generalisation."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g02-operator-status-grey-area.004",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "Sanctions regimes differ on whether operator status alone constitutes 'control' for designation purposes; this is a genuine grey area, not a settled rule.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Sanctions circumvention at sea",
+      "publisher": "International Compliance Association",
+      "date": "2025-01-01",
+      "url": "https://www.int-comp.org/insights/sanctions-circumvention-at-sea/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who actually gets targeted', route 3 (the operator)",
+    "note": "Approved wording explicitly flags this as an unsettled area across regimes rather than asserting a single rule."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g03-insurer-maritime-services-price-cap.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "Insurers can face separate restrictions under the UK's maritime services and Russian oil price cap sanctions framework, a different legal basis from Regulation 29A, which is limited to aviation and space insurance and does not extend to maritime shipping insurance.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "UK maritime services ban and oil price cap: industry guidance",
+      "publisher": "GOV.UK",
+      "date": "2026-01-01",
+      "url": "https://www.gov.uk/government/publications/maritime-services-ban-and-oil-price-cap-guidance"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who actually gets targeted', route 5 (insurers)",
+    "note": "Jurisdiction: UK. Same primary guidance document also underpins Part 2's price-cap ledger entry (g15); confirms insurance sits on its own legal basis rather than inheriting a vessel's screening result."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g16-smyrtos-case.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "The Russian shadow fleet tanker SMYRTOS was boarded by Royal Marine Commandos in June 2026 and, as of 17 August 2026, remains detained near Weymouth. Its captain has been charged with an alleged sanctions offence (breaching Russian sanctions by directly or indirectly supplying or delivering prohibited Russian oil), a charge that has not been determined by a court. Twenty-two of the twenty-five original crew members were repatriated in July 2026.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Sanctions update: August 2026",
+      "publisher": "Hill Dickinson",
+      "date": "2026-08-01",
+      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who actually gets targeted' route 6; Real case study: SMYRTOS section",
+    "note": "Approved wording preserves the presumption of innocence throughout ('an active charge that has not been determined by a court'); proceedings remain ongoing as of the guide's 24 August 2026 review date. Review trigger: update if the case reaches trial, verdict, or the vessel's detention status changes.",
+    "additionalSources": [
+      {
+        "title": "CPS charge notice re SMYRTOS captain",
+        "publisher": "Crown Prosecution Service",
+        "date": "2026-06-01",
+        "url": "https://www.cps.gov.uk/"
+      }
+    ]
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g07-uk-package-3400-total.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "3,400+ individuals, entities and ships are now under the UK's Russia sanctions regime.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Sanctions update: August 2026",
+      "publisher": "Hill Dickinson",
+      "date": "2026-08-01",
+      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, stat strip",
+    "note": "Figure cites UK Government designation totals as reported by Hill Dickinson's own tracker."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g07-uk-package-6aug-19designations.002",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "The UK's 6 August 2026 sanctions package added 19 new designations, including 6 shadow fleet vessels, the first package under new Foreign Secretary Ed Miliband.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Sanctions update: August 2026",
+      "publisher": "Hill Dickinson",
+      "date": "2026-08-01",
+      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, stat strip",
+    "note": "Independently corroborated by five further outlets including two law firm sanctions trackers (see BACKLOG.md content-pipeline note, 2026-08-24, for the corroboration record)."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g07-uk-package-3400-total.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "3,400+ individuals, entities and ships are now under the UK's Russia sanctions regime.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Sanctions update: August 2026",
+      "publisher": "Hill Dickinson",
+      "date": "2026-08-01",
+      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, stat strip (cross-referencing Part 1)",
+    "note": "Figure cites UK Government designation totals as reported by Hill Dickinson's own tracker."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g07-uk-package-6aug-19designations.002",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "The UK's 6 August 2026 sanctions package added 19 new designations, including 6 shadow fleet vessels, the first package under new Foreign Secretary Ed Miliband.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Sanctions update: August 2026",
+      "publisher": "Hill Dickinson",
+      "date": "2026-08-01",
+      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, stat strip (cross-referencing Part 1)",
+    "note": "Independently corroborated by five further outlets including two law firm sanctions trackers (see BACKLOG.md content-pipeline note, 2026-08-24, for the corroboration record)."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g08-sp-940-82pct.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "82% of a sample of 940 tankers identified as sanctions-violating or high-risk lacked identified P&I coverage, per an S&P Global study covering data to May 2025, reported July 2025.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Skuld CEO worried about shadow fleet's lack of insurance cover",
+      "publisher": "World Ports Organization",
+      "date": "2025-07-01",
+      "url": "https://www.worldportsorganization.org/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, stat strip",
+    "note": "Secondary reporting on an S&P Global Market Intelligence study; the 940-vessel sample and 82% figure are as reported by World Ports Organization, not independently re-derived from S&P's raw dataset."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g08-sp-940-82pct.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "82% of a sample of 940 tankers identified as sanctions-violating or high-risk lacked identified P&I coverage, per an S&P Global study covering data to May 2025, reported July 2025.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Skuld CEO worried about shadow fleet's lack of insurance cover",
+      "publisher": "World Ports Organization",
+      "date": "2025-07-01",
+      "url": "https://www.worldportsorganization.org/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, stat strip",
+    "note": "Secondary reporting on an S&P Global Market Intelligence study; the 940-vessel sample and 82% figure are as reported by World Ports Organization, not independently re-derived from S&P's raw dataset."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g09-fleet-population-estimates.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "Different trackers define 'shadow fleet' differently and produce very different totals: Brookings counted 343 Russia-linked ships (April 2025), S&P Global Market Intelligence counted 940 across Russia/Iran/Venezuela trade by size threshold (May 2025), and Windward's behavioural definition put its 'dark fleet' subset at 2,186 (Q2 2026).",
+    "claimType": "statistic",
+    "source": {
+      "title": "Shadow fleet vessel-count methodology roundup",
+      "publisher": "Fault-Line",
+      "date": "2026-07-23",
+      "url": "https://fault-line.co/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, stat strip methodology note",
+    "note": "This guide deliberately does not assert a single headline total; the ledger entry exists to source the comparison itself, not to endorse any one figure as correct. Each cited tracker's own methodology differs (behavioural vs trade-route vs size-threshold)."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g11-ig-clubs-membership.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "The International Group of P&I Clubs currently has 12 member clubs, following the February 2023 merger of the North of England P&I Association and the Standard Club into NorthStandard. The 12 clubs together cover roughly 87% of global oceangoing tonnage.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Member Clubs",
+      "publisher": "International Group of P&I Clubs",
+      "date": "2026-01-01",
+      "url": "https://www.igpandi.org/member-clubs/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, 'The verification step this guide recommends adding'; Worked Scenario 3; Card 1; Knowledge check Q5",
+    "note": "Grep-checkable figure: the count '12' must always appear paired with '13' absent anywhere in the built HTML (13 was the pre-merger member count and is a stale figure this guide must not reintroduce)."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g12-seaguard-primary-assessment.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "Ukraine's Foreign Intelligence Service assessed that a company calling itself 'Seaguard P&I' had issued insurance certificates to Russian shadow fleet tankers, including the Paz (already under US, UK, and EU sanction). Seaguard claimed to be based in Pinneberg, Germany; the assessment found no such commercial entity registered in Germany, and the certificate's address corresponded to an ordinary residential apartment building.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Fake insurer helped Russia's shadow fleet evade sanctions, Ukraine says",
+      "publisher": "Bloomberg, via Insurance Journal",
+      "date": "2026-04-16",
+      "url": "https://www.insurancejournal.com/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, Case study: Seaguard P&I (primary finding paragraph)",
+    "note": "Attribution status: this is a foreign-intelligence-service assessment, not a judicially established fact, and the approved wording preserves that distinction throughout ('presented here as an intelligence assessment, not a judicially established fact'). At least five tankers were confirmed at the time of the initial report to have used Seaguard certificates."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g12-seaguard-secondary-followup.002",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "The Association for the Reintegration of Crimea's own follow-up investigation identified more than twenty vessels it assessed had sailed on Seaguard certificates since September 2025, several by IMO number.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Investigation into Seaguard P&I certificate usage",
+      "publisher": "Association for the Reintegration of Crimea",
+      "date": "2026-04-21",
+      "url": "https://arc.construction/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, Case study: Seaguard P&I (secondary/follow-up paragraph); stat strip",
+    "note": "Attribution status: secondary reporting. This later, larger figure (20+ vessels) traces back to this single follow-up investigation rather than constituting separate independent corroboration of the primary Bloomberg/Ukraine FIS finding (g12.001). Kept as a distinct ledger entry specifically so the two attribution tiers are not merged into one undifferentiated citation."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g13-deyna-interception.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "The Deyna, flying the Mozambican flag and among the vessels reported to have used Seaguard certificates, was seized by French maritime authorities in March 2026 under Article 110 of the UN Convention on the Law of the Sea, on suspicion of sailing under a false flag while carrying Russian oil out of Murmansk.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "France seizes tanker Deyna over false-flag suspicion",
+      "publisher": "United24 Media",
+      "date": "2026-04-16",
+      "url": "https://united24media.com/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, Case study: Seaguard P&I (Deyna paragraph)",
+    "note": "UNCLOS Article 110 (right of visit) is the cited legal basis for the boarding/seizure; approved wording states 'on suspicion of', not as an adjudicated finding."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g14-cameroon-registry-suspension.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "Cameroon suspended new international ship registrations in February 2026 amid fraudulent registrations, and subsequently removed suspect vessels from its registry.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "Suspension of new international vessel registrations",
+      "publisher": "Cameroon Ministry of Transport",
+      "date": "2026-02-01",
+      "url": "https://www.mint.cm/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, Risk/Signal/Response Card 3 (The Suspended Registry Period); Knowledge check Q4",
+    "note": "Approved wording explicitly warns against treating a Cameroon-registry period as automatic evidence of knowing fraud; verification against the registry, not assumption, is the stated correct response.",
+    "additionalSources": [
+      {
+        "title": "Fraudulent ship registration notices",
+        "publisher": "International Maritime Organization",
+        "date": "2026-02-01",
+        "url": "https://www.imo.org/en/OurWork/MSAS/Pages/FraudulentRegistration.aspx"
+      }
+    ]
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g15-price-cap-guidance.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "UK price cap guidance discusses the kinds of documentation and pricing anomalies (invoices, freight and ancillary costs, attestations, market pricing) relevant to assessing whether transactions near the G7 oil price cap threshold warrant closer review.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "UK maritime services ban and oil price cap: industry guidance",
+      "publisher": "GOV.UK",
+      "date": "2026-01-01",
+      "url": "https://www.gov.uk/government/publications/maritime-services-ban-and-oil-price-cap-guidance"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, Worked Scenario 4 reasoning; Card 2 (The Cap-Line Pattern)",
+    "note": "Same primary guidance document as Part 1's g03 insurer entry. Approved wording treats a repeated at-cap pattern as a prompt for further checking, not proof of circumvention on its own."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part2.g17-reflagging-70pct.001",
+    "guide": "shadow-fleet-guide-part2.html",
+    "claimText": "70% of sanctioned vessels changed flag at least once during 2025 alone, per Lloyd's List-derived methodology.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Flag-hopping and the sanctioned tanker fleet, 2025 in review",
+      "publisher": "Center for International Maritime Security",
+      "date": "2026-07-13",
+      "url": "https://cimsec.org/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 2, stat strip",
+    "note": "Denominator is sanctioned vessels specifically (not the wider shadow/dark fleet population referenced in g09), derived from Lloyd's List flag-history data as reported by the citing publisher, not independently re-run against Lloyd's List's raw dataset."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g01-uk-asset-freeze-mechanic.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "For a designated person, the practical effect under UK and EU regimes is an asset freeze: economic resources cannot be made available, directly or indirectly, to them.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Sanctions lists explained",
+      "publisher": "Dryad Global",
+      "date": "2025-01-01",
+      "url": "https://www.dryadglobal.com/"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'What a vessel sanction actually is, mechanically'",
+    "note": "Jurisdiction: UK/EU. Distinguishes the asset-freeze mechanism (attaching to designated persons and owned/controlled entities) from the transport-focused restrictions attaching to a specified ship (see g01-specification-restrictions.001)."
+  },
+  {
+    "claimId": "shadow-fleet-guide-part1.g01-uk-regime-structure.001",
+    "guide": "shadow-fleet-guide-part1.html",
+    "claimText": "The UK regime is administered by OFSI (Office of Financial Sanctions Implementation) and OTSI (Office of Trade Sanctions Implementation), under the Sanctions and Anti-Money Laundering Act 2018. Designations appear on the UK Sanctions List.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Office of Financial Sanctions Implementation: About us",
+      "publisher": "GOV.UK",
+      "date": "2026-01-01",
+      "url": "https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation"
+    },
+    "status": "verified",
+    "verifiedOn": "2026-08-24",
+    "reviewDue": "2027-08-24",
+    "location": "Part 1, 'Who imposes vessel sanctions'; three-regime breakdown",
+    "additionalSources": [
+      {
+        "title": "Sanctions and Anti-Money Laundering Act 2018",
+        "publisher": "legislation.gov.uk",
+        "date": "2018-05-23",
+        "url": "https://www.legislation.gov.uk/ukpga/2018/13/contents"
+      }
+    ],
+    "note": "Jurisdiction: UK. One of the three regimes in the guide's own three-not-four framing (see g06 for why the UN is not a fourth Russia-vessel regime)."
   }
 ]
