@@ -263,6 +263,19 @@ Guide structure and presentation standard: see GUIDE_STANDARD.md.
   1,412, in line with Part 4 (1,346) and Part 6 (1,162). No new CSS
   classes added, reused the existing callout-info component already
   defined in this file.
+- **Learn page differentiated, generic-entry-point finding closed, 2026-08-24.**
+  Audit flagged this as the most generic editorial entry point in the
+  library despite substantial length (4,773 body words). Added a new
+  Section 09, "A practitioner's diagnostic: five questions for any
+  alert," a cross-cutting decision framework that generalises past
+  the page's existing single worked example (the Al-Rashid name
+  walkthrough), applicable across sanctions, PEP, and adverse media
+  alike, distinct in kind from both the specialist guides (which go
+  deep on one domain) and Scenario Lab (interactive practice). Reused
+  the existing callout-purple component from the worked-example
+  section, no new CSS. Body word count now 5,337. Section numbering
+  and TOC renumbered accordingly (10-13 shifted from 9-12), verified
+  no gaps or duplicates before commit.
 
 **Next up:**
 - [x] **"Deploy screening-alerts-guide.html and sanctions-compliance-guide.html" and its extension to the eight-guide batch, struck as a false gap for 9 of the 10 guides named.** Vercel auto-deploys `main` on every push. Direct fetch of the live domain on 2026-08-21 confirms all 9 actually-committed corrections (screening-alerts-guide.html, commit `6d19a8e`, plus the eight-guide batch, commits `14b9fa5` through `02c597d`) are live in production right now, spot-checked across screening-alerts-guide.html, aml-guide-part3.html, pep-guide-part3.html, and crypto-guide-part2.html, all four showing corrected text. Correcting the record on how the original gap was identified: it came from a direct WebFetch of the live guide pages earlier this session, not from the separate AdSense ads.txt "not found" dashboard entry elsewhere in this file, those are two unrelated production-state checks that happen to sit near each other in this document. Standing lesson that does hold: check the live domain directly before logging a deploy gap, which is exactly what both checks did, correctly, at the time each was run.
