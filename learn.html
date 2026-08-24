@@ -418,10 +418,11 @@
         <li><a href="#adverse">6. Adverse media</a></li>
         <li><a href="#how-works">7. How screening works</a></li>
         <li><a href="#risk">8. Risk scoring</a></li>
-        <li><a href="#regulatory">9. Regulatory framework</a></li>
-        <li><a href="#challenges">10. Challenges</a></li>
-        <li><a href="#technology">11. Technology & AI</a></li>
-        <li><a href="#faq">12. FAQ</a></li>
+        <li><a href="#decision-framework">9. Practitioner diagnostic</a></li>
+        <li><a href="#regulatory">10. Regulatory framework</a></li>
+        <li><a href="#challenges">11. Challenges</a></li>
+        <li><a href="#technology">12. Technology & AI</a></li>
+        <li><a href="#faq">13. FAQ</a></li>
       </ul>
       <div class="toc-progress">
         <div class="toc-progress-label">
@@ -957,9 +958,40 @@
       </div>
     </section>
 
-    <!-- SECTION 9: REGULATORY -->
-    <section class="article-section" id="regulatory">
+    <!-- SECTION 9: DECISION FRAMEWORK -->
+    <section class="article-section" id="decision-framework">
       <div class="section-number">Section 09</div>
+      <h2>A practitioner's diagnostic: five questions for any alert</h2>
+
+      <p>The worked example above walks through one name, one decision. The pattern behind it generalises. Whatever generated the alert, sanctions, PEP, adverse media, the same five questions decide whether it's worth escalating, and in what order to ask them matters as much as asking them.</p>
+
+      <h3>1. What actually matched, and on what?</h3>
+      <p>Name alone is the weakest signal a screening system produces. Before anything else, establish whether the match is on name only, or whether other identifiers, date of birth, nationality, a document number, corroborate it. A 98% name-similarity score with no supporting identifier is a different alert than a 70% score backed by a matching passport number, even though the first number looks more urgent.</p>
+
+      <h3>2. Does a negative check on identifier X actually rule this out?</h3>
+      <p>This is where analysts get burned. A mismatched date of birth clears most false positives, but a missing date of birth on the customer's own file doesn't. Absence of a discriminating identifier isn't the same as a mismatch on one. Know which of your identifiers are strong enough to close an alert on their own, and which only narrow it.</p>
+
+      <h3>3. What does clearing this alert expose next?</h3>
+      <p>The worked example above shows this directly: clearing the sanctions match surfaced a PEP question the sanctions check was never built to ask. A screening alert is rarely the end of a review, it's a prompt to look at what else the same underlying fact (a name, an employer, a country of operation) might trigger elsewhere in the file. Treat a cleared alert as a question about what to check next, not a closed file.</p>
+
+      <h3>4. What's the base rate, and does this alert beat it?</h3>
+      <p>If your screening configuration runs at a 98% false positive rate, that's the prior you're reasoning from before you open any individual alert. A single match sitting at the median of what your system normally flags carries less weight than one with an unusual pattern, multiple weak signals stacking together, or a corroborating identifier your setup doesn't usually see matched. Knowing your own system's noise floor is part of reading any single alert correctly.</p>
+
+      <h3>5. What decision does this actually require, and who's authorised to make it?</h3>
+      <p>Not every alert needs the same escalation path. A confirmed false positive on a low-risk retail customer is a documentation task. A PEP determination on a corporate signatory is a judgement call that may need senior sign-off. A confirmed sanctions hit isn't a judgement call at all, it's a block-and-file action with no discretion in it. Knowing which category an alert falls into before you start working it prevents both under-escalating a genuine risk and burning senior review time on something a documented false positive already resolves.</p>
+
+      <div class="callout purple">
+        <div class="callout-icon">🧭</div>
+        <div class="callout-body">
+          <div class="callout-title">Why this is a framework, not a checklist</div>
+          <div class="callout-text">A checklist tells you what to look at. This is about the order and the weighting, checking identifiers before assuming a name match means anything, treating a cleared alert as a prompt rather than an endpoint, and calibrating urgency against your own system's actual noise floor rather than a screen showing a scary-looking percentage. The specialist guides below go deep on any one of sanctions, PEP, or adverse media individually. This is the cross-cutting version, the same five questions apply whichever one generated the alert in front of you.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: REGULATORY -->
+    <section class="article-section" id="regulatory">
+      <div class="section-number">Section 10</div>
       <h2>The regulatory framework: Who makes the rules?</h2>
 
       <p>Financial crime screening does not exist in a vacuum. It is embedded in a complex web of international standards, national laws, and regulatory guidance. Understanding this framework is essential for any compliance professional.</p>
@@ -1036,7 +1068,7 @@
 
     <!-- SECTION 10: CHALLENGES -->
     <section class="article-section" id="challenges">
-      <div class="section-number">Section 10</div>
+      <div class="section-number">Section 11</div>
       <h2>The real challenges of financial crime screening</h2>
 
       <p>Theory is one thing. The practical reality of operating a financial crime screening programme is filled with challenges that textbooks rarely address.</p>
@@ -1067,7 +1099,7 @@
 
     <!-- SECTION 11: TECHNOLOGY -->
     <section class="article-section" id="technology">
-      <div class="section-number">Section 11</div>
+      <div class="section-number">Section 12</div>
       <h2>Technology and AI: The future of screening</h2>
 
       <p>Financial crime screening is being transformed by technology. What was once a manual, rule-based process is rapidly becoming an AI-driven, adaptive system.</p>
@@ -1137,7 +1169,7 @@
 
     <!-- SECTION 12: FAQ -->
     <section class="article-section" id="faq">
-      <div class="section-number">Section 12</div>
+      <div class="section-number">Section 13</div>
       <h2>Frequently asked questions</h2>
 
       <div class="faq-item">
