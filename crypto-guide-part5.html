@@ -361,6 +361,30 @@
       <div class="section-num">Gap 05</div>
       <h2>Standard training doesn't teach you to read a wallet graph</h2>
       <p>This is the most concrete, learnable skill gap, and arguably the easiest one to actually close. Reading a cluster of connected wallets, spotting a peel chain, recognising a tightly-knit group of addresses trading only with each other, none of this is something we've seen covered in the AML certification curricula we're familiar with, and all of it is a genuinely learnable, practical skill once someone's shown what to look for. <a href="/crypto-guide-part3.html">Part 3</a> of this series covered the underlying typologies directly.</p>
+
+      <h3>Worked example: the wallet that looked clean</h3>
+      <p>A customer at a mid-sized VASP requests withdrawal of 40,000 USDT to an external wallet. The wallet has no direct hits against sanctions lists, no mixer exposure, and a six-month on-chain history showing only routine peer-to-peer transfers. KYC on the customer is complete: identity document verified, address confirmed, source of funds declared as "trading profits." Nothing in the file looks wrong, because the file only asks a name-and-address question.</p>
+      <p>What it misses is on-chain: the receiving wallet took in funds from four other wallets over the prior 72 hours, each deposit sitting just under the exchange's standard reporting threshold, and each of those four funding wallets was itself funded from a single wallet with no prior on-chain history before that week. That's a layering pattern, structuring below a threshold followed by consolidation, and it doesn't show up in a KYC file because a KYC file was never built to ask a wallet-graph question in the first place.</p>
+
+      <div class="callout info">
+        <div class="callout-icon">💡</div>
+        <div class="callout-body">
+          <div class="callout-title">How this actually gets caught</div>
+          <div class="callout-text">The escalation here has nothing to do with sanctions or PEP screening; both come back clean because the risk was never a name-matching problem. An analyst asks the customer to explain the funding history behind the withdrawal wallet. The answer, a single OTC counterparty, doesn't match what the chain shows: four independent funding sources, not one. That mismatch between the stated explanation and the on-chain pattern is the finding, not any single wallet or transaction in isolation.</div>
+        </div>
+      </div>
+
+      <p>This is illustrative, not a specific documented case, the pattern is common enough that most VASP investigation teams will recognise a version of it, but it isn't tied to a named counterparty or a public enforcement action. The lesson is the transferable part: a wallet passing every sanctions and PEP screen tells you nothing about layering risk. That's a separate question, and asking it requires looking at the graph, not just the address.</p>
+
+      <h3>Checklist: reading a wallet graph before you approve</h3>
+      <ul>
+        <li><strong>Funding source count.</strong> How many distinct wallets fed the customer's wallet in the review window, and does that match their declared counterparty story?</li>
+        <li><strong>Timing clustering.</strong> Do multiple small deposits land within a short window relative to a single large withdrawal request?</li>
+        <li><strong>Threshold proximity.</strong> Are individual inbound amounts sitting just under a reporting or internal monitoring threshold?</li>
+        <li><strong>Wallet age.</strong> Does the funding wallet have on-chain history predating this transaction pattern, or did it appear only to fund this transfer?</li>
+        <li><strong>Declared source-of-funds test.</strong> Does the customer's stated explanation for the funds match the actual on-chain funding pattern, not just the total amount received?</li>
+      </ul>
+      <p>None of these five checks require specialist forensics tooling to start with, they're a way of looking at a block explorer with the right questions in mind, which is exactly the practical skill standard AML training tends to leave out.</p>
     </section>
 
     <section class="article-section" id="closing">
