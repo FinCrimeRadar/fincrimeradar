@@ -66,6 +66,25 @@ Bug fixes, technical debt, structural cleanup. Nothing here should take more tha
   audit report. One audit finding in the same report (PEP Guide Part 3
   Raiffeisen relabelling) was independently checked and found already fixed
   on live HEAD, that finding was stale and not actioned.
+- **Homepage and Sanctions guide PageSpeed image weight fixed, 2026-08-24.**
+  Audit flagged ~1MB avoidable image transfer and missing image dimensions
+  on both pages. Root cause: logo.png was 1,509x541px (1.07MB) serving a
+  44px-tall header logo across all 45 pages that reference it, and
+  pratik.jpg (About page founder photo) was 4055x2959px (1.4MB) serving a
+  96px avatar. Both resized to their actual 3x-retina display size and
+  recompressed: logo.png to 660x237px/134KB, pratik.jpg to 288x288px/10KB.
+  Explicit width/height attributes added to all 48 logo tags sitewide and
+  the founder photo, for CLS prevention. The attached perf-fix.diff's
+  preconnect hunks for fonts.googleapis.com/fonts.gstatic.com on index.html
+  and sanctions-compliance-guide.html were not applied: both pages already
+  carry those hints (commits e71fef0 and d4743cf, predating this fix), so
+  the diff was stale on that point; applying it would have shipped duplicate
+  `<link rel="preconnect">` tags. Confirmed via `git apply --check` failing
+  and `git log -S` on both files before skipping, not assumed.
+  A third unused duplicate, pratik.jpg.jpg (1.3MB, zero HTML references,
+  confirmed via grep), was found and flagged for deletion, not removed in
+  this commit. Re-run PageSpeed on both URLs after deploy to confirm the
+  LCP improvement before treating this item as closed.
 
 **Next up:**
 - [x] Ledger-drift and correction-discipline findings from pep-guide-part1.html and sar-guide-part1.html (2026-08-19) formalised as a standing rule in CLAUDE.md's new "Correction discipline" section. See CLAUDE.md, not this entry, for the rule itself going forward.
