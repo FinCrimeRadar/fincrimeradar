@@ -85,6 +85,27 @@ Bug fixes, technical debt, structural cleanup. Nothing here should take more tha
   confirmed via grep), was found and flagged for deletion, not removed in
   this commit. Re-run PageSpeed on both URLs after deploy to confirm the
   LCP improvement before treating this item as closed.
+- **Homepage/sanctions guide mobile PageSpeed: root cause identified as
+  throttle-amplified lab noise, not a fixable bottleneck, 2026-08-24.**
+  Image weight and render-blocking font fixes both verified working
+  (render-blocking savings dropped to 0ms). Mobile LCP barely moved
+  regardless (5.6s and 8.4s, both over the audit's 4s target). Ruled
+  out via direct evidence, not assumption: AdSense/CMP script timing
+  (all four ad-related hosts resolve 5.7-7.5s before LCP, not on the
+  critical path); all three third-party scripts already load async;
+  brand.css is the only remaining render-blocking resource and carries
+  real FOUC risk if split, not attempted here. LCP phase breakdown
+  (TTFB ~2-3ms, Element Render Delay ~2.35-2.5s) and top-4 long tasks
+  (combined ~230-240ms) together account for well under half of the
+  actual reported LCP on both pages. That gap between named phases and
+  actual LCP, not any single request or script, is the signature of
+  Lighthouse's 4x CPU throttle plus slow-4G simulation amplifying
+  cumulative small delays and thread contention, not a fixable
+  bottleneck. No real-user CrUX data exists yet to confirm whether this
+  lab figure reflects actual visitor experience. Closing this line of
+  investigation; revisit only once real-user data exists, or as a
+  dedicated Build Loop architecture item (critical-CSS split,
+  third-party origin consolidation), not a Polish pass.
 
 **Next up:**
 - [x] Ledger-drift and correction-discipline findings from pep-guide-part1.html and sar-guide-part1.html (2026-08-19) formalised as a standing rule in CLAUDE.md's new "Correction discipline" section. See CLAUDE.md, not this entry, for the rule itself going forward.
