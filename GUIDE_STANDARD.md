@@ -26,6 +26,8 @@ Applies to every guide regardless of which treatment below it uses.
 
 **data-date convention.** Unchanged: every guide's Knowledge Hub card carries a `data-date` attribute.
 
+**Sitemap.** Mandatory, no exceptions: every new guide's URL is added to `sitemap.xml` before the guide is considered shipped, matching the format and `<priority>` tier of the most recently added comparable guide. This was established practice for prior guides (logged individually in BACKLOG.md's Done entries) but was never written into this standard, which let the Shadow Fleet guides ship without it on 2026-08-24, caught only after publication via a live sitemap.xml check, not before. Confirm both the file addition and a fresh live-site check (not just the local working tree) before marking a guide's sitemap step complete.
+
 **Adversarial review.** Fully governed by CLAUDE.md's Review policy, Regulatory-claim adversarial review, and related checklist entries. Not restated here.
 
 **Stale-asset synchronisation.** Fully governed by CLAUDE.md. When a guide's content changes, every derived representation (summary image, metadata, structured data, social copy, stat strip figures, quiz/scenario text, closing cards, Knowledge Hub description) must be checked against the new content before publication.
