@@ -5593,7 +5593,7 @@
       "title": "Sanctions update: August 2026",
       "publisher": "Hill Dickinson",
       "date": "2026-08-01",
-      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+      "url": "https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5602,10 +5602,10 @@
     "note": "Approved wording preserves the presumption of innocence throughout ('an active charge that has not been determined by a court'); proceedings remain ongoing as of the guide's 24 August 2026 review date. Review trigger: update if the case reaches trial, verdict, or the vessel's detention status changes.",
     "additionalSources": [
       {
-        "title": "CPS charge notice re SMYRTOS captain",
+        "title": "Captain charged over sanctions breach in Russian shadow oil tanker operation",
         "publisher": "Crown Prosecution Service",
         "date": "2026-06-01",
-        "url": "https://www.cps.gov.uk/"
+        "url": "https://www.cps.gov.uk/cps/news/captain-charged-over-sanctions-breach-russian-shadow-oil-tanker-operation"
       }
     ]
   },
@@ -5618,7 +5618,7 @@
       "title": "Sanctions update: August 2026",
       "publisher": "Hill Dickinson",
       "date": "2026-08-01",
-      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+      "url": "https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5635,7 +5635,7 @@
       "title": "Sanctions update: August 2026",
       "publisher": "Hill Dickinson",
       "date": "2026-08-01",
-      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+      "url": "https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5652,7 +5652,7 @@
       "title": "Sanctions update: August 2026",
       "publisher": "Hill Dickinson",
       "date": "2026-08-01",
-      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+      "url": "https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5669,7 +5669,7 @@
       "title": "Sanctions update: August 2026",
       "publisher": "Hill Dickinson",
       "date": "2026-08-01",
-      "url": "https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026"
+      "url": "https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5683,16 +5683,23 @@
     "claimText": "82% of a sample of 940 tankers identified as sanctions-violating or high-risk lacked identified P&I coverage, per an S&P Global study covering data to May 2025, reported July 2025.",
     "claimType": "statistic",
     "source": {
-      "title": "Skuld CEO worried about shadow fleet's lack of insurance cover",
-      "publisher": "World Ports Organization",
-      "date": "2025-07-01",
-      "url": "https://www.worldportsorganization.org/"
+      "publisher": "S&P Global",
+      "title": "INTERVIEW: Skuld CEO worried about shadow fleet lack of insurance cover",
+      "date": "2025-07-14",
+      "url": "https://www.spglobal.com/energy/en/news-research/latest-news/shipping/071425-interview-skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
     "reviewDue": "2027-08-24",
     "location": "Part 1, stat strip",
-    "note": "Secondary reporting on an S&P Global Market Intelligence study; the 940-vessel sample and 82% figure are as reported by World Ports Organization, not independently re-derived from S&P's raw dataset."
+    "note": "Secondary reporting on an S&P Global Market Intelligence study; the 940-vessel sample and 82% figure are as reported by World Ports Organization, not independently re-derived from S&P's raw dataset. Corrected 2026-08-25: original ledger URL (worldportsorganization.org) was an incorrect domain; correct WPO domain is worldports.org, and S&P Global is the primary reporting outlet, WPO a syndication.",
+    "additionalSources": [
+      {
+        "publisher": "World Ports Organization",
+        "title": "Skuld CEO worried about shadow fleet lack of insurance cover (syndicated)",
+        "url": "https://www.worldports.org/skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover/"
+      }
+    ]
   },
   {
     "claimId": "shadow-fleet-guide-part2.g08-sp-940-82pct.001",
@@ -5700,16 +5707,23 @@
     "claimText": "82% of a sample of 940 tankers identified as sanctions-violating or high-risk lacked identified P&I coverage, per an S&P Global study covering data to May 2025, reported July 2025.",
     "claimType": "statistic",
     "source": {
-      "title": "Skuld CEO worried about shadow fleet's lack of insurance cover",
-      "publisher": "World Ports Organization",
-      "date": "2025-07-01",
-      "url": "https://www.worldportsorganization.org/"
+      "publisher": "S&P Global",
+      "title": "INTERVIEW: Skuld CEO worried about shadow fleet lack of insurance cover",
+      "date": "2025-07-14",
+      "url": "https://www.spglobal.com/energy/en/news-research/latest-news/shipping/071425-interview-skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
     "reviewDue": "2027-08-24",
     "location": "Part 2, stat strip",
-    "note": "Secondary reporting on an S&P Global Market Intelligence study; the 940-vessel sample and 82% figure are as reported by World Ports Organization, not independently re-derived from S&P's raw dataset."
+    "note": "Secondary reporting on an S&P Global Market Intelligence study; the 940-vessel sample and 82% figure are as reported by World Ports Organization, not independently re-derived from S&P's raw dataset. Corrected 2026-08-25: original ledger URL (worldportsorganization.org) was an incorrect domain; correct WPO domain is worldports.org, and S&P Global is the primary reporting outlet, WPO a syndication.",
+    "additionalSources": [
+      {
+        "publisher": "World Ports Organization",
+        "title": "Skuld CEO worried about shadow fleet lack of insurance cover (syndicated)",
+        "url": "https://www.worldports.org/skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover/"
+      }
+    ]
   },
   {
     "claimId": "shadow-fleet-guide-part2.g09-fleet-population-estimates.001",
@@ -5720,13 +5734,13 @@
       "title": "Shadow fleet vessel-count methodology roundup",
       "publisher": "Fault-Line",
       "date": "2026-07-23",
-      "url": "https://fault-line.co/"
+      "url": "https://fault-line.io/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
     "reviewDue": "2027-08-24",
     "location": "Part 2, stat strip methodology note",
-    "note": "This guide deliberately does not assert a single headline total; the ledger entry exists to source the comparison itself, not to endorse any one figure as correct. Each cited tracker's own methodology differs (behavioural vs trade-route vs size-threshold)."
+    "note": "This guide deliberately does not assert a single headline total; the ledger entry exists to source the comparison itself, not to endorse any one figure as correct. Each cited tracker's own methodology differs (behavioural vs trade-route vs size-threshold). Corrected 2026-08-25: domain was fault-line.co (wrong); correct domain is fault-line.io."
   },
   {
     "claimId": "shadow-fleet-guide-part2.g11-ig-clubs-membership.001",
@@ -5737,7 +5751,7 @@
       "title": "Member Clubs",
       "publisher": "International Group of P&I Clubs",
       "date": "2026-01-01",
-      "url": "https://www.igpandi.org/member-clubs/"
+      "url": "https://www.igpandi.org/article/about/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5751,27 +5765,39 @@
     "claimText": "Ukraine's Foreign Intelligence Service assessed that a company calling itself 'Seaguard P&I' had issued insurance certificates to Russian shadow fleet tankers, including the Paz (already under US, UK, and EU sanction). Seaguard claimed to be based in Pinneberg, Germany; the assessment found no such commercial entity registered in Germany, and the certificate's address corresponded to an ordinary residential apartment building.",
     "claimType": "enforcement",
     "source": {
-      "title": "Fake insurer helped Russia's shadow fleet evade sanctions, Ukraine says",
-      "publisher": "Bloomberg, via Insurance Journal",
+      "publisher": "Foreign Intelligence Service of Ukraine",
+      "title": "A false flag and void insurance: Russia uses forged documents for international transportation of oil by sea",
       "date": "2026-04-16",
-      "url": "https://www.insurancejournal.com/"
+      "url": "https://fisu.gov.ua/en/news-media/exposure/a-false-flag-and-void-insurance-russia-uses-forged-documents-for-international-transportation-of-oil-by-sea"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
     "reviewDue": "2027-08-24",
     "location": "Part 2, Case study: Seaguard P&I (primary finding paragraph)",
-    "note": "Attribution status: this is a foreign-intelligence-service assessment, not a judicially established fact, and the approved wording preserves that distinction throughout ('presented here as an intelligence assessment, not a judicially established fact'). At least five tankers were confirmed at the time of the initial report to have used Seaguard certificates."
+    "note": "Attribution status: this is a foreign-intelligence-service assessment, not a judicially established fact, and the approved wording preserves that distinction throughout ('presented here as an intelligence assessment, not a judicially established fact'). At least five tankers were confirmed at the time of the initial report to have used Seaguard certificates. Corrected 2026-08-25: primary source is Ukraine Foreign Intelligence Service release, not Bloomberg/Insurance Journal, which are secondary press reporting of that release.",
+    "additionalSources": [
+      {
+        "publisher": "Bloomberg",
+        "title": "Ukraine Says Russian Oil Tankers Use Fake Insurance to Evade Sanctions",
+        "url": "https://www.bloomberg.com/news/articles/2026-04-16/sanctioned-russian-oil-ships-using-fake-insurance-ukraine-says"
+      },
+      {
+        "publisher": "Insurance Journal",
+        "title": "Sanctioned Russian Oil Ships Using Fake Insurance, Ukraine Says",
+        "url": "https://www.insurancejournal.com/news/international/2026/04/16/866150.htm"
+      }
+    ]
   },
   {
     "claimId": "shadow-fleet-guide-part2.g12-seaguard-secondary-followup.002",
     "guide": "shadow-fleet-guide-part2.html",
-    "claimText": "The Association for the Reintegration of Crimea's own follow-up investigation identified more than twenty vessels it assessed had sailed on Seaguard certificates since September 2025, several by IMO number.",
+    "claimText": "The Association of Reintegration of Crimea (ARC)'s own follow-up investigation identified more than twenty vessels it assessed had sailed on Seaguard certificates since September 2025, several by IMO number.",
     "claimType": "enforcement",
     "source": {
       "title": "Investigation into Seaguard P&I certificate usage",
-      "publisher": "Association for the Reintegration of Crimea",
+      "publisher": "Association of Reintegration of Crimea (ARC)",
       "date": "2026-04-21",
-      "url": "https://arc.construction/"
+      "url": "https://arcrimea.org/en/investigations/2026/04/21/fake-insurance-certificates-of-the-russian-shadow-fleet/"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5788,7 +5814,7 @@
       "title": "France seizes tanker Deyna over false-flag suspicion",
       "publisher": "United24 Media",
       "date": "2026-04-16",
-      "url": "https://united24media.com/"
+      "url": "https://united24media.com/latest-news/france-detains-russian-linked-shadow-fleet-tanker-deyna-in-mediterranean-17091"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
@@ -5802,22 +5828,22 @@
     "claimText": "Cameroon suspended new international ship registrations in February 2026 amid fraudulent registrations, and subsequently removed suspect vessels from its registry.",
     "claimType": "enforcement",
     "source": {
-      "title": "Suspension of new international vessel registrations",
-      "publisher": "Cameroon Ministry of Transport",
+      "publisher": "Maritime Executive",
+      "title": "Cameroon Suspends International Registry Citing Fraud",
       "date": "2026-02-01",
-      "url": "https://www.mint.cm/"
+      "url": "https://maritime-executive.com/article/cameroon-suspends-international-registry-citing-fraud"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
     "reviewDue": "2027-08-24",
     "location": "Part 2, Risk/Signal/Response Card 3 (The Suspended Registry Period); Knowledge check Q4",
-    "note": "Approved wording explicitly warns against treating a Cameroon-registry period as automatic evidence of knowing fraud; verification against the registry, not assumption, is the stated correct response.",
+    "note": "Approved wording explicitly warns against treating a Cameroon-registry period as automatic evidence of knowing fraud; verification against the registry, not assumption, is the stated correct response. Corrected 2026-08-25: original ledger URL (mint.cm) could not be independently verified as the Ministry own site; Maritime Executive reporting of the official communique is used instead, with the Ministry named as the acting authority.",
     "additionalSources": [
       {
         "title": "Fraudulent ship registration notices",
         "publisher": "International Maritime Organization",
         "date": "2026-02-01",
-        "url": "https://www.imo.org/en/OurWork/MSAS/Pages/FraudulentRegistration.aspx"
+        "url": "https://www.imo.org/en/ourwork/legal/pages/fraudulent-registration-and-fraudulent-registries-of-ships.aspx"
       }
     ]
   },
@@ -5844,16 +5870,23 @@
     "claimText": "70% of sanctioned vessels changed flag at least once during 2025 alone, per Lloyd's List-derived methodology.",
     "claimType": "statistic",
     "source": {
-      "title": "Flag-hopping and the sanctioned tanker fleet, 2025 in review",
-      "publisher": "Center for International Maritime Security",
-      "date": "2026-07-13",
-      "url": "https://cimsec.org/"
+      "publisher": "Lloyd's List",
+      "title": "Flag hopping hits unprecedented levels among sanctioned fleet",
+      "date": "2026-01-01",
+      "url": "https://www.lloydslist.com/LL1153276/Flag-hopping-hits-unprecedented-levels-among-sanctioned-fleet"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",
     "reviewDue": "2027-08-24",
     "location": "Part 2, stat strip",
-    "note": "Denominator is sanctioned vessels specifically (not the wider shadow/dark fleet population referenced in g09), derived from Lloyd's List flag-history data as reported by the citing publisher, not independently re-run against Lloyd's List's raw dataset."
+    "note": "Denominator is sanctioned vessels specifically (not the wider shadow/dark fleet population referenced in g09), derived from Lloyd's List flag-history data as reported by the citing publisher, not independently re-run against Lloyd's List's raw dataset. Corrected 2026-08-25: Lloyd's List is the primary source of the reflagging figures; CIMSEC 13 Jul 2026 article was not independently re-located and is retained only as secondary commentary.",
+    "additionalSources": [
+      {
+        "publisher": "Center for International Maritime Security",
+        "title": "Secondary commentary on the Lloyd's List reflagging data, 13 July 2026",
+        "url": "https://cimsec.org/"
+      }
+    ]
   },
   {
     "claimId": "shadow-fleet-guide-part1.g01-uk-asset-freeze-mechanic.001",
@@ -5863,8 +5896,8 @@
     "source": {
       "title": "Sanctions lists explained",
       "publisher": "Dryad Global",
-      "date": "2025-01-01",
-      "url": "https://www.dryadglobal.com/"
+      "date": "2026-06-17",
+      "url": "https://channel16.dryadglobal.com/sanctions-lists-explained"
     },
     "status": "verified",
     "verifiedOn": "2026-08-24",

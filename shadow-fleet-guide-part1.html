@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is | FinCrimeRadar</title>
-  <meta name="description" content="Designated vs specified, the six routes a party can be caught by a vessel sanction, and why IMO number beats name-based screening. Part 1 of 2, with two decision scenarios and a real SMYRTOS case study." />
+  <meta name="description" content="Designated vs specified, six legal routes through which a party connected to a vessel may become subject to sanctions or restrictions, and why IMO number beats name-based screening. Part 1 of 2, with two decision scenarios and a real SMYRTOS case study." />
   <meta name="keywords" content="shadow fleet, dark fleet, vessel sanctions, Russia sanctions, OFSI, OFAC SDN, ownership and control, IMO number, ship specification, sanctions screening" />
   <meta name="author" content="FinCrimeRadar" />
   <link rel="canonical" href="https://fincrimeradar.org/shadow-fleet-guide-part1.html" />
   <meta property="og:title" content="Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is" />
-  <meta property="og:description" content="Designated vs specified, the six routes a party can be caught by a vessel sanction, and why IMO number beats name-based screening. Part 1 of 2." />
+  <meta property="og:description" content="Designated vs specified, six legal routes through which a party connected to a vessel may become subject to sanctions or restrictions, and why IMO number beats name-based screening. Part 1 of 2." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://fincrimeradar.org/shadow-fleet-guide-part1.html" />
   <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
@@ -25,7 +25,7 @@
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is",
-      "description": "Designated vs specified, the six routes a party can be caught by a vessel sanction, and why IMO number beats name-based screening. Part 1 of 2, with two decision scenarios and a real SMYRTOS case study.",
+      "description": "Designated vs specified, six legal routes through which a party connected to a vessel may become subject to sanctions or restrictions, and why IMO number beats name-based screening. Part 1 of 2, with two decision scenarios and a real SMYRTOS case study.",
       "author": { "@type": "Organization", "name": "FinCrimeRadar" },
       "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
       "url": "https://fincrimeradar.org/shadow-fleet-guide-part1.html",
@@ -252,11 +252,11 @@
     .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
 
     .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
-    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; list-style:none; }
+    .faq-q::-webkit-details-marker { display:none; }
     .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
-    .faq-icon.open { transform:rotate(45deg); }
-    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
-    .faq-a.open { max-height:300px; padding:0 1.1rem 1rem; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
 
     .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
     .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
@@ -268,6 +268,14 @@
     .sources-list li::before { content:'[' counter(src) ']'; position:absolute; left:0; top:0; color:var(--c-mech); font-weight:700; font-size:12.5px; }
     .sources-list a { color:var(--c-mech); word-break:break-word; }
     .sources-list .src-jur { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); background:#f3f4f6; border-radius:4px; padding:1px 6px; margin-right:6px; }
+    .sources-list li:target { background:#fef9e7; outline:2px solid var(--c-mech); outline-offset:4px; border-radius:4px; }
+    .sources-list .src-meta { display:block; font-size:11.5px; color:var(--muted); margin-top:3px; line-height:1.5; }
+    .sources-list .src-meta b { color:#374151; font-weight:600; }
+    .sources-list .src-tier { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.3px; padding:0 4px; border-radius:3px; margin-right:4px; }
+    .sources-list .src-tier.primary { background:#dcfce7; color:#166534; }
+    .sources-list .src-tier.official { background:#dbeafe; color:#1e40af; }
+    .sources-list .src-tier.secondary { background:#f3f4f6; color:#4b5563; }
+    .sources-list .src-tier.investigative { background:#fef3c7; color:#92400e; }
 
     footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
     footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
@@ -302,7 +310,7 @@
     <a href="/screen.html">Screen</a>
     <a href="/screen.html" class="nav-cta">Try the tool →</a>
   </div>
-  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">&#9776;</button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="/knowledge.html">Knowledge Hub</a>
@@ -324,7 +332,7 @@
   <div class="hero-inner">
     <div class="series-tag">🚢 Shadow Fleet Series · Part 1 of 2</div>
     <h1>Vessel Sanctions Fundamentals:<br><em>What the Shadow Fleet Actually Is</em></h1>
-    <p class="hero-sub">Designated vs specified, the six routes a party can be caught, and why IMO number beats name-based screening every time.</p>
+    <p class="hero-sub">Designated vs specified, six legal routes through which a party connected to a vessel may become subject to sanctions or restrictions, and why IMO number beats name-based screening.</p>
     <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
     <div class="hero-meta">
       <span>⏱ 14 min read</span>
@@ -338,17 +346,17 @@
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="3400">0</span>+</div>
         <div class="hero-stat-label">Individuals, entities and ships under UK Russia sanctions</div>
-        <div class="hero-stat-source">Hill Dickinson, citing UK Government figures <a class="cite" href="#sources">[1]</a></div>
+        <div class="hero-stat-source">Hill Dickinson, citing UK Government figures <a class="cite" href="#src-1">[1]</a></div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="19">0</span></div>
         <div class="hero-stat-label">New designations, UK's 6 August 2026 package, 6 shadow fleet vessels</div>
-        <div class="hero-stat-source">Corroborated by five further outlets <a class="cite" href="#sources">[2]</a></div>
+        <div class="hero-stat-source">Corroborated by five further outlets <a class="cite" href="#src-2">[2]</a></div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="82">0</span>%</div>
         <div class="hero-stat-label">Of a 940-tanker sample lacked identified P&amp;I coverage</div>
-        <div class="hero-stat-source">S&amp;P Global study, data to May 2025 <a class="cite" href="#sources">[3]</a></div>
+        <div class="hero-stat-source">S&amp;P Global study, data to May 2025 <a class="cite" href="#src-3">[3]</a></div>
       </div>
     </div>
     <p class="hero-note">This guide does not quote a single headline total for the size of the shadow or dark fleet, see the section below for why.</p>
@@ -374,21 +382,21 @@
     <div class="article-section" id="mechanics">
       <div class="section-eyebrow" style="color:var(--c-mech)">The Legal Mechanism</div>
       <h2>What a vessel sanction actually is, mechanically</h2>
-      <p>This is where most existing content stays vague, and where getting the terminology precisely right matters, because the two words aren't interchangeable and mixing them up misstates how the legal mechanism actually works.</p>
-      <p>Under the UK's Sanctions and Anti-Money Laundering Act 2018, a person (which includes companies and other entities) is <strong>designated</strong>. A ship is <strong>specified</strong> <a class="cite" href="#sources">[4]</a>. These are legally distinct mechanisms with different consequences. Specification can subject a ship to restrictions including port access prohibitions, detention, movement directions, registration restrictions, and prohibitions on providing certain services to it <a class="cite" href="#sources">[5]</a>. The asset freeze is a separate mechanism entirely: it attaches to designated persons and to entities they own or control, not to a specified ship as blocked property in its own right.</p>
-      <p>Vessels are identified by their <strong>IMO number</strong>, an identifier intended to remain permanently assigned for the life of the hull <a class="cite" href="#sources">[6]</a>. A vessel can be renamed, reflagged to a different country, sold on paper to a new shell company, and repainted, and the IMO number is designed to stay fixed through all of it. That said, "intended to remain permanent" is not the same as "impossible to obscure": sanctioned actors can and do attempt to falsify, misrepresent, or manipulate how the identifier is displayed or broadcast, so IMO-number screening is the strongest available anchor, not an infallible one. Every serious screening approach anchors on IMO number for exactly this reason, name-based or flag-based screening alone is far more easily defeated.</p>
-      <p>For a designated person, the practical effect under UK and EU regimes is an asset freeze: economic resources cannot be made available, directly or indirectly, to them <a class="cite" href="#sources">[7]</a>. Under US regimes (OFAC's SDN List), the effect is comparable, all property and interests in property subject to US jurisdiction are blocked, and US persons are generally barred from transacting with the listed party <a class="cite" href="#sources">[8]</a>. A specified ship, separately, faces the transport-focused restrictions described above, not an asset freeze in its own right, the two mechanisms run in parallel, not as one combined effect.</p>
+      <p>This distinction is often left vague, and getting the terminology precisely right matters, because the two words aren't interchangeable and mixing them up misstates how the legal mechanism actually works.</p>
+      <p>Under the UK's Sanctions and Anti-Money Laundering Act 2018, a person (which includes companies and other entities) is <strong>designated</strong>. A ship is <strong>specified</strong> <a class="cite" href="#src-4">[4]</a>. These are legally distinct mechanisms with different consequences. Specification can subject a ship to restrictions including port access prohibitions, detention, movement directions, registration restrictions, and prohibitions on providing certain services to it <a class="cite" href="#src-5">[5]</a>. The asset freeze is a separate mechanism entirely: it attaches to designated persons and to entities they own or control, not to a specified ship as blocked property in its own right.</p>
+      <p>Vessels are identified by their <strong>IMO number</strong>, an identifier intended to remain permanently assigned for the life of the hull <a class="cite" href="#src-6">[6]</a>. A vessel can be renamed, reflagged to a different country, sold on paper to a new shell company, and repainted, and the IMO number is designed to stay fixed through all of it. That said, "intended to remain permanent" is not the same as "impossible to obscure": sanctioned actors can and do attempt to falsify, misrepresent, or manipulate how the identifier is displayed or broadcast, so IMO-number screening is the strongest available anchor, not an infallible one. Every serious screening approach anchors on IMO number for exactly this reason, name-based or flag-based screening alone is far more easily defeated.</p>
+      <p>For a designated person, the practical effect under UK and EU regimes is an asset freeze: economic resources cannot be made available, directly or indirectly, to them <a class="cite" href="#src-7">[7]</a>. Under US regimes (OFAC's SDN List), the effect is comparable, all property and interests in property subject to US jurisdiction are blocked, and US persons are generally barred from transacting with the listed party <a class="cite" href="#src-8">[8]</a>. A specified ship, separately, faces the transport-focused restrictions described above, not an asset freeze in its own right, the two mechanisms run in parallel, not as one combined effect.</p>
     </div>
 
     <div class="article-section" id="regimes">
       <div class="section-eyebrow" style="color:var(--c-mech)">Three Regimes, Not Four</div>
       <h2>Who imposes vessel sanctions, and why "sanctioned" isn't a single status</h2>
-      <p>There is no single global sanctions list, and Russia-related vessel measures specifically run through <strong>three separate legal regimes, not four</strong>. The United Nations Security Council has not passed a sanctions resolution relating to Russia's invasion of Ukraine at all, Russia holds a permanent Security Council seat and veto, and has used it to block exactly such resolutions <a class="cite" href="#sources">[9]</a>. Russia sanctions in this space are a unilaterally coordinated effort led by the UK, EU, US, and a wider G7-aligned coalition, not a UN Security Council regime. A general UN Consolidated List still exists for other, unrelated sanctions regimes, but it is not a fourth Russia-vessel regime and shouldn't be presented as one.</p>
+      <p>There is no single global sanctions list, and Russia-related vessel measures specifically run through <strong>three separate legal regimes, not four</strong>. The Security Council has not established a sanctions regime concerning Russia's invasion of Ukraine. Russia's permanent membership and veto power make Security Council action politically constrained <a class="cite" href="#src-9">[9]</a>. Russia sanctions in this space are a unilaterally coordinated effort led by the UK, EU, US, and a wider G7-aligned coalition, not a UN Security Council regime. A general UN Consolidated List still exists for other, unrelated sanctions regimes, but it is not a fourth Russia-vessel regime and shouldn't be presented as one.</p>
       <p>The three regimes that do apply here:</p>
       <ul>
-        <li><strong>UK:</strong> administered by OFSI (Office of Financial Sanctions Implementation) and OTSI (Office of Trade Sanctions Implementation), under the Sanctions and Anti-Money Laundering Act 2018. Designations appear on the UK Sanctions List <a class="cite" href="#sources">[10]</a>.</li>
-        <li><strong>EU:</strong> Russia-related vessel measures principally operate through Council Regulation 833/2014, with targeted vessel measures under Annex XLII, most recently expanded under the 21st sanctions package (adopted 23 July 2026) <a class="cite" href="#sources">[11]</a>. These can impose port access and maritime services restrictions without necessarily constituting the same legal mechanism as an EU asset-freeze listing, "EU Consolidated List" alone understates the actual architecture.</li>
-        <li><strong>US:</strong> OFAC's Specially Designated Nationals and Blocked Persons (SDN) List, a distinct asset-blocking mechanism from the UK's designation/specification split described above <a class="cite" href="#sources">[8]</a>.</li>
+        <li><strong>UK:</strong> administered by OFSI (Office of Financial Sanctions Implementation) and OTSI (Office of Trade Sanctions Implementation), under the Sanctions and Anti-Money Laundering Act 2018. Designations appear on the UK Sanctions List <a class="cite" href="#src-10">[10]</a>.</li>
+        <li><strong>EU:</strong> Russia-related vessel measures principally operate through Council Regulation 833/2014, with targeted vessel measures under Annex XLII, most recently expanded under the 21st sanctions package (adopted 23 July 2026) <a class="cite" href="#src-11">[11]</a>. These can impose port access and maritime services restrictions without necessarily constituting the same legal mechanism as an EU asset-freeze listing, "EU Consolidated List" alone understates the actual architecture.</li>
+        <li><strong>US:</strong> OFAC's Specially Designated Nationals and Blocked Persons (SDN) List, a distinct asset-blocking mechanism from the UK's designation/specification split described above <a class="cite" href="#src-8">[8]</a>.</li>
       </ul>
       <p>A vessel can appear on one regime's measures and not another's, and even where it appears on more than one, the legal mechanism and practical effect can differ (an EU port-access restriction under Annex XLII is not the same thing as a UK asset freeze on a designated person, even when both concern the same hull). This is not a technicality, a bank or insurer screening only against one list, or assuming "sanctioned" means the same thing everywhere it appears, can miss real exposure or misjudge its nature. The UK's 6 August 2026 package and the EU's 23 July 2026 package targeted overlapping but not identical sets of vessels.</p>
     </div>
@@ -396,15 +404,15 @@
     <div class="article-section" id="six-routes">
       <div class="section-eyebrow" style="color:var(--c-mech)">Six Routes, Not One Chain</div>
       <h2>Who actually gets targeted: six separate routes, not one automatic chain</h2>
-      <p>This is the section most existing content skips entirely, or covers so vaguely it's not actually useful for a compliance decision. Under UK financial sanctions guidance, six distinct categories of party can be affected in connection with a single vessel, but each is caught through its own separate legal route, not through one vessel sanction automatically radiating out to freeze everyone connected to it. Getting this distinction right matters: a fraudulent insurer, a suspicious price-cap pattern, or a compromised connection does not, on its own, trigger an automatic freeze on everyone in the chain. The ownership-and-control cascade (route 4 below) requires an actual designated person plus the applicable ownership or control test being met, it isn't a general-purpose consequence of any of the other five routes.</p>
+      <p>This section covers ground that's often skipped or treated too vaguely to support a compliance decision. For analytical purposes, this guide separates the relevant exposure pathways into six categories, but each is caught through its own separate legal route, not through one vessel sanction automatically radiating out to freeze everyone connected to it. Getting this distinction right matters: a fraudulent insurer, a suspicious price-cap pattern, or a compromised connection does not, on its own, trigger an automatic freeze on everyone in the chain. The ownership-and-control cascade (route 4 below) requires an actual designated person plus the applicable ownership or control test being met, it isn't a general-purpose consequence of any of the other five routes.</p>
 
       <ol class="route-list">
         <li class="route-item"><strong>The specified vessel itself.</strong> Faces the transport-focused restrictions described above (port access, detention, movement directions), identified and tracked by IMO number. This is not an asset freeze.</li>
-        <li class="route-item"><strong>The registered owner.</strong> May be separately designated in their own right. The legal entity holding title is often, in shadow fleet structures, a single-vessel shell company with no operating history <a class="cite" href="#sources">[12]</a>.</li>
-        <li class="route-item"><strong>The operator.</strong> Distinct from the owner under most sanctions regimes, and may or may not be caught depending on the specific regime and facts. Sanctions regimes differ on whether operator status alone constitutes "control" for designation purposes, this is a genuine grey area, not a settled rule <a class="cite" href="#sources">[13]</a>.</li>
-        <li class="route-item"><strong>Entities owned or controlled by a designated person.</strong> This is the ownership-and-control cascade, and it requires a designated person to exist as the starting point. Where a designated person owns more than 50% of an entity's shares or voting rights, can appoint or remove a majority of its board, or otherwise satisfies the applicable control test, that entity becomes subject to financial sanctions without needing to be separately named <a class="cite" href="#sources">[14]</a>. Ownership (the shareholding limb) and control (board rights, or the ability to ensure the entity's affairs are conducted in accordance with the designated person's wishes) are separate tests, not one combined threshold. This is the single most consequential mechanic in the whole system precisely because it's easy to miss: checking only the name on the list and stopping there is not adequate screening once a designated person exists anywhere upstream.</li>
-        <li class="route-item"><strong>Insurers.</strong> Can face separate restrictions under the UK's maritime services and Russian oil price cap sanctions framework, a different legal basis from Regulation 29A, which is specifically limited to aviation and space insurance and does not extend to maritime shipping insurance <a class="cite" href="#sources">[15]</a>. Insurance therefore requires its own sanctions assessment rather than simply inheriting the vessel's screening result, which is exactly why the insurance angle in Part 2 is a genuine, separate compliance obligation, not just a useful red flag.</li>
-        <li class="route-item"><strong>Individuals.</strong> Masters and captains can be prosecuted personally, separate from any corporate designation. The Russian shadow fleet tanker SMYRTOS, detained near Weymouth by British authorities since June 2026 after being boarded by Royal Marine Commandos, is a live, active example: its captain has been charged with an alleged sanctions offence, breaching Russian sanctions by directly or indirectly supplying or delivering prohibited Russian oil <a class="cite" href="#sources">[16]</a>. Those proceedings remain active and the charge has not been determined by a court. The case demonstrates that personal prosecution is a real possibility under this regime, not that guilt has been established in this instance.</li>
+        <li class="route-item"><strong>The registered owner.</strong> May be separately designated in their own right. The legal entity holding title is often, in shadow fleet structures, a single-vessel shell company with no operating history <a class="cite" href="#src-12">[12]</a>.</li>
+        <li class="route-item"><strong>The operator.</strong> Distinct from the owner under most sanctions regimes, and may or may not be caught depending on the specific regime and facts. Sanctions regimes differ on whether operator status alone constitutes "control" for designation purposes, this is a genuine grey area, not a settled rule <a class="cite" href="#src-13">[13]</a>.</li>
+        <li class="route-item"><strong>Entities owned or controlled by a designated person.</strong> This is the ownership-and-control cascade, and it requires a designated person to exist as the starting point. Where a designated person owns more than 50% of an entity's shares or voting rights, can appoint or remove a majority of its board, or otherwise satisfies the applicable control test, that entity becomes subject to financial sanctions without needing to be separately named <a class="cite" href="#src-14">[14]</a>. Ownership (the shareholding limb) and control (board rights, or the ability to ensure the entity's affairs are conducted in accordance with the designated person's wishes) are separate tests, not one combined threshold. This is the single most consequential mechanic in the whole system precisely because it's easy to miss: checking only the name on the list and stopping there is not adequate screening once a designated person exists anywhere upstream.</li>
+        <li class="route-item"><strong>Insurers.</strong> Can face separate restrictions under the UK's maritime services and Russian oil price cap sanctions framework, a different legal basis from Regulation 29A, which is specifically limited to aviation and space insurance and does not extend to maritime shipping insurance <a class="cite" href="#src-15">[15]</a>. Insurance therefore requires its own sanctions assessment rather than simply inheriting the vessel's screening result, which is exactly why the insurance angle in Part 2 is a genuine, separate compliance obligation, not just a useful red flag.</li>
+        <li class="route-item"><strong>Individuals.</strong> Masters and captains can be prosecuted personally, separate from any corporate designation. The Russian shadow fleet tanker SMYRTOS, detained near Weymouth by British authorities since June 2026 after being boarded by Royal Marine Commandos, is a live, active example: its captain has been charged with an alleged sanctions offence, breaching Russian sanctions by directly or indirectly supplying or delivering prohibited Russian oil <a class="cite" href="#src-16">[16]</a>. Those proceedings remain active and the charge has not been determined by a court. The case demonstrates that personal prosecution is a real possibility under this regime, not that guilt has been established in this instance.</li>
       </ol>
     </div>
 
@@ -424,7 +432,7 @@
           <p>A UK trade finance analyst is screening a chartered vessel named Northgate Pioneer, Panama-flagged, no direct hits on the UK Sanctions List, EU Consolidated List, or OFAC SDN List under that name. The vessel's flag history, however, shows three flag changes and two name changes in the past fourteen months, most recently switching from a Cameroon flag to Panama four months ago. The current registered owner is a single-vessel company incorporated eleven months ago.</p>
         </div>
         <div class="dilemma-options">
-          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)"><span class="opt-label">A</span><span>Screen as clear, since no name-based hit exists on any of the four lists.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)"><span class="opt-label">A</span><span>Screen as clear because no match appears in the relevant UK, EU or US sources.</span></button>
           <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)"><span class="opt-label">B</span><span>Escalate for IMO-number-based and ownership-chain screening before clearing the transaction.</span></button>
           <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)"><span class="opt-label">C</span><span>Reject the charter outright, the flag and name history alone prove sanctions evasion.</span></button>
           <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)"><span class="opt-label">D</span><span>Ask the chartering company to explain the flag changes before deciding anything.</span></button>
@@ -504,7 +512,7 @@
     <div class="article-section" id="case-study">
       <div class="section-eyebrow" style="color:var(--c-mech)">Real Case Study</div>
       <h2>SMYRTOS</h2>
-      <p>The Russian shadow fleet tanker SMYRTOS was intercepted and boarded by Royal Marine Commandos in June 2026 and, as of 17 August 2026, remains detained by the Department for Transport at a port near Weymouth. Its captain has been charged with breaching Russian sanctions by directly or indirectly supplying or delivering prohibited Russian oil, an active charge that has not been determined by a court. Twenty-two of the twenty-five original crew members were repatriated in July 2026. Russia has criticised the detention and warned of reciprocal action; the UK maintains the boarding and detention were conducted fully in accordance with international maritime law <a class="cite" href="#sources">[16]</a>.</p>
+      <p>The Russian shadow fleet tanker SMYRTOS was intercepted and boarded by Royal Marine Commandos in June 2026 and, as of 17 August 2026, remains detained by the Department for Transport at a port near Weymouth. Its captain has been charged with breaching Russian sanctions by directly or indirectly supplying or delivering prohibited Russian oil, an active charge that has not been determined by a court. Twenty-two of the twenty-five original crew members were repatriated in July 2026. Russia has criticised the detention and warned of reciprocal action; the UK maintains the boarding and detention were conducted fully in accordance with international maritime law <a class="cite" href="#src-16">[16]</a>.</p>
       <p>This case anchors two of the guide's core points concretely, without overstating what's actually been established: individuals, not just companies, can face real personal prosecution under this regime, and enforcement now extends to physical interdiction, not only asset freezes on paper. The proceedings themselves remain ongoing.</p>
     </div>
 
@@ -560,7 +568,7 @@
       <div class="quiz-q" id="qq5">
         <div class="quiz-q-text">5. Name the three separate legal regimes covering Russia-related vessel sanctions, and why has the UN Security Council not passed a Russia-Ukraine sanctions resolution?</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - UK, EU, US; the UN Security Council hasn't acted because Russia holds a permanent seat and veto and has blocked such resolutions</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - UK, EU, US; the Security Council hasn't established a Russia sanctions regime, and Russia's permanent seat and veto power make Council action politically constrained</button>
           <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - UK, EU, UN; the US applies EU measures directly</button>
           <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - UN, NATO, G7; the UN Security Council already passed a Russia-Ukraine resolution in 2022</button>
           <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - There is only one unified global regime, not three</button>
@@ -575,22 +583,22 @@
     <div class="article-section" id="faq">
       <div class="section-eyebrow" style="color:var(--c-mech)">Frequently Asked</div>
       <h2>FAQ</h2>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is the shadow fleet only a Russia problem? <span class="faq-icon">+</span></div>
+      <details class="faq-item">
+        <summary class="faq-q">Is the shadow fleet only a Russia problem? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">No. The mechanics described here (ownership opacity, reflagging, insurance avoidance) are used by vessels connected to multiple sanctioned jurisdictions; this guide focuses on the Russia-related shadow fleet because it's the largest and most currently active example, and the one behind the news hook this guide was built around.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">If a vessel isn't on any sanctions list, is it automatically safe to deal with? <span class="faq-icon">+</span></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">If a vessel isn't on any sanctions list, is it automatically safe to deal with? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">No, not if it's owned or controlled, directly or indirectly, by a designated person, even without being separately listed. See the ownership-and-control cascade above.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What's the difference between a flag state being "linked to" the shadow fleet and a flag state itself being sanctioned? <span class="faq-icon">+</span></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What's the difference between a flag state being "linked to" the shadow fleet and a flag state itself being sanctioned? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">Flag states themselves are generally not sanctioned entities; they're encouraged by OFSI and the IMO to share registry information more actively, but a flag of convenience being commonly used by shadow fleet vessels doesn't make every vessel under that flag sanctioned.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Where can I check a vessel's actual sanctions status? <span class="faq-icon">+</span></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Where can I check a vessel's actual sanctions status? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">Against the specific regime(s) relevant to your jurisdiction, by IMO number, not vessel name. Part 2 of this guide covers the practical insurer-verification step that a compliance workflow can miss even when vessel and counterparty screening are otherwise clean.</div>
-      </div>
+      </details>
     </div>
 
     <!-- AT A GLANCE, closing grid -->
@@ -649,24 +657,24 @@
       <h2>Sources and methodology</h2>
       <p style="font-size:13px;color:var(--muted);">Legal and regulatory sources were last reviewed on 24 August 2026. Vessel and counterparty status should always be checked against the applicable official sanctions sources at the point of decision. This guide is an educational resource for financial crime, sanctions, and maritime risk professionals. It does not constitute legal advice.</p>
       <ol class="sources-list">
-        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em>, citing UK Government figures (3,400+ total designations). <a href="https://www.hilldickinson.com/insights/articles/sanctions-update-august-2026" target="_blank" rel="noopener">hilldickinson.com</a></li>
-        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em> (19 designations, 6 August 2026 package), independently corroborated by five further outlets including two law firm sanctions trackers.</li>
-        <li><span class="src-jur">Industry</span>World Ports Organization, <em>Skuld CEO worried about shadow fleet's lack of insurance cover</em>, citing an S&amp;P Global Market Intelligence study covering data to May 2025, reported July 2025.</li>
-        <li><span class="src-jur">UK</span>GOV.UK, <em>Ownership and Control: Public Officials and Control guidance</em> (designated vs specified).</li>
-        <li><span class="src-jur">UK</span>GOV.UK, <em>Transport sanctions guidance</em> (specification restrictions).</li>
-        <li><span class="src-jur">Int'l</span>International Maritime Organization, <em>IMO identification number schemes</em>.</li>
-        <li><span class="src-jur">UK/EU</span>Dryad Global, <em>Sanctions lists explained</em> (asset freeze mechanism).</li>
-        <li><span class="src-jur">US</span>Office of Foreign Assets Control, US Department of the Treasury, <em>Specially Designated Nationals and Blocked Persons List</em>.</li>
-        <li><span class="src-jur">Int'l</span>United Nations, Dag Hammarskjöld Library, <em>Security Council – Veto List</em> (UN Charter Art. 27(3) permanent-member veto).</li>
-        <li><span class="src-jur">UK</span>GOV.UK, Office of Financial Sanctions Implementation; Sanctions and Anti-Money Laundering Act 2018 (legislation.gov.uk).</li>
-        <li><span class="src-jur">EU</span>EUR-Lex, Council of the European Union, Council Regulation (EU) No 833/2014, Annex XLII.</li>
-        <li><span class="src-jur">Industry</span>TSG, <em>What Is the Dark Fleet?</em> (single-vessel shell company ownership pattern).</li>
-        <li><span class="src-jur">Industry</span>International Compliance Association, <em>Sanctions circumvention at sea</em> (operator status grey area).</li>
-        <li><span class="src-jur">UK</span>GOV.UK, <em>Ownership and control: consolidated guidance</em> (the &gt;50%/board/control test).</li>
-        <li><span class="src-jur">UK</span>GOV.UK, <em>UK maritime services ban and oil price cap: industry guidance</em>.</li>
-        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em>; Crown Prosecution Service charge notice (SMYRTOS).</li>
+        <li id="src-1"><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em>, citing UK Government figures (3,400+ total designations). <a href="https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/" target="_blank" rel="noopener">hilldickinson.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Law firm commentary reporting UK Government figures. Published 1 Aug 2026, reviewed 24 Aug 2026. <b>Supports:</b> total UK designation count (3,400+).</span></li>
+        <li id="src-2"><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em> (19 designations, 6 August 2026 package), independently corroborated by five further outlets including two law firm sanctions trackers. <a href="https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/" target="_blank" rel="noopener">hilldickinson.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Published 1 Aug 2026, reviewed 24 Aug 2026. <b>Supports:</b> 19-designation, 6 Aug 2026 package figure. <b>Qualification:</b> the five corroborating outlets are not individually cited here.</span></li>
+        <li id="src-3"><span class="src-jur">Industry</span>S&amp;P Global, <em>INTERVIEW: Skuld CEO worried about shadow fleet's lack of insurance cover</em>, citing an S&amp;P Global Market Intelligence study covering data to May 2025. <a href="https://www.spglobal.com/energy/en/news-research/latest-news/shipping/071425-interview-skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover" target="_blank" rel="noopener">spglobal.com</a>, syndicated via <a href="https://www.worldports.org/skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover/" target="_blank" rel="noopener">worldports.org</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Published 14 Jul 2025, reviewed 24 Aug 2026. <b>Supports:</b> 82% of a 940-vessel sample lacked identified P&amp;I coverage. <b>Qualification:</b> the underlying S&amp;P Global Market Intelligence study itself was not independently located at a standalone URL; figure is cited as reported in this interview piece.</span></li>
+        <li id="src-4"><span class="src-jur">UK</span>GOV.UK, <em>Ownership and Control: Public Officials and Control guidance</em> (designated vs specified). <a href="https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets/consolidated-list-of-targets" target="_blank" rel="noopener">gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> designated vs specified distinction.</span></li>
+        <li id="src-5"><span class="src-jur">UK</span>GOV.UK, <em>Transport sanctions guidance</em> (specification restrictions). <a href="https://www.gov.uk/guidance/transport-sanctions-guidance" target="_blank" rel="noopener">gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> specification-restriction mechanics.</span></li>
+        <li id="src-6"><span class="src-jur">Int'l</span>International Maritime Organization, <em>IMO identification number schemes</em>. <a href="https://www.imo.org/en/OurWork/MSAS/Pages/IMO-identification-number-scheme.aspx" target="_blank" rel="noopener">imo.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> IMO number permanence.</span></li>
+        <li id="src-7"><span class="src-jur">UK/EU</span>Dryad Global, <em>Sanctions lists explained</em> (asset freeze mechanism). <a href="https://channel16.dryadglobal.com/sanctions-lists-explained" target="_blank" rel="noopener">dryadglobal.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Industry explainer. Published 17 Jun 2026, reviewed 24 Aug 2026. <b>Supports:</b> UK asset-freeze mechanism.</span></li>
+        <li id="src-8"><span class="src-jur">US</span>Office of Foreign Assets Control, US Department of the Treasury, <em>Specially Designated Nationals and Blocked Persons List</em>. <a href="https://ofac.treasury.gov/specially-designated-nationals-and-blocked-persons-list-sdn-human-readable-lists" target="_blank" rel="noopener">ofac.treasury.gov</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> US SDN asset-blocking mechanics.</span></li>
+        <li id="src-9"><span class="src-jur">Int'l</span>United Nations, Dag Hammarskjöld Library, <em>Security Council – Veto List</em> (UN Charter Art. 27(3) permanent-member veto). <a href="https://research.un.org/en/docs/sc/quick" target="_blank" rel="noopener">research.un.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> absence of a Security Council sanctions regime on Russia's invasion of Ukraine, and the structural veto constraint.</span></li>
+        <li id="src-10"><span class="src-jur">UK</span>GOV.UK, Office of Financial Sanctions Implementation; Sanctions and Anti-Money Laundering Act 2018. <a href="https://www.gov.uk/government/organisations/office-of-financial-sanctions-implementation" target="_blank" rel="noopener">gov.uk</a> / <a href="https://www.legislation.gov.uk/ukpga/2018/13/contents" target="_blank" rel="noopener">legislation.gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> UK regime structure (OFSI/OTSI, SAMLA 2018).</span></li>
+        <li id="src-11"><span class="src-jur">EU</span>EUR-Lex, Council of the European Union, Council Regulation (EU) No 833/2014, Annex XLII. <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0833" target="_blank" rel="noopener">eur-lex.europa.eu</a><span class="src-meta"><span class="src-tier official">Official</span>Published 31 Jul 2014, reviewed 24 Aug 2026. <b>Supports:</b> EU Annex XLII listing mechanism.</span></li>
+        <li id="src-12"><span class="src-jur">Industry</span>TSG, <em>What Is the Dark Fleet?</em> (single-vessel shell company ownership pattern). <a href="https://www.tsg.co.uk/insights/what-is-the-dark-fleet" target="_blank" rel="noopener">tsg.co.uk</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Industry explainer, reviewed 24 Aug 2026. <b>Supports:</b> single-vessel shell company ownership pattern.</span></li>
+        <li id="src-13"><span class="src-jur">Industry</span>International Compliance Association, <em>Sanctions circumvention at sea</em> (operator status grey area). <a href="https://www.int-comp.org/insights/sanctions-circumvention-at-sea/" target="_blank" rel="noopener">int-comp.org</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Industry commentary, reviewed 24 Aug 2026. <b>Supports:</b> operator-status grey area framing. <b>Qualification:</b> describes a genuine unsettled question, not a fixed rule.</span></li>
+        <li id="src-14"><span class="src-jur">UK</span>GOV.UK, <em>Ownership and control: consolidated guidance</em> (the &gt;50%/board/control test). <a href="https://www.gov.uk/government/publications/ownership-and-control" target="_blank" rel="noopener">gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> the ownership/control test.</span></li>
+        <li id="src-15"><span class="src-jur">UK</span>GOV.UK, <em>UK maritime services ban and oil price cap: industry guidance</em>. <a href="https://www.gov.uk/government/publications/maritime-services-ban-and-oil-price-cap-guidance" target="_blank" rel="noopener">gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 24 Aug 2026. <b>Supports:</b> maritime services ban / price cap mechanics.</span></li>
+        <li id="src-16"><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em>, <a href="https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/" target="_blank" rel="noopener">hilldickinson.com</a>; Crown Prosecution Service, <em>Captain charged over sanctions breach in Russian shadow oil tanker operation</em> (SMYRTOS). <a href="https://www.cps.gov.uk/cps/news/captain-charged-over-sanctions-breach-russian-shadow-oil-tanker-operation" target="_blank" rel="noopener">cps.gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span> CPS charge notice; <span class="src-tier secondary">Secondary</span> Hill Dickinson commentary. Reviewed 24 Aug 2026. <b>Supports:</b> SMYRTOS case study facts and charge.</span></li>
       </ol>
-      <p style="font-size:12px;color:var(--muted);margin-top:1rem;">Additional legal-commentary corroboration: Bryan Cave Leighton Paisner (BCLP), <em>New OFSI Decision gives best guidance yet on sanctions due diligence</em> (Worked Scenario 2 reasoning).</p>
+      <p style="font-size:12px;color:var(--muted);margin-top:1rem;">Additional legal-commentary corroboration: Bryan Cave Leighton Paisner (BCLP), <em>New OFSI Decision gives best guidance yet on sanctions due diligence</em> (Worked Scenario 2 reasoning). <a href="https://www.bclplaw.com/en-US/events-insights-news/new-ofsi-decision-gives-best-guidance-yet-on-sanctions-due-diligence.html" target="_blank" rel="noopener">bclplaw.com</a></p>
     </div>
 
   </main>
@@ -721,7 +729,10 @@ window.addEventListener('scroll', () => {
   tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
 });
 
-function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+function toggleMobileNav() {
+  const isOpen = document.getElementById('mobileNav').classList.toggle('open');
+  document.getElementById('navHamburger').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
 
 (function () {
   const nums = document.querySelectorAll('.stat-num-anim');
@@ -775,7 +786,7 @@ const verdicts = {
     title: 'Correct answer: B, The freeze already applies, automatically, once the ownership or control test is met',
     body: [
       'The freeze already applies to the insurer\'s dealings, automatically, once the parent\'s designation means it owns or controls the subsidiary under the applicable test, regardless of whether the subsidiary is separately named anywhere. Ownership and control are separate legal tests, not one combined threshold, majority shareholding is one route, board appointment rights or de facto control over the entity\'s affairs are others, and any one of them can trigger the freeze independently.',
-      'This is the single most common way UK firms actually breach sanctions, not through a direct list hit, but through failing to track that a previously clean counterparty became caught the moment its upstream ownership or control position changed. OFSI\'s own enforcement guidance treats an incorrect ownership-and-control assessment as an aggravating factor in penalty decisions, not a mitigating one. Option A and Option D both wrongly assume a name-based hit is required. Option C introduces a delay the law doesn\'t provide, the cascade applies the moment the test is met, not once OFSI separately confirms it.'
+      'This is a common way UK firms actually breach sanctions, not through a direct list hit, but through failing to track that a previously clean counterparty became caught the moment its upstream ownership or control position changed. OFSI\'s own enforcement guidance treats an incorrect ownership-and-control assessment as an aggravating factor in penalty decisions, not a mitigating one. Option A and Option D both wrongly assume a name-based hit is required. Option C introduces a delay the law doesn\'t provide, the cascade applies the moment the test is met, not once OFSI separately confirms it.'
     ]
   }
 };
@@ -797,17 +808,12 @@ function showVerdict(scenarioId, chosen, btn) {
   updateScoreCard();
 }
 
-function toggleFaq(el) {
-  el.nextElementSibling.classList.toggle('open');
-  el.querySelector('.faq-icon').classList.toggle('open');
-}
-
 const quizFeedback = {
   qq1: { correct: 'B', fb: 'A ship is specified, a person is designated, these are legally distinct mechanisms with different consequences under the Sanctions and Anti-Money Laundering Act 2018.' },
   qq2: { correct: 'B', fb: 'The IMO number is intended to remain fixed for the life of the hull through renaming, reflagging, or sale, making it the strongest anchor for screening, though not an infallible one.' },
   qq3: { correct: 'B', fb: 'The ownership-and-control cascade applies automatically once a designated person owns or controls an entity under the applicable test, regardless of whether that entity is separately named on any list.' },
   qq4: { correct: 'B', fb: 'The charge demonstrates individuals can face real personal prosecution under this regime, separate from any corporate designation, while the charge itself remains undetermined by a court, guilt has not been established.' },
-  qq5: { correct: 'A', fb: 'UK, EU, and US are the three separate regimes. The UN Security Council has not passed a Russia-Ukraine sanctions resolution because Russia holds a permanent seat and veto and has used it to block such resolutions.' }
+  qq5: { correct: 'A', fb: 'UK, EU, and US are the three separate regimes. The Security Council has not established a sanctions regime concerning Russia\'s invasion of Ukraine; Russia\'s permanent membership and veto power make Security Council action politically constrained.' }
 };
 
 let quizAnswered = 0;

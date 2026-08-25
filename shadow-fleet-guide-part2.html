@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Shadow Fleet Investigation Playbook | FinCrimeRadar</title>
-  <meta name="description" content="Why insurance, not AIS tracking, is where fraud actually hides. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2." />
+  <meta name="description" content="Why insurance verification can expose risks that AIS and sanctions screening may miss. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2." />
   <meta name="keywords" content="shadow fleet, P&I insurance fraud, Seaguard, International Group of P&I Clubs, oil price cap, sanctions evasion, vessel insurance verification, Russia sanctions" />
   <meta name="author" content="FinCrimeRadar" />
   <link rel="canonical" href="https://fincrimeradar.org/shadow-fleet-guide-part2.html" />
   <meta property="og:title" content="The Shadow Fleet Investigation Playbook" />
-  <meta property="og:description" content="Why insurance, not AIS tracking, is where fraud actually hides. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2." />
+  <meta property="og:description" content="Why insurance verification can expose risks that AIS and sanctions screening may miss. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://fincrimeradar.org/shadow-fleet-guide-part2.html" />
   <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
@@ -25,7 +25,7 @@
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "The Shadow Fleet Investigation Playbook",
-      "description": "Why insurance, not AIS tracking, is where fraud actually hides. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2.",
+      "description": "Why insurance verification can expose risks that AIS and sanctions screening may miss. The Seaguard P&I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2.",
       "author": { "@type": "Organization", "name": "FinCrimeRadar" },
       "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
       "url": "https://fincrimeradar.org/shadow-fleet-guide-part2.html",
@@ -255,11 +255,11 @@
     .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
 
     .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
-    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; list-style:none; }
+    .faq-q::-webkit-details-marker { display:none; }
     .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
-    .faq-icon.open { transform:rotate(45deg); }
-    .faq-a { max-height:0; overflow:hidden; transition:max-height 0.25s ease; font-size:13.5px; color:#374151; padding:0 1.1rem; line-height:1.6; }
-    .faq-a.open { max-height:320px; padding:0 1.1rem 1rem; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
 
     .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
     .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
@@ -270,6 +270,14 @@
     .sources-list li::before { content:'[' counter(src) ']'; position:absolute; left:0; top:0; color:var(--c-mech); font-weight:700; font-size:12.5px; }
     .sources-list a { color:var(--c-mech); word-break:break-word; }
     .sources-list .src-jur { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); background:#f3f4f6; border-radius:4px; padding:1px 6px; margin-right:6px; }
+    .sources-list li:target { background:#fef9e7; outline:2px solid var(--c-insurer); outline-offset:4px; border-radius:4px; }
+    .sources-list .src-meta { display:block; font-size:11.5px; color:var(--muted); margin-top:3px; line-height:1.5; }
+    .sources-list .src-meta b { color:#374151; font-weight:600; }
+    .sources-list .src-tier { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.3px; padding:0 4px; border-radius:3px; margin-right:4px; }
+    .sources-list .src-tier.primary { background:#dcfce7; color:#166534; }
+    .sources-list .src-tier.official { background:#dbeafe; color:#1e40af; }
+    .sources-list .src-tier.secondary { background:#f3f4f6; color:#4b5563; }
+    .sources-list .src-tier.investigative { background:#fef3c7; color:#92400e; }
 
     footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
     footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
@@ -303,7 +311,7 @@
     <a href="/screen.html">Screen</a>
     <a href="/screen.html" class="nav-cta">Try the tool →</a>
   </div>
-  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">&#9776;</button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="/knowledge.html">Knowledge Hub</a>
@@ -325,7 +333,7 @@
   <div class="hero-inner">
     <div class="series-tag">🚢 Shadow Fleet Series · Part 2 of 2</div>
     <h1>The Shadow Fleet<br><em>Investigation Playbook</em></h1>
-    <p class="hero-sub">Why insurance, not AIS tracking, is where fraud actually hides, and the cheap check most compliance workflows skip.</p>
+    <p class="hero-sub">Why insurance, not AIS tracking, is where fraud actually hides, and the cheap check a compliance workflow can miss.</p>
     <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
     <div class="hero-meta">
       <span>⏱ 13 min read</span>
@@ -339,25 +347,25 @@
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="20">0</span>+</div>
         <div class="hero-stat-label">Shadow fleet tankers reported to have sailed on fake "Seaguard P&amp;I" certificates since Sept 2025</div>
-        <div class="hero-stat-source">Association for the Reintegration of Crimea's own investigation <a class="cite" href="#sources">[1]</a></div>
+        <div class="hero-stat-source">Association of Reintegration of Crimea's own investigation <a class="cite" href="#src-1">[1]</a></div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="19">0</span></div>
         <div class="hero-stat-label">Designations, UK's 6 August 2026 package, 6 named tankers</div>
-        <div class="hero-stat-source">Five independently corroborating outlets, see Part 1 <a class="cite" href="#sources">[2]</a></div>
+        <div class="hero-stat-source">Five independently corroborating outlets, see Part 1 <a class="cite" href="#src-2">[2]</a></div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="82">0</span>%</div>
         <div class="hero-stat-label">Of a 940-tanker sample lacked identified P&amp;I coverage</div>
-        <div class="hero-stat-source">S&amp;P Global study, data to May 2025 <a class="cite" href="#sources">[3]</a></div>
+        <div class="hero-stat-source">S&amp;P Global study, data to May 2025 <a class="cite" href="#src-3">[3]</a></div>
       </div>
       <div class="hero-stat-tile">
         <div class="hero-stat-num"><span class="stat-num-anim" data-target="70">0</span>%</div>
         <div class="hero-stat-label">Of sanctioned vessels changed flag at least once during 2025</div>
-        <div class="hero-stat-source">Lloyd's List-derived methodology <a class="cite" href="#sources">[4]</a></div>
+        <div class="hero-stat-source">Lloyd's List-derived methodology <a class="cite" href="#src-4">[4]</a></div>
       </div>
     </div>
-    <p class="hero-note">Different trackers define "shadow fleet" differently and produce very different totals: Brookings counted 343 Russia-linked ships (April 2025), S&amp;P counted 940 by size threshold (May 2025), Windward's behavioural definition put its dark fleet subset at 2,186 (Q2 2026) <a class="cite" href="#sources">[5]</a>. This guide deliberately avoids quoting one figure as settled.</p>
+    <p class="hero-note">Different trackers define "shadow fleet" differently and produce very different totals: Brookings counted 343 Russia-linked ships (April 2025), S&amp;P counted 940 by size threshold (May 2025), Windward's behavioural definition put its dark fleet subset at 2,186 (Q2 2026) <a class="cite" href="#src-5">[5]</a>. This guide deliberately avoids quoting one figure as settled.</p>
   </div>
 </div>
 
@@ -379,8 +387,8 @@
     <div class="article-section" id="case-study">
       <div class="section-eyebrow" style="color:var(--c-insurer)">Real Case Study</div>
       <h2>Seaguard P&amp;I</h2>
-      <p>In April 2026, Ukraine's Foreign Intelligence Service assessed, reported by Bloomberg on 16 April 2026, that a company calling itself "Seaguard P&amp;I" had issued insurance certificates to Russian shadow fleet tankers, including the Paz, a tanker already under sanction by the US, UK, and EU. Seaguard claimed to be based in Pinneberg, Germany. Ukraine's intelligence assessment found no such commercial entity registered in Germany; the address on the certificate corresponded to an ordinary residential apartment building <a class="cite" href="#sources">[6]</a>. This is presented here as an intelligence assessment, not a judicially established fact, that distinction matters and is preserved throughout this guide rather than flattened into certainty.</p>
-      <p>At least five tankers were confirmed at the time of the initial report to have used Seaguard certificates, one of them, the Deyna, flying the Mozambican flag, had already been seized by French maritime authorities in March 2026 under Article 110 of the UN Convention on the Law of the Sea, on suspicion of sailing under a false flag while carrying Russian oil out of Murmansk <a class="cite" href="#sources">[7]</a>. The Association for the Reintegration of Crimea's own follow-up investigation identified more than twenty vessels it assessed had sailed on Seaguard certificates since September 2025, several by IMO number <a class="cite" href="#sources">[1]</a>, this later, larger figure traces to that single investigation rather than to separate independent verification. Seaguard's name closely resembled that of a legitimate, unrelated Nigerian maritime service, a similarity worth flagging as a pattern for readers to watch for, though the connection between the two names has not been established as anything more than a naming coincidence or deliberate imitation, this guide does not assert which. Seaguard's website went offline shortly after the story broke.</p>
+      <p>In April 2026, Ukraine's Foreign Intelligence Service assessed <a class="cite" href="#src-6">[6]</a>, reported by Bloomberg on 16 April 2026 <a class="cite" href="#src-7">[7]</a>, that a company calling itself "Seaguard P&amp;I" had issued insurance certificates to Russian shadow fleet tankers, including the Paz, a tanker already under sanction by the US, UK, and EU. Seaguard claimed to be based in Pinneberg, Germany. Ukraine's intelligence assessment found no such commercial entity registered in Germany; the address on the certificate corresponded to an ordinary residential apartment building. This is presented here as an intelligence assessment, not a judicially established fact, that distinction matters and is preserved throughout this guide rather than flattened into certainty.</p>
+      <p>At least five tankers were confirmed at the time of the initial report to have used Seaguard certificates, one of them, the Deyna, flying the Mozambican flag, had already been seized by French maritime authorities in March 2026 under Article 110 of the UN Convention on the Law of the Sea, on suspicion of sailing under a false flag while carrying Russian oil out of Murmansk <a class="cite" href="#src-8">[8]</a>. The Association of Reintegration of Crimea's own follow-up investigation identified more than twenty vessels it assessed had sailed on Seaguard certificates since September 2025, several by IMO number <a class="cite" href="#src-1">[1]</a>, this later, larger figure traces to that single investigation rather than to separate independent verification. Seaguard's name closely resembled that of a legitimate, unrelated Nigerian maritime service, a similarity worth flagging as a pattern for readers to watch for, though the connection between the two names has not been established as anything more than a naming coincidence or deliberate imitation, this guide does not assert which. Seaguard's website went offline shortly after the story broke.</p>
       <p>This is the mechanism worth teaching, not the individual vessel names. A certificate existing, formatted correctly, with a policy number and a claims stamp, is not evidence that real cover exists behind it. The only thing that actually establishes real cover is checking the named insurer against a source that isn't the certificate itself.</p>
     </div>
 
@@ -388,7 +396,7 @@
     <div class="article-section" id="verification">
       <div class="section-eyebrow" style="color:var(--c-insurer)">The Fix</div>
       <h2>The verification step this guide recommends adding</h2>
-      <p>The International Group of P&amp;I Clubs currently has <strong>12 member clubs</strong>, following the February 2023 merger of the North of England P&amp;I Association and the Standard Club into NorthStandard. Each of the 12 is independently named and verifiable through the Group's own published membership list, together covering roughly 87% of global oceangoing tonnage <a class="cite" href="#sources">[8]</a>. Most mainstream, Western-aligned commercial shipping is insured through one of these 12. A certificate naming an insurer outside that list is not automatically fraudulent, smaller regional and niche insurers genuinely exist, but it is a certificate that warrants one extra step: checking the named insurer against a real, independent, third-party source, not just trusting the document as presented.</p>
+      <p>The International Group of P&amp;I Clubs currently has <strong>12 member clubs</strong>, following the February 2023 merger of the North of England P&amp;I Association and the Standard Club into NorthStandard. Each of the 12 is independently named and verifiable through the Group's own published membership list, together covering roughly 87% of global oceangoing tonnage <a class="cite" href="#src-9">[9]</a>. Most mainstream, Western-aligned commercial shipping is insured through one of these 12. A certificate naming an insurer outside that list is not automatically fraudulent, smaller regional and niche insurers genuinely exist, but it is a certificate that warrants one extra step: checking the named insurer against a real, independent, third-party source, not just trusting the document as presented.</p>
 
       <div class="ig-stat-box">
         <div class="ig-stat-tile"><div class="ig-stat-num">12</div><div class="ig-stat-label">IG member clubs</div></div>
@@ -491,7 +499,7 @@
 
       <div class="pattern-card" style="background:var(--c-registry-light);border-color:#ddd6fe;">
         <div class="pattern-card-head"><div class="pattern-icon">🏴</div><div class="pattern-name" style="color:var(--c-registry);">The Suspended Registry Period</div></div>
-        <div class="pattern-line">A vessel's flag history includes a period under a registry later found to have serious fraud problems (Cameroon suspended new international ship registrations in February 2026 amid fraudulent registrations, and subsequently removed suspect vessels <a class="cite" href="#sources">[9]</a>).</div>
+        <div class="pattern-line">A vessel's flag history includes a period under a registry later found to have serious fraud problems (Cameroon suspended new international ship registrations in February 2026 amid fraudulent registrations, and subsequently removed suspect vessels <a class="cite" href="#src-10">[10]</a>).</div>
         <div class="pattern-ttd">
           <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Risk</div><div class="ttd-text">A claimed registration during the affected period should trigger direct registry verification.</div></div>
           <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-registry);">Signal</div><div class="ttd-text">Flag history includes a jurisdiction that later suspended new registrations over fraud concerns.</div></div>
@@ -567,22 +575,22 @@
     <div class="article-section" id="faq">
       <div class="section-eyebrow" style="color:var(--c-insurer)">Frequently Asked</div>
       <h2>FAQ</h2>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">If a vessel's insurer isn't an IG Club member, does that automatically mean it's fraudulent? <span class="faq-icon">+</span></div>
+      <details class="faq-item">
+        <summary class="faq-q">If a vessel's insurer isn't an IG Club member, does that automatically mean it's fraudulent? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">No. Smaller, legitimate regional insurers exist outside the International Group. It means the certificate needs independent verification against a real source before being accepted, not automatic rejection.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Why did Seaguard's fraud work for as long as it did? <span class="faq-icon">+</span></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Why did Seaguard's fraud work for as long as it did? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">Because a certificate that's correctly formatted, with a policy number and a claims stamp, looks sufficient on its face, and checking the named insurer against an independent source is a step that's easy to treat as unnecessary once the document itself looks complete. This guide doesn't have a documented methodology establishing how widespread that gap is across institutions generally, only that the Seaguard case shows it can go unchecked long enough for at least twenty vessels to rely on it.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is checking the IG Clubs' membership list something a compliance team can realistically do for every transaction? <span class="faq-icon">+</span></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is checking the IG Clubs' membership list something a compliance team can realistically do for every transaction? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">Yes, it's a short, publicly available, 12-name list. The barrier isn't difficulty, it's that this specific check is easy to overlook when a certificate otherwise looks complete and correctly formatted.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How does this connect to the price cap pattern in Worked Scenario 4? <span class="faq-icon">+</span></div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How does this connect to the price cap pattern in Worked Scenario 4? <span class="faq-icon" aria-hidden="true">+</span></summary>
         <div class="faq-a">Both worked scenarios in this guide make a related point: a single, isolated check (does a certificate exist, is one transaction within the cap) can look clean while missing the thing that actually matters, whether the certificate is genuine, or whether the pattern across a corridor tells a different story than any single transaction does. Neither scenario's pattern is proof by itself, both warrant independent verification or deeper examination before being cleared.</div>
-      </div>
+      </details>
     </div>
 
     <!-- AT A GLANCE -->
@@ -641,15 +649,16 @@
       <h2>Sources and methodology</h2>
       <p style="font-size:13px;color:var(--muted);">Legal and regulatory sources were last reviewed on 24 August 2026. Vessel and counterparty status should always be checked against the applicable official sanctions sources at the point of decision. This guide is an educational resource for financial crime, sanctions, and maritime risk professionals. It does not constitute legal advice.</p>
       <ol class="sources-list">
-        <li><span class="src-jur">Intel</span>Association for the Reintegration of Crimea, follow-up investigation, 21 April 2026 (20+ vessels sailed on Seaguard certificates since September 2025). Attribution: this is the source of the larger, later figure, not independent corroboration of the primary Bloomberg/Ukraine FIS finding below.</li>
-        <li><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em> (19 designations, 6 August 2026 package); see Part 1 for the full corroboration record.</li>
-        <li><span class="src-jur">Industry</span>World Ports Organization, <em>Skuld CEO worried about shadow fleet's lack of insurance cover</em>, citing an S&amp;P Global Market Intelligence study, data to May 2025.</li>
-        <li><span class="src-jur">Industry</span>Center for International Maritime Security, 13 July 2026 (70% reflagging figure, Lloyd's List-derived methodology).</li>
-        <li><span class="src-jur">Industry</span>Fault-Line, 23 July 2026 (shadow/dark fleet vessel-count methodology comparison: Brookings, S&amp;P Global, Windward).</li>
-        <li><span class="src-jur">Intel</span>Bloomberg, via Insurance Journal, 16 April 2026 (Ukraine Foreign Intelligence Service assessment of Seaguard P&amp;I). Attribution: primary intelligence finding, not a judicially established fact.</li>
-        <li><span class="src-jur">Enforcement</span>United24 Media, 16 April 2026 (Deyna interception under UNCLOS Article 110).</li>
-        <li><span class="src-jur">Industry</span>International Group of P&amp;I Clubs, published member list (12 clubs, ~87% of global oceangoing tonnage).</li>
-        <li><span class="src-jur">Enforcement</span>Cameroon Ministry of Transport (February 2026 registration suspension); International Maritime Organization fraudulent registration notices.</li>
+        <li id="src-1"><span class="src-jur">Intel</span>Association of Reintegration of Crimea (ARC), <em>Fake "Insurance Certificates" of Russian Shadow Fleet</em>, follow-up investigation, 21 April 2026 (20+ vessels sailed on Seaguard certificates since September 2025). <a href="https://arcrimea.org/en/investigations/2026/04/21/fake-insurance-certificates-of-the-russian-shadow-fleet/" target="_blank" rel="noopener">arcrimea.org</a><span class="src-meta"><span class="src-tier investigative">Investigative</span>NGO's own field investigation. Published 21 Apr 2026, reviewed 24 Aug 2026. <b>Supports:</b> 20+ vessel, Pinneberg-address figure. <b>Qualification:</b> this is the source of the larger, later figure, not independent corroboration of the primary Ukraine FIS finding below.</span></li>
+        <li id="src-2"><span class="src-jur">UK</span>Hill Dickinson, <em>Sanctions update: August 2026</em> (19 designations, 6 August 2026 package); see Part 1 for the full corroboration record. <a href="https://www.hilldickinson.com/our-view/articles/sanctions-update-august-2026/" target="_blank" rel="noopener">hilldickinson.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Published 1 Aug 2026, reviewed 24 Aug 2026. <b>Supports:</b> 19-designation, 6 Aug 2026 package figure.</span></li>
+        <li id="src-3"><span class="src-jur">Industry</span>S&amp;P Global, <em>INTERVIEW: Skuld CEO worried about shadow fleet's lack of insurance cover</em>, citing an S&amp;P Global Market Intelligence study, data to May 2025. <a href="https://www.spglobal.com/energy/en/news-research/latest-news/shipping/071425-interview-skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover" target="_blank" rel="noopener">spglobal.com</a>, syndicated via <a href="https://www.worldports.org/skuld-ceo-worried-about-shadow-fleets-lack-of-insurance-cover/" target="_blank" rel="noopener">worldports.org</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Published 14 Jul 2025, reviewed 24 Aug 2026. <b>Supports:</b> 82% of a 940-vessel sample lacked identified P&amp;I coverage. <b>Qualification:</b> the underlying S&amp;P Global Market Intelligence study itself was not independently located at a standalone URL.</span></li>
+        <li id="src-4"><span class="src-jur">Industry</span>Lloyd's List, <em>Flag hopping hits unprecedented levels among sanctioned fleet</em>, 2026 (70% reflagging figure), with secondary commentary from the Center for International Maritime Security, 13 July 2026. <a href="https://www.lloydslist.com/LL1153276/Flag-hopping-hits-unprecedented-levels-among-sanctioned-fleet" target="_blank" rel="noopener">lloydslist.com</a> / <a href="https://cimsec.org/" target="_blank" rel="noopener">cimsec.org</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Trade-press data analysis. Reviewed 24 Aug 2026. <b>Supports:</b> 70% reflagging figure. <b>Qualification:</b> the specific 13 Jul 2026 CIMSEC article was not independently re-located; CIMSEC's own framing already discloses the figure as Lloyd's List-derived, not original CIMSEC research.</span></li>
+        <li id="src-5"><span class="src-jur">Industry</span>Fault-Line, shadow/dark fleet vessel-count methodology comparison (Brookings 343, S&amp;P Global 940, Windward 2,186), 23 July 2026. <a href="https://fault-line.io/" target="_blank" rel="noopener">fault-line.io</a><span class="src-meta"><span class="src-tier investigative">Investigative</span>Reviewed 24 Aug 2026. <b>Supports:</b> divergent vessel-count methodologies. <b>Qualification:</b> the specific article's exact URL slug was not independently re-located; the publisher and comparison figures were confirmed via search excerpt.</span></li>
+        <li id="src-6"><span class="src-jur">Intel</span>Foreign Intelligence Service of Ukraine, <em>A false flag and void insurance: Russia uses forged documents for international transportation of oil by sea</em>, 16 April 2026. <a href="https://fisu.gov.ua/en/news-media/exposure/a-false-flag-and-void-insurance-russia-uses-forged-documents-for-international-transportation-of-oil-by-sea" target="_blank" rel="noopener">fisu.gov.ua</a><span class="src-meta"><span class="src-tier primary">Primary</span>Official government intelligence-service release. Published 16 Apr 2026, reviewed 24 Aug 2026. <b>Supports:</b> the Seaguard P&amp;I fake-insurer finding in full. <b>Qualification:</b> presented as an intelligence assessment, not a judicially established fact.</span></li>
+        <li id="src-7"><span class="src-jur">Intel</span>Bloomberg, <em>Ukraine Says Russian Oil Tankers Use Fake Insurance to Evade Sanctions</em>, and Insurance Journal, 16 April 2026, both reporting the Ukraine FIS assessment above. <a href="https://www.bloomberg.com/news/articles/2026-04-16/sanctioned-russian-oil-ships-using-fake-insurance-ukraine-says" target="_blank" rel="noopener">bloomberg.com</a> / <a href="https://www.insurancejournal.com/news/international/2026/04/16/866150.htm" target="_blank" rel="noopener">insurancejournal.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Press reporting of the primary FIS assessment (source [6]), not an independent primary finding. Published 16 Apr 2026, reviewed 24 Aug 2026. <b>Supports:</b> wider distribution and framing of the Seaguard finding.</span></li>
+        <li id="src-8"><span class="src-jur">Enforcement</span>United24 Media, <em>France Detains Russian-Linked Shadow Fleet Tanker Deyna in Mediterranean</em>, 16 April 2026 (Deyna interception under UNCLOS Article 110). <a href="https://united24media.com/latest-news/france-detains-russian-linked-shadow-fleet-tanker-deyna-in-mediterranean-17091" target="_blank" rel="noopener">united24media.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Press reporting. Published 16 Apr 2026, reviewed 24 Aug 2026. <b>Supports:</b> the Deyna interception and its UNCLOS Art. 110 basis. <b>Qualification:</b> no official French authority statement was independently located; the seizure itself is well corroborated across outlets, but the false-flag characterisation stays qualified pending an official French source.</span></li>
+        <li id="src-9"><span class="src-jur">Industry</span>International Group of P&amp;I Clubs, published member list (12 clubs, ~87% of global oceangoing tonnage). <a href="https://www.igpandi.org/article/about/" target="_blank" rel="noopener">igpandi.org</a><span class="src-meta"><span class="src-tier official">Official</span>Industry body's own membership record. Reviewed 24 Aug 2026. <b>Supports:</b> the 12-club count and tonnage-coverage estimate.</span></li>
+        <li id="src-10"><span class="src-jur">Enforcement</span>Cameroon Ministry of Transport, February 2026 registration suspension, reported via Maritime Executive, <em>Cameroon Suspends International Registry Citing Fraud</em>; International Maritime Organization, fraudulent registration notices. <a href="https://maritime-executive.com/article/cameroon-suspends-international-registry-citing-fraud" target="_blank" rel="noopener">maritime-executive.com</a> / <a href="https://www.imo.org/en/ourwork/legal/pages/fraudulent-registration-and-fraudulent-registries-of-ships.aspx" target="_blank" rel="noopener">imo.org</a><span class="src-meta"><span class="src-tier official">Official</span>Government action, reported secondhand (the Ministry's own communique was not independently located online). <b>Supports:</b> the February 2026 suspension and its fraud rationale.</span></li>
       </ol>
       <p style="font-size:12px;color:var(--muted);margin-top:1rem;">Worked Scenario 4 additionally cites GOV.UK, <em>UK maritime services ban and oil price cap: industry guidance</em>, the same primary source underpinning Part 1's insurer route (route 5 of the six-route breakdown).</p>
     </div>
@@ -704,7 +713,10 @@ window.addEventListener('scroll', () => {
   tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
 });
 
-function toggleMobileNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+function toggleMobileNav() {
+  const isOpen = document.getElementById('mobileNav').classList.toggle('open');
+  document.getElementById('navHamburger').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
 
 (function () {
   const nums = document.querySelectorAll('.stat-num-anim');
@@ -778,11 +790,6 @@ function showVerdict(scenarioId, chosen, btn) {
   verdictDiv.classList.add('show');
   scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
   updateScoreCard();
-}
-
-function toggleFaq(el) {
-  el.nextElementSibling.classList.toggle('open');
-  el.querySelector('.faq-icon').classList.toggle('open');
 }
 
 const quizFeedback = {
