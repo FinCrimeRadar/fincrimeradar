@@ -102,6 +102,20 @@ Found during the Risk Scoring module build (2026-08-17): `fincrimeradar-api`'s `
 
 For any change that depends on a separately deployed service or a second repository actually being current, not just this repo's own code or content being correct, flag that dependency explicitly and run a live smoke check against the real, deployed endpoint before considering the change verified. Local and test-harness verification, however thorough, does not substitute for it. See BACKLOG.md's Polish Loop for this incident's own closed entry and the standing checklist item it left in place.
 
+## Verification-tool staleness gap
+
+A fourth class of gap, adjacent to but distinct from the Production/local verification gap above: that section covers frontend logic never touching the real deployed API. This one covers the reverse direction, a verification tool itself reporting stale content back to whoever is checking, regardless of whether the underlying deploy is correct.
+
+Found across the scam-compound-money-laundering-guide.html build (2026-08-25), three separate times, in both directions: `web_fetch` served stale-old content on the guide's hero stat cards after a real fix had deployed (resolved by a cache-busted `curl`); served a 404 on a UNODC press release URL that a browser render and `curl` both confirmed was live (resolved by trusting the independently-confirmed method); and, most seriously, served content showing zero of two full rounds of applied corrections on the guide's live page, while a fresh GitHub tarball pull of origin/main showed every correction genuinely committed. A cache-busting query string, which resolved the first instance, did not resolve the third.
+
+This means `web_fetch` cannot be treated as ground truth when it disagrees with a commit or deploy report, in either direction. Appending a random query parameter is not a reliable fix and should not be assumed to have worked just because it worked once.
+
+When a `web_fetch` result and a commit or deploy report disagree, the tiebreaker is not a repeated `web_fetch` attempt. Use one of:
+- A fresh `codeload.github.com` tarball pull of origin/main (settles repo content, independent of any deploy or CDN layer entirely).
+- An independent fetch method (`curl`, a real browser render) when the question is specifically about what production is serving, not what's committed.
+
+Do not close a verification round on a single `web_fetch` result alone when the stakes are high enough that being wrong matters (a publish decision, a correction round, a commit report). Cross-check with one of the above before treating either a pass or a fail as final.
+
 ## Scenario reasoning distinction
 
 Closes a pattern found twice on the same guide: classification-asymmetry-guide.html's "precisely how the explanatory notes describe" and "exactly the kind of reasonable grounds" overclaims, both describing the guide's own inference as if it were the cited authority's own language.
