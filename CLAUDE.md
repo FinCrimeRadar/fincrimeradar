@@ -8,6 +8,8 @@ Do not duplicate those standards here.
 
 If the two files conflict on security, sourcing, regulatory accuracy, data integrity, verification or review requirements, this file takes precedence.
 
+The historical incidents behind these rules are preserved in `docs/QUALITY_INCIDENTS.md`. It is not required reading for normal sessions. Consult it when investigating a failure that resembles a past one, or when explicitly asked to.
+
 ## 1. Operating principle
 
 Execute rather than narrate.
