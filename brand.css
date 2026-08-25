@@ -143,8 +143,25 @@ footer[style*="0f2044"] a{
    swapping with a stale #00c4a7/#00a892 literal instead of --teal, both
    in footer link lists and the newsletter subscribe button. Real :hover/
    :focus states here replace that JS swapping. */
-.footer-link{color:#94a3b8;text-decoration:none;transition:color .15s;}
-.footer-link:hover{color:var(--teal);}
+.footer-link{color:#94a3b8;text-decoration:none;transition:color .15s,text-decoration-color .15s;}
+.footer-link:hover,.footer-link:focus-visible{color:var(--teal);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--teal);}
+
+/* ---------- 6c. High contrast cursor for the dark footer ----------
+   The native OS arrow cursor has poor contrast against the #071912
+   dark forest green footer background, hard to visually track while
+   moving, and the only hover signal on footer links was a colour
+   change (6b above), which does not help if the cursor itself cannot
+   be seen. Two independent fixes: a light fill, dark outline custom
+   cursor scoped to the footer only (guaranteed visible on the dark
+   background, does not touch the rest of the site's default cursor),
+   and an underline on link hover/focus so link position no longer
+   depends on spotting a colour change alone (also closes a WCAG 1.4.1
+   colour only indicator gap on this component). */
+footer[style*="071912"],
+.footer-link{
+  cursor:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KPHBhdGggZD0iTTMgMiBMMyAxOS4yIEw3LjYgMTUuNiBMMTAuOCAyMi4yIEwxMy42IDIwLjkgTDEwLjQgMTQuNCBMMTYuNCAxNC40IFoiIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0iIzA1MjAxMyIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==") 3 2,auto;
+}
+
 .footer-subscribe-btn{padding:9px 16px;background:var(--teal);border:none;border-radius:6px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:background .15s;}
 .footer-subscribe-btn:hover{background:var(--teal-h);}
 .footer-email-input{flex:1;padding:9px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:13px;color:#fff;outline:none;font-family:'Inter',sans-serif;min-width:0;}
