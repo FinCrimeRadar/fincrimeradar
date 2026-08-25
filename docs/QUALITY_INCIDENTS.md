@@ -4,13 +4,15 @@ This file preserves the historical postmortems behind the standing rules in `CLA
 
 Consult it when investigating a failure that looks similar to one of these, or when explicitly asked to.
 
-Each entry: date, what failed, the root cause, the permanent control it produced, and the `CLAUDE.md` rule that control now lives in. `CLAUDE.md` is the current numbered section references as of the 2026-08-26 rewrite; if the file is renumbered later, treat the rule name as the anchor, not the number.
+Each entry: date, what failed, the root cause, the permanent control it produced, and the `CLAUDE.md` rule that control now lives in. Section numbers below are as of the 2026-08-25 rewrite (commit `f920f5b`); if the file is renumbered later, treat the rule name as the anchor, not the number.
+
+Where the original CLAUDE.md entry gave no explicit incident date, the date below is the commit that added the rule to CLAUDE.md, not a confirmed date for the incident itself; this is noted inline.
 
 ---
 
 ## 1. Component CSS isolation collisions
 
-**Date:** three separate occurrences, prior to 2026-08-26.
+**Date:** rule added to CLAUDE.md 2026-08-13 (commit `8b47f5d`); the three individual incidents are not separately dated in the source.
 
 **Failure:** Three unrelated new components each silently inherited a sitewide CSS or JS rule meant for something else: the Knowledge Hub flagship nav inherited the sitewide `nav{position:sticky;height:72px}` rule, certifications-dilemma.html's compare table collided with a `brand.js` scroll-wrap selector, and a guide breadcrumb inherited the same sitewide sticky-nav rule a third time.
 
@@ -52,7 +54,7 @@ Each entry: date, what failed, the root cause, the permanent control it produced
 
 ## 4. pep-guide-part1.html and sar-guide-part1.html structural correction failures
 
-**Date:** week preceding 2026-08-19.
+**Date:** rule added to CLAUDE.md 2026-08-19 (commit `59d415f`), described in the source only as "this week's multi-round guide corrections"; the two incidents themselves are not separately dated.
 
 **Failure:** pep-guide-part1.html's Regulation 35(12)/(14) categories claim and sar-guide-part1.html's Section 342 offence structure each survived a first correction round while still misstating their actual statutory structure.
 
@@ -72,7 +74,7 @@ Each entry: date, what failed, the root cause, the permanent control it produced
 
 **Root cause:** Dense, subsection-level citation throughout ordinary body prose created many small opportunities for structural mismatch, each one requiring its own verification round. This was a drafting-density problem upstream of review, not primarily a review-thoroughness problem.
 
-**Permanent control:** Build a verified source pack before drafting guide prose, not after. Calibrate citation density to what the reader needs, section-level for ordinary explanatory prose, subsection-level only where the distinction itself affects the conclusion. Cap external review at two rounds as the default target; a third round needed is a signal to fix the drafting workflow, not to keep correcting claim by claim.
+**Permanent control:** Build a verified source pack before drafting guide prose, not after. Calibrate citation density to what the reader needs, section-level for ordinary explanatory prose, subsection-level only where the distinction itself affects the conclusion. Cap external review at two rounds as the default target; a third round needed is a signal to fix the drafting workflow, not to keep correcting claim by claim. When retrofitting an existing dense guide, do not assume it needs the same treatment as a from-scratch build; triage citation density first. This fourth item was part of the original control but was not carried forward as a separate rule in the 2026-08-25 CLAUDE.md rewrite.
 
 **CLAUDE.md rule:** Section 5, Source pack first workflow; Section 6, Citation precision; Section 9, Correction rounds.
 
@@ -94,7 +96,7 @@ Each entry: date, what failed, the root cause, the permanent control it produced
 
 ## 7. MLRO Handbook and classification-asymmetry-guide.html stale derived assets
 
-**Date:** found independently twice, prior to 2026-08-14.
+**Date:** rule added to CLAUDE.md 2026-08-14 (commit `c69ee26`); the source states only "found independently twice" with no individual incident dates.
 
 **Failure:** MLRO Handbook Part 2 shipped with a stale CFP Management fine figure in a derived asset. Separately, classification-asymmetry-guide.html's summary snapshot shipped before a corrective text pass had caught up to it.
 
