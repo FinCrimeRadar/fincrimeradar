@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inside the Scam Compound Money Laundering Machine | FinCrimeRadar</title>
+  <meta name="description" content="How a victim payment becomes laundered value: nine nodes from receiving account to stablecoin off-ramp, red flags at each handoff, two worked scenarios, and a verified FinCEN Section 311 case study." />
+  <meta name="keywords" content="scam compound, money laundering, pig butchering, money mule, aggregator, shell company, offshore VASP, stablecoin, layering, FATF, UNODC, Huione Group" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/scam-compound-money-laundering-guide.html" />
+  <meta property="og:title" content="Inside the Scam Compound Money Laundering Machine" />
+  <meta property="og:description" content="How a victim payment becomes laundered value: nine nodes from receiving account to stablecoin off-ramp, red flags at each handoff, two worked scenarios, and a verified FinCEN case study." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/scam-compound-money-laundering-guide.html" />
+  <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Inside the Scam Compound Money Laundering Machine",
+      "description": "How a victim payment becomes laundered value: nine nodes from receiving account to stablecoin off-ramp, red flags at each handoff, two worked scenarios, and a verified FinCEN Section 311 case study.",
+      "author": { "@type": "Organization", "name": "FinCrimeRadar" },
+      "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
+      "url": "https://fincrimeradar.org/scam-compound-money-laundering-guide.html",
+      "datePublished": "2026-08-25",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fincrimeradar.org/scam-compound-money-laundering-guide.html" }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Fraud","item":"https://fincrimeradar.org/knowledge.html?domain=fraud-detection"},{"@type":"ListItem","position":3,"name":"Inside the Scam Compound Money Laundering Machine","item":"https://fincrimeradar.org/scam-compound-money-laundering-guide.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied'
+        });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-mech:#2563eb; --c-mech-light:#eff6ff;
+      --c-ghost:#7c3aed; --c-ghost-light:#f5f3ff;
+      --c-cascade:#dc2626; --c-cascade-light:#fef2f2;
+      --c-wander:#d97706; --c-wander-light:#fffbeb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    .skip-link { position:absolute; left:-9999px; top:0; background:var(--accent); color:#fff; padding:10px 16px; z-index:1000; border-radius:0 0 6px 0; font-size:14px; font-weight:600; text-decoration:none; }
+    .skip-link:focus { left:0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+    }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-mech); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%); }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-mech); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-ghost); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-cascade); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:1.75rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+
+    .hero-eyebrow-row { display:flex; align-items:center; gap:8px; margin-bottom:0.75rem; }
+    .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--hero-accent-em); flex-shrink:0; animation:pulse-dot 1.8s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100%{ box-shadow:0 0 0 0 rgba(93,202,165,0.5); } 50%{ box-shadow:0 0 0 6px rgba(93,202,165,0); } }
+    .hero-eyebrow-row span { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--hero-accent-em); }
+    .hero-stats { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-stat-tile { flex:1; min-width:210px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:1rem 1.15rem; }
+    .hero-stat-num { font-family:'DM Serif Display',Georgia,serif; font-size:1.8rem; color:#fff; line-height:1; }
+    .hero-stat-label { font-size:12.5px; color:var(--hero-accent-em); font-weight:700; margin-top:5px; }
+    .hero-stat-source { font-size:11px; color:#93c5fd; margin-top:6px; line-height:1.45; }
+    .hero-stat-source a { color:#93c5fd; }
+    .hero-note { font-size:12px; color:#93c5fd; margin-top:0.9rem; line-height:1.6; font-style:italic; }
+
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; max-height:calc(100vh - 110px); overflow-y:auto; }
+
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-mech); border-left-color:var(--c-mech); }
+    .toc a.active { color:var(--c-mech); border-left-color:var(--c-mech); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    .tool-nav-card { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-nav-card p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-nav-card a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-nav-card a:hover { background:var(--accent-h); }
+
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.6rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+    .cite { font-size:12px; color:var(--c-mech); text-decoration:none; font-weight:700; vertical-align:super; }
+    .cite:hover { text-decoration:underline; }
+    .lr-flag { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:#92400e; background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:1px 6px; margin-left:6px; text-decoration:none; }
+    .lr-flag:hover { text-decoration:underline; }
+
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout-amber { background:var(--c-wander-light); border-color:var(--c-wander); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* CHAIN STRIP */
+    .chain-strip { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:1.25rem 0; padding:1rem; background:#f8fafc; border:1px solid var(--border); border-radius:12px; }
+    .chain-pill { display:inline-flex; align-items:center; gap:6px; background:#fff; border:1.5px solid var(--border); border-radius:999px; padding:6px 12px; font-size:12.5px; font-weight:600; color:var(--navy); text-decoration:none; transition:all 0.15s; }
+    .chain-pill:hover, .chain-pill:focus-visible { border-color:var(--c-mech); color:var(--c-mech); }
+    .chain-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+    .chain-arrow { color:var(--muted); font-size:13px; }
+
+    /* NODE SECTIONS */
+    .node-head { display:flex; align-items:center; gap:12px; margin-bottom:0.5rem; }
+    .node-num { width:2.4rem; height:2.4rem; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:19px; flex-shrink:0; }
+    details.node-flags { border:1px solid var(--border); border-radius:10px; margin-top:1rem; background:#f8fafc; }
+    details.node-flags summary { padding:0.85rem 1.1rem; cursor:pointer; font-size:13.5px; font-weight:700; color:var(--navy); list-style:none; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    details.node-flags summary::-webkit-details-marker { display:none; }
+    details.node-flags summary .flag-icon { transition:transform 0.2s; color:var(--c-mech); font-weight:700; flex-shrink:0; }
+    details.node-flags[open] summary .flag-icon { transform:rotate(45deg); }
+    details.node-flags .node-flags-body { padding:0 1.1rem 1rem; }
+    details.node-flags .node-flags-body ul { margin-bottom:0; }
+    details.node-flags .node-flags-body li { font-size:13.5px; }
+
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-mech { background:var(--c-mech-light); color:var(--c-mech); border:1px solid #bfdbfe; }
+    .badge-ghost { background:var(--c-ghost-light); color:var(--c-ghost); border:1px solid #ddd6fe; }
+    .badge-cascade { background:var(--c-cascade-light); color:var(--c-cascade); border:1px solid #fecaca; }
+    .badge-wander { background:var(--c-wander-light); color:var(--c-wander); border:1px solid #fde68a; }
+
+    /* PATTERN / NODE-SUMMARY CARD */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.05rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:13.5px; color:#374151; margin-bottom:0; font-weight:600; line-height:1.5; }
+    .pattern-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:900px) { .pattern-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:640px) { .pattern-grid { grid-template-columns:1fr; } }
+
+    /* NINE QUESTIONS LIST */
+    .route-list { counter-reset:route; list-style:none; padding-left:0; }
+    .route-item { counter-increment:route; position:relative; padding:0.9rem 0 0.9rem 2.6rem; border-bottom:1px solid #f3f4f6; }
+    .route-item:last-child { border-bottom:none; }
+    .route-item::before { content:counter(route); position:absolute; left:0; top:0.9rem; width:1.8rem; height:1.8rem; border-radius:50%; background:var(--c-mech-light); color:var(--c-mech); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
+    .route-item strong { color:var(--navy); }
+
+    /* ESCALATION LADDER */
+    .ladder { display:flex; flex-direction:column; gap:10px; margin:1.25rem 0; }
+    .ladder-rung { border-radius:10px; padding:1rem 1.25rem; border-left:5px solid; }
+    .ladder-rung .ladder-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
+    .ladder-rung p { font-size:14px; margin:0; color:#374151; }
+
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-mech); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.partial { border-color:var(--warning); background:#fffbeb; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-choice { font-size:13px; font-weight:700; margin-bottom:8px; }
+    .verdict-body { background:#f8fafc; border-radius:8px; padding:1rem; font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+    .scenario-result { display:none; margin:1.25rem; padding:1.1rem 1.25rem; border-radius:10px; background:var(--navy); color:#fff; }
+    .scenario-result.show { display:block; }
+    .scenario-result .sr-score { font-family:'DM Serif Display',Georgia,serif; font-size:1.6rem; }
+    .scenario-result .sr-label { font-size:13px; color:#93c5fd; margin-top:4px; }
+
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-q { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; user-select:none; gap:1rem; list-style:none; }
+    .faq-q::-webkit-details-marker { display:none; }
+    .faq-icon { transition:transform 0.2s; font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
+
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-mech); color:var(--c-mech); }
+    .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+    /* SOURCES AND METHODOLOGY */
+    .sources-list { list-style:none; padding-left:0; counter-reset:src; }
+    .sources-list li { counter-increment:src; position:relative; padding-left:2.2rem; font-size:13.5px; color:#374151; margin-bottom:0.9rem; line-height:1.6; }
+    .sources-list li::before { content:'[' counter(src) ']'; position:absolute; left:0; top:0; color:var(--c-mech); font-weight:700; font-size:12.5px; }
+    .sources-list a { color:var(--c-mech); word-break:break-word; }
+    .sources-list .src-jur { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); background:#f3f4f6; border-radius:4px; padding:1px 6px; margin-right:6px; }
+    .sources-list li:target { background:#fef9e7; outline:2px solid var(--c-mech); outline-offset:4px; border-radius:4px; }
+    .sources-list .src-meta { display:block; font-size:11.5px; color:var(--muted); margin-top:3px; line-height:1.5; }
+    .sources-list .src-meta b { color:#374151; font-weight:600; }
+    .sources-list .src-tier { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.3px; padding:0 4px; border-radius:3px; margin-right:4px; }
+    .sources-list .src-tier.primary { background:#dcfce7; color:#166534; }
+    .sources-list .src-tier.official { background:#dbeafe; color:#1e40af; }
+    .sources-list .src-tier.secondary { background:#f3f4f6; color:#4b5563; }
+    .sources-list .src-tier.investigative { background:#fef3c7; color:#92400e; }
+
+    /* LEGAL REVIEW REGISTER */
+    .lr-list { list-style:none; padding-left:0; counter-reset:lr; }
+    .lr-list li { counter-increment:lr; position:relative; padding-left:3.6rem; font-size:13.5px; color:#374151; margin-bottom:0.85rem; line-height:1.6; }
+    .lr-list li::before { content:'LR' counter(lr); position:absolute; left:0; top:0; color:#92400e; font-weight:700; font-size:11.5px; background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:1px 6px; }
+    .lr-list li:target { background:#fef9e7; outline:2px solid var(--warning); outline-offset:4px; border-radius:4px; }
+
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    @media(max-width:768px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; max-height:none; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .hero-stats { flex-direction:column; }
+      .route-item { padding-left:2.4rem; }
+      .pattern-grid { grid-template-columns:1fr; }
+    }
+  </style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">›</span>
+  <a href="/knowledge.html?domain=fraud-detection">Fraud</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Inside the Scam Compound Money Laundering Machine</span>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-nodes"><div class="hero-node"></div><div class="hero-node"></div><div class="hero-node"></div></div>
+  <div class="hero-inner">
+    <div class="series-tag">🔗 Payment Chain Investigation</div>
+    <h1>Inside the Scam Compound<br><em>Money Laundering Machine</em></h1>
+    <p class="hero-sub">How a victim payment becomes laundered value, and where investigators can still see the machine. Nine nodes, from receiving account to stablecoin off-ramp, each with its own red flags.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 22 min read</span>
+      <span>🔎 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 2 Scenarios</span>
+    </div>
+
+    <div class="hero-eyebrow-row"><span class="pulse-dot" aria-hidden="true"></span><span>Why this matters, kept separate on purpose</span></div>
+    <div class="hero-stats">
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">~$<span class="stat-num-anim" data-target="500">0</span>bn</div>
+        <div class="hero-stat-label">FATF global estimate, losses to scams across 2024 and 2025</div>
+        <div class="hero-stat-source">FATF President Giles Thomson, Roadmap launch, 1 Jul 2026 <a class="cite" href="#src-1">[1]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">$18–37bn</div>
+        <div class="hero-stat-label">UNODC regional estimate, East &amp; SE Asia, 2023 losses</div>
+        <div class="hero-stat-source">UNODC, October 2024 report <a class="cite" href="#src-8">[8]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">$88.3–114.1bn</div>
+        <div class="hero-stat-label">UNODC regional update, East Asia, SE Asia, Australia &amp; NZ, 2025 losses</div>
+        <div class="hero-stat-source">UNODC, July 2026 follow-up <a class="cite" href="#src-8b">[8b]</a></div>
+      </div>
+      <div class="hero-stat-tile">
+        <div class="hero-stat-num">$<span class="stat-num-anim" data-target="14">0</span>bn+</div>
+        <div class="hero-stat-label">On-chain inflow to identified crypto scam addresses, 2025 (lower bound)</div>
+        <div class="hero-stat-source">Chainalysis, 2026 Crypto Crime Report <a class="cite" href="#src-12">[12]</a></div>
+      </div>
+    </div>
+    <p class="hero-note">Four different numbers, four different denominators. This guide keeps them separate throughout, see Section 1 for why blending them creates false precision.</p>
+  </div>
+</div>
+
+<div class="article-layout">
+  <main class="article-body" id="main-content">
+
+    <div class="article-section" id="intro">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Introduction</div>
+      <h2>The payment doesn't end the story, it starts a different one</h2>
+      <p>A scam compound may look like a fraud operation. Financially, it is better understood as the front end of a much larger criminal value chain. The person messaging a victim may never control the bank account that receives the money. The holder of that account may never meet the person controlling the next account. The company buying cryptocurrency may have no visible connection to the original scam. By the time the proceeds reach a stablecoin wallet, several institutions, identities, legal entities and jurisdictions may sit between the victim and the criminal organisation. That fragmentation is not incidental. It is part of the laundering architecture.</p>
+      <p>FATF has described cyber-enabled fraud syndicates as organised structures with specialised functions, including dedicated money laundering capabilities. The resulting laundering networks can involve individual money mules, legal persons, banks, payment providers, remittance providers and virtual asset service providers. Proceeds may move rapidly across accounts, institutions and jurisdictions <a class="cite" href="#src-2">[2]</a><a class="cite" href="#src-3">[3]</a>.</p>
+      <p style="font-size:12.5px;color:var(--muted);">A note on how FATF material is used throughout this guide <a class="lr-flag" href="#lr9">LR9</a>: FATF Recommendations are international standards addressed to countries. FATF guidance and typology reports, cited repeatedly below, can inform risk analysis, but they do not themselves create UK firm-level obligations; any binding UK duty must come from applicable domestic legislation, regulation or regulatory rules, see Section 17.</p>
+      <p>This guide follows that movement:</p>
+      <div class="chain-strip" role="navigation" aria-label="Nine-node payment chain">
+        <a class="chain-pill" href="#node1"><span class="chain-dot" style="background:var(--c-wander)"></span>1. Victim payment</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node2"><span class="chain-dot" style="background:var(--c-mech)"></span>2. Receiving account</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node3"><span class="chain-dot" style="background:var(--c-ghost)"></span>3. Mule network</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node4"><span class="chain-dot" style="background:var(--c-cascade)"></span>4. Aggregator</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node5"><span class="chain-dot" style="background:var(--c-wander)"></span>5. Shell company</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node6"><span class="chain-dot" style="background:var(--c-mech)"></span>6. OTC / offshore VASP</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node7"><span class="chain-dot" style="background:var(--c-ghost)"></span>7. Stablecoin</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node8"><span class="chain-dot" style="background:var(--c-cascade)"></span>8. Layering</a><span class="chain-arrow" aria-hidden="true">→</span>
+        <a class="chain-pill" href="#node9"><span class="chain-dot" style="background:var(--c-wander)"></span>9. Off ramp</a>
+      </div>
+      <p>The objective is not to memorise a single scam typology. It is to understand what each node is trying to achieve, what information disappears at every handoff, and which signals can reconnect the chain. Every pill above is a live link, and stays reachable from the sidebar contents throughout the guide.</p>
+    </div>
+
+    <div class="article-section" id="numbers">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Section 1</div>
+      <h2>First, keep the numbers separate</h2>
+      <p>The scale of scam activity is frequently described using figures that measure different things. They should not be combined.</p>
+
+      <h3>FATF global estimate</h3>
+      <p>At the launch of FATF's 2026 to 2028 Roadmap on Combatting Fraud on 1 July 2026, FATF President Giles Thomson put the global scale at nearly USD 500 billion lost to scams across 2024 and 2025. This guide attributes that figure solely to Thomson's Roadmap launch and treats it as FATF's own global estimate. It is not a UK Fraud Strategy figure and should not be presented as one <a class="cite" href="#src-1">[1]</a>.</p>
+
+      <h3>UNODC regional estimates</h3>
+      <p>Separately, UNODC estimated financial losses of USD 18 billion to USD 37 billion from scams targeting victims across East and Southeast Asia during 2023, published in its October 2024 report on the region's cyber-enabled fraud economy <a class="cite" href="#src-8">[8]</a>.</p>
+      <p>UNODC's follow-up report, published 21 July 2026, put 2025 losses across East Asia, Southeast Asia, Australia and New Zealand at USD 88.3 billion to USD 114.1 billion, nearly triple the 2023 figure, which UNODC itself describes as reflecting the dramatic scaling of this criminal economy <a class="cite" href="#src-8b">[8b]</a>.</p>
+      <p>Both are regional estimates, for different years and slightly different regional scope. Neither validates, reproduces, or forms the basis of the FATF global figure above, and the two UNODC figures should not be averaged or treated as directly comparable without noting the scope difference.</p>
+
+      <h3>Chainalysis crypto tracking</h3>
+      <p>Chainalysis reported that addresses it had identified as associated with cryptocurrency scams received at least USD 14 billion on chain during 2025. It describes this as a lower bound that increases as additional illicit addresses are identified <a class="cite" href="#src-12">[12]</a>. That is observed or attributed cryptocurrency flow. It is not an estimate of total global scam losses.</p>
+
+      <h3>TRM Labs crypto tracking</h3>
+      <p>TRM Labs reported at least USD 10.7 billion in cryptocurrency sent to fraud in 2024 within its observed dataset. TRM similarly cautions that fraud attribution increases over time as additional activity becomes known <a class="cite" href="#src-10">[10]</a>. Again, this is crypto-specific tracked activity, not total scam losses.</p>
+
+      <h3>Why this distinction matters</h3>
+      <p>A victim loss survey and an analytics firm's attributed blockchain inflow are measuring different things. Putting them in the same chart without explaining the denominator creates false precision. For investigators, the more useful question is not <em>how big is the scam economy</em>, it is <em>what happens to the victim's money after the payment succeeds</em>.</p>
+    </div>
+
+    <div class="article-section" id="two-machines">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Section 2</div>
+      <h2>Scam compounds are only one part of the machine</h2>
+      <p>INTERPOL describes transnational scam centres as criminal hubs associated with large-scale fraud, trafficking and abuse. People inside compounds may be forced to conduct romance scams, investment fraud, cryptocurrency scams, impersonation fraud and other schemes. INTERPOL also cautions that not everybody working in a scam centre is necessarily a trafficking victim <a class="cite" href="#src-9">[9]</a>.</p>
+      <p>The laundering function can sit elsewhere entirely. A useful analytical model is to separate two machines. The <strong>fraud machine</strong> acquires victims. The <strong>laundering machine</strong> acquires, moves, converts and ultimately makes usable the proceeds generated from those victims. FATF has found that the place where the fraud occurs and the place where the laundering occurs are frequently different. Proceeds can move through networks spanning multiple jurisdictions and financial institutions <a class="cite" href="#src-3">[3]</a>.</p>
+      <p>This means an analyst in Birmingham may be looking at one UK bank account without seeing the compound, recruiter, controller, overseas broker or wallet sitting further along the chain. The analytical challenge is therefore reconstruction.</p>
+      <div class="callout callout-navy">
+        <strong>How to use this guide</strong>
+        <p>Work through the nine nodes in order, each has its own red flags, open the disclosure under each node before moving on. Then work both worked scenarios for the reasoning, not just the answer. The knowledge check pulls from across the whole chain, and the FAQ closes out the most common edge cases.</p>
+      </div>
+    </div>
+
+    <!-- NODE ONE -->
+    <div class="article-section" id="node1">
+      <div class="node-head"><div class="node-num" style="background:var(--c-wander-light);color:var(--c-wander);">1</div><div><div class="section-eyebrow" style="color:var(--c-wander);margin-bottom:0;">Node One</div><h2 style="margin-bottom:0;">The victim payment</h2></div></div>
+      <p>The laundering chain begins before the receiving account moves anything. The first observable event is usually a payment authorised or initiated by the victim. Depending on the scam, the victim may believe they are investing money, paying an invoice, helping a romantic partner, moving money to a supposedly safe account, paying tax or withdrawal fees, funding a cryptocurrency investment, completing paid online tasks, or responding to an impersonated business or authority.</p>
+      <p>FATF has identified patterns including unusual beneficiary information, small successful payments followed by larger payments, urgent instructions and transaction details inconsistent with previously verified behaviour <a class="cite" href="#src-3">[3]</a>.</p>
+      <details class="node-flags">
+        <summary>Red flags at the victim node <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <ul>
+            <li>A newly introduced beneficiary</li>
+            <li>A small test payment followed quickly by a substantially larger payment</li>
+            <li>Unusual investment-related payment descriptions</li>
+            <li>Beneficiary account details inconsistent with an expected recipient</li>
+            <li>Sudden deviation from the customer's normal transaction pattern</li>
+            <li>Repeated payments following apparent successful receipt of the first payment</li>
+            <li>Customer communications indicating urgency, secrecy or external instruction</li>
+            <li>Payments to recently established companies with no obvious connection to the customer</li>
+            <li>Payments inconsistent with the customer's historic economic activity</li>
+          </ul>
+        </div>
+      </details>
+      <div class="callout callout-amber" style="margin-top:1.25rem;">
+        <strong>One indicator is a prompt, not a conclusion</strong>
+        <p>FATF itself cautions that the presence of one indicator may not independently warrant suspicion. Indicators are prompts for further examination, not automatic conclusions <a class="cite" href="#src-3">[3]</a>. That principle applies to every node in this chain.</p>
+      </div>
+    </div>
+
+    <!-- NODE TWO -->
+    <div class="article-section" id="node2">
+      <div class="node-head"><div class="node-num" style="background:var(--c-mech-light);color:var(--c-mech);">2</div><div><div class="section-eyebrow" style="color:var(--c-mech);margin-bottom:0;">Node Two</div><h2 style="margin-bottom:0;">The receiving account</h2></div></div>
+      <p>This is the first account controlled, directly or indirectly, by the criminal ecosystem. For some fraud types FATF has observed individual mule accounts as common first-layer accounts. For other typologies, particularly certain trading and business email compromise schemes, corporate accounts including newly registered or shell companies may be used at the first layer <a class="cite" href="#src-3">[3]</a>. The account's job is simple: receive the victim's money without immediately exposing the controller.</p>
+      <p>The account may previously have behaved normally. Then something changes. Salary credits of £1,500 a month become £15,000 of incoming transfers from unrelated people. A student account starts processing business-sized turnover. A dormant company begins receiving consumer payments. Incoming funds leave almost immediately. The account holder cannot explain who the payers are. FATF has documented mule structures in which participants hand over credentials, cards or other access mechanisms, allowing the criminal syndicate to exercise direct control over the account <a class="cite" href="#src-3">[3]</a>.</p>
+      <details class="node-flags">
+        <summary>Red flags at the receiving account <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <ul>
+            <li>Sudden transaction velocity inconsistent with historical use</li>
+            <li>Incoming transfers from multiple unrelated individuals</li>
+            <li>Immediate or rapid onward movement</li>
+            <li>Near-complete depletion of the received balance</li>
+            <li>Turnover inconsistent with the customer's economic profile</li>
+            <li>Customer unable to explain the source or purpose of incoming payments</li>
+            <li>Assertion that the account is being used on behalf of somebody else</li>
+            <li>New account followed quickly by significant transaction activity</li>
+            <li>Account details or identity information changing soon after onboarding</li>
+            <li>Multiple accounts linked through common devices, credentials, telephone numbers or IP infrastructure</li>
+            <li>Remote access indicators inconsistent with normal account usage</li>
+            <li>Fraud recalls or reports received from sending institutions</li>
+          </ul>
+        </div>
+      </details>
+      <p style="margin-top:1.25rem;">The NCA defines money mule networks as people or accounts used to launder criminal funds, with controllers organising transactions while attempting to retain their own anonymity <a class="cite" href="#src-6">[6]</a>.</p>
+    </div>
+
+    <!-- NODE THREE -->
+    <div class="article-section" id="node3">
+      <div class="node-head"><div class="node-num" style="background:var(--c-ghost-light);color:var(--c-ghost);">3</div><div><div class="section-eyebrow" style="color:var(--c-ghost);margin-bottom:0;">Node Three</div><h2 style="margin-bottom:0;">The mule network</h2></div></div>
+      <p>One receiving account is vulnerable. A network is resilient. The criminal organisation distributes proceeds across multiple accounts so that losing one account does not necessarily disrupt the entire payment chain. Some mules knowingly participate. Some are deceived. Some may understand that something is wrong without understanding the underlying offence. FATF recognises this variation in mule culpability and notes that online recruitment can be scaled through social media and messaging platforms <a class="cite" href="#src-3">[3]</a>.</p>
+      <p>The UK threat is not theoretical. In one NCA-reported fraud case concluded around Operation Henhouse activity, more than 300 victims were targeted through fraudulent vehicle advertisements. Investigators identified more than 90 money mules, many recruited through social media with offers of quick cash <a class="cite" href="#src-7">[7]</a>.</p>
+      <details class="node-flags">
+        <summary>Red flags across the mule network <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:0.5rem;">Do not analyse each account in isolation. Look for network features:</p>
+          <ul>
+            <li>Multiple accounts receiving from apparently unrelated victims</li>
+            <li>Common destination accounts</li>
+            <li>Common device identifiers</li>
+            <li>Common IP infrastructure</li>
+            <li>Repeated transaction amounts or timing patterns</li>
+            <li>Similar account opening characteristics</li>
+            <li>Similar payment narratives</li>
+            <li>Common cash withdrawal locations</li>
+            <li>Shared cryptocurrency counterparties</li>
+            <li>Shared company beneficiaries</li>
+            <li>Repeated fraud recalls across apparently unrelated account holders</li>
+            <li>Movement that becomes increasingly concentrated as funds progress through the network</li>
+          </ul>
+        </div>
+      </details>
+      <div class="callout callout-navy" style="margin-top:1.25rem;">
+        <strong>The analytical shift</strong>
+        <p>A transaction monitoring alert asks <em>is this account suspicious?</em> A network investigation asks <em>what role is this account performing?</em> The second question is more useful.</p>
+      </div>
+    </div>
+
+    <!-- NODE FOUR -->
+    <div class="article-section" id="node4">
+      <div class="node-head"><div class="node-num" style="background:var(--c-cascade-light);color:var(--c-cascade);">4</div><div><div class="section-eyebrow" style="color:var(--c-cascade);margin-bottom:0;">Node Four</div><h2 style="margin-bottom:0;">The aggregator</h2></div></div>
+      <p>For this guide, <strong>aggregator</strong> is an analytical label rather than a statutory or FATF-defined category. It describes an account, wallet or entity that receives funds from multiple first-layer or intermediate accounts and concentrates them before further movement. FATF describes cyber-enabled fraud proceeds being rapidly layered through pass-through transactions across domestic and foreign accounts, and documents patterns in which numerous companies and individual accomplices circulate proceeds through structured networks <a class="cite" href="#src-3">[3]</a>.</p>
+      <p>The aggregator is where apparently separate scams can begin to look like one financial operation. Imagine twelve mule accounts, each receiving between £2,000 and £9,000 from different victims. All twelve send most of their balances to the same company account. That company may never have contacted a victim. Yet from a network perspective it may be more important than any individual mule.</p>
+      <details class="node-flags">
+        <summary>Red flags at the aggregator <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <ul>
+            <li>Many unrelated originating accounts converging on one beneficiary</li>
+            <li>Counterparties concentrated around known or suspected mule activity</li>
+            <li>High inbound transaction count followed by fewer high-value outbound transfers</li>
+            <li>Extremely short holding periods</li>
+            <li>Turnover far beyond the customer's expected activity</li>
+            <li>Transactions with no credible commercial relationship between counterparties</li>
+            <li>Repeated balance sweeping</li>
+            <li>Multiple fraud-exposed accounts feeding one destination</li>
+            <li>Rapid conversion into another asset class</li>
+            <li>Onward transfers to VASPs, money service businesses or overseas entities</li>
+            <li>Movement patterns inconsistent with the stated nature of the business</li>
+          </ul>
+        </div>
+      </details>
+      <p style="margin-top:1.25rem;">The analytical value of the aggregator is concentration. The criminal has reduced hundreds of victim relationships into a smaller number of controllable financial relationships. That creates efficiency for the criminal organisation. It can also create an investigative choke point.</p>
+    </div>
+
+    <!-- NODE FIVE -->
+    <div class="article-section" id="node5">
+      <div class="node-head"><div class="node-num" style="background:var(--c-wander-light);color:var(--c-wander);">5</div><div><div class="section-eyebrow" style="color:var(--c-wander);margin-bottom:0;">Node Five</div><h2 style="margin-bottom:0;">The shell company</h2></div></div>
+      <p>Not every shell company is criminal. Not every newly incorporated company is suspicious. The risk arises from the relationship between the corporate profile and the movement of money. FATF has documented cyber-enabled fraud laundering structures involving shell companies controlled through straw persons or nominee directors, and cases where mules were used to open corporate accounts or act as nominal company representatives <a class="cite" href="#src-3">[3]</a>.</p>
+      <p>One FATF case study described an online trading fraud network involving 209 companies. Investigators identified common accountants, companies created around similar dates, rapid liquidation and movement of proceeds between the companies. Some funds subsequently moved to VASPs <a class="cite" href="#src-3">[3]</a>. The NCA's 2026 National Strategic Assessment separately states that criminals continue to exploit UK corporate structures for fraud and illicit finance <a class="cite" href="#src-5">[5]</a>.</p>
+      <details class="node-flags">
+        <summary>Red flags at the corporate node <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <ul>
+            <li>Company recently established before high transaction volumes begin</li>
+            <li>Vague or extremely broad stated business activity</li>
+            <li>Payment flows inconsistent with the declared industry</li>
+            <li>Large numbers of unrelated retail payers</li>
+            <li>Common directors, addresses, accountants or contact information across apparently separate entities</li>
+            <li>Limited evidence of genuine operating activity</li>
+            <li>Rapid transfer of most incoming funds</li>
+            <li>Frequent transactions with other recently formed companies</li>
+            <li>Merchant activity inconsistent with the company's business model</li>
+            <li>Unexplained payments to cryptocurrency businesses</li>
+            <li>High turnover unsupported by reasonable commercial documentation</li>
+            <li>Customer or director unable to explain material counterparties</li>
+            <li>Virtual address combined with other indicators of opacity</li>
+          </ul>
+        </div>
+      </details>
+      <p style="margin-top:1.25rem;">The important question is not <em>is this a shell company?</em> It is <em>does the economic behaviour of this legal entity make sense?</em></p>
+    </div>
+
+    <!-- NODE SIX -->
+    <div class="article-section" id="node6">
+      <div class="node-head"><div class="node-num" style="background:var(--c-mech-light);color:var(--c-mech);">6</div><div><div class="section-eyebrow" style="color:var(--c-mech);margin-bottom:0;">Node Six</div><h2 style="margin-bottom:0;">The OTC broker or offshore VASP</h2></div></div>
+      <p>At some point, fiat proceeds may need to cross into virtual assets. That can occur through regulated exchanges, peer-to-peer activity, OTC brokers, cryptoasset businesses, offshore VASPs, or combinations of these channels. OTC activity is not inherently illicit. Offshore VASPs are not inherently criminal either. The risk comes from opacity, regulatory gaps, nested relationships, customer profile mismatch and exposure to known illicit flows.</p>
+      <p>FATF defines an offshore VASP as a VASP created under the laws of one jurisdiction, with or without a physical presence there, that provides services to customers in another jurisdiction. Its March 2026 report found that uneven oversight can create exploitable gaps, and specifically identified dispersal across multiple addresses, layered intermediary wallets, multiple blockchains and nested relationships as methods relevant to illicit finance through some offshore VASP structures. FATF also documented cases where offshore VASPs were used to convert proceeds associated with scam compounds <a class="cite" href="#src-4">[4]</a>.</p>
+      <details class="node-flags">
+        <summary>Red flags at the conversion node <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <ul>
+            <li>Customer activity inconsistent with declared crypto experience or business model</li>
+            <li>Sudden high-value conversion following large fiat inflows</li>
+            <li>Funds originating from newly formed or opaque companies</li>
+            <li>Third-party funding with no credible economic explanation</li>
+            <li>Repeated use of counterparties with limited transparency</li>
+            <li>Exposure to unlicensed or unregistered providers where registration would be expected</li>
+            <li>Transactions involving nested service relationships</li>
+            <li>Rapid conversion followed by movement to unhosted wallets</li>
+            <li>Transfers across several platforms without credible investment or commercial rationale</li>
+            <li>Source-of-funds documentation inconsistent with transaction volume</li>
+            <li>Customer explanation focused on transaction mechanics rather than economic purpose</li>
+            <li>Recurring exposure to known scam-related wallets or entities</li>
+          </ul>
+        </div>
+      </details>
+      <div class="callout callout-navy" style="margin-top:1.25rem;">
+        <strong>UK scope point <a class="lr-flag" href="#lr6">LR6</a><a class="lr-flag" href="#lr7">LR7</a></strong>
+        <p>As at August 2026, a business providing cryptoasset services within Regulation 14A while acting in the course of business in the United Kingdom must register with the FCA before beginning those services. The new FSMA cryptoasset regime starts on 25 October 2027 <a class="cite" href="#src-13">[13]</a>. An overseas provider is not automatically within the MLR registration perimeter merely because it permits a UK resident to become a customer; the assessment depends on the activities undertaken and whether the provider acts in the course of business in the United Kingdom. This does not determine the separate UK financial promotions position, which can apply to marketing directed at UK consumers regardless of where the provider is based.</p>
+      </div>
+    </div>
+
+    <!-- REAL CASE STUDY: HUIONE GROUP -->
+    <div class="article-section" id="case-study">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Real Case Study</div>
+      <h2>Huione Group: what a Section 311 finding actually establishes <a class="lr-flag" href="#lr10">LR10</a></h2>
+      <p style="font-size:13px;color:var(--muted);"><strong>United States jurisdiction only.</strong> This case study concerns a United States Section 311 measure and does not establish any obligation under UK law.</p>
+      <p>On 14 October 2025, FinCEN issued a final rule, effective 17 November 2025, after finding reasonable grounds to conclude that Huione Group, a Cambodia-based (Phnom Penh) financial services conglomerate, was a foreign financial institution of primary money laundering concern. Three distinct dates attach to this rule and are not interchangeable: FinCEN's own issuance date is 14 October 2025; the Federal Register public-inspection filing is dated 15 October 2025; the Federal Register publication date is 16 October 2025. This guide uses FinCEN's own issuance date as the primary date. The rule prohibits covered US financial institutions from opening or maintaining a correspondent account in the United States for, or on behalf of, Huione Group. It also requires those institutions to take reasonable steps to prevent their covered correspondent accounts from processing transactions involving Huione Group, and requires specified special due diligence on their foreign correspondent accounts <a class="cite" href="#src-16">[16]</a>.</p>
+      <p>FinCEN based its finding on several matters, kept separate here rather than blended into one: services Huione Group provided that DPRK government entities used to launder proceeds of cyber heists; use of Huione Group by Southeast Asian criminal organisations to launder proceeds of cyber scams, including convertible virtual currency investment scams such as so-called "pig butchering" schemes; and Huione Group's operation of an illicit online market. FinCEN's analysis identified that, in the aggregate, Huione Group received at least USD 4 billion worth of illicit proceeds between August 2021 and January 2025, a figure stated directly in FinCEN's own primary text. This is FinCEN's assessment, not a criminal conviction of any individual <a class="cite" href="#src-16">[16]</a>.</p>
+      <p>The final rule's definition of Huione Group includes Haowang Guarantee (formerly Huione Guarantee), Huione Pay PLC, and Huione Crypto. Huione Pay PLC had previously been registered as a Cambodian payment services institution, but by 2025 its Cambodian licence had been rescinded by the National Bank of Cambodia and it no longer appeared in the Ministry of Commerce's business registration database <a class="cite" href="#src-16">[16]</a>. In June 2026, FinCEN proposed amending the definition to include H Pay Service PLC and successor entities; as at August 2026 that remains a proposed amendment, not part of the operative 2025 final rule, and this guide does not present it as such.</p>
+      <p>This guide cites the finding at Node Six deliberately, and the mapping below is this guide's own analytical application of FinCEN's findings, not wording used by FinCEN itself: Haowang Guarantee illustrates an online marketplace functioning as a conversion and off-ramp point for scam proceeds, the same functional role this guide describes at Nodes Six and Nine, not an isolated or hypothetical pattern.</p>
+      <p style="font-size:13px;color:var(--muted);">What this case study does and does not establish: a Section 311 special measure is a finding that an entity is a foreign financial institution of primary money laundering concern, followed by US correspondent-banking restrictions of the scope described above. It is not a criminal conviction of any individual, it creates no UK obligation, and this guide does not treat it as either. See <a href="#lr10">LR10</a> in the Legal and Regulatory Review Register.</p>
+    </div>
+
+    <!-- NODE SEVEN -->
+    <div class="article-section" id="node7">
+      <div class="node-head"><div class="node-num" style="background:var(--c-ghost-light);color:var(--c-ghost);">7</div><div><div class="section-eyebrow" style="color:var(--c-ghost);margin-bottom:0;">Node Seven</div><h2 style="margin-bottom:0;">Stablecoin conversion</h2></div></div>
+      <p>Stablecoins solve a problem for legitimate commerce and criminal finance alike. They permit digital value to move quickly across borders while avoiding much of the price volatility associated with assets such as Bitcoin. That does not make stablecoins inherently suspicious.</p>
+      <p>TRM Labs estimates that approximately 99 per cent of stablecoin activity in the period it analysed was licit. At the same time, stablecoins represented around 60 per cent of the illicit crypto activity observed by TRM during the first quarter of 2025 <a class="cite" href="#src-11">[11]</a>. Those two facts can coexist: large legitimate usage alongside significant criminal adoption. Chainalysis likewise reported that stablecoins represented a large share of identified illicit cryptocurrency transaction volume during 2025; that measurement covers illicit crypto activity broadly and should not be presented as a scam loss figure <a class="cite" href="#src-12">[12]</a>.</p>
+      <details class="node-flags">
+        <summary>Red flags at the stablecoin node <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:0.5rem;">FATF's cyber-enabled fraud risk indicators include:</p>
+          <ul>
+            <li>Large volumes or high-frequency transactions involving unhosted wallets</li>
+            <li>Exposure to addresses associated with scammers or other illicit services</li>
+            <li>Inability to evidence the origin of virtual assets or the fiat used to acquire them</li>
+            <li>Use of several types of virtual asset without reasonable explanation</li>
+            <li>Abnormal peer-to-peer wallet activity lacking logical business purpose</li>
+            <li>Rapid onward transfers following acquisition</li>
+            <li>Interaction with high-risk jurisdictions or services when combined with other indicators</li>
+          </ul>
+          <p style="font-size:12px;color:var(--muted);margin-top:0.5rem;margin-bottom:0;">Source: FATF, Illicit Financial Flows from Cyber Enabled Fraud <a class="cite" href="#src-3">[3]</a>.</p>
+        </div>
+      </details>
+      <p style="margin-top:1.25rem;">Blockchain transparency can make this stage more observable than the criminal may expect. The challenge is connecting blockchain evidence to the identities and fiat accounts that preceded it.</p>
+    </div>
+
+    <!-- NODE EIGHT -->
+    <div class="article-section" id="node8">
+      <div class="node-head"><div class="node-num" style="background:var(--c-cascade-light);color:var(--c-cascade);">8</div><div><div class="section-eyebrow" style="color:var(--c-cascade);margin-bottom:0;">Node Eight</div><h2 style="margin-bottom:0;">Layering</h2></div></div>
+      <p>Layering is where investigative context is deliberately degraded. FATF describes cyber-enabled fraud proceeds moving through pass-through transactions involving domestic and foreign accounts, with techniques including movement through different financial institutions, payment providers and remittance providers, smurfing, and conversion into different forms of value, including virtual assets <a class="cite" href="#src-3">[3]</a>. Within virtual assets, FATF's 2026 offshore VASP work describes dispersal across multiple addresses, intermediary wallets and multiple blockchains as relevant obfuscation patterns <a class="cite" href="#src-4">[4]</a>.</p>
+      <p>The objective is not necessarily to make tracing impossible. It is to increase the cost, time and jurisdictional complexity of reconstruction.</p>
+      <details class="node-flags">
+        <summary>Red flags during layering <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <ul>
+            <li>Repeated rapid transfers with minimal holding periods</li>
+            <li>Multiple intermediate accounts with no clear commercial function</li>
+            <li>Repeated asset conversion without economic justification</li>
+            <li>Transfers across several exchanges or wallets in short succession</li>
+            <li>Fragmentation followed by reconsolidation</li>
+            <li>Movement involving numerous jurisdictions</li>
+            <li>Wallet activity inconsistent with the customer's stated investment strategy</li>
+            <li>Transactions crossing several service providers without clear purpose</li>
+            <li>Related entities transferring funds amongst themselves</li>
+            <li>Payment paths that appear economically circular</li>
+            <li>Counterparties whose only apparent function is receiving and forwarding value</li>
+          </ul>
+        </div>
+      </details>
+      <div class="callout callout-navy" style="margin-top:1.25rem;">
+        <strong>A useful analytical test</strong>
+        <p>What economic purpose did this intermediate transaction achieve? If the only observable purpose is to make the trail longer, risk increases. That is still an analytical inference, not proof of criminal intent.</p>
+      </div>
+    </div>
+
+    <!-- NODE NINE -->
+    <div class="article-section" id="node9">
+      <div class="node-head"><div class="node-num" style="background:var(--c-wander-light);color:var(--c-wander);">9</div><div><div class="section-eyebrow" style="color:var(--c-wander);margin-bottom:0;">Node Nine</div><h2 style="margin-bottom:0;">The off ramp</h2></div></div>
+      <p>Eventually the organisation needs usable value. That does not always mean cash: the endpoint may involve fiat withdrawal, bank transfer, cash, goods, property, another business, settlement with another criminal network, reinvestment into the fraud operation, or payment for criminal infrastructure.</p>
+      <p>The NCA's 2026 National Strategic Assessment describes professional money laundering networks servicing multiple organised crime groups and notes models involving collection, consolidation and conversion of criminal value into cryptocurrency. It also describes international controller networks capable of arranging value movement across borders without every stage relying on the conventional banking system <a class="cite" href="#src-5">[5]</a>. The criminal objective is therefore better understood as usable value, not simply cash.</p>
+      <details class="node-flags">
+        <summary>Red flags at the off ramp <span class="flag-icon" aria-hidden="true">+</span></summary>
+        <div class="node-flags-body">
+          <ul>
+            <li>Large fiat withdrawals following complex inbound crypto activity</li>
+            <li>Third-party bank accounts receiving exchange withdrawals</li>
+            <li>Multiple unrelated beneficiaries</li>
+            <li>Crypto conversion followed immediately by fiat withdrawal</li>
+            <li>Customer activity inconsistent with stated wealth or business profile</li>
+            <li>Repeated use of accounts whose principal function appears to be value conversion</li>
+            <li>Funds leaving towards newly established companies</li>
+            <li>Unusual payments into sectors or assets unrelated to the customer's normal activity</li>
+            <li>Withdrawal counterparties connected to known mule or laundering networks</li>
+            <li>Repeated conversion activity with little evidence of legitimate trading rationale</li>
+          </ul>
+        </div>
+      </details>
+      <p style="margin-top:1.25rem;">This is where the laundering cycle can reconnect with apparently legitimate economic activity.</p>
+    </div>
+
+    <div class="article-section" id="control-gap">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Section 12</div>
+      <h2>The real control gap: every institution sees a different crime</h2>
+      <p>The sending bank may see an unusual victim payment. The receiving bank may see a young customer with incoming transfers. A second bank may see a company receiving money from multiple individuals. A VASP may see a company purchasing USDT. A blockchain analytics platform may see wallet exposure. An overseas exchange may see a customer selling stablecoins.</p>
+      <p>Each institution can therefore hold a fact that appears weak alone. The network can become obvious only when those facts are connected. This is why FATF's current fraud programme places significant emphasis on information sharing, payment transparency, asset recovery and cross-border cooperation <a class="cite" href="#src-1">[1]</a><a class="cite" href="#src-2">[2]</a>. The laundering machine benefits from organisational fragmentation. Detection improves when investigators reconstruct the chain rather than stopping at the alert.</p>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-mech-light);">🏦</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Nodes Two and Three</div>
+          <div class="scenario-name">The Receiving Account That Looked Ordinary Yesterday</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;"><span class="badge badge-mech">First-Layer Mule</span></div>
+      </div>
+
+      <div class="dilemma-scenario" style="border-radius:10px;margin-bottom:1rem;">
+        <p>A UK current account belongs to a 23-year-old customer. Historic behaviour shows monthly salary credits of approximately £1,600, rent, groceries, and occasional transfers between savings accounts. During one afternoon the account receives eleven Faster Payments from unrelated individuals, total value £18,640. Within three hours, £17,900 is transferred to a recently incorporated UK company described as a digital marketing business. The customer retains £740 and states: "Friends owed me money and I forwarded it to someone helping us invest." Two sending institutions subsequently submit fraud-related recalls.</p>
+      </div>
+
+      <h3>Decision Point One</h3>
+      <div class="dilemma-card" id="dilemma-s1dp1">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>What is the strongest classification at this stage?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="answerDP('s1dp1','A',this)"><span class="opt-label">A</span><span>Treat this solely as an APP fraud issue affecting the senders.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s1dp1','B',this)"><span class="opt-label">B</span><span>Treat the account as a potential first-layer money mule and investigate the wider laundering network.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s1dp1','C',this)"><span class="opt-label">C</span><span>Take no action because the account passed KYC when opened.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="s1dp1-verdict" aria-live="polite"><div id="s1dp1-content"></div></div>
+      </div>
+
+      <h3>Decision Point Two</h3>
+      <div class="dilemma-card" id="dilemma-s1dp2">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>What is the most valuable next analytical step?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="answerDP('s1dp2','A',this)"><span class="opt-label">A</span><span>Review only whether the customer supplied genuine identity documents at onboarding.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s1dp2','B',this)"><span class="opt-label">B</span><span>Map the sending accounts, destination company, transaction timing, device information, customer explanations, fraud recalls and any connected accounts.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s1dp2','C',this)"><span class="opt-label">C</span><span>Wait until every sending customer has independently confirmed fraud.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="s1dp2-verdict" aria-live="polite"><div id="s1dp2-content"></div></div>
+      </div>
+
+      <div class="scenario-result" id="s1-result" aria-live="polite"></div>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-cascade-light);">🏢</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · Nodes Four, Five and Six</div>
+          <div class="scenario-name">The Company That Became a Crypto Gateway</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;"><span class="badge badge-cascade">Aggregation Layer</span></div>
+      </div>
+
+      <div class="dilemma-scenario" style="border-radius:10px;margin-bottom:1rem;">
+        <p>A UK-incorporated business states that it provides software consultancy, with expected annual turnover of £280,000 given at onboarding. The business has historically received payments from four commercial clients. Over six weeks, behaviour changes: the account receives approximately £410,000 from more than 60 individuals, with payment references including "investment," "trading account," "deposit," "membership" and "recharge." Approximately £360,000 is transferred to cryptoasset service providers, and a further £32,000 goes to another recently incorporated company. Blockchain analysis available to the VASP shows much of the purchased USDT moving rapidly through intermediary wallets, with one destination showing exposure to addresses previously associated with scam activity. The director says the business recently began "handling payments for overseas partners" but provides no contracts supporting that explanation.</p>
+      </div>
+
+      <h3>Decision Point One</h3>
+      <div class="dilemma-card" id="dilemma-s2dp1">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>What is the strongest analytical conclusion?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="answerDP('s2dp1','A',this)"><span class="opt-label">A</span><span>The blockchain exposure proves the company is laundering scam proceeds.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s2dp1','B',this)"><span class="opt-label">B</span><span>The combined fiat, corporate, behavioural and blockchain evidence creates a materially elevated laundering hypothesis that requires escalation and investigation.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s2dp1','C',this)"><span class="opt-label">C</span><span>The transactions are acceptable because purchasing cryptocurrency is lawful.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="s2dp1-verdict" aria-live="polite"><div id="s2dp1-content"></div></div>
+      </div>
+
+      <h3>Decision Point Two</h3>
+      <div class="dilemma-card" id="dilemma-s2dp2">
+        <div class="dilemma-header"><span class="icon">⚖️</span><div><strong>Which fact would most strengthen the hypothesis that this company is functioning as an aggregation and conversion layer, not genuine software consulting?</strong><span>Make the call</span></div></div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="answerDP('s2dp2','A',this)"><span class="opt-label">A</span><span>The director owns cryptocurrency personally.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s2dp2','B',this)"><span class="opt-label">B</span><span>Multiple victim-linked or mule-linked accounts are identified among the incoming counterparties, with rapid onward conversion following receipt.</span></button>
+          <button class="dilemma-option" onclick="answerDP('s2dp2','C',this)"><span class="opt-label">C</span><span>The company was incorporated online.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="s2dp2-verdict" aria-live="polite"><div id="s2dp2-content"></div></div>
+      </div>
+
+      <div class="scenario-result" id="s2-result" aria-live="polite"></div>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Screening a counterparty across this chain?</strong><span>Run a free sanctions and PEP check before proceeding, no account required.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an entity →</a>
+      </div>
+    </div>
+
+    <div class="article-section" id="mental-model">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Section 15</div>
+      <h2>The investigator's mental model</h2>
+      <p>When analysing a suspected scam laundering structure, do not ask only <em>who received the victim's money?</em> Ask nine questions, one per node.</p>
+      <ol class="route-list">
+        <li class="route-item"><strong>Victim payment:</strong> Why did the victim send it?</li>
+        <li class="route-item"><strong>Receiving account:</strong> Who first received it?</li>
+        <li class="route-item"><strong>Mule network:</strong> Which other accounts behave the same way?</li>
+        <li class="route-item"><strong>Aggregator:</strong> Where do apparently separate flows converge?</li>
+        <li class="route-item"><strong>Shell company:</strong> Which legal entity gives the money a commercial appearance?</li>
+        <li class="route-item"><strong>OTC or offshore VASP:</strong> Where does fiat become virtual asset value?</li>
+        <li class="route-item"><strong>Stablecoin:</strong> Which asset becomes the transport mechanism?</li>
+        <li class="route-item"><strong>Layering:</strong> What transactions degrade the original context?</li>
+        <li class="route-item"><strong>Off ramp:</strong> Where does the organisation obtain usable value?</li>
+      </ol>
+      <p>That turns transaction review into financial network analysis.</p>
+    </div>
+
+    <div class="article-section" id="escalation">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Section 16</div>
+      <h2>What should trigger escalation?</h2>
+      <p>No universal numerical threshold works for every institution or customer. This ladder is an internal analytical prioritisation model only. Neither the number nor the combination of indicators creates a statutory suspicion or SAR reporting threshold. Indicators must be assessed in context against the applicable law and the firm's procedures <a class="lr-flag" href="#lr5">LR5</a><a class="lr-flag" href="#lr8">LR8</a>.</p>
+      <div class="ladder">
+        <div class="ladder-rung" style="background:#f8fafc;border-color:var(--muted);"><div class="ladder-label" style="color:var(--muted);">Lower signal</div><p>One unusual payment.</p></div>
+        <div class="ladder-rung" style="background:var(--c-wander-light);border-color:var(--c-wander);"><div class="ladder-label" style="color:var(--c-wander);">Medium signal</div><p>Unusual payment plus profile mismatch plus rapid onward transfer.</p></div>
+        <div class="ladder-rung" style="background:#fff7ed;border-color:#ea580c;"><div class="ladder-label" style="color:#ea580c;">Higher signal</div><p>Multiple unrelated originators plus rapid onward transfers plus common beneficiaries plus fraud recalls.</p></div>
+        <div class="ladder-rung" style="background:var(--c-cascade-light);border-color:var(--c-cascade);"><div class="ladder-label" style="color:var(--c-cascade);">Strong network signal</div><p>Multiple suspected victim or mule accounts converge on an entity that rapidly moves funds into another financial sector or asset type, with weak economic explanation and additional counterparty intelligence.</p></div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);">The key principle is convergence of independent indicators, not a count against any threshold.</p>
+    </div>
+
+    <div class="article-section" id="uk-legal">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Section 17</div>
+      <h2>UK legal context</h2>
+      <p>This section deliberately stays narrow because operational AML decisions depend on the firm's regulatory status, facts and applicable law.</p>
+      <p>Sections 327, 328 and 329 of the Proceeds of Crime Act 2002 create separate principal money laundering offences. Section 327 covers concealing, disguising, converting or transferring criminal property, or removing it from the relevant UK jurisdiction. Section 328 covers entering into or becoming concerned in an arrangement that the person knows or suspects facilitates another person's acquisition, retention, use or control of criminal property. Section 329 covers acquiring, using or possessing criminal property. Each offence is subject to its own statutory exceptions and defences <a class="cite" href="#src-14">[14]</a><a class="lr-flag" href="#lr1">LR1</a>.</p>
+      <p>Section 330 creates a failure to disclose offence only where all its statutory conditions are satisfied, including the applicable knowledge, suspicion or reasonable-grounds condition, receipt of the relevant information during regulated-sector business, the further identification-or-assistance condition, and failure to disclose as soon as practicable. Statutory defences and exceptions may apply <a class="cite" href="#src-14">[14]</a><a class="lr-flag" href="#lr2">LR2</a>.</p>
+      <p>Where customer due diligence is required, Regulation 28 of the Money Laundering Regulations 2017 requires the relevant person to identify the customer and verify the customer's identity using information from a reliable and independent source. It also contains measures concerning beneficial owners and persons acting for customers, and requires the relevant person to assess and, where appropriate, obtain information on the purpose and intended nature of the business relationship or occasional transaction. Ongoing monitoring applies to business relationships and includes scrutiny of transactions for consistency with the relevant person's knowledge of the customer, business and risk profile, including source of funds where necessary, together with keeping customer due diligence information current <a class="cite" href="#src-15">[15]</a><a class="lr-flag" href="#lr3">LR3</a>. Regulation 33 requires a relevant person to apply enhanced customer due diligence and enhanced ongoing monitoring, in addition to the applicable Regulation 28 and 29 measures, in every case falling within Regulation 33(1). These include cases the relevant person identifies as high risk, specified relationships or transactions involving a FATF call-for-action country, specified correspondent relationships, PEP cases, certain false or stolen identification cases, defined unusual transactions, and other cases that by their nature present a higher risk of money laundering or terrorist financing. Regulations 34, 34A and 35 prescribe additional measures for particular categories <a class="cite" href="#src-15">[15]</a><a class="lr-flag" href="#lr4">LR4</a>.</p>
+      <p>A suspicious pattern therefore should not automatically be translated into "file a SAR because a red flag exists." Neither the number nor the combination of indicators creates a statutory suspicion or SAR reporting threshold; the facts must be assessed in context against the applicable legal and regulatory threshold and the firm's reporting procedures <a class="lr-flag" href="#lr5">LR5</a>. FATF Recommendations are international standards addressed to countries; FATF guidance and typology reports can inform risk analysis, but they do not themselves create UK firm-level obligations, any binding UK duty must come from applicable domestic legislation, regulation or regulatory rules <a class="lr-flag" href="#lr9">LR9</a>.</p>
+    </div>
+
+    <div class="article-section" id="central-lesson">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Section 18</div>
+      <h2>The central lesson</h2>
+      <p>The biggest analytical mistake is to think the scam ends when the victim presses Send. For the criminal organisation, that payment is the beginning of another process. The money must be received, separated from the victim, moved through controlled accounts, concentrated, placed behind individuals or companies, converted, transferred across institutions or jurisdictions, layered, and ultimately made useful.</p>
+      <p>The organisations running scam compounds can therefore be understood not only as fraud enterprises but as producers of illicit financial flows feeding a broader professional laundering ecosystem. FATF, UNODC and the NCA all describe elements of this convergence, although each source examines the problem from a different geographic and methodological perspective <a class="cite" href="#src-2">[2]</a><a class="cite" href="#src-3">[3]</a><a class="cite" href="#src-5">[5]</a><a class="cite" href="#src-8">[8]</a>.</p>
+      <p>The investigator's advantage is that the machine leaves traces at every handoff. The challenge is recognising that nine weak signals across nine different systems may describe one strong network.</p>
+    </div>
+
+    <!-- LEGAL AND REGULATORY REVIEW REGISTER -->
+    <div class="article-section" id="legal-register">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Legal and Regulatory Review Register</div>
+      <h2>Legal and regulatory review register</h2>
+      <p style="font-size:13px;color:var(--muted);">The following statements require independent legal or regulatory review before publication, per this project's regulatory-claim adversarial review policy. This guide is not published until that pass is complete.</p>
+      <ol class="lr-list">
+        <li id="lr1">Description of the principal money laundering offences under sections 327, 328 and 329 of the Proceeds of Crime Act 2002.</li>
+        <li id="lr2">Description of the regulated-sector disclosure offence under section 330 of the Proceeds of Crime Act 2002.</li>
+        <li id="lr3">Description of customer due diligence and ongoing monitoring requirements under Regulation 28 of the Money Laundering Regulations 2017.</li>
+        <li id="lr4">Description of enhanced due diligence obligations under Regulations 33 onward of the Money Laundering Regulations 2017.</li>
+        <li id="lr5">Statement that suspicious indicators must be assessed against applicable legal thresholds rather than automatically resulting in a SAR.</li>
+        <li id="lr6">Statement that businesses providing in-scope cryptoasset services in the UK currently require FCA registration under the Money Laundering Regulations before starting relevant activity.</li>
+        <li id="lr7">Statement concerning territorial limits and the fact that an overseas VASP serving a UK customer is not automatically within the same UK registration perimeter.</li>
+        <li id="lr8">Statement distinguishing an analytical risk model from the statutory test for suspicion or reporting.</li>
+        <li id="lr9">Statement that FATF standards do not themselves create direct UK firm-level statutory obligations and require implementation through applicable domestic legal and regulatory frameworks.</li>
+        <li id="lr10">Description of FinCEN's Section 311 finding and final rule regarding Huione Group: the US-only jurisdiction of the measure, the full three-part scope of the resulting restriction (correspondent-account prohibition, indirect-processing reasonable steps, special due diligence), FinCEN's stated grounds (DPRK cyber-heist laundering, Southeast Asian criminal-organisation scam laundering, and an illicit online market, kept separate rather than blended), Huione Pay PLC's lapsed licence status, the USD 4 billion figure as stated in FinCEN's own primary text, the guide's own node-mapping labelled as its own analytical application rather than FinCEN's language, and the June 2026 H Pay Service PLC proposal noted as proposed rather than operative.</li>
+      </ol>
+    </div>
+
+    <!-- SOURCES AND METHODOLOGY -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Sources and Methodology</div>
+      <h2>Sources and methodology</h2>
+      <p style="font-size:13px;color:var(--muted);">Sources were last reviewed on 25 August 2026. This guide is an educational resource for financial crime and compliance professionals. It does not constitute legal advice. The scenarios are fictional composites created to teach analytical judgement; they do not reproduce a specific investigation or allege criminal conduct by any real individual or business.</p>
+      <ol class="sources-list">
+        <li id="src-1"><span class="src-jur">Global</span>Financial Action Task Force, 1 July 2026 FATF Roadmap 2026 to 2028 on Combatting Fraud launch, opening remarks by FATF President Giles Thomson. <a href="https://www.fatf-gafi.org/en/publications/Fatfgeneral/fatf-roadmap-26-28-fraud-launch-event.html" target="_blank" rel="noopener">fatf-gafi.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> nearly USD 500bn global scam-loss estimate for 2024-2025. This is the sole attribution used in this guide for that figure; not a UK Fraud Strategy figure.</span></li>
+        <li id="src-2"><span class="src-jur">Global</span>Financial Action Task Force, 24 February 2026, <em>Cyber Enabled Fraud: Digitalisation and Money Laundering, Terrorist Financing and Proliferation Financing Risks</em>. <a href="https://www.fatf-gafi.org/en/publications/Methodsandtrends/cyber-enabled-fraud-digitalisation-ml-tf-pf-risks.html" target="_blank" rel="noopener">fatf-gafi.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> scam centres, shell companies, virtual assets, payment transparency and cross-border cooperation framing.</span></li>
+        <li id="src-3"><span class="src-jur">Global</span>FATF, INTERPOL and Egmont Group, November 2023, <em>Illicit Financial Flows from Cyber Enabled Fraud</em>. <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/reports/Illicit-financial-flows-cyber-enabled-fraud.pdf.coredownload.inline.pdf" target="_blank" rel="noopener">fatf-gafi.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> the payment chain, mule accounts, legal entities, rapid pass-through transactions, VASP conversion and cyber-enabled fraud risk indicators throughout Nodes One through Nine.</span></li>
+        <li id="src-4"><span class="src-jur">Global</span>Financial Action Task Force, 11 March 2026, <em>Understanding and Mitigating the Risks of Offshore Virtual Asset Service Providers</em>. <a href="https://www.fatf-gafi.org/en/publications/Virtualassets/Understanding-Mitigating-Risks-Offshore-VASPs.html" target="_blank" rel="noopener">fatf-gafi.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> offshore VASP definition, nested relationships, layered intermediary wallets, and scam-compound proceeds conversion.</span></li>
+        <li id="src-5"><span class="src-jur">UK</span>National Crime Agency, <em>National Strategic Assessment 2026</em>, Serious and Organised Crime Finance section. <a href="https://www.nationalcrimeagency.gov.uk/nsa-domains-2026/nsa-soc-finance-2026" target="_blank" rel="noopener">nationalcrimeagency.gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> UK corporate abuse, professional money laundering networks, international controllers, and cryptocurrency conversion.</span></li>
+        <li id="src-6"><span class="src-jur">UK</span>National Crime Agency, <em>Money Mules: Don't Be Used</em>. <a href="https://www.nationalcrimeagency.gov.uk/what-we-do/crime-threats/fraud-and-economic-crime/money-muling" target="_blank" rel="noopener">nationalcrimeagency.gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> UK definitions of mule networks, controllers and common mule functions.</span></li>
+        <li id="src-7"><span class="src-jur">UK</span>National Crime Agency, 2026, Operation Henhouse reporting. <a href="https://www.nationalcrimeagency.gov.uk/news/operation-henhouse-strongest-year-yet-in-fight-against-fraud-led-by-nca-and-city-of-london-police" target="_blank" rel="noopener">nationalcrimeagency.gov.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> the UK fraudulent-vehicle-advertisement case involving more than 90 recruited money mules.</span></li>
+        <li id="src-8"><span class="src-jur">SE Asia</span>United Nations Office on Drugs and Crime, October 2024, <em>Transnational Organized Crime and the Convergence of Cyber-Enabled Fraud, Underground Banking and Technological Innovation in Southeast Asia</em>. <a href="https://www.unodc.org/" target="_blank" rel="noopener">unodc.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> USD 18bn-37bn regional 2023 loss estimate for East and Southeast Asia. Explicitly a regional estimate, not combined with S8b or the FATF global figure.</span></li>
+        <li id="src-8b"><span class="src-jur">Asia-Pacific</span>United Nations Office on Drugs and Crime, 21 July 2026, <em>An Interconnected Criminal Ecosystem: Transnational Organized Crime Threat Assessment for Southeast Asia 2026</em>. <a href="https://www.unodc.org/unodc/en/press/releases/2026/July/new-unodc-report-reveals-scale-of-south-east-asias-ever-more-interconnected-criminal-economy.html" target="_blank" rel="noopener">unodc.org</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> USD 88.3bn-114.1bn 2025 regional loss estimate, described by UNODC as nearly tripling the 2023 figure. Cited strictly as a regional figure for a different year than S8, not combined with it.</span></li>
+        <li id="src-9"><span class="src-jur">Global</span>INTERPOL, 26 November 2025, <em>Growing Threat of Transnational Scam Centres Highlighted at INTERPOL General Assembly</em>. <a href="https://www.interpol.int/en/News-and-Events/News/2025/Growing-threat-of-transnational-scam-centres-highlighted-at-INTERPOL-General-Assembly" target="_blank" rel="noopener">interpol.int</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> scam-centre links to large-scale fraud and forced criminal activity, and INTERPOL's own caution that not every worker is necessarily a trafficking victim.</span></li>
+        <li id="src-10"><span class="src-jur">Industry</span>TRM Labs, 2025 Crypto Crime Report. <a href="https://www.trmlabs.com/reports-and-whitepapers/2025-crypto-crime-report" target="_blank" rel="noopener">trmlabs.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Reviewed 25 Aug 2026. <b>Supports:</b> at least USD 10.7bn tracked cryptocurrency sent to fraud during 2024, with TRM's own caveat that attribution rises as more activity is identified. Not used as a total scam-loss figure.</span></li>
+        <li id="src-11"><span class="src-jur">Industry</span>TRM Labs, 2025 Stablecoin Usage Report. <a href="https://www.trmlabs.com/reports-and-whitepapers/2025-crypto-adoption-and-stablecoin-usage-report" target="_blank" rel="noopener">trmlabs.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Reviewed 25 Aug 2026. <b>Supports:</b> approximately 99% of stablecoin activity assessed as licit, while stablecoins represented 60% of observed illicit crypto activity in Q1 2025.</span></li>
+        <li id="src-12"><span class="src-jur">Industry</span>Chainalysis, 2026 Crypto Crime Report: Scams. <a href="https://www.chainalysis.com/blog/crypto-scams-2026/" target="_blank" rel="noopener">chainalysis.com</a><span class="src-meta"><span class="src-tier secondary">Secondary</span>Reviewed 25 Aug 2026. <b>Supports:</b> at least USD 14bn of on-chain inflows to identified cryptocurrency scam addresses during 2025, an explicit lower bound. Not used as a total scam-loss figure.</span></li>
+        <li id="src-13"><span class="src-jur">UK</span>Financial Conduct Authority, updated 30 June 2026, <em>Cryptoasset Firms: Registration under the Money Laundering Regulations Ahead of the New FSMA Regime</em>. <a href="https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/registration-under-mlrs-ahead-new-fsma-regime" target="_blank" rel="noopener">fca.org.uk</a>; territorial-scope point additionally supported by FCA, <em>Cryptoassets: who needs to register</em>, <a href="https://www.fca.org.uk/firms/cryptoassets/who-needs-register" target="_blank" rel="noopener">fca.org.uk</a><span class="src-meta"><span class="src-tier official">Official</span>Reviewed 25 Aug 2026. <b>Supports:</b> current FCA cryptoasset registration requirement (Regulation 14A perimeter), planned FSMA regime commencement 25 October 2027, and the overseas-provider territorial scope point.</span></li>
+        <li id="src-14"><span class="src-jur">UK</span>Proceeds of Crime Act 2002: <a href="https://www.legislation.gov.uk/ukpga/2002/29/section/327" target="_blank" rel="noopener">section 327</a>, <a href="https://www.legislation.gov.uk/ukpga/2002/29/section/328" target="_blank" rel="noopener">section 328</a>, <a href="https://www.legislation.gov.uk/ukpga/2002/29/section/329" target="_blank" rel="noopener">section 329</a>, <a href="https://www.legislation.gov.uk/ukpga/2002/29/section/330" target="_blank" rel="noopener">section 330</a>.<span class="src-meta"><span class="src-tier primary">Primary</span>Reviewed against an external adversarial review of this guide's legal-precision claims, 25 Aug 2026; see ledger entries for LR1 and LR2. <b>Supports:</b> the separate statutory structure of ss.327-329 (concealing/disguising/converting/transferring/removal; arrangement facilitating another's acquisition, retention, use or control; acquiring/using/possessing) and s.330's full conditions (regulated-sector information, the further identification-or-assistance condition, failure to disclose as soon as practicable), each subject to its own statutory exceptions and defences.</span></li>
+        <li id="src-15"><span class="src-jur">UK</span>Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017: <a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/28" target="_blank" rel="noopener">Regulation 28</a>, <a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/33" target="_blank" rel="noopener">Regulation 33</a>; 2026 amendment narrowing the Regulation 33 country trigger to FATF call-for-action countries, <a href="https://www.legislation.gov.uk/ukdsi/2026/9780348281743/pdfs/ukdsi_9780348281743_en.pdf" target="_blank" rel="noopener">legislation.gov.uk</a>.<span class="src-meta"><span class="src-tier primary">Primary</span>Reviewed against an external adversarial review of this guide's legal-precision claims, 25 Aug 2026; see ledger entries for LR3 and LR4. <b>Supports:</b> Regulation 28's full CDD content (identification/verification, beneficial owners, persons acting for customers, purpose and intended nature, ongoing monitoring) and Regulation 33's mandatory ("requires", not "can apply") enhanced due diligence trigger list, including the 2026 FATF call-for-action narrowing effective from 30 June 2026.</span></li>
+        <li id="src-16"><span class="src-jur">US</span>Financial Crimes Enforcement Network (FinCEN), issued 14 October 2025, <em>Imposition of Special Measure Regarding Huione Group, as a Foreign Financial Institution of Primary Money Laundering Concern</em>, effective 17 November 2025; full text <a href="https://www.federalregister.gov/documents/full_text/html/2025/10/16/2025-19571.html" target="_blank" rel="noopener">federalregister.gov</a>, FinCEN release <a href="https://www.fincen.gov/news/news-releases/fincen-issues-final-rule-severing-huione-group-us-financial-system" target="_blank" rel="noopener">fincen.gov</a>; June 2026 proposal to add H Pay Service PLC and successor entities, <a href="https://www.fincen.gov/news/news-releases/fincen-proposes-sever-h-pay-service-plc-and-other-huione-group-successor" target="_blank" rel="noopener">fincen.gov</a>; corroborated by Money Laundering Watch (Ballard Spahr), <em>FinCEN Bars Huione Group from Financial System</em>, <a href="https://www.moneylaunderingnews.com/2025/10/fincen-bars-huione-group-from-financial-system/" target="_blank" rel="noopener">moneylaunderingnews.com</a><span class="src-meta"><span class="src-tier primary">Primary</span> FinCEN/Federal Register full text; <span class="src-tier secondary">Secondary</span> law-firm commentary corroboration. Independently located, reviewed 25 Aug 2026, and re-verified directly against the Federal Register full text following an external adversarial review; not carried from the original draft, which referenced this case study without a source slot or citable content. <b>Supports:</b> Huione Group case-study facts at Node Six (subsidiaries, US-only jurisdiction, three-part prohibition scope, stated grounds, Huione Pay PLC's lapsed Cambodian licence, the H Pay Service PLC proposal's non-operative status). <b>Date note:</b> FinCEN's own issuance date (14 October 2025) is distinct from the Federal Register public-inspection filing (15 October 2025) and the Federal Register publication date (16 October 2025); all three are real, different documents, not interchangeable. <b>USD 4 billion figure:</b> confirmed directly against FinCEN's own primary text, which states "FinCEN's analysis identified that, in the aggregate, Huione Group has received at least USD 4 billion worth of illicit proceeds, between August 2021 and January 2025." This guide's earlier note that the figure was unconfirmed is superseded by this direct primary-text confirmation.</span></li>
+      </ol>
+    </div>
+
+    <!-- KNOWLEDGE CHECK -->
+    <div class="quiz-section" id="knowledge-check">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions across the numbers, the chain, and the worked scenarios.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. True or false: FATF's nearly USD 500 billion figure and UNODC's regional estimates measure the same thing.</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','True')">True</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','False')">False</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Which best describes the "aggregator" node in this guide's payment chain?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - A formal FATF-defined typology category</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - An analytical label for where multiple first-layer accounts converge before further movement, not a statutory or FATF-defined category</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - A synonym for a shell company</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - A cryptocurrency exchange specifically</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. TRM Labs found that stablecoins were involved in what share of illicit crypto activity in Q1 2025, despite 99% of stablecoin activity overall being licit?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - 15%</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - 60%</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - 90%</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - 24%</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. In Worked Scenario One, why is "investigate as a potential first-layer mule account" the strongest answer over "treat solely as APP fraud"?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Because eleven unrelated originators converging on one account, followed by rapid onward transfer to a single beneficiary, plus fraud recalls, point to a laundering-network role, not just a victim-side fraud event</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Because the APP fraud reading is factually wrong and no fraud actually occurred</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Because the account holder has already confessed to money laundering</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - Because APP fraud and money laundering can never both apply to the same account</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. True or false: a red flag indicator, on its own, is sufficient grounds to file a SAR.</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','True')">True</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','False')">False</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb" aria-live="polite"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score" aria-live="polite"><div class="quiz-score-num" id="quiz-score-num">0/5</div><div class="quiz-score-label" id="quiz-score-label"></div></div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Frequently Asked</div>
+      <h2>FAQ</h2>
+      <details class="faq-item">
+        <summary class="faq-q">Is every newly formed company, or every shell company, a sign of money laundering? <span class="faq-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No. Most newly incorporated companies are legitimate. The relevant question is whether the company's financial behaviour matches its declared business, not whether it is new or has a simple corporate structure.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does using a stablecoin make a transaction suspicious? <span class="faq-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No. The large majority of stablecoin activity is legitimate. Risk depends on the counterparties, the pattern, and the economic rationale, not the asset type itself.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">If I see one red flag from this guide, should I file a SAR immediately? <span class="faq-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Not automatically. A single indicator is a prompt for further examination, not proof, and neither the number nor the combination of indicators creates a statutory suspicion or SAR reporting threshold. Whether the facts meet your firm's actual reporting threshold is a legal and regulatory judgement, see Section 17, UK legal context.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Why does this guide separate the FATF, UNODC, TRM and Chainalysis figures instead of giving one headline number? <span class="faq-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">Because they measure different things: a global loss estimate, two different-year regional loss estimates, and two crypto-specific tracked-flow estimates. Combining them would overstate precision none of the individual sources actually claims.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is a scam compound the same thing as a money laundering network? <span class="faq-icon" aria-hidden="true">+</span></summary>
+        <div class="faq-a">No. A scam compound generates victims and proceeds. The laundering network that moves those proceeds may be a separate structure entirely, sometimes in a different jurisdiction, sometimes run by different people. Section 2, Scam compounds are only one part of the machine, covers this distinction directly.</div>
+      </details>
+    </div>
+
+    <!-- AT A GLANCE, closing grid -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Quick Reference</div>
+      <h2>At a glance: the nine-node chain</h2>
+      <p style="font-size:12.5px;color:var(--muted);">This guide substitutes the standard closing Risk/Signal/Response card grid with a node-reference grid, logged as a scoped substitution in BACKLOG.md; see this guide's delivery notes. Each node's full red-flag set lives in its own section above, reachable from the chain strip near the top or the contents list alongside.</p>
+
+      <div class="save-img-row"><button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button></div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-wander-light);border-color:#fde68a;"><div class="pattern-card-head"><div class="pattern-icon">💳</div><div class="pattern-name" style="color:var(--c-wander);">1. Victim Payment</div></div><div class="pattern-line">The first observable event; unusual beneficiary, urgency, or a small test payment followed by a larger one.</div></div>
+        <div class="pattern-card" style="background:var(--c-mech-light);border-color:#bfdbfe;"><div class="pattern-card-head"><div class="pattern-icon">🏦</div><div class="pattern-name" style="color:var(--c-mech);">2. Receiving Account</div></div><div class="pattern-line">First account controlled by the network; sudden velocity, rapid outflow, unexplained source.</div></div>
+        <div class="pattern-card" style="background:var(--c-ghost-light);border-color:#ddd6fe;"><div class="pattern-card-head"><div class="pattern-icon">🕸️</div><div class="pattern-name" style="color:var(--c-ghost);">3. Mule Network</div></div><div class="pattern-line">Resilience through distribution; look for network features, not single-account anomalies.</div></div>
+        <div class="pattern-card" style="background:var(--c-cascade-light);border-color:#fecaca;"><div class="pattern-card-head"><div class="pattern-icon">🧲</div><div class="pattern-name" style="color:var(--c-cascade);">4. Aggregator</div></div><div class="pattern-line">An analytical label, not a FATF category; concentrates many victim relationships into one choke point.</div></div>
+        <div class="pattern-card" style="background:var(--c-wander-light);border-color:#fde68a;"><div class="pattern-card-head"><div class="pattern-icon">🏢</div><div class="pattern-name" style="color:var(--c-wander);">5. Shell Company</div></div><div class="pattern-line">Gives the money a commercial appearance; the question is economic behaviour, not newness.</div></div>
+        <div class="pattern-card" style="background:var(--c-mech-light);border-color:#bfdbfe;"><div class="pattern-card-head"><div class="pattern-icon">💱</div><div class="pattern-name" style="color:var(--c-mech);">6. OTC / Offshore VASP</div></div><div class="pattern-line">Where fiat becomes virtual asset value; risk comes from opacity and nested relationships, not the channel itself.</div></div>
+        <div class="pattern-card" style="background:var(--c-ghost-light);border-color:#ddd6fe;"><div class="pattern-card-head"><div class="pattern-icon">🪙</div><div class="pattern-name" style="color:var(--c-ghost);">7. Stablecoin</div></div><div class="pattern-line">Fast, global, low-volatility transport; 99% licit overall, still 60% of Q1 2025 illicit crypto activity.</div></div>
+        <div class="pattern-card" style="background:var(--c-cascade-light);border-color:#fecaca;"><div class="pattern-card-head"><div class="pattern-icon">🌀</div><div class="pattern-name" style="color:var(--c-cascade);">8. Layering</div></div><div class="pattern-line">Deliberately degrades investigative context; ask what economic purpose each hop actually served.</div></div>
+        <div class="pattern-card" style="background:var(--c-wander-light);border-color:#fde68a;"><div class="pattern-card-head"><div class="pattern-icon">🚪</div><div class="pattern-name" style="color:var(--c-wander);">9. Off Ramp</div></div><div class="pattern-line">Usable value, not just cash; where the cycle can reconnect with legitimate-looking economic activity.</div></div>
+      </div>
+    </div>
+
+    <div class="article-section" id="related-topics">
+      <div class="section-eyebrow" style="color:var(--c-mech)">Continue Reading</div>
+      <h2>Related topics</h2>
+      <ul style="font-size:14px; line-height:1.8; padding-left:1.25rem;">
+        <li><a href="/money-mule-financial-crime-networks-handbook.html" style="color:var(--c-mech);font-weight:600;">Money Mule Networks: The Account Was Never Fraudulent, Until It Was</a>, a deeper look at Nodes Two and Three, the receiving account and mule network, including a real £53m account-handover case.</li>
+        <li><a href="/crypto-travel-rule-sunrise-guide.html" style="color:var(--c-mech);font-weight:600;">The Crypto Travel Rule: Making the Call When the Data Doesn't Arrive</a>, the VASP-to-VASP information gap behind Node Six, why originator and beneficiary data doesn't always follow the money.</li>
+        <li><a href="/crypto-guide-part3.html" style="color:var(--c-mech);font-weight:600;">Crypto Guide Part 3: Typologies, Mixers, Layering, and Rug Pulls Explained</a>, the on-chain mechanics behind Node Eight, mixing and chain-hopping explained pattern by pattern.</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#intro">Introduction</a>
+      <a href="#numbers">1 · Keep The Numbers Separate</a>
+      <a href="#two-machines">2 · Two Machines, Not One</a>
+      <a href="#node1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-wander);"></span> Node 1 · Victim Payment</a>
+      <a href="#node2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-mech);"></span> Node 2 · Receiving Account</a>
+      <a href="#node3" class="toc-scenario"><span class="toc-dot" style="background:var(--c-ghost);"></span> Node 3 · Mule Network</a>
+      <a href="#node4" class="toc-scenario"><span class="toc-dot" style="background:var(--c-cascade);"></span> Node 4 · Aggregator</a>
+      <a href="#node5" class="toc-scenario"><span class="toc-dot" style="background:var(--c-wander);"></span> Node 5 · Shell Company</a>
+      <a href="#node6" class="toc-scenario"><span class="toc-dot" style="background:var(--c-mech);"></span> Node 6 · OTC / Offshore VASP</a>
+      <a href="#case-study">Case Study · Huione Group</a>
+      <a href="#node7" class="toc-scenario"><span class="toc-dot" style="background:var(--c-ghost);"></span> Node 7 · Stablecoin</a>
+      <a href="#node8" class="toc-scenario"><span class="toc-dot" style="background:var(--c-cascade);"></span> Node 8 · Layering</a>
+      <a href="#node9" class="toc-scenario"><span class="toc-dot" style="background:var(--c-wander);"></span> Node 9 · Off Ramp</a>
+      <a href="#control-gap">The Control Gap</a>
+      <a href="#scenario1">Scenario 01 · Receiving Account</a>
+      <a href="#scenario2">Scenario 02 · Crypto Gateway</a>
+      <a href="#mental-model">Investigator's Mental Model</a>
+      <a href="#escalation">Escalation Triggers</a>
+      <a href="#uk-legal">UK Legal Context</a>
+      <a href="#central-lesson">Central Lesson</a>
+      <a href="#legal-register">Legal Review Register</a>
+      <a href="#sources">Sources</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#related-topics">Related Topics</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Decision points answered</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 4</span></div>
+      <div class="score-stat"><span>Total score</span><span class="score-badge" id="score-total" style="color:var(--success);">0 / 8</span></div>
+    </div>
+
+    <div class="tool-nav-card">
+      <p>Run a free sanctions and PEP check on any counterparty found along this chain.</p>
+      <a href="/screen.html">Screen an entity →</a>
+    </div>
+  </div>
+</div>
+
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+function toggleMobileNav() {
+  const isOpen = document.getElementById('mobileNav').classList.toggle('open');
+  document.getElementById('navHamburger').setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+
+(function () {
+  const nums = document.querySelectorAll('.stat-num-anim');
+  if (!nums.length) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateNum(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if (prefersReduced) { el.textContent = target; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+  const heroEl = document.querySelector('.article-hero');
+  if (!heroEl) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { nums.forEach(animateNum); observer.disconnect(); }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(heroEl);
+})();
+
+/* ---------- Worked scenario decision points: points-based scoring ---------- */
+const decisionPoints = {
+  s1dp1: {
+    points: { A: 1, B: 2, C: 0 },
+    panel: '<p><strong>Best answer: B, 2 points.</strong> Escalate for network investigation.</p><p>The relevant signal is not one payment. It is the pattern. Eleven unrelated originators have transferred value into an account whose historical economic profile does not support the activity. Most of the money then leaves rapidly to one corporate beneficiary. Fraud recalls strengthen the connection to possible predicate fraud. FATF identifies rapid movement after receipt, profile inconsistency, inability to explain source of funds and fraud recalls as relevant cyber-enabled fraud indicators.</p><p>The customer may be knowingly involved, deceived, negligent or controlled by another person. The available facts do not establish which. Calling the customer a confirmed criminal would go beyond the evidence; calling the activity only a victim-side fraud issue would miss the laundering role.</p><p><strong>Option A, 1 point:</strong> identifies genuine fraud exposure but stops analysis too early. <strong>Option C, 0 points:</strong> successful onboarding does not explain later anomalous activity.</p>'
+  },
+  s1dp2: {
+    points: { A: 1, B: 2, C: 0 },
+    panel: '<p><strong>Best answer: B, 2 points.</strong> Map the network.</p><p>The key problem is network reconstruction. The destination company may be an aggregator or another pass-through entity. Shared devices, common beneficiaries, linked accounts and transaction timing can reveal whether seemingly independent transfers form part of the same structure. The FATF report notes that transaction monitoring can identify suspicious patterns across multiple accounts or transactions that may not be apparent in isolated review; applying that observation to this scenario, this guide recommends mapping the connected accounts, devices, beneficiaries and transaction timing.</p><p><strong>Option A, 1 point:</strong> identity verification remains useful but does not answer who controls the account or why the transactions occurred. <strong>Option C, 0 points:</strong> waiting for perfect victim confirmation risks losing the opportunity to identify rapidly moving funds.</p>'
+  },
+  s2dp1: {
+    points: { A: 1, B: 2, C: 0 },
+    panel: '<p><strong>Best answer: B, 2 points.</strong> Convergence, not a single fact, drives the hypothesis.</p><p>No single fact establishes criminality. The strength comes from convergence: a software consultancy moving from four commercial customers to more than 60 individual payers, payment references resembling investment or account funding, transaction volume exceeding the expected profile, most funds rapidly converted into virtual assets, and a director unable to provide credible documentation for the new business model. Blockchain intelligence adds another risk signal. FATF identifies transactions inconsistent with business purpose, recently established entities, rapid pass-through activity, VASP conversion and virtual-asset exposure to scam-related addresses as relevant indicators.</p><p><strong>Option A, 1 point:</strong> blockchain evidence is important, but exposure alone should not be treated as proof of the entire laundering hypothesis. <strong>Option C, 0 points:</strong> a lawful financial product can still be used in a criminal transaction.</p>'
+  },
+  s2dp2: {
+    points: { A: 0, B: 2, C: 0 },
+    panel: '<p><strong>Best answer: B, 2 points.</strong> This links the company to the preceding layer of the payment chain.</p><p>Once multiple suspected victim or mule accounts converge on the company and the funds are rapidly converted, the analytical model moves from generic anomalous behaviour toward a network structure. That does not replace evidential or legal thresholds; it does make the laundering hypothesis substantially more coherent.</p><p><strong>Option A, 0 points:</strong> personal cryptocurrency ownership has little evidential value without additional context. <strong>Option C, 0 points:</strong> online incorporation is normal and is not independently suspicious.</p>'
+  }
+};
+
+const scenarioBands = {
+  s1: {
+    dps: ['s1dp1','s1dp2'],
+    label: 'Scenario 01 result',
+    strong: 'You recognised the transition from fraud detection into money laundering network analysis.',
+    partial: 'You identified risk but remained too focused on the individual account.',
+    weak: 'You treated KYC status or absence of complete victim confirmation as evidence that the transaction pattern was safe.'
+  },
+  s2: {
+    dps: ['s2dp1','s2dp2'],
+    label: 'Scenario 02 result',
+    strong: 'You distinguished risk indicators from proof and reconstructed the company as a possible functional node in the payment chain.',
+    partial: 'You recognised the anomaly but placed excessive weight on one data source.',
+    weak: 'You treated lawful products or ordinary corporate characteristics as dispositive evidence.'
+  }
+};
+
+let dpScores = {};
+function updateScoreCard() {
+  const attempted = Object.keys(dpScores).length;
+  const total = Object.values(dpScores).reduce((a, b) => a + b, 0);
+  document.getElementById('score-attempted').textContent = attempted + ' / 4';
+  document.getElementById('score-total').textContent = total + ' / 8';
+}
+
+function answerDP(dpId, chosen, btn) {
+  const data = decisionPoints[dpId];
+  const wrap = btn.closest('.dilemma-card');
+  const verdictDiv = wrap.querySelector('.dilemma-verdict');
+  const contentDiv = wrap.querySelector('[id$="-content"]');
+  const allBtns = wrap.querySelectorAll('.dilemma-option');
+  allBtns.forEach(b => { b.disabled = true; b.style.opacity = '0.6'; b.style.cursor = 'default'; });
+  btn.style.opacity = '1';
+  const pts = data.points[chosen];
+  btn.classList.add(pts === 2 ? 'correct' : pts === 0 ? 'wrong' : 'partial');
+  const icon = pts === 2 ? '✅' : pts === 0 ? '❌' : '➖';
+  const srLabel = pts === 2 ? 'Best answer: ' : pts === 0 ? 'Weakest answer: ' : 'Partial credit: ';
+  btn.innerHTML = '<span class="visually-hidden">' + srLabel + '</span><span aria-hidden="true">' + icon + ' </span>' + btn.innerHTML;
+  contentDiv.innerHTML = '<div class="verdict-choice">' + icon + ' You chose Option ' + chosen + ' — ' + pts + ' point' + (pts === 1 ? '' : 's') + '</div><div class="verdict-body">' + data.panel + '</div>';
+  verdictDiv.classList.add('show');
+  dpScores[dpId] = pts;
+  updateScoreCard();
+  checkScenarioResult();
+}
+
+function checkScenarioResult() {
+  Object.keys(scenarioBands).forEach(sid => {
+    const band = scenarioBands[sid];
+    if (band.dps.every(dp => dpScores.hasOwnProperty(dp))) {
+      const total = band.dps.reduce((sum, dp) => sum + dpScores[dp], 0);
+      const resultDiv = document.getElementById(sid + '-result');
+      if (resultDiv.classList.contains('show')) return;
+      let text;
+      if (total === 4) text = band.strong;
+      else if (total >= 2) text = band.partial;
+      else text = band.weak;
+      const bandLabel = total === 4 ? 'Strong' : total >= 2 ? 'Partial' : 'Weak';
+      resultDiv.innerHTML = '<div class="sr-score">' + total + '/4 · ' + bandLabel + '</div><div class="sr-label">' + text + '</div>';
+      resultDiv.classList.add('show');
+    }
+  });
+}
+
+/* ---------- Knowledge check ---------- */
+const quizFeedback = {
+  qq1: { correct: 'False', fb: 'FATF\'s figure is a global estimate from Thomson\'s roadmap speech. UNODC\'s figures are regional, Southeast Asia, East Asia, Australia and New Zealand specifically, and vary further by report year. Blending them creates false precision.' },
+  qq2: { correct: 'B', fb: 'The aggregator is an analytical label used in this guide for where multiple first-layer accounts converge before further movement, not a statutory or FATF-defined typology category.' },
+  qq3: { correct: 'B', fb: 'TRM Labs found stablecoins represented around 60% of observed illicit crypto activity in Q1 2025, despite roughly 99% of stablecoin activity overall being licit. Both facts coexist.' },
+  qq4: { correct: 'A', fb: 'Eleven unrelated originators converging on one account, followed by rapid onward transfer to a single corporate beneficiary, plus fraud recalls, point to a laundering network role, not just a victim-side fraud event. The APP-fraud reading is not wrong, it just stops the analysis before the network becomes visible.' },
+  qq5: { correct: 'False', fb: 'FATF itself cautions that a single indicator may not independently warrant suspicion. Indicators prompt further examination; neither the number nor the combination of indicators creates a statutory suspicion or SAR reporting threshold. The actual reporting threshold is a legal and regulatory question, addressed in Section 17 and the Legal Review Register, not a red-flag headcount.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+  opts.forEach(o => {
+    const t = o.textContent.trim();
+    if (t === data.correct || t.startsWith(data.correct + ' -')) {
+      o.classList.add('q-correct');
+      o.innerHTML = '<span class="visually-hidden">Correct: </span><span aria-hidden="true">✓ </span>' + o.innerHTML;
+    } else if ((t === chosen || t.startsWith(chosen + ' -')) && !isCorrect) {
+      o.classList.add('q-wrong');
+      o.innerHTML = '<span class="visually-hidden">Your answer, incorrect: </span><span aria-hidden="true">✗ </span>' + o.innerHTML;
+    }
+  });
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, re-read the nine-node chain.', 'Getting there, revisit Nodes Four through Six.', 'Solid foundation, a few gaps to close.', 'Good grasp, you\'re reading the chain correctly.', 'Excellent, practitioner-level network reconstruction.', 'Perfect score, ready to apply this against a real file.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+/* ---------- Save as image ---------- */
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems: [], accentColor };
+  });
+
+  const COLS = 3;
+  const WIDTH = 1440, OUTER_PAD = 20, contentWidth = WIDTH - OUTER_PAD * 2, CARD_PAD = 20, TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif', NAME_FONT = '700 16px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 13px Inter, system-ui, sans-serif', LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif', LINE_H = 17, NAME_LINE_H = 20, ICON_SIZE = 28;
+  const measure = document.createElement('canvas').getContext('2d');
+  const CARD_W = (contentWidth - 20 - (COLS - 1) * 12) / COLS;
+  const NAME_MAX_W = CARD_W - 14 - (14 + ICON_SIZE + 8);
+  const LINE_MAX_W = CARD_W - 28;
+
+  function measureCard(card) {
+    measure.font = NAME_FONT;
+    const nameLines = wrapCanvasText(measure, card.name, NAME_MAX_W);
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, LINE_MAX_W);
+    const headBlockH = Math.max(ICON_SIZE, nameLines.length * NAME_LINE_H);
+    return { nameLines, lineLines, ttdLineCounts: [], height: CARD_PAD * 2 + headBlockH + 10 + lineLines.length * LINE_H };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const rowHeight = Math.max(...cardMeasurements.map(m => m.height));
+  const rows = Math.ceil(cards.length / COLS);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + 14 + rows * (rowHeight + 12);
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH; canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#F4F6F3'; ctx.fillRect(0, 0, WIDTH, totalHeight);
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF'; ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+  ctx.fillStyle = '#0C1B2A'; ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF'; ctx.font = HEAD_FONT; ctx.textBaseline = 'middle';
+  ctx.fillText('Scam Compound Laundering Machine: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+  cards.forEach((card, i) => {
+    const col = i % COLS, row = Math.floor(i / COLS);
+    if (col === 0 && row > 0) y += rowHeight + 12;
+    const blockX = cardX + 10 + col * (CARD_W + 12), blockW = CARD_W;
+    ctx.fillStyle = '#FAFBFA'; ctx.strokeStyle = '#E3E8E3'; ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, rowHeight, 10); else ctx.rect(blockX, y, blockW, rowHeight);
+    ctx.fill(); ctx.stroke();
+    const m = cardMeasurements[i];
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = ICON_SIZE + 'px sans-serif'; ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + 14, cy);
+    ctx.font = NAME_FONT; ctx.fillStyle = card.accentColor || '#0C1B2A';
+    let ny = cy;
+    m.nameLines.forEach(l => { ctx.fillText(l, blockX + 14 + ICON_SIZE + 8, ny); ny += NAME_LINE_H; });
+    cy += Math.max(ICON_SIZE, m.nameLines.length * NAME_LINE_H) + 10;
+    ctx.font = LINE_FONT; ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach((line, li) => ctx.fillText(line, blockX + 14, cy + li * LINE_H));
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'scam-compound-money-laundering-guide-at-a-glance.png';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel; btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

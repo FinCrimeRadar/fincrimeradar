@@ -181,6 +181,13 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Scam compound money laundering guide -->
+  <url>
+    <loc>https://fincrimeradar.org/scam-compound-money-laundering-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- UK AML Compliance series -->
   <url>
     <loc>https://fincrimeradar.org/aml-guide-part1.html</loc>

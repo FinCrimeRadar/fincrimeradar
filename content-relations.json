@@ -4,13 +4,20 @@
     "tm-guide",
     "synthetic-identity-device-network-guide",
     "fraud-investigation-playbook",
-    "ubo-investigation-handbook"
+    "ubo-investigation-handbook",
+    "scam-compound-money-laundering-guide"
   ],
   "crypto-travel-rule-sunrise-guide": [
     "crypto-guide-part1",
     "crypto-guide-part2",
     "crypto-guide-part3",
-    "crypto-guide-part4"
+    "crypto-guide-part4",
+    "scam-compound-money-laundering-guide"
+  ],
+  "scam-compound-money-laundering-guide": [
+    "money-mule-financial-crime-networks-handbook",
+    "crypto-travel-rule-sunrise-guide",
+    "crypto-guide-part3"
   ],
   "synthetic-identity-device-network-guide": [
     "money-mule-financial-crime-networks-handbook",
@@ -31,7 +38,8 @@
     "crypto-travel-rule-sunrise-guide"
   ],
   "crypto-guide-part3": [
-    "crypto-travel-rule-sunrise-guide"
+    "crypto-travel-rule-sunrise-guide",
+    "scam-compound-money-laundering-guide"
   ],
   "crypto-guide-part4": [
     "crypto-travel-rule-sunrise-guide"

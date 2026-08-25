@@ -5929,5 +5929,458 @@
       }
     ],
     "note": "Jurisdiction: UK. One of the three regimes in the guide's own three-not-four framing (see g06 for why the UN is not a fourth Russia-vessel regime)."
+  },
+  {
+    "claimId": "aml-guide-part2.mlr-reg18-reg18a-fwra.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 18(1) requires a firm-wide ML/TF risk assessment; Regulation 18(2) lists the factors to consider; Regulation 18(4) requires an up-to-date written record of the steps taken, unless the supervisory authority has notified the firm in writing that a written record isn't required (a firm-specific exemption, not a default). Regulation 18A separately requires an equivalent proliferation financing risk assessment, considering the same categories of risk factor, not covered by the Regulation 18 ML/TF assessment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 18 (Risk assessment by relevant persons) and Regulation 18A (Proliferation financing risk assessment)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/18",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "aml-guide-part2.html, Obligation 01 'Firm-wide risk assessment' intro paragraph"
+  },
+  {
+    "claimId": "aml-guide-part2.fca-multi-firm-review-2025.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "The source for the 'generic risk assessments' finding is the FCA's multi-firm review of risk assessment processes and controls, published 11 November 2025, not a '2024 FCA thematic review.' The review found that while most firms had a business-wide risk assessment on paper, many were too generic or not tailored to the specific business.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA multi-firm review of risk assessment processes and controls in firms",
+      "url": "https://www.regulationtomorrow.com/2025/11/fca-publishes-findings-following-a-multi-firm-review-of-risk-assessment-processes-and-controls-in-firms/",
+      "publisher": "Financial Conduct Authority (FCA), reported via secondary legal commentary",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "retained-as-estimate",
+    "note": "Publication date and characterisation corroborated via secondary legal commentary (Global Regulation Tomorrow, K&L Gates, Lexology, fscom, all converging on the same 11 November 2025 date and findings), not a direct fetch of the FCA's own review document, logged as retained-as-estimate on that basis.",
+    "location": "aml-guide-part2.html, Obligation 01, 'Common FCA finding — generic risk assessments' callout"
+  },
+  {
+    "claimId": "aml-guide-part2.mlr-reg37-reg38-sdd-emoney.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 37(3) lists being a public administration/publicly owned enterprise, a listed company on a regulated market, or a regulated/supervised financial institution as lower-risk factors for a risk-based SDD determination, not automatic SDD classes. Low-value e-money is governed by a separate provision, Regulation 38, a conditional full exemption from CDD (not SDD): the payment instrument must be non-reloadable, used exclusively for goods/services, not fundable with anonymous e-money, capped at €150 maximum stored value, with a €100 cash redemption limit.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 37 (Application of simplified customer due diligence) and Regulation 38 (Electronic money exemption)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/38",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "aml-guide-part2.html, Obligation 02 CDD, Simplified Due Diligence (SDD) tier card, and FAQ 'What is the difference between SDD, CDD, and EDD?'"
+  },
+  {
+    "claimId": "aml-guide-part2.mlr-reg5-reg28-ubo-fallback.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 5 sets two separate beneficial-owner limbs for a body corporate: an individual who owns or controls more than 25% of shares or voting rights, or an individual who exercises ultimate control over management; either limb independently qualifies. Regulation 28(6)-(7) permits treating a senior managing official as the beneficial owner only after all possible means of identifying the actual beneficial owner have been exhausted, and Regulation 28(8) additionally requires the actions taken and difficulties encountered to be recorded in writing, both conditions must be met together, not either.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 5 (Meaning of beneficial owner) and Regulation 28(6)-(8) (Senior managing official as beneficial owner of last resort)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "aml-guide-part2.html, Obligation 02 CDD tier card, 'Standard CDD' list, 'Beneficial ownership' callout, and quiz Q1 question/feedback (4 locations)"
+  },
+  {
+    "claimId": "aml-guide-part2.mlr-reg33-3a-vs-5-edd-package.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 33(3A) sets a fixed six-part EDD package (additional customer/beneficial-owner information, additional information on the intended nature of the relationship, source of funds and source of wealth, reasons for the transactions, senior management approval, enhanced ongoing monitoring) specifically for FATF 'Call for Action' countries. Other high-risk cases use Regulation 33(5) instead, which lists measures a firm 'may' apply, proportionate to the risk identified, not the same fixed package as a default.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 33(3A) and Regulation 33(5) (Enhanced customer due diligence)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "aml-guide-part2.html, Obligation 02b EDD section (intro paragraph and 'What does EDD actually require?'), FAQ 'What is the difference between SDD, CDD, and EDD?'"
+  },
+  {
+    "claimId": "aml-guide-part2.nca-sars-annual-report-2024-25.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "NCA UKFIU SARs Annual Report figures: 2024/25, 866,616 total SARs (~85.5% from banking), 57,666 DAML requests, 3,276 DAMLs refused (~6%), £382.6m assets denied under DAML. 2023/24 (prior year, shown for trend), 872,048 total SARs (~78.5% from banking), 57,081 DAML requests, 2,881 DAMLs refused (~5%), £240.1m assets denied. Original guide figures (~900,000 SARs, ~65% banking, ~35,000 DAMLs, <1% refused, £258m denied) did not match either published reporting year.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Suspicious Activity Reports Annual Report 2024/25 (April 2024-March 2025); 2023/24 Annual Report for the prior-year comparison",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/786-sars-annual-report-2025/file",
+      "publisher": "National Crime Agency (NCA), UKFIU",
+      "date": "2025-11-01"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2026-11-20",
+    "status": "retained-as-estimate",
+    "note": "Direct PDF text extraction of the NCA's own report was not available in this environment (binary/encoded PDF); figures corroborated via multiple independent secondary summaries (Clifford Chance, ZIGRAM, Insolvency Practitioners Association) that agree with each other on all five metrics for both years, including exact totals and percentages. Logged as retained-as-estimate on that basis rather than verified, despite high cross-source agreement. reviewDue set to 3 months given the 2025/26 report is expected within that window and would supersede these as the current year. Year-choice judgement: guide's schema datePublished is 2026-05-01 and this correction is being made 2026-08-20, so 2024/25 (the most recently published complete NCA reporting year) was used as the primary/current figure, with 2023/24 retained alongside for trend context, rather than leaving the guide citing the older year by default.",
+    "location": "aml-guide-part2.html, Obligation 03 SARs, 'SAR statistics — the scale of the regime' table"
+  },
+  {
+    "claimId": "aml-guide-part2.mlr-reg40-retention-not-automated-deletion.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 40(3) sets a five-year statutory retention period (up to 10 years for transaction records under Regulation 40(4)). Regulation 40(5) lists specific statutory exceptions to the deletion obligation: retention required by another enactment, records needed for court proceedings, retention with the data subject's consent, or reasonable grounds to believe records are needed for anticipated legal proceedings. Automated deletion functionality is a sensible operational control given the scale involved, but Regulation 40 does not itself prescribe automated deletion as a technical requirement.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 40 (Record-keeping)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/40",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "aml-guide-part2.html, Obligation 04 Record keeping, intro paragraph and 'The deletion obligation' callout"
+  },
+  {
+    "claimId": "aml-guide-part2.mlr-reg39-2-immediate-not-2-days.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "MLR 2017 Regulation 39(2) requires a firm relying on a third party for CDD to immediately obtain the required information from the third party, and to have arrangements enabling it to obtain copies of identification and verification data immediately on request, there is no '2 working days' period in the regulation.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "MLR 2017 Regulation 39(2) (Reliance on third parties)",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/39",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "aml-guide-part2.html, FAQ 'Can we rely on a third party to conduct CDD on our behalf?'"
+  },
+  {
+    "claimId": "aml-guide-part2.poca-s330-vs-ta-s21a-four-conditions.001",
+    "guide": "aml-guide-part2.html",
+    "claimText": "POCA 2002 s.330 (failure to disclose: regulated sector) covers money laundering specifically, the parallel terrorist-financing offence is Terrorism Act 2000 s.21A, a separate section under a separate Act, not one combined 'ML/TF' provision. Section 330 requires all four conditions together: (1) knows, suspects, or has reasonable grounds for knowing or suspecting another person is engaged in money laundering; (2) the information came to them in the course of business in the regulated sector; (3) they can identify the other person or the laundered property, or believe (or it's reasonable to expect them to believe) the information will assist in identifying either; (4) failure to disclose to a nominated officer or the NCA as soon as practicable.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "POCA 2002 s.330 (Failure to disclose: regulated sector)",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/330",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-20",
+    "reviewDue": "2027-08-20",
+    "status": "verified",
+    "location": "aml-guide-part2.html, FAQ 'What is the \"reasonable grounds\" test for filing a SAR?'"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.fatf-global-estimate.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "At the launch of FATF's 2026 to 2028 Roadmap on Combatting Fraud on 1 July 2026, FATF President Giles Thomson put the global scale at nearly USD 500 billion lost to scams across 2024 and 2025. Attributed solely to Thomson's Roadmap launch as FATF's own global estimate, not a UK Fraud Strategy figure.",
+    "claimType": "statistic",
+    "source": {
+      "title": "FATF Roadmap 2026 to 2028 on Combatting Fraud, launch remarks",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfgeneral/fatf-roadmap-26-28-fraud-launch-event.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-07-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, hero stats and Section 1"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.fatf-cyber-enabled-fraud-2026.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "FATF, 24 February 2026, Cyber Enabled Fraud: Digitalisation and Money Laundering, Terrorist Financing and Proliferation Financing Risks, describing cyber-enabled fraud syndicates as organised structures with specialised functions including dedicated money laundering capabilities, and laundering networks spanning mules, legal persons, banks, payment providers, remittance providers and VASPs.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Cyber Enabled Fraud: Digitalisation and Money Laundering, Terrorist Financing and Proliferation Financing Risks",
+      "url": "https://www.fatf-gafi.org/",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-02-24"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Introduction and Section 12"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.fatf-interpol-egmont-2023.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "FATF, INTERPOL and Egmont Group, November 2023, Illicit Financial Flows from Cyber Enabled Fraud. Core source for the payment-chain mechanics, mule accounts, legal-entity layering, rapid pass-through transactions, VASP conversion, and the cyber-enabled fraud risk indicators used across Nodes One through Nine.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Illicit Financial Flows from Cyber Enabled Fraud",
+      "url": "https://www.fatf-gafi.org/",
+      "publisher": "FATF, INTERPOL, Egmont Group",
+      "date": "2023-11-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Nodes One through Nine"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.fatf-offshore-vasp-2026.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "FATF, 11 March 2026, Understanding and Mitigating the Risks of Offshore Virtual Asset Service Providers. Defines an offshore VASP, documents dispersal across multiple addresses, layered intermediary wallets and multiple blockchains as illicit-finance methods, and documents cases where offshore VASPs were used to convert scam-compound proceeds.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Understanding and Mitigating the Risks of Offshore Virtual Asset Service Providers",
+      "url": "https://www.fatf-gafi.org/",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-03-11"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Node Six and Node Eight"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.unodc-2023-regional.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "UNODC, October 2024 report on Southeast Asia's cyber-enabled fraud economy, estimated financial losses of USD 18 billion to USD 37 billion from scams targeting victims across East and Southeast Asia during 2023. A regional estimate, not combined with the FATF global figure or the 2025 UNODC update.",
+    "claimType": "statistic",
+    "source": {
+      "title": "Transnational Organized Crime and the Convergence of Cyber-Enabled Fraud, Underground Banking and Technological Innovation in Southeast Asia",
+      "url": "https://www.unodc.org/",
+      "publisher": "United Nations Office on Drugs and Crime",
+      "date": "2024-10-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, hero stats and Section 1"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.unodc-2025-regional-update.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "UNODC, 21 July 2026 report, put 2025 losses across East Asia, Southeast Asia, Australia and New Zealand at USD 88.3 billion to USD 114.1 billion, described by UNODC as nearly tripling the 2023 estimate. A regional estimate for a different year and slightly different scope than the 2023 figure; not averaged or combined with it.",
+    "claimType": "statistic",
+    "source": {
+      "title": "An Interconnected Criminal Ecosystem: Transnational Organized Crime Threat Assessment for Southeast Asia 2026",
+      "url": "https://www.unodc.org/unodc/en/press/releases/2026/July/new-unodc-report-reveals-scale-of-south-east-asias-ever-more-interconnected-criminal-economy.html",
+      "publisher": "United Nations Office on Drugs and Crime",
+      "date": "2026-07-21"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, hero stats and Section 1 (corrected 2026-08-25)"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.interpol-scam-centres-2025.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "INTERPOL, 26 November 2025, describes transnational scam centres as criminal hubs associated with large-scale fraud, trafficking and abuse, and cautions that not everybody working in a scam centre is necessarily a trafficking victim.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Growing Threat of Transnational Scam Centres Highlighted at INTERPOL General Assembly",
+      "url": "https://www.interpol.int/",
+      "publisher": "INTERPOL",
+      "date": "2025-11-26"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Section 2"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.trm-labs-crypto-crime-2025.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "TRM Labs, 2025 Crypto Crime Report, reported at least USD 10.7 billion in cryptocurrency sent to fraud in 2024 within its observed dataset, with TRM's own caveat that attribution increases over time. Not used as a total scam-loss figure.",
+    "claimType": "statistic",
+    "source": {
+      "title": "TRM Labs 2025 Crypto Crime Report",
+      "url": "https://www.trmlabs.com/reports-and-whitepapers/2025-crypto-crime-report",
+      "publisher": "TRM Labs",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Section 1"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.trm-labs-stablecoin-2025.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "TRM Labs, 2025 Stablecoin Usage Report, assessed approximately 99% of stablecoin activity as licit, while stablecoins represented around 60% of the illicit crypto activity TRM observed during Q1 2025.",
+    "claimType": "statistic",
+    "source": {
+      "title": "TRM Labs 2025 Stablecoin Usage Report",
+      "url": "https://www.trmlabs.com/reports-and-whitepapers/2025-crypto-adoption-and-stablecoin-usage-report",
+      "publisher": "TRM Labs",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Node Seven and Knowledge Check Q3"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.chainalysis-crypto-crime-2026.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "Chainalysis, 2026 Crypto Crime Report: Scams, reported that addresses it identified as associated with cryptocurrency scams received at least USD 14 billion on chain during 2025, an explicit lower bound that increases as additional illicit addresses are identified. Not used as a total scam-loss figure.",
+    "claimType": "statistic",
+    "source": {
+      "title": "2026 Crypto Crime Report: Scams",
+      "url": "https://www.chainalysis.com/blog/crypto-scams-2026/",
+      "publisher": "Chainalysis",
+      "date": "2026-01-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, hero stats and Section 1"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.fca-cryptoasset-registration.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "As at August 2026, the FCA states that businesses providing in-scope cryptoasset services in the UK must register with the FCA before starting to trade under the Money Laundering Regulations, with the new FSMA cryptoasset regime expected to begin 25 October 2027.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Cryptoasset Firms: Registration under the Money Laundering Regulations Ahead of the New FSMA Regime",
+      "url": "https://www.fca.org.uk/",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Node Six"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.fincen-huione-group-s311.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "US jurisdiction only, no UK obligation. FinCEN issued a Section 311 (USA PATRIOT Act) final rule against Huione Group, a Cambodia-based (Phnom Penh) financial conglomerate with subsidiaries Huione Pay PLC, Huione Crypto and Haowang Guarantee (formerly Huione Guarantee), issued 14 October 2025, effective 17 November 2025, after finding reasonable grounds that Huione Group was a foreign financial institution of primary money laundering concern. The rule's scope is three-part: a prohibition on covered US financial institutions opening or maintaining a US correspondent account for Huione Group; a requirement to take reasonable steps preventing indirect processing of Huione Group transactions through covered correspondent accounts; and a requirement for specified special due diligence on foreign correspondent accounts. FinCEN's stated grounds are kept separate, not blended: (1) Huione Group services used by DPRK government entities to launder proceeds of cyber heists; (2) use by Southeast Asian criminal organisations to launder proceeds of cyber scams, including convertible virtual currency investment scams such as 'pig butchering'; and (3) Huione Group's operation of an illicit online market. FinCEN's own primary text states directly: 'FinCEN's analysis identified that, in the aggregate, Huione Group has received at least USD 4 billion worth of illicit proceeds, between August 2021 and January 2025.' This figure is confirmed against FinCEN's primary text, superseding this guide's earlier note that it was unconfirmed. Huione Pay PLC was previously a registered Cambodian payment services institution; by 2025 its licence had been rescinded by the National Bank of Cambodia and it no longer appeared in the Ministry of Commerce's business registration database. In June 2026, FinCEN proposed adding H Pay Service PLC and successor entities to the definition; as at August 2026 this remains a proposed amendment, not part of the operative 2025 final rule. Independently verified this session via WebSearch and WebFetch against FinCEN.gov and the Federal Register's full text, and corroborated by Money Laundering Watch (Ballard Spahr); this case study was not present in the original draft, which referenced it without a source or citable content, so it was sourced from scratch rather than carried over. Corrected following an external adversarial review that identified the original passage's grounds, licence-status, and USD 4bn-confirmation errors; the review's two newest claims (the Regulation 33 FATF call-for-action amendment and the H-Pay Service PLC proposal) were independently spot-checked by the user against primary sources before this correction was applied.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Imposition of Special Measure Regarding Huione Group, as a Foreign Financial Institution of Primary Money Laundering Concern (full text)",
+      "url": "https://www.federalregister.gov/documents/full_text/html/2025/10/16/2025-19571.html",
+      "publisher": "Financial Crimes Enforcement Network (FinCEN), US Department of the Treasury, via Federal Register",
+      "date": "2025-10-14"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "note": "Three distinct, real dates exist for this rule, not interchangeable: FinCEN issued the final rule 14 October 2025 (confirmed via FinCEN's own MSB registrant alert page: 'On October 14, 2025, FinCEN issued a final rule...'); the Federal Register public-inspection filing is dated 15 October 2025; the Federal Register publication date is 16 October 2025. This guide's claimText and live text use FinCEN's own issuance date, 14 October 2025, as the primary date. Corroborating URLs: FinCEN release https://www.fincen.gov/news/news-releases/fincen-issues-final-rule-severing-huione-group-us-financial-system ; June 2026 H Pay Service PLC proposal https://www.fincen.gov/news/news-releases/fincen-proposes-sever-h-pay-service-plc-and-other-huione-group-successor ; Money Laundering Watch corroboration https://www.moneylaunderingnews.com/2025/10/fincen-bars-huione-group-from-financial-system/ .",
+    "location": "scam-compound-money-laundering-guide.html, Real Case Study section, Node Six"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.nca-nsa-2026-controller-networks.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "NCA's National Strategic Assessment 2026 states organised crime groups frequently outsource money laundering to specialist networks, that criminals continue to use UK corporate structures for fraud and illicit finance activity, and describes controller networks (via Operation DESTABILISE) collecting cash and converting it to cryptocurrency for a fee.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "National Strategic Assessment 2026 of Serious and Organised Crime, Finance domain",
+      "url": "https://www.nationalcrimeagency.gov.uk/nsa-domains-2026/nsa-soc-finance-2026",
+      "publisher": "National Crime Agency",
+      "date": "2026-03-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Section 12 and Node Nine"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.nca-money-mules-page.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "NCA's 'Money Mules: Don't Be Used' page describes money muling and warns that mules face account closures, credit damage, and prosecution. The guide's framing of controllers organising transactions while retaining anonymity is a paraphrase of the page's general content, not a direct quote from it.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Mules - Don't be used",
+      "url": "https://www.nationalcrimeagency.gov.uk/what-we-do/crime-threats/fraud-and-economic-crime/money-muling",
+      "publisher": "National Crime Agency",
+      "date": "2026-01-01"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Node Three"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.nca-operation-henhouse.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "NCA's own reporting on Operation Henhouse describes a South Yorkshire case where more than 300 victims lost hundreds of thousands of pounds through fraudulent vehicle advertisements, and the fraud relied on over 90 money mules, many recruited through social media with offers of quick cash. Direct match to NCA's own wording.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Operation Henhouse: Strongest year yet in fight against fraud led by NCA and City of London police",
+      "url": "https://www.nationalcrimeagency.gov.uk/news/operation-henhouse-strongest-year-yet-in-fight-against-fraud-led-by-nca-and-city-of-london-police",
+      "publisher": "National Crime Agency",
+      "date": "2026-03-24"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Node Three"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.poca-s327-329-separate-offences.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "Sections 327, 328 and 329 of the Proceeds of Crime Act 2002 create separate principal money laundering offences: s.327 covers concealing, disguising, converting or transferring criminal property, or removing it from the relevant UK jurisdiction; s.328 covers entering into or becoming concerned in an arrangement known or suspected to facilitate another person's acquisition, retention, use or control of criminal property; s.329 covers acquiring, using or possessing criminal property. Each offence is subject to its own statutory exceptions and defences. Corrected following external adversarial review; the original guide text had erased the separate statutory structure by presenting all three sections as one undifferentiated list.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, sections 327, 328 and 329",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/327",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "note": "Section-specific URLs: s.327 https://www.legislation.gov.uk/ukpga/2002/29/section/327 ; s.328 https://www.legislation.gov.uk/ukpga/2002/29/section/328 ; s.329 https://www.legislation.gov.uk/ukpga/2002/29/section/329 .",
+    "location": "scam-compound-money-laundering-guide.html, Section 17 UK legal context, LR1"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.poca-s330-full-conditions.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "Section 330 of the Proceeds of Crime Act 2002 creates a failure-to-disclose offence only where all its statutory conditions are satisfied: the applicable knowledge, suspicion or reasonable-grounds condition; receipt of the relevant information during regulated-sector business; the further identification-or-assistance condition; and failure to disclose as soon as practicable. Statutory defences and exceptions may apply.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 330",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/330",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Section 17 UK legal context, LR2"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.mlr-reg28-cdd-full.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "Regulation 28 of the Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017 requires, where customer due diligence is required, identification and verification of the customer using information from a reliable and independent source, contains measures concerning beneficial owners and persons acting for customers, and requires the relevant person to assess and, where appropriate, obtain information on the purpose and intended nature of the business relationship or occasional transaction. Ongoing monitoring applies to business relationships, including scrutiny of transactions for consistency with the relevant person's knowledge of the customer, business and risk profile (including source of funds where necessary) and keeping CDD information current. Corrected following external adversarial review; the original guide text omitted beneficial-owner measures, persons acting for customers, and the operative content of ongoing monitoring.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering Regulations 2017, Regulation 28",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "location": "scam-compound-money-laundering-guide.html, Section 17 UK legal context, LR3"
+  },
+  {
+    "claimId": "scam-compound-money-laundering-guide.mlr-reg33-edd-mandatory.001",
+    "guide": "scam-compound-money-laundering-guide.html",
+    "claimText": "Regulation 33 of the Money Laundering Regulations 2017 requires (not merely permits) a relevant person to apply enhanced customer due diligence and enhanced ongoing monitoring, in addition to applicable Regulation 28/29 measures, in every case falling within Regulation 33(1): cases identified as high risk, specified relationships or transactions involving a FATF call-for-action country, specified correspondent relationships, PEP cases, certain false or stolen identification cases, defined unusual transactions, and other cases presenting higher risk. Regulations 34, 34A and 35 prescribe additional measures for particular categories. The country trigger was narrowed from 30 June 2026 to FATF call-for-action countries specifically. Corrected following external adversarial review; the original guide text said enhanced due diligence 'can apply' where the original wording understated a mandatory duty, and omitted the 2026 narrowing amendment. The 2026 amendment was independently spot-checked by the user against its primary source before this correction was applied.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering Regulations 2017, Regulation 33, and 2026 amending instrument",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "legislation.gov.uk (UK Statutory Instruments)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-08-25",
+    "reviewDue": "2027-08-25",
+    "status": "verified",
+    "note": "2026 amendment (narrows the Regulation 33 country trigger to FATF call-for-action countries, effective 30 June 2026): https://www.legislation.gov.uk/ukdsi/2026/9780348281743/pdfs/ukdsi_9780348281743_en.pdf .",
+    "location": "scam-compound-money-laundering-guide.html, Section 17 UK legal context, LR4"
   }
 ]
