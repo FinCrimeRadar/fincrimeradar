@@ -1,141 +1,519 @@
 # CLAUDE.md
 
-**This document is the canonical source for enforcement rules, sourcing requirements, security constraints, component isolation, and review triggers. Guide structure, editorial presentation, interaction requirements, and format treatments (including Evidence Essay) are defined in GUIDE_STANDARD.md, not here, and are not restated in this file.**
+This file is the canonical source for FinCrimeRadar enforcement rules covering sourcing, regulatory accuracy, security, component isolation, verification, correction discipline, review triggers and session tooling.
 
-## Formatting rule
+`GUIDE_STANDARD.md` owns guide structure, editorial presentation, interaction requirements and format treatments, including Evidence Essay.
 
-Never use em dashes or en dashes in any response, explanation, or code comment. Use commas, periods, parentheses, or separate sentences instead.
+Do not duplicate those standards here.
 
-## Response structure
+If the two files conflict on security, sourcing, regulatory accuracy, data integrity, verification or review requirements, this file takes precedence.
 
-Always structure answers using these four sections, in this order:
+## 1. Operating principle
 
-- **Verdict**: the direct answer or conclusion.
-- **Blueprint**: the reasoning or plan behind it.
-- **Pivot**: what could change, alternatives, or risks to watch for.
-- **Deliverable**: the concrete output (code, file, command, etc.).
+Execute rather than narrate.
 
-## Content sourcing standard
+Before changing anything:
 
-Every new guide or piece of published content must be sourced before it ships. Apply the material versus illustrative split:
+1. Inspect the relevant repository files and existing conventions.
+2. Identify dependencies and regression risks.
+3. Make the smallest robust change.
+4. Verify the result using the appropriate method.
+5. Report only what materially matters.
 
-- Material factual claims (statistics, regulatory obligations, enforcement actions, official definitions) get EITHER a real primary source (inline [n] marker plus a Sources section entry, and a verification-ledger.json entry) OR, where no primary source genuinely exists, honest in-text epistemic framing ("industry estimates commonly cite", "not independently benchmarked") plus a retained-as-estimate ledger entry.
-- Never invent a source. A vendor blog or generic "industry survey" is not a primary source. A wrong or overclaimed citation is worse than an honest "industry estimate".
-- Illustrative numbers (worked-example thresholds, hypothetical scenarios, rhetorical figures) get NO citation. Over-citing these is its own error.
+Do not repeat the request, explain obvious work or provide lengthy reasoning unless explicitly requested.
 
-Sourcing is a required build phase, not an afterthought: run scripts/check_ledger.py scan, classify candidates, source or reword each material claim, add ledger entries and on-page citations, then, for high-stakes logic only, an optional independent adversarial review before commit (see Review policy below). The verification ledger is the single source of truth and grows with each guide.
+Make reasonable non destructive decisions without asking for confirmation when repository context, existing standards or safe engineering judgement resolves the ambiguity.
 
-## New component CSS isolation
+## 2. Formatting
 
-Three separate bugs have come from the same root cause: a new component using a generic or semantic HTML tag (a bare `<nav>`, a plain class name like `table` or `compare-table`) silently inherits an unrelated sitewide rule meant for something else. Examples: the Knowledge Hub flagship nav inheriting the sitewide `nav{position:sticky;height:72px}` rule, the certifications-dilemma.html compare table colliding with a brand.js scroll-wrap selector, and the guide breadcrumb inheriting the same sitewide sticky nav rule a third time.
+Never use em dash or en dash punctuation in responses, explanations or code comments.
 
-Before shipping any new component, check its markup against two known collision sources:
-- `brand.css`'s bare-element and generic-class selectors (`nav`, `footer`, `table`, and similar), which apply sitewide by design and will catch anything using the same tag or a name that matches.
-- `brand.js`'s watched selectors (currently includes `[class*="card"]` for scroll-reveal and table auto-wrapping), which match on partial class names, not just exact ones.
+Use commas, periods, parentheses or separate sentences instead.
 
-Either avoid the generic tag or class name entirely, or add an explicit reset in the new component's own rule for every property the sitewide selector sets, don't rely on assuming a more specific selector will win the cascade without checking. Confirm the reset in-browser via computed styles, not just by reading the CSS.
+## 3. Response discipline
 
-## Review policy
+For simple tasks, respond directly.
 
-Independent adversarial review (via ChatGPT/Codex, done manually by pasting the diff, not the in-editor plugin) is RESERVED for high-stakes logic diffs: new scoring or grading logic, authentication, code that moves money or touches financial data, new API endpoints, or security or trust boundaries. For those, the reviewer is a manual step done outside the Claude Code session to avoid session-token drain from polling.
+For completed repository work, normally report only:
 
-It is NOT expected for: content and guide sourcing, CSS or styling, copy edits, typos, config, or any change without new logic. Skipping review on these is correct, not a lapse.
+### Verdict
 
-Claude Code should NOT auto-launch the Codex plugin or set up background monitors/polling for reviews. If a diff qualifies as high-stakes logic, flag it and let the human run the review manually via ChatGPT.
+What changed and whether the requested work is complete.
 
-## Regulatory-claim adversarial review
+### Verification
 
-The gambling-white-label-blind-spot-guide.html revision (2026-08-13) found three real regulatory-precision errors that had already passed the guide's normal build verification: an overstated Money Laundering Regulations scope claim (MLR 2017 applies directly to casinos, not gambling operators generally, who are governed through POCA/Gambling Act/LCCP instead), an unsupported inference drawn from an "unchanged" risk rating, and an absolute legal claim stated as universal when it was actually scenario-specific. All three were only caught by an external adversarial review with domain expertise, not by this project's own sourcing checklist or in-browser verification, both of which are built to catch missing citations and broken interactions, not scope errors in what a citation actually supports.
+What was actually checked or executed.
 
-A second, cleaner precedent, and a sharper failure mode: the Scenario Lab Risk Scoring module build (2026-08-17). The gambling guide's three errors, and the separate sourcing-description error caught on classification-asymmetry-guide.html (see Sourcing process verification below), were all cases of a guide stating something imprecisely, an overstated scope, an unsupported inference, an absolute claim where a qualified one belonged, a wrong description of the guide's own verification process. Case 2 of the Risk Scoring module was a different kind of error: a broken premise. The scenario as originally built described its PEP subject as "an elected local councillor," but the case's own intended lesson (a domestic PEP's lower risk baseline under MLR 2017 regulation 35(12) and, at build time, FCA guidance FG17/6) depended on the subject genuinely meeting that domestic PEP definition, and an elected local councillor does not. The case was not teaching a correct lesson imprecisely, it was teaching a lesson the scenario's own stated facts didn't actually support, the training tool would have confidently graded analysts against a premise that never held. Caught only by the external review, same as the gambling incident, neither this project's sourcing checklist nor its in-browser verification checks whether a scenario's underlying facts actually satisfy the legal definition its own lesson depends on, that class of gap sits one level below what either tool is built to catch.
+### Risks
 
-This is the same class of gap the Review policy already exists to close for scoring and grading logic, extended to a different kind of risk: not code correctness, but claim correctness.
+Only unresolved material risks or required human actions.
 
-Any new guide making a specific regulatory-obligation, legal-scope, or statutory-applicability claim (which regulation applies to which entity type, what a licence condition actually requires, what an authority's finding does or does not establish) requires an external adversarial review of those specific claims before publication, run manually outside the Claude Code session, same as the existing high-stakes logic review. This applies regardless of the guide's visual format or interactivity level, it is about the claims, not the layout.
+For architecture, strategy or substantial review work, use:
 
-Claude Code should flag which claims in a new guide fall into this category as part of its own delivery report, the same way it already flags new scoring/grading logic requiring review, so the human knows what needs the external pass before shipping, rather than discovering the gap after publication.
+### Verdict
 
-## Correction discipline
+### Blueprint
 
-Found repeatedly this week (pep-guide-part1.html's Regulation 35(12)/(14) categories claim, sar-guide-part1.html's Section 342 offence structure): a first correction round routinely fixes a claim's general direction while still misstating its actual structure, because the correction was checked against a summary of the source rather than the source's own subsections. The error that survives a first correction is rarely lexical, it is usually which subsection governs what, which limb of a disjunctive test applies, or what conditions gate an obligation. Checking whether corrected wording sounds right against the general subject matter does not catch this. Checking it against the primary source's actual clause-by-clause structure does.
+### Pivot
 
-Three rules, all mandatory for any correction involving a specific statutory or regulatory citation:
+### Deliverable
 
-1. **Structural match, not subject match.** Before marking a statutory or regulatory correction as final, confirm the corrected wording matches the primary source's actual internal structure (which subsection, which limb, which condition), not just its general topic. A correction that is accurate about what a source generally covers but wrong about its structure is not finished.
+Omit sections that add no useful information.
 
-2. **Internal consistency sweep.** The same claim, figure, or citation frequently appears in more than one place in a single guide (an intro stat card and a body paragraph, an offence card and a FAQ answer, a table and its own summary sentence). After correcting any instance, search the full guide for every other occurrence of the same underlying claim before considering the correction complete. A correction applied to only one of several instances is a new internal contradiction, not a finished fix.
+Do not paste complete repository files into chat when Claude Code can edit them directly unless explicitly requested.
 
-3. **Ledger-to-live-text reconciliation.** Whenever a single claim is corrected more than once within one session (a correction to a correction), the associated verification-ledger.json entry's claimText must be re-checked against the live guide text as an explicit final step before the guide is considered done, not assumed still accurate because it was accurate when first written. This is not optional cleanup, treat it as part of the correction itself.
+## 4. Published content sourcing
 
-Budget for at least two correction rounds as the default expectation on any guide with statutory or regulatory content, not as a sign something went wrong the first time. A single-pass sourcing effort that is never re-checked against a source's actual structure is not equivalent in rigour to a two-round correction, even if both eventually produce the same final wording, because the first has no mechanism for catching what it does not know it is missing.
+Every new guide or other published factual content must complete sourcing before publication.
 
-## Citation density and guide-drafting workflow
+Classify claims into two categories.
 
-Found 2026-08-19, after aml-guide-part1.html required two full correction rounds across two separate batches, twenty-two individual regulatory claims corrected, several needing a second round even after external review: the repeated Claude-Codex-Claude-Codex correction cycle is not primarily a review-thoroughness problem, it is a symptom of how guides get drafted. Dense, subsection-level citation throughout ordinary body prose creates many small opportunities for structural mismatch, each one requiring its own verification round. The fix is upstream of review.
+### Material factual claims
 
-For any new guide, or any substantial rewrite of an existing one:
+Examples include:
 
-1. Build a verified source pack before drafting any guide prose. List every statutory or regulatory proposition the guide will need to make, pull and verify each one directly against its primary source once, and record the exact source wording and citation. Draft prose from the verified pack afterward, not the reverse.
-2. Calibrate citation density to what the reader needs, not to maximum available precision. Cite at section level in general body prose (e.g. "Section 330 POCA") unless subsection-level distinction is itself the specific teaching point of that passage. Reserve subsection-level precision for worked scenarios and knowledge-check questions, where GUIDE_STANDARD.md already requires depth. Precision that does not change a reader's practical takeaway is pure correction-cycle risk with no reader benefit, drop it.
-3. Cap external review at two rounds per guide as the default target, not an open-ended cycle. One full structural pass covering every flagged candidate at once, one application and ledger-reconciliation pass, one confirmation pass. If a third round is genuinely needed, that is a signal the guide's citation density was too high going in, not just bad luck, and worth a density pass before further correction.
-4. When retrofitting an existing dense guide, do not assume it needs the same treatment as a from-scratch build. Triage first: low citation density, narrative-style guides likely need far fewer rounds and should be confirmed as such before assuming aml-guide-part1.html's pace applies.
+1. Statistics
+2. Regulatory obligations
+3. Statutory requirements
+4. Enforcement actions
+5. Official definitions
+6. Legal thresholds
+7. Regulatory scope
+8. Government or regulator findings
 
-This does not relax the underlying accuracy bar (see Regulatory-claim adversarial review and Correction discipline above), it changes how much needs reviewing by reducing how much precision is asserted in the first place.
+Each material claim requires either:
 
-## Sourcing process verification
+1. A verified authoritative source, an inline `[n]` citation, a Sources entry and a matching `verification-ledger.json` record.
 
-A guide's own Methodology section can misstate its own verification process, not just the underlying facts it's meant to be checking. Found and corrected during the classification-asymmetry-guide.html revision (2026-08-14): a quote was wrongly declared unverifiable in the guide's own Methodology section when it was genuinely present in the source, a false statement about the guide's own sourcing rigor sitting inside the one section whose job is to prove that rigor. Neither the project's sourcing checklist nor its in-browser verification is built to catch this, both check for missing citations and broken interactions, not for whether a guide's narrative about its own verification process is itself accurate.
+or
 
-Add to the adversarial review checklist: verify that every statement the guide makes about its own sourcing, search process, source availability, verification result, or inability to confirm a claim is itself accurate and supported by the retained verification record.
+2. Honest epistemic framing where no authoritative source genuinely exists, plus a ledger entry explicitly recording that the claim is retained as an estimate or unverified industry assertion.
 
-## Stale-asset synchronisation
+Never invent or overstate a source.
 
-Found independently twice: the MLRO Handbook Part 2 stale CFP Management fine figure, and classification-asymmetry-guide.html's summary snapshot shipping before a corrective text pass had caught up to it. Both were material-claim changes that did not propagate to a derived asset.
+Vendor content, secondary summaries and generic surveys are not primary authority merely because they contain the desired figure.
 
-When a material claim, figure, legal interpretation, case detail, or conclusion changes, review and synchronise every derived representation before publication. This includes summary images, metadata, structured data, social copy, stat strips, quizzes, scenario feedback, closing cards, and Knowledge Hub descriptions. Publication is blocked until the synchronisation check passes.
+An honestly qualified estimate is preferable to a misleading citation.
 
-## Production/local verification gap
+### Illustrative material
 
-A third class of gap, distinct from the Review policy's code-logic review and the Regulatory-claim adversarial review above: those two catch code that is wrong or content that is wrong. This one is neither, code and content can both be correct and thoroughly verified in-browser, and production can still be broken, because the verification never touched production.
+Hypothetical thresholds, worked example numbers, fictional scenarios and rhetorical figures do not require citations unless presented as real world facts.
 
-Found during the Risk Scoring module build (2026-08-17): `fincrimeradar-api`'s `cases.json`, backing the live `/scenario-lab/cases` endpoint `fincrimeradar.org` actually calls in production, was a manually maintained mirror of `fincrimeradar`'s `scenario-lab/data/cases.json`, silently stale since a single commit on 2026-07-07, through two later module launches. Discovered six weeks later by a user's screenshot of an empty case picker, not by this project's own process: every in-browser check that session ran, including extensive device-width and interaction testing, exercised frontend logic against local or test-harness data, never once against the real deployed API.
+Do not over cite illustrative material.
 
-For any change that depends on a separately deployed service or a second repository actually being current, not just this repo's own code or content being correct, flag that dependency explicitly and run a live smoke check against the real, deployed endpoint before considering the change verified. Local and test-harness verification, however thorough, does not substitute for it. See BACKLOG.md's Polish Loop for this incident's own closed entry and the standing checklist item it left in place.
+## 5. Source pack first workflow
 
-## Verification-tool staleness gap
+For any new guide or substantial regulatory rewrite, build the source pack before drafting the prose.
 
-A fourth class of gap, adjacent to but distinct from the Production/local verification gap above: that section covers frontend logic never touching the real deployed API. This one covers the reverse direction, a verification tool itself reporting stale content back to whoever is checking, regardless of whether the underlying deploy is correct.
+Workflow:
 
-Found across the scam-compound-money-laundering-guide.html build (2026-08-25), three separate times, in both directions: `web_fetch` served stale-old content on the guide's hero stat cards after a real fix had deployed (resolved by a cache-busted `curl`); served a 404 on a UNODC press release URL that a browser render and `curl` both confirmed was live (resolved by trusting the independently-confirmed method); and, most seriously, served content showing zero of two full rounds of applied corrections on the guide's live page, while a fresh GitHub tarball pull of origin/main showed every correction genuinely committed. A cache-busting query string, which resolved the first instance, did not resolve the third.
+1. Identify each material statutory, regulatory or factual proposition the guide needs.
+2. Retrieve the strongest available source.
+3. Verify the proposition directly against the source.
+4. Record the relevant scope, conditions and wording.
+5. Draft the guide from the verified source pack.
+6. Run `scripts/check_ledger.py scan`.
+7. Classify every candidate claim.
+8. Source, qualify or remove each material claim.
+9. Reconcile citations and `verification-ledger.json`.
+10. Run any required adversarial review.
+11. Synchronise derived assets.
+12. Complete final verification.
 
-This means `web_fetch` cannot be treated as ground truth when it disagrees with a commit or deploy report, in either direction. Appending a random query parameter is not a reliable fix and should not be assumed to have worked just because it worked once.
+Do not draft precise regulatory claims first and attempt to find supporting citations afterwards.
 
-When a `web_fetch` result and a commit or deploy report disagree, the tiebreaker is not a repeated `web_fetch` attempt. Use one of:
-- A fresh `codeload.github.com` tarball pull of origin/main (settles repo content, independent of any deploy or CDN layer entirely).
-- An independent fetch method (`curl`, a real browser render) when the question is specifically about what production is serving, not what's committed.
+## 6. Citation precision
 
-Do not close a verification round on a single `web_fetch` result alone when the stakes are high enough that being wrong matters (a publish decision, a correction round, a commit report). Cross-check with one of the above before treating either a pass or a fail as final.
+Use only as much citation precision as the teaching point requires.
 
-## Scenario reasoning distinction
+For ordinary explanatory prose, section level statutory citation is normally sufficient.
 
-Closes a pattern found twice on the same guide: classification-asymmetry-guide.html's "precisely how the explanatory notes describe" and "exactly the kind of reasonable grounds" overclaims, both describing the guide's own inference as if it were the cited authority's own language.
+Use subsection or clause level precision where the distinction itself affects the legal or practical conclusion, especially in scenarios, knowledge checks and statutory interpretation.
 
-Scenario reasoning must distinguish clearly between what a source or law expressly establishes, the guide's application of that authority to the illustrative facts, and the guide's operational recommendation. Do not describe an inference or recommendation as the precise, exact, or required meaning of the cited authority. Applies alongside the existing scoring-logic review requirement above, to every scenario verdict and quiz feedback string, not only to new guides.
+Unnecessary subsection precision creates correction risk without improving practitioner value.
 
-## Session tooling
+Accuracy remains mandatory regardless of citation density.
 
-Two plugins are installed: `ponytail` (minimal-code discipline) and `code-review` (Anthropic's PR-based multi-agent reviewer).
+## 7. Regulatory claim review
 
-Ponytail mode follows the active BACKLOG.md loop:
+Ordinary sourcing confirms that evidence exists.
 
-- Polish Loop: `/ponytail lite`. Mechanical, low-risk work (CSS, dash sweeps, token fixes) doesn't need full ladder deliberation.
-- Build Loop and Content Loop: `/ponytail full` (default). Real architecture and component decisions benefit from the full ladder.
-- `/ponytail ultra` is reserved for genuine adversarial situations, not a default upgrade from full.
+It does not prove that the guide interpreted the evidence correctly.
 
-Review routing:
+Any new or materially revised claim concerning:
 
-- `/ponytail-review` is the default end-of-session check for every loop, every session. It runs on the current diff directly, no PR required.
-- `/code-review` is available for any PR you want a second pass on, general purpose, not gated by tier.
-- For the high-stakes tier defined under Review policy above (scoring or grading logic, authentication, code that moves money or touches financial data, new API endpoints, security or trust boundaries), both checks apply: `/code-review` via a real GitHub PR, AND the manual ChatGPT/Codex adversarial review outside the session. `/code-review` does not replace the manual step, it is same-model multi-agent review and does not provide the cross-model independence the manual step exists for. Run `/code-review` first to catch obvious issues cheaply, then do the manual cross-model pass on what remains.
+1. Which regulation applies to which entity or activity
+2. Statutory applicability
+3. Licence conditions
+4. Legal scope
+5. Regulatory obligations
+6. What an authority legally established
+7. Conditions that trigger an obligation
+8. Definitions that determine a scenario outcome
 
-Do not run either review tool as a default habit on content, CSS, or config changes. That duplicates work the Review policy above already says to skip.
+requires external adversarial review before publication.
+
+Run this manually outside the Claude Code session using ChatGPT or Codex.
+
+Claude Code must identify the specific claims requiring this review in its delivery report.
+
+Do not launch background review agents or polling for this purpose.
+
+## 8. Regulatory correction discipline
+
+Any correction involving a statute, regulation, regulatory guidance or legal citation requires all three checks below.
+
+### Structural match
+
+Verify the final wording against the primary source's actual internal structure.
+
+Confirm:
+
+1. Correct section or subsection
+2. Correct limb of the test
+3. Correct conditions
+4. Correct entity scope
+5. Correct exceptions
+6. Correct effect
+
+Subject matter similarity is not enough.
+
+### Internal consistency sweep
+
+Search the complete guide for every representation of the corrected proposition.
+
+Check:
+
+1. Body text
+2. Stat cards
+3. Tables
+4. FAQs
+5. Scenarios
+6. Quizzes
+7. Feedback strings
+8. Metadata
+9. Structured data
+10. Summary sections
+
+A correction applied in only one place is incomplete.
+
+### Ledger reconciliation
+
+If a claim changes, recheck the corresponding `verification-ledger.json` `claimText` against the final live wording.
+
+If a correction itself is later corrected, ledger reconciliation becomes mandatory again.
+
+Do not assume an earlier ledger entry remains accurate.
+
+## 9. Correction rounds
+
+For statutory or regulatory content, expect more than one verification pass.
+
+The normal target is:
+
+1. One complete structural review of all flagged claims.
+2. One correction and reconciliation pass.
+3. One final confirmation pass.
+
+If repeated additional rounds are required, inspect whether excessive citation precision or weak source pack preparation is causing the problem before continuing claim by claim corrections.
+
+Do not treat repeated correction cycles as the preferred drafting process.
+
+Fix the upstream workflow.
+
+## 10. Scenario reasoning
+
+Every scenario, quiz verdict and feedback string must distinguish three layers.
+
+### Source
+
+What the law, regulator or authoritative evidence expressly establishes.
+
+### Application
+
+How FinCrimeRadar applies that authority to the scenario facts.
+
+### Recommendation
+
+The operational judgement or action FinCrimeRadar recommends.
+
+Never describe an inference or operational recommendation as though it were the exact language or mandatory conclusion of the cited authority.
+
+Avoid unsupported formulations such as "precisely what the law means" or "exactly what the regulator requires" unless the authority genuinely establishes that proposition directly.
+
+For legally defined categories, confirm that the scenario facts actually satisfy the definition before using that definition as the basis for scoring, grading or teaching.
+
+## 11. Methodology accuracy
+
+Statements about FinCrimeRadar's own sourcing process are factual claims too.
+
+Verify any statement claiming:
+
+1. A source was unavailable.
+2. A quotation could not be found.
+3. A claim was independently verified.
+4. A search produced no evidence.
+5. A source supports or does not support a proposition.
+6. A verification process was performed.
+
+The Methodology section must not overstate or misdescribe the project's actual verification work.
+
+## 12. Human writing standard
+
+All public facing FinCrimeRadar content must read like work written by an experienced human financial crime practitioner.
+
+Do not produce obvious AI prose.
+
+Avoid:
+
+1. Generic introductions.
+2. Mechanical transitions.
+3. Repetitive sentence structures.
+4. Excessive headings.
+5. Artificially polished corporate language.
+6. Unnecessary summaries.
+7. Formulaic conclusions.
+8. Repeated stock phrases.
+9. Bullet lists where natural prose communicates the point better.
+10. Unsupported certainty.
+
+Use practical judgement, nuance, varied sentence structure and realistic practitioner language.
+
+Do not intentionally introduce errors, slang or fake informality to simulate human writing.
+
+Human quality means credible expert reasoning, not deliberate imperfection.
+
+Detailed editorial presentation remains governed by `GUIDE_STANDARD.md`.
+
+## 13. Derived asset synchronisation
+
+When any material claim, statistic, legal interpretation, case detail or conclusion changes, inspect every derived representation before publication.
+
+This includes:
+
+1. Summary images
+2. Infographics
+3. Metadata
+4. Structured data
+5. Social copy
+6. Stat strips
+7. Quiz questions
+8. Scenario feedback
+9. Closing cards
+10. Knowledge Hub descriptions
+11. Search snippets
+12. Related promotional material
+
+Publication is blocked until material derived assets agree with the final guide.
+
+## 14. Component isolation
+
+New components must not accidentally inherit unrelated global CSS or JavaScript behaviour.
+
+Before shipping a component, inspect it against:
+
+1. Bare element and generic class selectors in `brand.css`.
+2. Watched or partial match selectors in `brand.js`.
+3. Existing global behaviours affecting elements such as `nav`, `footer`, `table`, cards and scroll wrappers.
+
+Prefer namespaced component classes and scoped selectors.
+
+Avoid generic class names that can collide with existing behaviour.
+
+Where a semantic element must be used and global rules affect it, explicitly reset every conflicting property in the component scope.
+
+Do not assume CSS specificity will protect the component.
+
+Verify the result in a real browser using computed styles.
+
+## 15. High stakes logic review
+
+External review is mandatory for changes involving:
+
+1. Scoring or grading logic
+2. Authentication
+3. Authorisation
+4. Financial data
+5. Money movement
+6. New API endpoints
+7. Security boundaries
+8. Trust boundaries
+9. Other logic where incorrect behaviour could materially affect users or data
+
+For this tier:
+
+1. Run `/code-review` through a real GitHub pull request.
+2. Resolve material findings.
+3. Run a separate manual ChatGPT or Codex adversarial review outside Claude Code.
+
+The manual review provides cross model independence and is not replaced by `/code-review`.
+
+Do not auto launch Codex plugins, polling or background review monitors.
+
+The human performs the external review.
+
+## 16. Low risk review
+
+External adversarial review is not required merely because a file changed.
+
+Normally skip it for:
+
+1. CSS
+2. Styling
+3. Copy edits
+4. Typographical fixes
+5. Configuration changes without security impact
+6. Routine content sourcing
+7. Mechanical refactors without behavioural logic
+
+Skipping unnecessary review is correct.
+
+Do not create review ceremony where the risk does not justify it.
+
+## 17. Production verification
+
+Local correctness does not prove production correctness.
+
+If a change depends on:
+
+1. Another repository
+2. A separately deployed API
+3. A synchronised dataset
+4. A remote configuration
+5. A CDN served asset
+6. Another independently deployed service
+
+identify that dependency explicitly.
+
+Before declaring the feature verified, perform a live smoke check against the actual production dependency where access permits.
+
+Test harness data and local fixtures do not substitute for the deployed system.
+
+If Claude Code cannot perform the production check, state the exact outstanding check required from the human.
+
+## 18. Verification source hierarchy
+
+Do not treat one retrieval method as unquestionable ground truth.
+
+When tools disagree, identify which layer is being tested.
+
+### Repository truth
+
+Use a fresh checkout, fresh `origin/main`, or fresh GitHub codeload archive when determining what is actually committed.
+
+### Production truth
+
+Use an independent live request such as `curl` or a real browser render when determining what production actually serves.
+
+### Retrieval helpers
+
+Tools such as `web_fetch` may be cached or stale.
+
+Do not close a high impact verification decision solely from a `web_fetch` result when it conflicts with repository state, deployment information or another independent fetch.
+
+A cache busting query parameter is not sufficient proof that stale behaviour has been eliminated.
+
+Cross check material publication and correction decisions with an independent method.
+
+## 19. Security and trust boundaries
+
+For any change touching authentication, authorisation, APIs, sensitive data, financial data or trust decisions:
+
+1. Validate untrusted input.
+2. Enforce authorisation server side.
+3. Avoid exposing secrets or sensitive configuration.
+4. Preserve auditability.
+5. Consider abuse and rate limiting.
+6. Handle failure states explicitly.
+7. Test unauthorised and malformed requests.
+8. Flag the diff for high stakes review.
+
+Never weaken security controls merely to simplify implementation.
+
+## 20. Session tooling
+
+Two specialist tools are available:
+
+1. `ponytail`
+2. `code-review`
+
+### Ponytail mode
+
+Follow the active `BACKLOG.md` loop.
+
+Polish Loop:
+
+`/ponytail lite`
+
+Use for mechanical and low risk work such as CSS corrections, formatting sweeps and token fixes.
+
+Build Loop:
+
+`/ponytail full`
+
+Use for architecture, components, application logic and meaningful implementation decisions.
+
+Content Loop:
+
+`/ponytail full`
+
+Use when substantive sourcing, regulatory reasoning, interaction design or content architecture is involved.
+
+Use `/ponytail ultra` only for genuinely adversarial or unusually complex work.
+
+Do not upgrade automatically.
+
+### Review routing
+
+Use `/ponytail-review` for substantive implementation or logic work when a final diff review adds value.
+
+Do not run it automatically for trivial CSS, copy, typo or configuration changes.
+
+`/code-review` is available for pull request based review where a second implementation pass is useful.
+
+For the high stakes tier defined above, both `/code-review` and the manual external cross model review are mandatory.
+
+For low risk work, neither is mandatory merely because the tools exist.
+
+Review effort must be proportional to risk.
+
+## 21. Definition of done
+
+A task is not complete merely because the edited file looks correct.
+
+Where applicable, verify:
+
+1. Requirement implemented
+2. Existing behaviour preserved
+3. Sourcing completed
+4. Ledger reconciled
+5. Regulatory claims structurally checked
+6. Derived assets synchronised
+7. Component isolation confirmed
+8. Tests passed
+9. Build passed
+10. Live dependency checked
+11. Required adversarial review flagged or completed
+12. No unresolved material contradiction remains
+
+Never claim work is complete, fixed, tested, verified, production ready or publication ready unless the relevant checks actually occurred.
+
+If a check cannot be performed, state exactly what remains unverified.
+
+## 22. Final principle
+
+Prefer evidence over confidence.
+
+Prefer verified source structure over plausible wording.
+
+Prefer namespaced components over cascade assumptions.
+
+Prefer live production checks over local assumptions.
+
+Prefer proportionate review over ritual.
+
+Prefer human practitioner writing over AI shaped prose.
+
+Inspect before changing.
+
+Verify before claiming.
