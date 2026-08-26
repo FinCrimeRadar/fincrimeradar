@@ -99,6 +99,9 @@
           console.error("Scenario Lab: assertCase4ScoresHigh failed unexpectedly, continuing:", err);
         }
         renderDashboard(dashboard, workspace, state);
+        if (liveCaseDataStale) {
+          showStaleCaseDataNotice(header);
+        }
       })
       .catch((err) => {
         dashboard.innerHTML =
@@ -110,6 +113,27 @@
   const LOCAL_CASES_URL = "/scenario-lab/data/cases.json";
   const LIVE_CASES_TIMEOUT_MS = 15000;
 
+  // Known shipped baseline (17 total: KYC 5, Fraud 6, Risk Scoring 6), see
+  // BACKLOG.md "fetchCasesFrom accepts a stale-but-non-empty API response".
+  // A live payload can be non-empty and still be a stale partial deploy;
+  // check it looks like the real shipped set, not just that it parsed.
+  const CASE_COUNT_BASELINE = { total: 17, kyc: 5, fraud: 6, risk_scoring: 6 };
+
+  function caseCountShortfall(data) {
+    const counts = { total: data.length, kyc: 0, fraud: 0, risk_scoring: 0 };
+    data.forEach((c) => {
+      const mod = c.module || "kyc";
+      if (mod in counts) counts[mod] += 1;
+    });
+    const issues = [];
+    Object.keys(CASE_COUNT_BASELINE).forEach((key) => {
+      if (counts[key] < CASE_COUNT_BASELINE[key]) {
+        issues.push(key + " " + counts[key] + " < " + CASE_COUNT_BASELINE[key]);
+      }
+    });
+    return issues;
+  }
+
   async function fetchCasesFrom(url, timeoutMs) {
     const controller = new AbortController();
     const timer = timeoutMs ? setTimeout(() => controller.abort(), timeoutMs) : null;
@@ -119,6 +143,13 @@
       const data = await res.json();
       if (!Array.isArray(data) || data.length === 0) {
         throw new Error("Cases payload was empty or malformed");
+      }
+      const shortfall = caseCountShortfall(data);
+      if (shortfall.length) {
+        console.error(
+          "Scenario Lab: cases payload from " + url + " looks stale or incomplete (" + shortfall.join(", ") + ")"
+        );
+        throw new Error("Cases payload looks stale or incomplete: " + shortfall.join(", "));
       }
       return data;
     } finally {
@@ -134,7 +165,14 @@
   // own 429/502 handling in scenario-lab.js's SAR Sandbox section already
   // covers its live-only endpoints, this fallback is deliberately scoped to
   // fetchCases only.
+  // Set true by fetchCases when the live fetch was rejected specifically for
+  // looking stale/incomplete (not a plain network failure), so the caller
+  // can surface a visible on-page notice even though the fallback itself
+  // succeeds silently.
+  let liveCaseDataStale = false;
+
   async function fetchCases(apiBase) {
+    liveCaseDataStale = false;
     if (!apiBase) {
       return fetchCasesFrom(LOCAL_CASES_URL);
     }
@@ -143,8 +181,21 @@
       return await fetchCasesFrom(liveUrl, LIVE_CASES_TIMEOUT_MS);
     } catch (err) {
       console.error("Scenario Lab live case fetch failed, falling back to local data:", err);
+      if (err.message && err.message.indexOf("stale or incomplete") !== -1) {
+        liveCaseDataStale = true;
+      }
       return fetchCasesFrom(LOCAL_CASES_URL);
     }
+  }
+
+  function showStaleCaseDataNotice(header) {
+    const notice = document.createElement("div");
+    notice.setAttribute("role", "alert");
+    notice.style.cssText =
+      "margin-top:10px;padding:10px 14px;border-radius:8px;background:#fef3c7;color:#92400e;font-size:14px;";
+    notice.textContent =
+      "Live case data looked incomplete, showing the built-in local case set instead.";
+    header.appendChild(notice);
   }
 
   function renderDashboard(dashboard, workspace, state) {
@@ -280,7 +331,34 @@
     return 0;
   }
 
-  // ---- Case picker, shared by both modules ----
+  // Single source of truth for per-module dispatch. Was three separate
+  // ternary/if-else sites here plus a fourth in advanceToNextCase, two of
+  // which silently disagreed on the fallback for an unrecognised moduleKey.
+  // See BACKLOG.md "Scenario Lab: silent module-dispatch fallback". Function
+  // names are resolved at call time (hoisted declarations), so declaration
+  // order below doesn't matter.
+  const MODULE_CONFIG = {
+    kyc: {
+      title: "KYC and Sanctions Investigation",
+      cases: (state) => state.kycCases,
+      load: loadCase,
+      complete: renderCompletionScreen,
+    },
+    fraud: {
+      title: "Fraud Detection",
+      cases: (state) => state.fraudCases,
+      load: loadFraudCaseByLayout,
+      complete: renderFraudCompletionScreen,
+    },
+    risk_scoring: {
+      title: "Risk Scoring",
+      cases: (state) => state.riskCases,
+      load: loadRiskCaseByLayout,
+      complete: renderRiskCompletionScreen,
+    },
+  };
+
+  // ---- Case picker, shared by all modules ----
   // Entry point for a module from the dashboard, and the destination of
   // "Back to case list" from mid-sequence. Free selection rather than a
   // forced 1-2-3 order: clicking any tile sets state.caseIndex directly
@@ -289,18 +367,20 @@
   // analyst chose to start, exactly like the original sequential flow.
   function renderCasePicker(workspace, state, moduleKey) {
     state.currentModule = moduleKey;
-    const cases =
-      moduleKey === "kyc" ? state.kycCases : moduleKey === "fraud" ? state.fraudCases : state.riskCases;
+    const config = MODULE_CONFIG[moduleKey];
+    if (!config) {
+      console.error("Scenario Lab: renderCasePicker, unknown moduleKey: " + moduleKey);
+      return;
+    }
+    const cases = config.cases(state);
     state.cases = cases;
     workspace.dataset.total = String(cases.length);
 
     workspace.innerHTML = "";
     const picker = document.createElement("div");
     picker.className = "sl-case-picker";
-    const title =
-      moduleKey === "kyc" ? "KYC and Sanctions Investigation" : moduleKey === "fraud" ? "Fraud Detection" : "Risk Scoring";
     picker.innerHTML = [
-      "<h2>" + title + "</h2>",
+      "<h2>" + config.title + "</h2>",
       "<p>Choose any case to start. Progress on each one is saved on this device.</p>",
     ].join("");
     workspace.appendChild(picker);
@@ -320,13 +400,7 @@
       ].join("");
       tile.addEventListener("click", () => {
         state.caseIndex = idx;
-        if (moduleKey === "kyc") {
-          loadCase(workspace, state);
-        } else if (moduleKey === "risk_scoring") {
-          loadRiskCaseByLayout(workspace, state);
-        } else {
-          loadFraudCaseByLayout(workspace, state);
-        }
+        config.load(workspace, state);
       });
       grid.appendChild(tile);
     });
@@ -1333,18 +1407,15 @@
   // ever knowing how to advance its own original module.
   function advanceToNextCase(workspace, state) {
     state.caseIndex += 1;
-    const unknownModuleError =
-      "Scenario Lab: advanceToNextCase, unknown state.currentModule: " + state.currentModule;
+    const config = MODULE_CONFIG[state.currentModule];
+    if (!config) {
+      console.error("Scenario Lab: advanceToNextCase, unknown state.currentModule: " + state.currentModule);
+      return;
+    }
     if (state.caseIndex < state.cases.length) {
-      if (state.currentModule === "kyc") loadCase(workspace, state);
-      else if (state.currentModule === "risk_scoring") loadRiskCaseByLayout(workspace, state);
-      else if (state.currentModule === "fraud") loadFraudCaseByLayout(workspace, state);
-      else console.error(unknownModuleError);
+      config.load(workspace, state);
     } else {
-      if (state.currentModule === "kyc") renderCompletionScreen(workspace, state);
-      else if (state.currentModule === "risk_scoring") renderRiskCompletionScreen(workspace, state);
-      else if (state.currentModule === "fraud") renderFraudCompletionScreen(workspace, state);
-      else console.error(unknownModuleError);
+      config.complete(workspace, state);
     }
   }
 
