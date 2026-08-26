@@ -387,7 +387,7 @@
 /* Mobile tree label sizing. On a real device at 375px the SVG scales to
    roughly 0.6x, so 20px source renders at roughly 12px, matching the
    desktop design's visual text size rather than rendering below it. */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .sl-tree-svg text { font-size: 20px; }
   .sl-tree-svg .sl-edge-label { font-size: 16px; }
 }
@@ -778,7 +778,7 @@
   fill: var(--sl-border-mid);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .fd-scene-sublabel { font-size: 13px; }
 }
 
