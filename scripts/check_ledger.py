@@ -24,7 +24,15 @@ REQUIRED_TOP_FIELDS = [
 ]
 REQUIRED_SOURCE_FIELDS = ["title", "url", "publisher", "date"]
 
-ALLOWED_CLAIM_TYPES = {"statistic", "regulatory", "enforcement", "definition"}
+# internal-consistency: reconciles two representations of the same fact within a
+#   single guide (e.g. a decision-tree label vs. its own worked example), not an
+#   external regulatory/statistical claim.
+# process-record: an internal audit-trail entry documenting a guide's own review
+#   history (e.g. a legal review register), not a factual claim about the world.
+ALLOWED_CLAIM_TYPES = {
+    "statistic", "regulatory", "enforcement", "definition",
+    "internal-consistency", "process-record",
+}
 # verified: sourced to a primary/named-study reference and confirmed.
 # needs-review: sourced but not yet confirmed, or due for re-check.
 # unverifiable-remove: could not be sourced and has been (or should be) removed from the guide.
@@ -59,8 +67,13 @@ def validate(entries):
             # unverifiable-remove and retained-as-estimate entries document a claim
             # with no real primary/named-study reference. A missing 'source' here
             # means "none found," not an incomplete entry; inventing one to satisfy
-            # the schema would be worse than the gap itself.
-            if field == "source" and entry.get("status") in ("unverifiable-remove", "retained-as-estimate"):
+            # the schema would be worse than the gap itself. process-record entries
+            # are internal audit-trail records of a guide's own review history, not
+            # externally-sourceable factual claims, so they carry no source by design.
+            if field == "source" and (
+                entry.get("status") in ("unverifiable-remove", "retained-as-estimate")
+                or entry.get("claimType") == "process-record"
+            ):
                 continue
             if field not in entry:
                 errors.append(f"{label}: missing field '{field}'")
@@ -85,7 +98,7 @@ def validate(entries):
 
         source = entry.get("source")
         if source is None:
-            if status == "verified":
+            if status == "verified" and claim_type != "process-record":
                 errors.append(f"{label}: status 'verified' requires a non-null 'source'")
         elif not isinstance(source, dict):
             errors.append(f"{label}: 'source' is not an object")
