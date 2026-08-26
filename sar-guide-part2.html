@@ -32,12 +32,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How to Write a Good SAR: The 5W Framework & Best Practice | FinCrimeRadar</title>
-  <meta name="description" content="Practical guide to writing high-quality Suspicious Activity Reports — the 5W framework, good vs bad narrative examples, the 8 most common SAR mistakes, and typology-specific tips." />
+  <meta name="description" content="Practical guide to writing high-quality Suspicious Activity Reports: the 5W framework, good vs bad narrative examples, the 8 most common SAR mistakes, and typology-specific tips." />
   <meta name="keywords" content="how to write a SAR, SAR narrative example, SAR quality NCA, 5W framework SAR, SAR common mistakes, structuring SAR, TBML SAR, crypto SAR reporting" />
   <link rel="canonical" href="https://fincrimeradar.org/sar-guide-part2.html" />
   <!-- Open Graph -->
   <meta property="og:title" content="How to Write a Good SAR: The 5W Framework & Best Practice | FinCrimeRadar" />
-  <meta property="og:description" content="Practical guide to writing high-quality Suspicious Activity Reports — the 5W framework, good vs bad narrative examples, the 8 most common SAR mistakes, and typology-specific tips." />
+  <meta property="og:description" content="Practical guide to writing high-quality Suspicious Activity Reports: the 5W framework, good vs bad narrative examples, the 8 most common SAR mistakes, and typology-specific tips." />
   <meta property="og:url" content="https://fincrimeradar.org/sar-guide-part2.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
@@ -45,10 +45,10 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How to Write a Good SAR: The 5W Framework & Best Practice | FinCrimeRadar" />
-  <meta name="twitter:description" content="Practical guide to writing high-quality Suspicious Activity Reports — the 5W framework, good vs bad narrative examples, the 8 most common SAR mistakes, and typology-specific tips." />
+  <meta name="twitter:description" content="Practical guide to writing high-quality Suspicious Activity Reports: the 5W framework, good vs bad narrative examples, the 8 most common SAR mistakes, and typology-specific tips." />
   <meta name="twitter:image" content="https://fincrimeradar.org/og-image.png" />
   <!-- Schema.org -->
-  <meta name="author" content="Pratik Zanke — FinCrimeRadar" />
+  <meta name="author" content="Pratik Zanke, FinCrimeRadar" />
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -269,7 +269,7 @@
       .section { padding: 2rem 1.25rem; }
       .section-title { font-size: clamp(1.3rem, 5vw, 1.8rem) !important; }
 
-      /* GRIDS — collapse all multi-col to single col */
+      /* GRIDS: collapse all multi-col to single col */
       [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
@@ -318,7 +318,7 @@
       footer { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
       .footer-links { flex-wrap: wrap !important; gap: 0.75rem !important; }
 
-      /* NEWS PILLS — horizontal scroll */
+      /* NEWS PILLS: horizontal scroll */
       .filter-pills, [style*="flex-wrap:wrap"] { flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; padding-bottom: 4px !important; }
     }
   </style>
@@ -410,41 +410,41 @@
 
     <section class="article-section" id="intro">
       <div class="section-num">Introduction</div>
-      <h2>Quality over quantity — the NCA's message</h2>
-      <p>The UK receives more SARs per capita than almost any other country in the world. Yet the UKFIU and NCA have consistently flagged the same problem: too many SARs provide too little actionable intelligence. A defensive SAR — filed to avoid prosecution, with minimal content, vague language, and incomplete subject information — consumes UKFIU analyst time without contributing to law enforcement outcomes.</p>
-      <p>The difference between a good SAR and a bad one is not the length — it is the specificity, the clarity of reasoning, and the completeness of the information provided. This part of the guide teaches you to write SARs that get used.</p>
+      <h2>Quality over quantity: the NCA's message</h2>
+      <p>The UK receives more SARs per capita than almost any other country in the world. Yet the UKFIU and NCA have consistently flagged the same problem: too many SARs provide too little actionable intelligence. A defensive SAR, filed to avoid prosecution, with minimal content, vague language, and incomplete subject information, consumes UKFIU analyst time without contributing to law enforcement outcomes.</p>
+      <p>The difference between a good SAR and a bad one is not the length: it is the specificity, the clarity of reasoning, and the completeness of the information provided. This part of the guide teaches you to write SARs that get used.</p>
       <div class="pull-quote">"What we need is not more SARs. We need better ones. A SAR that tells us who, what, why it's suspicious, and gives us something to work with is worth fifty defensive filings that tell us nothing useful."</div>
     </section>
 
     <section class="article-section" id="5w">
       <div class="section-num">Section 01</div>
-      <h2>The 5W framework — the backbone of every SAR</h2>
+      <h2>The 5W framework: the backbone of every SAR</h2>
       <p>Every SAR, regardless of the typology or complexity, should answer five fundamental questions. These are the intelligence questions that the UKFIU analyst needs to begin an investigation.</p>
       <div class="five-w">
         <div class="fw-card">
           <div class="fw-letter">Who</div>
           <div class="fw-word">Subject</div>
-          <div class="fw-desc">Full identity of the subject — name, DOB, address, account numbers, national IDs, business connections</div>
+          <div class="fw-desc">Full identity of the subject: name, DOB, address, account numbers, national IDs, business connections</div>
         </div>
         <div class="fw-card">
           <div class="fw-letter">What</div>
           <div class="fw-word">Activity</div>
-          <div class="fw-desc">Precisely what happened — transaction amounts, dates, accounts, counterparties, payment references</div>
+          <div class="fw-desc">Precisely what happened: transaction amounts, dates, accounts, counterparties, payment references</div>
         </div>
         <div class="fw-card">
           <div class="fw-letter">Why</div>
           <div class="fw-word">Suspicion</div>
-          <div class="fw-desc">Why is this suspicious? The reasoning — not just a description of events but why they indicate ML/TF</div>
+          <div class="fw-desc">Why is this suspicious? The reasoning: not just a description of events but why they indicate ML/TF</div>
         </div>
         <div class="fw-card">
           <div class="fw-letter">When</div>
           <div class="fw-word">Timeline</div>
-          <div class="fw-desc">Dates and times — when did the activity occur, when was it identified, what is the relevant period</div>
+          <div class="fw-desc">Dates and times: when did the activity occur, when was it identified, what is the relevant period</div>
         </div>
         <div class="fw-card">
           <div class="fw-letter">Where</div>
           <div class="fw-word">Geography</div>
-          <div class="fw-desc">Jurisdictions, accounts, institutions, addresses involved — particularly any cross-border elements</div>
+          <div class="fw-desc">Jurisdictions, accounts, institutions, addresses involved, particularly any cross-border elements</div>
         </div>
       </div>
       <p>Before submitting any SAR, ask yourself: does this report clearly answer all five questions? If any are missing or vague, the SAR needs more work before it is submitted.</p>
@@ -452,19 +452,19 @@
 
     <section class="article-section" id="subject">
       <div class="section-num">Section 02</div>
-      <h2>Subject information — be exhaustive</h2>
+      <h2>Subject information: be exhaustive</h2>
       <p>The most common quality failure in SARs is inadequate subject information. The UKFIU cannot investigate a subject they cannot identify. Provide everything you know.</p>
       <h3>For individual subjects</h3>
       <table class="data-table">
         <thead><tr><th>Field</th><th>What to include</th><th>Priority</th></tr></thead>
         <tbody>
           <tr><td>Full name</td><td>All names, including middle names and any known aliases or former names</td><td>🔴 Essential</td></tr>
-          <tr><td>Date of birth</td><td>Full DOB — not just year</td><td>🔴 Essential</td></tr>
-          <tr><td>Address</td><td>Current residential address — all addresses if multiple known</td><td>🔴 Essential</td></tr>
+          <tr><td>Date of birth</td><td>Full DOB, not just year</td><td>🔴 Essential</td></tr>
+          <tr><td>Address</td><td>Current residential address, all addresses if multiple known</td><td>🔴 Essential</td></tr>
           <tr><td>Account details</td><td>All account numbers, sort codes, IBANs associated with the subject</td><td>🔴 Essential</td></tr>
           <tr><td>Nationality/passport</td><td>Nationality, passport number and issuing country if held on file</td><td>🟡 Important</td></tr>
-          <tr><td>Occupation</td><td>Stated occupation and employer — especially relevant if inconsistent with activity</td><td>🟡 Important</td></tr>
-          <tr><td>Phone/email</td><td>Contact details on file — useful for linking to other intelligence</td><td>🟡 Important</td></tr>
+          <tr><td>Occupation</td><td>Stated occupation and employer, especially relevant if inconsistent with activity</td><td>🟡 Important</td></tr>
+          <tr><td>Phone/email</td><td>Contact details on file, useful for linking to other intelligence</td><td>🟡 Important</td></tr>
           <tr><td>Associated persons</td><td>Named associates, joint account holders, related parties</td><td>🟡 Important</td></tr>
           <tr><td>National insurance/tax ID</td><td>NI number or overseas tax ID if held</td><td>🟢 Include if known</td></tr>
         </tbody>
@@ -482,31 +482,31 @@
       <div class="callout info">
         <div class="callout-icon">💡</div>
         <div class="callout-body">
-          <div class="callout-title">Include what you know — even if incomplete</div>
-          <div class="callout-text">Do not delay submitting a SAR because you do not have all subject information. Include what you have and flag clearly what is unknown. An incomplete SAR submitted promptly is better than a complete SAR submitted late. The UKFIU can supplement SAR intelligence from other sources — but only if they have something to work with.</div>
+          <div class="callout-title">Include what you know, even if incomplete</div>
+          <div class="callout-text">Do not delay submitting a SAR because you do not have all subject information. Include what you have and flag clearly what is unknown. An incomplete SAR submitted promptly is better than a complete SAR submitted late. The UKFIU can supplement SAR intelligence from other sources, but only if they have something to work with.</div>
         </div>
       </div>
     </section>
 
     <section class="article-section" id="narrative">
       <div class="section-num">Section 03</div>
-      <h2>Writing the narrative — the heart of the SAR</h2>
-      <p>The narrative is the most important part of the SAR. It is where the MLRO explains the suspicious activity, sets it in context, and communicates why it gives rise to suspicion of money laundering or terrorist financing. A good narrative is clear, specific, logical, and reads like an intelligence report — not a compliance form.</p>
+      <h2>Writing the narrative: the heart of the SAR</h2>
+      <p>The narrative is the most important part of the SAR. It is where the MLRO explains the suspicious activity, sets it in context, and communicates why it gives rise to suspicion of money laundering or terrorist financing. A good narrative is clear, specific, logical, and reads like an intelligence report, not a compliance form.</p>
 
-      <h3>Narrative structure — a recommended approach</h3>
+      <h3>Narrative structure: a recommended approach</h3>
       <ol>
-        <li><strong>Context</strong> — who is the customer, what is the relationship, what do you know about them? (2–3 sentences)</li>
-        <li><strong>What happened</strong> — describe the suspicious activity specifically: dates, amounts, counterparties, accounts (as much detail as possible)</li>
-        <li><strong>Why it's suspicious</strong> — explain why this activity is inconsistent with what you know about the customer, or why it matches a known ML/TF typology. This is the most important paragraph.</li>
-        <li><strong>What you've done</strong> — any additional checks conducted: adverse media search, CDD review, customer contact (if appropriate)</li>
-        <li><strong>What you need</strong> — if submitting a DAML, state clearly what consent you are seeking and the value/nature of the transaction</li>
+        <li><strong>Context</strong>: who is the customer, what is the relationship, what do you know about them? (2-3 sentences)</li>
+        <li><strong>What happened</strong>: describe the suspicious activity specifically: dates, amounts, counterparties, accounts (as much detail as possible)</li>
+        <li><strong>Why it's suspicious</strong>: explain why this activity is inconsistent with what you know about the customer, or why it matches a known ML/TF typology. This is the most important paragraph.</li>
+        <li><strong>What you've done</strong>: any additional checks conducted: adverse media search, CDD review, customer contact (if appropriate)</li>
+        <li><strong>What you need</strong>: if submitting a DAML, state clearly what consent you are seeking and the value/nature of the transaction</li>
       </ol>
 
-      <h3>The key paragraph — why it's suspicious</h3>
+      <h3>The key paragraph: why it's suspicious</h3>
       <p>Many SARs describe what happened without explaining why it's suspicious. The "why" is what makes your SAR actionable. Some examples of good "why" reasoning:</p>
       <ul>
-        <li>"This activity is inconsistent with the customer's stated occupation as a part-time teacher and declared income of £18,000 per year — the account has received £240,000 in the past 12 months."</li>
-        <li>"The pattern of deposits — multiple cash payments between £8,000 and £9,500 over a 30-day period — is consistent with structuring to avoid the firm's internal cash reporting threshold."</li>
+        <li>"This activity is inconsistent with the customer's stated occupation as a part-time teacher and declared income of £18,000 per year: the account has received £240,000 in the past 12 months."</li>
+        <li>"The pattern of deposits, multiple cash payments between £8,000 and £9,500 over a 30-day period, is consistent with structuring to avoid the firm's internal cash reporting threshold."</li>
         <li>"The customer provided no explanation for the source of funds when asked, stating only that it was 'a business payment' despite having no registered business activity on file."</li>
         <li>"The recipient account in Jurisdiction X has been associated with fraud in previous adverse media reporting identified during our checks."</li>
       </ul>
@@ -514,10 +514,10 @@
 
     <section class="article-section" id="good-bad">
       <div class="section-num">Section 04</div>
-      <h2>Good vs bad — real examples</h2>
+      <h2>Good vs bad: real examples</h2>
       <p>The difference between a useful SAR and a defensive one is stark. These examples illustrate the quality gap.</p>
 
-      <h3>Example 1 — structuring suspicion</h3>
+      <h3>Example 1: structuring suspicion</h3>
       <div class="compare">
         <div class="compare-bad">
           <div class="compare-label">❌ Poor SAR narrative</div>
@@ -529,7 +529,7 @@
         </div>
       </div>
 
-      <h3>Example 2 — international wire suspicion</h3>
+      <h3>Example 2: international wire suspicion</h3>
       <div class="compare">
         <div class="compare-bad">
           <div class="compare-label">❌ Poor SAR narrative</div>
@@ -537,7 +537,7 @@
         </div>
         <div class="compare-good">
           <div class="compare-label">✅ Strong SAR narrative</div>
-          <div class="compare-text">"On 15 June 2026, the customer (John Smith, DOB 12/03/1978, Account 12345678) sent £85,000 to account [IBAN] at [Bank], [Country] — a jurisdiction on the FATF grey list. The stated purpose was 'investment.' The customer has no declared business interests overseas and has not previously sent international transfers. The receiving account name does not match any known associate. An adverse media search conducted on 18 June returned results linking the account holder's name to a fraud investigation in [Country] reported by [news outlet] on [date]."</div>
+          <div class="compare-text">"On 15 June 2026, the customer (John Smith, DOB 12/03/1978, Account 12345678) sent £85,000 to account [IBAN] at [Bank], [Country], a jurisdiction on the FATF grey list. The stated purpose was 'investment.' The customer has no declared business interests overseas and has not previously sent international transfers. The receiving account name does not match any known associate. An adverse media search conducted on 18 June returned results linking the account holder's name to a fraud investigation in [Country] reported by [news outlet] on [date]."</div>
         </div>
       </div>
 
@@ -545,7 +545,7 @@
         <div class="callout-icon">⚠️</div>
         <div class="callout-body">
           <div class="callout-title">Avoid vague "compliance purposes" SARs</div>
-          <div class="callout-text">The phrase "filing for compliance purposes" in a SAR narrative is a red flag that the MLRO is unsure whether they should be filing at all. If you cannot articulate why the activity is suspicious, consider whether the reasonable grounds threshold has actually been met. Filing defensively without genuine suspicion does not protect the firm — and poor quality SARs undermine the effectiveness of the entire regime. If in doubt, consult legal counsel before filing.</div>
+          <div class="callout-text">The phrase "filing for compliance purposes" in a SAR narrative is a red flag that the MLRO is unsure whether they should be filing at all. If you cannot articulate why the activity is suspicious, consider whether the reasonable grounds threshold has actually been met. Filing defensively without genuine suspicion does not protect the firm, and poor quality SARs undermine the effectiveness of the entire regime. If in doubt, consult legal counsel before filing.</div>
         </div>
       </div>
 
@@ -553,7 +553,7 @@
         <div class="tl">
           <div class="tl-eyebrow">🛡️ Strengthen your SAR with screening data</div>
           <div class="tl-title">Adverse media results can be cited directly in your SAR narrative</div>
-          <div class="tl-sub">FinCrimeRadar's adverse media search returns BBC, OCCRP, AP and DW results — relevant findings can be cited to add intelligence value to your SAR.</div>
+          <div class="tl-sub">FinCrimeRadar's adverse media search returns BBC, OCCRP, AP and DW results, relevant findings can be cited to add intelligence value to your SAR.</div>
         </div>
         <a href="/screen.html" class="tl-btn">Search adverse media →</a>
       </div>
@@ -576,7 +576,7 @@
         <div class="mistake-card">
           <div class="mc-num">Mistake 03</div>
           <div class="mc-title">Late filing</div>
-          <div class="mc-desc">Filing weeks after the suspicion arose. "As soon as practicable" means promptly — not after the next quarterly review.</div>
+          <div class="mc-desc">Filing weeks after the suspicion arose. "As soon as practicable" means promptly, not after the next quarterly review.</div>
         </div>
         <div class="mistake-card">
           <div class="mc-num">Mistake 04</div>
@@ -586,7 +586,7 @@
         <div class="mistake-card">
           <div class="mc-num">Mistake 05</div>
           <div class="mc-title">No DAML when needed</div>
-          <div class="mc-desc">Filing a standard SAR when a transaction is pending, rather than seeking a DAML — if the underlying act independently meets the elements of a section 327, 328, or 329 offence with no defence or exemption applying, proceeding without a DAML leaves the firm exposed to that offence. Failing to seek consent does not itself create the offence.</div>
+          <div class="mc-desc">Filing a standard SAR when a transaction is pending, rather than seeking a DAML: if the underlying act independently meets the elements of a section 327, 328, or 329 offence with no defence or exemption applying, proceeding without a DAML leaves the firm exposed to that offence. Failing to seek consent does not itself create the offence.</div>
         </div>
         <div class="mistake-card">
           <div class="mc-num">Mistake 06</div>
@@ -609,7 +609,7 @@
         <div class="quiz-label">🧠 Knowledge check</div>
         <div class="quiz-q">An MLRO receives an internal SAR about a customer making repeated cash deposits. After investigation, the MLRO decides NOT to file an external SAR because they believe there is an innocent explanation. What must the MLRO do?</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" onclick="doQuiz('q1',this,false)">A) Nothing — no external SAR means no record is needed</button>
+          <button class="quiz-opt" onclick="doQuiz('q1',this,false)">A) Nothing, no external SAR means no record is needed</button>
           <button class="quiz-opt" onclick="doQuiz('q1',this,false)">B) Close the internal report and move on</button>
           <button class="quiz-opt" onclick="doQuiz('q1',this,true)">C) Document the reasons for NOT filing, retain the internal SAR record, and ensure the rationale is clearly recorded in the compliance file</button>
           <button class="quiz-opt" onclick="doQuiz('q1',this,false)">D) File a SAR anyway as a precaution</button>
@@ -634,7 +634,7 @@
       <h3>🌍 Trade-based money laundering (TBML)</h3>
       <ul>
         <li>Name the specific goods or services ostensibly involved in the trade</li>
-        <li>Identify the over or under-invoicing indicators — compare invoice values to market rates</li>
+        <li>Identify the over or under-invoicing indicators: compare invoice values to market rates</li>
         <li>Name the counterparties and their jurisdictions</li>
         <li>Flag any mismatch between the stated trade and the customer's known business activity</li>
       </ul>
@@ -642,7 +642,7 @@
       <h3>🏠 Property-related laundering</h3>
       <ul>
         <li>Property address, purchase price, and any cash element</li>
-        <li>Source of funds for the deposit or purchase — if unknown or suspicious, say so</li>
+        <li>Source of funds for the deposit or purchase, if unknown or suspicious, say so</li>
         <li>Any third-party payments or unusual settlement arrangements</li>
         <li>Conveyancer/solicitor details if known</li>
       </ul>
@@ -650,7 +650,7 @@
       <h3>💻 Cyber fraud / authorised push payment</h3>
       <ul>
         <li>The specific nature of the fraud if known (invoice fraud, romance scam, impersonation)</li>
-        <li>The receiving account details — sort code, account number, name of account holder</li>
+        <li>The receiving account details: sort code, account number, name of account holder</li>
         <li>Whether the victim is the subject of the SAR (mule) or a third party</li>
         <li>Any URLs, email addresses, or phone numbers associated with the fraud</li>
       </ul>
@@ -659,24 +659,24 @@
       <ul>
         <li>Wallet addresses associated with the activity</li>
         <li>Which blockchain/network (Bitcoin, Ethereum, etc.)</li>
-        <li>Any exchange platforms used — named, if known</li>
+        <li>Any exchange platforms used, named, if known</li>
         <li>Results of any blockchain analytics checks conducted</li>
         <li>Whether the wallet has been flagged by analytics tools as associated with illicit activity</li>
       </ul>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Should we mention our screening tool results in the SAR? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Yes — if your screening checks produced relevant results, include them in the SAR narrative. For example: "A sanctions screening check conducted on [date] against [source] returned a potential match for the subject against [list] — this was investigated and [confirmed/not confirmed as a true match]." Or: "An adverse media search on [date] returned results linking the subject to [allegation/investigation] reported by [source] on [date]." This adds intelligence value and demonstrates the thoroughness of your investigation. Negative results are also worth noting: "Screening against OFAC, UN, EU, and OFSI lists returned no matches."</div>
+        <div class="faq-a">Yes, if your screening checks produced relevant results, include them in the SAR narrative. For example: "A sanctions screening check conducted on [date] against [source] returned a potential match for the subject against [list], this was investigated and [confirmed/not confirmed as a true match]." Or: "An adverse media search on [date] returned results linking the subject to [allegation/investigation] reported by [source] on [date]." This adds intelligence value and demonstrates the thoroughness of your investigation. Negative results are also worth noting: "Screening against OFAC, UN, EU, and OFSI lists returned no matches."</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">How long should a SAR narrative be? <span class="faq-icon">+</span></div>
-        <div class="faq-a">There is no prescribed length. A simple structuring SAR covering one customer and a clear transaction pattern might need 200–300 words. A complex SAR covering multiple related accounts, international transfers, and a suspected trade-based laundering scheme might run to 1,000 words or more. The principle is: include everything relevant, nothing irrelevant. The NCA does not reward length — it rewards precision and completeness. Every sentence should add intelligence value. Padding a SAR with general background information about money laundering typologies wastes analyst time.</div>
+        <div class="faq-a">There is no prescribed length. A simple structuring SAR covering one customer and a clear transaction pattern might need 200-300 words. A complex SAR covering multiple related accounts, international transfers, and a suspected trade-based laundering scheme might run to 1,000 words or more. The principle is: include everything relevant, nothing irrelevant. The NCA does not reward length: it rewards precision and completeness. Every sentence should add intelligence value. Padding a SAR with general background information about money laundering typologies wastes analyst time.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Can we share information from one SAR with another reporting entity? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Yes — with care, and only within narrow statutory limits. Section 333B and section 333C POCA create two separate, limited exceptions to the tipping-off prohibition, not one blended test. Section 333B covers specified disclosures within the same undertaking, within the same group of credit or financial institutions, or between professional advisers who share common ownership, management, or control. Section 333C covers a different scenario: disclosure between institutions or advisers of a matching type only (credit institution to credit institution, financial institution to financial institution, professional adviser to another adviser of the same kind), and only where all of the following apply together: the disclosure concerns a shared or former shared client, or a transaction or service involving both parties; it is made for the sole purpose of preventing an offence under Part 7 POCA; the recipient is situated in the UK, an EEA state, or a country imposing equivalent money laundering requirements; and both parties are subject to equivalent duties of professional confidentiality and data protection. These are known as "permitted disclosures." Neither section permits disclosure to any regulated-sector party generally, or for any AML/CTF purpose generally — the conditions are specific and cumulative. In practice, information-sharing arrangements between firms for SAR-related purposes should be documented and should be reviewed by legal counsel to ensure they fall within the permitted exceptions.</div>
+        <div class="faq-a">Yes, with care, and only within narrow statutory limits. Section 333B and section 333C POCA create two separate, limited exceptions to the tipping-off prohibition, not one blended test. Section 333B covers specified disclosures within the same undertaking, within the same group of credit or financial institutions, or between professional advisers who share common ownership, management, or control. Section 333C covers a different scenario: disclosure between institutions or advisers of a matching type only (credit institution to credit institution, financial institution to financial institution, professional adviser to another adviser of the same kind), and only where all of the following apply together: the disclosure concerns a shared or former shared client, or a transaction or service involving both parties; it is made for the sole purpose of preventing an offence under Part 7 POCA; the recipient is situated in the UK, an EEA state, or a country imposing equivalent money laundering requirements; and both parties are subject to equivalent duties of professional confidentiality and data protection. These are known as "permitted disclosures." Neither section permits disclosure to any regulated-sector party generally, or for any AML/CTF purpose generally: the conditions are specific and cumulative. In practice, information-sharing arrangements between firms for SAR-related purposes should be documented and should be reviewed by legal counsel to ensure they fall within the permitted exceptions.</div>
       </div>
 
       <div class="part-footer">
@@ -722,7 +722,7 @@
     document.querySelectorAll(`#${id} .quiz-opt`).forEach(b => b.disabled = true);
     btn.classList.add(correct ? 'correct' : 'wrong');
     fb.classList.add('show', correct ? 'correct' : 'wrong');
-    fb.textContent = correct ? '✅ Correct! The MLRO must document the reasons for NOT filing a SAR. This is one of the most commonly missed obligations. The internal SAR record, the investigation conducted, and the rationale for non-disclosure must all be retained.' : '❌ Not quite. When an MLRO decides not to file an external SAR after receiving an internal report, they must document their reasoning. A non-filing decision carries the same documentation obligation as a filing decision — both must be evidenced in the compliance file.';
+    fb.textContent = correct ? '✅ Correct! The MLRO must document the reasons for NOT filing a SAR. This is one of the most commonly missed obligations. The internal SAR record, the investigation conducted, and the rationale for non-disclosure must all be retained.' : '❌ Not quite. When an MLRO decides not to file an external SAR after receiving an internal report, they must document their reasoning. A non-filing decision carries the same documentation obligation as a filing decision, both must be evidenced in the compliance file.';
   }
   function toggleFaq(el) {
     el.nextElementSibling.classList.toggle('open');
