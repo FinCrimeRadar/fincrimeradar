@@ -439,6 +439,14 @@ Two specialist tools are available:
 1. `ponytail`
 2. `code-review`
 
+### Ledger base check
+
+Run `python scripts/check_ledger_base.py` as a required pre-flight step at the start of any session that will read, write, or continue a WIP touching `verification-ledger.json`.
+
+It diffs the working tree's claimId set against HEAD's and fails loud if any claimId committed in HEAD is missing from the working tree, the signature of the stale-snapshot write-back bug (see `BACKLOG.md`, ledger section, third occurrence, root cause 2026-08-23): a long-running WIP built from a cached read of the ledger silently drops whatever claimIds sat at the tail of the array at snapshot time when it's later written back.
+
+Run it again before committing a ledger change, not only at session start.
+
 ### Ponytail mode
 
 Follow the active `BACKLOG.md` loop.
