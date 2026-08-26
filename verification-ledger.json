@@ -5354,7 +5354,7 @@
     "guide": "fatf-guide-part2.html",
     "claimType": "internal-consistency",
     "status": "verified",
-    "claimText": "The Grey List Risk Decision Framework's 'Customer IS from grey-listed country — primary nexus' branch previously read 'EDD almost always warranted', which directly contradicted the guide's own Bulgaria worked example (a live instance of exactly that fact pattern), which explicitly concludes that grey-listed nationality alone does not trigger automatic EDD and that standard CDD is the correct starting point. The branch label is corrected to match the worked example's actual position: document the risk factor and assess against the country's specific FATF-identified deficiencies, not automatic EDD.",
+    "claimText": "The Grey List Risk Decision Framework's 'Customer IS from grey-listed country: primary nexus' branch previously read 'EDD almost always warranted', which directly contradicted the guide's own Bulgaria worked example (a live instance of exactly that fact pattern), which explicitly concludes that grey-listed nationality alone does not trigger automatic EDD and that standard CDD is the correct starting point. The branch label is corrected to match the worked example's actual position: document the risk factor and assess against the country's specific FATF-identified deficiencies, not automatic EDD.",
     "source": {
       "title": "fatf-guide-part2.html, Bulgaria worked example section",
       "url": "https://fincrimeradar.org/fatf-guide-part2.html#scenarios",
