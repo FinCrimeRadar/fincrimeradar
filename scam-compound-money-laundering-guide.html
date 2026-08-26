@@ -379,12 +379,12 @@
         <div class="hero-stat-source">FATF President Giles Thomson, Roadmap launch, 1 Jul 2026 <a class="cite" href="#src-1">[1]</a></div>
       </div>
       <div class="hero-stat-tile">
-        <div class="hero-stat-num">$18–37bn</div>
+        <div class="hero-stat-num">$18-37bn</div>
         <div class="hero-stat-label">UNODC regional estimate, East &amp; SE Asia, 2023 losses</div>
         <div class="hero-stat-source">UNODC, October 2024 report <a class="cite" href="#src-8">[8]</a></div>
       </div>
       <div class="hero-stat-tile">
-        <div class="hero-stat-num">$88.3–114.1bn</div>
+        <div class="hero-stat-num">$88.3-114.1bn</div>
         <div class="hero-stat-label">UNODC regional update, East Asia, SE Asia, Australia &amp; NZ, 2025 losses</div>
         <div class="hero-stat-source">UNODC, July 2026 follow-up <a class="cite" href="#src-8b">[8b]</a></div>
       </div>
@@ -1161,7 +1161,7 @@ function answerDP(dpId, chosen, btn) {
   const icon = pts === 2 ? '✅' : pts === 0 ? '❌' : '➖';
   const srLabel = pts === 2 ? 'Best answer: ' : pts === 0 ? 'Weakest answer: ' : 'Partial credit: ';
   btn.innerHTML = '<span class="visually-hidden">' + srLabel + '</span><span aria-hidden="true">' + icon + ' </span>' + btn.innerHTML;
-  contentDiv.innerHTML = '<div class="verdict-choice">' + icon + ' You chose Option ' + chosen + ' — ' + pts + ' point' + (pts === 1 ? '' : 's') + '</div><div class="verdict-body">' + data.panel + '</div>';
+  contentDiv.innerHTML = '<div class="verdict-choice">' + icon + ' You chose Option ' + chosen + ': ' + pts + ' point' + (pts === 1 ? '' : 's') + '</div><div class="verdict-body">' + data.panel + '</div>';
   verdictDiv.classList.add('show');
   dpScores[dpId] = pts;
   updateScoreCard();
