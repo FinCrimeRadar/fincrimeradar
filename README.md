@@ -78,6 +78,12 @@ Open an issue or reach out at [hello@fincrimeradar.org](mailto:hello@fincrimerad
 
 ---
 
+## Support this project
+
+FinCrimeRadar is free and ad-supported. If it's useful to you, consider [sponsoring on GitHub Sponsors](https://github.com/sponsors/FinCrimeRadar) to help keep it free and independent.
+
+---
+
 ## Disclaimer
 
 FinCrimeRadar is an **educational tool** only. Results are for learning purposes and should not be used as a substitute for regulated compliance screening solutions. Always verify against official sanction list sources for compliance decisions.
