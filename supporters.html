@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied'
+        });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supporters | FinCrimeRadar</title>
+  <meta name="description" content="How FinCrimeRadar is funded and how to support the project through GitHub Sponsors." />
+  <meta name="keywords" content="FinCrimeRadar supporters, GitHub Sponsors, support open source AML tool" />
+  <link rel="canonical" href="https://fincrimeradar.org/supporters.html" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Supporters | FinCrimeRadar" />
+  <meta property="og:description" content="How FinCrimeRadar is funded and how to support the project through GitHub Sponsors." />
+  <meta property="og:url" content="https://fincrimeradar.org/supporters.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://fincrimeradar.org/og-image.png" />
+  <meta property="og:site_name" content="FinCrimeRadar" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Supporters | FinCrimeRadar" />
+  <meta name="twitter:description" content="How FinCrimeRadar is funded and how to support the project through GitHub Sponsors." />
+  <meta name="twitter:image" content="https://fincrimeradar.org/og-image.png" />
+  <!-- Schema.org -->
+  <meta name="author" content="Pratik Zanke, FinCrimeRadar" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #ffffff; --off: #f7f8fa; --border: #e4e7ec;
+      --muted: #6b7280; --text: #111827; --navy: #0f2044;
+      --accent: #1d5fc4;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--off); color: var(--text); line-height: 1.7; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 72px;
+      background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-logo { width: 26px; height: 26px; }
+    .nav-name { font-size: 15px; font-weight: 600; color: var(--navy); }
+    .nav-name span { color: var(--accent); }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+    .nav-links a:hover { color:var(--teal); }
+    .nav-cta { padding:7px 16px; background:var(--teal); border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-cta:hover { background:var(--teal-h) !important; color:#fff; }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .doc-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .doc-header h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 32px; font-weight: 400; color: var(--navy); margin-bottom: 8px; }
+    .doc-meta { font-size: 13px; color: var(--muted); }
+
+    .policy-body { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2rem 2.5rem; }
+
+    h2 { font-size: 17px; font-weight: 600; color: var(--navy); margin: 2rem 0 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    p { font-size: 14px; color: var(--text); margin-bottom: 0.85rem; }
+    ul { padding-left: 1.25rem; margin-bottom: 0.85rem; }
+    ul li { font-size: 14px; color: var(--text); margin-bottom: 0.4rem; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .highlight { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 13px; color: #1e40af; }
+
+    .sponsor-cta { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; flex-wrap: wrap; background: #f0fdf9; border: 1px solid #a7f3d8; border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1rem 0 1.5rem; }
+    .sponsor-cta-text { font-size: 14px; color: var(--text); }
+    .sponsor-cta a.nav-cta { padding: 10px 20px; font-size: 14px; font-weight: 600; color: #fff; white-space: nowrap; }
+
+    footer { text-align: center; padding: 2rem; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 2rem; background: var(--white); }
+    /* ===== MOBILE RESPONSIVE ===== */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--navy, #0f2044);
+      padding: 4px 6px;
+      line-height: 1;
+    }
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid #e4e7ec;
+      flex-direction: column;
+      z-index: 99;
+      padding: 0.5rem 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      padding: 14px 1.5rem;
+      font-size: 15px;
+      color: #374151;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #f3f4f6;
+      transition: background 0.1s;
+    }
+    .mobile-nav a:hover { background: #f9fafb; }
+    .mobile-nav .mobile-nav-cta {
+      margin: 0.75rem 1.5rem 0.5rem;
+      background: var(--teal);
+      color: #fff !important;
+      border-radius: 8px;
+      text-align: center;
+      border-bottom: none;
+    }
+
+    @media (max-width: 767px) {
+      nav { padding: 0 1rem; }
+      .nav-hamburger { display: block; }
+      .nav-links { display: none; }
+      .nav-logo img,
+      .nav-brand img { height: 40px !important; width: auto !important; max-width: 160px !important; }
+
+      footer { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+      .footer-links { flex-wrap: wrap !important; gap: 0.75rem !important; }
+      .sponsor-cta { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Supporters","url":"https://fincrimeradar.org/supporters.html"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<div class="container">
+  <div class="doc-header">
+    <h1>Supporters</h1>
+    <p class="doc-meta">Last updated: 27 August 2026 · Applies to fincrimeradar.org</p>
+  </div>
+
+  <div class="policy-body">
+
+    <div class="highlight">
+      FinCrimeRadar is free and will stay free. This page explains how it's funded today and how to support it directly if you find it useful.
+    </div>
+
+    <h2>How FinCrimeRadar is funded</h2>
+    <p>FinCrimeRadar is funded through display advertising on a small number of practitioner guide pages, and, in future, affiliate relationships with industry training and certification providers alongside a planned freemium API tier. See the <a href="/editorial-standards.html">Editorial Standards</a> page for how that funding is kept separate from editorial content: no paid placement influences which topics get covered or what a guide concludes.</p>
+
+    <h2>Sponsor FinCrimeRadar</h2>
+    <p>Readers and organisations who find the screening tool or the guides useful can also support the project directly through GitHub Sponsors. Sponsorship helps cover hosting, data, and the time that goes into keeping the guides current as regulation changes.</p>
+
+    <div class="sponsor-cta">
+      <div class="sponsor-cta-text">Every contribution helps keep the tool free and independent.</div>
+      <a href="https://github.com/sponsors/FinCrimeRadar" target="_blank" rel="noopener" class="nav-cta">Sponsor on GitHub</a>
+    </div>
+
+    <h2>Supporters</h2>
+    <p>FinCrimeRadar does not yet have any sponsors to list. When it does, they'll be listed here, with their permission.</p>
+
+    <h2>Other ways to support the project</h2>
+    <ul>
+      <li>Use the <a href="/screen.html">screening tool</a> and share it with colleagues or students who'd find it useful</li>
+      <li>Star or contribute on <a href="https://github.com/FinCrimeRadar/fincrimeradar" target="_blank" rel="noopener">GitHub</a>, the code is open source</li>
+      <li>Report an error via <a href="/contact.html">Contact</a>, corrections keep the guides trustworthy</li>
+    </ul>
+
+  </div>
+</div>
+
+<div id="site-footer"></div>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
