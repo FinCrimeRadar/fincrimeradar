@@ -6420,13 +6420,13 @@
   },
   {
     "claimId": "annex-1-firms-aml-blind-spot-guide.mlr-reg55-framework.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
-    "claimText": "Regulation 55 defines Annex I financial institution for this registration framework and requires an in-scope Annex I financial institution to be registered with the FCA, subject to the regulation's exclusions and transitional provisions.",
+    "claimText": "Regulation 55(1) gives the FCA power to maintain a register of Annex I financial institutions and regulation 55(2) defines an Annex I financial institution for that register. Regulation 55 itself is the register power and definition, not the operative prohibition on acting unregistered.",
     "claimType": "regulatory", "source": {"title": "Money Laundering Regulations 2017, Regulation 55", "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/55", "publisher": "legislation.gov.uk", "date": "2017-06-26"},
     "verifiedOn": "2026-08-26", "reviewDue": "2027-08-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means"
   },
   {
     "claimId": "annex-1-firms-aml-blind-spot-guide.mlr-reg58-59-assessment.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
-    "claimText": "Regulations 58 and 59 apply fit and proper assessment and refusal grounds to Annex I registration; those provisions do not convert registration into authorisation for wider regulated activities.",
+    "claimText": "Regulation 58 applies the fit and proper test to Annex I institutions where the FCA has decided to maintain the regulation 55 register, while regulation 59 sets out other grounds on which an application under regulation 55 may be refused. These provisions do not convert registration into authorisation for wider regulated activities.",
     "claimType": "regulatory", "source": {"title": "Money Laundering Regulations 2017, Regulations 58 and 59", "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/58", "publisher": "legislation.gov.uk", "date": "2017-06-26"},
     "verifiedOn": "2026-08-26", "reviewDue": "2027-08-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means"
   },
@@ -6453,5 +6453,11 @@
     "claimText": "The 2025 UK National Risk Assessment reports criminal use of bridging loans and bridging-loan companies, says speed and flexibility can create susceptibility to money laundering, and notes that many bridging lenders are Annex 1 supervised while some are FSMA regulated. The guide uses this only as transaction-specific context and not as a presumption against the sector.",
     "claimType": "statistic", "source": {"title": "National Risk Assessment of Money Laundering and Terrorist Financing 2025", "url": "https://assets.publishing.service.gov.uk/media/6877be59760bf6cedaf5bd4f/National_Risk_Assessment_of_Money_Laundering_and_Terrorist_Financing_2025_FINAL.pdf", "publisher": "HM Treasury and Home Office", "date": "2025-07-17"},
     "verifiedOn": "2026-08-26", "reviewDue": "2027-08-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, worked scenario 2, National Risk Assessment callout"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.mlr-reg56-57-registration.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "Regulation 56 contains the operative requirement that a person covered by a register required under regulations 54 or 55 must not act in the relevant business unless included in the appropriate register, subject to the regulation's application exception. Regulation 57 governs applications for registration in a register maintained under regulation 54 or 55.",
+    "claimType": "regulatory", "source": {"title": "Money Laundering Regulations 2017, Regulations 56 and 57", "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/56", "publisher": "legislation.gov.uk", "date": "2017-06-26"},
+    "verifiedOn": "2026-08-27", "reviewDue": "2027-08-27", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means"
   }
 ]
