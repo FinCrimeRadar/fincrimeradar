@@ -7,8 +7,10 @@
   if(!('IntersectionObserver' in window)) return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  var revealThreshold = 0.08;
+  var revealBottomMargin = 30;
   var targets = document.querySelectorAll(
-    'main section, main article, [class*="card"], .footer-col, footer > div'
+    'main section, [class*="card"], .footer-col, footer > div'
   );
   if(!targets.length) return;
 
@@ -19,18 +21,25 @@
         io.unobserve(en.target);
       }
     });
-  },{threshold:0.08, rootMargin:'0px 0px -30px 0px'});
+  },{
+    threshold:revealThreshold,
+    rootMargin:'0px 0px -' + revealBottomMargin + 'px 0px'
+  });
 
   var vh = window.innerHeight;
+  var maxRevealHeight = Math.max(0, vh - revealBottomMargin) / revealThreshold;
   var stagger = 0;
   targets.forEach(function(el){
     var r = el.getBoundingClientRect();
     /* Never hide anything already on screen at load: no flash, no jank */
     if(r.top < vh && r.bottom > 0) return;
     if(r.height < 8) return;
-    el.classList.add('brv');
+    /* Keep targets visible when their height cannot satisfy the IO threshold. */
+    if(r.height > maxRevealHeight) return;
     el.style.setProperty('--brv-delay', ((stagger++ % 4) * 0.07) + 's');
+    /* Register observation before hiding so an observe failure leaves content visible. */
     io.observe(el);
+    el.classList.add('brv');
   });
 })();
 
