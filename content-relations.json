@@ -49,11 +49,25 @@
   ],
   "ubo-investigation-handbook": [
     "money-mule-financial-crime-networks-handbook",
-    "kyc-onboarding-dilemma"
+    "kyc-onboarding-dilemma",
+    "annex-1-firms-aml-blind-spot-guide"
   ],
   "kyc-onboarding-dilemma": [
     "synthetic-identity-device-network-guide",
-    "ubo-investigation-handbook"
+    "ubo-investigation-handbook",
+    "annex-1-firms-aml-blind-spot-guide"
+  ],
+  "source-of-wealth-investigation-handbook": [
+    "annex-1-firms-aml-blind-spot-guide"
+  ],
+  "adverse-media-intelligence-guide": [
+    "annex-1-firms-aml-blind-spot-guide"
+  ],
+  "annex-1-firms-aml-blind-spot-guide": [
+    "kyc-onboarding-dilemma",
+    "ubo-investigation-handbook",
+    "source-of-wealth-investigation-handbook",
+    "adverse-media-intelligence-guide"
   ],
   "fraud-red-flags-guide": [
     "synthetic-identity-device-network-guide"

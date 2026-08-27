@@ -188,6 +188,13 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Annex 1 firms AML blind spot guide -->
+  <url>
+    <loc>https://fincrimeradar.org/annex-1-firms-aml-blind-spot-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- UK AML Compliance series -->
   <url>
     <loc>https://fincrimeradar.org/aml-guide-part1.html</loc>

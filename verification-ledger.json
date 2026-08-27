@@ -6393,5 +6393,65 @@
     "verifiedOn": "2026-08-26",
     "reviewDue": "2027-08-26",
     "location": "scam-compound-money-laundering-guide.html, internal record only, not rendered on the public page"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.fca-august-scrutiny.001",
+    "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "On 7 August 2026 the FCA said it was applying increased scrutiny to Annex 1 firms because of concerns that some may facilitate financial crime. It sent information requests to around 900 firms after contacting 300 in late 2025, meaning all registered Annex 1 firms had been contacted. Concerns included excessive reliance on parent controls, generic procedures, complex structures including SPVs, and due diligence by regulated firms dealing with Annex 1 entities.",
+    "claimType": "regulatory",
+    "source": {"title": "FCA applying increased scrutiny to Annex 1 firms", "url": "https://www.fca.org.uk/news/statements/fca-applying-increased-scrutiny-annex-1-firms", "publisher": "Financial Conduct Authority", "date": "2026-08-07"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2026-11-26", "status": "verified",
+    "location": "annex-1-firms-aml-blind-spot-guide.html, hero and What the FCA is worried about"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.fca-current-registration-guidance.001",
+    "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "Current FCA guidance, updated 26 August 2026, lists Annex 1 activities, says a person already authorised under FSMA does not separately register as an Annex 1 financial institution, and says only the original lender needs Annex 1 registration where an SPV only receives the legal or beneficial interest in loans.",
+    "claimType": "regulatory",
+    "source": {"title": "Money laundering and terrorist financing registration", "url": "https://www.fca.org.uk/firms/financial-crime/money-laundering-terrorist-financing/registration", "publisher": "Financial Conduct Authority", "date": "2026-08-26"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2026-11-26", "status": "verified",
+    "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means and worked scenario 2"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.mlr-reg10-schedule2-scope.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "Regulation 10 and Schedule 2 of the Money Laundering Regulations 2017 identify relevant financial activity, including categories such as lending, financial leasing, guarantees and commitments, certain payment and investment services, and safe custody, subject to the precise statutory conditions and exclusions.",
+    "claimType": "regulatory", "source": {"title": "Money Laundering Regulations 2017, Regulation 10 and Schedule 2", "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/10", "publisher": "legislation.gov.uk", "date": "2017-06-26"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2027-08-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.mlr-reg55-framework.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "Regulation 55 defines Annex I financial institution for this registration framework and requires an in-scope Annex I financial institution to be registered with the FCA, subject to the regulation's exclusions and transitional provisions.",
+    "claimType": "regulatory", "source": {"title": "Money Laundering Regulations 2017, Regulation 55", "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/55", "publisher": "legislation.gov.uk", "date": "2017-06-26"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2027-08-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.mlr-reg58-59-assessment.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "Regulations 58 and 59 apply fit and proper assessment and refusal grounds to Annex I registration; those provisions do not convert registration into authorisation for wider regulated activities.",
+    "claimType": "regulatory", "source": {"title": "Money Laundering Regulations 2017, Regulations 58 and 59", "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/58", "publisher": "legislation.gov.uk", "date": "2017-06-26"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2027-08-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.fca-march-due-diligence.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "On 20 March 2026 the FCA said around 1,200 firms were registered solely for AML purposes, that the wider FCA rulebook and Financial Ombudsman Service protections do not apply by virtue of that status, and that regulated firms dealing with Annex 1 entities should undertake due diligence including direct confirmation, independent checks and understanding the risks.",
+    "claimType": "regulatory", "source": {"title": "FCA highlights risks when regulated firms deal with unregulated lenders", "url": "https://www.fca.org.uk/news/statements/fca-highlights-risks-unregulated-lenders", "publisher": "Financial Conduct Authority", "date": "2026-03-20"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2026-11-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, hero and What the FCA is worried about"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.fca-status-distinction.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "FCA consumer guidance distinguishes an authorised firm, which has permission for specified regulated activities and must meet relevant standards, from a registered firm, which meets requirements for a registration regime but does not thereby have permission to provide wider regulated products or services.",
+    "claimType": "regulatory", "source": {"title": "How to check a firm or individual is authorised", "url": "https://www.fca.org.uk/consumers/how-check-firm-individual-authorised", "publisher": "Financial Conduct Authority", "date": "2026-08-26"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2026-11-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, opening decision and registration trap"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.fca-mfs-investigation.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "The FCA announced on 20 March 2026 that it had opened an enforcement investigation into Market Financial Solutions Limited, described the firm as Annex 1 registered but not authorised under the wider financial services regime, and said it entered administration on 25 February 2026. An investigation is not a finding of misconduct.",
+    "claimType": "regulatory", "source": {"title": "Investigation into Market Financial Solutions Limited", "url": "https://www.fca.org.uk/news/statements/investigation-market-financial-solutions-limited", "publisher": "Financial Conduct Authority", "date": "2026-03-20"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2026-11-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, Market Financial Solutions case study"
+  },
+  {
+    "claimId": "annex-1-firms-aml-blind-spot-guide.nra-bridging-finance.001", "guide": "annex-1-firms-aml-blind-spot-guide.html",
+    "claimText": "The 2025 UK National Risk Assessment reports criminal use of bridging loans and bridging-loan companies, says speed and flexibility can create susceptibility to money laundering, and notes that many bridging lenders are Annex 1 supervised while some are FSMA regulated. The guide uses this only as transaction-specific context and not as a presumption against the sector.",
+    "claimType": "statistic", "source": {"title": "National Risk Assessment of Money Laundering and Terrorist Financing 2025", "url": "https://assets.publishing.service.gov.uk/media/6877be59760bf6cedaf5bd4f/National_Risk_Assessment_of_Money_Laundering_and_Terrorist_Financing_2025_FINAL.pdf", "publisher": "HM Treasury and Home Office", "date": "2025-07-17"},
+    "verifiedOn": "2026-08-26", "reviewDue": "2027-08-26", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, worked scenario 2, National Risk Assessment callout"
   }
 ]
