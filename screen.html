@@ -31,12 +31,12 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Sanctions & PEP Screening Tool — Search OFAC, UN, EU, OFSI | FinCrimeRadar</title>
+    <title>Free Sanctions & PEP Screening Tool: Search OFAC, UN, EU, OFSI | FinCrimeRadar</title>
   <meta name="description" content="Free real-time sanctions screening against OFAC, UN, EU, OFSI and 40+ global lists. PEP screening and adverse media search. No sign-up required." />
   <meta name="keywords" content="free sanctions screening, OFAC screening, UN sanctions check, EU sanctions, OFSI screening, PEP check, adverse media screening, AML screening tool free" />
   <link rel="canonical" href="https://fincrimeradar.org/screen.html" />
   <!-- Open Graph -->
-  <meta property="og:title" content="Free Sanctions & PEP Screening Tool — Search OFAC, UN, EU, OFSI | FinCrimeRadar" />
+  <meta property="og:title" content="Free Sanctions & PEP Screening Tool: Search OFAC, UN, EU, OFSI | FinCrimeRadar" />
   <meta property="og:description" content="Free real-time sanctions screening against OFAC, UN, EU, OFSI and 40+ global lists. PEP screening and adverse media search. No sign-up required." />
   <meta property="og:url" content="https://fincrimeradar.org/screen.html" />
   <meta property="og:type" content="website" />
@@ -44,11 +44,11 @@
   <meta property="og:site_name" content="FinCrimeRadar" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Free Sanctions & PEP Screening Tool — Search OFAC, UN, EU, OFSI | FinCrimeRadar" />
+  <meta name="twitter:title" content="Free Sanctions & PEP Screening Tool: Search OFAC, UN, EU, OFSI | FinCrimeRadar" />
   <meta name="twitter:description" content="Free real-time sanctions screening against OFAC, UN, EU, OFSI and 40+ global lists. PEP screening and adverse media search. No sign-up required." />
   <meta name="twitter:image" content="https://fincrimeradar.org/og-image.png" />
   <!-- Schema.org -->
-  <meta name="author" content="Pratik Zanke — FinCrimeRadar" />
+  <meta name="author" content="Pratik Zanke, FinCrimeRadar" />
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -96,7 +96,7 @@
 
     .container { max-width: 1080px; margin: 0 auto; padding: 2rem 1.5rem; }
 
-    /* SCREEN GRID — main column (search, disclaimer, results) beside a
+    /* SCREEN GRID: main column (search, disclaimer, results) beside a
        sidebar (explanatory content), matching the sl-main-grid 2fr/1fr
        split used on Scenario Lab. Collapses to a single column on
        mobile, where the sidebar becomes a collapsed toggle below the
@@ -221,7 +221,7 @@
     .clear-result p { font-size: 13px; color: var(--muted); }
     .empty { text-align: center; padding: 1.5rem; font-size: 13px; color: var(--muted); background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
 
-    /* TOOL CONTEXT — static explanatory content above the interactive
+    /* TOOL CONTEXT: static explanatory content above the interactive
        screener, matching the guide pages' article typography. Colors
        and radius pull from the same brand.css custom properties the
        rest of this page already uses, not hardcoded values. */
@@ -311,7 +311,7 @@
       .section { padding: 2rem 1.25rem; }
       .section-title { font-size: clamp(1.3rem, 5vw, 1.8rem) !important; }
 
-      /* GRIDS — collapse all multi-col to single col */
+      /* GRIDS: collapse all multi-col to single col */
       [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
@@ -370,7 +370,7 @@
       .news-container { padding: 1.5rem 1rem !important; }
       .nn-form { flex-direction: column !important; }
 
-      /* NEWS PILLS — horizontal scroll */
+      /* NEWS PILLS: horizontal scroll */
       .filter-pills, [style*="flex-wrap:wrap"] { flex-wrap: nowrap !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; padding-bottom: 4px !important; }
     }
   </style>
@@ -412,7 +412,7 @@
     <div class="screen-main">
       <div class="search-box">
         <div class="search-row">
-          <input class="search-input" id="searchInput" type="text" placeholder="Enter a name or organisation — e.g. Vladimir Putin, Wagner Group" />
+          <input class="search-input" id="searchInput" type="text" placeholder="Enter a name or organisation, e.g. Vladimir Putin, Wagner Group" />
           <button class="btn-search" id="searchBtn" onclick="runSearch()">Screen</button>
         </div>
         <div class="options-row">
@@ -617,7 +617,7 @@ async function footerSignup() {
 <script>
   const API_BASE = 'https://fincrimeradar-api.onrender.com';
 
-  // Keep-alive ping — fires silently on page load to wake the API
+  // Keep-alive ping: fires silently on page load to wake the API
   // so it is ready by the time the user clicks Screen
   (function pingAPI() {
     fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-cache' })
@@ -670,12 +670,12 @@ async function footerSignup() {
         </div>
         <div class="result-detail" id="detail-s${i}">
           <div class="detail-grid">
-            <div><div class="detail-key">Sanctions lists</div><div class="detail-val">${(h.sanctions_lists||[]).join(', ')||'—'}</div></div>
-            <div><div class="detail-key">Programme</div><div class="detail-val">${(h.program||[]).join(', ')||'—'}</div></div>
-            <div><div class="detail-key">Country</div><div class="detail-val">${(h.country||h.nationality||[]).join(', ')||'—'}</div></div>
-            <div><div class="detail-key">Date of birth</div><div class="detail-val">${(h.birth_date||[]).join(', ')||'—'}</div></div>
-            <div><div class="detail-key">Known aliases</div><div class="detail-val">${(h.aliases||[]).slice(0,3).join(', ')||'—'}</div></div>
-            <div><div class="detail-key">Reason</div><div class="detail-val">${(h.reason||[]).join(' ')||'—'}</div></div>
+            <div><div class="detail-key">Sanctions lists</div><div class="detail-val">${(h.sanctions_lists||[]).join(', ')||'-'}</div></div>
+            <div><div class="detail-key">Programme</div><div class="detail-val">${(h.program||[]).join(', ')||'-'}</div></div>
+            <div><div class="detail-key">Country</div><div class="detail-val">${(h.country||h.nationality||[]).join(', ')||'-'}</div></div>
+            <div><div class="detail-key">Date of birth</div><div class="detail-val">${(h.birth_date||[]).join(', ')||'-'}</div></div>
+            <div><div class="detail-key">Known aliases</div><div class="detail-val">${(h.aliases||[]).slice(0,3).join(', ')||'-'}</div></div>
+            <div><div class="detail-key">Reason</div><div class="detail-val">${(h.reason||[]).join(' ')||'-'}</div></div>
           </div>
         </div>
       </div>`;
@@ -700,11 +700,11 @@ async function footerSignup() {
         </div>
         <div class="result-detail" id="detail-p${i}">
           <div class="detail-grid">
-            <div><div class="detail-key">Position</div><div class="detail-val">${(h.position||[]).join(', ')||'—'}</div></div>
+            <div><div class="detail-key">Position</div><div class="detail-val">${(h.position||[]).join(', ')||'-'}</div></div>
             <div><div class="detail-key">PEP category</div><div class="detail-val">${(h.pep_categories||[]).join(', ')||'PEP'}</div></div>
-            <div><div class="detail-key">Country</div><div class="detail-val">${(h.country||h.nationality||[]).join(', ')||'—'}</div></div>
-            <div><div class="detail-key">Date of birth</div><div class="detail-val">${(h.birth_date||[]).join(', ')||'—'}</div></div>
-            <div><div class="detail-key">Known aliases</div><div class="detail-val">${(h.aliases||[]).slice(0,3).join(', ')||'—'}</div></div>
+            <div><div class="detail-key">Country</div><div class="detail-val">${(h.country||h.nationality||[]).join(', ')||'-'}</div></div>
+            <div><div class="detail-key">Date of birth</div><div class="detail-val">${(h.birth_date||[]).join(', ')||'-'}</div></div>
+            <div><div class="detail-key">Known aliases</div><div class="detail-val">${(h.aliases||[]).slice(0,3).join(', ')||'-'}</div></div>
           </div>
         </div>
       </div>`;
@@ -739,10 +739,10 @@ async function footerSignup() {
       <div class="spinner"></div>
       <div id="loadingMsg" style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px;">Screening in progress...</div>
       <div id="loadingSub" style="font-size:12px;color:var(--light);margin-top:4px;">Searching sanctions lists, PEP databases and adverse media.</div>
-      <div id="loadingTimer" style="font-size:12px;color:var(--light);margin-top:4px;display:none;">⏱ <span id="timerCount">0</span>s elapsed — API is warming up, almost there...</div>
+      <div id="loadingTimer" style="font-size:12px;color:var(--light);margin-top:4px;display:none;">⏱ <span id="timerCount">0</span>s elapsed. API is warming up, almost there...</div>
     </div>`;
 
-    // Live timer — show warm-up message after 8 seconds
+    // Live timer: show warm-up message after 8 seconds
     let elapsed = 0;
     const timerInterval = setInterval(() => {
       elapsed++;
@@ -758,7 +758,7 @@ async function footerSignup() {
         subEl.textContent = 'First search of the day takes up to 60 seconds. Subsequent searches are instant.';
       }
       if (elapsed >= 30) {
-        msgEl.textContent = 'Still loading — almost there...';
+        msgEl.textContent = 'Still loading, almost there...';
         subEl.textContent = 'The API is a free-tier service. It can take up to 60 seconds on first load. Thank you for your patience.';
       }
     }, 1000);
