@@ -6787,5 +6787,12 @@
     "verifiedOn": "2026-08-29",
     "reviewDue": "2027-08-29",
     "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.regulatory-status-aicf-legal-entity.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Closes the sourcing gap flagged in commit ae75c13 and left open through 3a14c6e (stablecoin-series-guide-1.issuer-entity-jurisdiction-partial.001). The FCA's default expectation under the AICF (Approach to International Cryptoasset Firms) non-Handbook guidance is that international cryptoasset firms will operate through a UK legal entity, not a branch; this expectation applies specifically to firms that are solo-regulated by the FCA. Dual-regulated firms (FCA and PRA) are the exception: they may operate cryptoasset activities from a UK branch instead if they demonstrate at the authorisation gateway, and on an ongoing basis, that they meet the threshold conditions from that branch, assessed case-by-case, with the PRA as lead regulator for those firms. Guide 1's \"regulatory status\" due diligence field should prompt practitioners to check which regulatory category, solo- or dual-regulated, a given issuer falls into before assuming the UK-legal-entity default applies. This guidance applies to three distinct starting positions: firms already FSMA-authorised for other activities needing a variation of permission, crypto MLR-registered firms not yet FSMA-authorised, and firms currently using the \"section 21 gateway\" not yet FSMA-authorised or MLR-registered. The FCA's own finalised guidance sits in FG26/7, referenced but not itself retrieved this session; treat FG26/7 as the next-level source if anything more granular becomes needed.",
+    "claimType": "regulatory", "source": {"title": "FCA Policy Statement PS26/13, \"Crypto Regime: Application of FCA Handbook for Regulated Cryptoasset Activities\", Chapter 2 (Approach to International Cryptoasset Firms)", "url": "https://www.fca.org.uk/publication/policy/ps26-13.pdf", "publisher": "Financial Conduct Authority", "date": "2026-06"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
   }
 ]
