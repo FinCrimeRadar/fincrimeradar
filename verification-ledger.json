@@ -6528,5 +6528,107 @@
     "claimText": "The FCA regulates UK-issued qualifying stablecoins generally; joint FCA/Bank of England regulation applies once HM Treasury recognises an issuer as systemic.",
     "claimType": "regulatory", "source": {"title": "The BoE and FCA's approach to joint regulation of systemic stablecoin issuers", "url": "https://www.bankofengland.co.uk/paper/2026/boe-and-fcas-approach-to-joint-regulation-of-systemic-stablecoin-issuers", "publisher": "Bank of England", "date": "2026"},
     "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-9m-issuing-conditions.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9M(1)-(2) makes issuing a qualifying stablecoin a specified activity, defined by three cumulative conditions joined by \"and\": (a) A offers, or arranges for another to offer, the qualifying stablecoin for sale or subscription from a UK establishment (or has done so); (b) the stablecoin was created by, or on behalf of, A or a member of A's group; and (c) A carries on, from a UK establishment, both undertaking or arranging redemption of the stablecoin and holding or arranging the holding of fiat currency or other assets for stabilisation purposes under article 88G(2)(a).",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9M", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-9m-minting-exclusion.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9M(3) excludes minting, the point at which the stablecoin first exists as an identifiable, transferable asset on the blockchain, from the offering limb of the issuing activity in article 9M(2)(a) only; it does not exclude minting from the redemption or stabilisation-holding limbs.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9M(3)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-9m-outsourcing-issuer.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9M(4)(c): where all the activities in 9M(2)(a) and (c)(i)-(ii) are in fact carried on by another person (B) under arrangements made by A, only A is treated as carrying on the issuing activity specified by article 9M(1); B is not.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9M(4)(c)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-9n-safeguarding-activity.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9N(1) makes both (a) safeguarding a qualifying cryptoasset or relevant specified investment cryptoasset on behalf of another, and (b) arranging for a person to carry on that safeguarding, specified activities.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9N(1)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-9n-control-based-test.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9N(2)(a) defines safeguarding by a control-based test: a person (C) is regarded as safeguarding the cryptoasset if C has control of it through any means enabling C to bring about a transfer of its benefit to another, including to C itself. Article 9N(4) states the means of control include holding or storing the means of access, or appointing another to do so. Article 9N(5)(e) expressly provides that \"means of access\" includes a private cryptographic key.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9N(2), (4)-(5)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.articles-9o-9r-safeguarding-exclusions.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Articles 9O-9R exclude from article 9N(1): 9O, activity under arrangements operated by a connected authorised cryptoasset custodian assuming an equivalent responsibility; 9P, unremunerated introductions by an unconnected party to an authorised cryptoasset custodian; 9Q, temporary holding to facilitate settlement of a transaction; 9R, acting as an agent for instructions where a third party undertakes safeguarding directly to the principal, safeguarding activity absent any holding-out as providing such a service, and safeguarding held for the purpose of dealing activity that would fall within article 9T but for the 9V(1)(e) exclusion.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO articles 9O-9R", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-9s-trading-platform.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9S makes operating a qualifying cryptoasset trading platform a specified activity in a single, standalone provision with no exclusions set out in the article itself.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9S", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.articles-9t-9v-dealing-principal.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9T makes buying, selling, subscribing for or underwriting a qualifying cryptoasset as principal a specified activity. Article 9U excludes transactions absent specific holding-out or public-solicitation conduct by the person entering them (9U(1)(a)-(d)), except that this exclusion does not apply where the person acts as bare trustee or nominee for another under 9U(3). Article 9V excludes stablecoin creation/design, minting, no-consideration transfers, automatically-created reward distributions, employee/partner issuer sales, capital-raising private sales of self-created tokens, same-group-only principal trades, and any activity separately specified by articles 9M, 9S or 9Z6.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO articles 9T-9V", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.articles-9w-9x-dealing-agent.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9W makes buying, selling, subscribing for or underwriting a qualifying cryptoasset as agent a specified activity. Article 9X excludes stablecoin creation/design, minting, no-consideration transfers, automatically-created reward distributions and employee/partner issuer sales, and any activity separately specified by articles 9M, 9S or 9Z6; unlike 9U, article 9X contains no holding-out or solicitation test.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO articles 9W-9X", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.articles-9y-9z5-arranging-deals.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9Y makes two things specified activities: arrangements for another to deal in a qualifying cryptoasset (9Y(1)), and arrangements with a view to a participant dealing (9Y(2)). Exclusions run: 9Z, arrangements that do not or would not bring about the transaction; 9Z1, introducing solely to an authorised person; 9Z2, merely enabling communication between parties; 9Z3, arrangements for transactions the arranger itself enters as principal or agent; 9Z4, trustee or personal representative arrangements, conditioned on no remuneration beyond that role; 9Z5, stablecoin creation/design, minting, no-consideration transfers, reward distributions, employee/partner sales, same-group arranging where the arranger need not be authorised, and activity separately specified by articles 9M, 9S or 9Z6.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO articles 9Y-9Z5", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-9z6-staking-context.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9Z6(1)-(2) makes arranging, as principal or agent, for qualifying cryptoasset staking (use of a qualifying cryptoasset in blockchain validation) a specified activity in its own right, with its own exclusions at 9Z7-9Z9. It is relevant to Guide 1 only because articles 9V(2)(c), 9X(2)(c) and 9Z5(2)(c) each exclude 9Z6-specified activity from the dealing-as-principal, dealing-as-agent and arranging perimeter respectively. Recorded as perimeter cross-reference context only; the detailed staking exclusions (9Z7-9Z9) are out of scope for Guide 1.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9Z6", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.articles-9z10-9z11-incidental-exclusions.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 9Z10 excludes activity carried on by a supplier for the sale of goods or supply of services to a customer generally, but this exclusion does not apply to article 9N safeguarding so far as it applies to relevant specified investment cryptoassets (9Z10(2)); a narrower related-sale-or-supply exclusion also applies to articles 9T, 9W and 9Y specifically (9Z10(3)). Article 9Z11 excludes activity incidental to a profession or business, conditioned cumulatively on: a close factual connection making the activity a necessary ancillary to the profession or business; the activity not providing a systematic source of income; no marketing of the incidental activity beyond disclosure as a necessary ancillary; and the profession or business being supervised by a body listed under the Financial Services and Markets Act 2000 (Designated Professional Bodies) Order 2001.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO articles 9Z10-9Z11", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-88f-qualifying-cryptoasset.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 88F(2) defines a \"qualifying cryptoasset\" as one that is fungible, transferable (including where it confers transferable rights, per 88F(3)), not solely a record of value or contractual rights including rights in another cryptoasset, and not excluded under 88F(4). The 88F(4) exclusions cover: certain specified investment cryptoassets; electronic money; currency of the UK or any other country or territory including a central bank digital currency; and closed-loop tokens that cannot be transferred or sold except by redemption with the issuer and can only be used to acquire goods or services from the issuer or within a limited network of providers with direct commercial agreements with the issuer.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 88F", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-88g-qualifying-stablecoin.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 88G(2) defines a \"qualifying stablecoin\" as a qualifying cryptoasset that both (a) seeks or purports to maintain a stable value in relation to a single referenced fiat currency, and (b) has fiat currency, which may be the referenced currency, or other assets held for that stabilisation purpose; both limbs are cumulative. Article 88G(3): where a cryptoasset seeks stable value against a non-fiat asset, it does not fall within 88G(2)(a) even if that asset is itself expressed in fiat terms, so a token pegged to a non-fiat reference does not qualify regardless of how that reference is denominated. Article 88G(4)(a) excludes the cryptoasset itself from counting as an \"other asset\" held for stabilisation; 88G(4)(b) excludes assets a deposit-taker holds for general prudential or liability purposes. A purely algorithmic model holding no fiat or other stabilisation assets fails the 88G(2)(b) asset-holding limb specifically; the text does not support a categorical rule that every commercially-labelled \"algorithmic\" token is automatically excluded, since the actual test turns on whether stabilisation assets are held, not on commercial labelling.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 88G", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.article-88f-emoney-exclusion.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Article 88F(4)(b) excludes electronic money from the definition of \"qualifying cryptoasset\" as a distinct limb of the 88F(4) exclusion list, separate from the specified-investment-cryptoasset exclusion at 88F(4)(a).",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 88F(4)(b)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.regulation-1-full-commencement.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Regulation 1(2)-(3): subject to the preparatory-commencement carve-out in paragraph (3), the Regulations come into force on 25 October 2027, defined as the \"full commencement day\".",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), regulation 1(2)-(3)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.regulation-1-preparatory-commencement.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Regulation 1(3): for a defined set of preparatory purposes only, the Regulations come into force at the end of the 21-day period beginning the day after the day they are made, namely (a) enabling the FCA to make or approve rules, give guidance or directions, and take other preparatory steps; (b) enabling Part 4A permission, permission variation, section 55NA and section 59 approval applications to be made and determined for activities that become regulated by virtue of the Regulations; and (c) enabling the FCA to exercise its Part 4A/Part 5 powers over those activities.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), regulation 1(3)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
   }
 ]
