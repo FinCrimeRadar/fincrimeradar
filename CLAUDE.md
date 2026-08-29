@@ -393,6 +393,33 @@ Test harness data and local fixtures do not substitute for the deployed system.
 
 If Claude Code cannot perform the production check, state the exact outstanding check required from the human.
 
+### Remote publication verification
+
+A local commit is not evidence of repository state. A passing local test or ledger check is not evidence that the tested revision exists on GitHub.
+
+After any task that modifies the repository, before reporting work as pushed, live, merged, or complete, verify all of the following:
+
+1. The push command was actually run and completed without error.
+2. Local HEAD, `origin/main` (after `git fetch`), and `git ls-remote origin refs/heads/main` all resolve to the same commit SHA.
+3. The commit resolves through GitHub itself (the commit URL returns the commit, not a 404).
+4. The remote commit's file list matches the intended scope, no more and no fewer files.
+5. Any required tests or evidence ledger checks were run against the same revision that is now present on the remote branch, not against a since-amended local tree.
+
+Minimum command sequence:
+
+git push origin main
+git fetch origin
+git rev-parse HEAD
+git rev-parse origin/main
+git ls-remote origin refs/heads/main
+git show --stat HEAD
+
+The three SHAs from steps 3-5 must match each other. The file list from the final command must match the intended change set.
+
+Build integrity (tests, ledger checks, linting, validation passing locally) and publication integrity (pushed, remote ref moved, GitHub resolves it, remote diff matches intent) are two independent gates. Both must pass before describing work as "committed and pushed successfully."
+
+If any check in this sequence fails or cannot be performed, report the task as locally committed but not remotely verified. Do not describe it as pushed, live, merged, or complete.
+
 ## 18. Verification source hierarchy
 
 Do not treat one retrieval method as unquestionable ground truth.
