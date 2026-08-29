@@ -6459,5 +6459,74 @@
     "claimText": "Regulation 56 contains the operative requirement that a person covered by a register required under regulations 54 or 55 must not act in the relevant business unless included in the appropriate register, subject to the regulation's application exception. Regulation 57 governs applications for registration in a register maintained under regulation 54 or 55.",
     "claimType": "regulatory", "source": {"title": "Money Laundering Regulations 2017, Regulations 56 and 57", "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/56", "publisher": "legislation.gov.uk", "date": "2017-06-26"},
     "verifiedOn": "2026-08-27", "reviewDue": "2027-08-27", "status": "verified", "location": "annex-1-firms-aml-blind-spot-guide.html, What Annex 1 actually means"
+  },
+  {
+    "claimId": "stablecoin-series-guide-0.chainalysis-84pct-illicit-share.001", "guide": "stablecoin-series-guide-0.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "The 84% illicit-transaction-volume-share figure is from the Chainalysis 2026 Crypto Crime Report (FY2025 data), per the report's own introduction. This is a different report and a different figure from the 2025 Crypto Crime Report, which reports 63% for FY2024. Guide 0 must cite the report as the Chainalysis 2026 Crypto Crime Report and label the figure as full calendar-year 2025 data, not a mid-2025 snapshot.",
+    "claimType": "statistic", "source": {"title": "2026 Crypto Crime Report Introduction", "url": "https://www.chainalysis.com/blog/2026-crypto-crime-report-introduction/", "publisher": "Chainalysis", "date": "2026-01-08 (published), updated 2026-06-12"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-0.trm-141bn-illicit-stablecoin-receipts.001", "guide": "stablecoin-series-guide-0.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "TRM Labs reports approximately $141bn received by illicit entities via stablecoins, FY2025 data, not mid-2025. $72bn of this total is the A7A5 subset, consistent with Guide 4's separately-sourced $72bn TRM A7A5 figure; the two figures must not be summed or presented as additive.",
+    "claimType": "statistic", "source": {"title": "Stablecoins at Scale: Broad Adoption and Highly Concentrated Illicit Networks", "url": "https://www.trmlabs.com/resources/blog/stablecoins-at-scale-broad-adoption-and-highly-concentrated-illicit-networks", "publisher": "TRM Labs", "date": "2026-02-17"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-0.market-cap-300bn-mid2025.001",
+    "guide": "stablecoin-series-guide-0.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Original candidate claim: stablecoin combined market capitalisation exceeded $300bn as of mid-2025. Multiple sources confirm the market first crossed $300bn on approximately 2026-10-02/03, not mid-2025, when the level was closer to $250-270bn. The mid-2025 date qualifier is incorrect and must not be used. Replace at drafting time with a current aggregate market capitalisation figure pulled directly from a primary or directly sourced live dataset (e.g. DefiLlama's stablecoins dashboard), with the exact retrieval date recorded. The October 2026 threshold-crossing may be used as editorial colour but must not be presented as the current market size.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "stablecoin-series-guide-0.circulating-count-250plus.001",
+    "guide": "stablecoin-series-guide-0.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Original candidate claim: 250+ stablecoins circulating as of mid-2025. No defensible primary source was found. The only supporting figure traced (259 by June 2025) comes from a secondary aggregator, not DefiLlama or CoinMarketCap directly. Do not carry this figure forward as a headline metric. Either pull a live count directly from DefiLlama's stablecoins dashboard with an explicit as-of date and a stated definition of what counts as a distinct stablecoin, or drop this metric from Guide 0's headline figures.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "unverifiable-remove"
+  },
+  {
+    "claimId": "overseas-stablecoin-perimeter.fca-cp26-13-status.001",
+    "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
+    "claimText": "The FCA's proposed cryptoasset perimeter guidance covering overseas-issued stablecoins is set out in Consultation Paper CP26/13 (Cryptoasset Perimeter Guidance), published 2026-04-15 (not 28 April, as an earlier draft misdated it), proposing a new PERG 19 chapter. The consultation closed 2026-06-03. Final perimeter guidance timing is inconsistently reported across secondary legal commentary (some sources say autumn 2026, others September 2026); neither should be treated as settled. As of 2026-08-29 the FCA's own page still presents this as proposed, not final, guidance. Re-check directly against the FCA's CP26/13 page immediately before drafting or publication. HMT's qualifying-stablecoin exemption from the dealing/arranging perimeter currently applies only to UK-issued stablecoins; whether overseas-issued stablecoins used for settlement will be carved out depends on the final PERG 19 text. Guide 1's overseas-stablecoin section must maintain a three-way distinction throughout: enacted legislation, versus FCA interpretation proposed in CP26/13, versus industry responses (e.g. Paradigm's consultation response) arguing for a different interpretation, attributed explicitly as industry advocacy, not FCA policy.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "overseas-stablecoin-perimeter.boe-multi-issuance-unsuitable.001", "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
+    "claimText": "The Bank of England's 2026-06-22 policy statement and draft Code of Practice for sterling-denominated systemic stablecoins states that multi-issuance models (the same token issued by multiple legal entities across jurisdictions) are not suitable for systemic UK use, and that the Bank prefers single-issuance backed by a single reserve. Consultation on the draft Code of Practice closes 2026-09-22, finalisation targeted end of 2026.",
+    "claimType": "regulatory", "source": {"title": "Policy statement and draft Code of Practice for systemic stablecoins", "url": "https://www.bankofengland.co.uk", "publisher": "Bank of England", "date": "2026-06-22"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "overseas-stablecoin-perimeter.boe-40bn-guardrail.001",
+    "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
+    "claimText": "The £40bn figure is an initial temporary issuance maximum per systemic stablecoin product proposed by the Bank of England, and the Bank explicitly states this must not be taken as an indicator of the point at which HMT may recognise an issuer as systemic. Both points are confirmed against secondary legal summaries of the Bank's June 2026 publication, not yet checked against the primary policy statement text directly. Pull the exact figure and the exact non-indicator clause from the Bank's own policy statement or Code of Practice text before this is used as a direct claim in Guide 2.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "overseas-stablecoin-perimeter.boe-guardrail-depeg-risk.001",
+    "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
+    "claimText": "Secondary commentary attributes to the Bank of England an acknowledgement that the £40bn issuance guardrail can itself introduce depeg risk where demand exceeds available supply. This is confirmed via secondary commentary only, lower confidence than the £40bn figure and non-indicator clause above. Pull the exact clause from the Bank's own policy statement or Code of Practice text before this is used as a direct claim in Guide 2.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "overseas-stablecoin-perimeter.fca-boe-joint-regulation-division.001", "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
+    "claimText": "The FCA regulates UK-issued qualifying stablecoins generally; joint FCA/Bank of England regulation applies once HM Treasury recognises an issuer as systemic.",
+    "claimType": "regulatory", "source": {"title": "The BoE and FCA's approach to joint regulation of systemic stablecoin issuers", "url": "https://www.bankofengland.co.uk/paper/2026/boe-and-fcas-approach-to-joint-regulation-of-systemic-stablecoin-issuers", "publisher": "Bank of England", "date": "2026"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
   }
 ]
