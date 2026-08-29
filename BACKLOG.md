@@ -6,6 +6,8 @@ Three loops, rotating. Each working session picks one loop, clears or advances w
 
 Suggested cadence: fortnightly rotation, Polish → Build → Content → repeat. Polish goes first because it's the smallest and the most likely to get skipped if it's not first.
 
+DRAFTING status values: BLOCKED means at least one evidence dependency remains open. UNBLOCKED, not yet started means every evidence dependency for that guide is closed but drafting itself (per CLAUDE.md section 5's source-pack-first workflow, step 5 onward) has not begun. IN PROGRESS / DRAFTED / PUBLISHED are not yet in use in this file as of 2026-08-29 but may be added as guides move further through the pipeline — extend this list rather than inventing undocumented status text when that becomes needed.
+
 ---
 
 **POLICY PROPOSAL, not yet adopted: Digital Asset Attribution Standard.** Surfaced during stablecoin series scoping (2026-08-28). Proposes a reusable evidence schema for any guide citing blockchain analytics (TRM, Chainalysis, Elliptic, Crystal, or similar providers), covering two distinct claim types: quantitative claims (how much moved, when, through what addresses, according to whom, using what methodology) and attribution claims (who allegedly owns, operates, controls, funds, administers or is associated with assets/addresses, and what authority supports that conclusion).
