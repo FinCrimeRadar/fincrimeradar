@@ -6725,5 +6725,55 @@
     "claimText": "The transitional provision under SI 2026/102 is a distinct, more restrictive mechanism than the saving provision, permitting wind-down/run-off only: it exempts an eligible firm from the s.19 FSMA general prohibition, or from s.20 FSMA for firms already FSMA-authorised, but only in respect of the new cryptoasset regulated activities and only to the extent necessary to perform a pre-existing contract entered into before the firm entered the provision. Firms in the provision cannot enter new contracts with existing or new UK customers. Eligibility is a two-factor test combining application-window timing with whether the application is still live at commencement, not window timing alone: an out-of-window applicant (applied after the window closed but before full commencement) whose application is undetermined at commencement enters the transitional provision automatically by operation of law; an in-window applicant whose application is finally refused with no live Tribunal review, or who withdraws, before commencement also falls into the transitional provision, not the saving provision, because nothing live remains at commencement for the saving provision to protect. Firms that never apply get neither mechanism and must run off before commencement or risk an s.19/s.20 FSMA breach. Maximum wind-down period is two years from full commencement (25 October 2027); continuing regulated activity after that risks an s.19/s.20 FSMA breach. Requires notification to the FCA on entering the provision and again on ceasing use, including on completing run-off, and requires notification to each counterparty of a pre-existing contract disclosing use of the provision, unauthorised status, and any material change to asset protection, dispute resolution, or compensation scheme availability for that contract. Financial promotions while in the provision are restricted to what is necessary to perform pre-existing contracts. The FCA retains power to amend the scope of a firm's exemption (e.g. removing a regulated activity from it), impose conditions, cancel the exemption, gather information, publish information about firms using the provision, and publicly censure a firm that fails to notify or acts contrary to the FCA's objectives. Background, not independently verified against MLR 2017's own registration text in this pass: MLR-registered firms do not automatically convert to FSMA authorisation and must apply fresh; firms already FSMA-authorised for other activities need a variation of permission rather than a new application.",
     "claimType": "regulatory", "source": {"title": "FCA, \"Cryptoassets: The transitional provision\"", "url": "https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/transitional-provision", "publisher": "Financial Conduct Authority", "date": "2026-08-24"},
     "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.regulation13-qcdd-technical-control-fields.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "The due diligence framework's five technical-control fields, smart contract administrator, freeze authority, upgrade authority, bridges, supported blockchains, are not free-standing FCA requirements in their own right. They are FinCrimeRadar's own practitioner decomposition of the qualifying cryptoasset disclosure document (QCDD) content requirements in SI 2026/102 regulation 13: 13(1)(a)(ii) requires disclosure of \"the underlying technology, including any protocol and consensus mechanism\"; 13(1)(a)(iii) requires disclosure of \"the governance mechanisms of the qualifying cryptoasset\"; 13(1)(e) requires disclosure of \"any matters relating to the control of the qualifying cryptoasset, including any person exerting such control, that may impact the price or value of that qualifying cryptoasset.\" Guide 1 must state explicitly that these five fields decompose a general statutory disclosure obligation into practitioner-checklist language; they are not separately sourced FCA-mandated field names verbatim.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO regulation 13", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.issuer-entity-jurisdiction-partial.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Only a narrow point is independently verified this session for the due diligence framework's issuer legal entity and jurisdiction fields: Article 9M(2)(a) and (c) of SI 2026/102 require the issuer to carry on its core activities, offering, redemption, and stabilisation-asset-holding, from an establishment in the United Kingdom, already verified in this session's earlier activity-mapping commit. A separately supplied classification for this task claimed the regulatory-status field, and the issuer-entity/jurisdiction fields generally, also traced to \"AICF guidance\" and \"PS26/13 Chapter 2, already retrieved this session\" — this attribution does not hold. Every PS26/13-sourced ledger entry actually added this session cites Chapter 5 or Chapter 7 only; Chapter 2 and any AICF guidance were never retrieved. The regulatory-status field, and any AICF/PS26/13-Chapter-2 citation for these fields, remain an open item requiring a fresh, independently checked primary-text pull, not a verified finding of this session.",
+    "claimType": "regulatory", "source": {"title": "The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 (SI 2026/102), inserted RAO article 9M(2)(a), (c)", "url": "https://www.legislation.gov.uk/uksi/2026/102/made", "publisher": "legislation.gov.uk", "date": "2026-02-04"},
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.reserve-composition-custodian-ps26-10.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Reserve composition and reserve custodian fields, as currently on record: a 1:1 backing requirement maintained at all times, at least 5% of the backing pool held in on-demand deposits, up to 5% permitted excess in the backing pool, a statutory trust arrangement over the backing pool segregated from the issuer's own assets, and third-party custody arrangements requiring issuer due diligence, clear contractual terms, and ongoing governance and conduct oversight, with appointing a third party not relieving the issuer of its obligations to tokenholders. These claims are secondary-sourced to law-firm and industry summaries of FCA Policy Statement PS26/10, not yet independently checked against PS26/10's own primary text on these specific points. Do not cite as settled FCA requirements without qualification until a direct primary-text pull of PS26/10's backing assets chapter happens.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.redemption-disclosure-ps26-10.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "Redemption rights, redemption eligibility, and reserve disclosure fields, as currently on record: PS26/10's redemption regime including adjusted redemption timelines and clarified application to the secondary market, and disclosure requirements including holders retaining access to historical disclosures and strengthened obligations around prospective holders' awareness of withdrawal rights. These claims are secondary-sourced to law-firm and industry summaries of PS26/10, not yet independently checked against PS26/10's own primary text on these specific points. Do not cite as settled FCA requirements without qualification until a direct primary-text pull of PS26/10's redemption and disclosure chapters happens.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "retained-as-estimate"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.ddframework-category2-non-mandated-fields.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "No FCA disclosure requirement for independent assurance (third-party audit of backing assets), historical depegs, sanctions exposure, or previous enforcement incidents was found in the material actually reviewed this session (SI 2026/102, SI 2026/621, and PS26/13 Chapters 5 and 7). These four due diligence framework fields are FinCrimeRadar's own analytical additions reflecting standard KYB/AML investigative practice, not FCA-mandated disclosure fields. Guide 1 must label them explicitly as practitioner judgement, not implied regulatory obligation.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "verified"
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.concentration-risk-citation-unverified.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "A citation supplied for this task, attributed to \"the Bank of England's own CASS 17 instrument text\" and quoting language about limited availability of unconnected custodians and unintended concentration risk from a small custodian pool, could not be verified and is not recorded as sourced. CASS is an FCA sourcebook; every CASS 17 finding actually verified this session comes from the FCA's own PS26/13, not a Bank of England instrument, and no such BoE text was retrieved this session. The quoted sentence does not appear in the PS26/13 text actually checked. Treat concentration risk as a FinCrimeRadar analytical addition with no confirmed FCA-mandated disclosure basis, the same as the other Category 2 fields, unless and until a genuine primary source for this specific regulatory-concern framing is independently retrieved and checked.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-08-29",
+    "reviewDue": "2027-08-29",
+    "status": "unverifiable-remove"
   }
 ]
