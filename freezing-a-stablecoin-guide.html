@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Freezing a Stablecoin: What Actually Happens | FinCrimeRadar</title>
-  <meta name="description" content="Ten mechanically distinct intervention mechanisms, not one generic 'freeze.' Circle's and Tether's own terms compared directly, the Huione/USDH contrast verified against FinCEN's own text, and the GENIUS Act's enacted-but-not-yet-operative freeze mandate." />
-  <meta name="keywords" content="stablecoin freeze, USDT freeze, USDC blacklist, Huione, USDH, GENIUS Act, Circle blocklisting policy, Tether terms of service, token burning, redemption suspension" />
+  <meta name="description" content="Freeze mechanisms, the authority bases that trigger them, and the structural limits on both, not one generic 'freeze.' Circle's and Tether's own terms compared directly, the Huione/USDH contrast verified against FinCEN's own text, and the GENIUS Act's enacted-but-not-yet-operative freeze mandate." />
+  <meta name="keywords" content="stablecoin freeze, USDT freeze, USDC blacklist, Huione, USDH, GENIUS Act, Circle blocklisting policy, Circle access denial policy, Tether terms of service, token burning, redemption suspension" />
   <meta name="author" content="FinCrimeRadar" />
   <link rel="canonical" href="https://fincrimeradar.org/freezing-a-stablecoin-guide.html" />
   <meta property="og:title" content="Freezing a Stablecoin: What Actually Happens" />
-  <meta property="og:description" content="Ten mechanically distinct intervention mechanisms, Circle's and Tether's own terms compared directly, and the Huione/USDH contrast verified against FinCEN's own text." />
+  <meta property="og:description" content="Freeze mechanisms, the authority bases that trigger them, and the structural limits on both. Circle's and Tether's own terms compared directly, and the Huione/USDH contrast verified against FinCEN's own text." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://fincrimeradar.org/freezing-a-stablecoin-guide.html" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -23,7 +23,7 @@
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Freezing a Stablecoin: What Actually Happens",
-      "description": "Ten mechanically distinct intervention mechanisms, not one generic 'freeze.' Circle's and Tether's own terms compared directly, the Huione/USDH contrast verified against FinCEN's own text, and the GENIUS Act's enacted-but-not-yet-operative freeze mandate.",
+      "description": "Freeze mechanisms, the authority bases that trigger them, and the structural limits on both, not one generic 'freeze.' Circle's and Tether's own terms compared directly, the Huione/USDH contrast verified against FinCEN's own text, and the GENIUS Act's enacted-but-not-yet-operative freeze mandate.",
       "author": { "@type": "Organization", "name": "FinCrimeRadar" },
       "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
       "url": "https://fincrimeradar.org/freezing-a-stablecoin-guide.html",
@@ -315,7 +315,7 @@
   <div class="hero-inner">
     <div class="series-tag">🧊 Stablecoin Series · Intervention Mechanisms</div>
     <h1>Freezing a Stablecoin:<br><em>What Actually Happens</em></h1>
-    <p class="hero-sub">"Freeze" is the word everyone reaches for, and it hides at least ten mechanically different things that can happen to a stablecoin, each with its own actor, legal basis, and limits. Confusing them is where investigations, screening reports, and vendor pitches go wrong.</p>
+    <p class="hero-sub">"Freeze" is the word everyone reaches for, and it hides three different kinds of thing: the technical mechanisms that actually act on a token or account, the authority bases that trigger a mechanism being used, and the structural factors that can stop any of it from reaching the asset regardless. Flattening the three into one word is where investigations, screening reports, and vendor pitches go wrong.</p>
     <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
     <div class="hero-meta">
       <span>⏱ 14 min read</span>
@@ -334,61 +334,84 @@
     <!-- PRIMER -->
     <div class="article-section" id="primer">
       <div class="section-eyebrow" style="color:var(--c-issuer)">Primer</div>
-      <h2>Ten things, one word</h2>
-      <p>A journalist writes that an exchange "froze" a user's stablecoins. A regulator's press release says an issuer "froze" a wallet linked to a fraud network. A different report says a court "seized" the same class of asset. A vendor pitches a token as "unfreezable." All four sentences use freeze-adjacent language, and they describe four different actors doing four different things, with different legal bases, different reversibility, and different reach. This guide exists because that vocabulary collapse causes real practitioner mistakes: assuming an exchange-level account freeze means the token itself is blocked on-chain, assuming a freeze on one chain reaches a bridged copy of the same token elsewhere, assuming "unfreezable" marketing language describes an actual legal or technical impossibility rather than a design choice an issuer can reverse.</p>
-      <p>The approach here is a ten-item taxonomy, each mechanism kept mechanically distinct through the whole guide, never blended into generic "freezing" language. The central worked example is a real, documented contrast: in July 2024 a US stablecoin issuer froze more than $29 million connected to a Cambodia-based marketplace group called Huione, and two months later that same group launched its own stablecoin, USDH, explicitly marketed as incapable of exactly that kind of freeze. Both halves of that contrast are verified directly against a US Treasury regulatory filing, not a secondary summary of it, and the guide uses it throughout to make the taxonomy concrete rather than abstract.</p>
+      <h2>Mechanisms, authority, and structure, not one word</h2>
+      <p>A journalist writes that an exchange "froze" a user's stablecoins. A regulator's press release says an issuer "froze" a wallet linked to a fraud network. A different report says a court "seized" the same class of asset. A vendor pitches a token as "unfreezable." All four sentences use freeze-adjacent language, and collapsing them into one word hides a real distinction: some of them describe a technical mechanism (an actual action taken on a token or account), some describe an authority basis (the legal or contractual trigger that causes a mechanism to be invoked), and one describes a structural factor (a limit on whether any mechanism reaches the asset at all, regardless of who's trying). This guide exists because flattening those three categories into "freezing" causes real practitioner mistakes: treating a legal compulsion as if it were itself a mechanically distinct action separate from the mechanisms that carry it out, assuming a burn function can destroy funds sitting at any blacklisted address rather than only tokens a minter already holds, assuming an exchange-level account freeze means the token itself is blocked on-chain, or assuming "unfreezable" marketing language describes an actual legal or technical impossibility rather than a design choice an issuer can reverse.</p>
+      <p>The approach here separates six technical mechanisms, three authority bases that trigger them, and one structural factor that can defeat any of them, kept in those three tiers throughout rather than forced into one flat list. The central worked example is a real, documented contrast: in July 2024 a US stablecoin issuer froze more than $29 million connected to a Cambodia-based marketplace group called Huione, and two months later that same group launched its own stablecoin, USDH, explicitly marketed as incapable of exactly that kind of freeze. Both halves of that contrast are verified directly against a US Treasury regulatory filing, not a secondary summary of it, and the guide uses it throughout to make the taxonomy concrete rather than abstract.</p>
       <div class="callout callout-navy">
         <strong>How to use this guide</strong>
-        <p>Work through the ten-mechanism table before describing any real-world event as a "freeze." Then check the Huione/USDH case study and the issuer-terms comparison before assuming any two stablecoin issuers have the same freeze authority, they don't necessarily, and this guide checked Circle's and Tether's own terms directly rather than assuming parity.</p>
+        <p>Work through the three tables below, mechanisms, authority bases, and the structural factor, before describing any real-world event as a "freeze." Then check the Huione/USDH case study and the issuer-terms comparison before assuming any two stablecoin issuers have the same freeze authority, they don't necessarily, and this guide checked Circle's and Tether's own terms and Circle's own Access Denial Policy directly rather than assuming parity or taking a general Terms clause as the whole picture.</p>
       </div>
     </div>
 
-    <!-- TEN MECHANISMS -->
+    <!-- TAXONOMY: MECHANISMS, AUTHORITY, STRUCTURE -->
     <div class="article-section" id="taxonomy">
       <div class="section-eyebrow" style="color:var(--c-issuer)">The Taxonomy</div>
-      <h2>Ten mechanisms, not one word</h2>
-      <p>Each row below names who actually acts, what legal or technical basis lets them do it, and, in the last column, the specific neighbouring mechanism it's most often confused with. The colour groupings track who acts: issuer-controlled mechanisms, third-party actions independent of the issuer, and legally compelled or structurally limiting mechanisms.</p>
+      <h2>Six mechanisms, three authority bases, one structural factor</h2>
+      <p>It's worth stating the shape of this section before the tables, because a flat list of ten items would itself mislead: some of the ten are technical actions, some are legal or contractual triggers that cause an action to be taken, and one is a structural limit on whether any action reaches the asset at all. Treating a trigger as though it were a mechanically distinct action, or vice versa, is exactly the kind of imprecision this guide is built to avoid, so the three categories are kept separate throughout rather than forced into one list.</p>
+
+      <h3>Mechanisms: the technical or operational actions</h3>
+      <p>Each of these is something that actually happens to a token, account, or asset. Any of them can be invoked by more than one authority basis below, that's the point of separating the two tables.</p>
       <div class="data-table-wrap">
         <table class="data-table">
           <thead><tr><th>#</th><th>Mechanism</th><th>Who acts</th><th>Basis</th><th>Not to be confused with</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>Issuer freeze</td><td>The issuer, at its own discretion or under legal compulsion</td><td>Circle's own blocklisting-policy clause; Tether's "sole discretion... prudent" clause and its separate Prohibited Use sanctions clause, both <a href="#source-2">checked directly against each issuer's own current terms</a></td><td>The decision to act (#1) versus the on-chain mechanism that carries it out (#2)</td></tr>
-            <tr><td>2</td><td>Address denylisting</td><td>The issuer, via a smart-contract role built into the token</td><td>Circle's own FiatToken "Blacklister" role, address-specific by design, <a href="#source-5">per Circle's own token design documentation</a></td><td>Targets one address only; does not stop the contract for everyone else (#9)</td></tr>
-            <tr><td>3</td><td>Token burning</td><td>The issuer, via a smart-contract role, on tokens already at a denylisted address</td><td>Permanent destruction of the token supply at that address</td><td>Irreversible, unlike #1/#2, which can be reversed by the same issuer that imposed them</td></tr>
-            <tr><td>4</td><td>Redemption refusal</td><td>The issuer, at its own fiat off-ramp specifically</td><td>A commercial-channel decision, not an on-chain transaction</td><td>Affects converting the token to fiat, not whether the token can move on-chain (#1/#2)</td></tr>
-            <tr><td>5</td><td>Custodian freeze</td><td>A third-party custodian holding the asset for a client</td><td>The custodian's own client agreement, independent of the issuer entirely</td><td>The issuer may take no action at all while this happens</td></tr>
-            <tr><td>6</td><td>Exchange account freeze</td><td>A centralised exchange, at the account level</td><td>The exchange's own user agreement, independent of the issuer entirely</td><td>Doesn't touch the token contract; the on-chain asset itself may remain fully mobile (#1/#2 not triggered)</td></tr>
-            <tr><td>7</td><td>Law enforcement seizure</td><td>A court or law enforcement agency, compelling the issuer or custodian to act</td><td>A "lawful order," a term the <a href="#source-4">GENIUS Act</a> now defines in US federal statute as covering an order to "seize, freeze, burn, or prevent the transfer" of stablecoins, meeting stated particularity and review conditions</td><td>The issuer executes, but a court or agency decides; contrast with the issuer's own discretionary judgment in #1</td></tr>
-            <tr><td>8</td><td>Sanctions blocking</td><td>The issuer, exchange, or custodian, compelled by sanctions law</td><td>A compliance obligation triggered by a designation (e.g. an OFAC listing), not a discretionary judgment call</td><td>May be carried out using the same denylisting mechanism as #2, but the legal trigger is entirely different</td></tr>
-            <tr><td>9</td><td>Smart contract restriction</td><td>The issuer, via a contract-wide circuit-breaker role</td><td>Circle's own FiatToken "Pauser" role, which halts all transfers, minting, and burning for every holder at once, <a href="#source-5">per Circle's own documentation</a></td><td>Not address-specific, unlike #2; a single pause event affects the entire token, not one wallet</td></tr>
-            <tr><td>10</td><td>Cross-chain complication</td><td>No one decides this; it's a structural limitation, not an action</td><td>Cross-referenced from <a href="/stablecoin-financial-crime-guide.html#topology">FinCrimeRadar's own token-topology work</a><sup><a href="#source-6">6</a></sup>, already verified there against FATF's cross-chain interoperability finding and Circle's own bridged-token documentation</td><td>Any of #1 through #9 may simply not reach a bridged or wrapped copy of the same token on another chain</td></tr>
+            <tr><td>M1</td><td>Address denylisting</td><td>The issuer, via a smart-contract role built into the token</td><td>Circle's own FiatToken "Blacklister" role, address-specific by design, <a href="#source-5">per Circle's own token design documentation</a>: it "prevent[s] all transfers to or from a particular address, and prevents that address from minting or burning"</td><td>Stops that address from acting; it does not, by itself, destroy the tokens sitting there (M2)</td></tr>
+            <tr><td>M2</td><td>Token burning</td><td>A minter, on tokens the minter itself already holds</td><td>Per Circle's own documentation, burn is a minter-only function: "the minter must have a balance greater than or equal to the amount... A minter can only burn tokens which it owns," typically the terminal step of a redemption flow, not an enforcement action against a third party's address</td><td>Denylisting an address (M1) stops that address from burning its own tokens; it does not hand the issuer a separate function to destroy tokens sitting at that address. This guide has not found a named, verified source for any issuer having a general capability to destroy funds at an arbitrary third-party address, and does not assume one exists</td></tr>
+            <tr><td>M3</td><td>Redemption refusal</td><td>The issuer, at its own fiat off-ramp specifically</td><td>A commercial-channel decision, not an on-chain transaction</td><td>Affects converting the token to fiat, not whether the token can move on-chain (M1)</td></tr>
+            <tr><td>M4</td><td>Custodian freeze</td><td>A third-party custodian holding the asset for a client</td><td>The custodian's own client agreement, independent of the issuer entirely</td><td>The issuer may take no action at all while this happens</td></tr>
+            <tr><td>M5</td><td>Exchange account freeze</td><td>A centralised exchange, at the account level</td><td>The exchange's own user agreement, independent of the issuer entirely</td><td>Doesn't touch the token contract; the on-chain asset itself may remain fully mobile (M1 not triggered)</td></tr>
+            <tr><td>M6</td><td>Smart contract restriction (pause)</td><td>The issuer, via a contract-wide circuit-breaker role</td><td>Circle's own FiatToken "Pauser" role, which halts all transfers, minting, and burning for every holder at once, <a href="#source-5">per Circle's own documentation</a></td><td>Not address-specific, unlike M1; a single pause event affects the entire token, not one wallet</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Three distinctions in that table cause most of the real-world confusion, and are worth stating in prose, not just in a table cell. First, an issuer freeze (#1) is a decision; address denylisting (#2) is the specific technical instruction that carries it out against one address. A freeze can, in principle, be ordered without denylisting being the chosen mechanism, though in practice for an ERC-20-style stablecoin denylisting is usually how a freeze decision gets executed. Second, denylisting (#2) and a contract-wide pause (#9) are both smart-contract-level actions built into the same token, but one targets a single address and the other stops the token for every holder simultaneously, confusing the two badly overstates or understates the scope of what actually happened. Third, an exchange account freeze (#6) and a custodian freeze (#5) are both third-party actions that can happen to a user holding a stablecoin, entirely independent of anything the issuer does; a user can be locked out of an exchange account while the underlying token remains fully transferable on-chain, and vice versa.</p>
+
+      <h3>Authority bases: what triggers a mechanism, and under what logic</h3>
+      <p>None of these is itself an on-chain or account-level action. Each is a reason a mechanism above gets invoked, and the same mechanism, most often address denylisting, can be triggered by any of the three.</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>#</th><th>Authority basis</th><th>Who decides</th><th>Basis</th><th>Not to be confused with</th></tr></thead>
+          <tbody>
+            <tr><td>A1</td><td>Issuer discretion</td><td>The issuer, exercising its own contractual judgment</td><td>A decision point, not a mechanism in itself; it results in one or more mechanisms above being invoked. See the issuer-terms comparison below for how differently Circle's and Tether's own terms actually define this discretion</td><td>The decision to act (A1) versus the specific mechanism that carries it out (M1-M6)</td></tr>
+            <tr><td>A2</td><td>Lawful-order compulsion</td><td>A court or authorised government agency, compelling the issuer or custodian to act</td><td>A "lawful order," a term the <a href="#source-4">GENIUS Act</a> now defines in US federal statute as covering an order to "seize, freeze, burn, or prevent the transfer" of stablecoins, four different possible outcomes under one legal trigger, meeting stated particularity and review conditions</td><td>Not itself a mechanically distinct tenth action parallel to M1-M6; it's satisfied by executing one of those mechanisms. Don't describe it as "seizure" alone, that's one of four outcomes it can compel, not a synonym for the whole category</td></tr>
+            <tr><td>A3</td><td>Sanctions designation</td><td>The issuer, exchange, or custodian, compelled by sanctions law</td><td>A compliance obligation triggered by a designation (e.g. an OFAC listing), not a discretionary judgment call</td><td>Executed through M1, M3, M4, or M5, not a parallel mechanism of its own; the legal trigger is compulsory where A1 is discretionary</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Structural factor: a limit, not an action or an authority</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>#</th><th>Factor</th><th>Nature</th><th>Basis</th><th>Not to be confused with</th></tr></thead>
+          <tbody>
+            <tr><td>S1</td><td>Cross-chain complication</td><td>No one decides this; it's a structural limitation on reach</td><td>Cross-referenced from <a href="/stablecoin-financial-crime-guide.html#topology">FinCrimeRadar's own token-topology work</a><sup><a href="#source-6">6</a></sup>, already verified there against FATF's cross-chain interoperability finding and Circle's own bridged-token documentation</td><td>Any mechanism above (M1-M6), triggered by any authority basis above (A1-A3), may simply not reach a bridged or wrapped copy of the same token on another chain</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>A few distinctions in these tables cause most of the real-world confusion, worth stating in prose. Issuer discretion (A1) is a decision, not an action; address denylisting (M1) is the specific technical instruction that most often carries a freeze decision out, though in principle a decision could be executed a different way. Denylisting (M1) and a contract-wide pause (M6) are both smart-contract-level actions built into the same token, but one targets a single address and the other stops the token for every holder simultaneously, confusing the two badly overstates or understates the scope of what actually happened. An exchange account freeze (M5) and a custodian freeze (M4) are both third-party actions independent of anything the issuer does; a user can be locked out of an exchange account while the underlying token remains fully transferable on-chain, and vice versa. And reversibility needs its own caveat: address denylisting (M1) is technically reversible by the same issuer that imposed it, but technically reversible is not the same as legally reversible, where a lawful order (A2) compelled the freeze in the first place, the issuer cannot simply reverse it on its own initiative while that order remains in force; reversal in that case depends on the compelling authority, not the issuer's own discretion.</p>
     </div>
 
     <!-- HUIONE / USDH CASE STUDY -->
     <div class="article-section" id="case-study">
       <div class="section-eyebrow" style="color:var(--c-legal)">Case Study</div>
       <h2>Huione and USDH: a freeze, then a pitch to make freezing impossible</h2>
-      <p>The clearest documented example of mechanism #1, issuer freeze, sits inside a US Treasury Financial Crimes Enforcement Network (FinCEN) proposed rule, not a press release or a blog post. FinCEN's own text states: <a href="#source-1">"in July 2024, when one stablecoin issuer froze CVC valued at over USD 29 million that was located in a Huione Group CVC wallet because it was 'associated with activities allegedly linked to fraudulent and transnational criminal operations.'"</a> FinCEN's own notice refers to "one stablecoin issuer" without naming it in the body text; the notice's own footnote cites contemporaneous reporting, The Record, 15 July 2024, "Tether freezes $29 million of cryptocurrency connected to Cambodian marketplace accused of fueling scams", identifying the issuer as Tether. That's an important distinction to state precisely: this is FinCEN's own citation chain naming Tether via a named press source, not this guide importing an untethered secondary claim on its own initiative. FinCEN's own body text still doesn't name Tether directly, so treat the identification as resting on FinCEN's own footnoted source, not on FinCEN's own prose.</p>
+      <p>The clearest documented example of issuer discretion (A1) resulting in a freeze sits inside a US Treasury Financial Crimes Enforcement Network (FinCEN) rulemaking, not a press release or a blog post. FinCEN's own text states: <a href="#source-1">"in July 2024, when one stablecoin issuer froze CVC valued at over USD 29 million that was located in a Huione Group CVC wallet because it was 'associated with activities allegedly linked to fraudulent and transnational criminal operations.'"</a> FinCEN's own notice refers to "one stablecoin issuer" without naming it in the body text; the notice's own footnote cites contemporaneous reporting, The Record, 15 July 2024, "Tether freezes $29 million of cryptocurrency connected to Cambodian marketplace accused of fueling scams", identifying the issuer as Tether. That's an important distinction to state precisely: this is FinCEN's own citation chain naming Tether via a named press source, not this guide importing an untethered secondary claim on its own initiative. FinCEN's own body text still doesn't name Tether directly, so treat the identification as resting on FinCEN's own footnoted source, not on FinCEN's own prose. This isn't a one-off in a superseded draft either: FinCEN's own <a href="#source-9">final rule on Huione</a>, issued 15 October 2025, was checked directly against its own text and repeats the identical pattern at its own footnote 98, the same anonymised "one stablecoin issuer" body text, the same citation to the same 15 July 2024 Record article naming Tether. The identification and the $29 million figure carry through unchanged from the proposed rule to the final rule.</p>
       <p>Two months later, per the same FinCEN filing, Huione Group launched its own answer to that freeze: <a href="#source-1">"In September 2024, Huione Group launched USDH, a stablecoin it explicitly advertised as 'unfreezable' and 'not restricted by traditional regulatory agencies.'"</a> That "unfreezable" language is FinCEN's own primary-source restatement of Huione's own marketing claim, not FinCEN's editorialising, keep the two separate. FinCEN's own characterisation goes further, in its own voice rather than quoting Huione: it states that Huione Group, "by offering USDH, which is 'unfreezable,' even upon a lawful request from law enforcement," facilitates money laundering benefiting transnational criminal organisations and DPRK actors. That sentence is FinCEN's own regulatory conclusion, an application of its authority to the facts, distinct from both the underlying Huione marketing claim and from the earlier freeze event itself.</p>
-      <p>Read against the ten-mechanism table above, USDH is best understood as a stablecoin explicitly designed to decline mechanisms #1 and #2, issuer freeze and address denylisting, as a marketed feature. Whatever technical claims underlie "unfreezable" haven't been independently verified in this guide, and shouldn't be taken at face value merely because they're widely reported; what is verified is that FinCEN's own text treats the marketing claim as real enough to build a regulatory finding on. A final FinCEN rule on this matter followed in October 2025; this guide cites the proposed rule's own text specifically, and hasn't independently reconfirmed that the same footnote and figure carry through unchanged into the final rule's text.</p>
+      <p>Read against the tables above, USDH is best understood as a stablecoin explicitly designed to decline issuer discretion (A1) over its own token, and specifically to forgo building in an address-denylisting mechanism (M1), as a marketed feature. Whatever technical claims underlie "unfreezable" haven't been independently verified in this guide, and shouldn't be taken at face value merely because they're widely reported; what is verified is that FinCEN's own text treats the marketing claim as real enough to build a regulatory finding on, in both the proposed and now the confirmed final rule.</p>
 
       <div class="callout callout-navy">
         <strong>Where the GENIUS Act fits, and where it doesn't yet</strong>
-        <p>US federal law now defines a "lawful order" to include an order to "seize, freeze, burn, or prevent the transfer" of a stablecoin, and separately requires that "a permitted payment stablecoin issuer may issue payment stablecoins only if the issuer has the technological capability to comply, and will comply, with the terms of any lawful order," per the <a href="#source-4">GENIUS Act</a>, enacted 18 July 2025. That is a real, verified, statutory basis for mechanism #7, distinct from any issuer's own contractual freeze clause. It is not, however, currently the operative legal standard: the Act's own effective-date clause sets its operative date at the earlier of 18 months after enactment, roughly 18 January 2027, or 120 days after final implementing regulations are issued. A Federal Register entry titled "GENIUS Act Regulations on Payment Stablecoin Issuance, Offer, and Sale" appeared on 18 August 2026; this guide has not confirmed whether that entry is a final rule, which would start the shorter 120-day clock, or still a proposed rule. Treat "USDH would violate the GENIUS Act" as premature until that timing question is resolved, and treat "the GENIUS Act imposes no freeze-capability requirement" as equally wrong, both statements collapse an enacted-but-not-yet-operative statute into something simpler than it is.</p>
+        <p>US federal law now defines a "lawful order" to include an order to "seize, freeze, burn, or prevent the transfer" of a stablecoin, four different possible outcomes under a single legal trigger, not a single action synonymous with "seizure." It separately requires that "a permitted payment stablecoin issuer may issue payment stablecoins only if the issuer has the technological capability to comply, and will comply, with the terms of any lawful order," per the <a href="#source-4">GENIUS Act</a>, enacted 18 July 2025. That is a real, verified, statutory authority basis (A2, lawful-order compulsion), executed through whichever of mechanisms M1-M6 fits the order, not a parallel mechanically distinct mechanism of its own, and distinct from any issuer's own contractual freeze clause (A1). It is not, however, currently the operative legal standard: the Act's own effective-date clause sets its operative date at the earlier of 18 months after enactment, roughly 18 January 2027, or 120 days after final implementing regulations are issued. A <a href="#source-10">Federal Register entry titled "GENIUS Act Regulations on Payment Stablecoin Issuance, Offer, and Sale"</a> appeared on 18 August 2026; checked directly against its own text, it's headed "Proposed Rules," a notice of proposed rulemaking, not a final rule, so it does not by itself start the shorter 120-day clock. Treat "USDH would violate the GENIUS Act" as premature until a final rule issues or the 18-month date passes, and treat "the GENIUS Act imposes no freeze-capability requirement" as equally wrong, both statements collapse an enacted-but-not-yet-operative statute into something simpler than it is.</p>
       </div>
 
       <h3>Comparing issuer terms directly, not assuming parity</h3>
-      <p>Circle's own live USDC Terms of Use state: <a href="#source-2">"USDC is issued and redeemed in accordance with Circle's blocklisting policy. Circle reserves the right to block the transfer of USDC to and from an address on chain as permitted under the blocklisting policy,"</a> and separately, on a distinct legal basis, <a href="#source-2">"Circle may also be required to freeze USDC and/or surrender associated USD held in Segregated Accounts in the event it receives a legal order from a valid government authority requiring it to do so."</a> Two bases, kept separate: a discretionary contractual right the issuer built for itself, and a compulsory basis triggered by an actual legal order.</p>
-      <p>Tether's own live USDT Terms of Service, checked directly rather than assumed to mirror Circle's, use noticeably broader language. A general clause states Tether "may suspend or terminate your access to the Site or any of the Services, freeze any Tether Tokens held by you, or terminate your Tether Token Wallet, as required by applicable Law or where Tether, in its sole discretion, determines it is prudent to do so." <a href="#source-3">A separate "Prohibited Use" clause</a> states that where Tether "determines or suspects" a Prohibited Use, it "may address such Prohibited Use through an appropriate sanction, in its sole and absolute discretion," and that such a sanction "may include... freezing or confiscation of any Fiat, funds, property, proceeds, Tether Tokens or any Digital Tokens in any Tether Tokens Wallet or other User Wallet; blacklisting any Digital Tokens Address which holds Tether Tokens." A further clause states Tether "may, at its sole and absolute discretion, seize and deliver your property to any applicable Government, law enforcement, or other authorities."</p>
-      <p>The practitioner point isn't that one issuer is stricter than the other in practice, this guide hasn't independently verified freezing frequency or operational behaviour for either issuer, only their published terms. The point is textual: Tether's terms tie freeze, confiscation, and blacklisting authority to a broad, self-defined "Prohibited Use" standard and a standalone "prudent" judgment, while Circle's terms point to a specific named policy document for the discretionary basis. Both combine a discretionary basis with a legal-compulsion basis; the discretionary basis is worded more broadly in Tether's terms than in Circle's. Don't assume any third issuer's terms fall somewhere on this spectrum without checking them directly.</p>
+      <p>Circle's own live USDC Terms of Use carry two clauses worth separating, not blending. A general "Blocked Addresses & Forfeited Funds" clause states Circle "reserves the right to 'block' certain USDC addresses and, if such addresses are Circle custodied addresses, freeze associated USDC (temporarily or permanently) that it determines, in its sole discretion, may be associated with illegal activity or activity that otherwise violates these Terms." Read on its own, that clause sounds like open-ended discretion. A separate, specifically named "Blocklisting" clause immediately follows it: <a href="#source-2">"USDC is issued and redeemed in accordance with Circle's blocklisting policy. Circle reserves the right to block the transfer of USDC to and from an address on chain as permitted under the blocklisting policy,"</a> and that clause hyperlinks, in Circle's own live Terms, directly to Circle's Stablecoin Access Denial Policy, a separate document this guide fetched and checked directly rather than assuming its contents from the general clause alone. That Policy's own text is much narrower than the general clause reads on its own: <a href="#source-8">"Circle will not deny access to individual addresses, other than in circumstances that strictly conform to the requirements set forth under Part 3, Policy Exceptions,"</a> and Part 3 lists exactly three: a determination, in Circle's sole discretion, that a threat to the security, integrity, or reliability of the Circle Stablecoin network exists; a law, regulation, or legal order from a recognised US or French authority or court; or certain urgent law-enforcement, sanctions-related, national-security, or Mutual Legal Assistance Treaty-process requests pending a court order. Reversal isn't unconditional either: the Policy states Circle may lift an access denial "upon formal confirmation" from the relevant authority that the underlying obligation no longer applies, or that a security incident is resolved, not simply whenever Circle itself chooses to. This guide cannot fully resolve from the Terms' text alone whether the broader "Blocked Addresses" clause is itself constrained by the same three-exception Policy or operates as a separate, wider basis; state both clauses precisely rather than assuming either answer. Separately, on a distinct legal basis from either clause above, Circle's Terms state <a href="#source-2">"Circle may also be required to freeze USDC and/or surrender associated USD held in Segregated Accounts in the event it receives a legal order from a valid government authority requiring it to do so."</a> One more scope point worth stating plainly: Circle's own Terms open with the note that <a href="#source-2">"these USDC Terms... only apply to holders of USDC located outside of the European Economic Area,"</a> EEA holders are directed to a separate USDC White Paper; this guide has not checked that separate document.</p>
+      <p>Tether's own live USDT Terms of Service, checked directly rather than assumed to mirror Circle's, use noticeably broader language, and "Prohibited Use" is worth naming precisely rather than shorthanding as a sanctions clause: it's a single defined term covering a long, heterogeneous list, money laundering and sanctions evasion sit alongside tax evasion, using illegally obtained funds, providing false registration information, operating multiple accounts or "throwaway" wallets, circumventing jurisdiction restrictions with a VPN, and more, all bundled under one "Prohibited Uses" definition. <a href="#source-3">That clause</a> states that where Tether "determines or suspects" a Prohibited Use, it "may address such Prohibited Use through an appropriate sanction, in its sole and absolute discretion," and that such a sanction "may include... freezing or confiscation of any Fiat, funds, property, proceeds, Tether Tokens or any Digital Tokens in any Tether Tokens Wallet or other User Wallet; blacklisting any Digital Tokens Address which holds Tether Tokens." A separate general clause states Tether "may suspend or terminate your access to the Site or any of the Services, freeze any Tether Tokens held by you, or terminate your Tether Token Wallet, as required by applicable Law or where Tether, in its sole discretion, determines it is prudent to do so." A further clause states Tether "may, at its sole and absolute discretion, seize and deliver your property to any applicable Government, law enforcement, or other authorities." One scope point applies here too: Tether's own Terms state they "apply to users of tether.to and app.tether.to," and that a user agrees to them "by purchasing or redeeming a Tether Token through the Site or transferring Tether Tokens into or from a Tether Tokens Wallet." That's a contractual scope tied to direct users of Tether's own platform and Services, not, by itself, proof of contractual authority over every secondary-market holder who has never touched tether.to directly; the on-chain blacklisting mechanism itself, being enforced by the token contract's own code rather than by contract law, is a separate question from who has agreed to these Terms, and operates on whichever address the blacklister role targets regardless of contractual privity.</p>
+      <p>The practitioner point isn't that one issuer is stricter than the other in practice, this guide hasn't independently verified freezing frequency or operational behaviour for either issuer, only their published terms and policies. The point is textual and structural: Tether's broad discretionary language sits in one place, a wide "Prohibited Uses" definition plus a standalone "prudent" clause, both scoped contractually to defined users of its own platform. Circle's discretionary language is split across a broad general clause and a specifically named, materially narrower policy document that its own Terms link to directly, with an EEA carve-out on top. Don't read either as simply "broader" or "narrower" than the other in the abstract, the comparison depends on which specific clause is actually in play. Don't assume any third issuer's terms fall somewhere on this spectrum without checking them directly.</p>
 
       <div class="discrepancy-block">
         <div class="discrepancy-label">Secondary-sourced material, not independently verified this session</div>
-        <p>Reporting exists on Circle operating a narrower "Access Denial Policy" limiting freezes to a network-security threat or a valid US/French legal order (CryptoSlate, April 2026); on a New York bankruptcy court ordering Circle to maintain a blacklist tied to the Multichain Foundation liquidation (The Block, 31 October 2025); on a disputed roughly $12.6 million USDC freeze connected to a DeFi protocol called Zama (CCN, June 2026); and on public statements by Circle's CEO contrasting Circle's and Tether's freezing patterns (reported April 2026). None of these four have been checked against their own primary documents or court filings in this guide, they're noted here as illustrative of live practice, not cited with the same confidence as the FinCEN filing or either issuer's own terms above.</p>
+        <p>Reporting exists on a New York bankruptcy court ordering Circle to maintain a blacklist tied to the Multichain Foundation liquidation (The Block, 31 October 2025); on a disputed roughly $12.6 million USDC freeze connected to a DeFi protocol called Zama (CCN, June 2026); and on public statements by Circle's CEO contrasting Circle's and Tether's freezing patterns (reported April 2026). None of these three have been checked against their own primary documents or court filings in this guide, they're noted here as illustrative of live practice, not cited with the same confidence as the FinCEN filing, either issuer's own terms, or Circle's own Access Denial Policy above.</p>
       </div>
     </div>
 
@@ -426,8 +449,8 @@
     <div class="article-section" id="failure-resolution">
       <div class="section-eyebrow" style="color:var(--c-gap)">Before You Continue</div>
       <h2>This isn't the failure and resolution question</h2>
-      <p>Every mechanism in the taxonomy above is a targeted intervention against a specific asset, address, or account, because of suspected illicit conduct or a legal compulsion tied to it. That's a different question from what happens when a stablecoin issuer itself can't continue, insolvency, a capital breach, an operational collapse. FinCrimeRadar's own guide on systemic stablecoins covers that failure-and-resolution question directly, including the Bank of England's draft recovery and wind-down Code of Practice and its "normal and stress times" no-suspension expectation for redemption, and this guide doesn't duplicate that material. Read <a href="/systemic-stablecoins-guide.html#failure">"What happens when the issuer itself fails"</a><sup><a href="#source-7">7</a></sup> for that separate track; it remains, in its own words, a live regulatory development area, the Code of Practice is still draft, consultation-stage material.</p>
-      <p>One connection is worth flagging rather than developing further here: mechanism #4 in the taxonomy above, redemption refusal, is a targeted, case-specific action by a functioning issuer. A wind-down plan's own "complete redemption for all holders" strategy, discussed in the failure-and-resolution guide, is a different thing again, an issuer-wide, ordinarily permanent process triggered by the issuer's own collapse, not a targeted refusal aimed at one suspect wallet. Don't read one as a variant of the other.</p>
+      <p>Every mechanism and authority basis in the taxonomy above is a targeted intervention against a specific asset, address, or account, because of suspected illicit conduct or a legal compulsion tied to it. That's a different question from what happens when a stablecoin issuer itself can't continue, insolvency, a capital breach, an operational collapse. FinCrimeRadar's own guide on systemic stablecoins covers that failure-and-resolution question directly, including the Bank of England's draft recovery and wind-down Code of Practice and its "normal and stress times" no-suspension expectation for redemption, and this guide doesn't duplicate that material. Read <a href="/systemic-stablecoins-guide.html#failure">"What happens when the issuer itself fails"</a><sup><a href="#source-7">7</a></sup> for that separate track; it remains, in its own words, a live regulatory development area, the Code of Practice is still draft, consultation-stage material.</p>
+      <p>One connection is worth flagging rather than developing further here: redemption refusal (M3 in the taxonomy above) is a targeted, case-specific action by a functioning issuer. A wind-down plan's own "complete redemption for all holders" strategy, discussed in the failure-and-resolution guide, is a different thing again, an issuer-wide, ordinarily permanent process triggered by the issuer's own collapse, not a targeted refusal aimed at one suspect wallet. Don't read one as a variant of the other.</p>
     </div>
 
     <!-- SCENARIO 2 -->
@@ -468,8 +491,8 @@
     <!-- TOKEN TOPOLOGY CROSS-REFERENCE -->
     <div class="article-section" id="topology-crossref">
       <div class="section-eyebrow" style="color:var(--c-gap)">Cross-Chain Limits</div>
-      <h2>Mechanism #10 in practice: does the freeze even reach the token you're looking at</h2>
-      <p>FinCrimeRadar's own guide on unhosted wallets and the visibility gap already works through this in depth, and this guide cross-references it rather than repeating it: before assuming any of mechanisms #1 through #9 actually applies to a given wallet, establish whether you're looking at the issuer's native token or a bridged or wrapped representation of it, which contract and chain actually hold the funds, who controls the bridge, and whether the issuer's own freeze or blacklist mechanism reaches that specific representation at all. That guide's own worked example, drawn from Circle's own bridged-token documentation, makes a sharper point than "the mechanism might not exist yet" on a bridged token: a standards-compliant bridged copy is typically code-identical to the native token from the moment it's deployed, meaning the freeze and blacklist mechanism, including the Blacklister and Pauser roles described in the taxonomy above, is already built in. What changes is who controls it, often a bridge operator, not the issuer, until an optional control-transfer step occurs. Read the full six-question topology checklist and the underlying FATF and Circle sourcing at <a href="/stablecoin-financial-crime-guide.html#topology">"Questions to ask before assuming a freeze will work."</a></p>
+      <h2>The structural factor in practice: does the freeze even reach the token you're looking at</h2>
+      <p>FinCrimeRadar's own guide on unhosted wallets and the visibility gap already works through this in depth, and this guide cross-references it rather than repeating it: before assuming any mechanism or authority basis above (M1-M6, A1-A3) actually applies to a given wallet, establish whether you're looking at the issuer's native token or a bridged or wrapped representation of it, which contract and chain actually hold the funds, who controls the bridge, and whether the issuer's own freeze or blacklist mechanism reaches that specific representation at all. That guide's own worked example, drawn from Circle's own bridged-token documentation, makes a sharper point than "the mechanism might not exist yet" on a bridged token: a standards-compliant bridged copy is typically code-identical to the native token from the moment it's deployed, meaning the freeze and blacklist mechanism, including the Blacklister and Pauser roles described in the taxonomy above, is already built in. What changes is who controls it, often a bridge operator, not the issuer, until an optional control-transfer step occurs. Read the full six-question topology checklist and the underlying FATF and Circle sourcing at <a href="/stablecoin-financial-crime-guide.html#topology">"Questions to ask before assuming a freeze will work."</a></p>
     </div>
 
     <!-- FOUR PATTERNS -->
@@ -482,7 +505,7 @@
         <div class="pattern-line">An exchange freezing an account and an issuer freezing a token are independent events with independent legal bases.</div>
         <div class="pattern-ttd">
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Risk</div><div class="ttd-text">"The exchange froze it" gets treated as proof the token itself is blocked on-chain.</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Signal</div><div class="ttd-text">Exchange account freezes and issuer-level denylisting are mechanisms #6 and #2, entirely separate.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Signal</div><div class="ttd-text">Exchange account freezes (M5) and issuer-level denylisting (M1) are entirely separate mechanisms.</div></div>
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Response</div><div class="ttd-text">Check the token contract's own denylist status independently of any exchange notice.</div></div>
         </div>
       </div>
@@ -500,7 +523,7 @@
         <div class="pattern-line">A single address being blocked and the entire token halting are not the same scale of event.</div>
         <div class="pattern-ttd">
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Risk</div><div class="ttd-text">Denylisting and a full contract pause get described interchangeably as "the token was frozen."</div></div>
-          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Signal</div><div class="ttd-text">Circle's own Blacklister role (#2) targets one address; its Pauser role (#9) halts every holder at once.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Signal</div><div class="ttd-text">Circle's own Blacklister role (M1) targets one address; its Pauser role (M6) halts every holder at once.</div></div>
           <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Response</div><div class="ttd-text">Establish which mechanism actually happened before describing the event's scope.</div></div>
         </div>
       </div>
@@ -518,7 +541,7 @@
     <!-- KNOWLEDGE CHECK -->
     <div class="quiz-section article-section" id="knowledge-check" style="border:none;">
       <div class="quiz-title">Knowledge Check</div>
-      <div class="quiz-sub">Five questions on the taxonomy, the Huione/USDH case study, and the GENIUS Act's timing.</div>
+      <div class="quiz-sub">Seven questions on the taxonomy, the Huione/USDH case study, and the GENIUS Act's timing.</div>
 
       <div class="quiz-q" id="qq1">
         <div class="quiz-q-text">1. Per FinCEN's own footnote, which issuer is identified, via a secondary press report, as having carried out the July 2024 Huione freeze?</div>
@@ -534,8 +557,8 @@
       <div class="quiz-q" id="qq2">
         <div class="quiz-q-text">2. Under this guide's taxonomy, what is USDH's "unfreezable" positioning best understood as?</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - A claim that mechanism #7, law enforcement seizure, cannot legally occur</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - A marketed design choice to decline mechanisms #1 and #2, issuer freeze and address denylisting</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - A claim that lawful-order compulsion (A2) cannot legally occur</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - A marketed design choice to decline issuer discretion (A1) over its own token and forgo an address-denylisting mechanism (M1)</button>
           <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - Proof that no stablecoin can ever be frozen</button>
           <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - A claim FinCEN independently verified as technically accurate</button>
         </div>
@@ -543,40 +566,62 @@
       </div>
 
       <div class="quiz-q" id="qq3">
-        <div class="quiz-q-text">3. Is the GENIUS Act's technological-capability-to-comply requirement currently the binding legal standard for US issuers?</div>
+        <div class="quiz-q-text">3. Under the GENIUS Act's own definition, is a "lawful order" the same thing as an order to seize a stablecoin?</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - Yes, it took effect immediately on enactment in July 2025</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - No, the requirement doesn't exist in the statute</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - No, not yet, the Act's own effective-date clause defers it to the earlier of roughly 18 months post-enactment or 120 days after final implementing regulations</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - It only applies to foreign issuers</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - Yes, "lawful order" and "seizure" are used interchangeably in the statute</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - No, a "lawful order" can compel any of four different outcomes, seize, freeze, burn, or prevent the transfer, executed through other mechanisms, not one mechanically distinct action</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - No, "lawful order" only covers freezing, never seizure</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - The GENIUS Act does not define "lawful order"</button>
         </div>
         <div class="quiz-feedback" id="qq3-fb"></div>
       </div>
 
       <div class="quiz-q" id="qq4">
-        <div class="quiz-q-text">4. What's the difference between Circle's Blacklister role and its Pauser role?</div>
+        <div class="quiz-q-text">4. Under Circle's own FiatToken architecture, can Circle destroy (burn) tokens sitting at an address it has blacklisted?</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - There is no difference, both are the same mechanism</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Blacklister targets one address; Pauser halts transfers, minting, and burning for every holder of the contract at once</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Pauser only exists on bridged tokens, never on native USDC</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - Blacklister is a legal role and Pauser is a technical one</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Yes, blacklisting an address automatically triggers destruction of its tokens</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - No, burn is a minter-only function that operates only on tokens the minter itself already holds; blacklisting an address only stops that address from minting or burning its own tokens, it doesn't give the issuer a separate tool to destroy funds sitting there</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Yes, but only for amounts under a fixed cap</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - No token architecture anywhere has a burn function of any kind</button>
         </div>
         <div class="quiz-feedback" id="qq4-fb"></div>
       </div>
 
       <div class="quiz-q" id="qq5">
-        <div class="quiz-q-text">5. If a token has been frozen on its native chain, can you assume every bridged or wrapped version of it is also blocked?</div>
+        <div class="quiz-q-text">5. Is the GENIUS Act's technological-capability-to-comply requirement currently the binding legal standard for US issuers?</div>
         <div class="quiz-opts">
-          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - Yes, freezes always propagate automatically across chains</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - No, whether the mechanism reaches a bridged representation depends on that representation's own control structure, check the token-topology questions per representation</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - No, bridged tokens can never be frozen under any circumstances</button>
-          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - This only matters for USDT, not USDC</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - Yes, it took effect immediately on enactment in July 2025</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - No, the requirement doesn't exist in the statute</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - No, not yet, the Act's own effective-date clause defers it to the earlier of roughly 18 months post-enactment or 120 days after final implementing regulations, and the only Federal Register document on this so far is a proposed rule, not a final one</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - It only applies to foreign issuers</button>
         </div>
         <div class="quiz-feedback" id="qq5-fb"></div>
       </div>
 
+      <div class="quiz-q" id="qq6">
+        <div class="quiz-q-text">6. What's the difference between Circle's Blacklister role and its Pauser role?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq6','A')">A - There is no difference, both are the same mechanism</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq6','B')">B - Blacklister targets one address; Pauser halts transfers, minting, and burning for every holder of the contract at once</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq6','C')">C - Pauser only exists on bridged tokens, never on native USDC</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq6','D')">D - Blacklister is a legal role and Pauser is a technical one</button>
+        </div>
+        <div class="quiz-feedback" id="qq6-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq7">
+        <div class="quiz-q-text">7. If a token has been frozen on its native chain, can you assume every bridged or wrapped version of it is also blocked?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq7','A')">A - Yes, freezes always propagate automatically across chains</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq7','B')">B - No, whether the mechanism reaches a bridged representation depends on that representation's own control structure, check the token-topology questions per representation</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq7','C')">C - No, bridged tokens can never be frozen under any circumstances</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq7','D')">D - This only matters for USDT, not USDC</button>
+        </div>
+        <div class="quiz-feedback" id="qq7-fb"></div>
+      </div>
+
       <div class="quiz-score-display" id="quiz-score">
-        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-num" id="quiz-score-num">0/7</div>
         <div class="quiz-score-label" id="quiz-score-label"></div>
       </div>
     </div>
@@ -587,19 +632,19 @@
       <h2>FAQ</h2>
       <details class="faq-item">
         <summary>Is Tether's freeze authority the same as Circle's? <span class="faq-icon">+</span></summary>
-        <div class="faq-a">Not textually. Both issuers' own terms combine a discretionary contractual basis with a legal-compulsion basis, but Tether's discretionary basis is worded more broadly, tied to a general "Prohibited Use" sanctions clause and a standalone "sole discretion... prudent" freeze power, where Circle's terms point to a specific named blocklisting policy. This guide checked both issuers' current terms directly rather than assuming one mirrors the other, and the same caution applies to any third issuer.</div>
+        <div class="faq-a">Not textually, and the comparison is more structural than "one is broader." Tether's discretionary basis sits in one place, a wide "Prohibited Uses" definition covering far more than sanctions, plus a standalone "sole discretion... prudent" clause, both scoped contractually to users of tether.to and app.tether.to specifically. Circle's discretionary basis is split across a broad general clause and a separately named, materially narrower Access Denial Policy (three enumerated exceptions: network security threat, a qualifying US/French legal order, or certain urgent law-enforcement/sanctions/national-security requests) that Circle's own Terms link to directly, plus an EEA carve-out. This guide checked both issuers' current terms and Circle's own linked policy directly rather than assuming one mirrors the other, and the same caution applies to any third issuer.</div>
       </details>
       <details class="faq-item">
         <summary>Does the GENIUS Act make "unfreezable" stablecoins illegal in the US right now? <span class="faq-icon">+</span></summary>
-        <div class="faq-a">Not yet, and not in that flat form. The Act does create a real statutory technological-capability-to-comply requirement, but its own effective-date clause defers when that requirement actually binds, to the earlier of roughly 18 months after the Act's July 2025 enactment or 120 days after final implementing regulations. Whether a Federal Register entry from August 2026 on this topic is a final or proposed rule hasn't been confirmed here, check that directly before dating any compliance deadline more precisely than this guide does.</div>
+        <div class="faq-a">Not yet, and not in that flat form. The Act does create a real statutory technological-capability-to-comply requirement, but its own effective-date clause defers when that requirement actually binds, to the earlier of roughly 18 months after the Act's July 2025 enactment or 120 days after final implementing regulations. The only Federal Register document on this so far, from 18 August 2026, checked directly, is headed "Proposed Rules," a notice of proposed rulemaking, not a final rule, so it doesn't by itself start the shorter 120-day clock.</div>
       </details>
       <details class="faq-item">
         <summary>If an exchange freezes my account, has the stablecoin itself been frozen? <span class="faq-icon">+</span></summary>
-        <div class="faq-a">Not necessarily, and don't assume it either way. An exchange account freeze is a third-party action independent of the issuer, mechanism #6 in this guide's taxonomy. Whether the token itself has also been denylisted by the issuer, mechanism #2, is a separate fact that needs checking against the token contract directly.</div>
+        <div class="faq-a">Not necessarily, and don't assume it either way. An exchange account freeze (M5 in this guide's taxonomy) is a third-party action independent of the issuer. Whether the token itself has also been denylisted by the issuer (M1) is a separate fact that needs checking against the token contract directly.</div>
       </details>
       <details class="faq-item">
         <summary>Can a frozen stablecoin be un-frozen, and is that the same as burning it? <span class="faq-icon">+</span></summary>
-        <div class="faq-a">No, and they're different mechanisms with different reversibility. A freeze or denylisting action (mechanisms #1/#2) can typically be reversed by the same issuer that imposed it. Burning (mechanism #3), destroying the token supply at an address, is permanent; it isn't something a freeze automatically leads to, and it's a separate decision the issuer makes on tokens already at a denylisted address.</div>
+        <div class="faq-a">No, and the two work quite differently. Address denylisting (M1) can typically be reversed by the same issuer that imposed it, though "typically reversible" isn't the same as "always reversible on the issuer's own say-so": where a lawful order (A2) compelled the freeze, reversal depends on that authority confirming the order no longer applies, not on the issuer's own discretion. Burning (M2) is a separate mechanism entirely, and it's worth being precise about how it actually works: on Circle's own architecture, burn is a minter-only function that destroys tokens the minter itself already holds, typically as the terminal step of a redemption, not a tool for destroying funds sitting at an arbitrary blacklisted address. Blacklisting an address stops that address from minting or burning its own tokens; it doesn't hand the issuer a separate function to reach in and destroy what's there.</div>
       </details>
       <details class="faq-item">
         <summary>Does a stablecoin issuer's freeze reach a bridged version of the same token on another chain? <span class="faq-icon">+</span></summary>
@@ -621,7 +666,7 @@
           <div class="pattern-line">An exchange freezing an account isn't the same as an issuer freezing a token.</div>
           <div class="pattern-ttd">
             <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Risk</div><div class="ttd-text">Account freeze treated as proof of on-chain freeze.</div></div>
-            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Signal</div><div class="ttd-text">Mechanisms #6 and #2 are entirely separate.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Signal</div><div class="ttd-text">Exchange freeze (M5) and issuer denylisting (M1) are entirely separate.</div></div>
             <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Response</div><div class="ttd-text">Check the token contract's own denylist status independently.</div></div>
           </div>
         </div>
@@ -668,15 +713,18 @@
         <li id="source-5">Circle (stablecoin-evm repository), <a href="https://github.com/circlefin/stablecoin-evm/blob/master/doc/tokendesign.md">Token Design documentation</a>, accessed 30 August 2026.</li>
         <li id="source-6">FinCrimeRadar, <a href="/stablecoin-financial-crime-guide.html#topology">Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap</a>, cross-referenced for the token-topology questions and the FATF/Circle bridged-token sourcing behind them, not independently re-verified in this guide.</li>
         <li id="source-7">FinCrimeRadar, <a href="/systemic-stablecoins-guide.html#failure">Systemic Stablecoins: The Joint Bank of England and FCA Regime</a>, cross-referenced for the failure-and-resolution material, not duplicated in this guide.</li>
+        <li id="source-8"><a href="https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Blog%20Posts/Circle%20Stablecoin%20Access%20Denial%20Policy_pdf.pdf">Circle, Stablecoin Access Denial Policy</a>, fetched and checked directly 30 August 2026, confirmed as the document Circle's own USDC Terms hyperlink to for its "blocklisting policy" reference.</li>
+        <li id="source-9"><a href="https://www.govinfo.gov/content/pkg/FR-2025-10-16/pdf/2025-19571.pdf">FinCEN, Imposition of Special Measure Regarding Huione Group, as a Foreign Financial Institution of Primary Money Laundering Concern (Final Rule), 90 FR [pagination not separately recorded]</a>, 16 October 2025, checked directly to confirm the anonymised-body/named-footnote pattern and the $29 million figure carry through unchanged from the proposed rule.</li>
+        <li id="source-10"><a href="https://www.govinfo.gov/content/pkg/FR-2026-08-18/pdf/2026-16796.pdf">Department of the Treasury, GENIUS Act Regulations on Payment Stablecoin Issuance, Offer, and Sale (Proposed Rule), 91 FR 53368</a>, 18 August 2026, checked directly to confirm it is headed "Proposed Rules," not a final rule.</li>
       </ol>
-      <p style="margin-top:1rem;"><strong>Secondary-sourced, not independently verified this session:</strong> Circle's reported "Access Denial Policy" (CryptoSlate, April 2026); the New York bankruptcy court's Multichain Foundation blacklist order (The Block, 31 October 2025); the disputed Zama pool freeze (CCN, June 2026); and public statements attributed to Circle's CEO on Circle's and Tether's relative freezing patterns (reported April 2026). A final FinCEN rule on Huione followed the notice cited above on 16 October 2025; this guide cites the notice's own text, and has not independently reconfirmed that the specific footnote and figure quoted here carry through unchanged into the final rule.</p>
+      <p style="margin-top:1rem;"><strong>Secondary-sourced, not independently verified this session:</strong> the New York bankruptcy court's Multichain Foundation blacklist order (The Block, 31 October 2025); the disputed Zama pool freeze (CCN, June 2026); and public statements attributed to Circle's CEO on Circle's and Tether's relative freezing patterns (reported April 2026).</p>
     </div>
 
     <!-- CONCLUSION -->
     <div class="article-section" id="conclusion">
       <div class="section-eyebrow" style="color:var(--c-issuer)">The Actual Skill</div>
       <h2>Name the mechanism, not the metaphor.</h2>
-      <p>"Freeze" is a convenient word and a genuinely imprecise one. Ten different actors, under ten different legal and technical bases, can each do something a headline would call "freezing" a stablecoin, and telling them apart is most of what separates a useful case note from a misleading one. <a href="/screen.html" style="color:var(--c-issuer);font-weight:600;">FinCrimeRadar's screening tool</a> checks sanctions, PEP, and adverse media exposure for the entities behind cases like this one, free, no signup required.</p>
+      <p>"Freeze" is a convenient word and a genuinely imprecise one. Several different actors, under several different legal and contractual bases, can each do something a headline would call "freezing" a stablecoin, using one of a handful of underlying mechanisms, and a structural limitation can defeat any of them regardless. Telling the mechanism, the authority behind it, and the limits on both apart is most of what separates a useful case note from a misleading one. <a href="/screen.html" style="color:var(--c-issuer);font-weight:600;">FinCrimeRadar's screening tool</a> checks sanctions, PEP, and adverse media exposure for the entities behind cases like this one, free, no signup required.</p>
       <div class="inline-tool-promo">
         <div class="itp-text"><strong>Verifying an entity connected to a freeze case?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
         <a href="/screen.html" class="itp-btn">Screen an individual →</a>
@@ -690,7 +738,7 @@
     <div class="toc">
       <div class="toc-title">Contents</div>
       <a href="#primer">Primer</a>
-      <a href="#taxonomy">The Ten Mechanisms</a>
+      <a href="#taxonomy">Mechanisms, Authority, Structure</a>
       <a href="#case-study">Huione / USDH Case Study</a>
       <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-thirdparty);"></span> 01 · The Wrong Layer</a>
       <a href="#failure-resolution">Not Failure &amp; Resolution</a>
@@ -749,7 +797,7 @@ const verdicts = {
   scenario1: {
     title: 'Correct answer: B, name the layer that actually acted',
     body: [
-      'This is "The Wrong Layer." An exchange account freeze (mechanism #6) and an issuer-level on-chain freeze or denylisting (mechanisms #1/#2) are independent actions with independent legal bases. The exchange notice tells you what happened at the account layer; it doesn\'t tell you anything about the token contract itself.',
+      'This is "The Wrong Layer." An exchange account freeze (M5) and an issuer-level on-chain denylisting (M1), whether triggered by issuer discretion (A1) or a lawful order (A2), are independent actions with independent legal bases. The exchange notice tells you what happened at the account layer; it doesn\'t tell you anything about the token contract itself.',
       'Option A assumes the account freeze proves an on-chain freeze happened, which isn\'t established by the exchange\'s notice alone. Option C assumes the two layers move together, they often don\'t. Option D repeats the exchange\'s own imprecise wording into your case note instead of checking and stating the actual mechanism.'
     ]
   },
@@ -788,10 +836,12 @@ function showVerdict(scenarioId, chosen, btn) {
 
 const quizFeedback = {
   qq1: { correct: 'B', fb: 'FinCEN\'s own body text says "one stablecoin issuer," anonymised; its own footnote points to a July 2024 report from The Record naming Tether as the issuer that carried out the freeze.' },
-  qq2: { correct: 'B', fb: 'USDH is marketed as declining mechanisms #1 and #2, issuer freeze and address denylisting, as a design feature, per FinCEN\'s own restatement of Huione\'s own marketing claim.' },
-  qq3: { correct: 'C', fb: 'The requirement is enacted but not yet operative; the Act\'s own Section 20 effective-date clause defers it to the earlier of roughly 18 months post-enactment or 120 days after final implementing regulations.' },
-  qq4: { correct: 'B', fb: 'Blacklister denylists one address; Pauser halts transfers, minting, and burning for every holder of the contract simultaneously, a materially larger event.' },
-  qq5: { correct: 'B', fb: 'Whether a freeze reaches a bridged or wrapped representation depends on that representation\'s own control structure, not on the native-chain freeze alone, check the topology questions per representation.' }
+  qq2: { correct: 'B', fb: 'USDH is marketed as declining issuer discretion (A1) and forgoing an address-denylisting mechanism (M1), as a design feature, per FinCEN\'s own restatement of Huione\'s own marketing claim.' },
+  qq3: { correct: 'B', fb: 'A "lawful order" under the GENIUS Act can compel seizure, freezing, burning, or prevention of transfer, four different outcomes under one legal trigger, executed through other mechanisms rather than being a mechanically distinct action itself.' },
+  qq4: { correct: 'B', fb: 'Burn is restricted to minter addresses and only operates on tokens the minter itself already holds. Blacklister only stops an address from minting or burning; it doesn\'t give the issuer a separate tool to destroy tokens sitting there.' },
+  qq5: { correct: 'C', fb: 'The requirement is enacted but not yet operative; the Act\'s own Section 20 effective-date clause defers it to the earlier of roughly 18 months post-enactment or 120 days after final implementing regulations, and the only Federal Register document so far is a proposed rule.' },
+  qq6: { correct: 'B', fb: 'Blacklister denylists one address; Pauser halts transfers, minting, and burning for every holder of the contract simultaneously, a materially larger event.' },
+  qq7: { correct: 'B', fb: 'Whether a freeze reaches a bridged or wrapped representation depends on that representation\'s own control structure, not on the native-chain freeze alone, check the topology questions per representation.' }
 };
 
 let quizAnswered = 0;
@@ -818,14 +868,14 @@ function answerQuiz(questionId, chosen) {
   fbDiv.setAttribute('aria-live', 'polite');
   quizAnswered++;
   if (isCorrect) quizCorrect++;
-  if (quizAnswered === 5) {
+  if (quizAnswered === 7) {
     const scoreDiv = document.getElementById('quiz-score');
     const scoreNum = document.getElementById('quiz-score-num');
     const scoreLbl = document.getElementById('quiz-score-label');
     scoreDiv.classList.add('show');
-    scoreNum.textContent = quizCorrect + '/5';
-    const labels = ['Keep studying, the ten-mechanism table is worth another pass.','Getting there, revisit the Huione/USDH case study.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the mechanism distinctions well.','Excellent, practitioner-level judgement on freeze mechanics.','Perfect, you\'re ready to work a real freeze-adjacent case.'];
-    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+    scoreNum.textContent = quizCorrect + '/7';
+    const labels = ['Keep studying, the mechanisms and authority-bases tables are worth another pass.','Getting there, revisit the Huione/USDH case study.','A start, but check the burn-mechanics and lawful-order sections again.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the mechanism/authority distinctions well.','Very good, most of the corrected detail is landing.','Excellent, practitioner-level judgement on freeze mechanics.','Perfect, you\'re ready to work a real freeze-adjacent case.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[7];
   }
 }
 
