@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Stablecoins Became a Compliance Priority | FinCrimeRadar</title>
+  <meta name="description" content="Stablecoins are becoming regulated money infrastructure and major illicit-finance infrastructure at the same time. The entry point to FinCrimeRadar's Stablecoin Series: the three headline figures, the recurring analytical chain, an introductory due diligence checklist, and where to go next." />
+  <meta name="keywords" content="stablecoin compliance, stablecoin regulation, stablecoin due diligence, Chainalysis crypto crime report, TRM Labs stablecoins, DefiLlama stablecoin market cap, stablecoin series" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/why-stablecoins-compliance-priority-guide.html" />
+  <meta property="og:title" content="Why Stablecoins Became a Compliance Priority" />
+  <meta property="og:description" content="The entry point to FinCrimeRadar's Stablecoin Series: three headline figures, the recurring analytical chain, an introductory due diligence checklist, and where to go next." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/why-stablecoins-compliance-priority-guide.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why Stablecoins Became a Compliance Priority",
+      "description": "Stablecoins are becoming regulated money infrastructure and major illicit-finance infrastructure at the same time. The entry point to FinCrimeRadar's Stablecoin Series: the three headline figures, the recurring analytical chain, an introductory due diligence checklist, and where to go next.",
+      "author": { "@type": "Organization", "name": "FinCrimeRadar" },
+      "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
+      "url": "https://fincrimeradar.org/why-stablecoins-compliance-priority-guide.html",
+      "datePublished": "2026-08-30",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fincrimeradar.org/why-stablecoins-compliance-priority-guide.html" }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Crypto","item":"https://fincrimeradar.org/knowledge.html?domain=crypto"},{"@type":"ListItem","position":3,"name":"Why Stablecoins Became a Compliance Priority","item":"https://fincrimeradar.org/why-stablecoins-compliance-priority-guide.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted', 'ad_user_data': 'granted', 'ad_personalization': 'denied' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-reg:#0891b2; --c-reg-light:#ecfeff;
+      --c-illicit:#dc2626; --c-illicit-light:#fef2f2;
+      --c-figure:#7c3aed; --c-figure-light:#f5f3ff;
+      --c-nav:#d97706; --c-nav-light:#fffbeb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-nav); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(217,119,6,0.16) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%); }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-reg); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-illicit); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-nav); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(217,119,6,0.22); border:1px solid rgba(253,230,138,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:0.5rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+    .series-orient { font-size:13px; color:#93c5fd; max-width:680px; line-height:1.6; margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.15); }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-nav); border-left-color:var(--c-nav); }
+    .toc a.active { color:var(--c-nav); border-left-color:var(--c-nav); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-reg { background:var(--c-reg-light); color:var(--c-reg); border:1px solid #a5f3fc; }
+    .badge-illicit { background:var(--c-illicit-light); color:var(--c-illicit); border:1px solid #fecaca; }
+    .badge-figure { background:var(--c-figure-light); color:var(--c-figure); border:1px solid #ddd6fe; }
+    .badge-nav { background:var(--c-nav-light); color:var(--c-nav); border:1px solid #fde68a; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) { .pattern-ttd { grid-template-columns:1fr; } .pattern-grid { grid-template-columns:1fr; } }
+
+    /* DATA / SERIES-MAP TABLES */
+    .data-table-wrap { overflow-x:auto; margin:1.25rem 0; }
+    .data-table { width:100%; border-collapse:collapse; min-width:640px; font-size:13.5px; }
+    .data-table th { background:var(--navy); color:#fff; text-align:left; padding:10px 12px; font-size:12px; text-transform:uppercase; letter-spacing:0.4px; }
+    .data-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; color:#374151; }
+    .data-table tr:nth-child(even) td { background:#f8fafc; }
+    .data-table td:first-child { font-weight:700; color:var(--navy); }
+    .status-pill { display:inline-block; border-radius:99px; padding:2px 10px; font-size:11.5px; font-weight:700; }
+    .status-published { background:#dcfce7; color:var(--success); }
+    .status-forthcoming { background:#fef3c7; color:var(--warning); }
+
+    /* SCENARIO */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-nav); background:var(--c-nav-light); }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-item summary { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; list-style:none; gap:1rem; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-icon { font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); display:inline-block; }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-nav); color:var(--c-nav); }
+
+    /* FOOTER */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    /* MOBILE */
+    @media(max-width:767px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+    }
+  </style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;background:#fff;color:var(--navy);padding:10px 16px;z-index:999;border-radius:0 0 8px 0;font-size:13px;font-weight:600;">Skip to content</a>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">›</span>
+  <a href="/knowledge.html?domain=crypto">Crypto</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Why Stablecoins Became a Compliance Priority</span>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🧭 Stablecoin Series · Start Here</div>
+    <h1>Why Stablecoins Became<br><em>a Compliance Priority</em></h1>
+    <p class="hero-sub">Two things are true about stablecoins at the same time, and most coverage picks one and ignores the other: they're becoming regulated money infrastructure, with real capital, safeguarding, and licensing regimes attached, and they're becoming major illicit-finance infrastructure, at a scale the numbers below make concrete. This guide is the entry point to a five-part series built to hold both facts at once.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 12 min read</span>
+      <span>🔎 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 2 Scenarios</span>
+    </div>
+    <p class="series-orient">This is the <strong>Stablecoin Series</strong> hub. It was drafted last, after the other four guides were written, corrected, and reviewed, specifically so every figure and cross-reference here could be checked against what those guides actually say, not what they were planned to say. It's published first because that's where a new reader should start. Guide 1, covering the FCA's non-systemic authorisation perimeter, is still forthcoming and is referenced here by name only.</p>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout" id="main-content">
+  <div class="article-body">
+
+    <!-- PRIMER / THESIS -->
+    <div class="article-section" id="primer">
+      <div class="section-eyebrow" style="color:var(--c-reg)">The Thesis</div>
+      <h2>Regulated infrastructure and illicit-finance infrastructure, simultaneously</h2>
+      <p>It's tempting to read stablecoins as a technology story that regulators are now catching up to, or as a crime story that legitimate finance is now being dragged into. Neither framing survives contact with the actual material. The UK's Bank of England and FCA have built a genuine, detailed joint regulatory regime for systemic stablecoins, complete with capital requirements, statutory trusts, and a £40 billion issuance guardrail. In the same period, the same asset class has become the preferred settlement rail for a specific, well-documented category of illicit finance, to the point that one major analytics provider now attributes the large majority of measured illicit virtual-asset volume to it. Both of those sentences are true right now, about the same instruments, often the same specific tokens. That's the actual compliance priority, not a hypothetical future risk.</p>
+      <p>This series exists because "stablecoin risk" isn't one topic. It's licensing law, prudential regulation, blockchain forensics, sanctions law, and contract law, and a practitioner who only knows one of those five will misread cases that touch the others. Rather than one long guide trying to cover everything shallowly, the series applies one recurring analytical chain across five focused guides, each going deep on the part of the chain it's actually built for.</p>
+      <div class="callout callout-navy">
+        <strong>The recurring chain</strong>
+        <p><strong>Actor → Activity → Risk → Regulatory obligation → Control → Evidence → Escalation.</strong> Every guide in this series applies this same sequence: who's involved, what they're actually doing, what risk that creates, what obligation attaches to it, what control exists to manage it, what evidence establishes the facts, and what happens when a case escalates. No single guide covers every link equally; each one goes deepest on the two or three links its subject actually turns on. The series map below states, honestly, which links each guide is really built for.</p>
+      </div>
+    </div>
+
+    <!-- HEADLINE FIGURES -->
+    <div class="article-section" id="figures">
+      <div class="section-eyebrow" style="color:var(--c-figure)">Headline Figures</div>
+      <h2>Three numbers, each measuring something different</h2>
+      <p>Three figures anchor this series, each checked directly against its own primary source, each measuring a genuinely different thing. A fourth figure, a "250+ circulating stablecoins" count that appears widely in secondary coverage, was deliberately not included here: no defensible primary source for it survived direct checking, so it's dropped rather than repeated on the strength of how often it's cited elsewhere.</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Figure</th><th>What it measures</th><th>Source &amp; date</th><th>Read this with</th></tr></thead>
+          <tbody>
+            <tr><td>84%</td><td>Share of measured illicit virtual-asset transaction volume attributed to stablecoins, full calendar-year 2025</td><td><a href="#source-1">Chainalysis 2026 Crypto Crime Report</a>, published 8 January 2026, updated 12 June 2026</td><td>This is the <em>2026</em> report's FY2025 figure. The separate 2025 Crypto Crime Report reports 63% for FY2024, a different figure from a different year; don't cite one report's number under the other's name.</td></tr>
+            <tr><td>~$141bn</td><td>Value received by illicit entities via stablecoins, full calendar-year 2025</td><td><a href="#source-2">TRM Labs, "Stablecoins at Scale"</a>, published 17 February 2026</td><td>Roughly $72bn of this total is the A7A5-specific subset already covered in <a href="/a7a5-sanctions-evasion-guide.html">Guide 4</a>'s own methodology section. Don't add the two figures together; the $72bn sits inside the $141bn, it doesn't sit alongside it.</td></tr>
+            <tr><td>$304.573bn</td><td>Combined stablecoin market capitalisation, all backing mechanisms combined (fiat-backed, crypto-collateralised, algorithmic, and commodity-referenced), as of a single retrieval</td><td><a href="#source-3">DefiLlama, Total Stablecoins Market Cap</a>, retrieved 30 August 2026</td><td>This is a live, constantly-updating aggregate, not a fixed figure; it will have moved, in either direction, by the time you're reading this. It's also an all-mechanism total, not a fiat-backed-only figure, don't cite it as if it measured USDT- and USDC-style issuers exclusively.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>None of these three figures is directly comparable to either of the others, and that's worth stating plainly rather than leaving implicit: 84% is a share of a different, smaller universe (measured illicit volume); ~$141bn is an absolute dollar figure from a different provider using its own attribution methodology; $304.573bn measures the legitimate market's total size, not anything illicit at all. Citing any two of them in the same sentence as though they described one coherent picture is exactly the kind of imprecision <a href="/a7a5-sanctions-evasion-guide.html#methodology">Guide 4's own methodology section</a> was built to guard against, applied here to the series' own headline numbers.</p>
+    </div>
+
+    <!-- SERIES MAP -->
+    <div class="article-section" id="series-map">
+      <div class="section-eyebrow" style="color:var(--c-nav)">Series Map</div>
+      <h2>What each guide actually covers, and where to go next</h2>
+      <p>This table describes what each guide's own content actually is, checked directly against the shipped guides, not against how they were originally scoped before drafting and correction rounds sometimes shifted emphasis.</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Guide</th><th>What it actually covers</th><th>Status</th><th>Chain focus</th></tr></thead>
+          <tbody>
+            <tr><td>Guide 1</td><td>UK Stablecoin Regulation 2026: the FCA's non-systemic authorisation perimeter, the statutory qualifying-stablecoin definition, and the full interactive Stablecoin Due Diligence Framework (this guide gives only the introductory version below).</td><td><span class="status-pill status-forthcoming">Forthcoming</span></td><td>Regulatory obligation</td></tr>
+            <tr><td><a href="/systemic-stablecoins-guide.html">Guide 2</a></td><td>What changes once HM Treasury recognises a stablecoin arrangement as systemic: the three-way FCA/Bank of England/PSR responsibility split, the £40bn issuance guardrail, multi-issuance risk, two-directional depeg mechanics, and the still-draft failure and resolution regime.</td><td><span class="status-pill status-published">Published</span></td><td>Control</td></tr>
+            <tr><td><a href="/stablecoin-financial-crime-guide.html">Guide 3</a></td><td>The seven-stage lifecycle map showing exactly where regulated visibility into a stablecoin transfer disappears and reappears, four risk patterns built on it, transaction-monitoring indicators, a stablecoin SAR checklist, and a Travel Rule continuity map.</td><td><span class="status-pill status-published">Published</span></td><td>Actor, Activity, Risk</td></tr>
+            <tr><td><a href="/a7a5-sanctions-evasion-guide.html">Guide 4</a></td><td>A worked case study in getting the evidence right: four legitimate, non-additive volume figures for one sanctions-evasion network, and entity-by-entity sanctions status checked separately across OFAC, the UK, and the EU, including why the token itself isn't a designated "person" under most of them.</td><td><span class="status-pill status-published">Published</span></td><td>Evidence</td></tr>
+            <tr><td><a href="/freezing-a-stablecoin-guide.html">Guide 5</a></td><td>What "freezing a stablecoin" actually means: six technical mechanisms, three authority bases that trigger them, and one structural limit, worked through a real Huione/USDH freeze case and a direct comparison of Circle's and Tether's own contractual freeze authority.</td><td><span class="status-pill status-published">Published</span></td><td>Escalation</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>If you came here with a specific question, that table is the fastest way to the right guide. A licensing or capital question about a systemic issuer belongs in Guide 2. A question about what an investigator can actually see once a stablecoin leaves an exchange belongs in Guide 3. A question about how to source and attribute sanctions-evasion figures correctly belongs in Guide 4. A question about what a specific freeze, seizure, or blacklisting action actually accomplished belongs in Guide 5.</p>
+    </div>
+
+    <!-- SCENARIO 1: THE SINGLE NUMBER -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-figure-light);">🔢</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Citing the series' own headline figures</div>
+          <div class="scenario-name">The Single Number</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-figure">The Single Number</span>
+        </div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>You're writing an internal briefing on stablecoin illicit-finance exposure. A colleague suggests opening with "stablecoins accounted for $141bn in crime last year, 84% of the total," treating the two figures as two halves of one finding.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)"><span class="opt-label">A</span><span>Use the sentence as written, both figures come from reputable analytics providers.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)"><span class="opt-label">B</span><span>Cite each figure separately, naming its own provider, year, and what it actually measures, a dollar-value receipts figure from TRM Labs and a share-of-illicit-volume percentage from Chainalysis, and state plainly that they measure different things and aren't two parts of one number.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)"><span class="opt-label">C</span><span>Add $72bn (the A7A5 subset from Guide 4) to the $141bn for a more complete total.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)"><span class="opt-label">D</span><span>Drop both figures entirely, since citing statistics accurately is too much effort for an internal briefing.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict"><div id="scenario1-content"></div></div>
+      </div>
+    </div>
+
+    <!-- DUE DILIGENCE FRAMEWORK, INTRO LEVEL -->
+    <div class="article-section" id="ddf">
+      <div class="section-eyebrow" style="color:var(--c-reg)">Introductory Framework</div>
+      <h2>The Stablecoin Due Diligence Framework, introductory level</h2>
+      <p>The full version of this framework, built as an interactive, scored assessment, lives in Guide 1 once it ships. What follows is the practitioner checklist underneath it: the questions worth asking about any stablecoin your firm is exposed to, before reaching for a specific guide's depth. It draws a question from each of the four published guides, not because the topics are interchangeable, but because a real due diligence exercise touches all four.</p>
+      <ol>
+        <li><strong>Issuer and backing.</strong> Who is the legal entity behind this token, and what backs it, cash and short-term government debt, crypto collateral, an algorithmic mechanism, or something else? The series' analysis, and most of its guides, applies specifically to issuer-backed, fiat-referenced stablecoins; other designs need separate treatment.</li>
+        <li><strong>Regulatory status.</strong> Is the issuer authorised, recognised as systemic, both, or neither, under the regime that actually applies to it? Recognition and authorisation are legally independent decisions in the UK regime, per Guide 2<sup><a href="#source-4">4</a></sup>, don't assume one implies the other.</li>
+        <li><strong>Topology.</strong> Is this the issuer's native token, or a bridged or wrapped representation on another chain? Guide 3's token-topology work<sup><a href="#source-5">5</a></sup> exists because this single question changes almost every other answer, including whether a freeze request will actually work.</li>
+        <li><strong>Sanctions and evidence discipline.</strong> Is any entity in the token's ecosystem, issuer, exchange, associated individuals, subject to a sanctions designation, checked entity by entity against each relevant list, not inferred from one jurisdiction's finding to another's? Guide 4's methodology<sup><a href="#source-6">6</a></sup> is the model for how to do this without overstating what's actually been established.</li>
+        <li><strong>Intervention capability.</strong> Does the issuer's own terms give it a contractual basis to freeze or blacklist tokens, and is that basis discretionary, legally compelled, or both? Guide 5<sup><a href="#source-7">7</a></sup> shows this differs materially between issuers; don't assume parity without checking.</li>
+      </ol>
+      <div class="callout callout-navy">
+        <strong>What this checklist doesn't do</strong>
+        <p>It doesn't score, weight, or produce a risk rating, and it isn't a substitute for the specific depth each guide provides once one of these questions turns out to matter. Treat it as a starting filter, not a finished assessment.</p>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2: READING THE WRONG GUIDE -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-nav-light);">🧭</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · Routing a question to the right guide</div>
+          <div class="scenario-name">The Wrong Guide</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-nav">The Wrong Guide</span>
+        </div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A colleague asks: "If HM Treasury has already recognised a stablecoin arrangement as systemic, doesn't that mean the FCA has to approve the issuer's authorisation application?" They assume the answer sits in the forthcoming FCA-perimeter guide, since that's the licensing one.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)"><span class="opt-label">A</span><span>Agree, and say the answer will have to wait until Guide 1 ships.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)"><span class="opt-label">B</span><span>Point to Guide 2, which is already published and answers this directly: the Bank and FCA's own joint approach document states that HMT recognition "does not fetter the FCA's statutory obligation to consider the application, including rejecting it." Recognition and authorisation are legally independent; one doesn't guarantee the other.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)"><span class="opt-label">C</span><span>Point to Guide 4, since it covers sanctions and regulatory designations generally.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)"><span class="opt-label">D</span><span>Point to Guide 5, since freezing and authorisation are both regulatory interventions.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict"><div id="scenario2-content"></div></div>
+      </div>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Screening an issuer or counterparty right now?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+    <!-- FOUR PATTERNS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-reg)">Four Patterns</div>
+      <h2>Four patterns, four cards</h2>
+
+      <div class="pattern-card" style="background:var(--c-figure-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head"><div class="pattern-icon">🔢</div><div class="pattern-name" style="color:var(--c-figure);">The Single Number</div></div>
+        <div class="pattern-line">Two accurate figures from two different providers aren't automatically one combined finding.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-figure);">Risk</div><div class="ttd-text">A share-of-volume percentage and a dollar-value figure get quoted together as if additive.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-figure);">Signal</div><div class="ttd-text">Different providers, different metrics, different measured universes.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-figure);">Response</div><div class="ttd-text">Name the provider, year, and metric every time a figure is cited.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-nav-light);border-color:#fde68a;">
+        <div class="pattern-card-head"><div class="pattern-icon">🧭</div><div class="pattern-name" style="color:var(--c-nav);">The Wrong Guide</div></div>
+        <div class="pattern-line">Assuming a question belongs to the guide with the closest-sounding title, instead of the one that actually answers it.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-nav);">Risk</div><div class="ttd-text">A licensing question gets deferred to a forthcoming guide when a published one already answers it.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-nav);">Signal</div><div class="ttd-text">The question's real subject and the guide's title-level topic don't quite match.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-nav);">Response</div><div class="ttd-text">Check the series map's "what it actually covers" column, not the guide title alone.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-reg-light);border-color:#a5f3fc;">
+        <div class="pattern-card-head"><div class="pattern-icon">📋</div><div class="pattern-name" style="color:var(--c-reg);">The Retrofitted Rulebook</div></div>
+        <div class="pattern-line">Assuming generic crypto or payments rules answer a question a stablecoin-specific regime already answers differently.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reg);">Risk</div><div class="ttd-text">General crypto guidance gets applied where a specific joint regime actually governs.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reg);">Signal</div><div class="ttd-text">The question concerns backing assets, capital, safeguarding, or redemption for a systemic issuer specifically.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reg);">Response</div><div class="ttd-text">Check whether a stablecoin-specific rule displaces the general one before applying either.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-illicit-light);border-color:#fecaca;">
+        <div class="pattern-card-head"><div class="pattern-icon">📸</div><div class="pattern-name" style="color:var(--c-illicit);">The Static Snapshot</div></div>
+        <div class="pattern-line">Treating a still-evolving framework as settled because it's detailed enough to sound final.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-illicit);">Risk</div><div class="ttd-text">Draft rules, proposed regulations, or consultation-stage text get cited as though already in force.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-illicit);">Signal</div><div class="ttd-text">The Bank's Code of Practice, the GENIUS Act's operative date, and PERG 19 guidance are all live, moving targets across this series.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-illicit);">Response</div><div class="ttd-text">Check a rule's own commencement or consultation status before treating it as binding.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CHECK -->
+    <div class="quiz-section article-section" id="knowledge-check" style="border:none;">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions on the thesis, the headline figures, and the series map.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. What is this series' central thesis?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Stablecoins are primarily a criminal technology that legitimate finance should avoid</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - Stablecoins are becoming regulated money infrastructure and major illicit-finance infrastructure at the same time, about the same instruments</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Stablecoin regulation has fully solved the illicit-finance risk</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - Illicit use of stablecoins is declining as regulation increases</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Are the 84% (Chainalysis) and ~$141bn (TRM) figures directly comparable or additive?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - Yes, they can be added for a combined illicit-finance total</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - No, one is a share of measured illicit volume and the other is an absolute dollar-receipts figure from a different provider; they measure different things</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - No, because one of the two figures has been retracted</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - Yes, since both come from calendar year 2025</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. Does the $72bn A7A5 figure from Guide 4 add to the ~$141bn TRM total, or is it already included in it?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - It adds to the total, giving roughly $213bn combined</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - It's already a subset within the $141bn figure; summing them would double-count</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - The two figures are from entirely unrelated providers with no relationship at all</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - The $72bn figure has since been superseded and should not be cited</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. Which published guide directly addresses whether HMT's systemic recognition guarantees FCA authorisation?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Guide 1, once it ships</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Guide 2, which states the two decisions are legally independent</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Guide 4</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - Guide 5</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. Where does the full, interactive Stablecoin Due Diligence Framework live?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - In this guide, in full</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - In Guide 1, once it ships; this guide only gives the introductory checklist version</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - In Guide 3, alongside the SAR checklist</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - It doesn't exist anywhere in the series</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-reg)">Frequently Asked</div>
+      <h2>FAQ</h2>
+      <details class="faq-item">
+        <summary>Is this guide a summary of the other four? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">No. It's the entry point and navigation layer, written to stand on its own and route you to the guide that actually goes deep on your question. Reading this guide alone won't give you Guide 2's field-by-field regulatory comparison, Guide 3's lifecycle map, Guide 4's sanctions-status detail, or Guide 5's freeze-mechanism taxonomy; it tells you which one to read for each.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Why is this "Guide 0" if it's the first thing to read? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Because it was drafted last and published first, deliberately. Writing the hub after the other four guides existed meant every cross-reference and figure here could be checked against what those guides actually contain, rather than against an earlier plan that drafting and correction rounds might have changed. The numbering reflects draft order, not reading order.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Which guide should I read next if I only have time for one? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Depends on your actual question, not a fixed recommendation, that's the point of the series map above. A licensing or capital question about a systemic issuer goes to Guide 2; a question about investigative visibility once a stablecoin leaves an exchange goes to Guide 3; a sanctions-evidence question goes to Guide 4; a question about what a specific freeze or seizure actually accomplished goes to Guide 5.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Are the illicit-finance figures here the same ones used in Guide 4? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Related, not identical. The ~$141bn TRM figure here is a series-wide, all-stablecoin illicit-receipts figure for FY2025. Guide 4's own $72bn TRM figure measures the A7A5 network specifically, a narrower subset within that same $141bn total, sourced from the same provider but a different, later publication. Cite each on its own terms; don't treat them as duplicates or as additive.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does the due diligence checklist here replace a real risk assessment? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">No. It's an introductory filter, five questions worth asking before deciding which part of the series, or what other resource, you actually need. The scored, interactive version of this framework is Guide 1's job once it ships; this guide deliberately doesn't attempt to reproduce that depth.</div>
+      </details>
+    </div>
+
+    <!-- AT A GLANCE -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-reg)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Four patterns, the risk that makes each one look routine, the signal that gives it away, and the response that fits.</p>
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-figure-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head"><div class="pattern-icon">🔢</div><div class="pattern-name" style="color:var(--c-figure);">The Single Number</div></div>
+          <div class="pattern-line">Two accurate figures from different providers aren't automatically additive.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-figure);">Risk</div><div class="ttd-text">A percentage and a dollar figure quoted as one combined finding.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-figure);">Signal</div><div class="ttd-text">Different providers, metrics, and measured universes.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-figure);">Response</div><div class="ttd-text">Name the provider, year, and metric every time.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-nav-light);border-color:#fde68a;">
+          <div class="pattern-card-head"><div class="pattern-icon">🧭</div><div class="pattern-name" style="color:var(--c-nav);">The Wrong Guide</div></div>
+          <div class="pattern-line">A question routed by title, not by what the guide actually covers.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-nav);">Risk</div><div class="ttd-text">A published guide's answer gets missed in favour of a forthcoming one.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-nav);">Signal</div><div class="ttd-text">The question's subject and the title-level topic don't quite match.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-nav);">Response</div><div class="ttd-text">Check the series map's content column, not the title alone.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-reg-light);border-color:#a5f3fc;">
+          <div class="pattern-card-head"><div class="pattern-icon">📋</div><div class="pattern-name" style="color:var(--c-reg);">The Retrofitted Rulebook</div></div>
+          <div class="pattern-line">Generic crypto rules applied where a stablecoin-specific regime governs.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reg);">Risk</div><div class="ttd-text">General guidance overrides a more specific joint regime.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reg);">Signal</div><div class="ttd-text">The question concerns backing, capital, safeguarding, or redemption for a systemic issuer.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-reg);">Response</div><div class="ttd-text">Check for a displacing stablecoin-specific rule first.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-illicit-light);border-color:#fecaca;">
+          <div class="pattern-card-head"><div class="pattern-icon">📸</div><div class="pattern-name" style="color:var(--c-illicit);">The Static Snapshot</div></div>
+          <div class="pattern-line">A moving regulatory target treated as settled because it sounds final.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-illicit);">Risk</div><div class="ttd-text">Draft or proposed rules cited as already in force.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-illicit);">Signal</div><div class="ttd-text">The Code of Practice, the GENIUS Act, and PERG 19 are all live and moving.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-illicit);">Response</div><div class="ttd-text">Check commencement or consultation status before treating a rule as binding.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIMARY SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-reg)">Evidence and Methodology</div>
+      <h2>Primary sources</h2>
+      <p>The three headline figures were checked directly against the primary releases below. Cross-references to Guides 2 through 5 point to the specific sections of those guides where the underlying material is verified in full; this guide doesn't re-verify what those guides have already closed.</p>
+      <ol>
+        <li id="source-1"><a href="https://www.chainalysis.com/blog/2026-crypto-crime-report-introduction/">Chainalysis, 2026 Crypto Crime Report Introduction</a>, published 8 January 2026, updated 12 June 2026.</li>
+        <li id="source-2"><a href="https://www.trmlabs.com/resources/blog/stablecoins-at-scale-broad-adoption-and-highly-concentrated-illicit-networks">TRM Labs, Stablecoins at Scale: Broad Adoption and Highly Concentrated Illicit Networks</a>, 17 February 2026.</li>
+        <li id="source-3"><a href="https://defillama.com/stablecoins">DefiLlama, Total Stablecoins Market Cap</a>, retrieved 30 August 2026.</li>
+        <li id="source-4">FinCrimeRadar, <a href="/systemic-stablecoins-guide.html">Systemic Stablecoins: The Joint Bank of England and FCA Regime</a>, cross-referenced for the HMT recognition/FCA authorisation independence point and the systemic regime generally, not re-verified in this guide.</li>
+        <li id="source-5">FinCrimeRadar, <a href="/stablecoin-financial-crime-guide.html">Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap</a>, cross-referenced for the lifecycle map and token-topology material, not re-verified in this guide.</li>
+        <li id="source-6">FinCrimeRadar, <a href="/a7a5-sanctions-evasion-guide.html">A7A5: How a Stablecoin Became Sanctions Evasion Infrastructure</a>, cross-referenced for the $72bn A7A5 subset figure and the methodology discipline this guide applies to its own headline figures, not re-verified in this guide.</li>
+        <li id="source-7">FinCrimeRadar, <a href="/freezing-a-stablecoin-guide.html">Freezing a Stablecoin: What Actually Happens</a>, cross-referenced for the intervention-capability material, not re-verified in this guide.</li>
+      </ol>
+      <p style="margin-top:1rem;"><strong>Note on the market-cap figure:</strong> $304.573bn was the figure closed for this guide as of 30 August 2026. DefiLlama's own total is a live, continuously-updating aggregate; a later same-day check found it had already moved to approximately $311bn, ordinary movement for this kind of dataset, not a correction. Expect the number to have moved again by the time you read this; the order of magnitude, not the exact figure, is what should be relied on.</p>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-reg)">Where To Go From Here</div>
+      <h2>Two facts, one series.</h2>
+      <p>Stablecoins are being built into regulated financial infrastructure and exploited as illicit-finance infrastructure at the same time, and a practitioner who only tracks one side will misjudge the cases that touch both. The four published guides in this series each go deep where this one only points. <a href="/screen.html" style="color:var(--c-reg);font-weight:600;">FinCrimeRadar's screening tool</a> checks sanctions, PEP, and adverse media exposure for the entities behind cases like these, free, no signup required.</p>
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Verifying an entity connected to a stablecoin case?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#primer">The Thesis</a>
+      <a href="#figures">Headline Figures</a>
+      <a href="#series-map">Series Map</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-figure);"></span> 01 · The Single Number</a>
+      <a href="#ddf">Due Diligence Framework</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-nav);"></span> 02 · The Wrong Guide</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 2</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+    <div class="tool-cta">
+      <p>Practise this live, run a free sanctions, PEP, and adverse media check on individuals you identify.</p>
+      <a href="/screen.html">Try the screening tool →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+let scenarioResults = {};
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 2';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+const answerKeys = { scenario1: 'B', scenario2: 'B' };
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: B, name each figure\'s own provider, year, and metric',
+    body: [
+      'This is "The Single Number." The 84% figure and the $141bn figure come from different providers (Chainalysis and TRM Labs respectively), measure different things (a share of measured illicit volume versus an absolute dollar-receipts figure), and shouldn\'t be blended into a single sentence as though they were two halves of one finding.',
+      'Option A repeats the blended sentence without correcting the underlying conflation. Option C compounds the error by adding a third figure, the A7A5-specific $72bn, which is already a subset of the $141bn total, into the mix, double-counting it. Option D overcorrects: the fix for imprecise citation is precision, not silence.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: B, Guide 2 already answers this, no need to wait for Guide 1',
+    body: [
+      'This is "The Wrong Guide." The question is about the relationship between systemic recognition and FCA authorisation, and that relationship is answered directly, and already published, in Guide 2: recognition and authorisation are legally independent decisions, and the Bank and FCA\'s own joint document says recognition doesn\'t fetter the FCA\'s statutory obligation to consider, or reject, an authorisation application.',
+      'Option A assumes the answer must live in the guide with "authorisation" most obviously in its scope, missing that Guide 2 already covers this specific interaction because it directly concerns systemic issuers. Options C and D route to guides whose actual subject matter, sanctions evidence and freeze mechanics respectively, doesn\'t address this licensing question at all.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => { b.disabled = true; b.style.opacity = '0.6'; b.style.cursor = 'default'; });
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+  verdictDiv.classList.add('show');
+  verdictDiv.setAttribute('aria-live', 'polite');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'The series thesis is dual, not one-sided: stablecoins are becoming regulated infrastructure and major illicit-finance infrastructure at the same time, about the same instruments.' },
+  qq2: { correct: 'B', fb: '84% is a share of measured illicit volume from Chainalysis; ~$141bn is an absolute dollar-receipts figure from TRM Labs. Different providers, different metrics, not additive or interchangeable.' },
+  qq3: { correct: 'B', fb: 'The $72bn A7A5 figure sits inside the ~$141bn TRM total as a subset, both from TRM Labs; summing them would double-count the same underlying data.' },
+  qq4: { correct: 'B', fb: 'Guide 2 states this directly: the Bank and FCA\'s own joint document confirms recognition does not fetter the FCA\'s statutory obligation to consider, or reject, an authorisation application.' },
+  qq5: { correct: 'B', fb: 'The full interactive Stablecoin Due Diligence Framework is Guide 1\'s job once it ships; this guide gives only the introductory checklist version.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+  opts.forEach((o, i) => {
+    const letter = String.fromCharCode(65 + i);
+    if (letter === data.correct) o.classList.add('q-correct');
+    else if (letter === chosen && !isCorrect) o.classList.add('q-wrong');
+  });
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+  fbDiv.setAttribute('aria-live', 'polite');
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the series map and headline figures are worth another pass.','Getting there, revisit the headline-figures table.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the series structure well.','Perfect, you know exactly where to send a practitioner question next.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[4];
+  }
+}
+
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines, ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Why Stablecoins Became a Compliance Priority: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'why-stablecoins-compliance-priority-guide-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
