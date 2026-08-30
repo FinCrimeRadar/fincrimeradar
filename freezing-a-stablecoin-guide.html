@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freezing a Stablecoin: What Actually Happens | FinCrimeRadar</title>
+  <meta name="description" content="Ten mechanically distinct intervention mechanisms, not one generic 'freeze.' Circle's and Tether's own terms compared directly, the Huione/USDH contrast verified against FinCEN's own text, and the GENIUS Act's enacted-but-not-yet-operative freeze mandate." />
+  <meta name="keywords" content="stablecoin freeze, USDT freeze, USDC blacklist, Huione, USDH, GENIUS Act, Circle blocklisting policy, Tether terms of service, token burning, redemption suspension" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/freezing-a-stablecoin-guide.html" />
+  <meta property="og:title" content="Freezing a Stablecoin: What Actually Happens" />
+  <meta property="og:description" content="Ten mechanically distinct intervention mechanisms, Circle's and Tether's own terms compared directly, and the Huione/USDH contrast verified against FinCEN's own text." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/freezing-a-stablecoin-guide.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Freezing a Stablecoin: What Actually Happens",
+      "description": "Ten mechanically distinct intervention mechanisms, not one generic 'freeze.' Circle's and Tether's own terms compared directly, the Huione/USDH contrast verified against FinCEN's own text, and the GENIUS Act's enacted-but-not-yet-operative freeze mandate.",
+      "author": { "@type": "Organization", "name": "FinCrimeRadar" },
+      "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
+      "url": "https://fincrimeradar.org/freezing-a-stablecoin-guide.html",
+      "datePublished": "2026-08-30",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fincrimeradar.org/freezing-a-stablecoin-guide.html" }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Crypto","item":"https://fincrimeradar.org/knowledge.html?domain=crypto"},{"@type":"ListItem","position":3,"name":"Freezing a Stablecoin: What Actually Happens","item":"https://fincrimeradar.org/freezing-a-stablecoin-guide.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted', 'ad_user_data': 'granted', 'ad_personalization': 'denied' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-issuer:#0891b2; --c-issuer-light:#ecfeff;
+      --c-thirdparty:#7c3aed; --c-thirdparty-light:#f5f3ff;
+      --c-legal:#b45309; --c-legal-light:#fffbeb;
+      --c-gap:#dc2626; --c-gap-light:#fef2f2;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-issuer); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(8,145,178,0.18) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%); }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-issuer); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-thirdparty); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-legal); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(8,145,178,0.22); border:1px solid rgba(165,243,252,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:0.5rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+    .series-orient { font-size:13px; color:#93c5fd; max-width:680px; line-height:1.6; margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.15); }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-issuer); border-left-color:var(--c-issuer); }
+    .toc a.active { color:var(--c-issuer); border-left-color:var(--c-issuer); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-issuer { background:var(--c-issuer-light); color:var(--c-issuer); border:1px solid #a5f3fc; }
+    .badge-thirdparty { background:var(--c-thirdparty-light); color:var(--c-thirdparty); border:1px solid #ddd6fe; }
+    .badge-legal { background:var(--c-legal-light); color:var(--c-legal); border:1px solid #fde68a; }
+    .badge-gap { background:var(--c-gap-light); color:var(--c-gap); border:1px solid #fecaca; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) { .pattern-ttd { grid-template-columns:1fr; } .pattern-grid { grid-template-columns:1fr; } }
+
+    /* TAXONOMY / DATA TABLES */
+    .data-table-wrap { overflow-x:auto; margin:1.25rem 0; }
+    .data-table { width:100%; border-collapse:collapse; min-width:640px; font-size:13.5px; }
+    .data-table th { background:var(--navy); color:#fff; text-align:left; padding:10px 12px; font-size:12px; text-transform:uppercase; letter-spacing:0.4px; }
+    .data-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; color:#374151; }
+    .data-table tr:nth-child(even) td { background:#f8fafc; }
+    .data-table td:first-child { font-weight:700; color:var(--navy); }
+
+    /* DISCREPANCY / COMPARISON BLOCK */
+    .discrepancy-block { border:1.5px solid var(--c-gap); background:var(--c-gap-light); border-radius:12px; padding:1.25rem 1.5rem; margin:1.25rem 0; }
+    .discrepancy-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--c-gap); margin-bottom:6px; }
+    .discrepancy-block p { font-size:14px; color:#374151; margin-bottom:0.6rem; }
+    .discrepancy-block p:last-child { margin-bottom:0; }
+
+    /* SCENARIO */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-issuer); background:var(--c-issuer-light); }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-item summary { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; list-style:none; gap:1rem; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-icon { font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); display:inline-block; }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-issuer); color:var(--c-issuer); }
+
+    /* FOOTER */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    /* MOBILE */
+    @media(max-width:767px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+    }
+  </style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;background:#fff;color:var(--navy);padding:10px 16px;z-index:999;border-radius:0 0 8px 0;font-size:13px;font-weight:600;">Skip to content</a>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">›</span>
+  <a href="/knowledge.html?domain=crypto">Crypto</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Freezing a Stablecoin: What Actually Happens</span>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🧊 Stablecoin Series · Intervention Mechanisms</div>
+    <h1>Freezing a Stablecoin:<br><em>What Actually Happens</em></h1>
+    <p class="hero-sub">"Freeze" is the word everyone reaches for, and it hides at least ten mechanically different things that can happen to a stablecoin, each with its own actor, legal basis, and limits. Confusing them is where investigations, screening reports, and vendor pitches go wrong.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 14 min read</span>
+      <span>🔎 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 2 Scenarios</span>
+    </div>
+    <p class="series-orient">Part of FinCrimeRadar's <strong>Stablecoin Series</strong>, which also covers why stablecoins became a compliance priority, the FCA's authorisation and safeguarding regime for UK issuers, the joint Bank of England/FCA regime for systemic stablecoins, unhosted wallets and the P2P visibility gap, and how a single stablecoin became sanctions-evasion infrastructure. This guide assumes none of that reading; where another guide is referenced for a specific point, it's named and, where already published, linked directly. Two of those guides haven't shipped yet as of this one, they're referenced by name only, not linked.</p>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout" id="main-content">
+  <div class="article-body">
+
+    <!-- PRIMER -->
+    <div class="article-section" id="primer">
+      <div class="section-eyebrow" style="color:var(--c-issuer)">Primer</div>
+      <h2>Ten things, one word</h2>
+      <p>A journalist writes that an exchange "froze" a user's stablecoins. A regulator's press release says an issuer "froze" a wallet linked to a fraud network. A different report says a court "seized" the same class of asset. A vendor pitches a token as "unfreezable." All four sentences use freeze-adjacent language, and they describe four different actors doing four different things, with different legal bases, different reversibility, and different reach. This guide exists because that vocabulary collapse causes real practitioner mistakes: assuming an exchange-level account freeze means the token itself is blocked on-chain, assuming a freeze on one chain reaches a bridged copy of the same token elsewhere, assuming "unfreezable" marketing language describes an actual legal or technical impossibility rather than a design choice an issuer can reverse.</p>
+      <p>The approach here is a ten-item taxonomy, each mechanism kept mechanically distinct through the whole guide, never blended into generic "freezing" language. The central worked example is a real, documented contrast: in July 2024 a US stablecoin issuer froze more than $29 million connected to a Cambodia-based marketplace group called Huione, and two months later that same group launched its own stablecoin, USDH, explicitly marketed as incapable of exactly that kind of freeze. Both halves of that contrast are verified directly against a US Treasury regulatory filing, not a secondary summary of it, and the guide uses it throughout to make the taxonomy concrete rather than abstract.</p>
+      <div class="callout callout-navy">
+        <strong>How to use this guide</strong>
+        <p>Work through the ten-mechanism table before describing any real-world event as a "freeze." Then check the Huione/USDH case study and the issuer-terms comparison before assuming any two stablecoin issuers have the same freeze authority, they don't necessarily, and this guide checked Circle's and Tether's own terms directly rather than assuming parity.</p>
+      </div>
+    </div>
+
+    <!-- TEN MECHANISMS -->
+    <div class="article-section" id="taxonomy">
+      <div class="section-eyebrow" style="color:var(--c-issuer)">The Taxonomy</div>
+      <h2>Ten mechanisms, not one word</h2>
+      <p>Each row below names who actually acts, what legal or technical basis lets them do it, and, in the last column, the specific neighbouring mechanism it's most often confused with. The colour groupings track who acts: issuer-controlled mechanisms, third-party actions independent of the issuer, and legally compelled or structurally limiting mechanisms.</p>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>#</th><th>Mechanism</th><th>Who acts</th><th>Basis</th><th>Not to be confused with</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Issuer freeze</td><td>The issuer, at its own discretion or under legal compulsion</td><td>Circle's own blocklisting-policy clause; Tether's "sole discretion... prudent" clause and its separate Prohibited Use sanctions clause, both <a href="#source-2">checked directly against each issuer's own current terms</a></td><td>The decision to act (#1) versus the on-chain mechanism that carries it out (#2)</td></tr>
+            <tr><td>2</td><td>Address denylisting</td><td>The issuer, via a smart-contract role built into the token</td><td>Circle's own FiatToken "Blacklister" role, address-specific by design, <a href="#source-5">per Circle's own token design documentation</a></td><td>Targets one address only; does not stop the contract for everyone else (#9)</td></tr>
+            <tr><td>3</td><td>Token burning</td><td>The issuer, via a smart-contract role, on tokens already at a denylisted address</td><td>Permanent destruction of the token supply at that address</td><td>Irreversible, unlike #1/#2, which can be reversed by the same issuer that imposed them</td></tr>
+            <tr><td>4</td><td>Redemption refusal</td><td>The issuer, at its own fiat off-ramp specifically</td><td>A commercial-channel decision, not an on-chain transaction</td><td>Affects converting the token to fiat, not whether the token can move on-chain (#1/#2)</td></tr>
+            <tr><td>5</td><td>Custodian freeze</td><td>A third-party custodian holding the asset for a client</td><td>The custodian's own client agreement, independent of the issuer entirely</td><td>The issuer may take no action at all while this happens</td></tr>
+            <tr><td>6</td><td>Exchange account freeze</td><td>A centralised exchange, at the account level</td><td>The exchange's own user agreement, independent of the issuer entirely</td><td>Doesn't touch the token contract; the on-chain asset itself may remain fully mobile (#1/#2 not triggered)</td></tr>
+            <tr><td>7</td><td>Law enforcement seizure</td><td>A court or law enforcement agency, compelling the issuer or custodian to act</td><td>A "lawful order," a term the <a href="#source-4">GENIUS Act</a> now defines in US federal statute as covering an order to "seize, freeze, burn, or prevent the transfer" of stablecoins, meeting stated particularity and review conditions</td><td>The issuer executes, but a court or agency decides; contrast with the issuer's own discretionary judgment in #1</td></tr>
+            <tr><td>8</td><td>Sanctions blocking</td><td>The issuer, exchange, or custodian, compelled by sanctions law</td><td>A compliance obligation triggered by a designation (e.g. an OFAC listing), not a discretionary judgment call</td><td>May be carried out using the same denylisting mechanism as #2, but the legal trigger is entirely different</td></tr>
+            <tr><td>9</td><td>Smart contract restriction</td><td>The issuer, via a contract-wide circuit-breaker role</td><td>Circle's own FiatToken "Pauser" role, which halts all transfers, minting, and burning for every holder at once, <a href="#source-5">per Circle's own documentation</a></td><td>Not address-specific, unlike #2; a single pause event affects the entire token, not one wallet</td></tr>
+            <tr><td>10</td><td>Cross-chain complication</td><td>No one decides this; it's a structural limitation, not an action</td><td>Cross-referenced from <a href="/stablecoin-financial-crime-guide.html#topology">FinCrimeRadar's own token-topology work</a><sup><a href="#source-6">6</a></sup>, already verified there against FATF's cross-chain interoperability finding and Circle's own bridged-token documentation</td><td>Any of #1 through #9 may simply not reach a bridged or wrapped copy of the same token on another chain</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Three distinctions in that table cause most of the real-world confusion, and are worth stating in prose, not just in a table cell. First, an issuer freeze (#1) is a decision; address denylisting (#2) is the specific technical instruction that carries it out against one address. A freeze can, in principle, be ordered without denylisting being the chosen mechanism, though in practice for an ERC-20-style stablecoin denylisting is usually how a freeze decision gets executed. Second, denylisting (#2) and a contract-wide pause (#9) are both smart-contract-level actions built into the same token, but one targets a single address and the other stops the token for every holder simultaneously, confusing the two badly overstates or understates the scope of what actually happened. Third, an exchange account freeze (#6) and a custodian freeze (#5) are both third-party actions that can happen to a user holding a stablecoin, entirely independent of anything the issuer does; a user can be locked out of an exchange account while the underlying token remains fully transferable on-chain, and vice versa.</p>
+    </div>
+
+    <!-- HUIONE / USDH CASE STUDY -->
+    <div class="article-section" id="case-study">
+      <div class="section-eyebrow" style="color:var(--c-legal)">Case Study</div>
+      <h2>Huione and USDH: a freeze, then a pitch to make freezing impossible</h2>
+      <p>The clearest documented example of mechanism #1, issuer freeze, sits inside a US Treasury Financial Crimes Enforcement Network (FinCEN) proposed rule, not a press release or a blog post. FinCEN's own text states: <a href="#source-1">"in July 2024, when one stablecoin issuer froze CVC valued at over USD 29 million that was located in a Huione Group CVC wallet because it was 'associated with activities allegedly linked to fraudulent and transnational criminal operations.'"</a> FinCEN's own notice refers to "one stablecoin issuer" without naming it in the body text; the notice's own footnote cites contemporaneous reporting, The Record, 15 July 2024, "Tether freezes $29 million of cryptocurrency connected to Cambodian marketplace accused of fueling scams", identifying the issuer as Tether. That's an important distinction to state precisely: this is FinCEN's own citation chain naming Tether via a named press source, not this guide importing an untethered secondary claim on its own initiative. FinCEN's own body text still doesn't name Tether directly, so treat the identification as resting on FinCEN's own footnoted source, not on FinCEN's own prose.</p>
+      <p>Two months later, per the same FinCEN filing, Huione Group launched its own answer to that freeze: <a href="#source-1">"In September 2024, Huione Group launched USDH, a stablecoin it explicitly advertised as 'unfreezable' and 'not restricted by traditional regulatory agencies.'"</a> That "unfreezable" language is FinCEN's own primary-source restatement of Huione's own marketing claim, not FinCEN's editorialising, keep the two separate. FinCEN's own characterisation goes further, in its own voice rather than quoting Huione: it states that Huione Group, "by offering USDH, which is 'unfreezable,' even upon a lawful request from law enforcement," facilitates money laundering benefiting transnational criminal organisations and DPRK actors. That sentence is FinCEN's own regulatory conclusion, an application of its authority to the facts, distinct from both the underlying Huione marketing claim and from the earlier freeze event itself.</p>
+      <p>Read against the ten-mechanism table above, USDH is best understood as a stablecoin explicitly designed to decline mechanisms #1 and #2, issuer freeze and address denylisting, as a marketed feature. Whatever technical claims underlie "unfreezable" haven't been independently verified in this guide, and shouldn't be taken at face value merely because they're widely reported; what is verified is that FinCEN's own text treats the marketing claim as real enough to build a regulatory finding on. A final FinCEN rule on this matter followed in October 2025; this guide cites the proposed rule's own text specifically, and hasn't independently reconfirmed that the same footnote and figure carry through unchanged into the final rule's text.</p>
+
+      <div class="callout callout-navy">
+        <strong>Where the GENIUS Act fits, and where it doesn't yet</strong>
+        <p>US federal law now defines a "lawful order" to include an order to "seize, freeze, burn, or prevent the transfer" of a stablecoin, and separately requires that "a permitted payment stablecoin issuer may issue payment stablecoins only if the issuer has the technological capability to comply, and will comply, with the terms of any lawful order," per the <a href="#source-4">GENIUS Act</a>, enacted 18 July 2025. That is a real, verified, statutory basis for mechanism #7, distinct from any issuer's own contractual freeze clause. It is not, however, currently the operative legal standard: the Act's own effective-date clause sets its operative date at the earlier of 18 months after enactment, roughly 18 January 2027, or 120 days after final implementing regulations are issued. A Federal Register entry titled "GENIUS Act Regulations on Payment Stablecoin Issuance, Offer, and Sale" appeared on 18 August 2026; this guide has not confirmed whether that entry is a final rule, which would start the shorter 120-day clock, or still a proposed rule. Treat "USDH would violate the GENIUS Act" as premature until that timing question is resolved, and treat "the GENIUS Act imposes no freeze-capability requirement" as equally wrong, both statements collapse an enacted-but-not-yet-operative statute into something simpler than it is.</p>
+      </div>
+
+      <h3>Comparing issuer terms directly, not assuming parity</h3>
+      <p>Circle's own live USDC Terms of Use state: <a href="#source-2">"USDC is issued and redeemed in accordance with Circle's blocklisting policy. Circle reserves the right to block the transfer of USDC to and from an address on chain as permitted under the blocklisting policy,"</a> and separately, on a distinct legal basis, <a href="#source-2">"Circle may also be required to freeze USDC and/or surrender associated USD held in Segregated Accounts in the event it receives a legal order from a valid government authority requiring it to do so."</a> Two bases, kept separate: a discretionary contractual right the issuer built for itself, and a compulsory basis triggered by an actual legal order.</p>
+      <p>Tether's own live USDT Terms of Service, checked directly rather than assumed to mirror Circle's, use noticeably broader language. A general clause states Tether "may suspend or terminate your access to the Site or any of the Services, freeze any Tether Tokens held by you, or terminate your Tether Token Wallet, as required by applicable Law or where Tether, in its sole discretion, determines it is prudent to do so." <a href="#source-3">A separate "Prohibited Use" clause</a> states that where Tether "determines or suspects" a Prohibited Use, it "may address such Prohibited Use through an appropriate sanction, in its sole and absolute discretion," and that such a sanction "may include... freezing or confiscation of any Fiat, funds, property, proceeds, Tether Tokens or any Digital Tokens in any Tether Tokens Wallet or other User Wallet; blacklisting any Digital Tokens Address which holds Tether Tokens." A further clause states Tether "may, at its sole and absolute discretion, seize and deliver your property to any applicable Government, law enforcement, or other authorities."</p>
+      <p>The practitioner point isn't that one issuer is stricter than the other in practice, this guide hasn't independently verified freezing frequency or operational behaviour for either issuer, only their published terms. The point is textual: Tether's terms tie freeze, confiscation, and blacklisting authority to a broad, self-defined "Prohibited Use" standard and a standalone "prudent" judgment, while Circle's terms point to a specific named policy document for the discretionary basis. Both combine a discretionary basis with a legal-compulsion basis; the discretionary basis is worded more broadly in Tether's terms than in Circle's. Don't assume any third issuer's terms fall somewhere on this spectrum without checking them directly.</p>
+
+      <div class="discrepancy-block">
+        <div class="discrepancy-label">Secondary-sourced material, not independently verified this session</div>
+        <p>Reporting exists on Circle operating a narrower "Access Denial Policy" limiting freezes to a network-security threat or a valid US/French legal order (CryptoSlate, April 2026); on a New York bankruptcy court ordering Circle to maintain a blacklist tied to the Multichain Foundation liquidation (The Block, 31 October 2025); on a disputed roughly $12.6 million USDC freeze connected to a DeFi protocol called Zama (CCN, June 2026); and on public statements by Circle's CEO contrasting Circle's and Tether's freezing patterns (reported April 2026). None of these four have been checked against their own primary documents or court filings in this guide, they're noted here as illustrative of live practice, not cited with the same confidence as the FinCEN filing or either issuer's own terms above.</p>
+      </div>
+    </div>
+
+    <!-- SCENARIO 1 -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-thirdparty-light);">🔒</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Reading an account-level freeze</div>
+          <div class="scenario-name">The Wrong Layer</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-thirdparty">The Wrong Layer</span>
+        </div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A customer's exchange account is locked after a fraud complaint, and the exchange's notice says their "USDT has been frozen." You're drafting a case note and need to state precisely what happened.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)"><span class="opt-label">A</span><span>Write that Tether froze the customer's tokens on-chain, since that's what "frozen" means for a stablecoin.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)"><span class="opt-label">B</span><span>Write that the exchange froze the customer's account access, a separate action from any on-chain issuer freeze, and check the token's own denylist status independently before describing the token itself as frozen.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)"><span class="opt-label">C</span><span>Assume both happened simultaneously, since exchanges and issuers normally act together.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)"><span class="opt-label">D</span><span>Treat the exchange's own wording as authoritative and copy it into the case note unchanged.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict"><div id="scenario1-content"></div></div>
+      </div>
+    </div>
+
+    <!-- FAILURE AND RESOLUTION -->
+    <div class="article-section" id="failure-resolution">
+      <div class="section-eyebrow" style="color:var(--c-gap)">Before You Continue</div>
+      <h2>This isn't the failure and resolution question</h2>
+      <p>Every mechanism in the taxonomy above is a targeted intervention against a specific asset, address, or account, because of suspected illicit conduct or a legal compulsion tied to it. That's a different question from what happens when a stablecoin issuer itself can't continue, insolvency, a capital breach, an operational collapse. FinCrimeRadar's own guide on systemic stablecoins covers that failure-and-resolution question directly, including the Bank of England's draft recovery and wind-down Code of Practice and its "normal and stress times" no-suspension expectation for redemption, and this guide doesn't duplicate that material. Read <a href="/systemic-stablecoins-guide.html#failure">"What happens when the issuer itself fails"</a><sup><a href="#source-7">7</a></sup> for that separate track; it remains, in its own words, a live regulatory development area, the Code of Practice is still draft, consultation-stage material.</p>
+      <p>One connection is worth flagging rather than developing further here: mechanism #4 in the taxonomy above, redemption refusal, is a targeted, case-specific action by a functioning issuer. A wind-down plan's own "complete redemption for all holders" strategy, discussed in the failure-and-resolution guide, is a different thing again, an issuer-wide, ordinarily permanent process triggered by the issuer's own collapse, not a targeted refusal aimed at one suspect wallet. Don't read one as a variant of the other.</p>
+    </div>
+
+    <!-- SCENARIO 2 -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-legal-light);">📜</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · Reading a statute's timing</div>
+          <div class="scenario-name">The Unfinished Mandate</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-legal">The Unfinished Mandate</span>
+        </div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A colleague tells you a US-issued "unfreezable" stablecoin like USDH is now flatly illegal, "because the GENIUS Act requires every issuer to have freeze capability, and that law already exists."</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)"><span class="opt-label">A</span><span>Agree, the Act was enacted in July 2025, so any issuer without freeze capability is already in violation.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)"><span class="opt-label">B</span><span>Disagree entirely, the requirement doesn't exist in the statute at all, only industry rumour.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)"><span class="opt-label">C</span><span>Explain that the technological-capability-to-comply requirement is real and enacted, but not yet the operative legal standard, its own effective-date clause ties that to the earlier of roughly 18 months post-enactment or 120 days after final implementing regulations, and flag it as a deadline to monitor, not a settled violation today.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)"><span class="opt-label">D</span><span>Say it doesn't matter either way, since USDH isn't a US-based issuer.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict"><div id="scenario2-content"></div></div>
+      </div>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Screening a stablecoin-adjacent entity?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+    <!-- TOKEN TOPOLOGY CROSS-REFERENCE -->
+    <div class="article-section" id="topology-crossref">
+      <div class="section-eyebrow" style="color:var(--c-gap)">Cross-Chain Limits</div>
+      <h2>Mechanism #10 in practice: does the freeze even reach the token you're looking at</h2>
+      <p>FinCrimeRadar's own guide on unhosted wallets and the visibility gap already works through this in depth, and this guide cross-references it rather than repeating it: before assuming any of mechanisms #1 through #9 actually applies to a given wallet, establish whether you're looking at the issuer's native token or a bridged or wrapped representation of it, which contract and chain actually hold the funds, who controls the bridge, and whether the issuer's own freeze or blacklist mechanism reaches that specific representation at all. That guide's own worked example, drawn from Circle's own bridged-token documentation, makes a sharper point than "the mechanism might not exist yet" on a bridged token: a standards-compliant bridged copy is typically code-identical to the native token from the moment it's deployed, meaning the freeze and blacklist mechanism, including the Blacklister and Pauser roles described in the taxonomy above, is already built in. What changes is who controls it, often a bridge operator, not the issuer, until an optional control-transfer step occurs. Read the full six-question topology checklist and the underlying FATF and Circle sourcing at <a href="/stablecoin-financial-crime-guide.html#topology">"Questions to ask before assuming a freeze will work."</a></p>
+    </div>
+
+    <!-- FOUR PATTERNS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-issuer)">Four Patterns</div>
+      <h2>Four patterns, four cards</h2>
+
+      <div class="pattern-card" style="background:var(--c-thirdparty-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head"><div class="pattern-icon">🔒</div><div class="pattern-name" style="color:var(--c-thirdparty);">The Wrong Layer</div></div>
+        <div class="pattern-line">An exchange freezing an account and an issuer freezing a token are independent events with independent legal bases.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Risk</div><div class="ttd-text">"The exchange froze it" gets treated as proof the token itself is blocked on-chain.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Signal</div><div class="ttd-text">Exchange account freezes and issuer-level denylisting are mechanisms #6 and #2, entirely separate.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Response</div><div class="ttd-text">Check the token contract's own denylist status independently of any exchange notice.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-legal-light);border-color:#fde68a;">
+        <div class="pattern-card-head"><div class="pattern-icon">📜</div><div class="pattern-name" style="color:var(--c-legal);">The Unfinished Mandate</div></div>
+        <div class="pattern-line">A statute can be enacted and still not be the operative legal standard today.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-legal);">Risk</div><div class="ttd-text">"The law exists" gets treated as "the law is already in force."</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-legal);">Signal</div><div class="ttd-text">The GENIUS Act's freeze-capability requirement is enacted; its own effective-date clause defers when it binds.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-legal);">Response</div><div class="ttd-text">Check a statute's own commencement or effective-date clause before treating a requirement as currently binding.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-issuer-light);border-color:#a5f3fc;">
+        <div class="pattern-card-head"><div class="pattern-icon">⏸️</div><div class="pattern-name" style="color:var(--c-issuer);">The Contract-Wide Pause</div></div>
+        <div class="pattern-line">A single address being blocked and the entire token halting are not the same scale of event.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Risk</div><div class="ttd-text">Denylisting and a full contract pause get described interchangeably as "the token was frozen."</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Signal</div><div class="ttd-text">Circle's own Blacklister role (#2) targets one address; its Pauser role (#9) halts every holder at once.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Response</div><div class="ttd-text">Establish which mechanism actually happened before describing the event's scope.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-gap-light);border-color:#fecaca;">
+        <div class="pattern-card-head"><div class="pattern-icon">🌉</div><div class="pattern-name" style="color:var(--c-gap);">The Cross-Chain Blind Spot</div></div>
+        <div class="pattern-line">A freeze on the native chain doesn't automatically reach every bridged copy of the same token.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Risk</div><div class="ttd-text">A reported freeze gets treated as blocking the asset everywhere it circulates.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Signal</div><div class="ttd-text">Bridged tokens can carry the same freeze mechanism under different control, or none reachable at all.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Response</div><div class="ttd-text">Run the token-topology questions before reporting a freeze as complete.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CHECK -->
+    <div class="quiz-section article-section" id="knowledge-check" style="border:none;">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions on the taxonomy, the Huione/USDH case study, and the GENIUS Act's timing.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. Per FinCEN's own footnote, which issuer is identified, via a secondary press report, as having carried out the July 2024 Huione freeze?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Circle</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - Tether, named in FinCEN's own footnote via a July 2024 report from The Record, though FinCEN's body text itself only says "one stablecoin issuer"</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Huione Group itself</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - FinCEN does not name any issuer, even in a footnote</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Under this guide's taxonomy, what is USDH's "unfreezable" positioning best understood as?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - A claim that mechanism #7, law enforcement seizure, cannot legally occur</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - A marketed design choice to decline mechanisms #1 and #2, issuer freeze and address denylisting</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - Proof that no stablecoin can ever be frozen</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - A claim FinCEN independently verified as technically accurate</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. Is the GENIUS Act's technological-capability-to-comply requirement currently the binding legal standard for US issuers?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - Yes, it took effect immediately on enactment in July 2025</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - No, the requirement doesn't exist in the statute</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - No, not yet, the Act's own effective-date clause defers it to the earlier of roughly 18 months post-enactment or 120 days after final implementing regulations</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - It only applies to foreign issuers</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. What's the difference between Circle's Blacklister role and its Pauser role?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - There is no difference, both are the same mechanism</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Blacklister targets one address; Pauser halts transfers, minting, and burning for every holder of the contract at once</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - Pauser only exists on bridged tokens, never on native USDC</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - Blacklister is a legal role and Pauser is a technical one</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. If a token has been frozen on its native chain, can you assume every bridged or wrapped version of it is also blocked?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - Yes, freezes always propagate automatically across chains</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - No, whether the mechanism reaches a bridged representation depends on that representation's own control structure, check the token-topology questions per representation</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - No, bridged tokens can never be frozen under any circumstances</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - This only matters for USDT, not USDC</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-issuer)">Frequently Asked</div>
+      <h2>FAQ</h2>
+      <details class="faq-item">
+        <summary>Is Tether's freeze authority the same as Circle's? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Not textually. Both issuers' own terms combine a discretionary contractual basis with a legal-compulsion basis, but Tether's discretionary basis is worded more broadly, tied to a general "Prohibited Use" sanctions clause and a standalone "sole discretion... prudent" freeze power, where Circle's terms point to a specific named blocklisting policy. This guide checked both issuers' current terms directly rather than assuming one mirrors the other, and the same caution applies to any third issuer.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does the GENIUS Act make "unfreezable" stablecoins illegal in the US right now? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Not yet, and not in that flat form. The Act does create a real statutory technological-capability-to-comply requirement, but its own effective-date clause defers when that requirement actually binds, to the earlier of roughly 18 months after the Act's July 2025 enactment or 120 days after final implementing regulations. Whether a Federal Register entry from August 2026 on this topic is a final or proposed rule hasn't been confirmed here, check that directly before dating any compliance deadline more precisely than this guide does.</div>
+      </details>
+      <details class="faq-item">
+        <summary>If an exchange freezes my account, has the stablecoin itself been frozen? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Not necessarily, and don't assume it either way. An exchange account freeze is a third-party action independent of the issuer, mechanism #6 in this guide's taxonomy. Whether the token itself has also been denylisted by the issuer, mechanism #2, is a separate fact that needs checking against the token contract directly.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can a frozen stablecoin be un-frozen, and is that the same as burning it? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">No, and they're different mechanisms with different reversibility. A freeze or denylisting action (mechanisms #1/#2) can typically be reversed by the same issuer that imposed it. Burning (mechanism #3), destroying the token supply at an address, is permanent; it isn't something a freeze automatically leads to, and it's a separate decision the issuer makes on tokens already at a denylisted address.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does a stablecoin issuer's freeze reach a bridged version of the same token on another chain? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Not automatically, and it's a per-representation question, not a per-issuer one. FinCrimeRadar's guide on token topology works through this directly: a standards-compliant bridged copy often carries the same freeze and blacklist mechanism from deployment, but control over it may sit with a bridge operator rather than the issuer, or may not have transferred at all. Run the topology questions there before assuming either way.</div>
+      </details>
+    </div>
+
+    <!-- AT A GLANCE -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-issuer)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Four patterns, the risk that makes each one look routine, the signal that gives it away, and the response that fits.</p>
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-thirdparty-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head"><div class="pattern-icon">🔒</div><div class="pattern-name" style="color:var(--c-thirdparty);">The Wrong Layer</div></div>
+          <div class="pattern-line">An exchange freezing an account isn't the same as an issuer freezing a token.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Risk</div><div class="ttd-text">Account freeze treated as proof of on-chain freeze.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Signal</div><div class="ttd-text">Mechanisms #6 and #2 are entirely separate.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-thirdparty);">Response</div><div class="ttd-text">Check the token contract's own denylist status independently.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-legal-light);border-color:#fde68a;">
+          <div class="pattern-card-head"><div class="pattern-icon">📜</div><div class="pattern-name" style="color:var(--c-legal);">The Unfinished Mandate</div></div>
+          <div class="pattern-line">Enacted isn't the same as operative.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-legal);">Risk</div><div class="ttd-text">"The law exists" read as "the law already binds."</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-legal);">Signal</div><div class="ttd-text">GENIUS Act's own effective-date clause defers its requirement.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-legal);">Response</div><div class="ttd-text">Check a statute's own commencement clause before citing it as binding.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-issuer-light);border-color:#a5f3fc;">
+          <div class="pattern-card-head"><div class="pattern-icon">⏸️</div><div class="pattern-name" style="color:var(--c-issuer);">The Contract-Wide Pause</div></div>
+          <div class="pattern-line">One address blocked and every holder halted are different scales of event.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Risk</div><div class="ttd-text">Denylisting and a full pause described interchangeably.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Signal</div><div class="ttd-text">Blacklister targets one address; Pauser halts everyone.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-issuer);">Response</div><div class="ttd-text">Identify which mechanism happened before describing scope.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-gap-light);border-color:#fecaca;">
+          <div class="pattern-card-head"><div class="pattern-icon">🌉</div><div class="pattern-name" style="color:var(--c-gap);">The Cross-Chain Blind Spot</div></div>
+          <div class="pattern-line">A native-chain freeze doesn't automatically reach every bridged copy.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Risk</div><div class="ttd-text">A reported freeze assumed to block the asset everywhere.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Signal</div><div class="ttd-text">Bridged copies can carry the mechanism under different control.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Response</div><div class="ttd-text">Run the topology questions before reporting a freeze as complete.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIMARY SOURCES -->
+    <div class="article-section" id="sources">
+      <div class="section-eyebrow" style="color:var(--c-issuer)">Evidence and Methodology</div>
+      <h2>Primary sources</h2>
+      <p>The Huione/USDH quotes, both issuers' terms, and the GENIUS Act text were checked directly against the primary documents below on 30 August 2026, not against secondary summaries alone, except where a specific entry says otherwise. Where a fact rests only on secondary corroboration, that's stated in the text at the point it's used.</p>
+      <ol>
+        <li id="source-1"><a href="https://www.govinfo.gov/content/pkg/FR-2025-05-05/pdf/2025-07837.pdf">FinCEN, Special Measure Regarding Huione Group, as a Foreign Financial Institution of Primary Money Laundering Concern (Notice of Proposed Rulemaking), 90 FR 18934</a>, 5 May 2025.</li>
+        <li id="source-2"><a href="https://www.circle.com/legal/usdc-terms">Circle, USDC Terms of Use</a>, dated 12 December 2025, retrieved 30 August 2026.</li>
+        <li id="source-3"><a href="https://tether.to/en/legal/?tab=usdt">Tether, USDT Terms of Service</a>, retrieved 30 August 2026.</li>
+        <li id="source-4"><a href="https://www.congress.gov/119/plaws/publ27/PLAW-119publ27.pdf">GENIUS Act (Guiding and Establishing National Innovation for U.S. Stablecoins Act), Public Law 119-27</a>, 18 July 2025.</li>
+        <li id="source-5">Circle (stablecoin-evm repository), <a href="https://github.com/circlefin/stablecoin-evm/blob/master/doc/tokendesign.md">Token Design documentation</a>, accessed 30 August 2026.</li>
+        <li id="source-6">FinCrimeRadar, <a href="/stablecoin-financial-crime-guide.html#topology">Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap</a>, cross-referenced for the token-topology questions and the FATF/Circle bridged-token sourcing behind them, not independently re-verified in this guide.</li>
+        <li id="source-7">FinCrimeRadar, <a href="/systemic-stablecoins-guide.html#failure">Systemic Stablecoins: The Joint Bank of England and FCA Regime</a>, cross-referenced for the failure-and-resolution material, not duplicated in this guide.</li>
+      </ol>
+      <p style="margin-top:1rem;"><strong>Secondary-sourced, not independently verified this session:</strong> Circle's reported "Access Denial Policy" (CryptoSlate, April 2026); the New York bankruptcy court's Multichain Foundation blacklist order (The Block, 31 October 2025); the disputed Zama pool freeze (CCN, June 2026); and public statements attributed to Circle's CEO on Circle's and Tether's relative freezing patterns (reported April 2026). A final FinCEN rule on Huione followed the notice cited above on 16 October 2025; this guide cites the notice's own text, and has not independently reconfirmed that the specific footnote and figure quoted here carry through unchanged into the final rule.</p>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-issuer)">The Actual Skill</div>
+      <h2>Name the mechanism, not the metaphor.</h2>
+      <p>"Freeze" is a convenient word and a genuinely imprecise one. Ten different actors, under ten different legal and technical bases, can each do something a headline would call "freezing" a stablecoin, and telling them apart is most of what separates a useful case note from a misleading one. <a href="/screen.html" style="color:var(--c-issuer);font-weight:600;">FinCrimeRadar's screening tool</a> checks sanctions, PEP, and adverse media exposure for the entities behind cases like this one, free, no signup required.</p>
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Verifying an entity connected to a freeze case?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#primer">Primer</a>
+      <a href="#taxonomy">The Ten Mechanisms</a>
+      <a href="#case-study">Huione / USDH Case Study</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-thirdparty);"></span> 01 · The Wrong Layer</a>
+      <a href="#failure-resolution">Not Failure &amp; Resolution</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-legal);"></span> 02 · The Unfinished Mandate</a>
+      <a href="#topology-crossref">Cross-Chain Limits</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 2</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+    <div class="tool-cta">
+      <p>Practise this live, run a free sanctions, PEP, and adverse media check on individuals you identify.</p>
+      <a href="/screen.html">Try the screening tool →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+let scenarioResults = {};
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 2';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+const answerKeys = { scenario1: 'B', scenario2: 'C' };
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: B, name the layer that actually acted',
+    body: [
+      'This is "The Wrong Layer." An exchange account freeze (mechanism #6) and an issuer-level on-chain freeze or denylisting (mechanisms #1/#2) are independent actions with independent legal bases. The exchange notice tells you what happened at the account layer; it doesn\'t tell you anything about the token contract itself.',
+      'Option A assumes the account freeze proves an on-chain freeze happened, which isn\'t established by the exchange\'s notice alone. Option C assumes the two layers move together, they often don\'t. Option D repeats the exchange\'s own imprecise wording into your case note instead of checking and stating the actual mechanism.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: C, enacted and operative are not the same thing',
+    body: [
+      'This is "The Unfinished Mandate." The GENIUS Act\'s technological-capability-to-comply requirement is real, verified statutory text, not industry rumour, but its own effective-date clause defers when it actually binds, to the earlier of roughly 18 months after the Act\'s July 2025 enactment or 120 days after final implementing regulations. As of this guide\'s drafting, that operative date hasn\'t arrived.',
+      'Option A treats enactment as automatically meaning the requirement is already binding, collapsing a real distinction the statute itself preserves. Option B is simply wrong, the requirement does exist in the statute\'s own text. Option D is beside the point, the scenario is about a US legal requirement\'s timing, not about which specific issuer it names.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => { b.disabled = true; b.style.opacity = '0.6'; b.style.cursor = 'default'; });
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+  verdictDiv.classList.add('show');
+  verdictDiv.setAttribute('aria-live', 'polite');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'FinCEN\'s own body text says "one stablecoin issuer," anonymised; its own footnote points to a July 2024 report from The Record naming Tether as the issuer that carried out the freeze.' },
+  qq2: { correct: 'B', fb: 'USDH is marketed as declining mechanisms #1 and #2, issuer freeze and address denylisting, as a design feature, per FinCEN\'s own restatement of Huione\'s own marketing claim.' },
+  qq3: { correct: 'C', fb: 'The requirement is enacted but not yet operative; the Act\'s own Section 20 effective-date clause defers it to the earlier of roughly 18 months post-enactment or 120 days after final implementing regulations.' },
+  qq4: { correct: 'B', fb: 'Blacklister denylists one address; Pauser halts transfers, minting, and burning for every holder of the contract simultaneously, a materially larger event.' },
+  qq5: { correct: 'B', fb: 'Whether a freeze reaches a bridged or wrapped representation depends on that representation\'s own control structure, not on the native-chain freeze alone, check the topology questions per representation.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+  opts.forEach((o, i) => {
+    const letter = String.fromCharCode(65 + i);
+    if (letter === data.correct) o.classList.add('q-correct');
+    else if (letter === chosen && !isCorrect) o.classList.add('q-wrong');
+  });
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+  fbDiv.setAttribute('aria-live', 'polite');
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the ten-mechanism table is worth another pass.','Getting there, revisit the Huione/USDH case study.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the mechanism distinctions well.','Excellent, practitioner-level judgement on freeze mechanics.','Perfect, you\'re ready to work a real freeze-adjacent case.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines, ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Freezing a Stablecoin Guide: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'freezing-a-stablecoin-guide-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

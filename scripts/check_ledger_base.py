@@ -30,7 +30,7 @@ def claim_ids(entries):
 def load_head_ledger():
     result = subprocess.run(
         ["git", "show", "HEAD:verification-ledger.json"],
-        cwd=REPO_ROOT, capture_output=True, text=True,
+        cwd=REPO_ROOT, capture_output=True, text=True, encoding="utf-8",
     )
     if result.returncode != 0:
         print(f"ERROR: could not read verification-ledger.json from HEAD: {result.stderr.strip()}", file=sys.stderr)
