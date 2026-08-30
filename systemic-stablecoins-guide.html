@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Systemic Stablecoins: The Joint Bank of England and FCA Regime | FinCrimeRadar</title>
+  <meta name="description" content="What changes once a stablecoin issuer is recognised as systemic: the £40bn guardrail's two distinct depeg risks, multi-issuance fragmentation, and the failure regime that's still being drafted. Sourced directly to the Bank of England's June 2026 Policy Statement and draft Code of Practice." />
+  <meta name="keywords" content="systemic stablecoins, Bank of England, FCA, stablecoin regulation, HMT recognition, depeg risk, multi-issuance, stablecoin failure regime, Code of Practice, £40bn guardrail" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/systemic-stablecoins-guide.html" />
+  <meta property="og:title" content="Systemic Stablecoins: The Joint Bank of England and FCA Regime" />
+  <meta property="og:description" content="What changes once a stablecoin issuer is recognised as systemic, the £40bn guardrail's two distinct depeg risks, multi-issuance fragmentation, and a failure regime still being drafted." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/systemic-stablecoins-guide.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Systemic Stablecoins: The Joint Bank of England and FCA Regime",
+      "description": "What changes once a stablecoin issuer is recognised as systemic: the £40bn guardrail's two distinct depeg risks, multi-issuance fragmentation, and the failure regime that's still being drafted. Sourced directly to the Bank of England's June 2026 Policy Statement and draft Code of Practice.",
+      "author": { "@type": "Organization", "name": "FinCrimeRadar" },
+      "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
+      "url": "https://fincrimeradar.org/systemic-stablecoins-guide.html",
+      "datePublished": "2026-08-30",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fincrimeradar.org/systemic-stablecoins-guide.html" }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Crypto","item":"https://fincrimeradar.org/knowledge.html?domain=crypto"},{"@type":"ListItem","position":3,"name":"Systemic Stablecoins: The Joint Bank of England and FCA Regime","item":"https://fincrimeradar.org/systemic-stablecoins-guide.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted', 'ad_storage': 'granted', 'ad_user_data': 'granted', 'ad_personalization': 'denied' });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-fca:#2563eb; --c-fca-light:#eff6ff;
+      --c-bank:#7c3aed; --c-bank-light:#f5f3ff;
+      --c-up:#d97706; --c-up-light:#fffbeb;
+      --c-down:#dc2626; --c-down-light:#fef2f2;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-bank); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(37,99,235,0.15) 0%, transparent 60%); }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-bank); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-fca); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-up); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(124,58,237,0.25); border:1px solid rgba(196,181,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:0.5rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+    .series-orient { font-size:13px; color:#93c5fd; max-width:680px; line-height:1.6; margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.15); }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-bank); border-left-color:var(--c-bank); }
+    .toc a.active { color:var(--c-bank); border-left-color:var(--c-bank); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-up { background:var(--c-up-light); color:var(--c-up); border:1px solid #fde68a; }
+    .badge-down { background:var(--c-down-light); color:var(--c-down); border:1px solid #fecaca; }
+    .badge-bank { background:var(--c-bank-light); color:var(--c-bank); border:1px solid #ddd6fe; }
+    .badge-fca { background:var(--c-fca-light); color:var(--c-fca); border:1px solid #bfdbfe; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) { .pattern-ttd { grid-template-columns:1fr; } .pattern-grid { grid-template-columns:1fr; } }
+
+    /* COMPARISON TABLE */
+    .compare-table-wrap { overflow-x:auto; margin:1.25rem 0; }
+    .compare-table { width:100%; border-collapse:collapse; min-width:720px; font-size:13.5px; }
+    .compare-table th { background:var(--navy); color:#fff; text-align:left; padding:10px 12px; font-size:12px; text-transform:uppercase; letter-spacing:0.4px; }
+    .compare-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; color:#374151; }
+    .compare-table tr:nth-child(even) td { background:#f8fafc; }
+    .compare-table td:first-child { font-weight:700; color:var(--navy); white-space:nowrap; }
+
+    /* MULTI-ISSUANCE FLOW */
+    .issuance-flow { display:flex; flex-direction:column; align-items:center; gap:0; margin:1.5rem 0; background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1rem; }
+    .issuance-node { border-radius:10px; padding:12px 20px; text-align:center; font-size:13.5px; font-weight:600; color:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
+    .issuance-arrow { font-size:20px; color:var(--muted); margin:4px 0; }
+    .issuance-fork { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin:8px 0; }
+    .issuance-branch { display:flex; flex-direction:column; align-items:center; gap:6px; }
+    .issuance-sub { font-size:12px; color:var(--muted); text-align:center; max-width:170px; }
+
+    /* DEPEG CHAIN */
+    .depeg-chain { display:flex; flex-direction:column; margin:1.25rem 0; background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.25rem; }
+    .depeg-step { display:flex; gap:12px; align-items:flex-start; padding:8px 0; }
+    .depeg-num { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; color:#fff; flex-shrink:0; }
+    .depeg-text { font-size:13.5px; color:#374151; padding-top:2px; }
+    .depeg-connector { width:2px; height:14px; background:var(--border); margin-left:13px; }
+
+    /* SCENARIO */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-bank); background:#f5f3ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-item summary { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; list-style:none; gap:1rem; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-icon { font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); display:inline-block; }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-bank); color:var(--c-bank); }
+
+    /* FOOTER */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    /* MOBILE */
+    @media(max-width:767px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+      .issuance-fork { flex-direction:column; align-items:center; }
+    }
+  </style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;background:#fff;color:var(--navy);padding:10px 16px;z-index:999;border-radius:0 0 8px 0;font-size:13px;font-weight:600;">Skip to content</a>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">›</span>
+  <a href="/knowledge.html?domain=crypto">Crypto</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Systemic Stablecoins: The Joint Bank of England and FCA Regime</span>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🏦 Stablecoin Series · Systemic Regime</div>
+    <h1>Systemic Stablecoins:<br><em>The Joint Bank of England and FCA Regime</em></h1>
+    <p class="hero-sub">Recognition doesn't replace FCA authorisation, it stacks a second regulator on top of it. What that stack actually changes is more precise, and stranger, than most summaries suggest.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 16 min read</span>
+      <span>🔎 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 2 Scenarios</span>
+    </div>
+    <p class="series-orient">Part of FinCrimeRadar's <strong>Stablecoin Series</strong>, which also covers the FCA authorisation perimeter for non-systemic issuers, unhosted wallets and P2P transfer visibility gaps, sanctions-evasion infrastructure built on stablecoin rails, and what actually happens when a stablecoin gets frozen. Those guides are referenced here by name only; where one hasn't shipped yet, treat it as a forward pointer, not a live link.</p>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout" id="main-content">
+  <div class="article-body">
+
+    <!-- PRIMER -->
+    <div class="article-section" id="primer">
+      <div class="section-eyebrow" style="color:var(--c-bank)">Primer</div>
+      <h2>What "systemic" actually adds, not replaces</h2>
+      <p>Once the UK's new cryptoasset regime fully commences (25 October 2027, under the Regulations already creating this framework), a stablecoin issuer meeting the UK-establishment conditions, offering or arranging its stablecoin from a UK establishment, with the stablecoin created by or on behalf of the issuer or its group, and the issuer itself carrying on both redemption and stabilisation-asset-holding activities from a UK establishment, needs Part 4A permission from the FCA under the Financial Services and Markets Act 2000, the same authorisation gateway that covers deposit-taking and investment business generally, applied here to the specific regulated activities the regime creates (issuance, safeguarding, dealing, arranging). This is the non-systemic baseline: the FCA carries the prudential and conduct rulebook, covering backing assets, redemption, safeguarding and capital, for every UK-issued qualifying stablecoin. It isn't the only regulator with any remit here even at this baseline, though: the Payment Systems Regulator retains its own separate, narrower competition-and-access remit over payment systems that transfer digital settlement assets, including stablecoins, independent of whether an issuer is later recognised as systemic.</p>
+      <p>Systemic recognition doesn't replace that FCA layer, it adds a second one. HM Treasury, not the FCA and not the Bank of England, decides whether a stablecoin arrangement is systemic, using its powers under the Banking Act 2009. HMT can recognise an operator of a systemic payment system using a digital settlement asset, a systemic digital settlement asset service provider, or a firm providing essential services to either, wherever it's satisfied that deficiencies in the arrangement's design, or disruption to its operation, would likely threaten UK financial stability or confidence, or seriously harm UK business interests. HMT must consult the Bank, the FCA and the Payment Systems Regulator, and must notify the firm and consider its representations, before making a recognition order. A separate "systemic at launch" path exists for a firm not yet at systemic scale but likely to reach it.</p>
+      <p>Crucially, recognition and authorisation stay legally independent. The Bank and FCA's own joint approach document states this directly: HMT's recognition "does not fetter the FCA's statutory obligation to consider the application for Part 4A permissions, including rejecting the application." A firm can be recognised as systemic by HMT and still be refused authorisation by the FCA; the two decisions don't automatically follow from each other.</p>
+      <p>Once recognised, the Bank of England joins the FCA as a second regulator, not instead of it. What follows is a genuine three-way split, not two regulators doing the same job twice: some rules stay FCA-lead, some become Bank-lead, and a meaningful middle band is jointly applicable. The rest of this guide maps that split field by field, then the £40bn guardrail, the multi-issuance risk this creates when more than one issuer shares a token, the depeg mechanics both regimes are designed to manage, and the failure regime that's still, genuinely, being drafted.</p>
+      <div class="callout callout-navy">
+        <strong>Where this guide stops</strong>
+        <p>This guide doesn't reproduce the detailed activity mapping, the statutory qualifying-stablecoin definition, or the due diligence framework that the series' FCA perimeter guide (Guide 1) covers in full. Read that guide for the complete non-systemic authorisation analysis; nothing here requires it as a prerequisite.</p>
+      </div>
+    </div>
+
+    <!-- FIELD-BY-FIELD COMPARISON -->
+    <div class="article-section" id="comparison">
+      <div class="section-eyebrow" style="color:var(--c-fca)">The Two Regimes, Field by Field</div>
+      <h2>FCA-only versus jointly-regulated systemic issuer</h2>
+      <p>Ten fields, compared directly. Figures reflect the Bank's final June 2026 policy position, not the earlier consultation proposals, where the two differ.</p>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead><tr><th>Field</th><th>FCA-only (non-systemic)</th><th>Jointly regulated (systemic)</th></tr></thead>
+          <tbody>
+            <tr><td>Backing assets</td><td>Short-term deposits and short-term government debt; on-demand deposit requirement (ODDR) of 5% of the pool, applies to all issuers.</td><td>30% unremunerated Bank of England deposits, up to 70% short-term UK government debt (6-month residual maturity); no other asset classes permitted. "Systemic at launch" firms get a step-up allowance, up to 95% government debt while scaling, reduced to 60% at appropriate scale.</td></tr>
+            <tr><td>Redemption</td><td>T+1, clock starts once the issuer has received the stablecoin in its own wallet and completed AML/KYC.</td><td>Proposed policy, per draft Code of Practice: as soon as practicable, and in any event within 24 hours of a "full redemption request" (request received, AML/KYC complete, coins received). No suspension for any reason, in normal or stress conditions alike. Processing is rolling, first come first served.</td></tr>
+            <tr><td>Safeguarding</td><td>Third-party custodians capped at 20% intragroup holding of the backing pool.</td><td>Custodians must be a separate legal entity from the issuer, but no percentage cap on intragroup custody; custodian must additionally be UK-authorised for custody activities and hold the assets in the UK.</td></tr>
+            <tr><td>Capital</td><td>Governed by the FCA's general prudential rules for the relevant permission.</td><td>The higher of six months' operating expenses or the cost of executing the recovery and wind-down plan; must be free of intangible assets, described by the Bank as analogous to CET1 capital. Must notify the Bank if capital falls below 110% of the minimum.</td></tr>
+            <tr><td>Reserve assets</td><td>No equivalent statutory-trust reserve structure identified in the material verified for this guide.</td><td>Two distinct statutory trusts: the Financial Risk Reserve (interest-rate, monetisation and counterparty risk on the backing pool) and the Wind-Down Reserve (redemption/transfer and insolvency-practitioner costs), held separately from capital and from each other.</td></tr>
+            <tr><td>UK custody restrictions</td><td>Custodian independence (20% intragroup cap) is the operative constraint; no UK-location requirement identified in the material verified for this guide.</td><td>Custodian must be authorised in the UK for custody activities and must hold the assets in the UK, on top of the separate-legal-entity requirement above.</td></tr>
+            <tr><td>Bank access</td><td>No direct central bank payment-system access identified in the material verified for this guide.</td><td>Expected to access payment systems directly, settling in central bank money via a central bank deposit account, rather than through a sponsoring participant. A new Central Bank Liquidity Facility is planned (not yet operative) as a backstop, not a front-stop, for solvent issuers facing exceptional monetisation constraints.</td></tr>
+            <tr><td>Failure arrangements</td><td>Falls under the FCA's own forward-looking resolution consultation (not yet run).</td><td>Governed by the Bank's draft Code of Practice, recovery and wind-down plan requirements, still consultation-stage, not settled law.</td></tr>
+            <tr><td>Regulatory reporting</td><td>FCA rules only.</td><td>Sits in the jointly-applicable band: both FCA rules and the Bank's Code of Practice apply, alongside specific Bank notification triggers (110% capital threshold, reconciliation failures, capital changes).</td></tr>
+            <tr><td>Temporary issuance guardrail</td><td>Not applicable, no equivalent cap for non-systemic issuers.</td><td>£40bn per systemic stablecoin product, explicitly not a designation threshold, removed on a condition basis once real-world impact and credit-provision risk are assessed as mitigated, not on a fixed date.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>The three-way responsibility split</h3>
+      <p>This isn't FCA-versus-Bank. The Bank and FCA's own joint approach document sets out three distinct bands, and collapsing them into a binary loses the actual structure:</p>
+      <ul>
+        <li><strong>FCA-lead:</strong> Consumer duty, conduct of business, admissions and disclosures, the Market Abuse Regime for Cryptoassets, SM&CR, financial crime, ESG, complaints and FOS access, conflicts of interest, whistleblowing, fitness and propriety, the Code of Conduct, CPD, training and competence, general provisions, plus MLR 2017 supervision for both systemic and non-systemic issuers alike.</li>
+        <li><strong>Overlapping (both apply):</strong> Operational resilience, governance, internal and external audit, risk control, outsourcing, record keeping, reporting, issuance/legal claim/redemption, remuneration.</li>
+        <li><strong>Bank-lead:</strong> Backing assets, capital and reserve requirements, safeguarding, failure arrangements, the temporary issuance guardrail.</li>
+      </ul>
+      <p>This allocation is itself provisional. The FCA will decide which of its own rules to disapply for systemic issuers, but can't formally consult on how the split is operationalised until the Bank's Code of Practice for systemic issuers is finalised.</p>
+    </div>
+
+    <!-- MULTI-ISSUANCE -->
+    <div class="article-section" id="multi-issuance">
+      <div class="section-eyebrow" style="color:var(--c-down)">Multi-Issuance Risk</div>
+      <h2>One token, multiple issuers, multiple problems</h2>
+      <p>A multi-issuance scheme is exactly what it sounds like: an entity in jurisdiction A jointly issues a stablecoin with an entity in jurisdiction B, and the result is fungible and indistinguishable across both. Nothing about holding the token tells a coinholder, or an investigator, which entity's reserve pool actually backs a given unit.</p>
+
+      <div class="issuance-flow">
+        <div class="issuance-node" style="background:var(--navy);">One stablecoin, marketed as a single fungible asset</div>
+        <div class="issuance-arrow">↓</div>
+        <div class="issuance-fork">
+          <div class="issuance-branch">
+            <div class="issuance-node" style="background:var(--c-fca);">Issuer A, jurisdiction A</div>
+            <div class="issuance-arrow">↓</div>
+            <div class="issuance-node" style="background:var(--c-fca-light);color:var(--c-fca);border:1px solid #bfdbfe;">Reserve pool A</div>
+            <div class="issuance-sub">Own legal protections, own insolvency regime</div>
+          </div>
+          <div class="issuance-branch">
+            <div class="issuance-node" style="background:var(--c-bank);">Issuer B, jurisdiction B</div>
+            <div class="issuance-arrow">↓</div>
+            <div class="issuance-node" style="background:var(--c-bank-light);color:var(--c-bank);border:1px solid #ddd6fe;">Reserve pool B</div>
+            <div class="issuance-sub">Different legal protections, different insolvency regime</div>
+          </div>
+        </div>
+        <div class="issuance-arrow">↓</div>
+        <div class="issuance-node" style="background:var(--c-down);">One apparently fungible asset in circulation</div>
+      </div>
+
+      <p>FATF's own March 2026 Targeted Report on Stablecoins and Unhosted Wallets frames this as a genuine financial-crime risk, not just an operational curiosity: multi-issuance arrangements "may hinder the activity of LEAs, especially tracing, freezing or seizing of stablecoins," precisely because two or more issuers based in different jurisdictions are involved. A second, distinct problem sits underneath the tracing one: because compliance responsibilities may differ between issuers, it can be genuinely unclear which entity holds which AML/CFT obligation for a given coin, and geolocation complications from VPN use make it harder still to work out which entity actually holds relevant customer information.</p>
+      <p>The Bank of England's own position on multi-issuance is unambiguous and worth stating precisely: multi-issuance models are not considered suitable for systemic UK use. The Bank prefers single-issuance backed by a single reserve for anything recognised as systemic. That preference is itself a risk signal for investigators, a multi-issuance stablecoin reaching systemic scale in the UK would be operating against the Bank's own stated preference, not within a design it has endorsed.</p>
+    </div>
+
+    <!-- DEPEG MECHANICS -->
+    <div class="article-section" id="depeg">
+      <div class="section-eyebrow" style="color:var(--c-down)">Depeg Mechanics</div>
+      <h2>Two depeg risks, two directions, not one concept</h2>
+      <p>Practitioners default to thinking of "depeg risk" as one thing: confidence collapses, price falls below par. The systemic regime actually creates two distinct depeg risks, running in opposite directions, and the Bank's own guardrail is directly responsible for one of them.</p>
+
+      <h3 style="color:var(--c-down);">Downward: the confidence-shock spiral</h3>
+      <div class="depeg-chain">
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">1</div><div class="depeg-text"><strong>Confidence or backing-quality shock</strong> triggers doubt about the issuer's ability to honour redemptions at par.</div></div>
+        <div class="depeg-connector"></div>
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">2</div><div class="depeg-text"><strong>Redemption surge</strong> as coinholders rush to convert before any further deterioration.</div></div>
+        <div class="depeg-connector"></div>
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">3</div><div class="depeg-text"><strong>Liquidity demand</strong> spikes faster than the backing pool's on-demand deposits can absorb.</div></div>
+        <div class="depeg-connector"></div>
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">4</div><div class="depeg-text"><strong>Reserve monetisation</strong>, the issuer must sell or repo its government-debt holdings to raise cash.</div></div>
+        <div class="depeg-connector"></div>
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">5</div><div class="depeg-text"><strong>Potential losses or liquidity constraints</strong> if those sales happen at a discount, or can't be executed fast enough.</div></div>
+        <div class="depeg-connector"></div>
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">6</div><div class="depeg-text"><strong>Secondary market discount</strong> opens as the market prices in redemption risk.</div></div>
+        <div class="depeg-connector"></div>
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">7</div><div class="depeg-text"><strong>Further redemptions</strong> follow the discount, reinforcing the original shock.</div></div>
+        <div class="depeg-connector"></div>
+        <div class="depeg-step"><div class="depeg-num" style="background:var(--c-down);">8</div><div class="depeg-text"><strong>Possible depeg</strong>, price settles below par.</div></div>
+      </div>
+      <p>This chain is grounded in the Bank's own financial-stability reasoning, not invented for this guide, but it isn't a verbatim quotation either: the Bank's own Box A analysis reasons in terms of rapid, unexpected redemption requests forcing asset sales at a discount, undermining 1:1 backing and creating further government-debt-market stress, compounded by fire-sale risk if multiple issuers must liquidate at once. The Bank's text doesn't itself use the phrase "confidence shock" as a named trigger, and doesn't explicitly describe a "secondary market discount" on the stablecoin's own price; those are this guide's framing of the mechanism the Bank describes, not the Bank's own wording. Three sources feed this analysis, kept separately attributed rather than blended: the Bank's own Box A reasoning above; an MIT 2026 paper, "The Hidden Plumbing of Stablecoins: Financial and Technological Risks in the GENIUS Act Era," cited by the Bank for a general solvency-versus-liquidity point and explicitly US-focused, not the Bank's own finding; and a BIS reference (Application of the Principles for Financial Market Infrastructures to stablecoin arrangements) used elsewhere in the same Policy Statement specifically for the redemption-timing standard, not for this stress chain.</p>
+
+      <h3 style="color:var(--c-up);">Upward: the guardrail's own risk</h3>
+      <p>The £40bn issuance guardrail exists to contain systemic scale. It also, by the Bank's own admission, creates a risk in the opposite direction. Use this exactly, the Bank's own words, not a paraphrase:</p>
+      <div class="callout" style="border-color:var(--c-up);background:var(--c-up-light);">
+        <strong>Bank of England, verbatim</strong>
+        <p>"The issuance guardrail does introduce a new risk, which is the possibility of 'de-pegging' if the demand for a stablecoin outweighs supply. De-pegging risk could materialise if users shift into stablecoins at scale, resulting in demand for the systemic stablecoins exceeding supply, pushing secondary market prices above par value. We think this risk is manageable. While such behaviour is hard to predict, a sustained, large-scale flow would likely be needed into a systemic stablecoin to push its price above par."</p>
+      </div>
+      <p>This is the opposite direction from the confidence-shock chain above: demand exceeding the guardrail-constrained supply pushes the secondary market price above par, not below it. The Bank frames this as a new risk it judges manageable, not something requiring a sustained, hard-to-predict, large-scale shift to actually materialise, not a routine or easily-triggered event. Treat these as two distinct depeg concepts with two distinct causes, not one undifferentiated "depeg risk." A practitioner who sees a systemic stablecoin trading above par should think guardrail-constrained demand first, not assume the pricing signal has to mean the same thing a below-par discount would.</p>
+    </div>
+
+    <!-- SCENARIO 1: THE GUARDRAIL SQUEEZE -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-up-light);">📈</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Reading the depeg direction</div>
+          <div class="scenario-name">The Guardrail Squeeze</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-up">Upward Depeg</span>
+        </div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A systemic sterling stablecoin, near its £40bn issuance guardrail, is trading at a small but sustained premium to par on secondary markets. A junior analyst flags it as an early depeg warning and recommends treating it the same as a below-par discount event, escalating to the firm's backing-quality contingency plan.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)"><span class="opt-label">A</span><span>Agree with the analyst, any sustained deviation from par is the same depeg risk regardless of direction, and the backing-quality contingency plan should activate.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)"><span class="opt-label">B</span><span>Dismiss the premium entirely, secondary market pricing above par is never worth investigating once an issuance guardrail exists.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)"><span class="opt-label">C</span><span>Recognise this as the guardrail's own acknowledged upward depeg risk, demand exceeding constrained supply, distinct from a confidence or backing-quality shock, and check the guardrail and issuance headroom before treating it as a backing-quality signal.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)"><span class="opt-label">D</span><span>Assume the issuer is manipulating its own secondary market price and refer the matter directly to enforcement.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict"><div id="scenario1-content"></div></div>
+      </div>
+    </div>
+
+    <!-- FAILURE AND RESOLUTION -->
+    <div class="article-section" id="failure">
+      <div class="section-eyebrow" style="color:var(--c-bank)">Failure and Resolution</div>
+      <h2>What happens when the issuer itself fails</h2>
+      <p>This is a distinct question from law enforcement freezing a specific wallet or asset, that's an intervention against suspicious activity within a functioning issuer. Failure and resolution asks what happens when the issuer itself can't continue, insolvency, a capital or liquidity breach, an operational collapse, and it's the area most clearly still under construction.</p>
+
+      <h3>Recovery and wind-down, per the Bank's draft Code of Practice</h3>
+      <p>The Bank's draft Code of Practice, Appendix 4 to the June 2026 Policy Statement, sets out genuine rule text, not a policy summary, though it remains draft, consultation-stage material. A recovery plan must identify an early-warning trigger, set above the actual minimum capital or reserve requirement, that would indicate a credible risk of breach; potential recovery actions that are "credible and justifiable" given time to implement, estimated losses, and effectiveness, explicitly including insurance, indemnity and loss-distribution arrangements as examples; and the cost of implementing them. A wind-down plan must choose, per stress scenario, between terminating the business (completing redemption for all holders) or selling part or all of it to a purchaser, and must cost three components: winding down general operations, completing redemption or transferring the business (whichever is higher, not both added together), and insolvency costs.</p>
+      <p>Where the wind-down reserve is actually drawn on, priority order matters and is fixed by the draft rules: insolvency practitioner and special administrator costs come first, then redemption-completion or business-transfer costs, then holder shortfall claims against the backing-assets trust, and the issuer itself last, only once everything above it is satisfied.</p>
+      <p>Notification thresholds sit ahead of actual breach, not at it: an issuer must notify the Bank if capital falls below 110% of the general business risk requirement, a materially earlier signal than a live compliance failure.</p>
+
+      <h3>Redemption suspension: two different questions, easy to conflate</h3>
+      <p>The Bank's proposed policy, stated in the Policy Statement and instantiated through the still-draft Code of Practice, is that suspension of redemption is not permitted for any reason, an expectation explicitly meant to hold "in normal and stress times," including where an issuer outsources redemption to a third party, and applying "at all times, including during periods where issuers are experiencing operational disruption." This isn't a routine-operations-only rule; the Bank's own framing spans stress conditions too.</p>
+      <p>What remains genuinely open is a narrower question: what happens to redemption once a firm has actually entered formal wind-down or insolvency, as distinct from merely operating under stress. The Code of Practice's own wind-down plan requirements treat "completing redemption for all holders" as one designed wind-down strategy, a different mechanism from day-to-day on-demand redemption continuing unchanged, and don't spell out how that interacts with the no-suspension expectation once a firm is formally failing. Separately, and on a different regulator's own timeline, the FCA has said it will consult later this year on its own approach to cryptoasset firm failure, quote it exactly: "We will consult later this year on our proposed approach to managing cryptoasset firm failure. This will include distribution rules that would apply where a stablecoin issuer or a cryptoasset custodian has failed. As part of this, we may consider the rules on suspension of redemption of stablecoins to make sure they achieve their aims, both in firm failure and the run-up to it, and this may result in some changes." That FCA consultation, not yet run, could affect suspension policy for the issuers and custodians its own regime covers; nothing in the material verified for this guide indicates it will determine or reshape the Bank's separately-stated systemic-issuer position, and the two processes shouldn't be read as one.</p>
+
+      <div class="callout callout-navy">
+        <strong>Live regulatory development, not settled law</strong>
+        <p>The draft Code of Practice's own commencement date is unfixed in the text itself. Its legal basis is section 189 of the Banking Act 2009; non-compliance is a "compliance failure" under section 196, with possible sanctions under sections 198-200 (financial penalty, management disqualification, in specified circumstances a closure order) and publication under section 197. The consultation on this draft closes 22 September 2026. Do not present any of the failure-regime content above as finalised.</p>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2: THE FRAGMENTED TOKEN -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-fca-light);">🧩</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · Multi-issuance in an investigation</div>
+          <div class="scenario-name">The Fragmented Token</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-fca">Multi-Issuance</span>
+        </div>
+      </div>
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>A stablecoin your firm holds is jointly issued by two entities in different jurisdictions and trades as a single fungible token. News breaks that one of the two issuers has entered insolvency proceedings. A colleague argues the token's overall backing is unaffected, since it's "one stablecoin" and the healthy co-issuer can absorb the shortfall.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)"><span class="opt-label">A</span><span>Agree, a fungible token has one economic backing position, so the healthy issuer's reserve automatically covers the whole supply.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)"><span class="opt-label">B</span><span>Recognise that fungibility is a market convenience, not evidence about the legal position: FATF's own findings describe multi-issuance tokens as fungible and indistinguishable across the issuing entities, so specific units generally can't be traced to a particular issuer's reserve. That means neither automatic cross-subsidy nor automatic unaffected status should be assumed; what actually happens depends on the coinholders' legal claims, the reserve-allocation and redemption arrangements between the two issuers, and which insolvency regime applies, facts to establish, not an answer to assume either way.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)"><span class="opt-label">C</span><span>Treat the entire token supply as now worthless, since one of the two issuers has failed.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)"><span class="opt-label">D</span><span>Take no action, since the Bank of England doesn't consider multi-issuance models suitable for systemic use, so this scenario can't actually occur.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict"><div id="scenario2-content"></div></div>
+      </div>
+
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Screening a stablecoin issuer or counterparty?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+    <!-- FOUR RISK PATTERNS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-bank)">Four Patterns</div>
+      <h2>Four patterns, four cards</h2>
+
+      <div class="pattern-card" style="background:var(--c-up-light);border-color:#fde68a;">
+        <div class="pattern-card-head"><div class="pattern-icon">📈</div><div class="pattern-name" style="color:var(--c-up);">The Upward Squeeze</div></div>
+        <div class="pattern-line">Not every depeg is a warning sign; some are the guardrail's own acknowledged side effect, not a backing failure.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-up);">Risk</div><div class="ttd-text">A price above par gets treated the same as a price below par.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-up);">Signal</div><div class="ttd-text">Sustained premium to par while issuance sits near the £40bn guardrail.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-up);">Response</div><div class="ttd-text">Check guardrail headroom before assuming a backing-quality problem.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-down-light);border-color:#fecaca;">
+        <div class="pattern-card-head"><div class="pattern-icon">📉</div><div class="pattern-name" style="color:var(--c-down);">The Downward Spiral</div></div>
+        <div class="pattern-line">A confidence shock and a liquidity shock reinforce each other once redemptions accelerate.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-down);">Risk</div><div class="ttd-text">Each stage looks manageable in isolation.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-down);">Signal</div><div class="ttd-text">Redemption surge, forced reserve monetisation, secondary market discount, in sequence.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-down);">Response</div><div class="ttd-text">Map the full chain, not just the stage currently visible.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-fca-light);border-color:#bfdbfe;">
+        <div class="pattern-card-head"><div class="pattern-icon">🧩</div><div class="pattern-name" style="color:var(--c-fca);">The Fragmented Token</div></div>
+        <div class="pattern-line">One apparently fungible token can hide multiple issuers, multiple reserves, multiple insolvency regimes.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-fca);">Risk</div><div class="ttd-text">Fungibility on-chain reads as a single, unified backing position.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-fca);">Signal</div><div class="ttd-text">The token is jointly issued by entities in different jurisdictions.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-fca);">Response</div><div class="ttd-text">Establish the actual legal claims and reserve arrangements; don't assume fungible units can be traced to one pool.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-bank-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head"><div class="pattern-icon">🚧</div><div class="pattern-name" style="color:var(--c-bank);">The Moving Target</div></div>
+        <div class="pattern-line">The failure regime is still being drafted; today's answer may not be next year's.</div>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-bank);">Risk</div><div class="ttd-text">Draft rules get treated as settled once they're detailed enough to sound final.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-bank);">Signal</div><div class="ttd-text">The Code of Practice is draft, consultation-stage, with an unfixed commencement date.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-bank);">Response</div><div class="ttd-text">Label draft rule text as draft, every time, including in internal risk assessments.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CHECK -->
+    <div class="quiz-section article-section" id="knowledge-check" style="border:none;">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions on the systemic regime, the guardrail, and multi-issuance.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. Does HMT recognition as systemic guarantee the FCA will grant Part 4A authorisation?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">A - Yes, recognition automatically triggers authorisation</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - No, the Bank and FCA's own joint document states recognition does not fetter the FCA's statutory obligation to consider the application, including rejecting it</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - Only for systemic-at-launch firms</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - Only if the Bank of England co-signs the application</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. Which responsibility band does "reporting" sit in?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">A - FCA-lead only</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - Overlapping, both FCA rules and the Bank's Code of Practice apply</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">C - Bank-lead only</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">D - Neither regulator covers it</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. A systemic stablecoin trades sustainably above par near its £40bn guardrail. Which explanation is this most consistent with, per the Bank's own material?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">A - A backing-quality failure identical to a downward depeg</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">B - Market manipulation by the issuer</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - The guardrail's own acknowledged upward depeg risk, demand exceeding constrained supply</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">D - A sign the guardrail has already been breached</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. In a multi-issuance scheme, if one issuer becomes insolvent, what does FATF's own framing imply about identifying which tokens are actually affected?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">A - Every token is automatically drawn from a single shared reserve, so the insolvency affects all coinholders identically</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Because the tokens are fungible and indistinguishable across the issuers, specific units generally can't be traced to a particular issuer's reserve; the actual impact depends on legal claims, reserve-allocation arrangements, and the applicable insolvency regime, facts fungibility itself doesn't resolve</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">C - The entire token supply becomes worthless immediately</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">D - The Bank of England automatically takes over the failed issuer's obligations</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. Is the Bank's Code of Practice on systemic stablecoin failure and resolution settled law?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">A - Yes, it took effect on publication</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - No, it's draft rule text at consultation stage with an unfixed commencement date</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">C - Yes, but only for systemic-at-launch firms</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">D - It was withdrawn after consultation feedback</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-bank)">Frequently Asked</div>
+      <h2>FAQ</h2>
+      <details class="faq-item">
+        <summary>If a stablecoin is recognised as systemic, does it stop being regulated by the FCA? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">No. The FCA stays involved across a wide FCA-lead band (consumer duty, conduct, disclosures, MARC, SM&CR, financial crime, MLR supervision, and more) and a jointly-applicable band alongside the Bank. Recognition adds the Bank as a second regulator for a defined set of Bank-lead areas, backing assets, capital, safeguarding, failure arrangements, and the guardrail, it doesn't remove the FCA.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is the £40bn guardrail the threshold at which HMT recognises an issuer as systemic? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">No, and the Bank says so directly: "The proposed £40 billion issuance guardrail should not be taken as an indicator of the point at which HMT may recognise a stablecoin issuer as systemic." The guardrail is a post-recognition operating constraint, not the recognition test itself.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can a systemic stablecoin issuer suspend redemptions during a crisis? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Under the Bank's proposed policy, still consultation-stage as part of the draft Code of Practice, no, suspension isn't permitted for any reason, and that's meant to hold in normal and stress conditions alike, not just routine operations. What's genuinely unresolved is what happens once a firm has actually entered formal wind-down, where the Code of Practice's own wind-down plan treats completing redemption for all holders as a distinct strategy rather than day-to-day redemption continuing unchanged. The FCA has separately said it will consult on its own approach to cryptoasset firm failure, which may touch redemption-suspension rules for the issuers and custodians its regime covers, but nothing confirms that consultation determines the Bank's own systemic-issuer position.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does the £40bn guardrail get removed on a fixed date? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">No. The Bank expects to loosen and eventually remove it once real-world impact and credit-provision risk are assessed as sufficiently mitigated, a condition-based removal, not a scheduled sunset.</div>
+      </details>
+    </div>
+
+    <!-- AT A GLANCE -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-bank)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Four patterns, the risk that makes each one look routine, the signal that gives it away, and the response that fits.</p>
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-up-light);border-color:#fde68a;">
+          <div class="pattern-card-head"><div class="pattern-icon">📈</div><div class="pattern-name" style="color:var(--c-up);">The Upward Squeeze</div></div>
+          <div class="pattern-line">Not every depeg is a warning sign; some are the guardrail's own acknowledged side effect, not a backing failure.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-up);">Risk</div><div class="ttd-text">A price above par gets treated like a price below par.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-up);">Signal</div><div class="ttd-text">Sustained premium near the £40bn guardrail.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-up);">Response</div><div class="ttd-text">Check guardrail headroom before assuming a backing problem.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-down-light);border-color:#fecaca;">
+          <div class="pattern-card-head"><div class="pattern-icon">📉</div><div class="pattern-name" style="color:var(--c-down);">The Downward Spiral</div></div>
+          <div class="pattern-line">A confidence shock and a liquidity shock reinforce each other once redemptions accelerate.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-down);">Risk</div><div class="ttd-text">Each stage looks manageable in isolation.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-down);">Signal</div><div class="ttd-text">Redemption surge, forced monetisation, secondary discount, in sequence.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-down);">Response</div><div class="ttd-text">Map the full chain, not just the visible stage.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-fca-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head"><div class="pattern-icon">🧩</div><div class="pattern-name" style="color:var(--c-fca);">The Fragmented Token</div></div>
+          <div class="pattern-line">One apparently fungible token can hide multiple issuers and reserves.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-fca);">Risk</div><div class="ttd-text">Fungibility reads as one unified backing position.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-fca);">Signal</div><div class="ttd-text">Jointly issued across different jurisdictions.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-fca);">Response</div><div class="ttd-text">Establish actual legal claims and reserve arrangements; don't assume fungible units trace to one pool.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-bank-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head"><div class="pattern-icon">🚧</div><div class="pattern-name" style="color:var(--c-bank);">The Moving Target</div></div>
+          <div class="pattern-line">The failure regime is still being drafted; today's answer may not be next year's.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-bank);">Risk</div><div class="ttd-text">Detailed draft rules get treated as settled.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-bank);">Signal</div><div class="ttd-text">Draft Code of Practice, unfixed commencement date.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-bank);">Response</div><div class="ttd-text">Label draft rule text as draft, everywhere it's used.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-bank)">One Regime, Layered</div>
+      <h2>Systemic status is an addition, not a replacement.</h2>
+      <p>Every field in this guide, backing assets, redemption, safeguarding, capital, failure arrangements, sits on top of the FCA baseline, not instead of it. The practitioner skill is knowing which regulator's rule actually governs a given question, reading the guardrail's own depeg risk correctly, and treating a fragmented multi-issuer token as the multiple legal positions it actually is. <a href="/screen.html" style="color:var(--c-bank);font-weight:600;">FinCrimeRadar's screening tool</a> checks sanctions, PEP, and adverse media exposure for the entities behind a stablecoin arrangement, free, no signup required.</p>
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Verifying an issuer or counterparty?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#primer">Primer</a>
+      <a href="#comparison">Field-by-Field Comparison</a>
+      <a href="#multi-issuance">Multi-Issuance Risk</a>
+      <a href="#depeg">Depeg Mechanics</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-up);"></span> 01 · The Guardrail Squeeze</a>
+      <a href="#failure">Failure and Resolution</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-fca);"></span> 02 · The Fragmented Token</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 2</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+    <div class="tool-cta">
+      <p>Practise this live, run a free sanctions, PEP, and adverse media check on individuals you identify.</p>
+      <a href="/screen.html">Try the screening tool →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+let scenarioResults = {};
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 2';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+const answerKeys = { scenario1: 'C', scenario2: 'B' };
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: C, this is the guardrail\'s own acknowledged upward depeg risk',
+    body: [
+      'This is "The Upward Squeeze." The Bank of England says directly that the issuance guardrail introduces exactly this risk: demand for the stablecoin outweighing the guardrail-constrained supply, pushing secondary market prices above par. That\'s a different mechanism entirely from a confidence or backing-quality shock, which pushes price below par.',
+      'Option A conflates two distinct depeg directions with two distinct causes into one undifferentiated concept, exactly the compression the Bank\'s own material warns against. Option B goes too far the other way, a sustained premium is still worth checking against guardrail headroom, not waved off by default. Option D jumps straight to an enforcement referral over a pricing pattern the Bank itself has already explained and called manageable, with no evidence of manipulation presented in the facts given.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: B, fungibility tells you nothing about the legal position, don\'t assume either way',
+    body: [
+      'This is "The Fragmented Token." FATF\'s own framing is precise here, and cuts against tracing units to a pool: multi-issuance tokens are "fungible and indistinguishable across the two entities," which is exactly why FATF flags them as hindering tracing, freezing, and seizing in the first place. That same fungibility means an investigator generally can\'t point to specific units and say which issuer\'s reserve stands behind them.',
+      'Option A assumes an automatic cross-subsidy mechanism that isn\'t established anywhere in the material this guide is built on. Option C overreacts in the other direction, assuming total worthlessness with no more basis than option A\'s assumed rescue. Option D misapplies the Bank\'s stated preference against multi-issuance for systemic UK use, that\'s a policy preference discouraging the design, not a guarantee the scenario is impossible, including for non-UK-systemic arrangements this guide\'s scope doesn\'t exclude. The honest answer isn\'t a diagnosis, it\'s a list of facts to go establish: the coinholders\' actual legal claims, the reserve-allocation and redemption arrangements between the two issuers, and which insolvency regime governs.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => { b.disabled = true; b.style.opacity = '0.6'; b.style.cursor = 'default'; });
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+  verdictDiv.classList.add('show');
+  verdictDiv.setAttribute('aria-live', 'polite');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'Recognition and authorisation are legally independent; the joint document says recognition does not fetter the FCA\'s statutory obligation, including rejecting the application.' },
+  qq2: { correct: 'B', fb: 'Reporting sits in the overlapping band, both FCA rules and the Bank\'s Code of Practice apply to it.' },
+  qq3: { correct: 'C', fb: 'The Bank\'s own words: demand exceeding the guardrail-constrained supply pushes secondary prices above par, a distinct, acknowledged, and separately-managed risk from a downward confidence shock.' },
+  qq4: { correct: 'B', fb: 'FATF\'s own words are "fungible and indistinguishable across the two entities," which is precisely why tracing, freezing, and seizing get harder, not a basis for mapping specific units to a specific issuer\'s pool.' },
+  qq5: { correct: 'B', fb: 'The Code of Practice is draft text at consultation stage, its own commencement date is unfixed, and the consultation closes 22 September 2026.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+  opts.forEach((o, i) => {
+    const letter = String.fromCharCode(65 + i);
+    if (letter === data.correct) o.classList.add('q-correct');
+    else if (letter === chosen && !isCorrect) o.classList.add('q-wrong');
+  });
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+  fbDiv.setAttribute('aria-live', 'polite');
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the field-by-field comparison is worth another pass.','Getting there, revisit the depeg mechanics section.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the two-regulator structure well.','Excellent, practitioner-level judgement on systemic stablecoins.','Perfect, you\'re ready to work a real systemic-issuer case.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines, ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Systemic Stablecoins Guide: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'systemic-stablecoins-guide-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
