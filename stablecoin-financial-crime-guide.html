@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap | FinCrimeRadar</title>
+  <meta name="description" content="Where does regulated visibility into a stablecoin transfer actually disappear, and where does it come back? A lifecycle map, a Travel Rule continuity map, transaction monitoring indicators, and two worked scenarios, sourced directly to FATF's March 2026 Targeted Report on Stablecoins and Unhosted Wallets." />
+  <meta name="keywords" content="stablecoin financial crime, unhosted wallets, P2P transfers, Travel Rule, stablecoin SAR, cross-chain, token topology, FATF stablecoins, blockchain bridge, wrapped tokens" />
+  <meta name="author" content="FinCrimeRadar" />
+  <link rel="canonical" href="https://fincrimeradar.org/stablecoin-financial-crime-guide.html" />
+  <meta property="og:title" content="Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap" />
+  <meta property="og:description" content="A lifecycle map showing exactly where regulated visibility into a stablecoin transfer disappears and where it reappears, sourced to FATF's March 2026 Targeted Report." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fincrimeradar.org/stablecoin-financial-crime-guide.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap",
+      "description": "Where does regulated visibility into a stablecoin transfer actually disappear, and where does it come back? A lifecycle map, a Travel Rule continuity map, transaction monitoring indicators, and two worked scenarios, sourced directly to FATF's March 2026 Targeted Report on Stablecoins and Unhosted Wallets.",
+      "author": {
+          "@type": "Organization",
+          "name": "FinCrimeRadar"
+      },
+      "publisher": {
+          "@type": "Organization",
+          "name": "FinCrimeRadar",
+          "url": "https://fincrimeradar.org"
+      },
+      "url": "https://fincrimeradar.org/stablecoin-financial-crime-guide.html",
+      "datePublished": "2026-08-30",
+      "image": "https://fincrimeradar.org/og-image.png",
+      "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://fincrimeradar.org/stablecoin-financial-crime-guide.html"
+      }
+  }
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"Crypto","item":"https://fincrimeradar.org/knowledge.html?domain=crypto"},{"@type":"ListItem","position":3,"name":"Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap","item":"https://fincrimeradar.org/stablecoin-financial-crime-guide.html"}]}</script>
+
+  <!-- Google Analytics -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  (function () {
+    try {
+      var consent = localStorage.getItem('fcr_cookie_consent');
+      if (consent === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'denied'
+        });
+      }
+    } catch (e) {}
+  })();
+  gtag('config', 'G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement("iframe");iframe.style.cssText="width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;";iframe.style.display="none";iframe.name="googlefcPresent";document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+  <!-- AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1158691611711023" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+      --muted:#6b7280; --text:#111827; --navy:#0f2044;
+      --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+      --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-gap:#dc2626; --c-gap-light:#fef2f2;
+      --c-layer:#7c3aed; --c-layer-light:#f5f3ff;
+      --c-chain:#2563eb; --c-chain-light:#eff6ff;
+      --c-freeze:#d97706; --c-freeze-light:#fffbeb;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+    /* NAV */
+    nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+    .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; }
+    .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-cta { padding:7px 16px; background:var(--accent); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+    .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; }
+    .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e4e7ec; flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; }
+    .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--accent); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+
+    /* PROGRESS */
+    .progress-bar { position:fixed; top:72px; left:0; width:0%; height:3px; background:var(--c-chain); z-index:199; transition:width 0.1s; }
+
+    /* HERO */
+    .article-hero { background:linear-gradient(135deg,var(--hero-bg-1) 0%,var(--hero-bg-2) 100%); color:#fff; padding:4rem 2rem 3rem; position:relative; overflow:hidden; }
+    .article-hero::before { content:''; position:absolute; inset:0; background-image: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.15) 0%, transparent 60%); }
+    .hero-nodes { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+    .hero-node { position:absolute; border-radius:50%; opacity:0.08; animation:pulse-node 4s ease-in-out infinite; }
+    .hero-node:nth-child(1) { width:300px; height:300px; background:var(--c-chain); top:-80px; right:10%; animation-delay:0s; }
+    .hero-node:nth-child(2) { width:200px; height:200px; background:var(--c-layer); bottom:20px; right:30%; animation-delay:1s; }
+    .hero-node:nth-child(3) { width:150px; height:150px; background:var(--c-gap); top:40%; left:5%; animation-delay:2s; }
+    @keyframes pulse-node { 0%,100%{transform:scale(1);opacity:0.08} 50%{transform:scale(1.2);opacity:0.14} }
+    .hero-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+    .series-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(37,99,235,0.25); border:1px solid rgba(147,197,253,0.4); border-radius:99px; padding:5px 14px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; color:var(--hero-accent-em); margin-bottom:1.25rem; }
+    .article-hero h1 { font-family:'DM Serif Display',Georgia,serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:400; line-height:1.2; margin-bottom:0.75rem; }
+    .article-hero h1 em { font-style:italic; color:var(--hero-accent-em); }
+    .hero-sub { font-size:16px; color:#93c5fd; max-width:640px; line-height:1.7; margin-bottom:1.5rem; }
+    .hero-meta { display:flex; gap:1.5rem; flex-wrap:wrap; font-size:13px; color:#60a5fa; margin-bottom:0.5rem; }
+    .hero-meta span { display:flex; align-items:center; gap:5px; }
+    .series-orient { font-size:13px; color:#93c5fd; max-width:680px; line-height:1.6; margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.15); }
+
+    /* LAYOUT */
+    .article-layout { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 280px; gap:2rem; padding:2rem 1.5rem; align-items:start; }
+    .article-body { min-width:0; }
+    .article-sidebar { position:sticky; top:90px; }
+
+    /* TOC */
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .toc-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:0.75rem; }
+    .toc a { display:block; font-size:13px; color:var(--muted); text-decoration:none; padding:4px 0; border-left:2px solid transparent; padding-left:10px; transition:all 0.15s; line-height:1.4; }
+    .toc a:hover { color:var(--c-chain); border-left-color:var(--c-chain); }
+    .toc a.active { color:var(--c-chain); border-left-color:var(--c-chain); font-weight:600; }
+    .toc-scenario { display:flex; align-items:center; gap:5px; }
+    .toc-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+    /* SIDEBAR SCORE */
+    .score-card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem; }
+    .score-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin-bottom:1rem; }
+    .score-stat { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid #f3f4f6; font-size:13px; }
+    .score-stat:last-child { border-bottom:none; }
+    .score-badge { font-weight:700; font-size:13px; }
+
+    /* TOOL CTA */
+    .tool-cta { background:linear-gradient(135deg, #0f2044, #1a3a6e); color:#fff; border-radius:12px; padding:1.25rem; text-align:center; }
+    .tool-cta p { font-size:13px; color:#93c5fd; margin-bottom:0.75rem; line-height:1.5; }
+    .tool-cta a { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px; font-size:14px; font-weight:600; transition:background 0.15s; }
+    .tool-cta a:hover { background:var(--accent-h); }
+
+    /* ARTICLE SECTIONS */
+    .article-section { background:#fff; border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; }
+    .article-section h2 { font-family:'DM Serif Display',Georgia,serif; font-size:1.7rem; color:var(--navy); margin-bottom:0.5rem; line-height:1.3; }
+    .article-section h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 0.5rem; }
+    .article-section p { color:#374151; margin-bottom:1rem; font-size:15px; }
+    .article-section ul, .article-section ol { padding-left:1.4rem; margin-bottom:1rem; }
+    .article-section li { font-size:15px; color:#374151; margin-bottom:0.4rem; }
+    .section-eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; margin-bottom:0.5rem; }
+
+    /* BADGES */
+    .badge { display:inline-flex; align-items:center; gap:5px; border-radius:99px; padding:3px 12px; font-size:12px; font-weight:700; }
+    .badge-gap { background:var(--c-gap-light); color:var(--c-gap); border:1px solid #fecaca; }
+    .badge-layer { background:var(--c-layer-light); color:var(--c-layer); border:1px solid #ddd6fe; }
+    .badge-chain { background:var(--c-chain-light); color:var(--c-chain); border:1px solid #bfdbfe; }
+    .badge-freeze { background:var(--c-freeze-light); color:var(--c-freeze); border:1px solid #fde68a; }
+
+    /* CALLOUTS */
+    .callout { border-radius:10px; padding:1.1rem 1.25rem; margin:1.25rem 0; border-left:4px solid; }
+    .callout-navy { background:#f0f4ff; border-color:var(--navy); }
+    .callout strong { display:block; font-size:13px; font-weight:700; margin-bottom:4px; }
+    .callout p { font-size:14px; margin:0; color:#374151; }
+
+    /* MERGED PATTERN CARD (icon, name, one-liner, Risk/Signal/Response) */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+    @media(max-width:700px) { .pattern-ttd { grid-template-columns:1fr; } .pattern-grid { grid-template-columns:1fr; } }
+
+    /* LIFECYCLE FLOW */
+    .lifecycle-flow { display:flex; flex-direction:column; margin:1.5rem 0; background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:1.5rem 1.25rem; }
+    .lifecycle-stage { display:flex; gap:14px; padding:10px 0; }
+    .lifecycle-num-col { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+    .lifecycle-num { width:32px; height:32px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; }
+    .lifecycle-connector { width:2px; flex:1; background:var(--border); min-height:14px; margin-top:4px; }
+    .lifecycle-body { flex:1; padding-bottom:4px; }
+    .lifecycle-title-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:4px; }
+    .lifecycle-title { font-weight:700; color:var(--navy); font-size:14.5px; }
+    .visibility-tag { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; border-radius:99px; padding:3px 10px; white-space:nowrap; }
+    .visibility-visible { background:#dcfce7; color:#15803d; }
+    .visibility-partial { background:#fef3c7; color:#b45309; }
+    .visibility-gap { background:#fee2e2; color:#b91c1c; }
+    .lifecycle-desc { font-size:13.5px; color:#374151; line-height:1.6; }
+
+    /* CONTINUITY TABLE */
+    .continuity-table-wrap { overflow-x:auto; margin:1.25rem 0; }
+    .continuity-table { width:100%; border-collapse:collapse; min-width:640px; font-size:13.5px; }
+    .continuity-table th { background:var(--navy); color:#fff; text-align:left; padding:10px 12px; font-size:12px; text-transform:uppercase; letter-spacing:0.4px; }
+    .continuity-table td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; color:#374151; }
+    .continuity-table tr:nth-child(even) td { background:#f8fafc; }
+
+    /* CASE STUDY */
+    .case-study { border:1.5px solid var(--c-chain); background:var(--c-chain-light); border-radius:12px; padding:1.25rem 1.5rem; margin:1.25rem 0; }
+    .case-study-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--c-chain); margin-bottom:6px; }
+    .case-study p { font-size:14px; color:#374151; margin-bottom:0.6rem; }
+    .case-study p:last-child { margin-bottom:0; }
+
+    /* SCENARIO TYPOLOGY BADGES / HEADER */
+    .scenario-header { display:flex; align-items:center; gap:14px; margin-bottom:1.25rem; padding-bottom:1rem; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .scenario-icon { width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0; }
+    .scenario-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); }
+    .scenario-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.4rem; color:var(--navy); line-height:1.2; }
+
+    /* DILEMMA CARD */
+    .dilemma-card { border:2px solid #e4e7ec; border-radius:12px; overflow:hidden; margin:1.25rem 0; }
+    .dilemma-header { background:var(--navy); color:#fff; padding:1rem 1.25rem; display:flex; align-items:center; gap:10px; }
+    .dilemma-header .icon { font-size:20px; }
+    .dilemma-header strong { font-size:14px; font-weight:700; }
+    .dilemma-header span { font-size:12px; color:#93c5fd; }
+    .dilemma-scenario { padding:1.25rem; background:#f8fafc; border-bottom:1px solid var(--border); }
+    .dilemma-scenario p { font-size:14px; color:#374151; margin:0; font-style:italic; line-height:1.6; }
+    .dilemma-options { padding:1.25rem; display:flex; flex-direction:column; gap:8px; }
+    .dilemma-option { border:1.5px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; transition:all 0.2s; font-size:14px; color:#374151; display:flex; align-items:flex-start; gap:10px; background:#fff; text-align:left; width:100%; }
+    .dilemma-option:hover { border-color:var(--c-chain); background:#eff6ff; }
+    .dilemma-option .opt-label { font-weight:700; font-size:13px; min-width:20px; color:var(--muted); }
+    .dilemma-option.correct { border-color:var(--success); background:#f0fdf4; }
+    .dilemma-option.wrong { border-color:var(--danger); background:#fef2f2; }
+    .dilemma-option:disabled { cursor:default; }
+    .dilemma-verdict { padding:1.25rem; border-top:1px solid var(--border); display:none; }
+    .dilemma-verdict.show { display:block; }
+    .verdict-correct { background:#f0fdf4; border-radius:8px; padding:1rem; }
+    .verdict-wrong { background:#fef2f2; border-radius:8px; padding:1rem; }
+    .verdict-icon { font-size:20px; margin-bottom:6px; }
+    .verdict-title { font-weight:700; font-size:15px; margin-bottom:6px; }
+    .verdict-body { font-size:14px; color:#374151; line-height:1.6; }
+    .verdict-body p { margin-bottom:0.75rem; }
+    .verdict-body p:last-child { margin-bottom:0; }
+
+    /* INLINE TOOL PROMO */
+    .inline-tool-promo { background:linear-gradient(135deg, #f0fdf9, #ecfeff); border:1px solid var(--accent); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; display:flex; align-items:center; gap:1.25rem; flex-wrap:wrap; }
+    .itp-text { flex:1; min-width:220px; }
+    .itp-text strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+    .itp-text span { font-size:13px; color:var(--muted); }
+    .itp-btn { background:var(--accent); color:#fff; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:14px; font-weight:600; white-space:nowrap; transition:background 0.15s; }
+    .itp-btn:hover { background:var(--accent-h); }
+
+    /* QUIZ */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-item summary { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; list-style:none; gap:1rem; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-icon { font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); display:inline-block; }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--c-chain); color:var(--c-chain); }
+
+    /* FOOTER, styles the partial injected into #site-footer by site-chrome.js */
+    footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+    footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+    footer a:hover { color:var(--teal); }
+
+    /* MOBILE */
+    @media(max-width:767px) {
+      .article-layout { grid-template-columns:1fr; }
+      .article-sidebar { position:static; }
+      .nav-hamburger { display:block; }
+      .nav-links { display:none; }
+      .nav-brand img { height:40px !important; max-width:160px !important; }
+      .inline-tool-promo { flex-direction:column; }
+    }
+  </style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html">Screen</a>
+    <a href="/screen.html" class="nav-cta">Try the tool →</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/about.html">About</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool →</a>
+</div>
+
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:0;background:#fff;color:var(--navy);padding:10px 16px;z-index:999;border-radius:0 0 8px 0;font-size:13px;font-weight:600;">Skip to content</a>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <span aria-hidden="true">›</span>
+  <a href="/knowledge.html?domain=crypto">Crypto</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Stablecoin Financial Crime: Unhosted Wallets, P2P Transfers and the Visibility Gap</span>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-nodes">
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+    <div class="hero-node"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="series-tag">🔗 Stablecoin Series · Analytical Core</div>
+    <h1>Stablecoin Financial Crime:<br><em>Unhosted Wallets, P2P Transfers and the Visibility Gap</em></h1>
+    <p class="hero-sub">Regulated visibility into a stablecoin transfer isn't switched on or off, it disappears at specific points and reappears at others. Knowing exactly where is the actual investigative skill.</p>
+    <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
+    <div class="hero-meta">
+      <span>⏱ 14 min read</span>
+      <span>🔎 Interactive</span>
+      <span>🎓 Practitioner Level</span>
+      <span>📋 2 Scenarios</span>
+    </div>
+    <p class="series-orient">Part of FinCrimeRadar's <strong>Stablecoin Series</strong>, which also covers UK stablecoin regulation and the FCA authorisation perimeter, the joint Bank of England/FCA regime for systemic stablecoins, sanctions-evasion infrastructure built on stablecoin rails, and what actually happens when a stablecoin gets frozen. Those guides are referenced here by name only; where one hasn't shipped yet, treat it as a forward pointer, not a live link.</p>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="article-layout" id="main-content">
+  <div class="article-body">
+
+    <!-- PRIMER -->
+    <div class="article-section" id="primer">
+      <div class="section-eyebrow" style="color:var(--c-chain)">Stablecoin Primer</div>
+      <h2>What kind of stablecoin this guide is actually about</h2>
+      <p>This guide concerns issuer-backed, fiat-referenced stablecoins specifically, tokens where a legal entity issues the coin, holds backing assets, and processes redemption, the pattern USDT and USDC both follow. That scoping isn't arbitrary: the lifecycle mapped below, issuance, backing, redemption, and issuer intervention, only exists where an issuer sits at the centre of the arrangement. Algorithmic stablecoins that hold price through supply adjustments rather than a backing pool, or crypto-collateralised arrangements run through autonomous smart contracts with no redeeming issuer, don't have the same structural anchor points, so this analysis doesn't transfer to them without separate treatment.</p>
+      <p>Structurally, an issuer-backed stablecoin creates a real tension. Issuance, backing, redemption, and a meaningful degree of intervention capability, freezing, blacklisting, burning, concentrate around one identifiable entity. But once a stablecoin is in circulation, it can move through self-hosted wallets, peer-to-peer transfers, and decentralised infrastructure without that issuer, or any other obliged entity, participating in every hop.</p>
+      <p>That tension creates an investigation problem, not a lawless transfer environment. The Financial Action Task Force is explicit that peer-to-peer transfers between unhosted wallets aren't explicitly subject to AML/CFT controls under its Standards, because those obligations sit with intermediaries rather than individuals, not that participants or funds sit outside every form of regulated reach. Sanctions obligations, for instance, still apply regardless of who is transacting, and an issuer retains a genuine, if reactive, ability to freeze or burn tokens even after they've left regulated custody.</p>
+      <p>The practical question for an investigator is where visibility actually disappears and where it comes back. It's high at an originating exchange, narrows once funds sit in a self-hosted wallet, can disappear almost entirely across a peer-to-peer transfer or a cross-chain bridge, and then reappears, sometimes only partially, once funds reach a fiat off-ramp or the issuer's own redemption process. Mapping that lifecycle stage by stage is what the rest of this guide does.</p>
+
+      <div class="callout callout-navy">
+        <strong>How to use this guide</strong>
+        <p>Work through the lifecycle map, then the four risk patterns, then the two operational modules and the Travel Rule continuity map. Work each scenario before reading ahead, make your call, and read why, both for the right answer and every wrong one. The knowledge check pulls the same material from new angles.</p>
+      </div>
+    </div>
+
+    <!-- LIFECYCLE MAP -->
+    <div class="article-section" id="lifecycle">
+      <div class="section-eyebrow" style="color:var(--c-chain)">Lifecycle Map</div>
+      <h2>Where visibility disappears, and where it comes back</h2>
+      <p>Seven stages, from the exchange that first issues or sells the stablecoin to the practitioner, through to the issuer's own redemption process. Each stage is tagged for what kind of regulated visibility actually exists there, not what a reader might assume from the stage's name alone.</p>
+
+      <div class="lifecycle-flow">
+        <div class="lifecycle-stage">
+          <div class="lifecycle-num-col"><div class="lifecycle-num">1</div><div class="lifecycle-connector"></div></div>
+          <div class="lifecycle-body">
+            <div class="lifecycle-title-row"><span class="lifecycle-title">Originating exchange</span><span class="visibility-tag visibility-visible">Visible</span></div>
+            <div class="lifecycle-desc">An exchange conducting exchange or transfer activity in stablecoins as a business falls within FATF's own definition of a VASP or financial institution. Standard CDD and Travel Rule obligations apply here as they would to any other virtual asset transfer.</div>
+          </div>
+        </div>
+        <div class="lifecycle-stage">
+          <div class="lifecycle-num-col"><div class="lifecycle-num">2</div><div class="lifecycle-connector"></div></div>
+          <div class="lifecycle-body">
+            <div class="lifecycle-title-row"><span class="lifecycle-title">Self-hosted wallet</span><span class="visibility-tag visibility-partial">Narrows</span></div>
+            <div class="lifecycle-desc">The originating VASP must still collect the required originator and beneficiary information even when the counterparty is an unhosted wallet. But that obligation runs to the VASP, it can't manufacture an equivalent CDD record on the wallet holder's side, which is exactly where the gap starts to open.</div>
+          </div>
+        </div>
+        <div class="lifecycle-stage">
+          <div class="lifecycle-num-col"><div class="lifecycle-num">3</div><div class="lifecycle-connector"></div></div>
+          <div class="lifecycle-body">
+            <div class="lifecycle-title-row"><span class="lifecycle-title">P2P transfer</span><span class="visibility-tag visibility-gap">Gap</span></div>
+            <div class="lifecycle-desc">FATF's own framing: these transactions occur directly between individuals or entities without a regulated intermediary VASP or FI involved, and therefore fall outside AML/CFT/CPF obligations, making them inherently of higher risk. No obliged entity participates in this hop at all.</div>
+          </div>
+        </div>
+        <div class="lifecycle-stage">
+          <div class="lifecycle-num-col"><div class="lifecycle-num">4</div><div class="lifecycle-connector"></div></div>
+          <div class="lifecycle-body">
+            <div class="lifecycle-title-row"><span class="lifecycle-title">DEX or bridge</span><span class="visibility-tag visibility-gap">Gap or depends</span></div>
+            <div class="lifecycle-desc">Cross-chain interoperability increases the opportunity for multi-chain flows to obscure a transaction trail. Whether an obliged entity exists at this hop turns on a two-part test, not control alone: creators, owners, or operators who maintain control or sufficient influence over a DeFi arrangement can meet FATF's VASP definition, but only where they are also providing or actively facilitating VASP services. Where no such person and activity combination is identifiable, there may be no VASP here at all. Many arrangements are decentralised in name only, so this needs a case-by-case check, not a default assumption either way.</div>
+          </div>
+        </div>
+        <div class="lifecycle-stage">
+          <div class="lifecycle-num-col"><div class="lifecycle-num">5</div><div class="lifecycle-connector"></div></div>
+          <div class="lifecycle-body">
+            <div class="lifecycle-title-row"><span class="lifecycle-title">Recipient wallet</span><span class="visibility-tag visibility-gap">Gap, compounding</span></div>
+            <div class="lifecycle-desc">Threat actors can transfer stablecoins through layered unhosted wallets that are transactionally distant from any Travel Rule-covered wallet, aggravated further on a cross-border basis given near-instant settlement. Each additional layered hop compounds the same visibility problem as stage 3.</div>
+          </div>
+        </div>
+        <div class="lifecycle-stage">
+          <div class="lifecycle-num-col"><div class="lifecycle-num">6</div><div class="lifecycle-connector"></div></div>
+          <div class="lifecycle-body">
+            <div class="lifecycle-title-row"><span class="lifecycle-title">Fiat off-ramp</span><span class="visibility-tag visibility-partial">CDD reappears, partially</span></div>
+            <div class="lifecycle-desc">Converting the stablecoin back to fiat is itself an exchange activity, bringing the operator performing it within FATF's VASP/FI classification, so CDD and AML obligations reapply as a matter of course. The Travel Rule specifically attaches to a VA transfer between a VASP and another obliged entity, not to the act of conversion itself, so it doesn't automatically follow just because a conversion happens here. And per the report's own structural limitation, where the incoming wallet is multi-layered and distant from any Travel Rule-covered wallet, the receiving VASP has genuinely limited visibility over the true upstream origin, and there was no obliged entity positioned to file an STR at the gap stages behind it.</div>
+          </div>
+        </div>
+        <div class="lifecycle-stage">
+          <div class="lifecycle-num-col"><div class="lifecycle-num">7</div></div>
+          <div class="lifecycle-body">
+            <div class="lifecycle-title-row"><span class="lifecycle-title">Issuer redemption</span><span class="visibility-tag visibility-visible">Reappears, plus a control point</span></div>
+            <div class="lifecycle-desc">Where the issuer itself performs exchange or redemption activity, it is directly a VASP or FI in its own right. For certain centralised stablecoins like USDT or USDC, the issuer also has the technical ability to freeze the stablecoin via smart contract functions, and can act as a complementary control point, monitoring and, where appropriate, filing an STR, when asked by law enforcement to freeze an unhosted wallet.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUR RISK PATTERNS, MERGED CARDS -->
+    <div class="article-section" id="patterns">
+      <div class="section-eyebrow" style="color:var(--c-gap)">Four Patterns</div>
+      <h2>Four patterns, four cards</h2>
+      <p>Each pattern below sits at a specific point in the lifecycle map above. Learn to recognise them before the scenarios test them.</p>
+
+      <div class="pattern-card" style="background:var(--c-gap-light);border-color:#fecaca;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🕳️</div>
+          <div class="pattern-name" style="color:var(--c-gap);">The Vanishing Intermediary</div>
+        </div>
+        <div class="pattern-line">A stablecoin transfer between two people doesn't need anyone else's involvement, and no one else's controls.</div>
+        <p style="margin-bottom:1rem;">A P2P transfer between unhosted wallets looks like any other blockchain transaction on its face. What's different is that no VASP, custodian, or intermediary sits anywhere in the transaction's counterparties, which is precisely what takes it outside FATF's AML/CFT/CPF framework in the first place.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Risk</div><div class="ttd-text">The transaction looks routine; nothing on its face signals the absence of an obliged entity.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Signal</div><div class="ttd-text">Both counterparties are unhosted wallets, with no VASP appearing in the transaction at all.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Response</div><div class="ttd-text">Treat unhosted-to-unhosted transfers as inherently higher risk, per FATF's own framing, and apply that scrutiny at the nearest point an obliged entity does touch the funds.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-layer-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🧅</div>
+          <div class="pattern-name" style="color:var(--c-layer);">The Layered Wallet</div>
+        </div>
+        <div class="pattern-line">Every additional unhosted-wallet hop puts one more gap between the funds and any Travel Rule record.</div>
+        <p style="margin-bottom:1rem;">A wallet several hops removed from any Travel Rule-covered wallet looks, on a single-transaction view, no different from one hop away. FATF is explicit this pattern is further aggravated cross-border, given near-instant settlement to addresses outside the originating jurisdiction.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-layer);">Risk</div><div class="ttd-text">A distant wallet looks the same as a nearby one unless you actually trace the hops.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-layer);">Signal</div><div class="ttd-text">On-chain tracing shows multiple unhosted-to-unhosted hops before reaching any wallet with an identifiable VASP counterparty.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-layer);">Response</div><div class="ttd-text">Recognise the absence of an upstream STR at those hops as a structural gap, no obliged entity existed to file one, not as evidence the funds are clean.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-chain-light);border-color:#bfdbfe;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🌉</div>
+          <div class="pattern-name" style="color:var(--c-chain);">The Chain-Hop</div>
+        </div>
+        <div class="pattern-line">Moving a stablecoin across blockchains can obscure a trail more effectively than moving it between wallets.</div>
+        <p style="margin-bottom:1rem;">Cross-chain activity looks like routine interoperability, the same feature that makes stablecoins useful for legitimate cross-border transfers. FATF's own risk indicators flag rapid, repeated bridging or wrapping across multiple chains in a short window, at high cumulative value, with no evident economic rationale.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-chain);">Risk</div><div class="ttd-text">Interoperability is a genuine, legitimate feature, so heavy cross-chain movement doesn't look inherently wrong.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-chain);">Signal</div><div class="ttd-text">Repeated bridging or wrapping across chains in a short window, high cumulative value, no evident economic rationale.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-chain);">Response</div><div class="ttd-text">Apply the scrutiny FATF gives this pattern in its own indicators, and confirm which chain and which representation of the token you're actually looking at.</div></div>
+        </div>
+      </div>
+
+      <div class="pattern-card" style="background:var(--c-freeze-light);border-color:#fde68a;">
+        <div class="pattern-card-head">
+          <div class="pattern-icon">🧊</div>
+          <div class="pattern-name" style="color:var(--c-freeze);">The Freeze That Doesn't Follow</div>
+        </div>
+        <div class="pattern-line">An issuer's power to freeze its own token doesn't automatically travel with a wrapped copy of it on another chain.</div>
+        <p style="margin-bottom:1rem;">FATF states plainly that interoperability may weaken a key control available to issuers, the ability to freeze or blacklist assets, where a centrally issued stablecoin circulates on another blockchain as a newly created wrapped version of the original.</p>
+        <div class="pattern-ttd">
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-freeze);">Risk</div><div class="ttd-text">A freeze request assumes the issuer's control reaches wherever the token currently sits.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-freeze);">Signal</div><div class="ttd-text">The token in question is a bridged or wrapped representation, not the issuer's native-chain token, and the bridge's controller isn't yet identified.</div></div>
+          <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-freeze);">Response</div><div class="ttd-text">Establish token topology, native token, chain, contract address, bridge control, before assuming a freeze request will work.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCENARIO 1: THE LAYERED OFF-RAMP -->
+    <div class="article-section" id="scenario1">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-layer-light);">🧅</div>
+        <div>
+          <div class="scenario-num">Scenario 01 · Off-ramp visibility gap</div>
+          <div class="scenario-name">The Layered Off-Ramp</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-layer">The Layered Wallet</span>
+          <span class="badge badge-gap">The Vanishing Intermediary</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario1">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>Your VASP's off-ramp desk receives a large stablecoin deposit for conversion to fiat. On-chain review shows the depositing wallet received the funds from an unhosted wallet, which itself received them from another unhosted wallet three hops earlier. None of those hops trace back to any VASP-controlled address you can identify.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario1','A',this)"><span class="opt-label">A</span><span>Process the conversion normally, the depositing wallet passed standard sanctions screening.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','B',this)"><span class="opt-label">B</span><span>Refuse the transaction outright, any multi-hop unhosted wallet history is inherently sanctionable.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','C',this)"><span class="opt-label">C</span><span>Apply enhanced due diligence proportionate to the visibility gap, document that the funds passed through wallets several hops from any Travel Rule-covered wallet with no obliged entity positioned to file an STR at those hops, and decide whether to proceed, file an STR, or both, based on the full risk picture rather than the multi-hop pattern alone.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario1','D',this)"><span class="opt-label">D</span><span>Ask the customer to self-certify the source of funds in writing and process the transaction once received.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario1-verdict"><div id="scenario1-content"></div></div>
+      </div>
+    </div>
+
+    <!-- OPERATIONAL MODULE 1: TRANSACTION MONITORING INDICATORS -->
+    <div class="article-section" id="monitoring">
+      <div class="section-eyebrow" style="color:var(--c-chain)">Operational Module</div>
+      <h2>Stablecoin transaction monitoring indicators</h2>
+      <p>FATF's March 2026 report publishes a categorised list of risk indicators for stablecoin activity in its own Annex A. Selected indicators are reproduced below by category, with FATF's own qualifying language preserved; this is not the full list, consult the primary report directly when building a live monitoring scenario.</p>
+
+      <h3>Unusual transaction-related indicators</h3>
+      <ul>
+        <li>Rapid cross-border movements of stablecoins inconsistent with customer profile.</li>
+        <li>Transfer of large value of stablecoins, especially where recently converted from other virtual assets, to multiple beneficiaries with no apparent connection to the sender, within a limited time frame.</li>
+        <li>Multiple large-value transactions in stablecoins in favour of newly opened or previously inactive accounts.</li>
+        <li>Purchase of stablecoins issued under a multi-jurisdictional scheme in one jurisdiction, with a redemption request filed with a co-issuer in another jurisdiction, absent any valid economic rationale.</li>
+      </ul>
+
+      <h3>Anonymity-related indicators</h3>
+      <ul>
+        <li>Stablecoin transfers involving unhosted wallets that are multiple hops away from Travel Rule-covered wallets.</li>
+        <li>An unhosted wallet suddenly activated after a long period of inactivity, completing multiple cross-chain transactions in a short period, then going inactive again.</li>
+        <li>Movement of funds between different blockchains using stablecoins to complicate tracing and exploit gaps in blockchain analytics tools.</li>
+        <li>Progressively bridging stablecoins across chains (for example, one chain to a second and then a third) and wrapping or unwrapping the stablecoin prior to off-ramp, inserting additional contracts and router hops that degrade traceability.</li>
+      </ul>
+
+      <h3>TF and PF-related indicators</h3>
+      <ul>
+        <li>Numerous donations to frequently changing wallets that nonetheless share artefacts such as QR codes, domains, or change addresses, with funds routed through DEX routers and bridges before reconverging for cash-out.</li>
+        <li>Use of cross-chain bridges to traverse analytics and policy gaps between networks and service providers, accessing global liquidity and off-ramping through non-compliant venues that lack effective screening.</li>
+      </ul>
+
+      <div class="case-study">
+        <div class="case-study-label">FATF-published case example, Singapore</div>
+        <p>A licensed Major Payment Institution conducting cross-border money transfer and digital payment token services reviewed two wallets it held and found indirect exposure to a wallet linked to terrorism financing. The institution used blockchain analytics tools to review high-risk transactions one hop away, which surfaced the exposure: the two wallets had received stablecoin USDT from an external wallet, which had itself received USDT on Tron from a wallet with a nexus to terrorism financing. That external wallet had already been blacklisted by the stablecoin issuer from transacting to or from it, likely due to its direct nexus to a sanctioned address.</p>
+      </div>
+    </div>
+
+    <!-- SCENARIO 2: THE BRIDGED TOKEN -->
+    <div class="article-section" id="scenario2">
+      <div class="scenario-header">
+        <div class="scenario-icon" style="background:var(--c-freeze-light);">🧊</div>
+        <div>
+          <div class="scenario-num">Scenario 02 · Token topology and freeze reach</div>
+          <div class="scenario-name">The Bridged Token</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-freeze">The Freeze That Doesn't Follow</span>
+        </div>
+      </div>
+
+      <div class="dilemma-card" id="dilemma-scenario2">
+        <div class="dilemma-header">
+          <span class="icon">⚖️</span>
+          <div><strong>What do you do?</strong><span>Make the call</span></div>
+        </div>
+        <div class="dilemma-scenario">
+          <p>Law enforcement asks a stablecoin issuer to freeze funds tied to a wallet address. The address holds not the issuer's native token, but a wrapped representation of it, created after the token was bridged from the issuer's native chain to a second blockchain.</p>
+        </div>
+        <div class="dilemma-options">
+          <button class="dilemma-option" onclick="showVerdict('scenario2','A',this)"><span class="opt-label">A</span><span>The issuer's existing freeze or blacklist function automatically extends to the wrapped token on the second chain, since it represents the same underlying asset.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','B',this)"><span class="opt-label">B</span><span>Freezing is impossible once a token has been bridged, so the request should be declined.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','C',this)"><span class="opt-label">C</span><span>Whether the issuer's freeze mechanism reaches the wrapped representation depends on who controls the bridge and the wrapped token's own smart contract; cross-chain interoperability can weaken exactly this kind of control, so the answer needs to be confirmed against the specific bridge and wrapped-token architecture, not assumed either way.</span></button>
+          <button class="dilemma-option" onclick="showVerdict('scenario2','D',this)"><span class="opt-label">D</span><span>Contact the recipient wallet's exchange and ask them to reverse the transaction.</span></button>
+        </div>
+        <div class="dilemma-verdict" id="scenario2-verdict"><div id="scenario2-content"></div></div>
+      </div>
+    </div>
+
+    <!-- TOKEN TOPOLOGY -->
+    <div class="article-section" id="topology">
+      <div class="section-eyebrow" style="color:var(--c-freeze)">Token Topology</div>
+      <h2>Questions to ask before assuming a freeze will work</h2>
+      <p><strong>Source:</strong> FATF's Recommended Actions call on jurisdictions to prioritise robust technical capabilities among supervisors and law enforcement, including expertise in smart contract functionalities and cross-chain transaction mechanics. Separately, FATF states that interoperability across chains may weaken an issuer's freeze or blacklist control where the original token circulates elsewhere as a newly created wrapped version.</p>
+      <p><strong>Application:</strong> the questions below are FinCrimeRadar's own practitioner decomposition of that combined risk, not a checklist FATF itself publishes field by field. They translate FATF's general warning into the specific facts an investigator needs to establish for a given wallet or transaction.</p>
+      <p>Circle's own Bridged USDC Standard documentation shows this is a control question, not an existence question. A standard-compliant bridged USDC contract is built from the same FiatToken source code as native USDC and is expected to be code-identical to it from deployment, meaning it already carries the Owner, Pauser, Blacklister, and MasterMinter role structure, freeze and blacklist mechanism included, from day one. What Circle's optional upgrade changes is not whether that mechanism exists but who controls it: the upgrade transfers those roles to a Circle-owned address, using a role-transfer function the bridge is required to expose. Before any such upgrade, those roles typically sit with the bridge operator or another third party, not with Circle and not with nobody. That is a materially different, arguably harder, risk picture than "no freeze mechanism yet": the capability usually already exists, under control an investigator hasn't yet identified or verified. This is a Circle/USDC-specific illustration, drawn from Circle's own Bridged USDC Standard and token design documentation; Tether's own bridging mechanics haven't been separately verified here and shouldn't be assumed identical.</p>
+      <ol>
+        <li>Is this the issuer's native token, or a bridged or wrapped representation of it?</li>
+        <li>Which contract address, and on which chain, actually holds the funds in question?</li>
+        <li>If bridged, who controls the bridge, and is that controller identifiable at all?</li>
+        <li>Does the issuer's freeze or blacklist mechanism reach this specific representation, or only the native-chain token?</li>
+        <li>Can the wrapped representation be burned, and does burning it affect the locked underlying token?</li>
+        <li>Where is the underlying native-chain token actually locked while the wrapped version circulates?</li>
+      </ol>
+      <div class="callout callout-navy">
+        <strong>Action</strong>
+        <p>Treat "can the issuer freeze this" as a question with a different answer for every chain and representation a token appears on, not a single yes or no about the issuer generally.</p>
+      </div>
+    </div>
+
+    <!-- OPERATIONAL MODULE 2: STABLECOIN SAR -->
+    <div class="article-section" id="sar">
+      <div class="section-eyebrow" style="color:var(--c-layer)">Operational Module</div>
+      <h2>What belongs in a stablecoin SAR</h2>
+      <p>FATF does not prescribe a stablecoin-specific SAR content template; the fields below are FinCrimeRadar's own operational recommendation, built from standard SAR narrative practice applied to the visibility-gap analysis above. Treat this as practitioner guidance, not a cited regulatory requirement.</p>
+      <ul>
+        <li>Every wallet address involved at each hop you were able to trace, hosted and unhosted alike.</li>
+        <li>The chain, or chains, and contract address, or addresses, involved, distinguishing native token from any bridged or wrapped representation.</li>
+        <li>Hop-count and estimated distance from the nearest identifiable Travel Rule-covered wallet.</li>
+        <li>Whether bridging or wrapping occurred, and to which chain, per the token topology questions above.</li>
+        <li>Which FATF Annex A-style indicator, or indicators, the activity triggered, using the indicator's own category and language.</li>
+        <li>Whether the issuer was contacted about a freeze request, and the outcome.</li>
+        <li>The identity of the off-ramp VASP, if the funds reached one, and what CDD it was able to perform given the upstream visibility gap.</li>
+      </ul>
+    </div>
+
+    <!-- TRAVEL RULE CONTINUITY MAP -->
+    <div class="article-section" id="continuity">
+      <div class="section-eyebrow" style="color:var(--c-chain)">Travel Rule Continuity Map</div>
+      <h2>Where information continuity exists, and where it breaks</h2>
+      <p>The Travel Rule obligation, under FATF Recommendation 15's Interpretive Note applying Recommendation 16 to VASPs, attaches specifically to a VA transfer, or related message operation, between a VASP and another obliged entity, not to every point an obliged entity happens to touch the funds. The map below shows exactly which hop types carry that continuity and which don't, and is explicit about the difference between the Travel Rule specifically and the broader CDD/AML obligations that also apply to obliged entities.</p>
+      <div class="continuity-table-wrap">
+        <table class="continuity-table">
+          <thead><tr><th>Transfer type</th><th>Continuity</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>VASP → VASP</td><td><span class="visibility-tag visibility-visible">Continuous, in principle</span></td><td>Both parties are obliged entities conducting exchange or transfer activity as a business, so the Travel Rule obligation applies on both ends. That describes the applicable legal obligation, not a guarantee that the required originator and beneficiary information was actually captured, transmitted, and reconciled correctly in a given case.</td></tr>
+            <tr><td>VASP → unhosted wallet</td><td><span class="visibility-tag visibility-partial">One-sided</span></td><td>The sending VASP must still collect required originator and beneficiary information, but that record can't be manufactured for the unhosted counterparty.</td></tr>
+            <tr><td>Unhosted → unhosted (P2P)</td><td><span class="visibility-tag visibility-gap">Breaks entirely</span></td><td>No regulated intermediary participates; the transaction falls outside AML/CFT/CPF obligations at this hop. FATF itself notes an exception for requirements tied to implementing targeted financial sanctions, which apply regardless of who is transacting, so this is a gap in AML/CFT obligations specifically, not every regulated obligation.</td></tr>
+            <tr><td>Unhosted → VASP (receiving)</td><td><span class="visibility-tag visibility-partial">Reappears, incomplete</span></td><td>The receiving VASP is an obliged entity and applies its own CDD to its own customer, the person who controls the receiving wallet, not to the unhosted wallet's upstream history directly. Visibility into a multi-layered upstream history is limited, and no obliged entity existed to file an STR at the gap hops behind it.</td></tr>
+            <tr><td>Bridge → another blockchain</td><td><span class="visibility-tag visibility-gap">Depends on control and activity</span></td><td>Continuity depends on a two-part test, not control alone: the bridge needs an identifiable operator with control or sufficient influence who is also providing or actively facilitating VASP services to meet FATF's VASP definition. Absent that combination, there may genuinely be no VASP here.</td></tr>
+            <tr><td>DEX interaction</td><td><span class="visibility-tag visibility-gap">Depends on control and activity</span></td><td>Same two-part DeFi test: creators, owners or operators need both control or sufficient influence and to be providing or actively facilitating VASP services to meet the VASP definition; many arrangements are decentralised in name only, so this needs checking case by case.</td></tr>
+            <tr><td>Fiat off-ramp</td><td><span class="visibility-tag visibility-partial">CDD reappears</span></td><td>Converting to fiat is itself exchange activity, bringing the operator within FATF's VASP or FI classification and triggering standard CDD/AML obligations. The Travel Rule itself attaches specifically to a VA transfer between a VASP and another obliged entity, not to the act of converting to fiat, so it doesn't automatically reappear here just because a conversion happens.</td></tr>
+            <tr><td>Issuer redemption</td><td><span class="visibility-tag visibility-visible">Reappears, plus control</span></td><td>The issuer is directly a VASP or FI where it performs exchange or redemption activity itself. Separately, and not as a consequence of that classification, it retains a smart-contract freeze capability for centralised tokens like USDT or USDC, a distinct technical control point.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-navy">
+        <strong>Why this map matters in practice, not just on paper</strong>
+        <p>As of FATF's July 2026 Seventh Targeted Update, 83% of surveyed jurisdictions (91 of 109) had passed legislation implementing the Travel Rule at all, and of those, 60% (55 of 91) had not yet issued findings, directives, or taken enforcement or supervisory action on Travel Rule compliance. The continuity gaps mapped above exist on top of that uneven implementation picture, not instead of it; a "VASP → VASP" row that should carry full continuity in principle may still not, depending on which two jurisdictions are actually involved.</p>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CHECK -->
+    <div class="quiz-section article-section" id="knowledge-check" style="border:none;">
+      <div class="quiz-title">Knowledge Check</div>
+      <div class="quiz-sub">Five questions, pulling the lifecycle map, the risk patterns, and the case study from new angles.</div>
+
+      <div class="quiz-q" id="qq1">
+        <div class="quiz-q-text">1. What does FATF's March 2026 Targeted Report say about P2P transfers via unhosted wallets?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - They are illegal under the FATF Standards</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - They generally fall outside AML/CFT/CPF obligations because those obligations attach to intermediaries, not individuals</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - They carry no different risk than a VASP-to-VASP transfer</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - They are banned in most FATF member jurisdictions</button>
+        </div>
+        <div class="quiz-feedback" id="qq1-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq2">
+        <div class="quiz-q-text">2. In the Layered Off-Ramp scenario, what's the correct response to a multi-hop unhosted wallet history?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - Refuse automatically, multi-hop history is inherently sanctionable</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - Apply enhanced due diligence proportionate to the gap, document it, and decide based on the full risk picture</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - Process normally once sanctions screening passes, nothing further is needed</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - Rely on a written customer self-certification alone</button>
+        </div>
+        <div class="quiz-feedback" id="qq2-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq3">
+        <div class="quiz-q-text">3. What does FATF say can happen to an issuer's freeze or blacklist capability when a stablecoin is wrapped and moved to another chain?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - It always transfers automatically to the wrapped version</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - It can be weakened, since the wrapped version is a newly created representation on a different chain</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - Freezing becomes illegal once a token is wrapped</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - The issuer loses all freeze capability everywhere, including its native chain</button>
+        </div>
+        <div class="quiz-feedback" id="qq3-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq4">
+        <div class="quiz-q-text">4. In the Singapore case study, how did the payment institution first identify indirect exposure to a wallet linked to terrorism financing?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - A regulator directly notified the institution</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - A blockchain analytics review of high-risk transactions one hop away from its own wallets</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - The customer voluntarily disclosed the connection</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - The stablecoin issuer froze the institution's own wallet</button>
+        </div>
+        <div class="quiz-feedback" id="qq4-fb"></div>
+      </div>
+
+      <div class="quiz-q" id="qq5">
+        <div class="quiz-q-text">5. What's the guide's actual argument about stablecoin P2P visibility gaps?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - Unhosted wallet transfers exist entirely outside every form of regulated reach</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - The gap creates a genuine investigation problem at specific, mappable points in the lifecycle, not a lawless zone where all obligations disappear</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - Stablecoins should not be used for peer-to-peer transfers at all</button>
+          <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - Every stablecoin transfer carries identical regulatory visibility regardless of hop count</button>
+        </div>
+        <div class="quiz-feedback" id="qq5-fb"></div>
+      </div>
+
+      <div class="quiz-score-display" id="quiz-score">
+        <div class="quiz-score-num" id="quiz-score-num">0/5</div>
+        <div class="quiz-score-label" id="quiz-score-label"></div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="article-section" id="faq">
+      <div class="section-eyebrow" style="color:var(--c-chain)">Frequently Asked</div>
+      <h2>FAQ</h2>
+
+      <details class="faq-item">
+        <summary>Does the Travel Rule apply once a stablecoin moves to an unhosted wallet? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">The originating VASP still must collect the required originator and beneficiary information, that obligation doesn't disappear just because the counterparty is unhosted. What disappears is the ability to create an equivalent record on the unhosted side, since there's no obliged entity there to create one. That asymmetry is exactly where the visibility gap opens.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is a peer-to-peer stablecoin transfer illegal? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">No. FATF describes these transfers as falling outside its AML/CFT/CPF framework because no regulated intermediary is involved, that's a description of a structural regulatory gap, not a statement that the transfer itself is an offence. Separate obligations, such as targeted financial sanctions, can still apply to the same transfer.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can a stablecoin issuer always freeze tokens no matter which chain they're on? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Not automatically, and the reason isn't that a bridged copy lacks a freeze mechanism. FATF states directly that cross-chain interoperability may weaken an issuer's control where the original token circulates elsewhere as a wrapped representation, and Circle's own documentation for bridged USDC shows why: a standard-compliant bridged token typically has the same freeze and blacklist mechanism as the native token from deployment, it just sits under the bridge operator's control, not the issuer's, until both sides jointly elect to transfer it. The issuer's freeze capability on its own native chain, evidenced for tokens like USDT and USDC, doesn't automatically extend to a bridged copy's controller.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does FATF expect investigators to build new technical skills for this? <span class="faq-icon">+</span></summary>
+        <div class="faq-a">Yes, directly. FATF's Recommended Actions call on jurisdictions to prioritise robust technical capabilities among supervisors and law enforcement, including expertise in smart contract functionalities and cross-chain transaction mechanics, and to strengthen the ability to use blockchain analysis tools effectively.</div>
+      </details>
+    </div>
+
+    <!-- AT A GLANCE, closing card grid -->
+    <div class="article-section" id="glance">
+      <div class="section-eyebrow" style="color:var(--c-chain)">Quick Reference</div>
+      <h2>At a glance</h2>
+      <p>Four patterns, the risk that makes each one look routine, the signal that gives it away, and the response that fits.</p>
+
+      <div class="save-img-row">
+        <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">💾 Save as image</button>
+      </div>
+
+      <div class="pattern-grid" id="glanceCardGrid">
+        <div class="pattern-card" style="background:var(--c-gap-light);border-color:#fecaca;">
+          <div class="pattern-card-head"><div class="pattern-icon">🕳️</div><div class="pattern-name" style="color:var(--c-gap);">The Vanishing Intermediary</div></div>
+          <div class="pattern-line">A P2P transfer needs no intermediary, and no intermediary's controls apply to it.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Risk</div><div class="ttd-text">Looks routine; nothing signals the absence of an obliged entity.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Signal</div><div class="ttd-text">Both counterparties are unhosted wallets, no VASP appears anywhere.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-gap);">Response</div><div class="ttd-text">Treat unhosted-to-unhosted transfers as inherently higher risk, per FATF's framing.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-layer-light);border-color:#ddd6fe;">
+          <div class="pattern-card-head"><div class="pattern-icon">🧅</div><div class="pattern-name" style="color:var(--c-layer);">The Layered Wallet</div></div>
+          <div class="pattern-line">Every extra unhosted hop widens the gap to any Travel Rule record.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-layer);">Risk</div><div class="ttd-text">A distant wallet looks the same as a nearby one without tracing.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-layer);">Signal</div><div class="ttd-text">Multiple unhosted-to-unhosted hops before any identifiable VASP counterparty.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-layer);">Response</div><div class="ttd-text">Read the absent upstream STR as a structural gap, not proof of clean funds.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-chain-light);border-color:#bfdbfe;">
+          <div class="pattern-card-head"><div class="pattern-icon">🌉</div><div class="pattern-name" style="color:var(--c-chain);">The Chain-Hop</div></div>
+          <div class="pattern-line">Cross-chain movement can obscure a trail more than wallet-to-wallet movement.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-chain);">Risk</div><div class="ttd-text">Interoperability is a genuine feature, so heavy cross-chain use doesn't look wrong by itself.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-chain);">Signal</div><div class="ttd-text">Repeated bridging or wrapping in a short window, high value, no economic rationale.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-chain);">Response</div><div class="ttd-text">Apply FATF's own indicator scrutiny and confirm chain and representation before concluding.</div></div>
+          </div>
+        </div>
+        <div class="pattern-card" style="background:var(--c-freeze-light);border-color:#fde68a;">
+          <div class="pattern-card-head"><div class="pattern-icon">🧊</div><div class="pattern-name" style="color:var(--c-freeze);">The Freeze That Doesn't Follow</div></div>
+          <div class="pattern-line">An issuer's freeze power doesn't automatically travel with a wrapped copy of its token.</div>
+          <div class="pattern-ttd">
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-freeze);">Risk</div><div class="ttd-text">A freeze request assumes control reaches wherever the token sits.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-freeze);">Signal</div><div class="ttd-text">Token is a bridged or wrapped representation; the bridge's controller isn't identified.</div></div>
+            <div class="ttd-item pattern-ttd-item"><div class="ttd-label" style="color:var(--c-freeze);">Response</div><div class="ttd-text">Establish token topology before assuming a freeze request will work.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="article-section" id="conclusion">
+      <div class="section-eyebrow" style="color:var(--c-chain)">The Actual Skill</div>
+      <h2>Mapping the gap is the job, not declaring one.</h2>
+      <p>Every stage in the lifecycle above has a specific, checkable answer for who's watching and who isn't. The investigator's job is to locate exactly where a given transfer sits on that map, not to treat the whole category of stablecoin P2P activity as either fully visible or entirely lawless. <a href="/screen.html" style="color:var(--c-chain);font-weight:600;">FinCrimeRadar's screening tool</a> checks sanctions, PEP, and adverse media exposure for the entities that do sit inside regulated reach, free, no signup required.</p>
+      <div class="inline-tool-promo">
+        <div class="itp-text"><strong>Verifying a counterparty or off-ramp customer?</strong><span>Free. No account needed. Check them against live sanctions, PEP, and adverse media data.</span></div>
+        <a href="/screen.html" class="itp-btn">Screen an individual →</a>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <!-- SIDEBAR -->
+  <div class="article-sidebar">
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <a href="#primer">Stablecoin Primer</a>
+      <a href="#lifecycle">Lifecycle Map</a>
+      <a href="#patterns">Four Patterns</a>
+      <a href="#scenario1" class="toc-scenario"><span class="toc-dot" style="background:var(--c-layer);"></span> 01 · The Layered Off-Ramp</a>
+      <a href="#monitoring">Monitoring Indicators</a>
+      <a href="#scenario2" class="toc-scenario"><span class="toc-dot" style="background:var(--c-freeze);"></span> 02 · The Bridged Token</a>
+      <a href="#topology">Token Topology</a>
+      <a href="#sar">Stablecoin SAR</a>
+      <a href="#continuity">Travel Rule Map</a>
+      <a href="#knowledge-check">Knowledge Check</a>
+      <a href="#faq">FAQ</a>
+      <a href="#glance">At a Glance</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+
+    <div class="score-card">
+      <div class="score-title">Your Scenario Score</div>
+      <div class="score-stat"><span>Scenarios attempted</span><span class="score-badge" id="score-attempted" style="color:var(--muted);">0 / 2</span></div>
+      <div class="score-stat"><span>Correct answers</span><span class="score-badge" id="score-correct" style="color:var(--success);">0</span></div>
+      <div class="score-stat"><span>Wrong answers</span><span class="score-badge" id="score-wrong" style="color:var(--danger);">0</span></div>
+    </div>
+
+    <div class="tool-cta">
+      <p>Practise this live, run a free sanctions, PEP, and adverse media check on individuals you identify.</p>
+      <a href="/screen.html">Try the screening tool →</a>
+    </div>
+  </div>
+</div><!-- /article-layout -->
+
+<!-- FOOTER -->
+<div id="page-disclaimer" data-disclaimer="For educational purposes only. Not legal advice."></div>
+<div id="site-footer"></div>
+
+<script>
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+
+// TOC ACTIVE STATE
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+  tocLinks.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#' + current); });
+});
+
+// SCORE TRACKING
+let scenarioResults = {};
+
+function updateScoreCard() {
+  const attempted = Object.keys(scenarioResults).length;
+  const correct = Object.values(scenarioResults).filter(v => v === 'correct').length;
+  const wrong = Object.values(scenarioResults).filter(v => v === 'wrong').length;
+  document.getElementById('score-attempted').textContent = attempted + ' / 2';
+  document.getElementById('score-correct').textContent = correct;
+  document.getElementById('score-wrong').textContent = wrong;
+}
+
+// SCENARIO ANSWER KEYS AND FULL VERDICTS
+const answerKeys = { scenario1: 'C', scenario2: 'C' };
+
+const verdicts = {
+  scenario1: {
+    title: 'Correct answer: C, Apply proportionate enhanced due diligence and document the gap',
+    body: [
+      'This is "The Layered Wallet" and "The Vanishing Intermediary" together. FATF is explicit that layered unhosted wallets transactionally distant from any Travel Rule-covered wallet aggravate ML/TF/PF risk, especially cross-border, and that no obliged entity exists to have filed an STR at the P2P hops themselves, that is a structural feature of this transfer type, not evidence of wrongdoing on its own.',
+      'Option A ignores the visibility gap entirely, sanctions screening on the depositing wallet says nothing about the three unhosted hops behind it. Option B overstates the locked proposition this guide relies on: multi-hop unhosted history is inherently higher risk, per FATF, not automatically sanctionable, treating it that way risks unsupported findings against legitimate customers. Option D substitutes a paperwork exercise for actual risk assessment; a self-certification doesn\'t reconstruct the visibility a Travel Rule record would have provided.'
+    ]
+  },
+  scenario2: {
+    title: 'Correct answer: C, Confirm bridge control and token architecture before assuming freeze reach',
+    body: [
+      'This is "The Freeze That Doesn\'t Follow." FATF states directly that cross-chain interoperability may weaken an issuer\'s freeze or blacklist control precisely where the original token circulates elsewhere as a newly created wrapped version. Separately, the report confirms that for certain centralised stablecoins like USDT or USDC, the issuer does have a genuine technical freeze capability, on its own native chain.',
+      'Circle\'s own documentation shows exactly why this needs checking rather than assuming, and why the honest answer isn\'t "the mechanism doesn\'t exist yet." A standard-compliant bridged USDC contract is built from the same source code as native USDC and already includes the same Blacklister role and freeze mechanism from deployment; what\'s genuinely uncertain before any Circle upgrade is who holds that role, typically the bridge operator, not Circle, and not nobody. Circle gains control of it only if it and the bridge team jointly elect to transfer it, and Circle\'s own FAQ confirms that upgrade is optional, not owed. So a freeze request against a bridged token may already be technically possible today, just directed at the wrong controller if you assume the answer is Circle.',
+      'Option A assumes certainty FATF itself does not support, and it also gets the mechanism right for the wrong reason, it assumes Circle\'s own freeze automatically applies, when the actual freeze available may belong to a different, unverified controller entirely. Option B is doubly wrong: it wrongly assumes bridging removes the freeze mechanism, when the mechanism is typically still there, just not under a confirmed controller. Option D targets the wrong actor and mechanism for what is specifically a token-topology and bridge-control question, not a transaction-reversal request.'
+    ]
+  }
+};
+
+function showVerdict(scenarioId, chosen, btn) {
+  const verdictDiv = document.getElementById(scenarioId + '-verdict');
+  const contentDiv = document.getElementById(scenarioId + '-content');
+  const isCorrect = chosen === answerKeys[scenarioId];
+
+  const allBtns = btn.closest('.dilemma-options').querySelectorAll('button');
+  allBtns.forEach(b => { b.disabled = true; b.style.opacity = '0.6'; b.style.cursor = 'default'; });
+
+  btn.style.opacity = '1';
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  const v = verdicts[scenarioId];
+  const bgClass = isCorrect ? 'verdict-correct' : 'verdict-wrong';
+  const icon = isCorrect ? '✅' : '❌';
+
+  contentDiv.innerHTML = `
+    <div class="${bgClass}">
+      <div class="verdict-icon">${icon}</div>
+      <div class="verdict-title">${v.title}</div>
+      <div class="verdict-body">${v.body.map(p => '<p>' + p + '</p>').join('')}</div>
+    </div>
+  `;
+
+  verdictDiv.classList.add('show');
+  verdictDiv.setAttribute('aria-live', 'polite');
+  scenarioResults[scenarioId] = isCorrect ? 'correct' : 'wrong';
+  updateScoreCard();
+}
+
+// QUIZ LOGIC
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'FATF places these obligations on intermediaries, not individuals, so a transfer with no intermediary involved falls outside that framework, which is a description of a gap, not a ban.' },
+  qq2: { correct: 'B', fb: 'The gap is proportionate risk information, not proof of guilt or proof of innocence; document it and weigh it against the full picture.' },
+  qq3: { correct: 'B', fb: 'FATF states interoperability may weaken freeze/blacklist control specifically because the wrapped version is a newly created representation, not the same on-chain object as the native token.' },
+  qq4: { correct: 'B', fb: 'The institution\'s own blockchain analytics review of transactions one hop away surfaced the indirect exposure, before any regulator or issuer action.' },
+  qq5: { correct: 'B', fb: 'The guide\'s thesis throughout: this is a mappable investigation problem with specific gap points, not a lawless zone and not a fully visible one either.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+
+  opts.forEach(o => {
+    if (o.textContent.trim().startsWith(data.correct)) o.classList.add('q-correct');
+    else if (o.textContent.trim().startsWith(chosen) && !isCorrect) o.classList.add('q-wrong');
+  });
+
+  fbDiv.textContent = data.fb;
+  fbDiv.style.background = isCorrect ? 'rgba(22,163,74,0.2)' : 'rgba(220,38,38,0.2)';
+  fbDiv.style.padding = '8px 12px';
+  fbDiv.style.borderRadius = '6px';
+  fbDiv.style.color = isCorrect ? '#86efac' : '#fca5a5';
+  fbDiv.classList.add('show');
+  fbDiv.setAttribute('aria-live', 'polite');
+
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+
+  if (quizAnswered === 5) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreNum.textContent = quizCorrect + '/5';
+    const labels = ['Keep studying, the lifecycle map is worth another pass.','Getting there, revisit the patterns you missed.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the visibility map well.','Excellent, practitioner-level judgement on stablecoin gaps.','Perfect, you\'re ready to map a real transfer.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[5];
+  }
+}
+
+// SAVE AS IMAGE
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines, ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0C1B2A';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('Stablecoin Financial Crime Guide: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0C1B2A';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0C1B2A';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'stablecoin-financial-crime-guide-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
+}
+</script>
+
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
