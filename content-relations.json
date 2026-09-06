@@ -85,5 +85,10 @@
   ],
   "ai-agent-transaction-guide": [
     "synthetic-identity-device-network-guide"
+  ],
+  "stablecoin-financial-crime-guide": [
+    "freezing-a-stablecoin-guide",
+    "a7a5-sanctions-evasion-guide",
+    "crypto-travel-rule-sunrise-guide"
   ]
 }

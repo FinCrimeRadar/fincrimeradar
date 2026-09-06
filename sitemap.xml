@@ -307,4 +307,11 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Stablecoin series -->
+  <url>
+    <loc>https://fincrimeradar.org/stablecoin-financial-crime-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
