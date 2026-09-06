@@ -133,3 +133,17 @@ Where the original CLAUDE.md entry gave no explicit incident date, the date belo
 **Permanent control:** Do not close a high-impact verification decision solely from a `web_fetch` result when it conflicts with repository state, deployment information, or another independent fetch. Cross-check with a fresh `origin/main` or `codeload.github.com` tarball pull (repository truth) or an independent live request such as `curl` or a real browser render (production truth).
 
 **CLAUDE.md rule:** Section 18, Verification source hierarchy.
+
+---
+
+## 10. Blanket `taskkill` closed the user's active Chrome session
+
+**Date:** 2026-09-06.
+
+**Failure:** During headless-Chrome mobile-width verification for the stablecoin series, a relaunch step needed to add the `--remote-allow-origins` flag. Cleanup used `taskkill /F /IM chrome.exe`, which terminates every process matching that image name on the machine. It killed the user's own active Chrome windows and tabs along with the one automation-spawned headless instance, with no way to undo it.
+
+**Root cause:** Cleanup targeted Chrome by process name instead of the specific PID the automation session itself had just launched. A process-name match cannot distinguish an automation-owned instance from the user's own running browser.
+
+**Permanent control:** Any browser process an automation session starts must be tracked by its PID from the moment it launches. Cleanup may terminate only that tracked PID, never a process-name or pattern match. If the automation-owned PID cannot be positively identified at cleanup time, terminate nothing and leave it running rather than risk an unrelated user process. Process-name-based termination of browser processes on the user's machine (`taskkill /IM chrome.exe`, `pkill -f chrome`, or equivalent) is prohibited without exception.
+
+**CLAUDE.md rule:** Not yet promoted to a numbered CLAUDE.md section as of this entry; the permanent control above governs directly until it is.
