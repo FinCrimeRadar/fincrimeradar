@@ -309,6 +309,11 @@
 
   <!-- Stablecoin series -->
   <url>
+    <loc>https://fincrimeradar.org/systemic-stablecoins-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://fincrimeradar.org/stablecoin-financial-crime-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
