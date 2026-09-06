@@ -474,6 +474,10 @@ It diffs the working tree's claimId set against HEAD's and fails loud if any cla
 
 Run it again before committing a ledger change, not only at session start.
 
+### Browser process safety
+
+Any browser process an automation session starts must be tracked by its PID from the moment it launches. Cleanup may terminate only that tracked PID, never a process-name or pattern match (`taskkill /IM`, `pkill -f`, or equivalent) on the user's machine, without exception. If the automation-owned PID cannot be positively identified at cleanup time, terminate nothing and leave it running.
+
 ### Ponytail mode
 
 Follow the active `BACKLOG.md` loop.

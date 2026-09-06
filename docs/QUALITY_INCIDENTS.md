@@ -146,4 +146,4 @@ Where the original CLAUDE.md entry gave no explicit incident date, the date belo
 
 **Permanent control:** Any browser process an automation session starts must be tracked by its PID from the moment it launches. Cleanup may terminate only that tracked PID, never a process-name or pattern match. If the automation-owned PID cannot be positively identified at cleanup time, terminate nothing and leave it running rather than risk an unrelated user process. Process-name-based termination of browser processes on the user's machine (`taskkill /IM chrome.exe`, `pkill -f chrome`, or equivalent) is prohibited without exception.
 
-**CLAUDE.md rule:** Not yet promoted to a numbered CLAUDE.md section as of this entry; the permanent control above governs directly until it is.
+**CLAUDE.md rule:** Section 20, Session tooling (Browser process safety).
