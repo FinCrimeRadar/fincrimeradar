@@ -95,6 +95,16 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .src{display:flex;align-items:center;gap:12px;white-space:nowrap;font-family:var(--display);font-weight:700;font-size:1.15rem;color:rgba(255,255,255,.45);transition:color .3s;}
 .src:hover{color:var(--radar)}
 .src .tick{font-family:var(--mono);font-size:.68rem;color:var(--radar-dim);letter-spacing:.1em}
+.updates-band{background:var(--void-2);display:flex;align-items:center;gap:18px;padding:12px clamp(20px,5vw,70px);position:relative;overflow:hidden;border-top:1px solid rgba(59,232,176,.12);border-bottom:1px solid rgba(59,232,176,.12);}
+.updates-flag{flex-shrink:0;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.18em;color:var(--radar);background:rgba(59,232,176,.1);border:1px solid rgba(59,232,176,.35);padding:6px 12px;border-radius:999px;}
+.pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--radar);animation:pulseDot 1.8s ease-in-out infinite;}
+@keyframes pulseDot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(59,232,176,.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(59,232,176,0)}}
+.updates-mask{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent);}
+.updates-track{display:flex;align-items:center;gap:28px;width:max-content;white-space:nowrap;animation:scrollX 28s linear infinite;}
+.updates-band:hover .updates-track{animation-play-state:paused}
+.ticker-item{font-family:var(--body);font-size:.86rem;font-weight:500;color:rgba(255,255,255,.75);transition:color .25s;}
+.ticker-item:hover{color:var(--radar)}
+.ticker-sep{color:rgba(255,255,255,.25)}
 .zone-light{background:radial-gradient(1200px 500px at 85% -5%,rgba(18,185,129,.07),transparent 60%),radial-gradient(900px 500px at 8% 30%,rgba(232,163,61,.05),transparent 55%),var(--paper);border-radius:38px 38px 0 0;position:relative;z-index:3;margin-top:-38px;padding:clamp(80px,9vw,130px) clamp(20px,5vw,70px) 0;}
 .section-head{max-width:820px;margin:0 auto 60px;text-align:center}
 .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--clear-deep);display:inline-flex;align-items:center;gap:10px;}
@@ -149,6 +159,8 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .news-item .dot.g{background:var(--clear)}
 .news-item .dot.r{background:var(--match)}
 .news-src{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;color:var(--muted);display:block;margin-top:3px}
+a.news-item{cursor:pointer}
+.new-badge{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:999px;background:rgba(59,232,176,.16);color:var(--clear-deep);font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;font-weight:700;vertical-align:middle;border:1px solid rgba(18,185,129,.35);}
 .cta-strip{max-width:1240px;margin:clamp(90px,10vw,140px) auto 0;border-radius:var(--radius);overflow:hidden;position:relative;background:linear-gradient(140deg,#071912 0%,#0E3226 100%);padding:clamp(50px,7vw,90px) clamp(28px,6vw,80px);color:#fff;text-align:center;}
 .cta-strip::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 70% 20%,rgba(59,232,176,.16),transparent 60%);pointer-events:none;}
 .cta-strip h2{font-family:var(--display);font-weight:900;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.01em;margin-bottom:16px;position:relative}
@@ -248,6 +260,18 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
   </div>
 </section>
 
+<section class="updates-band" aria-label="Latest updates from FinCrimeRadar">
+  <span class="updates-flag"><span class="pulse-dot"></span>NEW</span>
+  <div class="updates-mask">
+    <div class="updates-track" id="tickerTrack">
+      <!-- static fallback, correct as of 2026-09-06, JS overwrites and re-duplicates on successful fetch -->
+      <a class="ticker-item" href="/why-stablecoins-compliance-priority-guide.html" data-hover>The Stablecoin Series</a><span class="ticker-sep">&middot;</span>
+      <a class="ticker-item" href="/annex-1-firms-aml-blind-spot-guide.html" data-hover>Annex 1 Firms and the AML Blind Spot</a><span class="ticker-sep">&middot;</span>
+      <a class="ticker-item" href="/scam-compound-money-laundering-guide.html" data-hover>Inside the Scam Compound Money Laundering Machine</a><span class="ticker-sep">&middot;</span>
+    </div>
+  </div>
+</section>
+
 <main class="zone-light">
 
   <div class="section-head rv" id="intelligence">
@@ -292,7 +316,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
     <div class="cell c-hub rv rv-d2" id="hub">
       <a class="card-link" href="/knowledge.html" aria-label="Visit the Knowledge Hub"></a>
       <span class="cell-tag">Knowledge Hub</span>
-      <h3>42 deep practitioner guides.</h3>
+      <h3><span id="hubGuideCount">50</span> deep practitioner guides.</h3>
       <p>Not listicles. Full working handbooks with simulators, typology tabs and quizzes across six compliance domains.</p>
       <div class="pill-row">
         <a class="pill" href="/fatf-guide-part1.html" data-hover>FATF Standards</a>
@@ -306,6 +330,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
     </div>
 
     <div class="cell c-learn rv rv-d2">
+      <a class="card-link" href="/scenario-lab.html" aria-label="Try Scenario Lab"></a>
       <span class="cell-tag">Interactive learning</span>
       <h3>Train the instinct, not just the memory.</h3>
       <p>Alert triage simulators, false positive visualisers and typology walk-throughs that mirror what analysts face on a live queue.</p>
@@ -316,6 +341,26 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
       <span class="cell-tag">Built by a practitioner</span>
       <h3>An MLRO built this. It shows.</h3>
       <p>A decade across FCA, MAS, AUSTRAC, CBUAE and FIU India regimes, distilled into tooling and content that survives contact with real casework.</p>
+    </div>
+
+    <div class="cell c-news rv rv-d3" id="flagshipCard">
+      <span class="cell-tag">Flagship Guides</span>
+      <h3>Six series. Growing every month.</h3>
+      <div class="news-ticker" id="flagshipList">
+        <!-- static fallback, correct as of 2026-09-06, JS overwrites on successful fetch -->
+        <a class="news-item flag-item" href="/why-stablecoins-compliance-priority-guide.html" data-hover>
+          <span class="dot g"></span>
+          <span><span class="ti">The Stablecoin Series <span class="new-badge">NEW</span></span><span class="news-src">5-part series</span></span>
+        </a>
+        <a class="news-item flag-item" href="/crypto-guide-part1.html" data-hover>
+          <span class="dot g"></span>
+          <span><span class="ti">Cryptoasset Compliance for AML Practitioners</span><span class="news-src">6-part series</span></span>
+        </a>
+        <a class="news-item flag-item" href="/mlro-handbook-part1.html" data-hover>
+          <span class="dot g"></span>
+          <span><span class="ti">The MLRO Handbook</span><span class="news-src">2-part series</span></span>
+        </a>
+      </div>
     </div>
 
   </div>
@@ -669,6 +714,70 @@ document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 
 var track = document.getElementById('mtrack');
 track.innerHTML += track.innerHTML;
+
+var upTrack = document.getElementById('tickerTrack');
+upTrack.innerHTML += upTrack.innerHTML;
+
+(function(){
+  function daysAgo(dateStr){
+    var d = new Date(dateStr+'T00:00:00Z');
+    if(isNaN(d)) return null;
+    return Math.round((Date.now()-d.getTime())/86400000);
+  }
+  fetch('/knowledge.html').then(function(r){ return r.text(); }).then(function(html){
+    var doc = new DOMParser().parseFromString(html,'text/html');
+    var flagEls = Array.prototype.slice.call(doc.querySelectorAll('#khFlagData > .kh-flagship-data'));
+    var standaloneEls = Array.prototype.slice.call(doc.querySelectorAll('#khArticlesGrid > .kh-article-card'));
+
+    // Guide count — identical algorithm to knowledge.html's updateGuideCountStat()
+    var seriesParts = flagEls.reduce(function(sum, el){ return sum + el.querySelectorAll('.kh-step-data').length; }, 0);
+    var total = standaloneEls.length + seriesParts;
+    var countEl = document.getElementById('hubGuideCount');
+    if (countEl && total > 0) countEl.textContent = total;
+
+    // Flagship card — top 3 series by date desc
+    var flagships = flagEls.map(function(el){
+      return {
+        name: el.getAttribute('data-name') || '',
+        kicker: el.getAttribute('data-kicker') || '',
+        href: el.getAttribute('data-href') || '#',
+        date: el.getAttribute('data-date') || ''
+      };
+    }).sort(function(a,b){ return (b.date||'').localeCompare(a.date||''); });
+    var flagHost = document.getElementById('flagshipList');
+    if (flagHost && flagships.length) {
+      flagHost.innerHTML = flagships.slice(0,3).map(function(f){
+        var days = f.date ? daysAgo(f.date) : null;
+        var isNew = days !== null && days >= 0 && days <= 14;
+        return '<a class="news-item flag-item" href="'+f.href+'" data-hover>'+
+          '<span class="dot g"></span>'+
+          '<span><span class="ti">'+f.name+(isNew ? ' <span class="new-badge">NEW</span>' : '')+'</span>'+
+          '<span class="news-src">'+f.kicker+'</span></span></a>';
+      }).join('');
+    }
+
+    // Ticker — freshest 3 items across flagship + standalone guides
+    var standalone = standaloneEls.map(function(el){
+      return {
+        name: (el.querySelector('.kh-item-title') || {}).textContent || '',
+        href: el.getAttribute('href') || '#',
+        date: el.getAttribute('data-date') || ''
+      };
+    });
+    var freshest = flagships.concat(standalone).sort(function(a,b){
+      return (b.date||'').localeCompare(a.date||'');
+    }).slice(0,3);
+    var track = document.getElementById('tickerTrack');
+    if (track && freshest.length) {
+      var itemsHtml = freshest.map(function(it){
+        return '<a class="ticker-item" href="'+it.href+'" data-hover>'+it.name+'</a><span class="ticker-sep">&middot;</span>';
+      }).join('');
+      track.innerHTML = itemsHtml + itemsHtml; // duplicate once for the -50% seamless loop, same as #mtrack
+    }
+  }).catch(function(e){
+    console.error('Homepage freshness fetch failed, static fallback content stays as-is', e);
+  });
+})();
 
 })();
 </script>
