@@ -20,6 +20,10 @@ Do not implement into CLAUDE.md or verification-ledger.json yet. Validate the sc
 
 ---
 
+**STANDARDS CHANGE, adopted 2026-09-06, Pratik-approved: summary snapshot image requirement replaced by a programmatic social card.** GUIDE_STANDARD.md's Global core previously required, as the standard "Summary export" treatment, a downloadable summary snapshot image externally generated against a fixed template (a bespoke infographic, hand-designed outside the session and dropped into the repo for compression and wiring). Reason for the change: this created an indefinite external design dependency gating publication. When the stablecoin series' mechanical publish pass reached Guide 3, no raw source artwork existed for any of the five guides in the series, and the same would hold for every future guide until someone designed one by hand, blocking publication on a step this project has no way to complete inside a session. The standard requirement is now a programmatically generated Open Graph / social card built from a reusable template (branding, series label, guide number, title, one short subtitle, no claims needing separate verification), which a session can generate itself with no external dependency. A bespoke infographic is now an optional enhancement, not a publication blocker, for guides whose subject genuinely benefits from one. Full wording lives in GUIDE_STANDARD.md's Global core, "Summary export" / "Social card" bullets. This is a standards change made by Pratik directly, not a Claude-side reinterpretation of an existing requirement.
+
+---
+
 ## 🔧 Polish Loop
 Bug fixes, technical debt, structural cleanup. Nothing here should take more than one session to clear.
 
