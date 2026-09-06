@@ -25,10 +25,11 @@
       "@type": "Article",
       "headline": "A7A5: How a Stablecoin Became Sanctions Evasion Infrastructure",
       "description": "Four non-additive volume figures, entity-by-entity sanctions status across OFAC, the UK, and the EU, and why the token itself isn't a designated 'person' anywhere, including under the EU's own transaction-ban list. Sourced directly to Treasury, UK government, and Council of the EU primary releases.",
-      "author": { "@type": "Organization", "name": "FinCrimeRadar" },
+      "author": { "@type": "Person", "name": "Pratik Zanke", "url": "https://fincrimeradar.org/about.html" },
       "publisher": { "@type": "Organization", "name": "FinCrimeRadar", "url": "https://fincrimeradar.org" },
       "url": "https://fincrimeradar.org/a7a5-sanctions-evasion-guide.html",
       "datePublished": "2026-08-30",
+      "dateModified": "2026-09-06",
       "image": "https://fincrimeradar.org/a7a5-sanctions-evasion-guide-social-card.png",
       "mainEntityOfPage": { "@type": "WebPage", "@id": "https://fincrimeradar.org/a7a5-sanctions-evasion-guide.html" }
   }
@@ -280,6 +281,13 @@
     .pf-link-disabled { font-size:14px; font-weight:600; color:var(--muted); cursor:default; }
     .pf-next { text-align:right; }
     .pf-center { font-size:13px; color:var(--muted); }
+
+    .series-nav { display:flex; flex-wrap:wrap; gap:8px; margin-top:1.25rem; position:static; top:auto; z-index:auto; padding:0; height:auto; background:none; backdrop-filter:none; border-bottom:none; align-items:flex-start; justify-content:flex-start; }
+    .series-nav a, .series-nav .snav-current, .series-nav .snav-disabled { font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:11px; font-weight:700; letter-spacing:0.4px; padding:6px 13px; border-radius:999px; text-decoration:none; white-space:nowrap; }
+    .series-nav a { background:rgba(96,165,250,0.12); color:#93c5fd; border:1px solid rgba(96,165,250,0.35); }
+    .series-nav a:hover { background:rgba(96,165,250,0.22); color:#fff; }
+    .series-nav .snav-current { background:#60a5fa; color:#0f2044; border:1px solid #60a5fa; }
+    .series-nav .snav-disabled { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.35); border:1px solid rgba(255,255,255,0.12); cursor:default; }
   </style>
 <link rel="stylesheet" href="/brand.css">
 </head>
@@ -330,12 +338,20 @@
     <p class="hero-sub">Three regulators, three legal mechanisms, and one token that isn't itself "designated" as a person under any of them, though one jurisdiction restricts it directly through an entirely different legal tool. The precision here isn't pedantry, it's the difference between a screening system that works and one that doesn't.</p>
     <p style="font-size:13px;color:#93c5fd;margin-bottom:0;">Written by <a href="/about.html" style="color:#93c5fd;text-decoration:underline;">Pratik Zanke</a></p>
     <div class="hero-meta">
-      <span>⏱ 15 min read</span>
+      <span>⏱ 24 min read</span>
       <span>🔎 Interactive</span>
       <span>🎓 Practitioner Level</span>
       <span>📋 2 Scenarios</span>
     </div>
     <p class="series-orient">Part of FinCrimeRadar's <strong>Stablecoin Series</strong>, which also covers why stablecoins became a compliance priority, the FCA authorisation perimeter for non-systemic issuers, the joint Bank of England/FCA regime for systemic stablecoins, unhosted wallets and P2P transfer visibility gaps, and what actually happens when a stablecoin gets frozen. Those guides are referenced here by name only; where one hasn't shipped yet, treat it as a forward pointer, not a live link.</p>
+    <nav class="series-nav" aria-label="Stablecoin Series guides">
+      <a href="/why-stablecoins-compliance-priority-guide.html">Guide 0</a>
+      <a href="/stablecoin-financial-crime-guide.html">Guide 3</a>
+      <a href="/systemic-stablecoins-guide.html">Guide 2</a>
+      <span class="snav-current">Guide 4</span>
+      <a href="/freezing-a-stablecoin-guide.html">Guide 5</a>
+      <span class="snav-disabled">Guide 1 (soon)</span>
+    </nav>
   </div>
 </div>
 
@@ -715,7 +731,7 @@
           <div class="pf-label">← Back</div>
           <a href="/systemic-stablecoins-guide.html" class="pf-link">Systemic Stablecoins</a>
         </div>
-        <div class="pf-center">4 of 5 in the Stablecoin Series</div>
+        <div class="pf-center">4 of 6 in the Stablecoin Series</div>
         <div class="pf-next">
           <div class="pf-label">Next →</div>
           <a href="/freezing-a-stablecoin-guide.html" class="pf-link">Freezing a Stablecoin →</a>
