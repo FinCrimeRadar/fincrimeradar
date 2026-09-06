@@ -147,3 +147,17 @@ Where the original CLAUDE.md entry gave no explicit incident date, the date belo
 **Permanent control:** Any browser process an automation session starts must be tracked by its PID from the moment it launches. Cleanup may terminate only that tracked PID, never a process-name or pattern match. If the automation-owned PID cannot be positively identified at cleanup time, terminate nothing and leave it running rather than risk an unrelated user process. Process-name-based termination of browser processes on the user's machine (`taskkill /IM chrome.exe`, `pkill -f chrome`, or equivalent) is prohibited without exception.
 
 **CLAUDE.md rule:** Section 20, Session tooling (Browser process safety).
+
+---
+
+## 11. Five stablecoin guides published with no Knowledge Hub card
+
+**Date:** 2026-09-06.
+
+**Failure:** Guides 0, 2, 3, 4 and 5 were each published across five separate mechanical passes (sitemap entry, content-relations.json links, social card, mobile-width verification), but none of the five got a Knowledge Hub card. `sitemap.xml` and `content-relations.json` are both separate from `knowledge.html`'s own listing; adding a guide to one never adds it to the other, and no single pass checked all three.
+
+**Root cause:** `GUIDE_STANDARD.md` already required a Knowledge Hub card per guide (the data-date convention, Global core). BACKLOG.md's own "standard mechanical steps" checklist phrase, which is what each pass actually worked from, never named it as a separate item, only sitemap entry, summary snapshot image/social card, mobile-width verification, and content-relations.json links. Five passes each correctly completed everything the checklist actually named; none of them skipped a step it knew about.
+
+**Permanent control:** Knowledge Hub card is now an explicitly named, separately-checked item in BACKLOG.md's "standard mechanical steps" checklist phrase, everywhere that phrase appears, not folded into or assumed covered by "publish the guide." A guide's mechanical publish pass is not complete until its Knowledge Hub card exists and is verified (correct hrefs, `updateGuideCountStat()` and the category filter both still working, no JS errors).
+
+**CLAUDE.md rule:** Not yet promoted to a numbered CLAUDE.md section as of this entry; the permanent control above governs directly via BACKLOG.md's own checklist wording until it is.
