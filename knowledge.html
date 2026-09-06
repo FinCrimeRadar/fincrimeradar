@@ -140,6 +140,10 @@
     .kh-flag-navitem:hover:not(.kh-disabled):not(.on){border-color:rgba(59,232,176,.4);color:#fff}
     .kh-flag-navitem.on{background:var(--kh-radar);border-color:var(--kh-radar);color:var(--navy-mid);font-weight:700}
     .kh-flag-navitem.kh-disabled{opacity:.3;pointer-events:none}
+    .kh-new-badge{display:inline-flex;align-items:center;gap:4px;margin-left:6px;color:var(--kh-radar)}
+    .kh-new-badge .kh-dot{margin-right:0}
+    .kh-flag-navitem.on .kh-new-badge{color:var(--navy-mid)}
+    .kh-flag-navitem.on .kh-new-badge .kh-dot{background:var(--navy-mid)}
     .kh-flag-k{font-family:var(--kh-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--kh-radar);margin-bottom:11px}
     .kh-flag-detail h3{font-family:var(--kh-display);font-size:1.2rem;font-weight:800;color:#fff;line-height:1.25;margin-bottom:16px}
     .kh-flag-detail h3 a{color:inherit;text-decoration:none}
@@ -887,9 +891,13 @@ async function footerSignup() {
     var host=document.getElementById('khFlagNav');
     if(!host) return;
     var matchSet=matches||FLAGSHIPS;
+    var now=new Date();
     host.innerHTML=FLAGSHIPS.map(function(fs,i){
       var disabled=matchSet.indexOf(fs)===-1;
-      return '<button type="button" class="kh-flag-navitem'+(i===activeFlagIndex?' on':'')+(disabled?' kh-disabled':'')+'" data-i="'+i+'"'+(disabled?' aria-disabled="true"':'')+'>'+fs.name+'</button>';
+      var days=Math.round((now-new Date(fs.date))/86400000);
+      var isNew=fs.date&&days>=0&&days<=30;
+      var badge=isNew?'<span class="kh-new-badge"><span class="kh-dot"></span>NEW</span>':'';
+      return '<button type="button" class="kh-flag-navitem'+(i===activeFlagIndex?' on':'')+(disabled?' kh-disabled':'')+'" data-i="'+i+'"'+(disabled?' aria-disabled="true"':'')+'>'+fs.name+badge+'</button>';
     }).join('');
     host.querySelectorAll('.kh-flag-navitem').forEach(function(b){
       if(b.classList.contains('kh-disabled')) return;
