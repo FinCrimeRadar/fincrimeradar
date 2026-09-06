@@ -95,5 +95,10 @@
     "stablecoin-financial-crime-guide",
     "freezing-a-stablecoin-guide",
     "a7a5-sanctions-evasion-guide"
+  ],
+  "a7a5-sanctions-evasion-guide": [
+    "systemic-stablecoins-guide",
+    "stablecoin-financial-crime-guide",
+    "freezing-a-stablecoin-guide"
   ]
 }
