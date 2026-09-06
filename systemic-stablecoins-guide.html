@@ -279,6 +279,15 @@
       .inline-tool-promo { flex-direction:column; }
       .issuance-fork { flex-direction:column; align-items:center; }
     }
+
+    .part-footer { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .pf-prev,.pf-next { display:flex; flex-direction:column; gap:4px; }
+    .pf-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); }
+    .pf-link { font-size:14px; font-weight:600; color:var(--accent); text-decoration:none; }
+    .pf-link:hover { text-decoration:underline; }
+    .pf-link-disabled { font-size:14px; font-weight:600; color:var(--muted); cursor:default; }
+    .pf-next { text-align:right; }
+    .pf-center { font-size:13px; color:var(--muted); }
   </style>
 <link rel="stylesheet" href="/brand.css">
 </head>
@@ -741,6 +750,18 @@
         <a href="/screen.html" class="itp-btn">Screen an individual →</a>
       </div>
     </div>
+
+      <div class="part-footer">
+        <div class="pf-prev">
+          <div class="pf-label">← Back</div>
+          <a href="/stablecoin-financial-crime-guide.html" class="pf-link">Stablecoin Financial Crime</a>
+        </div>
+        <div class="pf-center">3 of 5 in the Stablecoin Series</div>
+        <div class="pf-next">
+          <div class="pf-label">Next →</div>
+          <a href="/a7a5-sanctions-evasion-guide.html" class="pf-link">A7A5 →</a>
+        </div>
+      </div>
 
   </div><!-- /article-body -->
 
