@@ -170,6 +170,28 @@ a.news-item{cursor:pointer}
 .cta-form input::placeholder{color:rgba(255,255,255,.4)}
 .cta-form input:focus{border-color:var(--radar);box-shadow:0 0 0 4px rgba(59,232,176,.15)}
 .cta-note{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-top:18px;position:relative}
+.fcw-section{background:var(--void-2);padding:44px clamp(20px,5vw,70px) 54px;border-top:1px solid rgba(59,232,176,.12);}
+.fcw-head{max-width:1240px;margin:0 auto 22px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fcw-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--radar);}
+.fcw-period{font-family:var(--mono);font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.05em;}
+.fcw-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:22px;}
+.fcw-lead{display:block;text-decoration:none;color:inherit;background:rgba(255,255,255,.04);border:1px solid rgba(59,232,176,.14);border-radius:var(--radius-sm);padding:26px 28px;transition:transform .3s var(--ease),border-color .3s;}
+.fcw-lead:hover{transform:translateY(-3px);border-color:rgba(59,232,176,.4);}
+.fcw-lead h3{font-family:var(--display);font-weight:800;font-size:1.35rem;color:#fff;margin:12px 0 10px;line-height:1.28;}
+.fcw-lead p{color:rgba(255,255,255,.62);font-size:.92rem;line-height:1.6;margin-bottom:14px;}
+.fcw-chip{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--radar);background:rgba(59,232,176,.1);border:1px solid rgba(59,232,176,.3);padding:4px 10px;border-radius:999px;}
+.fcw-chip-sm{font-size:.6rem;padding:3px 8px;}
+.fcw-src{display:block;font-family:var(--mono);font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.04em;margin-top:10px;}
+.fcw-supporting{display:flex;flex-direction:column;gap:12px;}
+.fcw-item{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-sm);padding:14px 16px;transition:border-color .3s,transform .3s var(--ease);}
+.fcw-item:hover{border-color:rgba(59,232,176,.35);transform:translateY(-2px);}
+.fcw-item-head{color:#fff;font-size:.86rem;font-weight:600;line-height:1.4;}
+.fcw-links{max-width:1240px;margin:26px auto 0;display:flex;gap:22px;align-items:center;}
+.fcw-cta{color:var(--radar);font-weight:700;font-size:.86rem;text-decoration:none;}
+.fcw-cta:hover{text-decoration:underline;}
+.fcw-archive-link{color:rgba(255,255,255,.5);font-size:.8rem;text-decoration:none;}
+.fcw-archive-link:hover{color:#fff;}
+@media(max-width:900px){.fcw-grid{grid-template-columns:1fr;}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
 </style>
 
@@ -271,6 +293,10 @@ a.news-item{cursor:pointer}
     </div>
   </div>
 </section>
+
+<!-- FINCRIME_WEEK_START -->
+
+<!-- FINCRIME_WEEK_END -->
 
 <main class="zone-light">
 

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinCrime Week | FinCrimeRadar</title>
+<meta name="description" content="FinCrime Week: a practitioner-curated weekly briefing on AML, sanctions, fraud and financial crime developments, with primary sources and radar implications for every story.">
+<link rel="canonical" href="https://fincrimeradar.org/fincrime-week.html">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/brand.css">
+<style>
+  :root {
+    --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
+    --muted:#6b7280; --text:#111827; --navy:#0f2044;
+    --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
+    --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
+
+  nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
+  .nav-links { display:flex; align-items:center; gap:1.25rem; }
+  .nav-links a { font-size:13px; color:#374151; text-decoration:none; transition:color 0.15s; }
+  .nav-links a:hover { color:var(--teal); }
+  .nav-cta { padding:7px 16px; background:var(--teal); color:#fff !important; border-radius:6px; font-size:13px; font-weight:500; text-decoration:none; }
+  .nav-cta:hover { background:var(--accent-h); color:#fff; }
+  .nav-hamburger { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--navy); padding:4px 6px; line-height:1; }
+  .mobile-nav { display:none; position:fixed; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid var(--border); flex-direction:column; z-index:99; padding:0.5rem 0; box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+  .mobile-nav.open { display:flex; }
+  .mobile-nav a { padding:14px 1.5rem; font-size:15px; color:#374151; text-decoration:none; font-weight:500; border-bottom:1px solid #f3f4f6; transition:background 0.1s; }
+  .mobile-nav a:hover { background:#f9fafb; }
+  .mobile-nav .mobile-nav-cta { margin:0.75rem 1.5rem 0.5rem; background:var(--teal); color:#fff !important; border-radius:8px; text-align:center; border-bottom:none; }
+  @media(max-width:767px) {
+    nav { padding:0 1rem; }
+    .nav-hamburger { display:block; }
+    .nav-links { display:none; }
+    .nav-brand img { height:40px !important; width:auto !important; max-width:160px !important; }
+  }
+
+  .fcw-hero { max-width:900px; margin:0 auto; padding:3rem 1.5rem 1rem; }
+  .fcw-hero .eyebrow { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--accent); }
+  .fcw-hero h1 { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; color:var(--navy); margin:0.6rem 0 0.75rem; }
+  .fcw-hero p { color:var(--muted); font-size:15px; max-width:640px; }
+
+  .fcw-archive { max-width:900px; margin:0 auto; padding:1rem 1.5rem 4rem; }
+  .fcw-empty { color:var(--muted); font-size:15px; padding:2rem 0; }
+  .fcw-issue { border:1px solid var(--border); border-radius:14px; background:var(--white); padding:1.75rem 2rem; margin-bottom:1.5rem; }
+  .fcw-issue-head h2 { font-size:20px; color:var(--navy); margin:0 0 6px; }
+  .fcw-byline { font-size:12.5px; color:var(--muted); margin:0 0 1.25rem; }
+  .fcw-byline a { color:var(--accent); text-decoration:none; }
+  .fcw-byline a:hover { text-decoration:underline; }
+  .fcw-story { padding-top:1rem; margin-top:1rem; border-top:1px solid var(--border); }
+  .fcw-story:first-of-type { border-top:none; margin-top:0; }
+  .fcw-story h3 { font-size:16px; color:var(--navy); margin:0 0 6px; }
+  .fcw-story-meta { font-size:12px; color:var(--muted); margin:0 0 10px; text-transform:uppercase; letter-spacing:0.3px; }
+  .fcw-story-meta a { color:var(--accent); text-decoration:none; }
+  .fcw-story-meta a:hover { text-decoration:underline; }
+  .fcw-primary-badge { display:inline-block; margin-left:6px; padding:2px 7px; border-radius:4px; background:#dcfce7; color:#166534; font-size:10px; font-weight:700; letter-spacing:0.3px; text-transform:uppercase; }
+
+  .callout { border-radius:10px; padding:1.1rem 1.4rem; margin:1rem 0; display:flex; gap:12px; }
+  .callout-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .callout-body { flex:1; }
+  .callout-title { font-size:12px; font-weight:700; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.4px; }
+  .callout-text { font-size:13.5px; line-height:1.6; }
+  .callout.info { background:#eff6ff; border:1px solid #bfdbfe; }
+  .callout.info .callout-title { color:#1e40af; }
+  .callout.info .callout-text { color:#1e3a8a; }
+  .callout.warning { background:#fffbeb; border:1px solid #fde68a; }
+  .callout.warning .callout-title { color:#92400e; }
+  .callout.warning .callout-text { color:#78350f; }
+  .callout.new { background:#f0fdf4; border:1px solid #86efac; border-left:3px solid var(--success); }
+  .callout.new .callout-title { color:#166534; }
+  .callout.new .callout-text { color:#14532d; }
+
+  footer { background:var(--white); border-top:1px solid var(--border); padding:2rem; text-align:center; font-size:12px; color:var(--muted); margin-top:2rem; }
+  footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
+  footer a:hover { color:var(--teal); }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="/">
+    <img src="/logo.png" alt="FinCrimeRadar" width="660" height="237" style="height:44px;width:auto;max-width:200px;object-fit:contain;object-position:left center;display:block;" />
+  </a>
+  <div class="nav-links">
+    <a href="/knowledge.html">Knowledge Hub</a>
+    <a href="/fincrime-week.html">FinCrime Week</a>
+    <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/screen.html" class="nav-cta">Try the tool &rarr;</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/knowledge.html">Knowledge Hub</a>
+  <a href="/fincrime-week.html">FinCrime Week</a>
+  <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/screen.html" class="mobile-nav-cta">Try the tool &rarr;</a>
+</div>
+<script>
+  function toggleMobileNav(){
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+</script>
+
+<div class="fcw-hero">
+  <span class="eyebrow">Manually curated, primary-sourced</span>
+  <h1>FinCrime Week</h1>
+  <p>Every published issue, in full, most recent first. Written and reviewed by a financial crime specialist and former Acting MLRO, sourced directly from regulators, courts and government publications.</p>
+</div>
+
+<div class="fcw-archive" id="archive">
+<p class="fcw-empty">No FinCrime Week issues published yet. Check back soon.</p>
+</div>
+
+<div id="site-footer"></div>
+<script defer src="/js/site-chrome.js"></script>
+</body>
+</html>
