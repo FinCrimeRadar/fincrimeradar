@@ -115,6 +115,8 @@
 
     if (!consent) {
       banner.style.display = 'flex';
+    } else {
+      banner.style.display = 'none';
     }
   }
 
