@@ -200,7 +200,7 @@ a.news-item{cursor:pointer}
   gtag('js', new Date());
   (function () {
     try {
-      var consent = localStorage.getItem('fcr_cookie_consent');
+      var consent = localStorage.getItem('fcr_cookie_consent_v2');
       if (consent === 'accepted') {
         gtag('consent', 'update', {
           'analytics_storage': 'granted',

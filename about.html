@@ -13,7 +13,7 @@
   gtag('js', new Date());
   (function () {
     try {
-      var consent = localStorage.getItem('fcr_cookie_consent');
+      var consent = localStorage.getItem('fcr_cookie_consent_v2');
       if (consent === 'accepted') {
         gtag('consent', 'update', {
           'analytics_storage': 'granted',
@@ -589,7 +589,7 @@ async function footerSignup() {
 </div>
 <script>
   (function() {
-    var consent = localStorage.getItem('fcr_cookie_consent');
+    var consent = localStorage.getItem('fcr_cookie_consent_v2');
     if (!consent) {
       document.getElementById('cookieBanner').style.display = 'flex';
     }

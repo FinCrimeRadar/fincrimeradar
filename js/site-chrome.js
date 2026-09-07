@@ -19,7 +19,7 @@
 
   var NAV_PARTIAL_URL = '/partials/nav.html';
   var FOOTER_PARTIAL_URL = '/partials/footer.html';
-  var COOKIE_CONSENT_KEY = 'fcr_cookie_consent';
+  var COOKIE_CONSENT_KEY = 'fcr_cookie_consent_v2';
 
   // Minimal inline fallbacks used only if a partial fails to load,
   // so a network blip never leaves a page with no way home and no legal footer.
@@ -77,7 +77,7 @@
   }
 
   function acceptCookies() {
-    localStorage.setItem('fcr_cookie_consent', 'accepted');
+    localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
     if (typeof gtag === 'function') {
       gtag('consent', 'update', {
         'analytics_storage': 'granted',
@@ -90,7 +90,7 @@
   }
 
   function rejectCookies() {
-    localStorage.setItem('fcr_cookie_consent', 'rejected');
+    localStorage.setItem('fcr_cookie_consent_v2', 'rejected');
     if (typeof gtag === 'function') {
       gtag('consent', 'update', {
         'analytics_storage': 'denied',
