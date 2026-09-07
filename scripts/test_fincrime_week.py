@@ -8,19 +8,20 @@ under data/fincrime-week/ itself, so the real (empty, .gitkeep-only)
 directory is never touched by the test suite.
 """
 
-import copy
 import json
 import os
 import shutil
 import sys
 import tempfile
 import unittest
-from datetime import date
+from datetime import date, timedelta
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import fincrime_week_lib as lib
 import generate_fincrime_week as gen
+import send_weekly_digest as digest
 
 
 def write_issue(dir_path, filename, **overrides):
@@ -340,6 +341,63 @@ class RenderingTests(unittest.TestCase):
         page = gen.render_archive_page(issues)
         self.assertNotIn("<b>bad</b>", page)
         self.assertIn("&lt;b&gt;bad&lt;/b&gt;", page)
+
+
+# ---------------- send_weekly_digest.py integration ----------------
+
+class DigestFincrimeWeekTests(unittest.TestCase):
+    def setUp(self):
+        self.tmpdir = tempfile.mkdtemp()
+        self._real_data_dir = lib.DATA_DIR
+        lib.DATA_DIR = Path(self.tmpdir)
+
+    def tearDown(self):
+        lib.DATA_DIR = self._real_data_dir
+        shutil.rmtree(self.tmpdir, ignore_errors=True)
+
+    def test_no_section_when_no_eligible_issue(self):
+        html = digest.build_digest_html()
+        self.assertNotIn("FinCrime Week", html)
+        self.assertNotIn("Read the full briefing", html)
+
+    def test_section_rendered_when_eligible_issue_exists(self):
+        item = make_item(headline="Regulator fines firm for AML gaps")
+        period_end = date.today()
+        period_start = period_end - timedelta(days=6)
+        iso_year, iso_week, _ = period_start.isocalendar()
+        week_str = f"{iso_year}-W{iso_week:02d}"
+        issue = make_issue(
+            items=[item],
+            week=week_str,
+            period_start=period_start.isoformat(),
+            period_end=period_end.isoformat(),
+            published_at=period_end.isoformat(),
+        )
+        write_issue_file(self.tmpdir, f"{week_str}.json", issue)
+
+        html = digest.build_digest_html()
+        self.assertIn("FinCrime Week", html)
+        self.assertIn("Regulator fines firm for AML gaps", html)
+        self.assertIn(f"{digest.SITE}/fincrime-week.html", html)
+
+    def test_section_escapes_headline(self):
+        item = make_item(headline="<script>alert(1)</script>")
+        period_end = date.today()
+        period_start = period_end - timedelta(days=6)
+        iso_year, iso_week, _ = period_start.isocalendar()
+        week_str = f"{iso_year}-W{iso_week:02d}"
+        issue = make_issue(
+            items=[item],
+            week=week_str,
+            period_start=period_start.isoformat(),
+            period_end=period_end.isoformat(),
+            published_at=period_end.isoformat(),
+        )
+        write_issue_file(self.tmpdir, f"{week_str}.json", issue)
+
+        html = digest.build_digest_html()
+        self.assertNotIn("<script>alert(1)</script>", html)
+        self.assertIn("&lt;script&gt;", html)
 
 
 if __name__ == "__main__":
