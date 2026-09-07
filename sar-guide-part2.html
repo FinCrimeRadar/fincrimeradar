@@ -13,7 +13,7 @@
   gtag('js', new Date());
   (function () {
     try {
-      var consent = localStorage.getItem('fcr_cookie_consent');
+      var consent = localStorage.getItem('fcr_cookie_consent_v2');
       if (consent === 'accepted') {
         gtag('consent', 'update', {
           'analytics_storage': 'granted',
@@ -663,6 +663,12 @@
         <li>Results of any blockchain analytics checks conducted</li>
         <li>Whether the wallet has been flagged by analytics tools as associated with illicit activity</li>
       </ul>
+
+    </section>
+
+    <section class="article-section" id="faq">
+      <div class="section-num">Section 07</div>
+      <h2>Frequently asked questions</h2>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Should we mention our screening tool results in the SAR? <span class="faq-icon">+</span></div>

@@ -1361,14 +1361,14 @@
     "claimType": "enforcement",
     "source": {
       "title": "BaFin consumer warning: DAO1 / Apertum Holding Limited (unauthorised crypto trading bot scheme)",
-      "url": "https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/neu/meldung_2025_10_02_dao1.html",
+      "url": "https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/meldung_2025_10_02_dao1.html",
       "publisher": "BaFin (Bundesanstalt für Finanzdienstleistungsaufsicht)",
       "date": "2025-10-02"
     },
-    "verifiedOn": "2026-08-11",
-    "reviewDue": "2027-08-11",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "status": "verified",
-    "note": "The 14 May 2025 warning (valuewanderer.com) was independently fetched and confirmed at https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/meldung_2025_05_14_valuewanderer_com.html"
+    "note": "The 14 May 2025 warning (valuewanderer.com) was independently fetched and confirmed at https://www.bafin.de/SharedDocs/Veroeffentlichungen/DE/Verbrauchermitteilung/unerlaubte/2025/meldung_2025_05_14_valuewanderer_com.html. URL corrected 7 Sep 2026: the DAO1 warning's original recorded URL had a stray /neu/ path segment that 404'd; the corrected path was already live."
   },
   {
     "claimId": "crypto-travel-rule.eba-four-options.001",
@@ -5423,13 +5423,13 @@
       "title": "Transport sanctions guidance",
       "publisher": "GOV.UK",
       "date": "2026-01-01",
-      "url": "https://www.gov.uk/guidance/transport-sanctions-guidance"
+      "url": "https://www.gov.uk/guidance/transport-sanctions"
     },
     "status": "verified",
-    "verifiedOn": "2026-08-24",
-    "reviewDue": "2027-08-24",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "location": "Part 1, 'What a vessel sanction actually is, mechanically'; Route 1 of the six-route breakdown",
-    "note": "Jurisdiction: UK. Confirms specification is a transport-focused restriction regime, not an asset freeze."
+    "note": "Jurisdiction: UK. Confirms specification is a transport-focused restriction regime, not an asset freeze. URL corrected 7 Sep 2026: gov.uk restructured this guidance from /guidance/transport-sanctions-guidance to /guidance/transport-sanctions; content re-verified at the new path."
   },
   {
     "claimId": "shadow-fleet-guide-part1.g10-imo-number-permanence.001",
@@ -5508,13 +5508,13 @@
       "title": "Ownership and control: consolidated guidance",
       "publisher": "GOV.UK",
       "date": "2026-01-01",
-      "url": "https://www.gov.uk/government/publications/ownership-and-control"
+      "url": "https://www.gov.uk/government/publications/ownership-and-control-public-officials-and-control-guidance/ownership-and-control-public-officials-and-control-guidance"
     },
     "status": "verified",
-    "verifiedOn": "2026-08-24",
-    "reviewDue": "2027-08-24",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "location": "Part 1, 'Who actually gets targeted', route 4; Worked Scenario 2",
-    "note": "Jurisdiction: UK. This is the single most consequential mechanic in the guide; approved wording keeps the shareholding limb and the control limb explicitly separate rather than one combined threshold."
+    "note": "Jurisdiction: UK. This is the single most consequential mechanic in the guide; approved wording keeps the shareholding limb and the control limb explicitly separate rather than one combined threshold. URL corrected 7 Sep 2026: gov.uk restructured this guidance to the longer /ownership-and-control-public-officials-and-control-guidance/ path; content re-verified at the new path (>50% shareholding, board appointment rights, de facto control)."
   },
   {
     "claimId": "shadow-fleet-guide-part1.g02-ofsi-enforcement-aggravating-factor.002",
@@ -5542,13 +5542,13 @@
       "title": "What Is the Dark Fleet?",
       "publisher": "TSG",
       "date": "2025-01-01",
-      "url": "https://www.tsg.co.uk/insights/what-is-the-dark-fleet"
+      "url": "https://www.thesignalgroup.com/newsroom/what-is-the-dark-fleet-18b44"
     },
     "status": "verified",
-    "verifiedOn": "2026-08-24",
-    "reviewDue": "2027-08-24",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "location": "Part 1, 'Who actually gets targeted', route 2 (registered owner); Risk/Signal/Response Card 1",
-    "note": "Illustrative-adjacent structural pattern, cited to a named industry source rather than presented as an uncited generalisation."
+    "note": "Illustrative-adjacent structural pattern, cited to a named industry source rather than presented as an uncited generalisation. URL corrected 7 Sep 2026: TSG's own domain migrated from tsg.co.uk (now an unrelated software company) to thesignalgroup.com; same publisher and article content re-verified at the new URL, not a substituted source."
   },
   {
     "claimId": "shadow-fleet-guide-part1.g02-operator-status-grey-area.004",
@@ -5559,13 +5559,13 @@
       "title": "Sanctions circumvention at sea",
       "publisher": "International Compliance Association",
       "date": "2025-01-01",
-      "url": "https://www.int-comp.org/insights/sanctions-circumvention-at-sea/"
+      "url": "https://www.int-comp.org/insight/sanctions-circumvention-at-sea/"
     },
     "status": "verified",
-    "verifiedOn": "2026-08-24",
-    "reviewDue": "2027-08-24",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "location": "Part 1, 'Who actually gets targeted', route 3 (the operator)",
-    "note": "Approved wording explicitly flags this as an unsettled area across regimes rather than asserting a single rule."
+    "note": "Approved wording explicitly flags this as an unsettled area across regimes rather than asserting a single rule. URL corrected 7 Sep 2026: ICA's path structure changed from /insights/ to /insight/ (singular); same article re-verified at the new path."
   },
   {
     "claimId": "shadow-fleet-guide-part1.g03-insurer-maritime-services-price-cap.001",
@@ -5576,13 +5576,13 @@
       "title": "UK maritime services ban and oil price cap: industry guidance",
       "publisher": "GOV.UK",
       "date": "2026-01-01",
-      "url": "https://www.gov.uk/government/publications/maritime-services-ban-and-oil-price-cap-guidance"
+      "url": "https://www.gov.uk/government/publications/uk-maritime-services-ban-and-oil-price-cap-industry-guidance/uk-maritime-services-ban-and-oil-price-cap-industry-guidance"
     },
     "status": "verified",
-    "verifiedOn": "2026-08-24",
-    "reviewDue": "2027-08-24",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "location": "Part 1, 'Who actually gets targeted', route 5 (insurers)",
-    "note": "Jurisdiction: UK. Same primary guidance document also underpins Part 2's price-cap ledger entry (g15); confirms insurance sits on its own legal basis rather than inheriting a vessel's screening result."
+    "note": "Jurisdiction: UK. Same primary guidance document also underpins Part 2's price-cap ledger entry (g15); confirms insurance sits on its own legal basis rather than inheriting a vessel's screening result. URL corrected 7 Sep 2026: gov.uk restructured this guidance to the /uk-maritime-services-ban-and-oil-price-cap-industry-guidance/ path; content re-verified at the new path."
   },
   {
     "claimId": "shadow-fleet-guide-part1.g16-smyrtos-case.001",
@@ -5856,11 +5856,11 @@
       "title": "UK maritime services ban and oil price cap: industry guidance",
       "publisher": "GOV.UK",
       "date": "2026-01-01",
-      "url": "https://www.gov.uk/government/publications/maritime-services-ban-and-oil-price-cap-guidance"
+      "url": "https://www.gov.uk/government/publications/uk-maritime-services-ban-and-oil-price-cap-industry-guidance/uk-maritime-services-ban-and-oil-price-cap-industry-guidance"
     },
     "status": "verified",
-    "verifiedOn": "2026-08-24",
-    "reviewDue": "2027-08-24",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "location": "Part 2, Worked Scenario 4 reasoning; Card 2 (The Cap-Line Pattern)",
     "note": "Same primary guidance document as Part 1's g03 insurer entry. Approved wording treats a repeated at-cap pattern as a prompt for further checking, not proof of circumvention on its own."
   },

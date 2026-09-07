@@ -13,7 +13,7 @@
   gtag('js', new Date());
   (function () {
     try {
-      var consent = localStorage.getItem('fcr_cookie_consent');
+      var consent = localStorage.getItem('fcr_cookie_consent_v2');
       if (consent === 'accepted') {
         gtag('consent', 'update', {
           'analytics_storage': 'granted',
@@ -553,6 +553,12 @@
           <div class="ps-desc">Regular SAR MI to senior management. Annual MLRO report to board. Trend analysis. Control adequacy assessment. Resourcing review.</div>
         </div>
       </div>
+
+    </section>
+
+    <section class="article-section" id="faq">
+      <div class="section-num">Section 06</div>
+      <h2>Frequently asked questions</h2>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">How should we handle a situation where a business line pushes back against filing a SAR? <span class="faq-icon">+</span></div>

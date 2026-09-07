@@ -13,7 +13,7 @@
   gtag('js', new Date());
   (function () {
     try {
-      var consent = localStorage.getItem('fcr_cookie_consent');
+      var consent = localStorage.getItem('fcr_cookie_consent_v2');
       if (consent === 'accepted') {
         gtag('consent', 'update', {
           'analytics_storage': 'granted',
@@ -667,6 +667,12 @@
           <div class="callout-text">FCA guidance identifies passing every internal report to the NCA without assessing whether it is genuinely suspicious as poor practice and says such defensive reports are likely to be of little value. The NCA separately warns that poor quality reporting can delay processing and impair prioritisation and investigation.</div>
         </div>
       </div>
+
+    </section>
+
+    <section class="article-section" id="faq">
+      <div class="section-num">Section 08</div>
+      <h2>Frequently asked questions</h2>
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Can we withdraw a SAR after filing it? <span class="faq-icon">+</span></div>
