@@ -170,15 +170,11 @@ def validate_file(path):
     return data
 
 
-def discover_files(data_dir=None):
-    directory = Path(data_dir) if data_dir is not None else DATA_DIR
-    return sorted(directory.glob("*.json"))
-
-
 def load_all_valid_issues(data_dir=None):
     """Validates every file under data_dir, fail-fast on the first
     failure. Returns a list of (path, data) tuples, filename order."""
-    return [(path, validate_file(path)) for path in discover_files(data_dir)]
+    directory = Path(data_dir) if data_dir is not None else DATA_DIR
+    return [(path, validate_file(path)) for path in sorted(directory.glob("*.json"))]
 
 
 # ---------------- Homepage rendering ----------------
@@ -307,8 +303,7 @@ PAGE_STYLE = """
   :root {
     --white:#ffffff; --off:#f7f8fa; --border:#e4e7ec;
     --muted:#6b7280; --text:#111827; --navy:#0f2044;
-    --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
-    --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+    --accent:#00c4a7; --accent-h:#00a892; --success:#16a34a;
   }
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; }
