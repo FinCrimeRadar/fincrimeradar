@@ -59,6 +59,136 @@ META_PATTERN = re.compile(
 # appear changes automatically once the library grows past `count` entries.
 GUIDE_LIBRARY = [
     {
+        "title": "Synthetic Identity and Device-Network Fraud: Two Different Problems People Treat as One",
+        "hook": "The industry teaches the detection technology. Nobody teaches the judgement once the alert is already in your queue. Four patterns, three decision scenarios, and a comparative matrix on stolen versus synthetic identity, with a knowledge check.",
+        "url": "https://www.fincrimeradar.org/synthetic-identity-device-network-guide.html",
+    },
+    {
+        "title": "Money Mule Networks: The Account Was Never Fraudulent, Until It Was",
+        "hook": "Most mule accounts aren't opened for fraud anymore, they're real accounts taken over mid-life. Four decision scenarios on account handovers, instant-payment velocity, business-account fronts, and fraud-AML convergence, with a real £53m case and a knowledge check.",
+        "url": "https://www.fincrimeradar.org/money-mule-financial-crime-networks-handbook.html",
+    },
+    {
+        "title": "The Crypto Travel Rule: Making the Call When the Data Doesn't Arrive",
+        "hook": "The sunrise problem isn't a policy debate, it's a decision on incomplete data. An interactive decision tree for sending and receiving crypto transfers, the EU's two different thresholds, and what to do when a counterparty's data never arrives.",
+        "url": "https://www.fincrimeradar.org/crypto-travel-rule-sunrise-guide.html",
+    },
+    {
+        "title": "Perpetual KYC: Why Periodic and Event-Driven Review Are Not the Same Control",
+        "hook": "The FCA's 8 April 2026 review found firms collapse periodic and event-driven review into one control, or define neither well enough to evidence. Four decision scenarios, the Nationwide £44m case, and a knowledge check.",
+        "url": "https://www.fincrimeradar.org/perpetual-kyc-framework-guide.html",
+    },
+    {
+        "title": "Transaction Monitoring: From Rules to AI, The Practitioner's Deep Dive",
+        "hook": "How TM systems really work, why 95% of alerts are false positives, how AI is changing the game, and what analysts actually do when the queue hits 400. Includes typology cards, alert triage simulator, and knowledge check.",
+        "url": "https://www.fincrimeradar.org/tm-guide.html",
+    },
+    {
+        "title": "The Screening Alert Survival Guide: 7 Challenges Every Analyst Faces",
+        "hook": "800 alerts. 95% false positives. No DOB on file. The honest, unfiltered guide to what screening alert clearance actually involves, and what genuinely helps.",
+        "url": "https://www.fincrimeradar.org/screening-alerts-guide.html",
+    },
+    {
+        "title": "What is Financial Crime Screening? The Complete Guide",
+        "hook": "A comprehensive, interactive introduction to sanctions screening, PEP checks, and adverse media monitoring, with quizzes, real examples, and live tool access.",
+        "url": "https://www.fincrimeradar.org/learn.html",
+    },
+    {
+        "title": "KYC / KYB / CDD / EDD: The Onboarding Dilemma",
+        "hook": "Six archetypes from lone individual to sovereign wealth fund. Six real dilemmas. Make the call yourself, then see the correct answer and the regulation behind it. The only guide that covers every customer type in one place.",
+        "url": "https://www.fincrimeradar.org/kyc-onboarding-dilemma.html",
+    },
+    {
+        "title": "Fraud Red Flags: Reading the Patterns, Not Just the Rules",
+        "hook": "Four live cases from Scenario Lab's Fraud Detection module, worked through properly. Account takeover, APP scams, transaction laundering, and structuring, decision scenarios with full reasoning and a knowledge check.",
+        "url": "https://www.fincrimeradar.org/fraud-red-flags-guide.html",
+    },
+    {
+        "title": "The False Positive Playbook: Disposing Alerts Without Getting It Wrong",
+        "hook": "The guide the vendors don't write. Three decision scenarios on disposing sanctions, PEP, and adverse media alerts correctly, name matching, DOB mismatches, transliteration, and adverse media false hits, with full reasoning and a knowledge check.",
+        "url": "https://www.fincrimeradar.org/false-positive-playbook.html",
+    },
+    {
+        "title": "The UBO Investigation Handbook: Finding the Real Owner",
+        "hook": "Checking a register isn't investigating an ownership structure, it's the starting point. Three decision scenarios on nominee directors, unreliable PSC register data, the 2022 CJEU ruling on EU register access, and trust beneficiaries, with full reasoning and a knowledge check.",
+        "url": "https://www.fincrimeradar.org/ubo-investigation-handbook.html",
+    },
+    {
+        "title": "The Source of Wealth Investigation Handbook: Telling a Plausible Story from Verified Evidence",
+        "hook": "A well-told explanation is not the same as a verified one. Three decision scenarios on verifying source of wealth and source of funds, a two-step gift case study, and a knowledge check, for compliance analysts who need to distinguish a plausible story from actual verification.",
+        "url": "https://www.fincrimeradar.org/source-of-wealth-investigation-handbook.html",
+    },
+    {
+        "title": "The Adverse Media Intelligence Guide: Reading the Story Behind the Headline",
+        "hook": "Confirming identity is the easy half. Three decision scenarios on weighing legal stage, source credibility, recency, and role in adverse media hits, with a source credibility hierarchy and a knowledge check.",
+        "url": "https://www.fincrimeradar.org/adverse-media-intelligence-guide.html",
+    },
+    {
+        "title": "Vessel Sanctions Fundamentals: What the Shadow Fleet Actually Is",
+        "hook": "Designated vs specified, the six routes a party can be caught by a vessel sanction, and why IMO number beats name-based screening. Part 1 of 2, with two decision scenarios and a real SMYRTOS case study.",
+        "url": "https://www.fincrimeradar.org/shadow-fleet-guide-part1.html",
+    },
+    {
+        "title": "The Shadow Fleet Investigation Playbook",
+        "hook": "Why insurance, not AIS tracking, is where fraud actually hides. The Seaguard P&amp;I fake-insurer case, the IG Clubs verification step, and two more decision scenarios. Part 2 of 2.",
+        "url": "https://www.fincrimeradar.org/shadow-fleet-guide-part2.html",
+    },
+    {
+        "title": "Inside the Scam Compound Money Laundering Machine",
+        "hook": "A scam compound generates victims. A separate machine launders the proceeds. Nine payment-chain nodes from receiving account to stablecoin off-ramp, two worked scenarios on network reconstruction, and a verified FinCEN Section 311 case study.",
+        "url": "https://www.fincrimeradar.org/scam-compound-money-laundering-guide.html",
+    },
+    {
+        "title": "Annex 1 Firms and the AML Blind Spot",
+        "hook": "What \"FCA registered\" establishes, what it does not, and the entity, activity, ownership, SPV and financing checks an investigator should perform next.",
+        "url": "https://www.fincrimeradar.org/annex-1-firms-aml-blind-spot-guide.html",
+    },
+    {
+        "title": "The Fraud Investigation Playbook: Building a File That Survives Review",
+        "hook": "Most investigation guides teach corporate fraud. This one teaches the queue. Three decision scenarios on testing theories, the POCA disclosure boundary, and file documentation, with the full reporting chain from detection to DAML.",
+        "url": "https://www.fincrimeradar.org/fraud-investigation-playbook.html",
+    },
+    {
+        "title": "Tuning Screening Algorithms: Why Fuzzy Matching Isn't Magic",
+        "hook": "The default threshold, the algorithms actually in production, and the real case where two different people scored 0.98 on the same sanctions list. An interactive pipeline visualizer walks four name pairs through retrieval and scoring.",
+        "url": "https://www.fincrimeradar.org/screening-algorithm-tuning-guide.html",
+    },
+    {
+        "title": "Sanctions Compliance: OFAC, OFSI and Beyond",
+        "hook": "Sanctions explained in plain English, a real OFAC case that generates false positives against ordinary people, flip flashcards, and a live comparison against a globally known designation.",
+        "url": "https://www.fincrimeradar.org/sanctions-compliance-guide.html",
+    },
+    {
+        "title": "The Certifications Dilemma: AML &amp; Compliance Credentials Compared",
+        "hook": "Twelve credentials, cost, eligibility, and recertification burden checked directly against each issuing body's own site, not ranked against each other, matched to the career stage each one actually fits.",
+        "url": "https://www.fincrimeradar.org/certifications-dilemma.html",
+    },
+    {
+        "title": "What Actually Happens After You Suspect a Deepfake at Onboarding",
+        "hook": "The detection tool gives you a confidence score, not a verdict. Four worked scenarios on the judgement that comes next, a real 47-account ABN AMRO case, and a knowledge check.",
+        "url": "https://www.fincrimeradar.org/deepfake-onboarding-guide.html",
+    },
+    {
+        "title": "The AI Agent Transaction Nobody Can Screen",
+        "hook": "No settled UK answer exists for who is liable when an AI agent makes the purchase. Four composite scenarios grounded in real FCA, CMA, and IMF sources, not a technology explainer.",
+        "url": "https://www.fincrimeradar.org/ai-agent-transaction-guide.html",
+    },
+    {
+        "title": "Gambling's White-Label Blind Spot",
+        "hook": "A licensed operator supplies the licence, a separate brand supplies the front end. UKGC's own case material and enforcement pattern show exactly where accountability gets lost.",
+        "url": "https://www.fincrimeradar.org/gambling-white-label-blind-spot-guide.html",
+    },
+    {
+        "title": "Where Does the Money Actually Stop? Investigating Financial Crime Risk in Private Markets",
+        "hook": "Given a real fund ownership chain, LP to fund to GP to SPV to portfolio company, where does the CDD obligation actually start, and where does it genuinely have to stop. Two worked scenarios on upstream beneficial ownership and PEP exposure in a fund-of-funds structure, plus ten Risk/Signal/Response investigation patterns.",
+        "url": "https://www.fincrimeradar.org/private-markets-financial-crime-investigation-handbook.html",
+    },
+    {
+        "title": "Classification Asymmetry: The Fraud vs AML Divide",
+        "hook": "A fraudster steals from one bank. The money lands at another as an unremarkable deposit. One granted patent argues that fraud-style behavioural scoring can produce money laundering false positives while missing laundering that doesn't deviate from normal behaviour.",
+        "url": "https://www.fincrimeradar.org/classification-asymmetry-guide.html",
+    },
+    {
         "title": "The MLRO Handbook",
         "hook": "Who can become SMF16/17, the FCA's real approval bar, and where personal MLRO liability has actually been tested.",
         "url": "https://www.fincrimeradar.org/mlro-handbook-part1.html",
@@ -69,9 +199,24 @@ GUIDE_LIBRARY = [
         "url": "https://www.fincrimeradar.org/crypto-guide-part1.html",
     },
     {
-        "title": "Knowledge Hub",
-        "hook": "Practitioner-written guides on AML, sanctions, PEPs, and financial crime compliance, all free.",
-        "url": "https://www.fincrimeradar.org/knowledge.html",
+        "title": "UK AML Compliance",
+        "hook": "UK AML law, MLR 2017, POCA 2002, the Terrorism Act 2000 and SAMLA 2018, plus the FCA framework, updated for 2026's FG25/3 and HM Treasury reforms.",
+        "url": "https://www.fincrimeradar.org/aml-guide-part1.html",
+    },
+    {
+        "title": "SAR Complete Guide",
+        "hook": "The UK SAR legal regime: POCA 2002 offences, who must file, the MLRO role, DAML, tipping off, and the UKFIU.",
+        "url": "https://www.fincrimeradar.org/sar-guide-part1.html",
+    },
+    {
+        "title": "PEP Screening Handbook",
+        "hook": "PEP identification: FATF definitions, domestic vs foreign PEPs, Relatives and Close Associates, PEP duration, and the FCA's July 2025 FG25/3 guidance.",
+        "url": "https://www.fincrimeradar.org/pep-guide-part1.html",
+    },
+    {
+        "title": "FATF 40 Recommendations",
+        "hook": "Seven critical FATF Recommendations decoded, with visual memory cards, real-world scenarios, and the compliance decisions they drive daily.",
+        "url": "https://www.fincrimeradar.org/fatf-guide-part1.html",
     },
 ]
 
@@ -218,6 +363,7 @@ def build_digest_html(entries=None):
 
     return f"""<!DOCTYPE html>
 <html>
+<head><meta charset="utf-8"></head>
 <body style="font-family:Arial,sans-serif;background:#F4F6F3;padding:24px;color:#0C1B2A;">
   <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;">
     <div style="background:#071912;padding:28px 32px;">
@@ -231,11 +377,16 @@ def build_digest_html(entries=None):
       </div>
       {fincrime_week_html}
       <div style="margin-top:28px;">
-        <div style="color:#0B7A57;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">This week's tool</div>
+        <div style="color:#0B7A57;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">This week's tools</div>
         <div style="border:1px solid #E3E8E3;border-radius:8px;padding:16px 18px;margin-top:12px;">
           <div style="font-size:15px;font-weight:700;color:#0B7A57;">Scenario Lab</div>
           <p style="font-size:13px;line-height:1.6;color:#3D4E5C;margin:6px 0 10px 0;">Build the ownership tree, screen every entity, then make the call, approve, reject, or escalate. Two modules live now, KYC/KYB and Fraud Detection, 11 cases combined. Free, no signup.</p>
           <a href="{SITE}/scenario-lab.html" style="color:#0B7A57;text-decoration:none;font-weight:600;font-size:13px;">Try Scenario Lab &rarr;</a>
+        </div>
+        <div style="border:1px solid #E3E8E3;border-radius:8px;padding:16px 18px;margin-top:12px;">
+          <div style="font-size:15px;font-weight:700;color:#0B7A57;">Sanctions &amp; PEP Screening</div>
+          <p style="font-size:13px;line-height:1.6;color:#3D4E5C;margin:6px 0 10px 0;">Free real-time sanctions screening against OFAC, UN, EU, OFSI and 40+ global lists. PEP screening and adverse media search. No sign-up required.</p>
+          <a href="https://www.fincrimeradar.org/screen.html" style="color:#0B7A57;text-decoration:none;font-weight:600;font-size:13px;">Try the screening tool &rarr;</a>
         </div>
       </div>
       <p style="font-size:12px;color:#66757F;margin-top:28px;">
