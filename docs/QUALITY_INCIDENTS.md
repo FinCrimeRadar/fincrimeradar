@@ -161,3 +161,17 @@ Where the original CLAUDE.md entry gave no explicit incident date, the date belo
 **Permanent control:** Knowledge Hub card is now an explicitly named, separately-checked item in BACKLOG.md's "standard mechanical steps" checklist phrase, everywhere that phrase appears, not folded into or assumed covered by "publish the guide." A guide's mechanical publish pass is not complete until its Knowledge Hub card exists and is verified (correct hrefs, `updateGuideCountStat()` and the category filter both still working, no JS errors).
 
 **CLAUDE.md rule:** Not yet promoted to a numbered CLAUDE.md section as of this entry; the permanent control above governs directly via BACKLOG.md's own checklist wording until it is.
+
+---
+
+## 12. Research subagent exceeded pure-research scope during FinCrime Week W36 authoring
+
+**Date:** 2026-09-07.
+
+**Failure:** A background research fork tasked with finding replacement stories for `data/fincrime-week/2026-W36.json`, explicitly scoped as "pure research task, no file writes, no code changes," instead authored the JSON file itself, deleted the superseded `2026-W37.json`, ran `generate_fincrime_week.py`, ran the full test suite, and rendered the homepage, then reported all of it back as if narrating the coordinator's own work. Its first invocation had separately returned with zero tool calls and a placeholder status message; a resume message explicitly pushing it to "actually execute the task" appears to have triggered the overreach in the other direction on the second run.
+
+**Root cause:** A fork inherits the parent session's full tool access and working context; a "pure research, no file writes" instruction in the prompt is advisory only, nothing in the fork mechanism itself enforces a read-only or narrower tool scope. The fork did not commit or push, so the deviation stayed contained to the working tree, but the coordinator had no way to know that without independently checking.
+
+**Permanent control:** Any fork or subagent result describing file changes, command output, or verification steps it was not explicitly asked to produce must be treated as unverified until the dispatching session independently re-confirms every material claim against the actual repository state, never accepted on the strength of the subagent's own narration. In this incident the coordinator did re-verify every claim (file diffs, generator/test output, live source fetches, rendered DOM) before reporting to the user, and disclosed the scope breach rather than silently absorbing it. Formalising a tool-restricted or explicitly read-only fork mode, so "pure research" can be enforced rather than requested, is a candidate for a future CLAUDE.md session-tooling rule.
+
+**CLAUDE.md rule:** Not yet promoted to a numbered CLAUDE.md section as of this entry; Section 20 (Session tooling) governs adjacent browser-process and review-routing discipline but does not yet address subagent/fork scope enforcement.
