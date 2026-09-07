@@ -48,8 +48,42 @@
   .fcw-hero h1 { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; color:var(--navy); margin:0.6rem 0 0.75rem; }
   .fcw-hero p { color:var(--muted); font-size:15px; max-width:640px; }
 
-  .fcw-archive { max-width:900px; margin:0 auto; padding:1rem 1.5rem 4rem; }
+  .fcw-archive { max-width:1180px; margin:0 auto; padding:1rem 1.5rem 4rem; }
   .fcw-empty { color:var(--muted); font-size:15px; padding:2rem 0; }
+  .fcw-archive-layout { display:grid; grid-template-columns:260px 1fr; gap:2.5rem; align-items:start; }
+  .fcw-visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  /* Reset every property the bare nav{} rule above sets (that rule targets
+     the site header, not this component): position/top/z-index carry the
+     values this sidebar actually needs, the rest revert to normal so the
+     sidebar doesn't inherit header chrome. See QUALITY_INCIDENTS.md #1. */
+  .fcw-nav { position:sticky; top:88px; z-index:auto; display:block; align-items:normal; justify-content:normal; padding:0; height:auto; background:transparent; backdrop-filter:none; border-bottom:none; max-height:calc(100vh - 104px); overflow-y:auto; }
+  .fcw-nav-group { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin:1.25rem 0 0.5rem; }
+  .fcw-nav-group:first-child { margin-top:0; }
+  .fcw-nav-link { display:block; padding:8px 10px; border-radius:8px; text-decoration:none; color:var(--text); border-left:3px solid transparent; margin-bottom:2px; }
+  .fcw-nav-link:hover { background:var(--off); }
+  .fcw-nav-link.active, .fcw-nav-link[aria-current="true"] { background:#eafaf6; border-left-color:var(--accent); }
+  .fcw-nav-link:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .fcw-nav-week { display:block; font-size:13px; font-weight:600; color:var(--navy); }
+  .fcw-nav-range { display:block; font-size:11.5px; color:var(--muted); margin-top:1px; }
+
+  .fcw-mobile-select { display:none; }
+
+  /* Same bare nav{} collision as .fcw-nav above: reset position/z-index/
+     height/background/backdrop-filter/border-bottom explicitly. */
+  .fcw-pager { position:static; top:auto; z-index:auto; height:auto; background:transparent; backdrop-filter:none; border-bottom:none; display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:1.5rem; padding:1.25rem 0 0; border-top:1px solid var(--border); }
+  .fcw-pager-link { font-size:13px; font-weight:600; color:var(--accent); text-decoration:none; }
+  .fcw-pager-link:hover { text-decoration:underline; }
+  .fcw-pager-link:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .fcw-pager-next { margin-left:auto; text-align:right; }
+
+  @media(max-width:900px) {
+    .fcw-archive-layout { grid-template-columns:1fr; }
+    .fcw-nav { display:none; }
+    .fcw-mobile-select { display:block; width:100%; padding:12px 14px; margin-bottom:1.25rem; border:1px solid var(--border); border-radius:10px; background:var(--white); color:var(--text); font-family:inherit; font-size:14px; }
+    .fcw-mobile-select:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  }
+
   .fcw-issue { border:1px solid var(--border); border-radius:14px; background:var(--white); padding:1.75rem 2rem; margin-bottom:1.5rem; }
   .fcw-issue-head h2 { font-size:20px; color:var(--navy); margin:0 0 6px; }
   .fcw-byline { font-size:12.5px; color:var(--muted); margin:0 0 1.25rem; }
@@ -82,6 +116,13 @@
   footer a { color:var(--muted); text-decoration:none; margin:0 8px; }
   footer a:hover { color:var(--accent); }
 </style>
+<noscript>
+<style>
+.fcw-issue[hidden] {
+  display: block !important;
+}
+</style>
+</noscript>
 </head>
 <body>
 <nav>
@@ -116,7 +157,23 @@
 
 <div class="fcw-archive" id="archive">
 
-  <article class="fcw-issue" id="2026-W36">
+  <div class="fcw-archive-layout">
+    
+  <nav class="fcw-nav" aria-label="Weekly issue navigator">
+    <div class="fcw-nav-sticky">
+      <h2 class="fcw-nav-group">September 2026</h2>
+      <a class="fcw-nav-link" href="#2026-W36" data-week="2026-W36">
+        <span class="fcw-nav-week">Week 36</span>
+        <span class="fcw-nav-range">31 Aug to 06 Sep 2026</span>
+      </a>
+    </div>
+  </nav>
+    <div class="fcw-main">
+      
+  <label class="fcw-visually-hidden" for="fcwMobileSelect">Select a week</label>
+  <select class="fcw-mobile-select" id="fcwMobileSelect" aria-label="Select a week"><option value="2026-W36">Week 36 &middot; 31 Aug to 06 Sep 2026</option></select>
+      <div class="fcw-issues" id="fcwIssues">
+  <article class="fcw-issue" id="2026-W36" data-week="2026-W36">
     <header class="fcw-issue-head">
       <h2>31 Aug 2026 &ndash; 06 Sep 2026</h2>
       <p class="fcw-byline">
@@ -241,10 +298,71 @@
         </div>
       </div>
     </article>
+    
+    <nav class="fcw-pager" aria-label="Adjacent weekly issues">
+      <span class="fcw-pager-spacer"></span>
+      <span class="fcw-pager-spacer"></span>
+    </nav>
   </article>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="site-footer"></div>
 <script defer src="/js/site-chrome.js"></script>
+<script>
+(function () {
+  var issues = document.querySelectorAll('.fcw-issue');
+  if (!issues.length) { return; }
+
+  var navLinks = document.querySelectorAll('.fcw-nav-link');
+  var select = document.getElementById('fcwMobileSelect');
+  var defaultWeek = issues[0].id;
+
+  function isKnownWeek(week) {
+    return !!(week && document.getElementById(week));
+  }
+
+  function showWeek(week, updateHash) {
+    if (!isKnownWeek(week)) { week = defaultWeek; }
+    issues.forEach(function (el) { el.hidden = el.id !== week; });
+    navLinks.forEach(function (a) {
+      var active = a.getAttribute('data-week') === week;
+      a.classList.toggle('active', active);
+      if (active) { a.setAttribute('aria-current', 'true'); }
+      else { a.removeAttribute('aria-current'); }
+    });
+    if (select) { select.value = week; }
+    if (updateHash && history.replaceState) { history.replaceState(null, '', '#' + week); }
+  }
+
+  function currentHashWeek() {
+    return (location.hash || '').replace('#', '');
+  }
+
+  navLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      showWeek(a.getAttribute('data-week'), true);
+    });
+  });
+
+  document.querySelectorAll('[data-week-link]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      showWeek(a.getAttribute('data-week-link'), true);
+    });
+  });
+
+  if (select) {
+    select.addEventListener('change', function () { showWeek(select.value, true); });
+  }
+
+  window.addEventListener('hashchange', function () { showWeek(currentHashWeek(), false); });
+
+  showWeek(currentHashWeek() || defaultWeek, false);
+})();
+</script>
 </body>
 </html>

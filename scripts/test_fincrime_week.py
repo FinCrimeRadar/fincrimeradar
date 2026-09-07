@@ -400,5 +400,166 @@ class DigestFincrimeWeekTests(unittest.TestCase):
         self.assertIn("&lt;script&gt;", html)
 
 
+# ---------------- Archive navigator ----------------
+
+class NavigatorTests(unittest.TestCase):
+    def setUp(self):
+        # Three issues spanning a month boundary (Aug/Sep) and, separately,
+        # a pair spanning a year boundary (Dec 2026 / Jan 2027), built as
+        # plain dicts: these render functions consume already-validated
+        # data, they don't re-run validate_file, so the fixture dates only
+        # need to be internally consistent for grouping/ordering purposes.
+        self.w36 = make_issue(week="2026-W36", period_start="2026-08-31", period_end="2026-09-06", published_at="2026-09-06")
+        self.w37 = make_issue(week="2026-W37", period_start="2026-09-07", period_end="2026-09-13", published_at="2026-09-13")
+        self.w52 = make_issue(week="2026-W52", period_start="2026-12-21", period_end="2026-12-27", published_at="2026-12-27")
+        self.w01 = make_issue(week="2027-W01", period_start="2027-01-04", period_end="2027-01-10", published_at="2027-01-10")
+
+    def desc(self, *issues):
+        # (path, data) pairs in reverse-chronological order, as main()
+        # would build them; path is never used by these render functions.
+        return [(None, issue) for issue in issues]
+
+    def test_reverse_chronological_week_navigation(self):
+        issues_desc = self.desc(self.w37, self.w36)
+        nav_html = gen.render_navigator(issues_desc)
+        self.assertLess(nav_html.index("2026-W37"), nav_html.index("2026-W36"))
+
+    def test_month_grouping(self):
+        # w36 (31 Aug-06 Sep) and w37 (07-13 Sep) both end in September,
+        # so they must share one group even though w36 starts in August.
+        groups = gen.build_navigator_groups(self.desc(self.w37, self.w36))
+        self.assertEqual(len(groups), 1)
+        label, items = groups[0]
+        self.assertEqual(label, "September 2026")
+        self.assertEqual([i["week"] for i in items], ["2026-W37", "2026-W36"])
+
+    def test_week_spanning_month_boundary_groups_by_period_end(self):
+        # The exact case that motivated this correction: a week starting
+        # in August and ending in September must be grouped under
+        # September, not August.
+        groups = gen.build_navigator_groups(self.desc(self.w36))
+        self.assertEqual(groups, [("September 2026", [self.w36])])
+
+    def test_week_spanning_year_boundary_groups_by_period_end(self):
+        crossing = make_issue(
+            week="2026-W53", period_start="2026-12-28", period_end="2027-01-03", published_at="2027-01-03"
+        )
+        groups = gen.build_navigator_groups(self.desc(crossing))
+        self.assertEqual(groups, [("January 2027", [crossing])])
+
+    def test_year_grouping(self):
+        groups = gen.build_navigator_groups(self.desc(self.w01, self.w52))
+        self.assertEqual([label for label, _ in groups], ["January 2027", "December 2026"])
+        self.assertEqual(groups[0][1][0]["week"], "2027-W01")
+        self.assertEqual(groups[1][1][0]["week"], "2026-W52")
+
+    def test_group_order_is_reverse_chronological(self):
+        groups = gen.build_navigator_groups(self.desc(self.w01, self.w52, self.w37, self.w36))
+        self.assertEqual(
+            [label for label, _ in groups],
+            ["January 2027", "December 2026", "September 2026"],
+        )
+        # September 2026 group holds both w37 and w36, newest first.
+        self.assertEqual([d["week"] for d in groups[2][1]], ["2026-W37", "2026-W36"])
+
+    def test_latest_issue_selected_by_default(self):
+        issues_desc = self.desc(self.w37, self.w36)
+        page = gen.render_archive_page(issues_desc)
+        # The default week in ARCHIVE_SCRIPT is issues[0].id, the first
+        # .fcw-issue rendered, so the latest issue's article must come
+        # first in document order.
+        self.assertLess(
+            page.index('id="2026-W37"'),
+            page.index('id="2026-W36"'),
+        )
+        self.assertIn("var defaultWeek = issues[0].id;", page)
+
+    def test_direct_hash_targeting(self):
+        issues_desc = self.desc(self.w37, self.w36)
+        page = gen.render_archive_page(issues_desc)
+        self.assertIn('id="2026-W37"', page)
+        self.assertIn('id="2026-W36"', page)
+        self.assertIn('href="#2026-W37"', page)
+        self.assertIn("location.hash", page)
+        self.assertIn("currentHashWeek", page)
+
+    def test_previous_and_next_issue_links(self):
+        issues_desc = self.desc(self.w37, self.w36)  # newest first: index 0 = W37, index 1 = W36
+
+        newest_pager = gen.render_issue_pager(issues_desc, 0)
+        self.assertIn("fcw-pager-prev", newest_pager)
+        self.assertIn("2026-W36", newest_pager)
+        self.assertNotIn("fcw-pager-next", newest_pager)
+
+        oldest_pager = gen.render_issue_pager(issues_desc, 1)
+        self.assertIn("fcw-pager-next", oldest_pager)
+        self.assertIn("2026-W37", oldest_pager)
+        self.assertNotIn("fcw-pager-prev", oldest_pager)
+
+    def test_previous_and_next_with_middle_issue(self):
+        issues_desc = self.desc(self.w37, self.w36, make_issue(week="2026-W35", period_start="2026-08-24", period_end="2026-08-30", published_at="2026-08-30"))
+        middle_pager = gen.render_issue_pager(issues_desc, 1)
+        self.assertIn("fcw-pager-prev", middle_pager)
+        self.assertIn("fcw-pager-next", middle_pager)
+        self.assertIn("2026-W35", middle_pager)
+        self.assertIn("2026-W37", middle_pager)
+
+    def test_mobile_selector_generation(self):
+        issues_desc = self.desc(self.w37, self.w36)
+        select_html = gen.render_mobile_select(issues_desc)
+        self.assertEqual(select_html.count("<option"), 2)
+        self.assertIn('value="2026-W37"', select_html)
+        self.assertIn('value="2026-W36"', select_html)
+        self.assertLess(select_html.index("2026-W37"), select_html.index("2026-W36"))
+        self.assertIn('id="fcwMobileSelect"', select_html)
+        self.assertIn("aria-label=", select_html)
+
+    def test_empty_archive_behaviour(self):
+        page = gen.render_archive_page([])
+        self.assertIn("No FinCrime Week issues published yet", page)
+        self.assertNotIn('class="fcw-nav-link"', page)
+        self.assertNotIn("fcwMobileSelect", page)
+        self.assertEqual(gen.build_navigator_groups([]), [])
+        self.assertEqual(gen.render_navigator([]), "")
+        self.assertEqual(gen.render_mobile_select([]), "")
+
+    def test_latest_issue_not_hidden(self):
+        latest_article = gen.render_issue_article(self.w37, is_latest=True)
+        # No bare "hidden" token anywhere in the latest issue's own tag.
+        opening_tag = latest_article.split(">", 1)[0]
+        self.assertNotIn("hidden", opening_tag)
+
+    def test_historical_issues_initially_hidden(self):
+        older_article = gen.render_issue_article(self.w36, is_latest=False)
+        opening_tag = older_article.split(">", 1)[0]
+        self.assertIn("hidden", opening_tag)
+
+    def test_only_latest_issue_lacks_hidden_in_full_page(self):
+        issues_desc = self.desc(self.w37, self.w36, self.w52)
+        page = gen.render_archive_page(issues_desc)
+        self.assertIn(f'id="{self.w37["week"]}" data-week="{self.w37["week"]}">', page)
+        self.assertIn(f'id="{self.w36["week"]}" data-week="{self.w36["week"]}" hidden>', page)
+        self.assertIn(f'id="{self.w52["week"]}" data-week="{self.w52["week"]}" hidden>', page)
+
+    def test_noscript_fallback_present(self):
+        page = gen.render_archive_page(self.desc(self.w37, self.w36))
+        self.assertIn("<noscript>", page)
+        self.assertIn(".fcw-issue[hidden]", page)
+        self.assertIn("display: block !important;", page)
+
+    def test_switching_logic_maintains_one_visible_issue(self):
+        # ARCHIVE_SCRIPT's core invariant: every issue's hidden state is
+        # recomputed as a strict equality check against exactly one target
+        # week, which guarantees exactly one issue is ever unhidden at a
+        # time. This can't be executed here without a browser/JS engine
+        # (no new test dependency), so it's verified structurally and
+        # exercised for real in the manual browser smoke test.
+        self.assertIn("el.hidden = el.id !== week;", gen.ARCHIVE_SCRIPT)
+
+    def test_invalid_hash_falls_back_to_latest_issue(self):
+        self.assertIn("var defaultWeek = issues[0].id;", gen.ARCHIVE_SCRIPT)
+        self.assertIn("if (!isKnownWeek(week)) { week = defaultWeek; }", gen.ARCHIVE_SCRIPT)
+
+
 if __name__ == "__main__":
     unittest.main()

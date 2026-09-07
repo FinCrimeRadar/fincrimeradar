@@ -187,6 +187,16 @@ def _category_label(category):
     return category.replace("_", " ")
 
 
+def _week_label(week_str):
+    return f"Week {int(week_str.split('-W')[1])}"
+
+
+def _date_range_label(period_start, period_end):
+    start = date.fromisoformat(period_start)
+    end = date.fromisoformat(period_end)
+    return f"{start.strftime('%d %b')} to {end.strftime('%d %b %Y')}"
+
+
 def render_homepage_fragment(reference_date=None, data_dir=None):
     """Returns the HTML fragment for the homepage section, or an empty
     string when no eligible issue exists (or the eligible issue has no
@@ -284,10 +294,18 @@ def render_item_full(item):
     </article>"""
 
 
-def render_issue_article(data):
+def render_issue_article(data, pager_html="", is_latest=False):
+    """Only the latest issue renders visible. Every older issue renders
+    with the native `hidden` attribute already in the static markup, so
+    the browser never paints dozens of full issues before ARCHIVE_SCRIPT
+    gets a chance to hide them; ARCHIVE_SCRIPT only ever needs to flip
+    hidden on the (at most) two issues involved in a switch. The
+    <noscript> override in render_archive_page keeps every issue
+    readable when JavaScript is unavailable."""
     items_html = "".join(render_item_full(item) for item in data["items"])
+    hidden_attr = "" if is_latest else " hidden"
     return f"""
-  <article class="fcw-issue" id="{esc(data["week"])}">
+  <article class="fcw-issue" id="{esc(data["week"])}" data-week="{esc(data["week"])}"{hidden_attr}>
     <header class="fcw-issue-head">
       <h2>{_fmt_date(data["period_start"])} &ndash; {_fmt_date(data["period_end"])}</h2>
       <p class="fcw-byline">
@@ -296,7 +314,95 @@ def render_issue_article(data):
       </p>
     </header>
     {items_html}
+    {pager_html}
   </article>"""
+
+
+# ---------------- Archive navigator ----------------
+
+def build_navigator_groups(issues_desc):
+    """Groups (path, data) pairs, already sorted reverse-chronological by
+    published_at, into (month_label, [data, ...]) tuples keyed by the
+    calendar month and year of each issue's period_end (the week is
+    grouped under the month it concludes in, not the month it starts in,
+    so a week like 31 Aug-06 Sep groups under September). Purely
+    data-driven from whatever files exist, scales to any number of
+    issues with no hardcoded weeks."""
+    groups = []
+    current_key = None
+    for _, data in issues_desc:
+        end = date.fromisoformat(data["period_end"])
+        key = (end.year, end.month)
+        if key != current_key:
+            groups.append((end.strftime("%B %Y"), []))
+            current_key = key
+        groups[-1][1].append(data)
+    return groups
+
+
+def render_navigator(issues_desc):
+    if not issues_desc:
+        return ""
+    links_html = ""
+    for label, items in build_navigator_groups(issues_desc):
+        links_html += f'\n      <h2 class="fcw-nav-group">{esc(label)}</h2>'
+        for d in items:
+            links_html += f"""
+      <a class="fcw-nav-link" href="#{esc(d["week"])}" data-week="{esc(d["week"])}">
+        <span class="fcw-nav-week">{esc(_week_label(d["week"]))}</span>
+        <span class="fcw-nav-range">{esc(_date_range_label(d["period_start"], d["period_end"]))}</span>
+      </a>"""
+
+    return f"""
+  <nav class="fcw-nav" aria-label="Weekly issue navigator">
+    <div class="fcw-nav-sticky">{links_html}
+    </div>
+  </nav>"""
+
+
+def render_mobile_select(issues_desc):
+    if not issues_desc:
+        return ""
+    options = "".join(
+        f'<option value="{esc(d["week"])}">{esc(_week_label(d["week"]))} &middot; '
+        f'{esc(_date_range_label(d["period_start"], d["period_end"]))}</option>'
+        for _, d in issues_desc
+    )
+    return f"""
+  <label class="fcw-visually-hidden" for="fcwMobileSelect">Select a week</label>
+  <select class="fcw-mobile-select" id="fcwMobileSelect" aria-label="Select a week">{options}</select>"""
+
+
+def render_issue_pager(issues_desc, index):
+    """Previous week is the chronologically earlier issue (later in this
+    reverse-chronological list); next week is the chronologically later
+    one (earlier in the list). The latest issue has no next; the oldest
+    has no previous."""
+    prev_data = issues_desc[index + 1][1] if index + 1 < len(issues_desc) else None
+    next_data = issues_desc[index - 1][1] if index > 0 else None
+
+    def link(d, direction_class, text):
+        return (
+            f'<a class="fcw-pager-link {direction_class}" href="#{esc(d["week"])}" '
+            f'data-week-link="{esc(d["week"])}">{text}</a>'
+        )
+
+    prev_html = (
+        link(prev_data, "fcw-pager-prev", f'&larr; Previous week &middot; {esc(_week_label(prev_data["week"]))}')
+        if prev_data
+        else '<span class="fcw-pager-spacer"></span>'
+    )
+    next_html = (
+        link(next_data, "fcw-pager-next", f'Next week &middot; {esc(_week_label(next_data["week"]))} &rarr;')
+        if next_data
+        else '<span class="fcw-pager-spacer"></span>'
+    )
+
+    return f"""
+    <nav class="fcw-pager" aria-label="Adjacent weekly issues">
+      {prev_html}
+      {next_html}
+    </nav>"""
 
 
 PAGE_STYLE = """
@@ -334,8 +440,42 @@ PAGE_STYLE = """
   .fcw-hero h1 { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; color:var(--navy); margin:0.6rem 0 0.75rem; }
   .fcw-hero p { color:var(--muted); font-size:15px; max-width:640px; }
 
-  .fcw-archive { max-width:900px; margin:0 auto; padding:1rem 1.5rem 4rem; }
+  .fcw-archive { max-width:1180px; margin:0 auto; padding:1rem 1.5rem 4rem; }
   .fcw-empty { color:var(--muted); font-size:15px; padding:2rem 0; }
+  .fcw-archive-layout { display:grid; grid-template-columns:260px 1fr; gap:2.5rem; align-items:start; }
+  .fcw-visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  /* Reset every property the bare nav{} rule above sets (that rule targets
+     the site header, not this component): position/top/z-index carry the
+     values this sidebar actually needs, the rest revert to normal so the
+     sidebar doesn't inherit header chrome. See QUALITY_INCIDENTS.md #1. */
+  .fcw-nav { position:sticky; top:88px; z-index:auto; display:block; align-items:normal; justify-content:normal; padding:0; height:auto; background:transparent; backdrop-filter:none; border-bottom:none; max-height:calc(100vh - 104px); overflow-y:auto; }
+  .fcw-nav-group { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted); margin:1.25rem 0 0.5rem; }
+  .fcw-nav-group:first-child { margin-top:0; }
+  .fcw-nav-link { display:block; padding:8px 10px; border-radius:8px; text-decoration:none; color:var(--text); border-left:3px solid transparent; margin-bottom:2px; }
+  .fcw-nav-link:hover { background:var(--off); }
+  .fcw-nav-link.active, .fcw-nav-link[aria-current="true"] { background:#eafaf6; border-left-color:var(--accent); }
+  .fcw-nav-link:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .fcw-nav-week { display:block; font-size:13px; font-weight:600; color:var(--navy); }
+  .fcw-nav-range { display:block; font-size:11.5px; color:var(--muted); margin-top:1px; }
+
+  .fcw-mobile-select { display:none; }
+
+  /* Same bare nav{} collision as .fcw-nav above: reset position/z-index/
+     height/background/backdrop-filter/border-bottom explicitly. */
+  .fcw-pager { position:static; top:auto; z-index:auto; height:auto; background:transparent; backdrop-filter:none; border-bottom:none; display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-top:1.5rem; padding:1.25rem 0 0; border-top:1px solid var(--border); }
+  .fcw-pager-link { font-size:13px; font-weight:600; color:var(--accent); text-decoration:none; }
+  .fcw-pager-link:hover { text-decoration:underline; }
+  .fcw-pager-link:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .fcw-pager-next { margin-left:auto; text-align:right; }
+
+  @media(max-width:900px) {
+    .fcw-archive-layout { grid-template-columns:1fr; }
+    .fcw-nav { display:none; }
+    .fcw-mobile-select { display:block; width:100%; padding:12px 14px; margin-bottom:1.25rem; border:1px solid var(--border); border-radius:10px; background:var(--white); color:var(--text); font-family:inherit; font-size:14px; }
+    .fcw-mobile-select:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  }
+
   .fcw-issue { border:1px solid var(--border); border-radius:14px; background:var(--white); padding:1.75rem 2rem; margin-bottom:1.5rem; }
   .fcw-issue-head h2 { font-size:20px; color:var(--navy); margin:0 0 6px; }
   .fcw-byline { font-size:12.5px; color:var(--muted); margin:0 0 1.25rem; }
@@ -394,11 +534,82 @@ NAV_HTML = """<nav>
 </script>"""
 
 
+ARCHIVE_SCRIPT = """
+(function () {
+  var issues = document.querySelectorAll('.fcw-issue');
+  if (!issues.length) { return; }
+
+  var navLinks = document.querySelectorAll('.fcw-nav-link');
+  var select = document.getElementById('fcwMobileSelect');
+  var defaultWeek = issues[0].id;
+
+  function isKnownWeek(week) {
+    return !!(week && document.getElementById(week));
+  }
+
+  function showWeek(week, updateHash) {
+    if (!isKnownWeek(week)) { week = defaultWeek; }
+    issues.forEach(function (el) { el.hidden = el.id !== week; });
+    navLinks.forEach(function (a) {
+      var active = a.getAttribute('data-week') === week;
+      a.classList.toggle('active', active);
+      if (active) { a.setAttribute('aria-current', 'true'); }
+      else { a.removeAttribute('aria-current'); }
+    });
+    if (select) { select.value = week; }
+    if (updateHash && history.replaceState) { history.replaceState(null, '', '#' + week); }
+  }
+
+  function currentHashWeek() {
+    return (location.hash || '').replace('#', '');
+  }
+
+  navLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      showWeek(a.getAttribute('data-week'), true);
+    });
+  });
+
+  document.querySelectorAll('[data-week-link]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      showWeek(a.getAttribute('data-week-link'), true);
+    });
+  });
+
+  if (select) {
+    select.addEventListener('change', function () { showWeek(select.value, true); });
+  }
+
+  window.addEventListener('hashchange', function () { showWeek(currentHashWeek(), false); });
+
+  showWeek(currentHashWeek() || defaultWeek, false);
+})();
+"""
+
+
 def render_archive_page(issues_desc):
     if issues_desc:
-        body = "".join(render_issue_article(data) for _, data in issues_desc)
+        nav_html = render_navigator(issues_desc)
+        mobile_select_html = render_mobile_select(issues_desc)
+        issues_html = "".join(
+            render_issue_article(data, render_issue_pager(issues_desc, i), is_latest=(i == 0))
+            for i, (_, data) in enumerate(issues_desc)
+        )
+        body = f"""
+  <div class="fcw-archive-layout">
+    {nav_html}
+    <div class="fcw-main">
+      {mobile_select_html}
+      <div class="fcw-issues" id="fcwIssues">{issues_html}
+      </div>
+    </div>
+  </div>"""
+        script_tag = f"<script>{ARCHIVE_SCRIPT}</script>"
     else:
         body = '<p class="fcw-empty">No FinCrime Week issues published yet. Check back soon.</p>'
+        script_tag = ""
 
     return f"""<!DOCTYPE html>
 <html lang="en-GB">
@@ -416,6 +627,13 @@ def render_archive_page(issues_desc):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/brand.css">
 <style>{PAGE_STYLE}</style>
+<noscript>
+<style>
+.fcw-issue[hidden] {{
+  display: block !important;
+}}
+</style>
+</noscript>
 </head>
 <body>
 {NAV_HTML}
@@ -432,6 +650,7 @@ def render_archive_page(issues_desc):
 
 <div id="site-footer"></div>
 <script defer src="/js/site-chrome.js"></script>
+{script_tag}
 </body>
 </html>"""
 
