@@ -5505,7 +5505,7 @@
     "claimText": "Where a designated person owns more than 50% of an entity's shares or voting rights, can appoint or remove a majority of its board, or otherwise satisfies the applicable control test, that entity becomes subject to financial sanctions without needing to be separately named. Ownership (the shareholding limb) and control (board rights, or the ability to ensure the entity's affairs are conducted in accordance with the designated person's wishes) are separate tests, not one combined threshold.",
     "claimType": "regulatory",
     "source": {
-      "title": "Ownership and control: consolidated guidance",
+      "title": "Ownership and Control: Public Officials and Control guidance",
       "publisher": "GOV.UK",
       "date": "2026-01-01",
       "url": "https://www.gov.uk/government/publications/ownership-and-control-public-officials-and-control-guidance/ownership-and-control-public-officials-and-control-guidance"
@@ -5514,7 +5514,7 @@
     "verifiedOn": "2026-09-07",
     "reviewDue": "2027-09-07",
     "location": "Part 1, 'Who actually gets targeted', route 4; Worked Scenario 2",
-    "note": "Jurisdiction: UK. This is the single most consequential mechanic in the guide; approved wording keeps the shareholding limb and the control limb explicitly separate rather than one combined threshold. URL corrected 7 Sep 2026: gov.uk restructured this guidance to the longer /ownership-and-control-public-officials-and-control-guidance/ path; content re-verified at the new path (>50% shareholding, board appointment rights, de facto control)."
+    "note": "Jurisdiction: UK. This is the single most consequential mechanic in the guide; approved wording keeps the shareholding limb and the control limb explicitly separate rather than one combined threshold. URL corrected 7 Sep 2026: gov.uk restructured this guidance to the longer /ownership-and-control-public-officials-and-control-guidance/ path; content re-verified at the new path (>50% shareholding, board appointment rights, de facto control). Title corrected 7 Sep 2026 (separate pass, same day): source.title read \"Ownership and control: consolidated guidance\", a paraphrase; the live page's own h1 and og:title both read exactly \"Ownership and Control: Public Officials and Control guidance\", now matched verbatim. Cosmetic only, the url was already correct."
   },
   {
     "claimId": "shadow-fleet-guide-part1.g02-ofsi-enforcement-aggravating-factor.002",
