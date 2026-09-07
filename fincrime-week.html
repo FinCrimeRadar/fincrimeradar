@@ -115,7 +115,133 @@
 </div>
 
 <div class="fcw-archive" id="archive">
-<p class="fcw-empty">No FinCrime Week issues published yet. Check back soon.</p>
+
+  <article class="fcw-issue" id="2026-W36">
+    <header class="fcw-issue-head">
+      <h2>31 Aug 2026 &ndash; 06 Sep 2026</h2>
+      <p class="fcw-byline">
+        Written by Pratik Zanke &middot; Published 07 Sep 2026
+        &middot; <a href="/editorial-standards.html">Editorial standards</a>
+      </p>
+    </header>
+    
+    <article class="fcw-story">
+      <h3>OFSI fines Citibank&#x27;s London branch £4.73m over sustained Russia sanctions breaches</h3>
+      <p class="fcw-story-meta">
+        ENFORCEMENT &middot; SANCTIONS &middot; UK
+        &middot; <a href="https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch" rel="noopener" target="_blank">HM Treasury (OFSI)</a>
+        <span class="fcw-primary-badge">Primary source</span>
+      </p>
+      <div class="callout info">
+        <div class="callout-icon">&#128220;</div>
+        <div class="callout-body">
+          <div class="callout-title">What happened</div>
+          <div class="callout-text">OFSI imposed a £4,732,830.58 civil monetary penalty on Citibank, N.A.&#x27;s London branch under section 146 of the Policing and Crime Act 2017, for breaches of the Russia (Sanctions) (EU Exit) Regulations 2019 and the Global Anti-Corruption Sanctions Regulations 2021. Across eight separate breach categories, the bank processed 970 payments worth a combined £19.7m involving designated persons and banks including Alfa-Bank, Gazprombank and Credit Bank of Moscow, largely in the year following Russia&#x27;s 2022 invasion of Ukraine. OFSI rated the case Level 4, its most serious category, and applied a 40% combined discount for voluntary disclosure, cooperation and early settlement against a baseline penalty of £7.89m.</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <div class="callout-title">Why it matters</div>
+          <div class="callout-text">This is one of the most detailed public OFSI penalty notices to date on how a major correspondent bank&#x27;s sanctions controls actually failed under sustained pressure, not through deliberate evasion but through screening calibration gaps, alert backlogs and slow escalation. The notice gives firms a concrete benchmark for reviewing whether sanctions screening, alert handling and escalation controls can withstand a sudden increase in designation volume and operational pressure.</div>
+        </div>
+      </div>
+      <div class="callout new">
+        <div class="callout-icon">&#128225;</div>
+        <div class="callout-body">
+          <div class="callout-title">Radar implication</div>
+          <div class="callout-text">Two specific control gaps are worth checking against your own systems: first, whether your screening logic correctly matches designated entities that appear in your KYC records under a variant legal form (OFSI found Citibank&#x27;s system treated &#x27;Sovcomflot&#x27; and &#x27;PAO Sovcomflot&#x27; as different names, missing 32 accounts entirely). Second, whether your correspondent banking payment chain is re-screened after correspondent banks are added automatically, not only at initial payment creation, since Citibank&#x27;s screening ran before its own payment processor inserted the correspondent bank into 19 payments to designated Russian institutions. Also review your frozen-asset reporting SLAs: OFSI treated a 274-day average delay across 53 reports as an aggravating factor in its own right.</div>
+        </div>
+      </div>
+    </article>
+    <article class="fcw-story">
+      <h3>FinCEN flags $12.7bn in suspected &#x27;pig butchering&#x27; crypto scam activity since 2023</h3>
+      <p class="fcw-story-meta">
+        CRITICAL &middot; CRYPTO &middot; US
+        &middot; <a href="https://www.fincen.gov/news/news-releases/fincen-identifies-nearly-13-billion-linked-suspected-digital-asset-scams" rel="noopener" target="_blank">FinCEN</a>
+        <span class="fcw-primary-badge">Primary source</span>
+      </p>
+      <div class="callout info">
+        <div class="callout-icon">&#128220;</div>
+        <div class="callout-body">
+          <div class="callout-title">What happened</div>
+          <div class="callout-text">FinCEN analysed 33,904 Bank Secrecy Act reports filed between September 2023 and December 2025 and identified approximately $12.7bn in financial activity linked to suspected &#x27;pig butchering&#x27; and romance-baiting investment scams, run largely by transnational criminal groups operating scam compounds in Southeast Asia. The alert details the scam lifecycle, from fake investment platforms and &#x27;guarantee marketplaces&#x27; selling laundering and phishing services, through shell companies, money mules and stablecoin transfers, and encourages 314(b) information sharing between institutions.</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <div class="callout-title">Why it matters</div>
+          <div class="callout-text">This is a scale confirmation, not a new typology: FinCEN is telling institutions that reported pig-butchering activity has already reached a size that should be showing up in aggregate suspicious-activity trends, not just isolated case referrals. Firms that haven&#x27;t yet mapped this typology into their transaction monitoring rules are working from an outdated risk picture.</div>
+        </div>
+      </div>
+      <div class="callout new">
+        <div class="callout-icon">&#128225;</div>
+        <div class="callout-body">
+          <div class="callout-title">Radar implication</div>
+          <div class="callout-text">Check whether your TM rules and SAR narratives already reference the specific red flags FinCEN lists, romance or relationship-initiated contact preceding a funding request, &#x27;guarantee marketplace&#x27; style third-party facilitation fees, and rapid conversion through stablecoins to obscure the trail, rather than generic &#x27;crypto exposure&#x27; flags. If your CDD refresh triggers don&#x27;t currently include a pattern of small test transfers followed by escalating amounts to a single new counterparty, that&#x27;s the specific behavioural sequence this alert describes and worth adding now, alongside considering whether Section 314(b) information sharing is appropriate with eligible participating financial institutions where the activity may involve money laundering or terrorist activity.</div>
+        </div>
+      </div>
+    </article>
+    <article class="fcw-story">
+      <h3>SEC charges Pacific Private Money Group executives in $80m+ Ponzi-like real estate fund scheme</h3>
+      <p class="fcw-story-meta">
+        ENFORCEMENT &middot; FRAUD &middot; US
+        &middot; <a href="https://www.sec.gov/newsroom/press-releases/2026-82-sec-charges-san-francisco-bay-area-private-fund-executives-multimillion-dollar-ponzi-scheme" rel="noopener" target="_blank">US Securities and Exchange Commission</a>
+        <span class="fcw-primary-badge">Primary source</span>
+      </p>
+      <div class="callout info">
+        <div class="callout-icon">&#128220;</div>
+        <div class="callout-body">
+          <div class="callout-title">What happened</div>
+          <div class="callout-text">The SEC charged Mark D. Hanf, former CEO of Pacific Private Money Group LLC, and Hoai-Nam Chu Phan (Nam Phan), former COO of a PPMG subsidiary, over a Ponzi-like scheme run from December 2021 to November 2025. The Novato, California-based fund raised over $80m from roughly 190 mostly retail investors, many retired senior citizens, on promises of guaranteed returns from real estate-secured loans. The SEC alleges returns were largely paid from new investor money rather than genuine loan income, that Hanf personally misappropriated more than $7m, and that outstanding investor obligations of approximately $121m are backed by less than $17m in recoverable assets.</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <div class="callout-title">Why it matters</div>
+          <div class="callout-text">The victim profile, retired, mostly retail investors relying on a &#x27;guaranteed return&#x27; real estate product, is the same demographic regulators keep flagging as high-risk for unregulated or semi-regulated investment schemes. The SEC alleges the conduct continued from December 2021 until November 2025, illustrating how a private fund can continue attracting and servicing investors for years before an alleged funding mismatch becomes publicly visible.</div>
+        </div>
+      </div>
+      <div class="callout new">
+        <div class="callout-icon">&#128225;</div>
+        <div class="callout-body">
+          <div class="callout-title">Radar implication</div>
+          <div class="callout-text">For firms exposed to private real estate lending funds, promised fixed returns combined with limited visibility into underlying loan performance and funding flows should trigger closer due diligence. The SEC&#x27;s allegation here is that returns were funded largely from new investor capital rather than earnings from the stated lending activity.</div>
+        </div>
+      </div>
+    </article>
+    <article class="fcw-story">
+      <h3>FCA decides to ban and fine adviser £742,700 over unauthorised pension transfer advice</h3>
+      <p class="fcw-story-meta">
+        ENFORCEMENT &middot; FRAUD &middot; UK
+        &middot; <a href="https://www.fca.org.uk/news/press-releases/fca-ban-fine-daniel-thomas-unauthorised-pension-transfer-advice" rel="noopener" target="_blank">Financial Conduct Authority</a>
+        <span class="fcw-primary-badge">Primary source</span>
+      </p>
+      <div class="callout info">
+        <div class="callout-icon">&#128220;</div>
+        <div class="callout-body">
+          <div class="callout-title">What happened</div>
+          <div class="callout-text">The FCA has decided to ban Daniel Thomas, a director at DPT Financial Solutions Limited (an appointed representative of Quilter Financial Services), from working in financial services and fine him £742,700 after provisionally finding that he recklessly gave defined benefit pension transfer advice he was neither qualified nor permitted to provide. Thomas has referred the Decision Notice to the Upper Tribunal, so the findings remain provisional and the FCA will take no action until the Tribunal reaches its decision. Thomas advised 53 clients across 63 transfer cases, some of them British Steel Pension Scheme members the FCA regards as particularly vulnerable, earning over £173,000 in fees. The FCA provisionally found that he misled clients and pension providers about his qualifications, separately provided misleading information to his principal firm about his involvement in the pension transfer cases, destroyed client records, and failed to cooperate with the investigation.</div>
+        </div>
+      </div>
+      <div class="callout warning">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <div class="callout-title">Why it matters</div>
+          <div class="callout-text">This case combines two of the FCA&#x27;s longest-running concerns, unqualified individuals giving DB transfer advice through an appointed representative structure, and evidence destruction to obstruct supervision, in a single enforcement action against a named individual rather than just the firm.</div>
+        </div>
+      </div>
+      <div class="callout new">
+        <div class="callout-icon">&#128225;</div>
+        <div class="callout-body">
+          <div class="callout-title">Radar implication</div>
+          <div class="callout-text">The FCA provisionally found that Thomas misled clients and pension providers about his qualifications, and separately provided misleading information to his principal firm about his involvement in the pension transfer cases, two distinct misrepresentations to two different audiences. If your firm operates an appointed representative network for regulated advice, particularly DB pension transfers, check whether your oversight verifies each adviser&#x27;s individual qualification status against the specific permission being exercised independently of what the AR itself reports, and whether your record-retention controls would detect an adviser selectively destroying client files.</div>
+        </div>
+      </div>
+    </article>
+  </article>
 </div>
 
 <div id="site-footer"></div>
