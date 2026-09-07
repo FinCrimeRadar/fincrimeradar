@@ -70,6 +70,17 @@ GUIDE_LIBRARY = [
     },
 ]
 
+# Manually curated only, never automated. No LLM or web-search generation
+# for this list, ever, without a separate explicit decision to change that:
+# this digest sends unattended on a schedule with no founder-review gate
+# before send, unlike guide content, which goes through drafting, ledger
+# reconciliation, and adversarial review first. Pratik adds entries here by
+# hand as items come up. Each entry's "url" must be the primary source
+# (regulator, court, or government page), not a news aggregator or law-firm
+# summary, and is the sole support for any fact the "note" line asserts.
+# Starts empty; get_this_weeks_news() below handles that without erroring.
+NEWS_ROUNDUP_LIBRARY = []
+
 
 def get_this_weeks_guides(guide_library, count=3, reference_date=None):
     """
@@ -95,6 +106,36 @@ def get_this_weeks_guides(guide_library, count=3, reference_date=None):
     for offset in range(count):
         idx = (start_index + offset) % len(guide_library)
         selected.append(guide_library[idx])
+
+    return selected
+
+
+def get_this_weeks_news(news_library, count=2, reference_date=None):
+    """
+    Same deterministic ISO-week rotation as get_this_weeks_guides(), copied
+    structurally rather than reinventing it. One difference: news_library is
+    manually curated and starts empty, so an empty library returns [] here
+    instead of raising, letting the digest still send with no news section
+    while the library is thin, rather than failing the whole job over it.
+    """
+    if not news_library:
+        return []
+    if count > len(news_library):
+        raise ValueError(
+            f"count ({count}) exceeds news_library size ({len(news_library)}), "
+            "cannot select without repeating a news item in the same digest"
+        )
+
+    reference_date = reference_date or date.today()
+    iso_year, iso_week, _ = reference_date.isocalendar()
+
+    # Stable seed independent of dict/list ordering quirks
+    start_index = (iso_year * 52 + iso_week) % len(news_library)
+
+    selected = []
+    for offset in range(count):
+        idx = (start_index + offset) % len(news_library)
+        selected.append(news_library[idx])
 
     return selected
 
@@ -178,6 +219,27 @@ def build_digest_html(entries=None):
           <a href="{g['url']}" style="color:#0B7A57;text-decoration:none;font-weight:600;font-size:13px;">Read the guide &rarr;</a>
         </div>"""
 
+    # Manually curated only, see NEWS_ROUNDUP_LIBRARY's own comment. Renders
+    # nothing at all, no header, no placeholder, when the library is empty
+    # or this week's selection is empty, rather than shipping an empty
+    # section.
+    news_items = get_this_weeks_news(NEWS_ROUNDUP_LIBRARY)
+    news_section_html = ""
+    if news_items:
+        news_html = ""
+        for n in news_items:
+            news_html += f"""
+        <div style="border:1px solid #E3E8E3;border-radius:8px;padding:16px 18px;margin-top:12px;">
+          <div style="font-size:15px;font-weight:700;color:#0B7A57;">{n['headline']}</div>
+          <p style="font-size:13px;line-height:1.6;color:#3D4E5C;margin:6px 0 10px 0;">{n['note']}</p>
+          <a href="{n['url']}" style="color:#0B7A57;text-decoration:none;font-weight:600;font-size:13px;">Read the source &rarr;</a>
+        </div>"""
+        news_section_html = f"""
+      <div style="margin-top:28px;">
+        <div style="color:#0B7A57;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">This week in financial crime</div>
+        {news_html}
+      </div>"""
+
     return f"""<!DOCTYPE html>
 <html>
 <body style="font-family:Arial,sans-serif;background:#F4F6F3;padding:24px;color:#0C1B2A;">
@@ -191,7 +253,7 @@ def build_digest_html(entries=None):
         <div style="color:#0B7A57;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">This week's guides</div>
         {guides_html}
       </div>
-      <!-- RESERVED: "This week in financial crime" news roundup section goes here in a future update. Do not build yet. -->
+      {news_section_html}
       <div style="margin-top:28px;">
         <div style="color:#0B7A57;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;">This week's tool</div>
         <div style="border:1px solid #E3E8E3;border-radius:8px;padding:16px 18px;margin-top:12px;">
