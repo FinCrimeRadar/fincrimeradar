@@ -5406,13 +5406,13 @@
       "title": "Ownership and Control: Public Officials and Control guidance",
       "publisher": "GOV.UK",
       "date": "2026-01-01",
-      "url": "https://www.gov.uk/government/publications/financial-sanctions-consolidated-list-of-targets/consolidated-list-of-targets"
+      "url": "https://www.gov.uk/government/publications/ownership-and-control-public-officials-and-control-guidance/ownership-and-control-public-officials-and-control-guidance"
     },
     "status": "verified",
-    "verifiedOn": "2026-08-24",
-    "reviewDue": "2027-08-24",
+    "verifiedOn": "2026-09-07",
+    "reviewDue": "2027-09-07",
     "location": "Part 1, 'What a vessel sanction actually is, mechanically'",
-    "note": "Jurisdiction: UK. Approved wording distinguishes the two mechanisms (designation of a person vs specification of a ship) and their different consequences; does not conflate an asset freeze with vessel-specific restrictions."
+    "note": "Jurisdiction: UK. Approved wording distinguishes the two mechanisms (designation of a person vs specification of a ship) and their different consequences; does not conflate an asset freeze with vessel-specific restrictions. URL corrected 7 Sep 2026: the previously recorded url pointed to the Consolidated List of Targets, an unrelated page that does not establish the designated-vs-specified distinction; the title field was already correct. Content re-verified at the corrected url: the guidance states \"If a person (which includes an entity) is designated, or a ship is specified, under regulations made under the Sanctions and Anti-Money Laundering Act 2018...\", directly supporting this claim. Same underlying defect as the live public citation (src-4) in shadow-fleet-guide-part1.html, corrected in the same pass, not a separate issue from the one logged as cosmetic in the prior round."
   },
   {
     "claimId": "shadow-fleet-guide-part1.g01-specification-restrictions.001",
