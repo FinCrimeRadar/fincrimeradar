@@ -26,7 +26,7 @@ def load_latest_published_fincrime_week(reference_date=None, data_dir=None):
     Scans every data/fincrime-week/*.json file and returns the full issue
     dict for the file with the greatest published_at that is <=
     reference_date (default: today). Never derives the target filename from
-    reference_date's own ISO week: the Monday 08:00 UTC digest send always
+    reference_date's own ISO week: the Tuesday 08:00 UTC digest send always
     falls at the start of a new ISO week relative to the file it needs, so
     the file must be found by scanning published_at values, not by
     computing a filename. Returns None when no eligible file exists.

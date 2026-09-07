@@ -1,10 +1,14 @@
 name: Weekly Compliance Digest
 
-# Runs every Monday morning, after a full week of delta tracker output
-# has had time to accumulate. Can also be triggered manually for testing.
+# Runs every Tuesday morning, after a full week of delta tracker output
+# has had time to accumulate, and a day after FinCrime Week's Monday
+# manual publication, so load_latest_published_fincrime_week() reads a
+# genuinely finished issue rather than racing a same-day publish and
+# silently falling back to the prior week's issue. Can also be
+# triggered manually for testing.
 on:
   schedule:
-    - cron: "0 8 * * 1"
+    - cron: "0 8 * * 2"
   workflow_dispatch:
 
 permissions:
