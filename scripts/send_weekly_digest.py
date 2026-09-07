@@ -221,11 +221,25 @@ GUIDE_LIBRARY = [
 ]
 
 
+EPOCH_MONDAY = date(2024, 1, 1)  # any fixed Monday works as the epoch
+
+
 def get_this_weeks_guides(guide_library, count=3, reference_date=None):
     """
-    Deterministically rotate through guide_library based on ISO week number.
-    Same week always yields the same selection (reproducible, auditable).
-    Advances every week, never repeats until the full library has cycled.
+    Deterministically rotate through guide_library based on a monotonic
+    count of calendar weeks since a fixed epoch Monday. Same week always
+    yields the same selection (reproducible, auditable). Advances by
+    exactly one position every calendar week and never repeats until the
+    full library has cycled, with no collision at a year boundary.
+
+    Deliberately not based on iso_year/iso_week arithmetic: a formula
+    like (iso_year * 52 + iso_week) assumes every ISO year has exactly
+    52 weeks, but some have 53 (2026 is one), so that formula produced
+    the same index for two different, consecutive calendar weeks at the
+    2026-W53 -> 2027-W01 boundary. Counting whole weeks elapsed since a
+    fixed Monday sidesteps ISO year length entirely: every real calendar
+    week advances the count by exactly 1, regardless of how many ISO
+    weeks the year it falls in has.
     """
     if not guide_library:
         raise ValueError("guide_library is empty, cannot select guides for digest")
@@ -237,9 +251,10 @@ def get_this_weeks_guides(guide_library, count=3, reference_date=None):
 
     reference_date = reference_date or date.today()
     iso_year, iso_week, _ = reference_date.isocalendar()
+    monday_of_week = date.fromisocalendar(iso_year, iso_week, 1)
+    weeks_since_epoch = (monday_of_week - EPOCH_MONDAY).days // 7
 
-    # Stable seed independent of dict/list ordering quirks
-    start_index = (iso_year * 52 + iso_week) % len(guide_library)
+    start_index = weeks_since_epoch % len(guide_library)
 
     selected = []
     for offset in range(count):

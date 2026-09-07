@@ -400,6 +400,59 @@ class DigestFincrimeWeekTests(unittest.TestCase):
         self.assertIn("&lt;script&gt;", html)
 
 
+# ---------------- get_this_weeks_guides() rotation ----------------
+
+class GuideRotationTests(unittest.TestCase):
+    """Regression coverage for the 2026-W53 -> 2027-W01 ISO year boundary
+    collision: the old (iso_year * 52 + iso_week) formula assumed every
+    ISO year has exactly 52 weeks, so it produced the same start_index
+    for both of those two different, consecutive calendar weeks. Pins
+    that exact case so this regression can't silently return."""
+
+    def test_2026_w53_and_2027_w01_produce_different_picks(self):
+        w53_picks = digest.get_this_weeks_guides(
+            digest.GUIDE_LIBRARY, count=3, reference_date=date(2026, 12, 28)
+        )
+        w01_picks = digest.get_this_weeks_guides(
+            digest.GUIDE_LIBRARY, count=3, reference_date=date(2027, 1, 4)
+        )
+        self.assertNotEqual(
+            [g["title"] for g in w53_picks],
+            [g["title"] for g in w01_picks],
+        )
+
+    def test_no_repeat_across_32_weeks_spanning_the_2026_boundary(self):
+        lib_size = len(digest.GUIDE_LIBRARY)
+        appearances = {}
+        start = date(2026, 9, 7)
+        for offset in range(lib_size):
+            ref = start + timedelta(weeks=offset)
+            picks = digest.get_this_weeks_guides(digest.GUIDE_LIBRARY, count=3, reference_date=ref)
+            titles = [p["title"] for p in picks]
+            self.assertEqual(len(set(titles)), 3, f"duplicate within one week at offset {offset}")
+            for t in titles:
+                appearances[t] = appearances.get(t, 0) + 1
+        self.assertEqual(len(appearances), lib_size)
+        self.assertEqual(set(appearances.values()), {3})
+
+    def test_no_repeat_across_32_weeks_spanning_the_2032_boundary(self):
+        # 2032 is the next 53-ISO-week year after 2026; confirms the fix
+        # generalises rather than happening to work only for the one
+        # boundary that originally exposed the bug.
+        lib_size = len(digest.GUIDE_LIBRARY)
+        appearances = {}
+        start = date(2032, 12, 6)
+        for offset in range(lib_size):
+            ref = start + timedelta(weeks=offset)
+            picks = digest.get_this_weeks_guides(digest.GUIDE_LIBRARY, count=3, reference_date=ref)
+            titles = [p["title"] for p in picks]
+            self.assertEqual(len(set(titles)), 3, f"duplicate within one week at offset {offset}")
+            for t in titles:
+                appearances[t] = appearances.get(t, 0) + 1
+        self.assertEqual(len(appearances), lib_size)
+        self.assertEqual(set(appearances.values()), {3})
+
+
 # ---------------- Archive navigator ----------------
 
 class NavigatorTests(unittest.TestCase):
