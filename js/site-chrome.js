@@ -20,6 +20,11 @@
   var NAV_PARTIAL_URL = '/partials/nav.html';
   var FOOTER_PARTIAL_URL = '/partials/footer.html';
   var COOKIE_CONSENT_KEY = 'fcr_cookie_consent_v2';
+  var FUNDING_CHOICES_POLL_MS = 500;
+
+  // Only one Funding Choices watcher may run at a time. Holds the active
+  // watcher's cleanup function, or null when no watcher is running.
+  var activeFundingChoicesCleanup = null;
 
   // Minimal inline fallbacks used only if a partial fails to load,
   // so a network blip never leaves a page with no way home and no legal footer.
@@ -114,6 +119,102 @@
   }
 
   /**
+   * Watches Funding Choices' displayStatus until it is no longer 'visible',
+   * then reveals the analytics banner. Combines two mechanisms because
+   * neither is safe alone:
+   *
+   * - addEventListener reacts fast, but this CMP (and potentially others)
+   *   does not put displayStatus on the tcData object it delivers, so a
+   *   listener firing tells us nothing by itself, only that it's worth
+   *   re-checking via ping right now.
+   * - A recurring ping poll is the only mechanism actually guaranteed to
+   *   notice the visible-to-hidden transition: nothing requires Funding
+   *   Choices to emit another TCF event when its UI clears, so a
+   *   listener-only design can wait forever for an event that never comes.
+   *
+   * Recursive setTimeout, not setInterval, so a slow ping can never cause
+   * overlapping polls. Only one watcher may be active per page at a time.
+   * Cleans up its timer and listener exactly once, on resolution or on
+   * pagehide, whichever comes first. Never forces Funding Choices visible,
+   * never touches its iframe, never uses getTCData, never writes or
+   * manufactures TCF consent state, only reads ping's own displayStatus.
+   */
+  function watchFundingChoicesUntilClear(banner) {
+    if (activeFundingChoicesCleanup) return;
+
+    var resolved = false;
+    var timerId = null;
+    var listenerId = null;
+
+    function cleanup() {
+      if (resolved) return;
+      resolved = true;
+      if (timerId) {
+        clearTimeout(timerId);
+        timerId = null;
+      }
+      if (listenerId) {
+        try {
+          window.__tcfapi('removeEventListener', 2, function () {}, listenerId);
+        } catch (error) {
+          console.error('Could not remove TCF listener:', error);
+        }
+        listenerId = null;
+      }
+      document.removeEventListener('pagehide', cleanup);
+      activeFundingChoicesCleanup = null;
+    }
+
+    function reveal() {
+      if (resolved) return;
+      banner.style.display = 'flex';
+      cleanup();
+    }
+
+    function checkNow() {
+      if (resolved) return;
+      if (timerId) {
+        clearTimeout(timerId);
+        timerId = null;
+      }
+      try {
+        window.__tcfapi('ping', 2, function (pingReturn) {
+          if (resolved) return;
+          if (!pingReturn || pingReturn.displayStatus !== 'visible') {
+            reveal();
+          } else {
+            timerId = setTimeout(checkNow, FUNDING_CHOICES_POLL_MS);
+          }
+        });
+      } catch (error) {
+        console.error('TCF polling check failed:', error);
+        reveal();
+      }
+    }
+
+    activeFundingChoicesCleanup = cleanup;
+    document.addEventListener('pagehide', cleanup);
+
+    try {
+      window.__tcfapi('addEventListener', 2, function (tcData, success) {
+        if (resolved || !success) return;
+        listenerId = tcData && tcData.listenerId;
+        checkNow();
+      });
+    } catch (error) {
+      console.error('TCF listener registration failed:', error);
+    }
+
+    // Bootstraps the first poll. Guarded rather than unconditional: if the
+    // addEventListener callback above already fired synchronously and its
+    // own checkNow() already resolved or scheduled a timer, this must not
+    // overwrite timerId and orphan that pending timer.
+    if (!resolved && !timerId) {
+      timerId = setTimeout(checkNow, FUNDING_CHOICES_POLL_MS);
+    }
+  }
+
+  /**
    * Shows the analytics banner, unless Funding Choices is actively displaying
    * its own TCF UI right now, in which case it waits for that to clear first
    * so the two consent interfaces never stack. Uses only the supported TCF
@@ -153,15 +254,8 @@
       if (typeof window.__tcfapi === 'function') {
         coordinated = true;
         window.__tcfapi('ping', 2, function (pingReturn) {
-          if (pingReturn && pingReturn.displayStatus && pingReturn.displayStatus !== 'hidden') {
-            window.__tcfapi('addEventListener', 2, function (tcData, success) {
-              if (success && tcData && tcData.displayStatus === 'hidden') {
-                banner.style.display = 'flex';
-                if (tcData.listenerId) {
-                  window.__tcfapi('removeEventListener', 2, function () {}, tcData.listenerId);
-                }
-              }
-            });
+          if (pingReturn && pingReturn.displayStatus === 'visible') {
+            watchFundingChoicesUntilClear(banner);
           } else {
             banner.style.display = 'flex';
           }
