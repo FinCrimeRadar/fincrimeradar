@@ -548,7 +548,7 @@
           <a href="/privacy.html" class="footer-link">Privacy Policy</a>
           <a href="/editorial-standards.html" class="footer-link">Editorial Standards</a>
           <a href="/methodology.html" class="footer-link">Methodology</a>
-          <a href="#" onclick="window.googlefc && window.googlefc.callbackQueue && window.googlefc.callbackQueue.push([window.googlefc.CALLBACK_QUEUE_TYPE_KEY.MANAGE_CONSENT_OVERLAY]); return false;" class="footer-link">Manage cookie preferences</a>
+          <a href="#" onclick="window.googlefc && window.googlefc.callbackQueue && typeof window.googlefc.showRevocationMessage === 'function' && window.googlefc.callbackQueue.push(window.googlefc.showRevocationMessage); return false;" class="footer-link">Manage cookie preferences</a>
           <a href="/terms.html" class="footer-link">Terms of Service</a>
           <a href="https://github.com/FinCrimeRadar/fincrimeradar" target="_blank" rel="noopener" class="footer-link">Open Source</a>
           <a href="/supporters.html" class="footer-link">Supporters</a>
