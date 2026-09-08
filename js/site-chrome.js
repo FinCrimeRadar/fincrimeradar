@@ -76,14 +76,15 @@
     }
   }
 
+  // This banner is analytics-only. Google Funding Choices (loaded separately)
+  // is the sole authority for advertising and TCF consent; it must never be
+  // granted, denied, or otherwise touched from here. See CLAUDE.md's consent
+  // architecture note for the rationale.
   function acceptCookies() {
     localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
     if (typeof gtag === 'function') {
       gtag('consent', 'update', {
-        'analytics_storage': 'granted',
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'denied'
+        'analytics_storage': 'granted'
       });
     }
     document.getElementById('cookieBanner').style.display = 'none';
@@ -93,18 +94,45 @@
     localStorage.setItem('fcr_cookie_consent_v2', 'rejected');
     if (typeof gtag === 'function') {
       gtag('consent', 'update', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied'
+        'analytics_storage': 'denied'
       });
     }
     document.getElementById('cookieBanner').style.display = 'none';
   }
 
+  /**
+   * True only on pages that actually load the GA4 gtag.js loader tag. This is
+   * a static DOM check, not a runtime one: the <script> element is present
+   * the instant the HTML parser reaches it in <head>, well before this
+   * deferred script runs, so unlike `typeof gtag === 'function'` it carries
+   * no load-timing race. Pages such as privacy.html and fincrime-week.html
+   * deliberately carry no GA, so there is no analytics choice to make there
+   * and the banner must not appear.
+   */
+  function pageHasAnalytics() {
+    return !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+  }
+
+  /**
+   * Shows the analytics banner, unless Funding Choices is actively displaying
+   * its own TCF UI right now, in which case it waits for that to clear first
+   * so the two consent interfaces never stack. Uses only the supported TCF
+   * API surface (ping, addEventListener, removeEventListener); getTCData is
+   * deprecated and deliberately not used. Never touches Funding Choices'
+   * own visibility or state, only reads it.
+   *
+   * The banner defaults to hidden and is only ever flipped visible from the
+   * one branch that decides to show it, synchronously where possible, so it
+   * never flashes visible for a frame before being hidden again.
+   */
   function initCookieBanner() {
     var banner = document.getElementById('cookieBanner');
     if (!banner) return;
+
+    if (!pageHasAnalytics()) {
+      banner.style.display = 'none';
+      return;
+    }
 
     var consent = null;
     try {
@@ -113,10 +141,39 @@
       console.error('Could not read cookie consent:', error);
     }
 
-    if (!consent) {
-      banner.style.display = 'flex';
-    } else {
+    if (consent) {
       banner.style.display = 'none';
+      return;
+    }
+
+    banner.style.display = 'none';
+
+    var coordinated = false;
+    try {
+      if (typeof window.__tcfapi === 'function') {
+        coordinated = true;
+        window.__tcfapi('ping', 2, function (pingReturn) {
+          if (pingReturn && pingReturn.displayStatus && pingReturn.displayStatus !== 'hidden') {
+            window.__tcfapi('addEventListener', 2, function (tcData, success) {
+              if (success && tcData && tcData.displayStatus === 'hidden') {
+                banner.style.display = 'flex';
+                if (tcData.listenerId) {
+                  window.__tcfapi('removeEventListener', 2, function () {}, tcData.listenerId);
+                }
+              }
+            });
+          } else {
+            banner.style.display = 'flex';
+          }
+        });
+      }
+    } catch (error) {
+      console.error('TCF coordination check failed:', error);
+      coordinated = false;
+    }
+
+    if (!coordinated) {
+      banner.style.display = 'flex';
     }
   }
 
