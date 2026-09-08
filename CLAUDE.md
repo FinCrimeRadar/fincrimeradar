@@ -207,6 +207,14 @@ If a correction itself is later corrected, ledger reconciliation becomes mandato
 
 Do not assume an earlier ledger entry remains accurate.
 
+### Stale-base ledger WIP
+
+Before any commit that touches `verification-ledger.json`, run `git diff HEAD -- verification-ledger.json` against current live HEAD, not whatever base the working session originally started from.
+
+If a long running WIP's ledger content predates current HEAD, refresh it against live HEAD before adding further entries. Never write back a reconstructed everything-else-unchanged copy of the file. That is exactly the mechanism that caused this.
+
+This applies regardless of session length, model, or whether the WIP has been touched recently. Stale base drift has shown up after several turns with no obvious trigger. Treat it as a standing risk on any multi-turn ledger edit, not a one-off.
+
 ## 9. Correction rounds
 
 For statutory or regulatory content, expect more than one verification pass.

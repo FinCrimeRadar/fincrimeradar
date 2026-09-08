@@ -18,6 +18,11 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LEDGER_PATH = REPO_ROOT / "verification-ledger.json"
 
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+from check_ledger_base import claim_ids, load_head_ledger  # noqa: E402
+
 REQUIRED_TOP_FIELDS = [
     "claimId", "guide", "claimText", "claimType",
     "source", "verifiedOn", "reviewDue", "status",
@@ -122,6 +127,24 @@ def validate(entries):
                     )
 
     return errors
+
+
+def check_claim_id_removals(entries):
+    """Return claimIds present in committed HEAD but missing from `entries`.
+
+    Guards against the stale-base ledger write-back bug (BACKLOG.md, ledger
+    section): a WIP built from a cached snapshot of the file silently drops
+    whatever claimIds sat at the tail of the array at snapshot time when it's
+    later written back over the real one. Reuses check_ledger_base.py's
+    HEAD-reading logic rather than duplicating the git-show subprocess call.
+
+    Only flags removals, not additions: a legitimate correction can add or
+    rename a claimId, and this cannot distinguish a rename from a genuine
+    drop. That's a known limitation, not solved here.
+    """
+    head_ids = claim_ids(load_head_ledger())
+    working_ids = claim_ids(entries)
+    return sorted(head_ids - working_ids)
 
 
 def overdue(entries, today=None):
@@ -245,6 +268,14 @@ def scan(html_path):
 def cmd_validate(args):
     entries = load_ledger()
     errors = validate(entries)
+
+    removed = check_claim_id_removals(entries)
+    for claim_id in removed:
+        errors.append(
+            f"{claim_id}: present in committed HEAD but missing from this version "
+            f"(stale-base write-back signature, see BACKLOG.md ledger section)"
+        )
+
     if not errors:
         print(f"OK: {len(entries)} entr{'y' if len(entries) == 1 else 'ies'} valid.")
         return 0
