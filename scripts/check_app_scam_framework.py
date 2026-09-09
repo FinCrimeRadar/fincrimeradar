@@ -126,6 +126,10 @@ def main() -> None:
     require("Last updated: 12 July 2026" not in methodology, "stale methodology update date remains")
     metadata_dates = re.findall(r'"dateModified"\s*:\s*"([^"]+)"', methodology)
     require(not metadata_dates or metadata_dates == ["2026-09-08"], "methodology dateModified metadata is out of sync")
+    require(re.search(r'<span class="fcr-format">\s*Framework\s*</span>', html) is not None,
+            "public Framework label is missing or exposes internal experiment numbering")
+    for public_name, public_html in ((GUIDE.name, html), ("knowledge.html", knowledge), ("methodology.html", methodology)):
+        require("Experiment 01" not in public_html, f"internal experiment numbering exposed in {public_name}")
 
     scenarios: dict[str, str] = {}
     for scenario_id in ("one", "two"):
