@@ -172,6 +172,7 @@
     .kh-article-card:hover::before{opacity:1}
     .kh-item-meta{display:flex;align-items:center;gap:9px;margin-bottom:11px}
     .kh-cat{font-family:var(--kh-mono);font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:5px;background:var(--catbg,#E1F5EE);color:var(--catfg,var(--teal-deep))}
+    .kh-format-label{font-family:var(--kh-mono);font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--accent,#16A34A);border-radius:5px;color:var(--accent,#16A34A);background:#fff}
     .kh-read{font-family:var(--kh-mono);font-size:.63rem;color:var(--muted)}
     .kh-item-title{font-family:var(--kh-display);font-size:1rem;font-weight:700;line-height:1.34;margin-bottom:8px}
     .kh-item-desc{font-size:.82rem;color:var(--slate);line-height:1.58;flex:1}
@@ -351,12 +352,12 @@
       <div style="width:880px;height:880px"></div>
     </div>
     <div class="kh-hero-inner">
-      <div class="kh-eyebrow"><span class="kh-dot"></span>Knowledge hub &middot; <span id="khHeroCount">50</span> handbooks</div>
+      <div class="kh-eyebrow"><span class="kh-dot"></span>Knowledge hub &middot; <span id="khHeroCount">51</span> handbooks</div>
       <h1>Read the typology<br><em>before it clears</em></h1>
       <p class="kh-sub">Guides, explainers, and deep dives on sanctions, PEP screening, UK AML law, and more, written for compliance students and professionals. All free, always.</p>
       <p class="kh-format-note">Guides use a few different formats, <a href="/methodology.html#format">here's why</a>.</p>
       <div class="kh-stats">
-        <div class="kh-stat"><div class="num" id="khStatGuides">50</div><div class="lbl">Handbooks</div></div>
+        <div class="kh-stat"><div class="num" id="khStatGuides">51</div><div class="lbl">Handbooks</div></div>
         <!-- MANUAL FIGURE: no live source since the OpenSanctions API migration dropped this field (see BACKLOG.md); sourced 2026-08-13 from OpenSanctions' own Consolidated Sanctions dataset page (opensanctions.org/datasets/sanctions/), "distinct targets" count (71,679), rounded down. Spot-check periodically, do not treat as self-updating. -->
         <div class="kh-stat"><div class="num">71K+</div><div class="lbl">Sanctions records</div></div>
         <!-- MANUAL FIGURE: KYC/KYB, Fraud Detection, Risk Scoring. SAR Writing Practice is a live fourth tile but was already excluded from this count before Risk Scoring shipped, it's a writing-practice tool, not a graded-decision simulator, not a locked one. -->
@@ -444,6 +445,13 @@
 
       <div class="kh-sec-head" id="khGridHead"><h2>Every handbook</h2><span class="kh-sec-note">Sort &middot; newest</span></div>
       <div class="kh-grid" id="khArticlesGrid">
+
+        <a href="/app-scam-decision-framework.html" class="kh-article-card" data-cats="fraud-detection" data-title="APP scam decision framework reimbursement civil dispute consumer standard caution gross negligence vulnerability warning quality complaint defensibility PSR Faster Payments CHAPS" data-date="2026-09-08" style="--accent:#16A34A;--catbg:#DCFCE7;--catfg:#166534">
+          <div class="kh-item-meta"><span class="kh-cat">Fraud</span><span class="kh-format-label">Framework</span><span class="kh-read">25 MIN</span></div>
+          <div class="kh-item-title">APP Scam Decision Framework: From Claim to Defensible Outcome</div>
+          <div class="kh-item-desc">Six sequential gates for separating fraud, scheme scope, consumer conduct and complaint defensibility. Two borderline cases test nominal performance, warning quality and vulnerability before blame.</div>
+          <div class="kh-item-foot"><span class="kh-tag">APP Scam Judgement</span><span class="kh-arrow">&rarr;</span></div>
+        </a>
 
         <a href="/synthetic-identity-device-network-guide.html" class="kh-article-card" data-cats="fraud-detection" data-title="synthetic identity fraud device network fraud Franken-ID device fingerprinting authorised user piggybacking KYC identity verification credit bureau clean file" data-date="2026-07-27" style="--accent:#16A34A;--catbg:#DCFCE7;--catfg:#166534">
           <div class="kh-item-meta"><span class="kh-cat">Fraud</span><span class="kh-read">13 MIN</span></div>

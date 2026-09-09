@@ -5,7 +5,8 @@
     "synthetic-identity-device-network-guide",
     "fraud-investigation-playbook",
     "ubo-investigation-handbook",
-    "scam-compound-money-laundering-guide"
+    "scam-compound-money-laundering-guide",
+    "app-scam-decision-framework"
   ],
   "crypto-travel-rule-sunrise-guide": [
     "crypto-guide-part1",
@@ -70,7 +71,8 @@
     "adverse-media-intelligence-guide"
   ],
   "fraud-red-flags-guide": [
-    "synthetic-identity-device-network-guide"
+    "synthetic-identity-device-network-guide",
+    "app-scam-decision-framework"
   ],
   "screening-algorithm-tuning-guide": [
     "tm-guide",
@@ -111,5 +113,9 @@
     "stablecoin-financial-crime-guide",
     "a7a5-sanctions-evasion-guide",
     "freezing-a-stablecoin-guide"
+  ],
+  "app-scam-decision-framework": [
+    "fraud-red-flags-guide",
+    "money-mule-financial-crime-networks-handbook"
   ]
 }

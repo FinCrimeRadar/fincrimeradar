@@ -2,13 +2,23 @@
 
 **This document is the canonical source for guide structure, presentation, and the treatment-independent Guide Quality Layer.** Do not duplicate these requirements in `CLAUDE.md` or `BACKLOG.md`. Sourcing, the verification ledger, and adversarial review requirements are defined in `CLAUDE.md`; this document references them, it does not restate them. Unfinished work, retrofit queues, and open decisions against this standard live in `BACKLOG.md`, not here.
 
-Every guide follows the same shape: **Global core** (universal, both treatments), then the **Guide Quality Layer** (treatment-independent quality practices), then a choice of **one** presentation treatment, **Default Knowledge Hub** or **Evidence Essay**.
+FinCrimeRadar separates two concepts: a **public format** and a **rendering treatment**. Public format tells the reader what kind of work they are using. Rendering treatment tells the implementation how that work is presented. The same Knowledge Hub shell can support multiple public formats without creating separate page systems.
+
+| Public format | Rendering treatment | Current maturity |
+| --- | --- | --- |
+| Guide | Default Knowledge Hub | Standing |
+| Framework | Default Knowledge Hub with decision or control compositions | Experimental pending Experiment 01 and preferably Experiment 02 evaluation |
+| Case File | Default Knowledge Hub with investigative compositions | Proposed |
+| Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Proposed |
+| Evidence Essay | Evidence Essay | Standing opt-in treatment |
+
+This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment. Framework remains experimental pending evaluation of Experiment 01 and, preferably, Experiment 02 as a second Framework implementation. The table records the approved experimental architecture, not permanent adoption of every format or contract. Every publication still follows the **Universal Evidence Core** and **Guide Quality Layer**. Existing publications are not retrofitted merely to adopt these labels.
 
 ---
 
-## Global core
+## Universal Evidence Core
 
-Applies to every guide regardless of which treatment below it uses. This section defines the minimum FinCrimeRadar quality floor. A presentation treatment may change how a guide delivers this standard, it must never silently lower it; every requirement below is mandatory, not a menu.
+This is the Global core referred to elsewhere in this standard. It applies to every substantial publication regardless of public format or rendering treatment and defines the minimum FinCrimeRadar quality floor. A format or treatment may change how a publication delivers this standard, it must never silently lower it; every requirement below is mandatory, not a menu.
 
 **Claim sourcing.** Every material claim gets a real source or honest epistemic framing; illustrative figures get no citation. Fully governed by `CLAUDE.md`'s Published content sourcing section, not restated here.
 
@@ -81,6 +91,25 @@ Beyond the Global core's mandatory floor (two worked scenarios with graded decis
 - Learner confidence capture, per the Guide Quality Layer.
 
 Standard Knowledge Hub card layout and navigation chrome, no experimental shell.
+
+### Experiment 01 Framework contract
+
+For Experiment 01, the Framework label is used because the reader needs to assess, decide and document a difficult judgement. The publication uses the Default Knowledge Hub shell and adds only the decision compositions justified by the APP scam subject. It is not a separate template or rendering system.
+
+This is the current experimental contract for the APP Scam Decision Framework. It is not permanently binding on all future Framework publications. Any later Framework experiment must retain the Universal Evidence Core, but should reuse these additional requirements only where evaluation through Experiment 01 and, preferably, Experiment 02 shows that the contract genuinely recurs.
+
+Experiment 01 must include:
+
+- At least two materially distinct worked scenarios.
+- A visible sequence of decision gates or control stages.
+- Full Source, Application, and Action reasoning.
+- At least one structured Decision Record separating facts, assumptions, indicators, mitigants, decision, and rationale.
+- A static What Would Change My Decision analysis for each major scenario.
+- Red Team questions that test the defensibility of judgement.
+- A compact operational summary suitable for practitioner reference.
+- The mandatory Risk/Signal/Response treatment, knowledge check, FAQ, sources, and export support already required by the Universal Evidence Core.
+
+Practitioner lenses and other progressive disclosure are optional and should remain limited. Material reasoning and conclusions must remain present in the initial HTML and must not depend on completing an interaction.
 
 ---
 

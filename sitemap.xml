@@ -339,4 +339,11 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Framework experiments -->
+  <url>
+    <loc>https://fincrimeradar.org/app-scam-decision-framework.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

@@ -7252,5 +7252,109 @@
     "claimText": "Supersedes the prior unverifiable-remove entry (stablecoin-series-guide-0.market-cap-300bn-mid2025.001, wrong mid-2025 date qualifier). BACKLOG.md records this figure as CLOSED 2026-08-30: combined stablecoin market capitalisation of $304.573bn, DefiLlama Total Stablecoins Market Cap (defillama.com/stablecoins), retrieved 2026-08-30, an all-mechanism aggregate (fiat-backed, crypto-collateralised, algorithmic, commodity-referenced combined), not a fiat-only figure. Independently re-checked directly against DefiLlama's own live stablecoins API (stablecoins.llama.fi/stablecoins?includePrices=true) later the same day (2026-08-30), summing the `circulating.peggedUSD` field across all 422 listed assets (333 with nonzero circulating supply): live total at that later retrieval was $311.25bn, roughly 2.2% higher than the $304.573bn figure closed earlier the same day. This dataset is live and continuously updating; the retrieval confirms the total had already moved by that later point, not why it moved, and no claim is made here about the mechanism behind the change. A second independent re-check, performed separately by an external reviewer the same day, found approximately $311.308bn, consistent with Claude Code's own $311.25bn re-check, both later than and higher than the $304.573bn figure closed earlier the same day. Per the guide's own explicit instruction, the $304.573bn figure is used as the headline citation (locked, do not re-verify), with an editorial note in the guide itself that this is a live figure that will have moved by the time of reading. Do not treat either later re-check as a correction to the headline figure; both corroborate the same order of magnitude and dataset, not a competing claim.",
     "claimType": "statistic", "source": {"title": "DefiLlama, Total Stablecoins Market Cap", "url": "https://defillama.com/stablecoins", "publisher": "DefiLlama", "date": "2026-08-30"},
     "verifiedOn": "2026-08-30", "reviewDue": "2026-11-30", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.fps-scope-consumer-effective-date.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "Specific Requirement 1 requires implementation of the Faster Payments reimbursement rule changes from 7 October 2024. For this requirement, consumer includes individuals, microenterprises employing fewer than ten people with annual turnover or balance sheet total not exceeding EUR 2 million, and charities with annual income below GBP 1 million. The guide uses the compact description individuals, qualifying microenterprises and charities below the stated income threshold and directs practitioners to test the full scheme definition.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, Specific Requirement 1 (Faster Payments July 2024)", "url": "https://www.psr.org.uk/publications/legal-directions-and-decisions/app-scams-reimbursement-specific-requirement-1-sr1-on-payuk/", "publisher": "Payment Systems Regulator", "date": "2024-07-12"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-09-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.app-scam-definition.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The operative FPS definition requires a fraudulent or dishonest act or course of conduct that manipulates, deceives or persuades a consumer into transferring funds to a relevant account not controlled by the consumer, where the recipient is not who the consumer intended or the payment is not for the purpose intended. The guide paraphrases this as the deception and purpose gate and does not treat non-delivery alone as sufficient.",
+    "claimType": "definition",
+    "source": {"title": "Payment Systems Regulator, Specific Requirement 1 (Faster Payments July 2024)", "url": "https://www.psr.org.uk/publications/legal-directions-and-decisions/app-scams-reimbursement-specific-requirement-1-sr1-on-payuk/", "publisher": "Payment Systems Regulator", "date": "2024-07-12"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-09-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.fps-timescales-stop-clock.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "For FPS, claims reported more than 13 months after the final APP scam payment are outside mandatory reimbursement. Reimbursable payments must ordinarily be reimbursed within five business days. The stop-clock provision is limited to specified circumstances while requested information is awaited, and a claim must close before the end of the 35th business day after reporting. The guide states these as scheme controls, not fraud-classification tests.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, Specific Requirement 1 (Faster Payments July 2024)", "url": "https://www.psr.org.uk/media/ng3bh0mp/amended-specific-requirement-1-july-2024-compared.pdf", "publisher": "Payment Systems Regulator", "date": "2024-07-12"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-09-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.consumer-standard-gross-negligence.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The Consumer Standard of Caution consists of four specified standards: regard to qualifying interventions, prompt reporting within the 13-month longstop, response to reasonable and proportionate information requests, and the police or competent-authority reporting requirement. The exception applies only where the sending PSP demonstrates that gross negligence caused failure to comply with one or more standards. PSR guidance says gross negligence is higher than ordinary negligence and requires a significant degree of carelessness. Proceeding after an intervention does not automatically establish it.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, Consumer Standard of Caution Exception Guidance", "url": "https://www.psr.org.uk/media/as3a0xan/sr1-consumer-standard-of-caution-guidance-dec-2023.pdf", "publisher": "Payment Systems Regulator", "date": "2023-12-19"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-09-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.vulnerability-material-impact.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The Consumer Standard of Caution exception does not apply where the consumer was vulnerable and this materially affected their ability to protect themselves from the scam. The same material-impact protection prevents an FPS claim excess. The guide therefore requires a causal and scam-specific vulnerability assessment before blame, while FCA guidance is used only for the broader understanding that bereavement is a possible life-event driver rather than an automatic outcome.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, The Consumer Standard of Caution Exception", "url": "https://www.psr.org.uk/media/tbbdhkcx/sr1-consumer-standard-of-caution-exception-dec-2023.pdf", "publisher": "Payment Systems Regulator", "date": "2023-12-19"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-09-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.civil-dispute-factors-nominal-performance.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "PSR civil-dispute guidance identifies five non-exhaustive, independent factor areas: communications and relationship, trading status, capability to deliver, deception as to payment purpose, and information held by the receiving PSP. It says Companies House registration alone may not demonstrate legitimate trading, earlier services may be used to build confidence, a nominal service may be started to induce belief in legitimacy, and non-receipt alone does not establish an APP scam. Where a PSP classifies a claim as civil dispute, the onus is on the PSP to demonstrate and explain why. The guide's Nominal Performance Trap is original synthesis of those principles, not regulator wording.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, Supporting the identification of APP scams and civil disputes", "url": "https://www.psr.org.uk/media/ldmnhzps/app-scams-civil-dispute-guidance-sept-2024.pdf", "publisher": "Payment Systems Regulator", "date": "2024-09-01"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-09-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.maximum-reimbursement-85000.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The PSR Notice of Value sets the maximum FPS reimbursement level at GBP 85,000 per claim from 7 October 2024. It does not automatically change with inflation and remains subject to PSR review. The guide describes this as the current FPS ceiling and does not generalise an older GBP 415,000 figure that remains in historic material.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, Notice of maximum reimbursement level value", "url": "https://www.psr.org.uk/media/0w1fmnr5/sr1-max-limit-value-supplementary-sept-2024-publication-version.pdf", "publisher": "Payment Systems Regulator", "date": "2024-09-25"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-03-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.maximum-excess-100.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The PSR Notice of Value permits a sending PSP to apply no excess, a lower excess or a maximum excess of GBP 100 per FPS APP scam claim from 7 October 2024. Specific Requirement 1 prevents application where vulnerability materially affected the victim's ability to protect themselves. The guide does not describe GBP 100 as a mandatory excess.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, Notice of maximum excess value", "url": "https://www.psr.org.uk/media/maslkvyo/sr1-excess-value-supplementary-dec-2023.pdf", "publisher": "Payment Systems Regulator", "date": "2023-12-19"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-03-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.chaps-scope-alignment.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The Bank of England CHAPS reimbursement rules apply to in-scope CHAPS APP scam payments executed from 7 October 2024, ordinarily require reimbursement within five business days, use a 13-month reporting longstop and apply the Consumer Standard framework. The Bank's current CHAPS page confirms a GBP 85,000 ceiling aligned with Faster Payments. The guide therefore describes the regime as covering Faster Payments and retail CHAPS while directing practitioners to test the relevant rulebook.",
+    "claimType": "regulatory",
+    "source": {"title": "Bank of England, CHAPS reimbursement rules", "url": "https://www.bankofengland.co.uk/-/media/boe/files/payments/chaps/chaps-app-scam-rules.pdf", "publisher": "Bank of England", "date": "2024-08-01"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-03-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.fos-broader-complaint-review.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The Financial Ombudsman Service states that it looks into the complaint and how the firm handled it regardless of which reimbursement rules apply. Its current business guidance says it may consider whether the firm could and should have prevented the loss where an excess or the GBP 85,000 ceiling limits scheme reimbursement, or where FPS and CHAPS rules do not apply. It assesses the nature and quality of an intervention and why the customer moved past it. The guide's Defensibility Layer is FinCrimeRadar synthesis of this wider complaint exposure.",
+    "claimType": "regulatory",
+    "source": {"title": "Financial Ombudsman Service, APP fraud and other scams involving authorised payments or withdrawals", "url": "https://www.financial-ombudsman.org.uk/businesses/resolving-complaint/complaints-deal/fraud-scams/app-fraud-scams-involving-authorised-payments", "publisher": "Financial Ombudsman Service", "date": "2026-09-08"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-03-08", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.psr-dashboard-q1-2026.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The PSR Q1 2026 dashboard, updated 30 July 2026, reports that across the 18 months from 7 October 2024 to 31 March 2026, 88% or GBP 316 million of money lost to reimbursable APP scams was reimbursed, 82% of claims closed within five business days and 98% within 35 business days. The dataset covers closed UK Faster Payments claims and excludes on-us book transfers. The guide uses only the 88% by-value figure and states that scope.",
+    "claimType": "statistic",
+    "source": {"title": "Payment Systems Regulator, APP scams reimbursement dashboard for Q1 2026", "url": "https://www.psr.org.uk/information-for-consumers/app-scams-reimbursement-dashboard/", "publisher": "Payment Systems Regulator", "date": "2026-07-30"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2026-12-31", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.psr-roadmap-december-2026.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "The PSR's July 2026 APP scams policy roadmap plans a formal consultation in December 2026. Its stated consistency topics include possible further clarity on the Consumer Standard of Caution, civil disputes and me-to-me transactions. It plans to publish a decision and revised legal directions in May 2027, then confirm an implementation date. The guide presents these as planned work, not confirmed rule changes.",
+    "claimType": "regulatory",
+    "source": {"title": "Payment Systems Regulator, APP scams policy roadmap", "url": "https://www.psr.org.uk/our-work/app-scams/app-scams-policy-roadmap/", "publisher": "Payment Systems Regulator", "date": "2026-07-01"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2026-12-20", "status": "verified"
+  },
+  {
+    "claimId": "app-scam-decision-framework.frontier-evaluation-73m-consistency.001",
+    "guide": "app-scam-decision-framework.html",
+    "claimText": "In its July 2026 summary of Frontier Economics' independent evaluation, the PSR reports an estimated GBP 73 million annual reduction in APP fraud losses attributable to the policy. The PSR also states that inconsistent implementation means outcomes can still vary according to the consumer's provider and links that finding to its policy roadmap. The guide attributes both points to the PSR summary and does not present the estimate as a direct FinCrimeRadar calculation.",
+    "claimType": "statistic",
+    "source": {"title": "Payment Systems Regulator, Payment fraud falls by GBP 73m following PSR reimbursement scheme", "url": "https://www.psr.org.uk/news-and-updates/latest-news/news/payment-fraud-falls-by-73m-following-psr-reimbursement-scheme/", "publisher": "Payment Systems Regulator", "date": "2026-07-01"},
+    "verifiedOn": "2026-09-08", "reviewDue": "2027-01-08", "status": "verified"
   }
 ]
