@@ -24,6 +24,8 @@ Before substantive work, inspect the relevant canonical repository documents.
 
 `verification-ledger.json` is authoritative for sourcing records.
 
+`docs/LINKEDIN_OPERATING_STANDARD.md` is authoritative for FinCrimeRadar LinkedIn drafting, audits, and distribution recommendations. Before using any LinkedIn skill or plugin capability, read and apply that standard. It overrides conflicting third-party LinkedIn skill heuristics.
+
 `docs/QUALITY_INCIDENTS.md` contains historical quality incidents and should only be consulted when investigating a related failure or when explicitly requested.
 
 Current repository state overrides remembered project state and prior conversational summaries.
