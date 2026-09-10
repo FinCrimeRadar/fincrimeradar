@@ -785,9 +785,21 @@
   // CaseTimeline. Renders all nine MMC_DATA.timelinePoints in order as a plain
   // <ol>, per spec §14: "At this stage only reveal timeline points already
   // known. Do not reveal future evidence details." A point whose id is not
-  // yet in revealedPointIds renders as a completely empty, aria-hidden <li>:
-  // no label, no "locked" placeholder text, nothing that hints at what the
-  // point is, since even a structural title could spoil the investigation.
+  // yet in revealedPointIds renders visually empty: no label, no "locked"
+  // placeholder text, nothing that hints at what the point is, since even a
+  // structural title could spoil the investigation.
+  //
+  // The unrevealed <li> deliberately does NOT use aria-hidden="true": that
+  // would remove it from the accessibility tree entirely, so a screen reader
+  // user would hear a 5-item list while a sighted user sees a 9-slot list (5
+  // filled, 4 dotted placeholders) - a real AT/sighted equivalence gap. Instead
+  // it stays a real, empty list item and carries a visually-hidden span with
+  // a neutral "Not yet revealed" label, so AT users get the same 9-item list
+  // structure sighted users see, with a reason for the blank item, and zero
+  // hint of the point's actual content. `data-revealed` (not aria-hidden) is
+  // the CSS hook for the dotted placeholder styling, since data-* attributes
+  // do not affect the accessibility tree.
+  //
   // Deliberately a plain <ol> with no drag-and-drop or absolute positioning,
   // so ordinary document flow already makes it keyboard navigable.
   function renderCaseTimeline(container, revealedPointIds) {
@@ -799,7 +811,11 @@
       if (revealedPointIds.indexOf(point.id) !== -1) {
         li.textContent = point.label;
       } else {
-        li.setAttribute('aria-hidden', 'true');
+        li.setAttribute('data-revealed', 'false');
+        var hiddenLabel = document.createElement('span');
+        hiddenLabel.className = 'mmc-visually-hidden';
+        hiddenLabel.textContent = 'Not yet revealed';
+        li.appendChild(hiddenLabel);
       }
       ol.appendChild(li);
     });

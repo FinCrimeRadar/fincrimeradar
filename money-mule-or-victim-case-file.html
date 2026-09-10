@@ -185,14 +185,21 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
    existing .mmc-hypothesis-options/.mmc-hypothesis-option pill radio styling
    rather than duplicating it. The persistent case timeline (.mmc-timeline,
    declared in the placeholder block near the top of this file) gets one
-   addition here: an aria-hidden, still-locked point must look like a
-   deliberate placeholder, not a rendering bug, without printing or hinting
-   at any text, so it gets a faint centred marker via ::before and a
-   minimum height instead of collapsing to nothing. */
+   addition here: a still-locked point must look like a deliberate
+   placeholder, not a rendering bug, without printing or hinting at any
+   text, so it gets a faint centred marker via ::before and a minimum height
+   instead of collapsing to nothing. Styled off data-revealed="false" rather
+   than aria-hidden: the unrevealed <li> deliberately stays in the
+   accessibility tree (see renderCaseTimeline), so the CSS hook must be a
+   plain data attribute that carries no accessibility meaning of its own.
+   .mmc-visually-hidden is the standard clip-based screen-reader-only pattern
+   already used elsewhere on this site (see fincrime-week.html,
+   scam-compound-money-laundering-guide.html), namespaced to this component. */
 .mmc-message-history,.mmc-timeline-problem,.mmc-case-timeline,.mmc-timeline-assessment{margin:0 0 1.5rem;min-width:0}
 .mmc-message-history h3,.mmc-timeline-problem h3,.mmc-case-timeline h3,.mmc-timeline-assessment h3{margin-top:0}
-.mmc-timeline li[aria-hidden="true"]{min-height:1.6rem;color:var(--mmc-line)}
-.mmc-timeline li[aria-hidden="true"]::before{content:"···";letter-spacing:.2em;color:var(--mmc-line)}
+.mmc-visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.mmc-timeline li[data-revealed="false"]{min-height:1.6rem;color:var(--mmc-line);position:relative}
+.mmc-timeline li[data-revealed="false"]::before{content:"···";letter-spacing:.2em;color:var(--mmc-line)}
 .mmc-timeline-question{border:1px solid var(--mmc-line);background:#fff;padding:1rem;margin:0 0 1rem;min-width:0}
 .mmc-timeline-question legend{padding:0 .4rem;font-size:14px;font-weight:600;color:var(--mmc-navy)}
 .mmc-timeline-question .mmc-hypothesis-options{margin-top:.85rem}
