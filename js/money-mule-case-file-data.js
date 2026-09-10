@@ -171,8 +171,77 @@ window.MMC_DATA = {
         'This compares your initial assessment against your current assessment.',
         'It does not reveal FinCrimeRadar’s own position on the five hypotheses.'
       ]
+    },
+    6: {
+      messageHistory: {
+        heading: 'The messages change the picture',
+        paragraphs: [
+          'The complete message history is obtained and timestamps are verified.',
+          'The early communications appear consistent with Customer R’s explanation.',
+          'The recruiter discusses employment.',
+          'Customer R asks about working hours.',
+          'The recruiter explains payment processing procedures.',
+          'Customer R submits identity documents and bank details as part of the supposed onboarding process.',
+          'Then the character of the conversation begins to change.',
+          'After the second incoming payment, Customer R asks why money is arriving from different individuals rather than the company.',
+          'The recruiter replies that the payments come directly from clients.',
+          'Customer R asks why the company cannot receive the money itself.',
+          'The recruiter says the corporate settlement account is undergoing an upgrade.',
+          'Before the third transaction, Customer R writes:'
+        ],
+        quote: 'Something about this feels wrong. Why am I moving other people’s money through my own account?',
+        paragraphsAfterQuote: [
+          'The recruiter reassures Customer R that the process is legal and covered by the employment agreement.',
+          'Customer R completes the third transaction.',
+          'Later that evening Customer R searches online for phrases relating to receiving company payments into a personal bank account.',
+          'No contact with the bank is made.'
+        ]
+      },
+      evidenceItems: [
+        { title: 'Early recruitment conversations', status: 'Corroborated' },
+        { title: 'Questions about source of payments', status: 'Corroborated' },
+        { title: 'Expressed concern', status: 'Corroborated' },
+        { title: 'Recruiter reassurance', status: 'Corroborated' },
+        {
+          title: 'Third transaction after concern',
+          status: 'Corroborated',
+          note: 'Also directly observed in the transaction records.'
+        },
+        { title: 'Relevant internet searches', status: 'Observed' },
+        { title: 'No bank contact at this point', status: 'Observed' }
+      ],
+      timelineProblem: {
+        heading: 'The Timeline Problem',
+        intro: 'This is the first major conceptual turn.',
+        display: 'The evidence increasingly supports the proposition that Customer R initially believed the arrangement might be legitimate. It also shows that their understanding was changing.'
+      },
+      timelineAssessment: {
+        heading: 'Timeline assessment',
+        intro: 'The practitioner must separately assess:',
+        questions: [
+          { key: 'entryState', label: 'Likely state at entry' },
+          { key: 'prePaymentThreeState', label: 'Likely state before Payment Three' }
+        ],
+        note: 'These are investigative assessments. Do not present them as legal conclusions.'
+      },
+      changePointQuestion: {
+        label: 'At what point did Customer R’s understanding materially change?',
+        optionIds: ['initialRecruitment', 'paymentOne', 'paymentTwo', 'concernEmerges', 'paymentThree']
+      },
+      gateNote: 'Record all three timeline assessments before continuing.'
     }
   },
+  timelinePoints: [
+    { id: 'initialRecruitment', label: 'Initial Recruitment' },
+    { id: 'paymentOne', label: 'Payment One' },
+    { id: 'paymentTwo', label: 'Payment Two' },
+    { id: 'concernEmerges', label: 'Concern Emerges' },
+    { id: 'paymentThree', label: 'Payment Three' },
+    { id: 'attemptedExit', label: 'Attempted Exit' },
+    { id: 'threats', label: 'Threats' },
+    { id: 'paymentFour', label: 'Payment Four' },
+    { id: 'intervention', label: 'Intervention' }
+  ],
   hypotheses: {
     A: {
       name: 'Knowing Participation',

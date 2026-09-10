@@ -37,6 +37,13 @@
 
   var HYPOTHESIS_STATES = ['Leading', 'Plausible', 'Unresolved', 'Weak'];
   var TIMELINE_STATES = ['Unaware', 'ConcernEmerging', 'Suspicious', 'LikelyAware', 'CannotDetermine'];
+  var TIMELINE_STATE_LABELS = {
+    Unaware: 'Unaware',
+    ConcernEmerging: 'Concern emerging',
+    Suspicious: 'Suspicious',
+    LikelyAware: 'Likely aware',
+    CannotDetermine: 'Cannot determine'
+  };
   var DECISION_VALUES = ['Yes', 'No', 'CannotDetermine'];
   var REASONING_SHIFT_VALUES = ['Substantially', 'Somewhat', 'NoMaterialChange'];
 
@@ -775,6 +782,31 @@
     container.appendChild(wrapper);
   }
 
+  // CaseTimeline. Renders all nine MMC_DATA.timelinePoints in order as a plain
+  // <ol>, per spec §14: "At this stage only reveal timeline points already
+  // known. Do not reveal future evidence details." A point whose id is not
+  // yet in revealedPointIds renders as a completely empty, aria-hidden <li>:
+  // no label, no "locked" placeholder text, nothing that hints at what the
+  // point is, since even a structural title could spoil the investigation.
+  // Deliberately a plain <ol> with no drag-and-drop or absolute positioning,
+  // so ordinary document flow already makes it keyboard navigable.
+  function renderCaseTimeline(container, revealedPointIds) {
+    var ol = document.createElement('ol');
+    ol.className = 'mmc-timeline';
+
+    MMC_DATA.timelinePoints.forEach(function (point) {
+      var li = document.createElement('li');
+      if (revealedPointIds.indexOf(point.id) !== -1) {
+        li.textContent = point.label;
+      } else {
+        li.setAttribute('aria-hidden', 'true');
+      }
+      ol.appendChild(li);
+    });
+
+    container.appendChild(ol);
+  }
+
   // Tracks which of the five hypotheses have been clicked during this visit
   // to Stage 4, for the continue gate. Same rationale and shape as
   // stage2Touched above: module level so it survives the re-render every
@@ -942,10 +974,226 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5 };
+  // Tracks whether each of the three Stage 6 timeline controls (entryState,
+  // prePaymentThreeState, changePoint) has been touched during this visit,
+  // for the continue gate. Same shape and rationale as stage4Touched above:
+  // module level so it survives every updateState re-render, null means "not
+  // yet initialised this visit", reset to null on advance so a fresh visit
+  // re-imposes the gate, bypassed on revisit via highestUnlockedStage > 6.
+  var stage6Touched = null;
+
+  function renderStage6(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[6];
+
+    if (stage6Touched === null) {
+      stage6Touched = { entryState: false, prePaymentThreeState: false, changePoint: false };
+      if (state.highestUnlockedStage > 6) {
+        stage6Touched.entryState = true;
+        stage6Touched.prePaymentThreeState = true;
+        stage6Touched.changePoint = true;
+      }
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 6: Evidence Inject 03';
+    wrapper.appendChild(heading);
+
+    // --- The messages change the picture ---
+    var historySection = document.createElement('section');
+    historySection.className = 'mmc-message-history';
+    var historyHeading = document.createElement('h3');
+    historyHeading.textContent = data.messageHistory.heading;
+    historySection.appendChild(historyHeading);
+
+    data.messageHistory.paragraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      historySection.appendChild(p);
+    });
+
+    var quote = document.createElement('p');
+    var quoteStrong = document.createElement('strong');
+    quoteStrong.textContent = data.messageHistory.quote;
+    quote.appendChild(quoteStrong);
+    historySection.appendChild(quote);
+
+    data.messageHistory.paragraphsAfterQuote.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      historySection.appendChild(p);
+    });
+    wrapper.appendChild(historySection);
+
+    // --- Evidence status ---
+    var evidenceSection = document.createElement('section');
+    evidenceSection.className = 'mmc-evidence-section';
+    var evidenceHeading = document.createElement('h3');
+    evidenceHeading.textContent = 'Evidence status';
+    evidenceSection.appendChild(evidenceHeading);
+    var evidenceGrid = document.createElement('div');
+    evidenceGrid.className = 'mmc-evidence-grid';
+    data.evidenceItems.forEach(function (item) {
+      renderEvidenceCard(evidenceGrid, item);
+    });
+    evidenceSection.appendChild(evidenceGrid);
+    wrapper.appendChild(evidenceSection);
+
+    // --- The Timeline Problem ---
+    var problemSection = document.createElement('section');
+    problemSection.className = 'mmc-timeline-problem';
+    var problemHeading = document.createElement('h3');
+    problemHeading.textContent = data.timelineProblem.heading;
+    problemSection.appendChild(problemHeading);
+
+    var problemIntro = document.createElement('p');
+    problemIntro.textContent = data.timelineProblem.intro;
+    problemSection.appendChild(problemIntro);
+
+    var problemDisplay = document.createElement('p');
+    problemDisplay.className = 'mmc-callout mmc-callout-prominent';
+    var problemDisplayStrong = document.createElement('strong');
+    problemDisplayStrong.textContent = data.timelineProblem.display;
+    problemDisplay.appendChild(problemDisplayStrong);
+    problemSection.appendChild(problemDisplay);
+    wrapper.appendChild(problemSection);
+
+    // --- Case timeline (persistent, progressive disclosure) ---
+    var timelineSection = document.createElement('section');
+    timelineSection.className = 'mmc-case-timeline';
+    var timelineHeading = document.createElement('h3');
+    timelineHeading.textContent = 'Case timeline';
+    timelineSection.appendChild(timelineHeading);
+    renderCaseTimeline(timelineSection, data.changePointQuestion.optionIds);
+    wrapper.appendChild(timelineSection);
+
+    // --- Timeline assessment ---
+    var assessmentSection = document.createElement('section');
+    assessmentSection.className = 'mmc-timeline-assessment';
+    var assessmentHeading = document.createElement('h3');
+    assessmentHeading.textContent = data.timelineAssessment.heading;
+    assessmentSection.appendChild(assessmentHeading);
+
+    var assessmentIntro = document.createElement('p');
+    assessmentIntro.textContent = data.timelineAssessment.intro;
+    assessmentSection.appendChild(assessmentIntro);
+
+    data.timelineAssessment.questions.forEach(function (question) {
+      var fieldset = document.createElement('fieldset');
+      fieldset.className = 'mmc-timeline-question';
+
+      var legend = document.createElement('legend');
+      legend.textContent = question.label;
+      fieldset.appendChild(legend);
+
+      var optionsWrap = document.createElement('div');
+      optionsWrap.className = 'mmc-hypothesis-options';
+      TIMELINE_STATES.forEach(function (stateValue) {
+        var inputId = 'tl-' + question.key + '-' + stateValue;
+        var label = document.createElement('label');
+        label.className = 'mmc-hypothesis-option';
+        label.setAttribute('for', inputId);
+
+        var input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'tl-' + question.key;
+        input.id = inputId;
+        input.value = stateValue;
+        input.checked = state.knowledgeTimeline[question.key] === stateValue;
+        // 'click' (not 'change'), same reasoning as the hypothesis board:
+        // re-selecting an already-checked radio must still register as a
+        // deliberate touch for the gate.
+        input.addEventListener('click', function () {
+          stage6Touched[question.key] = true;
+          updateState(function (s) {
+            s.knowledgeTimeline[question.key] = stateValue;
+          });
+        });
+
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(TIMELINE_STATE_LABELS[stateValue]));
+        optionsWrap.appendChild(label);
+      });
+      fieldset.appendChild(optionsWrap);
+      assessmentSection.appendChild(fieldset);
+    });
+
+    var assessmentNote = document.createElement('p');
+    assessmentNote.className = 'mmc-gate-note';
+    assessmentNote.textContent = data.timelineAssessment.note;
+    assessmentSection.appendChild(assessmentNote);
+
+    // --- Change point question ---
+    var changeFieldset = document.createElement('fieldset');
+    changeFieldset.className = 'mmc-timeline-question';
+
+    var changeLegend = document.createElement('legend');
+    changeLegend.textContent = data.changePointQuestion.label;
+    changeFieldset.appendChild(changeLegend);
+
+    var changeOptionsWrap = document.createElement('div');
+    changeOptionsWrap.className = 'mmc-hypothesis-options';
+    data.changePointQuestion.optionIds.forEach(function (pointId) {
+      var point = MMC_DATA.timelinePoints.filter(function (p) { return p.id === pointId; })[0];
+      var inputId = 'tl-changePoint-' + pointId;
+      var label = document.createElement('label');
+      label.className = 'mmc-hypothesis-option';
+      label.setAttribute('for', inputId);
+
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'tl-changePoint';
+      input.id = inputId;
+      input.value = pointId;
+      input.checked = state.knowledgeTimeline.changePoint === pointId;
+      input.addEventListener('click', function () {
+        stage6Touched.changePoint = true;
+        updateState(function (s) {
+          s.knowledgeTimeline.changePoint = pointId;
+        });
+      });
+
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(point.label));
+      changeOptionsWrap.appendChild(label);
+    });
+    changeFieldset.appendChild(changeOptionsWrap);
+    assessmentSection.appendChild(changeFieldset);
+    wrapper.appendChild(assessmentSection);
+
+    // --- Gate note + continue button ---
+    var gateNote = document.createElement('p');
+    gateNote.className = 'mmc-gate-note';
+    gateNote.textContent = data.gateNote;
+    wrapper.appendChild(gateNote);
+
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Record timeline assessment and continue';
+    continueButton.addEventListener('click', function () {
+      // Each radio already persists its own field via updateState the moment
+      // it is clicked (see below), so by the time the gate allows this
+      // button to be enabled all three fields are already saved. This just
+      // advances, matching the Stage 4 continue handler's shape.
+      stage6Touched = null;
+      advanceStage();
+    });
+    continueButton.disabled = !['entryState', 'prePaymentThreeState', 'changePoint'].every(function (key) {
+      return stage6Touched[key];
+    });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6 };
   (function registerPlaceholderStages() {
     var stageNumber;
-    for (stageNumber = 6; stageNumber <= 12; stageNumber += 1) {
+    for (stageNumber = 7; stageNumber <= 12; stageNumber += 1) {
       STAGE_RENDERERS[stageNumber] = (function (n) {
         return function (container) { renderNotYetImplemented(container, n); };
       }(stageNumber));
