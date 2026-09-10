@@ -80,6 +80,91 @@ window.MMC_DATA = {
         'You cannot establish whether somebody else influenced or controlled the activity.'
       ],
       practitionerLensClosing: 'Do not let the transaction pattern answer a customer intent question that has not yet been investigated.'
+    },
+    3: {
+      customerExplanation: {
+        intro: [
+          'Customer R is contacted.',
+          'They sound anxious but cooperate.',
+          'They explain that approximately two weeks earlier they responded to an advertisement for remote work.'
+        ],
+        roleTitle: 'Client Settlement Assistant',
+        roleParagraphs: [
+          'Customer R says the role involved administrative support and processing payments received from clients.',
+          'They were told the company was expanding its UK operation and that new staff would temporarily use personal accounts to process client settlements while additional corporate payment facilities were being established.'
+        ]
+      },
+      provided: [
+        'A screenshot of the original job advertisement.',
+        'An employment agreement.',
+        'A link to a professional looking company website.',
+        'WhatsApp communications with someone identifying themselves as an operations manager.',
+        'Payment instructions.',
+        'A document explaining how staff commission would be calculated.'
+      ],
+      retainedFundsExplanation: 'Customer R says the £1,220 difference between received and onward funds represented wages, commission and amounts they were instructed to retain pending reconciliation.',
+      framingLine: 'At this point these documents establish what Customer R claims happened. They do not establish that the employment was genuine.',
+      evidenceItems: [
+        { title: 'Customer account of recruitment', status: 'SelfReported' },
+        { title: 'Job advertisement screenshot', status: 'SelfReported', note: 'Authenticity not yet established.' },
+        { title: 'Employment agreement', status: 'SelfReported', note: 'Authenticity not yet established.' },
+        { title: 'Website', status: 'Observed' },
+        { title: 'WhatsApp conversation', status: 'SelfReported', note: 'Metadata not yet verified.' },
+        { title: 'Payment instruction documents', status: 'SelfReported' },
+        { title: 'Claimed commission arrangement', status: 'SelfReported' }
+      ],
+      hypothesisImpact: {
+        A: 'Weakened slightly',
+        B: 'Still unresolved',
+        C: 'Strengthened',
+        D: 'Still uncertain',
+        E: 'Weakened if the customer’s explanation is accurate'
+      },
+      practitionerLens: {
+        heading: 'Do not ask whether the documents look professional. Ask whether they can be independently authenticated.',
+        body: 'Deceptive employment propositions can include professional looking websites, documentation, interviews and structured onboarding.',
+        closing: 'What would you authenticate before deciding whether this employment explanation is genuine?'
+      },
+      investigationActions: [
+        'Verify company registration and trading history.',
+        'Verify domain registration history.',
+        'Examine message metadata.',
+        'Verify recruiter identity.',
+        'Compare beneficiary instructions against transaction records.',
+        'Check whether the supposed employer has genuine corporate payment infrastructure.',
+        'Review whether recruitment materials existed before suspicious activity began.'
+      ],
+      investigationActionsNote: 'These are reflective prompts only. No selection is scored, recorded or marked correct or incorrect.'
+    },
+    4: {
+      digitalEvidence: {
+        paragraphs: [
+          'Internal authentication records become available.',
+          'All four relevant sessions originated from Customer R’s established mobile device.',
+          'The device had been associated with the account for seventeen months.',
+          'Normal biometric authentication was used.',
+          'There were no password resets immediately before the activity.',
+          'There were no newly registered devices.',
+          'There was no material change in the normal geographic pattern of account access.',
+          'Customer R manually created the new beneficiaries.',
+          'Customer R personally confirmed the relevant transfers.',
+          'The beneficiary details match instructions contained within the WhatsApp conversation supplied by Customer R.'
+        ]
+      },
+      evidenceItems: [
+        { title: 'Established device', status: 'Observed' },
+        { title: 'Biometric authentication', status: 'Observed' },
+        { title: 'Normal access geography', status: 'Observed' },
+        { title: 'Beneficiary creation', status: 'Observed' },
+        { title: 'Transfer authorisation', status: 'Observed' },
+        { title: 'Beneficiary details matching supplied communications', status: 'Corroborated' }
+      ],
+      coreMessage: 'Control has become clearer. Intent has not.',
+      practitionerLens: {
+        heading: 'This evidence answers who performed the account actions. It does not answer why they performed them.',
+        body: 'Authentication establishes control much more strongly than intent.'
+      },
+      gateNote: 'Review all five hypotheses again in light of this evidence before continuing.'
     }
   },
   hypotheses: {

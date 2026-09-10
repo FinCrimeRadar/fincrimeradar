@@ -27,6 +27,14 @@
     caseCompleted: false
   };
 
+  var EVIDENCE_STATUS_LABELS = {
+    Observed: 'Observed',
+    SelfReported: 'Self Reported',
+    Corroborated: 'Corroborated',
+    Inferred: 'Inferred',
+    Unknown: 'Unknown'
+  };
+
   var HYPOTHESIS_STATES = ['Leading', 'Plausible', 'Unresolved', 'Weak'];
   var TIMELINE_STATES = ['Unaware', 'ConcernEmerging', 'Suspicious', 'LikelyAware', 'CannotDetermine'];
   var DECISION_VALUES = ['Yes', 'No', 'CannotDetermine'];
@@ -197,6 +205,47 @@
 
   function formatGBP(amount) {
     return '£' + amount.toLocaleString('en-GB');
+  }
+
+  // EvidenceCard. Status is never conveyed by colour alone: the glyph
+  // (CSS ::before on .mmc-evidence-status, keyed off data-status) is a
+  // decorative reinforcement for sighted users, and the text label
+  // ("Self Reported", "Corroborated", etc, from EVIDENCE_STATUS_LABELS) is
+  // the actual textContent, so it reaches assistive technology regardless of
+  // whether the generated glyph does. `body` and `note` are optional: several
+  // spec §11/§12 evidence items are a bare title plus status (or status plus
+  // a short qualifier), with no separate descriptive paragraph.
+  function renderEvidenceCard(container, item) {
+    var card = document.createElement('article');
+    card.className = 'mmc-evidence-card';
+
+    var heading = document.createElement('h3');
+    heading.textContent = item.title;
+    card.appendChild(heading);
+
+    if (item.body) {
+      var bodyParagraphs = Array.isArray(item.body) ? item.body : [item.body];
+      bodyParagraphs.forEach(function (text) {
+        var p = document.createElement('p');
+        p.textContent = text;
+        card.appendChild(p);
+      });
+    }
+
+    var status = document.createElement('span');
+    status.className = 'mmc-evidence-status';
+    status.setAttribute('data-status', item.status);
+    status.textContent = EVIDENCE_STATUS_LABELS[item.status];
+    card.appendChild(status);
+
+    if (item.note) {
+      var note = document.createElement('p');
+      note.className = 'mmc-evidence-note';
+      note.textContent = item.note;
+      card.appendChild(note);
+    }
+
+    container.appendChild(card);
   }
 
   // Reusable board for Stages 2, 4, 5, 7, 9. `state` is the full CaseFileShell
@@ -533,10 +582,276 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2 };
+  function renderStage3(container) {
+    var data = MMC_DATA.stages[3];
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 3: Evidence Inject 01';
+    wrapper.appendChild(heading);
+
+    // --- Customer explanation ---
+    var explanationSection = document.createElement('section');
+    explanationSection.className = 'mmc-customer-explanation';
+    var explanationHeading = document.createElement('h3');
+    explanationHeading.textContent = 'Customer explanation';
+    explanationSection.appendChild(explanationHeading);
+
+    data.customerExplanation.intro.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      explanationSection.appendChild(p);
+    });
+
+    var roleTitle = document.createElement('p');
+    var roleTitleStrong = document.createElement('strong');
+    roleTitleStrong.textContent = data.customerExplanation.roleTitle;
+    roleTitle.appendChild(roleTitleStrong);
+    explanationSection.appendChild(roleTitle);
+
+    data.customerExplanation.roleParagraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      explanationSection.appendChild(p);
+    });
+
+    var providedIntro = document.createElement('p');
+    providedIntro.textContent = 'Customer R provides:';
+    explanationSection.appendChild(providedIntro);
+
+    var providedList = document.createElement('ul');
+    providedList.className = 'mmc-provided-list';
+    data.provided.forEach(function (text) {
+      var li = document.createElement('li');
+      li.textContent = text;
+      providedList.appendChild(li);
+    });
+    explanationSection.appendChild(providedList);
+
+    var retainedFunds = document.createElement('p');
+    retainedFunds.textContent = data.retainedFundsExplanation;
+    explanationSection.appendChild(retainedFunds);
+
+    var framing = document.createElement('p');
+    framing.className = 'mmc-callout';
+    var framingStrong = document.createElement('strong');
+    framingStrong.textContent = data.framingLine;
+    framing.appendChild(framingStrong);
+    explanationSection.appendChild(framing);
+
+    wrapper.appendChild(explanationSection);
+
+    // --- Evidence classification ---
+    var evidenceSection = document.createElement('section');
+    evidenceSection.className = 'mmc-evidence-section';
+    var evidenceHeading = document.createElement('h3');
+    evidenceHeading.textContent = 'Evidence classification';
+    evidenceSection.appendChild(evidenceHeading);
+
+    var evidenceGrid = document.createElement('div');
+    evidenceGrid.className = 'mmc-evidence-grid';
+    data.evidenceItems.forEach(function (item) {
+      renderEvidenceCard(evidenceGrid, item);
+    });
+    evidenceSection.appendChild(evidenceGrid);
+    wrapper.appendChild(evidenceSection);
+
+    // --- Hypothesis impact (narration only, not editable) ---
+    var impactSection = document.createElement('section');
+    impactSection.className = 'mmc-hypothesis-impact';
+    var impactHeading = document.createElement('h3');
+    impactHeading.textContent = 'Hypothesis impact';
+    impactSection.appendChild(impactHeading);
+
+    var impactList = document.createElement('dl');
+    impactList.className = 'mmc-hypothesis-impact-list';
+    ['A', 'B', 'C', 'D', 'E'].forEach(function (id) {
+      var dt = document.createElement('dt');
+      dt.textContent = MMC_DATA.hypotheses[id].name;
+      var dd = document.createElement('dd');
+      dd.textContent = data.hypothesisImpact[id];
+      impactList.appendChild(dt);
+      impactList.appendChild(dd);
+    });
+    impactSection.appendChild(impactList);
+    wrapper.appendChild(impactSection);
+
+    // --- Practitioner Lens, including the non scored investigation actions ---
+    var lensSection = document.createElement('section');
+    lensSection.className = 'mmc-practitioner-lens';
+    var lensHeading = document.createElement('h3');
+    lensHeading.textContent = 'Practitioner Lens';
+    lensSection.appendChild(lensHeading);
+
+    var lensOpening = document.createElement('p');
+    var lensOpeningStrong = document.createElement('strong');
+    lensOpeningStrong.textContent = data.practitionerLens.heading;
+    lensOpening.appendChild(lensOpeningStrong);
+    lensSection.appendChild(lensOpening);
+
+    var lensBody = document.createElement('p');
+    lensBody.textContent = data.practitionerLens.body;
+    lensSection.appendChild(lensBody);
+
+    var lensClosing = document.createElement('p');
+    var lensClosingStrong = document.createElement('strong');
+    lensClosingStrong.textContent = data.practitionerLens.closing;
+    lensClosing.appendChild(lensClosingStrong);
+    lensSection.appendChild(lensClosing);
+
+    var actionsList = document.createElement('ul');
+    actionsList.className = 'mmc-investigation-actions';
+    data.investigationActions.forEach(function (text) {
+      var li = document.createElement('li');
+      var label = document.createElement('label');
+      label.className = 'mmc-investigation-action';
+      var checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      // Purely reflective, per spec §11: "No selection should be marked
+      // correct or incorrect." No onTouch/onChange handler is attached, so
+      // this never calls updateState, is never persisted to localStorage
+      // and has no bearing on the continue button below.
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(text));
+      li.appendChild(label);
+      actionsList.appendChild(li);
+    });
+    lensSection.appendChild(actionsList);
+
+    var actionsNote = document.createElement('p');
+    actionsNote.className = 'mmc-gate-note';
+    actionsNote.textContent = data.investigationActionsNote;
+    lensSection.appendChild(actionsNote);
+
+    wrapper.appendChild(lensSection);
+
+    // --- Continue: no gate. Nothing structured is recorded at this stage
+    // beyond reading, per the brief. ---
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Continue';
+    continueButton.addEventListener('click', function () {
+      advanceStage();
+    });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  // Tracks which of the five hypotheses have been clicked during this visit
+  // to Stage 4, for the continue gate. Same rationale and shape as
+  // stage2Touched above: module level so it survives the re-render every
+  // updateState call triggers, null means "not yet initialised this visit".
+  var stage4Touched = null;
+
+  function renderStage4(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[4];
+
+    if (stage4Touched === null) {
+      stage4Touched = { A: false, B: false, C: false, D: false, E: false };
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 4: Evidence Inject 02';
+    wrapper.appendChild(heading);
+
+    // --- Digital evidence ---
+    var digitalSection = document.createElement('section');
+    digitalSection.className = 'mmc-digital-evidence';
+    var digitalHeading = document.createElement('h3');
+    digitalHeading.textContent = 'Digital evidence';
+    digitalSection.appendChild(digitalHeading);
+    data.digitalEvidence.paragraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      digitalSection.appendChild(p);
+    });
+    wrapper.appendChild(digitalSection);
+
+    // --- Evidence status ---
+    var evidenceSection = document.createElement('section');
+    evidenceSection.className = 'mmc-evidence-section';
+    var evidenceHeading = document.createElement('h3');
+    evidenceHeading.textContent = 'Evidence status';
+    evidenceSection.appendChild(evidenceHeading);
+    var evidenceGrid = document.createElement('div');
+    evidenceGrid.className = 'mmc-evidence-grid';
+    data.evidenceItems.forEach(function (item) {
+      renderEvidenceCard(evidenceGrid, item);
+    });
+    evidenceSection.appendChild(evidenceGrid);
+    wrapper.appendChild(evidenceSection);
+
+    // --- Core message ---
+    var callout = document.createElement('p');
+    callout.className = 'mmc-callout mmc-callout-prominent';
+    var calloutStrong = document.createElement('strong');
+    calloutStrong.textContent = data.coreMessage;
+    callout.appendChild(calloutStrong);
+    wrapper.appendChild(callout);
+
+    // --- Practitioner Lens ---
+    var lensSection = document.createElement('section');
+    lensSection.className = 'mmc-practitioner-lens';
+    var lensHeading = document.createElement('h3');
+    lensHeading.textContent = 'Practitioner Lens';
+    lensSection.appendChild(lensHeading);
+
+    var lensOpening = document.createElement('p');
+    var lensOpeningStrong = document.createElement('strong');
+    lensOpeningStrong.textContent = data.practitionerLens.heading;
+    lensOpening.appendChild(lensOpeningStrong);
+    lensSection.appendChild(lensOpening);
+
+    var lensBody = document.createElement('p');
+    lensBody.textContent = data.practitionerLens.body;
+    lensSection.appendChild(lensBody);
+    wrapper.appendChild(lensSection);
+
+    // --- Hypothesis Board, editable, no suggested block this time ---
+    var boardSection = document.createElement('section');
+    boardSection.className = 'mmc-initial-assessment';
+    var boardHeading = document.createElement('h3');
+    boardHeading.textContent = 'Reassess the hypotheses';
+    boardSection.appendChild(boardHeading);
+
+    renderHypothesisBoard(boardSection, state, {
+      onTouch: function (id) {
+        stage4Touched[id] = true;
+      }
+    });
+    wrapper.appendChild(boardSection);
+
+    var gateNote = document.createElement('p');
+    gateNote.className = 'mmc-gate-note';
+    gateNote.textContent = data.gateNote;
+    wrapper.appendChild(gateNote);
+
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Continue';
+    continueButton.addEventListener('click', function () {
+      stage4Touched = null;
+      advanceStage();
+    });
+    continueButton.disabled = !['A', 'B', 'C', 'D', 'E'].every(function (id) { return stage4Touched[id]; });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4 };
   (function registerPlaceholderStages() {
     var stageNumber;
-    for (stageNumber = 3; stageNumber <= 12; stageNumber += 1) {
+    for (stageNumber = 5; stageNumber <= 12; stageNumber += 1) {
       STAGE_RENDERERS[stageNumber] = (function (n) {
         return function (container) { renderNotYetImplemented(container, n); };
       }(stageNumber));
