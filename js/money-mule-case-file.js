@@ -45,6 +45,7 @@
     CannotDetermine: 'Cannot determine'
   };
   var DECISION_VALUES = ['Yes', 'No', 'CannotDetermine'];
+  var DECISION_VALUE_LABELS = { Yes: 'Yes', No: 'No', CannotDetermine: 'Cannot determine' };
   var REASONING_SHIFT_VALUES = ['Substantially', 'Somewhat', 'NoMaterialChange'];
 
   function consentGranted() {
@@ -1206,10 +1207,220 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6 };
+  // Tracks which of the five hypotheses plus the two coercion decisions
+  // (controlDecision, voluntarinessDecision) have been touched during this
+  // visit to Stage 7, for the combined continue gate. Same shape and
+  // rationale as stage6Touched above: module level so it survives every
+  // updateState re-render, null means "not yet initialised this visit",
+  // reset to null on advance so a fresh visit re-imposes the gate, bypassed
+  // on revisit via highestUnlockedStage > 7 (the Stage 4/6 pattern).
+  var stage7Touched = null;
+
+  function renderStage7(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[7];
+
+    if (stage7Touched === null) {
+      stage7Touched = {
+        A: false, B: false, C: false, D: false, E: false,
+        controlDecision: false, voluntarinessDecision: false
+      };
+      if (state.highestUnlockedStage > 7) {
+        Object.keys(stage7Touched).forEach(function (key) { stage7Touched[key] = true; });
+      }
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 7: Evidence Inject 04';
+    wrapper.appendChild(heading);
+
+    // --- Attempted disengagement ---
+    var disengagementSection = document.createElement('section');
+    disengagementSection.className = 'mmc-attempted-exit';
+    var disengagementHeading = document.createElement('h3');
+    disengagementHeading.textContent = 'Attempted disengagement';
+    disengagementSection.appendChild(disengagementHeading);
+
+    data.disengagement.paragraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      disengagementSection.appendChild(p);
+    });
+
+    var quoteOne = document.createElement('p');
+    var quoteOneStrong = document.createElement('strong');
+    quoteOneStrong.textContent = data.disengagement.quoteOne;
+    quoteOne.appendChild(quoteOneStrong);
+    disengagementSection.appendChild(quoteOne);
+
+    data.disengagement.paragraphsAfterQuoteOne.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      disengagementSection.appendChild(p);
+    });
+
+    var quoteTwo = document.createElement('p');
+    var quoteTwoStrong = document.createElement('strong');
+    quoteTwoStrong.textContent = data.disengagement.quoteTwo;
+    quoteTwo.appendChild(quoteTwoStrong);
+    disengagementSection.appendChild(quoteTwo);
+
+    data.disengagement.paragraphsAfterQuoteTwo.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      disengagementSection.appendChild(p);
+    });
+    wrapper.appendChild(disengagementSection);
+
+    // --- Evidence status ---
+    var evidenceSection = document.createElement('section');
+    evidenceSection.className = 'mmc-evidence-section';
+    var evidenceHeading = document.createElement('h3');
+    evidenceHeading.textContent = 'Evidence status';
+    evidenceSection.appendChild(evidenceHeading);
+    var evidenceGrid = document.createElement('div');
+    evidenceGrid.className = 'mmc-evidence-grid';
+    data.evidenceItems.forEach(function (item) {
+      renderEvidenceCard(evidenceGrid, item);
+    });
+    evidenceSection.appendChild(evidenceGrid);
+    wrapper.appendChild(evidenceSection);
+
+    // --- Case timeline: wider reveal set (Stage 6's five points plus
+    // attemptedExit, threats, paymentFour, intervention: all nine). ---
+    var timelineSection = document.createElement('section');
+    timelineSection.className = 'mmc-case-timeline';
+    var timelineHeading = document.createElement('h3');
+    timelineHeading.textContent = 'Case timeline';
+    timelineSection.appendChild(timelineHeading);
+    renderCaseTimeline(timelineSection, data.timelineRevealIds);
+    wrapper.appendChild(timelineSection);
+
+    // --- Coercion assessment: control and voluntariness are asked and
+    // persisted as two genuinely separate controls, per spec §15 ("Do not
+    // merge these questions"). Each is its own fieldset/radio group bound to
+    // its own state field; neither handler ever reads or sets the other. ---
+    var coercionSection = document.createElement('section');
+    coercionSection.className = 'mmc-coercion-assessment';
+    var coercionHeading = document.createElement('h3');
+    coercionHeading.textContent = 'Coercion assessment';
+    coercionSection.appendChild(coercionHeading);
+
+    data.questions.forEach(function (question) {
+      var fieldset = document.createElement('fieldset');
+      fieldset.className = 'mmc-timeline-question';
+
+      var legend = document.createElement('legend');
+      legend.textContent = question.label;
+      fieldset.appendChild(legend);
+
+      var optionsWrap = document.createElement('div');
+      optionsWrap.className = 'mmc-hypothesis-options';
+      DECISION_VALUES.forEach(function (value) {
+        var inputId = 'cq-' + question.key + '-' + value;
+        var label = document.createElement('label');
+        label.className = 'mmc-hypothesis-option';
+        label.setAttribute('for', inputId);
+
+        var input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'cq-' + question.key;
+        input.id = inputId;
+        input.value = value;
+        input.checked = state[question.key] === value;
+        // 'click' (not 'change'), same reasoning as the hypothesis board and
+        // Stage 6's timeline controls: re-selecting an already-checked radio
+        // must still register as a deliberate touch for the gate.
+        input.addEventListener('click', function () {
+          stage7Touched[question.key] = true;
+          updateState(function (s) {
+            s[question.key] = value;
+          });
+        });
+
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(DECISION_VALUE_LABELS[value]));
+        optionsWrap.appendChild(label);
+      });
+      fieldset.appendChild(optionsWrap);
+      coercionSection.appendChild(fieldset);
+    });
+
+    var coercionCallout = document.createElement('p');
+    coercionCallout.className = 'mmc-callout mmc-callout-prominent';
+    var coercionCalloutStrong = document.createElement('strong');
+    coercionCalloutStrong.textContent = data.coercionCallout;
+    coercionCallout.appendChild(coercionCalloutStrong);
+    coercionSection.appendChild(coercionCallout);
+    wrapper.appendChild(coercionSection);
+
+    // --- Hypothesis impact (narration only, not editable) ---
+    var impactSection = document.createElement('section');
+    impactSection.className = 'mmc-hypothesis-impact';
+    var impactHeading = document.createElement('h3');
+    impactHeading.textContent = 'Hypothesis impact';
+    impactSection.appendChild(impactHeading);
+
+    var impactList = document.createElement('dl');
+    impactList.className = 'mmc-hypothesis-impact-list';
+    ['A', 'B', 'C', 'D', 'E'].forEach(function (id) {
+      var dt = document.createElement('dt');
+      dt.textContent = MMC_DATA.hypotheses[id].name;
+      var dd = document.createElement('dd');
+      dd.textContent = data.hypothesisImpact[id];
+      impactList.appendChild(dt);
+      impactList.appendChild(dd);
+    });
+    impactSection.appendChild(impactList);
+    wrapper.appendChild(impactSection);
+
+    // --- Hypothesis Board, editable, no suggested block ---
+    var boardSection = document.createElement('section');
+    boardSection.className = 'mmc-initial-assessment';
+    var boardHeading = document.createElement('h3');
+    boardHeading.textContent = 'Reassess the hypotheses';
+    boardSection.appendChild(boardHeading);
+
+    renderHypothesisBoard(boardSection, state, {
+      onTouch: function (id) {
+        stage7Touched[id] = true;
+      }
+    });
+    wrapper.appendChild(boardSection);
+
+    // --- Gate note + continue button ---
+    var gateNote = document.createElement('p');
+    gateNote.className = 'mmc-gate-note';
+    gateNote.textContent = data.gateNote;
+    wrapper.appendChild(gateNote);
+
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Continue';
+    continueButton.addEventListener('click', function () {
+      // Each control already persists its own field via updateState the
+      // moment it is set (see above), so by the time the gate allows this
+      // button to be enabled everything is already saved. This just
+      // advances, matching the Stage 4/6 continue handler's shape.
+      stage7Touched = null;
+      advanceStage();
+    });
+    continueButton.disabled = !['A', 'B', 'C', 'D', 'E', 'controlDecision', 'voluntarinessDecision'].every(function (key) {
+      return stage7Touched[key];
+    });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7 };
   (function registerPlaceholderStages() {
     var stageNumber;
-    for (stageNumber = 7; stageNumber <= 12; stageNumber += 1) {
+    for (stageNumber = 8; stageNumber <= 12; stageNumber += 1) {
       STAGE_RENDERERS[stageNumber] = (function (n) {
         return function (container) { renderNotYetImplemented(container, n); };
       }(stageNumber));

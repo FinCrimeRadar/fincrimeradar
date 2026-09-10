@@ -229,6 +229,54 @@ window.MMC_DATA = {
         optionIds: ['initialRecruitment', 'paymentOne', 'paymentTwo', 'concernEmerges', 'paymentThree']
       },
       gateNote: 'Record all three timeline assessments before continuing.'
+    },
+    7: {
+      disengagement: {
+        paragraphs: [
+          'On the morning of Day 4, before the fourth incoming payment, Customer R tells the recruiter:'
+        ],
+        quoteOne: 'I am not doing any more transfers until somebody explains what this actually is.',
+        paragraphsAfterQuoteOne: [
+          'The recruiter immediately calls Customer R several times.',
+          'Customer R does not initially answer.',
+          'The recruiter then sends a copy of the identity document Customer R supplied during recruitment.',
+          'They refer to Customer R’s home postcode.',
+          'They state that Customer R is responsible for money already processed and will face serious consequences if the work is abandoned.',
+          'The recruiter states that the company knows where Customer R lives.',
+          'Over the next several hours, seventeen attempted calls are recorded.',
+          'Customer R sends a message to a close friend:'
+        ],
+        quoteTwo: 'I think I\'ve got involved in something bad. I\'m trying to stop and they\'re threatening me.',
+        paragraphsAfterQuoteTwo: [
+          'The message to the friend was sent before the fourth transfer and before the bank contacted Customer R.',
+          'The recruiter continues demanding completion of the fourth transfer.',
+          'Customer R eventually makes the transfer.'
+        ]
+      },
+      evidenceItems: [
+        { title: 'Attempt to stop participating', status: 'Corroborated' },
+        { title: 'Escalating recruiter contact', status: 'Corroborated' },
+        { title: 'Use of personal information', status: 'Corroborated' },
+        { title: 'Threatening language', status: 'Corroborated' },
+        { title: 'Message to friend', status: 'Corroborated', note: 'Independently timestamped.' },
+        { title: 'Message predates institutional intervention', status: 'Corroborated' },
+        { title: 'Fourth transaction', status: 'Observed' },
+        { title: 'Transaction occurred after threatening communications', status: 'Corroborated' }
+      ],
+      timelineRevealIds: ['initialRecruitment', 'paymentOne', 'paymentTwo', 'concernEmerges', 'paymentThree', 'attemptedExit', 'threats', 'paymentFour', 'intervention'],
+      questions: [
+        { key: 'controlDecision', label: 'Did Customer R control Payment Four?' },
+        { key: 'voluntarinessDecision', label: 'Does the available evidence establish that Payment Four was freely voluntary?' }
+      ],
+      coercionCallout: 'Control and voluntariness are not the same thing.',
+      hypothesisImpact: {
+        A: 'Remains possible for part of the timeline',
+        B: 'Strongly supported',
+        C: 'Strongly supported at initial entry',
+        D: 'Materially strengthened',
+        E: 'Very weak'
+      },
+      gateNote: 'Record both decisions and confirm all five hypotheses before continuing.'
     }
   },
   timelinePoints: [
