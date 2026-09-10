@@ -77,6 +77,12 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .mmc-timeline li{padding:.6rem 0 .6rem 1.1rem;border-top:1px solid var(--mmc-line)}
 .mmc-decision-record{border:2px solid var(--mmc-navy);padding:1rem;margin:1.2rem 0}
 .mmc-radar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.mmc-case-controls{max-width:900px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:flex-end}
+.mmc-reset{border:1px solid var(--mmc-red);border-radius:5px;background:#fff;color:var(--mmc-red);font-weight:600;padding:.6rem 1rem;min-height:44px;cursor:pointer;font-size:14px}
+.mmc-reset-confirm{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.6rem;font-size:14px;color:var(--mmc-ink);border:2px solid var(--mmc-red);border-radius:5px;padding:.6rem 1rem}
+.mmc-reset-confirm[hidden]{display:none}
+.mmc-reset-confirm button{border:1px solid var(--mmc-navy);border-radius:5px;background:#fff;color:var(--mmc-navy);font-weight:600;padding:.5rem .9rem;min-height:44px;cursor:pointer;font-size:14px}
+#mmcResetYes{border-color:var(--mmc-red);color:var(--mmc-red)}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--mmc-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.mmc-breadcrumb{align-items:flex-start}.mmc-layout{padding:0 .75rem 3rem}.mmc-hypothesis-board,.mmc-radar{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{nav,.mobile-nav,.mmc-action,#site-footer{display:none!important}.mmc-layout{display:block;max-width:none}.mmc-section{break-inside:avoid;border-color:#999}}
@@ -267,6 +273,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 
 <noscript><div class="mmc-noscript">This investigation requires JavaScript to progress beyond orientation. All reasoning above remains fully readable without it.</div></noscript>
 <div id="caseFileApp" data-stage-root hidden></div>
+
+<div class="mmc-case-controls">
+  <button id="mmcResetCase" class="mmc-reset" type="button">Reset Case</button>
+  <span id="mmcResetConfirm" class="mmc-reset-confirm" hidden>Discard all progress? <button id="mmcResetYes" type="button">Yes, reset</button> <button id="mmcResetNo" type="button">Cancel</button></span>
+</div>
 
 <section class="mmc-section" id="sources">
   <h2>Sources and methodology</h2>
