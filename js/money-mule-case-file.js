@@ -753,6 +753,18 @@
 
     if (stage4Touched === null) {
       stage4Touched = { A: false, B: false, C: false, D: false, E: false };
+      // Revisiting a stage already completed (e.g. future back navigation,
+      // or a Decision Point comparison stage looking back at this one)
+      // should not re-impose the gate. There is no per-stage "Stage 4
+      // confirmed" flag in the persisted state (unlike Stage 2's
+      // hypothesisSnapshots.initial), so highestUnlockedStage > 4 is used
+      // instead: it means the practitioner has already advanced past this
+      // stage before, so this is a revisit, not a first pass. This check is
+      // schema-free and is the pattern later Stages 5, 7 and 9 should reuse
+      // when they re-show the hypothesis board.
+      if (state.highestUnlockedStage > 4) {
+        ['A', 'B', 'C', 'D', 'E'].forEach(function (id) { stage4Touched[id] = true; });
+      }
     }
 
     var wrapper = document.createElement('div');
