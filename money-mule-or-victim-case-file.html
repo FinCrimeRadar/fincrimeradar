@@ -77,13 +77,65 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .mmc-timeline li{padding:.6rem 0 .6rem 1.1rem;border-top:1px solid var(--mmc-line)}
 .mmc-decision-record{border:2px solid var(--mmc-navy);padding:1rem;margin:1.2rem 0}
 .mmc-radar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+/* Stage 2: Case Intake. Same tokens and card language as .mmc-disclosure,
+   .mmc-evidence-card and .mmc-decision-record above: a left accent border
+   or top stripe for "read this callout" blocks, a plain line border for
+   plain data cards, no border radius, no new colours introduced. */
+.mmc-alert{border-left:4px solid var(--mmc-amber);background:var(--mmc-paper);padding:1rem 1.2rem;margin:0 0 1.5rem;min-width:0}
+.mmc-alert h3{margin-top:0}
+.mmc-profile{border:1px solid var(--mmc-line);background:#fff;padding:1rem 1.2rem;margin:0 0 1.5rem;min-width:0}
+.mmc-profile h3{margin-top:0}
+.mmc-profile-list{display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:.55rem 1.2rem;margin:0}
+.mmc-profile-list dt{font-weight:600;color:var(--mmc-navy);margin:0}
+.mmc-profile-list dd{margin:0;color:var(--mmc-ink)}
+.mmc-callout{border-left:4px solid var(--mmc-amber);background:#fff8eb;padding:.75rem 1rem;margin:1rem 0 0;font-size:14.5px;color:#2c3a30}
+.mmc-callout strong{color:var(--mmc-amber)}
+.mmc-chronology{margin:0 0 1.5rem;min-width:0}
+.mmc-chronology h3{margin-top:0}
+.mmc-chronology-table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.mmc-chronology-table caption{caption-side:top;text-align:left;font-weight:600;color:var(--mmc-navy);margin-bottom:.5rem}
+.mmc-chronology-table th,.mmc-chronology-table td{padding:.6rem .75rem;border-bottom:1px solid var(--mmc-line);text-align:left;vertical-align:top}
+.mmc-chronology-table thead th{background:var(--mmc-paper);font:600 11.5px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;color:var(--mmc-muted);border-bottom:2px solid var(--mmc-line)}
+.mmc-chronology-table tbody th{font-weight:600;color:var(--mmc-navy);white-space:nowrap}
+.mmc-chronology-table td:last-child,.mmc-chronology-table th:last-child{text-align:right;white-space:nowrap}
+.mmc-chronology-totals{display:flex;flex-wrap:wrap;gap:1.1rem 2rem;margin:1rem 0 0;padding:.9rem 1.1rem;background:var(--mmc-paper);border:1px solid var(--mmc-line)}
+.mmc-chronology-totals dt{font:600 11.5px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;color:var(--mmc-muted);margin:0}
+.mmc-chronology-totals dd{margin:.2rem 0 0;font-size:1.05rem;color:var(--mmc-navy)}
+.mmc-initial-assessment{margin:0 0 1.5rem;min-width:0}
+.mmc-initial-assessment h3{margin-top:0}
+/* Suggested board is deliberately not a fieldset: dashed border and a
+   teal-tinted paper background (vs the practitioner board's plain-line,
+   solid-border fieldsets below) so the two are visually distinct, not
+   merely adjacent. The label text itself ("FinCrimeRadar's suggested..."
+   vs "Your own assessment") already carries the distinction in words,
+   so this is reinforcement, not the only signal. */
+.mmc-suggested-board{border:1px dashed var(--mmc-green2);background:#f2fbfa;padding:1rem 1.2rem;margin:0 0 1.25rem;min-width:0}
+.mmc-suggested-board-label{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--mmc-green);margin:0 0 .65rem}
+.mmc-suggested-board-list{display:grid;grid-template-columns:1fr auto;gap:.4rem 1rem;margin:0}
+.mmc-suggested-board-list dt{font-weight:600;color:var(--mmc-ink);margin:0}
+.mmc-suggested-board-list dd{margin:0;font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--mmc-green);letter-spacing:.03em;text-align:right}
+.mmc-practitioner-board-label{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--mmc-navy);margin:0 0 .65rem}
+.mmc-hypothesis{border:1px solid var(--mmc-line);background:#fff;padding:1rem;margin:0;min-width:0}
+.mmc-hypothesis legend{padding:0 .4rem;font-size:14px;color:var(--mmc-ink)}
+.mmc-hypothesis legend strong{display:block;color:var(--mmc-navy);font-size:15px;margin-bottom:.2rem}
+.mmc-hypothesis-options{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.85rem}
+.mmc-hypothesis-option{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--mmc-line);border-radius:999px;padding:.35rem .7rem .35rem .55rem;font-size:13px;cursor:pointer;min-height:32px}
+.mmc-hypothesis-option:has(input:checked){border-color:var(--mmc-green2);background:rgba(20,184,166,.12);color:var(--mmc-navy)}
+.mmc-hypothesis-readonly-value{font-weight:700;color:var(--mmc-navy);margin:.6rem 0 0}
+.mmc-practitioner-lens{border-left:4px solid var(--mmc-navy);background:var(--mmc-paper);padding:1rem 1.2rem;margin:1.5rem 0;min-width:0}
+.mmc-practitioner-lens h3{margin-top:0}
+.mmc-lens-can,.mmc-lens-cannot{list-style:none;margin:.75rem 0;padding:0}
+.mmc-lens-can{border-left:3px solid var(--mmc-green2)}
+.mmc-lens-cannot{border-left:3px solid var(--mmc-red);margin-bottom:1rem}
+.mmc-lens-can li,.mmc-lens-cannot li{padding:.4rem .4rem .4rem .9rem}
+.mmc-gate-note{font-size:13px;color:var(--mmc-muted);margin:1rem 0 .75rem}
 .mmc-case-controls{max-width:900px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:flex-end}
 .mmc-reset{border:1px solid var(--mmc-red);border-radius:5px;background:#fff;color:var(--mmc-red);font-weight:600;padding:.6rem 1rem;min-height:44px;cursor:pointer;font-size:14px}
 .mmc-reset-confirm{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.6rem;font-size:14px;color:var(--mmc-ink);border:2px solid var(--mmc-red);border-radius:5px;padding:.6rem 1rem}
 .mmc-reset-confirm[hidden]{display:none}
 .mmc-reset-confirm button{border:1px solid var(--mmc-navy);border-radius:5px;background:#fff;color:var(--mmc-navy);font-weight:600;padding:.5rem .9rem;min-height:44px;cursor:pointer;font-size:14px}
 #mmcResetYes{border-color:var(--mmc-red);color:var(--mmc-red)}
-@media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--mmc-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.mmc-breadcrumb{align-items:flex-start}.mmc-layout{padding:0 .75rem 3rem}.mmc-hypothesis-board,.mmc-radar{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--mmc-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.mmc-breadcrumb{align-items:flex-start}.mmc-layout{padding:0 .75rem 3rem}.mmc-hypothesis-board,.mmc-radar{grid-template-columns:minmax(0,1fr)}.mmc-profile-list{grid-template-columns:1fr}.mmc-suggested-board-list{grid-template-columns:1fr}.mmc-suggested-board-list dd{text-align:left;margin-bottom:.35rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{nav,.mobile-nav,.mmc-action,#site-footer{display:none!important}.mmc-layout{display:block;max-width:none}.mmc-section{break-inside:avoid;border-color:#999}}
 </style>
