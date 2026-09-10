@@ -229,6 +229,22 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .mmc-evidence-status[data-status="NotIdentified"]::before{content:"◻ "}
 .mmc-evidence-status[data-status="NotEstablished"]{color:var(--mmc-muted)}
 .mmc-evidence-status[data-status="NotEstablished"]::before{content:"▽ "}
+/* Stage 10: Decision Record and Operational Decisions. The five dimension
+   fieldsets reuse .mmc-timeline-question and .mmc-hypothesis-options/
+   .mmc-hypothesis-option exactly as Stage 7's coercion questions do; the
+   per-dimension FinCrimeRadar analysis reveal reuses .mmc-suggested-board-
+   label as its eyebrow (the same "this text is FinCrimeRadar's, not the
+   practitioner's" label already used for the Stage 2 suggested board), with
+   a plain paragraph beneath it, so no new label style is introduced for the
+   same concept. .mmc-operational-decisions is the same plain margin/
+   min-width:0 wrapper as every other stage section, but resets margin-top
+   only on its own first heading (":first-child", not a blanket
+   "h3{margin-top:0}") because, unlike those single-heading sections, this
+   one deliberately holds six headings (one section heading plus five
+   operational-decision titles) and the later ones need their normal top
+   margin to separate one operational decision from the next. */
+.mmc-operational-decisions{margin:0 0 1.5rem;min-width:0}
+.mmc-operational-decisions>h3:first-child{margin-top:0}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--mmc-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.mmc-breadcrumb{align-items:flex-start}.mmc-layout{padding:0 .75rem 3rem}.mmc-hypothesis-board,.mmc-radar{grid-template-columns:minmax(0,1fr)}.mmc-profile-list{grid-template-columns:1fr}.mmc-suggested-board-list{grid-template-columns:1fr}.mmc-suggested-board-list dd{text-align:left;margin-bottom:.35rem}.mmc-evidence-grid,.mmc-hypothesis-impact-list{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{nav,.mobile-nav,.mmc-action,#site-footer{display:none!important}.mmc-layout{display:block;max-width:none}.mmc-section{break-inside:avoid;border-color:#999}}

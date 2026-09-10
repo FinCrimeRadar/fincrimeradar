@@ -320,6 +320,92 @@ window.MMC_DATA = {
         'It does not yet reveal FinCrimeRadar’s own conclusion on the five hypotheses.'
       ],
       gateNote: 'Record your final position on all five hypotheses before confirming.'
+    },
+    10: {
+      intro: [
+        'The practitioner must make findings separately across each of the five dimensions below.',
+        'The question is not: is Customer R a money mule?',
+        'Independent findings are required instead.'
+      ],
+      dimensions: [
+        {
+          id: 'activity',
+          question: 'What happened through the account?',
+          options: ['Confirmed', 'Partially confirmed', 'Not established', 'Cannot determine'],
+          fincrimeradarAnalysis: 'Confirmed. The account received proceeds connected to reported fraud and rapidly moved most of those funds onwards.'
+        },
+        {
+          id: 'control',
+          question: 'Who controlled the relevant account activity?',
+          options: ['Strongly established', 'Partially established', 'Not established', 'Cannot determine'],
+          fincrimeradarAnalysis: 'Strongly established. Customer R controlled the device and authorised the transactions.'
+        },
+        {
+          id: 'knowledge',
+          question: 'What did Customer R understand, and when?',
+          options: ['Established from entry', 'Developed during the timeline', 'Not established', 'Cannot determine'],
+          fincrimeradarAnalysis: 'Time dependent. The evidence supports initial deception. It later establishes growing concern and suspicion. It does not establish that Customer R entered the arrangement with knowledge of its criminal purpose.'
+        },
+        {
+          id: 'exploitation',
+          question: 'Was Customer R manipulated, pressured or coerced?',
+          options: ['Materially supported', 'Some indicators, not conclusive', 'Not supported', 'Cannot determine'],
+          fincrimeradarAnalysis: 'Materially supported. Later communications contain credible and independently timestamped indicators of intimidation and coercive pressure.'
+        },
+        {
+          id: 'evidence',
+          question: 'What can actually be demonstrated?',
+          options: ['Strong across all dimensions', 'Strong for some, incomplete for others', 'Weak overall', 'Cannot determine'],
+          fincrimeradarAnalysis: 'Strong for account activity and customer control. Strong for the existence of the deceptive recruitment process. Strong for changing customer suspicion. Strong for later threatening communications. Incomplete regarding the precise point at which Customer R believed, rather than merely suspected, that the funds represented criminal proceeds.'
+        }
+      ],
+      operationalDecisions: [
+        {
+          title: 'Immediate account intervention',
+          position: 'Supported.',
+          paragraphs: [
+            'The institution has strong evidence that its facilities are being used to move fraud proceeds.',
+            'Customer intent does not need to be conclusively resolved before proportionate measures are taken to prevent further movement and investigate the activity.'
+          ]
+        },
+        {
+          title: 'Recovery and network investigation',
+          position: 'Supported.',
+          paragraphs: [
+            'The sending institutions and onward beneficiaries provide opportunities for recovery, disruption and wider network intelligence.'
+          ]
+        },
+        {
+          title: 'Suspicious Activity Report consideration',
+          position: 'Strongly engaged.',
+          paragraphs: [
+            'The account activity, criminal provenance of funds and connected beneficiary intelligence create significant money laundering suspicion.',
+            'The SAR assessment must not depend on first proving that Customer R is a knowing criminal participant.',
+            'Customer circumstances, recruiters, accounts, devices, beneficiaries and relevant exploitation indicators may themselves provide useful intelligence.',
+            'This analysis is not legal advice.'
+          ]
+        },
+        {
+          title: 'Safeguarding assessment',
+          position: 'Required.',
+          paragraphs: [
+            'Evidence of threats and exploitation should trigger appropriate safeguarding consideration rather than being treated merely as mitigation within a fraud investigation.'
+          ]
+        },
+        {
+          title: 'National Fraud Database assessment',
+          position: 'Not automatic.',
+          paragraphs: [
+            'This decision requires its own evidential assessment.',
+            'Suspicious transaction behaviour and mule detection alerts do not automatically satisfy the evidential requirements for a National Fraud Database filing.',
+            'The FCA has stated that firms must obtain sufficient evidence concerning customer involvement and knowledge and has highlighted the difficulty of establishing willing participation.',
+            'Cifas requires clear, relevant and rigorous evidence, satisfaction of the applicable case criteria, accuracy and proportional interpretation.',
+            'Financial Ombudsman material here is practical complaint handling guidance and case reasoning, not legislation or binding precedent.'
+          ]
+        }
+      ],
+      closingLine: 'Account restriction, customer exit, SAR consideration, safeguarding and fraud database filing are separate decisions with different purposes and evidential questions.',
+      gateNote: 'Record a finding on all five dimensions before continuing.'
     }
   },
   timelinePoints: [

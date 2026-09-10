@@ -1598,10 +1598,167 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9 };
+  // DecisionRecord component. dimensionDefs is MMC_DATA.stages[10].dimensions:
+  // five {id, question, options, fincrimeradarAnalysis} objects. Renders one
+  // fieldset per dimension, radios bound to state.decisionRecord[id], reusing
+  // .mmc-timeline-question exactly as Stage 7's coercion questions do (a
+  // general purpose fieldset radio group, not one specific to the case
+  // timeline). The reveal of FinCrimeRadar's own analysis is derived straight
+  // from state.decisionRecord[id] on every render rather than tracked
+  // separately: whichever dimension already has a non-null value, on this
+  // visit or a prior one, shows its own analysis immediately, and no other
+  // dimension's analysis is affected by it. Never marks the practitioner's
+  // own choice as right or wrong, per spec §19. The eyebrow label reuses
+  // .mmc-suggested-board-label, the same "this text is FinCrimeRadar's, not
+  // the practitioner's" green uppercase mono label already used for the
+  // Stage 2 suggested board, rather than inventing a second label style for
+  // the same concept.
+  function renderDecisionRecord(container, state, dimensionDefs) {
+    var section = document.createElement('section');
+    section.className = 'mmc-decision-record';
+
+    dimensionDefs.forEach(function (dim) {
+      var fieldset = document.createElement('fieldset');
+      fieldset.className = 'mmc-timeline-question';
+
+      var legend = document.createElement('legend');
+      legend.textContent = dim.question;
+      fieldset.appendChild(legend);
+
+      var optionsWrap = document.createElement('div');
+      optionsWrap.className = 'mmc-hypothesis-options';
+      dim.options.forEach(function (optionValue) {
+        var inputId = 'dr-' + dim.id + '-' + optionValue.replace(/[^a-zA-Z0-9]+/g, '-');
+        var label = document.createElement('label');
+        label.className = 'mmc-hypothesis-option';
+        label.setAttribute('for', inputId);
+
+        var input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'dr-' + dim.id;
+        input.id = inputId;
+        input.value = optionValue;
+        input.checked = state.decisionRecord[dim.id] === optionValue;
+        // 'click' (not 'change'), same reasoning as every other radio group
+        // on this page: re-selecting an already-checked option must still
+        // register as a deliberate touch.
+        input.addEventListener('click', function () {
+          updateState(function (s) {
+            s.decisionRecord[dim.id] = optionValue;
+          });
+        });
+
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(optionValue));
+        optionsWrap.appendChild(label);
+      });
+      fieldset.appendChild(optionsWrap);
+      section.appendChild(fieldset);
+
+      if (state.decisionRecord[dim.id] !== null) {
+        var analysisLabel = document.createElement('p');
+        analysisLabel.className = 'mmc-suggested-board-label';
+        analysisLabel.textContent = 'FinCrimeRadar’s own analysis';
+        section.appendChild(analysisLabel);
+
+        var analysisText = document.createElement('p');
+        analysisText.textContent = dim.fincrimeradarAnalysis;
+        section.appendChild(analysisText);
+      }
+    });
+
+    container.appendChild(section);
+  }
+
+  var DECISION_RECORD_KEYS = ['activity', 'control', 'knowledge', 'exploitation', 'evidence'];
+
+  // Stage 10: Decision Record and Operational Decisions. Unlike the
+  // hypothesis board (where 'Unresolved' is both the default and a valid
+  // deliberate choice, forcing a separate touched-tracking module variable),
+  // decisionRecord's default is null and every option is a non-null string,
+  // so null itself unambiguously means "not yet answered". The continue gate
+  // below reads state.decisionRecord directly for that reason; no
+  // stage10Touched module variable is needed, and none exists.
+  function renderStage10(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[10];
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 10: Decision Record and Operational Decisions';
+    wrapper.appendChild(heading);
+
+    data.intro.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      wrapper.appendChild(p);
+    });
+
+    renderDecisionRecord(wrapper, state, data.dimensions);
+
+    // --- Operational decisions: static reference copy, not interactive, and
+    // always visible regardless of how many of the five dimensions above are
+    // filled in yet. ---
+    var operationalSection = document.createElement('section');
+    operationalSection.className = 'mmc-operational-decisions';
+    var operationalHeading = document.createElement('h3');
+    operationalHeading.textContent = 'Operational decisions';
+    operationalSection.appendChild(operationalHeading);
+
+    data.operationalDecisions.forEach(function (decision) {
+      var decisionHeading = document.createElement('h3');
+      decisionHeading.textContent = decision.title;
+      operationalSection.appendChild(decisionHeading);
+
+      var positionP = document.createElement('p');
+      var positionStrong = document.createElement('strong');
+      positionStrong.textContent = 'FinCrimeRadar position: ' + decision.position;
+      positionP.appendChild(positionStrong);
+      operationalSection.appendChild(positionP);
+
+      decision.paragraphs.forEach(function (text) {
+        var p = document.createElement('p');
+        p.textContent = text;
+        operationalSection.appendChild(p);
+      });
+    });
+
+    var closingLine = document.createElement('p');
+    closingLine.className = 'mmc-callout mmc-callout-prominent';
+    var closingLineStrong = document.createElement('strong');
+    closingLineStrong.textContent = data.closingLine;
+    closingLine.appendChild(closingLineStrong);
+    operationalSection.appendChild(closingLine);
+
+    wrapper.appendChild(operationalSection);
+
+    // --- Gate note + continue button ---
+    var gateNote = document.createElement('p');
+    gateNote.className = 'mmc-gate-note';
+    gateNote.textContent = data.gateNote;
+    wrapper.appendChild(gateNote);
+
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Continue';
+    continueButton.addEventListener('click', function () {
+      advanceStage();
+    });
+    continueButton.disabled = !DECISION_RECORD_KEYS.every(function (id) {
+      return state.decisionRecord[id] !== null;
+    });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9, 10: renderStage10 };
   (function registerPlaceholderStages() {
     var stageNumber;
-    for (stageNumber = 10; stageNumber <= 12; stageNumber += 1) {
+    for (stageNumber = 11; stageNumber <= 12; stageNumber += 1) {
       STAGE_RENDERERS[stageNumber] = (function (n) {
         return function (container) { renderNotYetImplemented(container, n); };
       }(stageNumber));
