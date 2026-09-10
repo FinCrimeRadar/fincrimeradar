@@ -175,7 +175,7 @@
   }
 
   function goToStage(n) {
-    if (n > state.highestUnlockedStage) return;
+    if (!isValidStageNumber(n) || n > state.highestUnlockedStage) return;
     state.currentStage = n;
     saveState(state);
     renderCurrentStage();
