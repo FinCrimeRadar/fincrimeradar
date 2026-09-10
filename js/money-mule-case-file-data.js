@@ -277,6 +277,49 @@ window.MMC_DATA = {
         E: 'Very weak'
       },
       gateNote: 'Record both decisions and confirm all five hypotheses before continuing.'
+    },
+    8: {
+      narrative: {
+        heading: 'Independent corroboration',
+        paragraphs: [
+          'External enquiries return.',
+          'The supposed employer has no verified relationship with the payment activity.',
+          'The website used during recruitment was registered shortly before the recruitment campaign began.',
+          'The business details shown to Customer R cannot be verified as belonging to the recruiter.',
+          'All four incoming transactions are subsequently confirmed by sending institutions as connected to reported fraud.',
+          'One onward beneficiary is linked by another institution to a wider suspected receiving account network.',
+          'No evidence is found that Customer R recruited another participant.',
+          'No earlier comparable receiving activity is found across Customer R’s three year account history.',
+          'No previous fraud database record is identified.',
+          'The original job advertisement predates the suspicious transactions.',
+          'The early recruiter conversations predate the suspicious transactions.',
+          'Customer R’s message to their friend describing concern and threats predates the bank intervention.',
+          'The retained £1,220 is identifiable within the account history.',
+          'Part was subsequently used for ordinary living expenditure.',
+          'No evidence currently establishes that Customer R negotiated a percentage of criminal proceeds outside the employment explanation already supplied.'
+        ]
+      },
+      evidenceItems: [
+        { title: 'Criminal provenance of inbound funds', status: 'Corroborated' },
+        { title: 'False employment proposition', status: 'Corroborated' },
+        { title: 'Recruitment evidence predating activity', status: 'Corroborated' },
+        { title: 'Customer concern predating intervention', status: 'Corroborated' },
+        { title: 'Threat evidence predating intervention', status: 'Corroborated' },
+        { title: 'Customer control of transactions', status: 'StronglyCorroborated' },
+        { title: 'Wider beneficiary risk', status: 'Corroborated' },
+        { title: 'Prior similar behaviour', status: 'NotIdentified' },
+        { title: 'Recruitment of others', status: 'NotIdentified' },
+        { title: 'Deliberately negotiated criminal commission', status: 'NotEstablished' }
+      ],
+      freezeNote: 'No further evidence will be introduced after this stage.'
+    },
+    9: {
+      intro: [
+        'Classify all five hypotheses one final time, drawing on everything now on the case file.',
+        'Once you confirm, this compares your initial assessment against your final assessment.',
+        'It does not yet reveal FinCrimeRadar’s own conclusion on the five hypotheses.'
+      ],
+      gateNote: 'Record your final position on all five hypotheses before confirming.'
     }
   },
   timelinePoints: [

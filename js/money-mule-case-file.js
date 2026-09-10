@@ -32,7 +32,10 @@
     SelfReported: 'Self Reported',
     Corroborated: 'Corroborated',
     Inferred: 'Inferred',
-    Unknown: 'Unknown'
+    Unknown: 'Unknown',
+    StronglyCorroborated: 'Strongly Corroborated',
+    NotIdentified: 'Not Identified',
+    NotEstablished: 'Not Established'
   };
 
   var HYPOTHESIS_STATES = ['Leading', 'Plausible', 'Unresolved', 'Weak'];
@@ -1417,10 +1420,188 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7 };
+  function renderStage8(container) {
+    var data = MMC_DATA.stages[8];
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 8: Evidence Inject 05';
+    wrapper.appendChild(heading);
+
+    // --- Independent corroboration ---
+    var narrativeSection = document.createElement('section');
+    narrativeSection.className = 'mmc-corroboration';
+    var narrativeHeading = document.createElement('h3');
+    narrativeHeading.textContent = data.narrative.heading;
+    narrativeSection.appendChild(narrativeHeading);
+    data.narrative.paragraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      narrativeSection.appendChild(p);
+    });
+    wrapper.appendChild(narrativeSection);
+
+    // --- Evidence status ---
+    var evidenceSection = document.createElement('section');
+    evidenceSection.className = 'mmc-evidence-section';
+    var evidenceHeading = document.createElement('h3');
+    evidenceHeading.textContent = 'Evidence status';
+    evidenceSection.appendChild(evidenceHeading);
+    var evidenceGrid = document.createElement('div');
+    evidenceGrid.className = 'mmc-evidence-grid';
+    data.evidenceItems.forEach(function (item) {
+      renderEvidenceCard(evidenceGrid, item);
+    });
+    evidenceSection.appendChild(evidenceGrid);
+    wrapper.appendChild(evidenceSection);
+
+    // --- Freeze notice: no further evidence follows this stage, per spec
+    // §16 ("After this point, freeze evidence disclosure"). Reuses .mmc-callout,
+    // the same "read this" narrative-note styling as Stages 3/4's framing and
+    // core-message lines, rather than introducing a new visual language for
+    // a single sentence. ---
+    var freezeNote = document.createElement('p');
+    freezeNote.className = 'mmc-callout';
+    var freezeNoteStrong = document.createElement('strong');
+    freezeNoteStrong.textContent = data.freezeNote;
+    freezeNote.appendChild(freezeNoteStrong);
+    wrapper.appendChild(freezeNote);
+
+    // --- Continue: no gate. Nothing is recorded at this stage beyond
+    // reading, per the brief. ---
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Continue';
+    continueButton.addEventListener('click', function () {
+      advanceStage();
+    });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  // Tracks which of the five hypotheses have been touched during this visit
+  // to Stage 9's classify phase, for the continue gate. Same shape and
+  // rationale as stage4Touched/stage7Touched above. Once the practitioner
+  // confirms, hypothesisSnapshots.final is set and the stage moves into its
+  // review phase, where this gate no longer applies, so there is no
+  // highestUnlockedStage bypass to worry about here: a revisit can only ever
+  // find final already set (review phase) or still null (classify phase,
+  // gate re-imposed), never highestUnlockedStage > 9 with final still null.
+  var stage9Touched = null;
+
+  // Stage 9: Final Hypothesis Assessment. Two-phase render within the same
+  // stage, per the brief: 'classify' (editable board, gated) then, once the
+  // practitioner confirms, 'review' (read-only board plus the initial-versus-
+  // final diff, then a second Continue that actually advances to Stage 10).
+  // The phase is deliberately derived from state.hypothesisSnapshots.final on
+  // every render rather than stored as its own persisted or module-level
+  // flag: confirming sets `final` via updateState, which re-renders this
+  // stage immediately, so the derived phase flips to 'review' on its own; a
+  // later revisit via goToStage(9) re-derives the same phase from the same
+  // persisted field, so it is never stale and never needs separate persistence.
+  function renderStage9(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[9];
+    var phase = state.hypothesisSnapshots.final ? 'review' : 'classify';
+
+    if (stage9Touched === null) {
+      stage9Touched = { A: false, B: false, C: false, D: false, E: false };
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 9: Final Hypothesis Assessment';
+    wrapper.appendChild(heading);
+
+    data.intro.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      wrapper.appendChild(p);
+    });
+
+    // --- Hypothesis Board: editable while classifying, read-only once the
+    // final snapshot has been confirmed. ---
+    var boardSection = document.createElement('section');
+    boardSection.className = 'mmc-initial-assessment';
+    var boardHeading = document.createElement('h3');
+    boardHeading.textContent = 'Final assessment';
+    boardSection.appendChild(boardHeading);
+
+    renderHypothesisBoard(boardSection, state, phase === 'review' ? { readOnly: true } : {
+      onTouch: function (id) {
+        stage9Touched[id] = true;
+      }
+    });
+    wrapper.appendChild(boardSection);
+
+    if (phase === 'classify') {
+      var gateNote = document.createElement('p');
+      gateNote.className = 'mmc-gate-note';
+      gateNote.textContent = data.gateNote;
+      wrapper.appendChild(gateNote);
+
+      var confirmButton = document.createElement('button');
+      confirmButton.type = 'button';
+      confirmButton.className = 'mmc-action';
+      confirmButton.textContent = 'Confirm final assessment';
+      confirmButton.addEventListener('click', function () {
+        updateState(function (s) {
+          s.hypothesisSnapshots.final = {
+            A: s.hypothesisState.A,
+            B: s.hypothesisState.B,
+            C: s.hypothesisState.C,
+            D: s.hypothesisState.D,
+            E: s.hypothesisState.E
+          };
+        });
+        stage9Touched = null;
+      });
+      confirmButton.disabled = !['A', 'B', 'C', 'D', 'E'].every(function (id) { return stage9Touched[id]; });
+      wrapper.appendChild(confirmButton);
+    } else {
+      // --- Review: initial versus final diff, per spec §17 (side by side
+      // comparison, neutral language, FinCrimeRadar's own conclusion not yet
+      // revealed). Reuses .mmc-decision-point/renderHypothesisDiff exactly as
+      // Stage 5 does, just with a different pair of snapshots and labels. ---
+      var decisionSection = document.createElement('section');
+      decisionSection.className = 'mmc-decision-point';
+
+      var diffHeading = document.createElement('h3');
+      diffHeading.textContent = 'What changed?';
+      decisionSection.appendChild(diffHeading);
+
+      renderHypothesisDiff(
+        decisionSection,
+        state.hypothesisSnapshots.initial,
+        state.hypothesisSnapshots.final,
+        'Initial assessment',
+        'Final assessment'
+      );
+      wrapper.appendChild(decisionSection);
+
+      var continueButton = document.createElement('button');
+      continueButton.type = 'button';
+      continueButton.className = 'mmc-action';
+      continueButton.textContent = 'Continue';
+      continueButton.addEventListener('click', function () {
+        advanceStage();
+      });
+      wrapper.appendChild(continueButton);
+    }
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9 };
   (function registerPlaceholderStages() {
     var stageNumber;
-    for (stageNumber = 8; stageNumber <= 12; stageNumber += 1) {
+    for (stageNumber = 10; stageNumber <= 12; stageNumber += 1) {
       STAGE_RENDERERS[stageNumber] = (function (n) {
         return function (container) { renderNotYetImplemented(container, n); };
       }(stageNumber));
