@@ -168,6 +168,15 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .mmc-investigation-actions{list-style:none;margin:.75rem 0;padding:0}
 .mmc-investigation-action{display:flex;align-items:flex-start;gap:.55rem;padding:.4rem 0;font-size:14.5px;cursor:pointer}
 .mmc-investigation-action input{margin-top:.2rem;min-width:20px;min-height:20px}
+/* Stage 5: Decision Point 01. Neutral, not evaluative: no green/red/amber
+   accent, since these sentences report a change in the practitioner's own
+   classification, not a right or wrong answer. Same plain-line list rhythm
+   as .mmc-timeline above (border-left rule, border-top between items). */
+.mmc-decision-point{margin:0 0 1.5rem;min-width:0}
+.mmc-decision-point h3{margin-top:0}
+.mmc-hypothesis-diff{list-style:none;margin:1rem 0;padding:0;border-left:2px solid var(--mmc-line)}
+.mmc-hypothesis-diff li{padding:.6rem 0 .6rem 1.1rem;border-top:1px solid var(--mmc-line);font-size:14.5px}
+.mmc-hypothesis-diff li:first-child{border-top:0}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--mmc-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.mmc-breadcrumb{align-items:flex-start}.mmc-layout{padding:0 .75rem 3rem}.mmc-hypothesis-board,.mmc-radar{grid-template-columns:minmax(0,1fr)}.mmc-profile-list{grid-template-columns:1fr}.mmc-suggested-board-list{grid-template-columns:1fr}.mmc-suggested-board-list dd{text-align:left;margin-bottom:.35rem}.mmc-evidence-grid,.mmc-hypothesis-impact-list{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{nav,.mobile-nav,.mmc-action,#site-footer{display:none!important}.mmc-layout{display:block;max-width:none}.mmc-section{break-inside:avoid;border-color:#999}}

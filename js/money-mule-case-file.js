@@ -349,6 +349,40 @@
     container.appendChild(board);
   }
 
+  // Reusable diff renderer for Decision Point stages (Stage 5 now, Stage 9
+  // later per spec §13). Deliberately generic: snapshotA/snapshotB are plain
+  // A-E hypothesis maps and labelA/labelB are just labels for the caller to
+  // attach meaning to (Stage 5 does not surface them visibly; a later stage
+  // may). Never hardcode which snapshot is "initial" or "current" in here.
+  //
+  // Per spec §13, this must never emit: Correct, Incorrect, Right, Wrong,
+  // Pass, Fail, Score. The template below cannot produce any of them, since
+  // it only ever inserts a hypothesis name and one of the four
+  // HYPOTHESIS_STATES values ('Leading', 'Plausible', 'Unresolved', 'Weak').
+  function renderHypothesisDiff(container, snapshotA, snapshotB, labelA, labelB) {
+    var ids = ['A', 'B', 'C', 'D', 'E'];
+    var list = document.createElement('ul');
+    list.className = 'mmc-hypothesis-diff';
+
+    var changedCount = 0;
+    ids.forEach(function (id) {
+      if (snapshotA[id] === snapshotB[id]) return;
+      changedCount += 1;
+      var li = document.createElement('li');
+      li.textContent = 'Your assessment of ' + MMC_DATA.hypotheses[id].name +
+        ' moved from ' + snapshotA[id] + ' to ' + snapshotB[id] + '.';
+      list.appendChild(li);
+    });
+
+    if (changedCount === 0) {
+      var noChangeLi = document.createElement('li');
+      noChangeLi.textContent = 'Your assessment did not change across any of the five hypotheses at this point.';
+      list.appendChild(noChangeLi);
+    }
+
+    container.appendChild(list);
+  }
+
   // Tracks which of the five hypotheses the practitioner has clicked this page
   // load, for the Stage 2 continue gate. 'Unresolved' is both the untouched
   // default and a valid deliberate choice, so the gate cannot key off value !==
@@ -860,10 +894,58 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4 };
+  function renderStage5(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[5];
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 5: Decision Point 01';
+    wrapper.appendChild(heading);
+
+    // --- What changed? ---
+    var decisionSection = document.createElement('section');
+    decisionSection.className = 'mmc-decision-point';
+
+    data.intro.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      decisionSection.appendChild(p);
+    });
+
+    var diffHeading = document.createElement('h3');
+    diffHeading.textContent = 'What changed?';
+    decisionSection.appendChild(diffHeading);
+
+    renderHypothesisDiff(
+      decisionSection,
+      state.hypothesisSnapshots.initial,
+      state.hypothesisState,
+      'Initial assessment',
+      'Current assessment'
+    );
+    wrapper.appendChild(decisionSection);
+
+    // --- Continue: confirmation only, no further gate. The practitioner
+    // already made all required selections in Stages 2 and 4. ---
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Confirm and continue';
+    continueButton.addEventListener('click', function () {
+      advanceStage();
+    });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5 };
   (function registerPlaceholderStages() {
     var stageNumber;
-    for (stageNumber = 5; stageNumber <= 12; stageNumber += 1) {
+    for (stageNumber = 6; stageNumber <= 12; stageNumber += 1) {
       STAGE_RENDERERS[stageNumber] = (function (n) {
         return function (container) { renderNotYetImplemented(container, n); };
       }(stageNumber));

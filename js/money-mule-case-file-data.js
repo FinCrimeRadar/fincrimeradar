@@ -165,6 +165,12 @@ window.MMC_DATA = {
         body: 'Authentication establishes control much more strongly than intent.'
       },
       gateNote: 'Review all five hypotheses again in light of this evidence before continuing.'
+    },
+    5: {
+      intro: [
+        'This compares your initial assessment against your current assessment.',
+        'It does not reveal FinCrimeRadar’s own position on the five hypotheses.'
+      ]
     }
   },
   hypotheses: {
