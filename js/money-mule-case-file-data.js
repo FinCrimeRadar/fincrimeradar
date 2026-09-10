@@ -406,6 +406,40 @@ window.MMC_DATA = {
       ],
       closingLine: 'Account restriction, customer exit, SAR consideration, safeguarding and fraud database filing are separate decisions with different purposes and evidential questions.',
       gateNote: 'Record a finding on all five dimensions before continuing.'
+    },
+    11: {
+      intro: 'The final FinCrimeRadar analysis remains locked until the practitioner has considered each challenge below.',
+      redTeamQuestions: [
+        { key: 'transactionBias', category: 'Transaction bias', question: 'Have you treated rapid movement as evidence of intent rather than evidence of activity?' },
+        { key: 'authenticationBias', category: 'Authentication bias', question: 'Have you mistaken customer authentication for proof of voluntary criminal participation?' },
+        { key: 'outcomeBias', category: 'Outcome bias', question: 'Has confirmation that the funds were criminal changed how you judge what Customer R could reasonably have known earlier?' },
+        { key: 'vulnerabilityBias', category: 'Vulnerability bias', question: 'Are you assuming that exploitation eliminates all personal agency?' },
+        { key: 'culpabilityBias', category: 'Culpability bias', question: 'Are you assuming that continued participation eliminates the possibility of exploitation?' },
+        { key: 'narrativeBias', category: 'Narrative bias', question: 'Have you accepted Customer R’s explanation merely because it is coherent?' },
+        { key: 'suspicionThreshold', category: 'Suspicion threshold', question: 'Can you identify the evidence showing when suspicion actually emerged?' },
+        { key: 'corroboration', category: 'Corroboration', question: 'Which parts of the customer account exist independently of what Customer R later told the bank?' },
+        { key: 'counterfactual', category: 'Counterfactual', question: 'What evidence would make you reach the opposite conclusion?' },
+        { key: 'proportionality', category: 'Proportionality', question: 'Are your operational actions based on the risk that must be controlled, or on a label applied to the customer?' }
+      ],
+      decisionChangeIntro: 'A strong investigation identifies not only what supports the current conclusion, but also what evidence could materially change it.',
+      decisionChangeItems: [
+        { key: 'item1', text: 'Evidence that Customer R discussed the criminal source of funds before Payment One.' },
+        { key: 'item2', text: 'Evidence that Customer R negotiated payment specifically for laundering criminal proceeds.' },
+        { key: 'item3', text: 'Evidence that Customer R recruited other account holders.' },
+        { key: 'item4', text: 'Evidence of earlier comparable episodes.' },
+        { key: 'item5', text: 'Evidence that the recruitment communications were fabricated after bank intervention.' },
+        { key: 'item6', text: 'Evidence showing that the threatening communications were fabricated.' },
+        { key: 'item7', text: 'Evidence that another person remotely controlled the account.' },
+        { key: 'item8', text: 'Evidence that Customer R attempted to contact the bank before completing Payment Three.' },
+        { key: 'item9', text: 'Evidence showing continued voluntary participation after the threats ceased.' }
+      ],
+      reasoningShiftQuestion: 'Did the evidence change your view of Customer R during the investigation?',
+      reasoningShiftOptions: [
+        { label: 'Substantially', value: 'Substantially' },
+        { label: 'Somewhat', value: 'Somewhat' },
+        { label: 'No Material Change', value: 'NoMaterialChange' }
+      ],
+      gateNote: 'Complete the Red Team Review and record whether the evidence changed your view before continuing.'
     }
   },
   timelinePoints: [

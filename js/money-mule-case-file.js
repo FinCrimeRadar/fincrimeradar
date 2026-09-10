@@ -1755,15 +1755,190 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9, 10: renderStage10 };
-  (function registerPlaceholderStages() {
-    var stageNumber;
-    for (stageNumber = 11; stageNumber <= 12; stageNumber += 1) {
-      STAGE_RENDERERS[stageNumber] = (function (n) {
-        return function (container) { renderNotYetImplemented(container, n); };
-      }(stageNumber));
-    }
-  }());
+  // RedTeamReview component. Ten deliberate-review checkboxes bound to
+  // state.redTeamCompleted, keyed and ordered exactly as
+  // MMC_DATA.stages[11].redTeamQuestions (spec §21). Per spec, this requires
+  // deliberate review, not lengthy free text, so each row is just a category
+  // label, the question text, and a single "I have considered this."
+  // checkbox: no scoring, no right or wrong framing. Checkboxes use 'change'
+  // (not 'click'): unlike the radio groups elsewhere on this page, a
+  // checkbox's native 'change' event already fires correctly on every
+  // toggle, including toggling back off, so no re-click special case is
+  // needed here.
+  function renderRedTeamReview(container, state) {
+    var data = MMC_DATA.stages[11];
+    var section = document.createElement('section');
+    section.className = 'mmc-redteam-review';
+
+    var heading = document.createElement('h3');
+    heading.textContent = 'Red Team Review';
+    section.appendChild(heading);
+
+    var intro = document.createElement('p');
+    intro.textContent = data.intro;
+    section.appendChild(intro);
+
+    data.redTeamQuestions.forEach(function (item) {
+      var inputId = 'rt-' + item.key;
+
+      var category = document.createElement('h4');
+      category.textContent = item.category;
+      section.appendChild(category);
+
+      var question = document.createElement('p');
+      question.textContent = item.question;
+      section.appendChild(question);
+
+      var label = document.createElement('label');
+      label.className = 'mmc-redteam-item';
+      label.setAttribute('for', inputId);
+
+      var checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = inputId;
+      checkbox.checked = state.redTeamCompleted[item.key] === true;
+      checkbox.addEventListener('change', function () {
+        updateState(function (s) {
+          s.redTeamCompleted[item.key] = checkbox.checked;
+        });
+      });
+
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode('I have considered this.'));
+      section.appendChild(label);
+    });
+
+    container.appendChild(section);
+  }
+
+  // DecisionChange component. Nine plain, unscored checkboxes bound to
+  // state.decisionChangeSelections, keyed and ordered exactly as
+  // MMC_DATA.stages[11].decisionChangeItems (spec §22). Explicitly reflective
+  // per spec: these are tracked in state so they persist across visits, but
+  // never gate progression and never carry correct/incorrect framing.
+  function renderDecisionChange(container, state) {
+    var data = MMC_DATA.stages[11];
+    var section = document.createElement('section');
+    section.className = 'mmc-decision-change';
+
+    var heading = document.createElement('h3');
+    heading.textContent = 'What would change my decision?';
+    section.appendChild(heading);
+
+    var intro = document.createElement('p');
+    intro.textContent = data.decisionChangeIntro;
+    section.appendChild(intro);
+
+    data.decisionChangeItems.forEach(function (item) {
+      var inputId = 'dc-' + item.key;
+
+      var label = document.createElement('label');
+      label.className = 'mmc-decision-change-item';
+      label.setAttribute('for', inputId);
+
+      var checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = inputId;
+      checkbox.checked = state.decisionChangeSelections[item.key] === true;
+      checkbox.addEventListener('change', function () {
+        updateState(function (s) {
+          s.decisionChangeSelections[item.key] = checkbox.checked;
+        });
+      });
+
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(item.text));
+      section.appendChild(label);
+    });
+
+    container.appendChild(section);
+  }
+
+  // Stage 11: Red Team Review. The continue gate reads state.redTeamCompleted
+  // and state.reasoningShift directly, the same direct-state-check approach
+  // as Stage 10's DecisionRecord gate: redTeamCompleted defaults to false for
+  // every key and reasoningShift defaults to null, so neither has a
+  // default-collides-with-valid-answer problem and no separate touched
+  // tracking variable is needed. decisionChangeSelections is deliberately
+  // excluded from the gate per spec, reflective only. The reasoning-shift
+  // radios follow the same 'click' pattern as every other radio group on
+  // this page (DecisionRecord, hypothesis board, coercion questions),
+  // persisting immediately via updateState so the Continue button's disabled
+  // state recomputes correctly on the next render; the Continue button's own
+  // click handler therefore only needs to fire the one allowed telemetry
+  // event and advance the stage.
+  function renderStage11(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[11];
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 11: Red Team Review';
+    wrapper.appendChild(heading);
+
+    renderRedTeamReview(wrapper, state);
+    renderDecisionChange(wrapper, state);
+
+    var shiftFieldset = document.createElement('fieldset');
+    shiftFieldset.className = 'mmc-timeline-question';
+
+    var shiftLegend = document.createElement('legend');
+    shiftLegend.textContent = data.reasoningShiftQuestion;
+    shiftFieldset.appendChild(shiftLegend);
+
+    var shiftOptionsWrap = document.createElement('div');
+    shiftOptionsWrap.className = 'mmc-hypothesis-options';
+    data.reasoningShiftOptions.forEach(function (option) {
+      var inputId = 'rs-' + option.value;
+      var label = document.createElement('label');
+      label.className = 'mmc-hypothesis-option';
+      label.setAttribute('for', inputId);
+
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'reasoningShift';
+      input.id = inputId;
+      input.value = option.value;
+      input.checked = state.reasoningShift === option.value;
+      input.addEventListener('click', function () {
+        updateState(function (s) {
+          s.reasoningShift = option.value;
+        });
+      });
+
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(option.label));
+      shiftOptionsWrap.appendChild(label);
+    });
+    shiftFieldset.appendChild(shiftOptionsWrap);
+    wrapper.appendChild(shiftFieldset);
+
+    var gateNote = document.createElement('p');
+    gateNote.className = 'mmc-gate-note';
+    gateNote.textContent = data.gateNote;
+    wrapper.appendChild(gateNote);
+
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Continue';
+    continueButton.addEventListener('click', function () {
+      emitAggregateEvent('case_file_reasoning_shift', { case_id: 'money_mule_or_victim', shift: state.reasoningShift });
+      advanceStage();
+    });
+    continueButton.disabled = !Object.keys(state.redTeamCompleted).every(function (key) {
+      return state.redTeamCompleted[key] === true;
+    }) || state.reasoningShift === null;
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9, 10: renderStage10, 11: renderStage11 };
+  // Stage 12 (Radar View) is the only stage left unimplemented after this task.
+  STAGE_RENDERERS[12] = function (container) { renderNotYetImplemented(container, 12); };
 
   function renderCurrentStage() {
     var root = document.getElementById('caseFileApp');
