@@ -195,26 +195,345 @@
     container.appendChild(note);
   }
 
-  function renderStage2Placeholder(container) {
-    var heading = document.createElement('h2');
-    heading.textContent = 'Stage 2 placeholder';
-    container.appendChild(heading);
-
-    var note = document.createElement('p');
-    note.textContent = 'The Case Intake stage content is added in a later task.';
-    container.appendChild(note);
-
-    var button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'mmc-action';
-    button.textContent = 'Continue';
-    button.addEventListener('click', function () {
-      advanceStage();
-    });
-    container.appendChild(button);
+  function formatGBP(amount) {
+    return '£' + amount.toLocaleString('en-GB');
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2Placeholder };
+  // Reusable board for Stages 2, 4, 5, 7, 9. `state` is the full CaseFileShell
+  // state object (not just the hypothesisState map), because later stages need
+  // to read from it in read-only/comparison form too.
+  //
+  // options:
+  //   readOnly (boolean) - render the recorded value as text instead of radios.
+  //   suggested (object A-E -> state string) - FinCrimeRadar's suggested starting
+  //     positions, Stage 2 only. Rendered as a separate labelled block above the
+  //     practitioner's own controls. Never used to pre-check a radio.
+  //   onTouch (function(id)) - called when the practitioner interacts with a
+  //     hypothesis's controls, before the state mutation. Used by Stage 2 to
+  //     drive the continue-button gate.
+  function renderHypothesisBoard(container, state, options) {
+    options = options || {};
+    var ids = ['A', 'B', 'C', 'D', 'E'];
+
+    if (options.suggested) {
+      var suggestedBoard = document.createElement('div');
+      suggestedBoard.className = 'mmc-suggested-board';
+
+      var suggestedLabel = document.createElement('p');
+      suggestedLabel.className = 'mmc-suggested-board-label';
+      suggestedLabel.textContent = 'FinCrimeRadar’s suggested starting position';
+      suggestedBoard.appendChild(suggestedLabel);
+
+      var suggestedList = document.createElement('dl');
+      suggestedList.className = 'mmc-suggested-board-list';
+      ids.forEach(function (id) {
+        var dt = document.createElement('dt');
+        dt.textContent = MMC_DATA.hypotheses[id].name;
+        var dd = document.createElement('dd');
+        dd.textContent = options.suggested[id];
+        suggestedList.appendChild(dt);
+        suggestedList.appendChild(dd);
+      });
+      suggestedBoard.appendChild(suggestedList);
+      container.appendChild(suggestedBoard);
+
+      var practitionerLabel = document.createElement('p');
+      practitionerLabel.className = 'mmc-practitioner-board-label';
+      practitionerLabel.textContent = 'Your own assessment';
+      container.appendChild(practitionerLabel);
+    }
+
+    var board = document.createElement('div');
+    board.className = 'mmc-hypothesis-board';
+
+    ids.forEach(function (id) {
+      var hypothesis = MMC_DATA.hypotheses[id];
+      var fieldset = document.createElement('fieldset');
+      fieldset.className = 'mmc-hypothesis';
+
+      var legend = document.createElement('legend');
+      var nameEl = document.createElement('strong');
+      nameEl.textContent = hypothesis.name;
+      legend.appendChild(nameEl);
+      legend.appendChild(document.createTextNode(': ' + hypothesis.description));
+      fieldset.appendChild(legend);
+
+      if (options.readOnly) {
+        var readOnlyValue = document.createElement('p');
+        readOnlyValue.className = 'mmc-hypothesis-readonly-value';
+        readOnlyValue.textContent = state.hypothesisState[id];
+        fieldset.appendChild(readOnlyValue);
+      } else {
+        var optionsWrap = document.createElement('div');
+        optionsWrap.className = 'mmc-hypothesis-options';
+        HYPOTHESIS_STATES.forEach(function (stateValue) {
+          var inputId = 'hyp-' + id + '-' + stateValue;
+          var label = document.createElement('label');
+          label.className = 'mmc-hypothesis-option';
+          label.setAttribute('for', inputId);
+
+          var input = document.createElement('input');
+          input.type = 'radio';
+          input.name = 'hyp-' + id;
+          input.id = inputId;
+          input.value = stateValue;
+          input.checked = state.hypothesisState[id] === stateValue;
+          // 'click' (not 'change') so re-selecting an already-checked radio
+          // still registers as a deliberate touch for the Stage 2 gate: browsers
+          // do not fire 'change' when the checked radio does not actually change.
+          input.addEventListener('click', function () {
+            if (typeof options.onTouch === 'function') options.onTouch(id);
+            updateState(function (s) {
+              s.hypothesisState[id] = stateValue;
+            });
+          });
+
+          label.appendChild(input);
+          label.appendChild(document.createTextNode(stateValue));
+          optionsWrap.appendChild(label);
+        });
+        fieldset.appendChild(optionsWrap);
+      }
+
+      board.appendChild(fieldset);
+    });
+    container.appendChild(board);
+  }
+
+  // Tracks which of the five hypotheses the practitioner has clicked this page
+  // load, for the Stage 2 continue gate. 'Unresolved' is both the untouched
+  // default and a valid deliberate choice, so the gate cannot key off value !==
+  // default; it keys off deliberate interaction instead. Module level (not a
+  // variable local to renderStage2) so it survives the re-render every
+  // updateState call triggers. Initialised once per page load: null means
+  // "not yet initialised", not "reset on every render".
+  var stage2Touched = null;
+
+  function renderStage2(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[2];
+
+    if (stage2Touched === null) {
+      stage2Touched = {};
+      // Re-entering a stage already completed (e.g. via back navigation) should
+      // not re-impose the gate: the practitioner already recorded an initial
+      // assessment, so treat all five as touched.
+      if (state.hypothesisSnapshots.initial) {
+        ['A', 'B', 'C', 'D', 'E'].forEach(function (id) { stage2Touched[id] = true; });
+      }
+    }
+
+    // Reuses the existing .mmc-section card styling that Stage 1's orientation
+    // essay already ships (see money-mule-or-victim-case-file.html), rather than
+    // introducing new CSS for this task.
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 2: Case Intake and Initial Assessment';
+    wrapper.appendChild(heading);
+
+    // --- The Alert ---
+    var alertSection = document.createElement('section');
+    alertSection.className = 'mmc-alert';
+    var alertHeading = document.createElement('h3');
+    alertHeading.textContent = data.alert.heading;
+    alertSection.appendChild(alertHeading);
+    data.alert.paragraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      alertSection.appendChild(p);
+    });
+    wrapper.appendChild(alertSection);
+
+    // --- Customer profile ---
+    var profileSection = document.createElement('section');
+    profileSection.className = 'mmc-profile';
+    var profileHeading = document.createElement('h3');
+    profileHeading.textContent = data.profile.heading;
+    profileSection.appendChild(profileHeading);
+
+    var profileList = document.createElement('dl');
+    profileList.className = 'mmc-profile-list';
+    data.profile.fields.forEach(function (field) {
+      var dt = document.createElement('dt');
+      dt.textContent = field.label;
+      var dd = document.createElement('dd');
+      dd.textContent = field.value;
+      profileList.appendChild(dt);
+      profileList.appendChild(dd);
+    });
+    profileSection.appendChild(profileList);
+
+    var vulnerabilityCallout = document.createElement('p');
+    vulnerabilityCallout.className = 'mmc-callout';
+    var vulnerabilityStrong = document.createElement('strong');
+    vulnerabilityStrong.textContent = data.profile.vulnerabilityCallout;
+    vulnerabilityCallout.appendChild(vulnerabilityStrong);
+    profileSection.appendChild(vulnerabilityCallout);
+    wrapper.appendChild(profileSection);
+
+    // --- Transaction chronology ---
+    var chronologySection = document.createElement('section');
+    chronologySection.className = 'mmc-chronology';
+    var chronologyHeading = document.createElement('h3');
+    chronologyHeading.textContent = 'Transaction chronology';
+    chronologySection.appendChild(chronologyHeading);
+
+    var table = document.createElement('table');
+    table.className = 'mmc-chronology-table';
+    var caption = document.createElement('caption');
+    caption.textContent = 'Transaction chronology for Customer R’s account, Day 1 to Day 4';
+    table.appendChild(caption);
+
+    var thead = document.createElement('thead');
+    var headRow = document.createElement('tr');
+    ['Day', 'Incoming payment', 'Outgoing movement', 'Time to move'].forEach(function (label) {
+      var th = document.createElement('th');
+      th.setAttribute('scope', 'col');
+      th.textContent = label;
+      headRow.appendChild(th);
+    });
+    thead.appendChild(headRow);
+    table.appendChild(thead);
+
+    var tbody = document.createElement('tbody');
+    data.chronology.forEach(function (entry) {
+      var row = document.createElement('tr');
+
+      var dayTh = document.createElement('th');
+      dayTh.setAttribute('scope', 'row');
+      dayTh.textContent = 'Day ' + entry.day;
+      row.appendChild(dayTh);
+
+      var incomingTd = document.createElement('td');
+      incomingTd.textContent = 'Incoming payment from ' + entry.incoming.sender + ': ' + formatGBP(entry.incoming.amount);
+      row.appendChild(incomingTd);
+
+      var outgoingTd = document.createElement('td');
+      var outgoingText = entry.outgoing.type === 'withdrawal'
+        ? 'Cash withdrawal: ' + formatGBP(entry.outgoing.amount)
+        : 'Transfer to ' + entry.outgoing.beneficiary + ': ' + formatGBP(entry.outgoing.amount);
+      outgoingTd.textContent = outgoingText;
+      row.appendChild(outgoingTd);
+
+      var timeTd = document.createElement('td');
+      timeTd.textContent = entry.timeToMoveLabel + ': ' + entry.timeToMove;
+      row.appendChild(timeTd);
+
+      tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+
+    // Reuses the sitewide .table-scroll wrapper (brand.css section 8) instead of
+    // writing new mobile-overflow CSS for this table.
+    var tableScroll = document.createElement('div');
+    tableScroll.className = 'table-scroll';
+    tableScroll.appendChild(table);
+    chronologySection.appendChild(tableScroll);
+
+    var totalsList = document.createElement('dl');
+    totalsList.className = 'mmc-chronology-totals';
+    [
+      ['Total received', formatGBP(data.totals.received)],
+      ['Total moved onwards or withdrawn', formatGBP(data.totals.moved)],
+      ['Difference', formatGBP(data.totals.difference)]
+    ].forEach(function (pair) {
+      var dt = document.createElement('dt');
+      dt.textContent = pair[0];
+      var dd = document.createElement('dd');
+      var strong = document.createElement('strong');
+      strong.textContent = pair[1];
+      dd.appendChild(strong);
+      totalsList.appendChild(dt);
+      totalsList.appendChild(dd);
+    });
+    chronologySection.appendChild(totalsList);
+    wrapper.appendChild(chronologySection);
+
+    // --- Initial assessment: Hypothesis Board ---
+    var assessmentSection = document.createElement('section');
+    assessmentSection.className = 'mmc-initial-assessment';
+    var assessmentHeading = document.createElement('h3');
+    assessmentHeading.textContent = 'Initial assessment';
+    assessmentSection.appendChild(assessmentHeading);
+
+    renderHypothesisBoard(assessmentSection, state, {
+      suggested: data.suggestedHypotheses,
+      onTouch: function (id) {
+        stage2Touched[id] = true;
+      }
+    });
+    wrapper.appendChild(assessmentSection);
+
+    // --- Practitioner Lens ---
+    var lensSection = document.createElement('section');
+    lensSection.className = 'mmc-practitioner-lens';
+    var lensHeading = document.createElement('h3');
+    lensHeading.textContent = 'Practitioner Lens';
+    lensSection.appendChild(lensHeading);
+
+    var lensIntro = document.createElement('p');
+    var lensIntroStrong = document.createElement('strong');
+    lensIntroStrong.textContent = data.practitionerLensIntro;
+    lensIntro.appendChild(lensIntroStrong);
+    lensSection.appendChild(lensIntro);
+
+    var canList = document.createElement('ul');
+    canList.className = 'mmc-lens-can';
+    data.practitionerLensCanEstablish.forEach(function (text) {
+      var li = document.createElement('li');
+      li.textContent = text;
+      canList.appendChild(li);
+    });
+    lensSection.appendChild(canList);
+
+    var cannotList = document.createElement('ul');
+    cannotList.className = 'mmc-lens-cannot';
+    data.practitionerLensCannotEstablish.forEach(function (text) {
+      var li = document.createElement('li');
+      li.textContent = text;
+      cannotList.appendChild(li);
+    });
+    lensSection.appendChild(cannotList);
+
+    var lensClosing = document.createElement('p');
+    var lensClosingStrong = document.createElement('strong');
+    lensClosingStrong.textContent = data.practitionerLensClosing;
+    lensClosing.appendChild(lensClosingStrong);
+    lensSection.appendChild(lensClosing);
+    wrapper.appendChild(lensSection);
+
+    // --- Gate note + continue button ---
+    var gateNote = document.createElement('p');
+    gateNote.className = 'mmc-gate-note';
+    gateNote.textContent = data.gateNote;
+    wrapper.appendChild(gateNote);
+
+    var continueButton = document.createElement('button');
+    continueButton.type = 'button';
+    continueButton.className = 'mmc-action';
+    continueButton.textContent = 'Record initial assessment and continue';
+    continueButton.addEventListener('click', function () {
+      updateState(function (s) {
+        s.hypothesisSnapshots.initial = {
+          A: s.hypothesisState.A,
+          B: s.hypothesisState.B,
+          C: s.hypothesisState.C,
+          D: s.hypothesisState.D,
+          E: s.hypothesisState.E
+        };
+      });
+      stage2Touched = null;
+      advanceStage();
+    });
+    continueButton.disabled = !['A', 'B', 'C', 'D', 'E'].every(function (id) { return stage2Touched[id]; });
+    wrapper.appendChild(continueButton);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2 };
   (function registerPlaceholderStages() {
     var stageNumber;
     for (stageNumber = 3; stageNumber <= 12; stageNumber += 1) {
