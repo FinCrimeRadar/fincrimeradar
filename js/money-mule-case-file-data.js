@@ -399,7 +399,7 @@ window.MMC_DATA = {
             'This decision requires its own evidential assessment.',
             'Suspicious transaction behaviour and mule detection alerts do not automatically satisfy the evidential requirements for a National Fraud Database filing.',
             { text: 'The FCA has stated that firms must obtain sufficient evidence concerning customer involvement and knowledge and has highlighted the difficulty of establishing willing participation.', sourceRefs: [6] },
-            { text: 'Cifas requires clear, relevant and rigorous evidence, satisfaction of the applicable case criteria, accuracy and proportional interpretation.', sourceRefs: [7] },
+            { text: 'Cifas requires NFD filings to meet its four pillar Standard of Proof, including reasonable grounds, clear relevant and rigorous evidence, satisfaction of an applicable Case Type and the relevant product action condition. Its wider Principles also require accurate data and proportional interpretation.', sourceRefs: [7] },
             { text: 'Financial Ombudsman material here is practical complaint handling guidance and case reasoning, not legislation or binding precedent.', sourceRefs: [8] }
           ]
         }

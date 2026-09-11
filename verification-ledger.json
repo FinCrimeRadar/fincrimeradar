@@ -7490,12 +7490,13 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2026-12-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The FCA's Standard of Proof for NFD submissions requires evidence the customer knew the funds were, or might be, proceeds of crime; the FCA describes the standard as high, recognises firms can find it difficult to demonstrate willing participation, and expects firms to thoroughly verify and document that the standard has been met. No wording correction required."
 },
 {
   "claimId": "money-mule-or-victim-case-file.cifas-nfd-principles.001",
   "guide": "money-mule-or-victim-case-file.html",
-  "claimText": "Cifas requires clear, relevant and rigorous evidence, satisfaction of the applicable case criteria, accuracy and proportional interpretation.",
+  "claimText": "Cifas requires NFD filings to meet its four pillar Standard of Proof, including reasonable grounds, clear relevant and rigorous evidence, satisfaction of an applicable Case Type and the relevant product action condition. Its wider Principles also require accurate data and proportional interpretation.",
   "claimType": "regulatory",
   "source": {
     "title": "Cifas, National Fraud Database Principles",
@@ -7505,7 +7506,8 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2026-12-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS WITH PRECISION REFINEMENT. Cifas's Standard of Proof has four pillars (reasonable grounds; clear, relevant and rigorous evidence; satisfaction of a Case Type; the applicable product action condition); accuracy and proportional interpretation are separate, wider Cifas Principles, not part of the four-pillar Standard of Proof itself. The prior claimText and shipped page copy conflated all of these into one undifferentiated list and omitted the reasonable-grounds and product-action-condition pillars entirely. Corrected here and in js/money-mule-case-file-data.js (Stage 10 National Fraud Database operational-decision block) to the external review's preferred formulation, preserving the distinction between the four-pillar Standard of Proof and the wider Principles."
 },
 {
   "claimId": "money-mule-or-victim-case-file.fos-fraud-markers-framing.001",
@@ -7520,7 +7522,8 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2026-12-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The Financial Ombudsman Service's own fraud markers page describes its approach to resolving fraud marker complaints (the applicable fraud prevention agency test, reasonable grounds, clear/relevant/rigorous evidence, and why the business considered the consumer involved rather than an innocent party), correctly framed on this page as practical complaint-handling guidance and case reasoning, not legislation, not binding precedent, and not itself the source of the Cifas Standard of Proof. No wording correction required."
 },
 {
   "claimId": "money-mule-or-victim-case-file.wcag-baseline.001",
