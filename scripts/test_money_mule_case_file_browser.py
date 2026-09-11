@@ -354,10 +354,25 @@ def run() -> None:
         click_continue(cdp)
         assert_stage_view(cdp, 4)
 
+        # Stage 4 hypothesis snapshot. touch_all_hypotheses alone writes the
+        # identical fixed value set every time it is called anywhere in this
+        # flow, so a bare "snapshot exists" check would pass even if the
+        # snapshot silently held live (not frozen) data. Setting hypothesis A
+        # to a distinct marker value here, and to DIFFERENT distinct values
+        # at Stage 7 and Stage 9 below, makes the later isolation checks
+        # genuinely meaningful: if a snapshot were live rather than frozen,
+        # these markers would collide.
         touch_all_hypotheses(cdp)
+        click_id(cdp, "hyp-A-Plausible")
         require(not continue_disabled(cdp), "Stage 4 continue should enable once all five hypotheses are touched")
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.stage4") is None, "Stage 4 hypothesis snapshot should not exist before Stage 4 is confirmed")
         click_continue(cdp)
         assert_stage_view(cdp, 5)
+        stage4_snapshot = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.stage4")
+        require(stage4_snapshot is not None and stage4_snapshot["A"] == "Plausible", f"Stage 4 hypothesis snapshot should be captured on confirm with A='Plausible', got {stage4_snapshot}")
+        initial_snapshot_after_stage4 = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.initial")
+        require(initial_snapshot_after_stage4["A"] == "Leading", f"confirming Stage 4 must not alter the Stage 2 initial snapshot, expected A='Leading', got {initial_snapshot_after_stage4}")
+        print("OK: Stage 4 hypothesis snapshot captured on confirm, Stage 2 initial snapshot unaffected")
 
         click_continue(cdp)
         assert_stage_view(cdp, 6)
@@ -408,10 +423,18 @@ def run() -> None:
                 "control and voluntariness decisions must be independently persisted")
         require(continue_disabled(cdp), "Stage 7 continue should remain disabled until the hypotheses are also touched")
         touch_all_hypotheses(cdp)
+        click_id(cdp, "hyp-A-Weak")  # distinct from Stage 4's marker ('Plausible')
         require(not continue_disabled(cdp), "Stage 7 continue should enable once every gated field is touched")
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.stage7") is None, "Stage 7 hypothesis snapshot should not exist before Stage 7 is confirmed")
         click_continue(cdp)
         assert_stage_view(cdp, 8)
         print("OK: Stage 7 control/voluntariness genuine independence and combined gate")
+
+        stage7_snapshot = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.stage7")
+        require(stage7_snapshot is not None and stage7_snapshot["A"] == "Weak", f"Stage 7 hypothesis snapshot should be captured on confirm with A='Weak', got {stage7_snapshot}")
+        stage4_snapshot_after_stage7 = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.stage4")
+        require(stage4_snapshot_after_stage7["A"] == "Plausible", f"confirming Stage 7 must not alter the Stage 4 snapshot, expected A='Plausible', got {stage4_snapshot_after_stage7}")
+        print("OK: Stage 7 hypothesis snapshot captured on confirm, Stage 4 snapshot unaffected")
 
         # --- CaseProgress historical review. currentStage is 8, so Stages
         # 2-7 are completed/reviewable, Stage 8 is current, Stages 9-12 are
@@ -451,18 +474,28 @@ def run() -> None:
         require("Read-only review: Stage 4 of 12" in cdp.evaluate("document.body.innerText"), "review banner should name the stage being reviewed")
         print("OK: a completed earlier stage can be opened for review through the user interface")
 
-        # Honesty disclosure: Stages 4, 5 and 7 all display the hypothesis
-        # board from the same shared, mutable hypothesisState field (Stage
-        # 5's "Current assessment" diff column included), not a frozen
-        # per-stage snapshot the way Stage 2 (hypothesisSnapshots.initial)
-        # and Stage 9 (.final) do, so their review banner must say so
-        # explicitly rather than silently implying an exact historical
-        # record. Stage 6 has no hypothesis board at all and must not carry
-        # this caveat.
-        caveat_text = "may have been updated at a later stage"
-        require(caveat_text in cdp.evaluate("document.body.innerText"), "Stage 4 review must disclose its hypothesis display is not a frozen snapshot")
+        # Stage 4 historical review must render the frozen Stage 4 snapshot
+        # (hyp-A-Plausible), never the live hypothesisState (which is now
+        # 'Weak' for A, since Stage 7 has since been confirmed with a
+        # different marker value). This is the real fidelity check the
+        # earlier "recently recorded, may have changed" disclosure used to
+        # stand in for: the practitioner's hypothesis position at the
+        # historical point in the investigation, not the current one.
+        stage4_review_a_checked = cdp.evaluate("document.querySelector('.mmc-review-content #hyp-A-Plausible') ? document.querySelector('.mmc-review-content #hyp-A-Plausible').checked : null")
+        require(stage4_review_a_checked is True, f"Stage 4 review should show the frozen Stage 4 snapshot (hyp-A-Plausible checked), got {stage4_review_a_checked}")
+        stage4_review_a_live_value_checked = cdp.evaluate("document.querySelector('.mmc-review-content #hyp-A-Weak') ? document.querySelector('.mmc-review-content #hyp-A-Weak').checked : null")
+        require(stage4_review_a_live_value_checked is False, "Stage 4 review must not show the live (Stage 7's, later) hypothesis value")
+        print("OK: Stage 4 historical review renders the Stage 4 snapshot, not the live hypothesis state")
+
+        # Stage 5 introduces no new hypothesis assessment of its own, so its
+        # historical review must reuse the Stage 4 snapshot: the diff view
+        # compares initial ('Leading' for A) against stage4 ('Plausible'),
+        # never against the live value ('Weak').
         cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"5\"]').click()")
-        require(caveat_text in cdp.evaluate("document.body.innerText"), "Stage 5 review must disclose its 'Current assessment' diff column is not a frozen snapshot")
+        stage5_review_diff_text = cdp.evaluate("document.querySelector('.mmc-review-content .mmc-hypothesis-diff') ? document.querySelector('.mmc-review-content .mmc-hypothesis-diff').textContent : ''")
+        require("moved from Leading to Plausible" in stage5_review_diff_text, f"Stage 5 review should show the Stage 4 snapshot in its diff (Leading to Plausible), got: {stage5_review_diff_text!r}")
+        require("moved from Leading to Weak" not in stage5_review_diff_text, "Stage 5 review must not show the live (later) hypothesis value in its diff")
+        print("OK: Stage 5 historical review uses the Stage 4 snapshot, not the live hypothesis state")
 
         mid_review_state = cdp.evaluate("CaseFileShell.getState()")
         require(mid_review_state["currentStage"] == 8, f"reviewing Stage 4 must not alter the current investigation stage, still expected 8, got {mid_review_state['currentStage']}")
@@ -487,16 +520,22 @@ def run() -> None:
         cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"6\"]').click()")
         stage6_review_text = cdp.evaluate("document.body.innerText")
         require("Attempted Exit" not in stage6_review_text, "reviewing Stage 6 must not expose Stage 7's later timeline reveal (Attempted Exit)")
-        require(caveat_text not in stage6_review_text, "Stage 6 has no hypothesis board and must not carry the not-a-frozen-snapshot caveat")
         print("OK: reviewing an earlier stage does not expose evidence unlocked only at a later stage")
-        print("OK: hypothesis-board honesty disclosure present for Stages 4/5/7 and absent for Stage 6")
+
+        # Stage 7 historical review must render its own frozen snapshot
+        # (hyp-A-Weak), independent of both Stage 4's snapshot and whatever
+        # hypothesisState currently holds.
+        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"7\"]').click()")
+        stage7_review_a_checked = cdp.evaluate("document.querySelector('.mmc-review-content #hyp-A-Weak') ? document.querySelector('.mmc-review-content #hyp-A-Weak').checked : null")
+        require(stage7_review_a_checked is True, f"Stage 7 review should show the frozen Stage 7 snapshot (hyp-A-Weak checked), got {stage7_review_a_checked}")
+        print("OK: Stage 7 historical review renders the Stage 7 snapshot")
 
         # Non-colour-only, keyboard-accessible: the Return control is a real
         # button, reachable and activatable by keyboard.
         return_focus_ok = cdp.evaluate("document.activeElement && document.activeElement.id === 'mmcReviewHeading'")
         require(return_focus_ok, "entering review mode should move focus to the review panel's own heading, not leave it stranded")
         review_tab_targets = collect_tab_targets(cdp, 5)
-        assert_no_keyboard_trap(review_tab_targets, "Stage 6 review panel controls")
+        assert_no_keyboard_trap(review_tab_targets, "Stage 7 review panel controls")
         return_button_reachable = cdp.evaluate("document.querySelector('.mmc-review-return') === document.activeElement || Array.from(document.querySelectorAll('button,input,a')).indexOf(document.querySelector('.mmc-review-return')) >= 0")
         require(return_button_reachable, "the Return to current stage control must be a real, keyboard-reachable element")
         print("OK: review controls are keyboard accessible and focus moves predictably on entry")
@@ -523,7 +562,12 @@ def run() -> None:
         require(cdp.evaluate("CaseFileShell.getReviewStage()") is None, "review mode must not survive a reload")
         require(cdp.evaluate("CaseFileShell.getState().currentStage") == 8, "reload after using historical review must restore the true current stage, not the reviewed one")
         assert_stage_view(cdp, 8)
-        print("OK: reload persistence remains correct after using historical review")
+        reloaded_snapshots = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots")
+        require(reloaded_snapshots["initial"]["A"] == "Leading", f"reload must preserve the Stage 2 initial snapshot, got {reloaded_snapshots['initial']}")
+        require(reloaded_snapshots["stage4"]["A"] == "Plausible", f"reload must preserve the Stage 4 snapshot, got {reloaded_snapshots['stage4']}")
+        require(reloaded_snapshots["stage7"]["A"] == "Weak", f"reload must preserve the Stage 7 snapshot, got {reloaded_snapshots['stage7']}")
+        require(reloaded_snapshots["final"] is None, "the Stage 9 final snapshot should not exist yet at this point in the flow")
+        print("OK: reload persistence remains correct after using historical review, all required snapshots preserved")
 
         click_continue(cdp)
 
@@ -533,13 +577,33 @@ def run() -> None:
         assert_stage_view(cdp, 9)
         require(cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.final") is None, "Stage 9 should start in classify phase with no final snapshot")
         touch_all_hypotheses(cdp)
+        click_id(cdp, "hyp-A-Unresolved")  # distinct final marker, different from Stage 4's/Stage 7's
         require(not continue_disabled(cdp), "Stage 9 confirm button should enable once all five hypotheses are re-touched")
         click_continue(cdp)
-        require(cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.final") is not None, "confirming Stage 9 should record the final hypothesis snapshot")
+        final_snapshot = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.final")
+        require(final_snapshot is not None and final_snapshot["A"] == "Unresolved", f"confirming Stage 9 should record the final hypothesis snapshot with A='Unresolved', got {final_snapshot}")
         require("What changed?" in cdp.evaluate("document.body.innerText"), "Stage 9 review phase diff view is missing")
+        stage7_snapshot_after_stage9 = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.stage7")
+        require(stage7_snapshot_after_stage9["A"] == "Weak", f"confirming Stage 9 must not alter the Stage 7 snapshot, expected A='Weak', got {stage7_snapshot_after_stage9}")
+        print("OK: Stage 9 final hypothesis snapshot captured on confirm, Stage 7 snapshot unaffected")
         click_continue(cdp)
         assert_stage_view(cdp, 10)
         print("OK: Stage 9 two-phase classify-then-review flow")
+
+        # Stage 7 historical review, re-checked now from Stage 10 (one stage
+        # further on than the earlier check from Stage 8), to prove the
+        # snapshot keeps rendering correctly as the practitioner continues
+        # to progress, not just immediately after it was captured.
+        completed_buttons_at_10 = cdp.evaluate("document.querySelectorAll('.mmc-progress-btn').length")
+        require(completed_buttons_at_10 == 8, f"expected 8 completed/reviewable CaseProgress entries (Stages 2-9) at Stage 10, found {completed_buttons_at_10}")
+        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"7\"]').click()")
+        stage7_review_a_checked_later = cdp.evaluate("document.querySelector('.mmc-review-content #hyp-A-Weak') ? document.querySelector('.mmc-review-content #hyp-A-Weak').checked : null")
+        require(stage7_review_a_checked_later is True, f"Stage 7 review must still show its own frozen snapshot after Stage 9 has since changed the live value, got {stage7_review_a_checked_later}")
+        require(cdp.evaluate("CaseFileShell.getState().currentStage") == 10, "reviewing Stage 7 from Stage 10 must not alter the current investigation stage")
+        cdp.evaluate("document.querySelector('.mmc-review-return').click()")
+        require(cdp.evaluate("CaseFileShell.getReviewStage()") is None, "returning from the second Stage 7 review should clear review mode")
+        assert_stage_view(cdp, 10)
+        print("OK: Stage 7 historical review remains correct after further progression to Stage 10")
 
         # Stage 10: per-dimension Decision Record reveal isolation. A count of
         # '.mmc-suggested-board-label' elements alone would not catch a
@@ -618,13 +682,55 @@ def run() -> None:
         reload_page(cdp)
         require(not cdp.evaluate("document.getElementById('openCaseFile').hidden"), "stale caseVersion should fall back to Stage 1 with Open Case File visible")
         require(cdp.evaluate("document.getElementById('caseFileApp').hidden"), "stale caseVersion should fall back to Stage 1 with the case file app hidden")
-        require(cdp.evaluate("CaseFileShell.getState().caseVersion") == 1, "stale caseVersion should fall back to a fresh default state")
+        require(cdp.evaluate("CaseFileShell.getState().caseVersion") == 2, "stale caseVersion should fall back to a fresh default state")
         require(cdp.evaluate("(window.__consoleErrors || []).length") == 0, "stale caseVersion recovery produced console errors")
         print("OK: stale caseVersion falls back to a fresh default state with zero console errors")
+
+        # --- Pre-remediation schema (caseVersion 1, hypothesisSnapshots with
+        # only initial/final, no stage4/stage7) must also fail safely, not
+        # merely a caseVersion number mismatch on an otherwise-current shape:
+        # this is the actual real-world incompatible-local-state scenario
+        # the historical snapshot remediation itself introduced. ---
+        pull_errors(cdp, console_error_log, "before old-schema reload")
+        cdp.evaluate("""(() => {
+          const oldShapeState = {
+            caseVersion: 1,
+            currentStage: 6,
+            highestUnlockedStage: 6,
+            hypothesisState: { A: 'Leading', B: 'Plausible', C: 'Unresolved', D: 'Weak', E: 'Leading' },
+            hypothesisSnapshots: { initial: { A: 'Leading', B: 'Plausible', C: 'Unresolved', D: 'Weak', E: 'Leading' }, final: null },
+            knowledgeTimeline: { entryState: null, prePaymentThreeState: null, changePoint: null },
+            controlDecision: null,
+            voluntarinessDecision: null,
+            decisionRecord: { activity: null, control: null, knowledge: null, exploitation: null, evidence: null },
+            redTeamCompleted: { transactionBias: false, authenticationBias: false, outcomeBias: false, vulnerabilityBias: false, culpabilityBias: false, narrativeBias: false, suspicionThreshold: false, corroboration: false, counterfactual: false, proportionality: false },
+            decisionChangeSelections: { item1: false, item2: false, item3: false, item4: false, item5: false, item6: false, item7: false, item8: false, item9: false },
+            reasoningShift: null,
+            caseCompleted: false
+          };
+          localStorage.setItem(%s, JSON.stringify(oldShapeState));
+        })()""" % json.dumps(STORAGE_KEY))
+        reload_page(cdp)
+        require(not cdp.evaluate("document.getElementById('openCaseFile').hidden"), "old-schema state should fall back to Stage 1 with Open Case File visible")
+        require(cdp.evaluate("document.getElementById('caseFileApp').hidden"), "old-schema state should fall back to Stage 1 with the case file app hidden")
+        old_schema_fallback_state = cdp.evaluate("CaseFileShell.getState()")
+        require(old_schema_fallback_state["caseVersion"] == 2, "old-schema state should fall back to a fresh default state, not be read as-is")
+        require(old_schema_fallback_state["hypothesisSnapshots"] == {"initial": None, "stage4": None, "stage7": None, "final": None}, f"old-schema fallback should have the current, complete hypothesisSnapshots shape, got {old_schema_fallback_state['hypothesisSnapshots']}")
+        require(cdp.evaluate("(window.__consoleErrors || []).length") == 0, "old-schema recovery produced console errors")
+        print("OK: pre-remediation schema (caseVersion 1, no stage4/stage7 snapshots) fails safely to a fresh state")
 
         # --- Reset Case: confirm row, Cancel leaves state untouched, Yes clears it. ---
         click_id(cdp, "openCaseFile")
         assert_stage_view(cdp, 2)
+
+        # Advance once and confirm Stage 2, so hypothesisSnapshots.initial is
+        # genuinely populated before reset: otherwise the "reset clears
+        # snapshots" check below would trivially pass against an
+        # already-null value and prove nothing.
+        touch_all_hypotheses(cdp)
+        click_continue(cdp)
+        assert_stage_view(cdp, 3)
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.initial") is not None, "hypothesisSnapshots.initial should be populated before testing reset")
 
         click_id(cdp, "mmcResetCase")
         require(not cdp.evaluate("document.getElementById('mmcResetConfirm').hidden"), "reset confirm row should appear after clicking Reset Case")
@@ -633,16 +739,23 @@ def run() -> None:
         click_id(cdp, "mmcResetNo")
         require(cdp.evaluate("document.getElementById('mmcResetConfirm').hidden"), "Cancel should hide the confirm row again")
         require(not cdp.evaluate("document.getElementById('mmcResetCase').hidden"), "Cancel should restore the Reset Case button")
-        require(cdp.evaluate("CaseFileShell.getState().currentStage") == 2, "Cancel must leave case progress unchanged")
+        require(cdp.evaluate("CaseFileShell.getState().currentStage") == 3, "Cancel must leave case progress unchanged")
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.initial") is not None, "Cancel must leave hypothesisSnapshots unchanged")
         require(not cdp.evaluate("document.getElementById('caseFileApp').hidden"), "Cancel must leave the case file open")
-        print("OK: Reset Case Cancel leaves state unchanged")
+        print("OK: Reset Case Cancel leaves state, including hypothesis snapshots, unchanged")
 
         click_id(cdp, "mmcResetCase")
         click_id(cdp, "mmcResetYes")
         require(cdp.evaluate("document.getElementById('caseFileApp').hidden"), "Yes, reset should hide the case file app")
         require(not cdp.evaluate("document.getElementById('openCaseFile').hidden"), "Yes, reset should show Open Case File again")
         require(cdp.evaluate(f"localStorage.getItem({json.dumps(STORAGE_KEY)})") is None, "Yes, reset should clear the persisted state")
-        print("OK: Reset Case Yes clears state and returns to Stage 1")
+        post_reset_snapshots = cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots")
+        require(
+            post_reset_snapshots == {"initial": None, "stage4": None, "stage7": None, "final": None},
+            f"Yes, reset should clear all four hypothesis snapshots, got {post_reset_snapshots}",
+        )
+        require(cdp.evaluate("CaseFileShell.getState().currentStage") == 1, "Yes, reset should restore the initial (Stage 1) state")
+        print("OK: Reset Case Yes clears state, including all hypothesis snapshots, and returns to Stage 1")
 
         pull_errors(cdp, console_error_log, "end of run")
         require(not console_error_log, f"console errors were recorded during the run: {console_error_log}")

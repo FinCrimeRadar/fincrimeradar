@@ -2,7 +2,12 @@
   'use strict';
 
   var STORAGE_KEY = 'fcr_case_money_mule_v1';
-  var CASE_VERSION = 1;
+  // Bumped 1 to 2: hypothesisSnapshots gained `stage4`/`stage7` fields (see
+  // DEFAULT_STATE below), a genuine persisted-state shape change, so any
+  // localStorage saved under the old schema must fail isValidState() and
+  // fall back to a fresh state rather than being read as if the new fields
+  // were simply absent.
+  var CASE_VERSION = 2;
 
   // Historical review (CaseProgress). Which completed stage, if any, is
   // currently being shown read-only. This is deliberately NOT part of the
@@ -31,24 +36,20 @@
     12: 'Final FinCrimeRadar Analysis'
   };
 
-  // Stages whose hypothesis-board display in review mode reflects the most
-  // recently recorded assessment rather than a frozen historical snapshot.
-  // Only Stage 2 (hypothesisSnapshots.initial) and Stage 9 (its own review
-  // phase reads hypothesisSnapshots.final) have a dedicated frozen snapshot
-  // in the state schema; Stages 4, 5 and 7 all read the same shared, mutable
-  // `hypothesisState` field (Stage 5's "Current assessment" diff column via
-  // renderHypothesisDiff included) that a later stage can still overwrite,
-  // and no separate per-stage snapshot exists for any of the three.
-  // Disclosed honestly in the review banner rather than presented as an
-  // exact historical record.
-  var HYPOTHESIS_SNAPSHOT_NOT_FROZEN = { 4: true, 5: true, 7: true };
-
   var DEFAULT_STATE = {
     caseVersion: CASE_VERSION,
     currentStage: 1,
     highestUnlockedStage: 1,
     hypothesisState: { A: 'Unresolved', B: 'Unresolved', C: 'Unresolved', D: 'Unresolved', E: 'Unresolved' },
-    hypothesisSnapshots: { initial: null, final: null },
+    // initial: captured on Stage 2 confirm. stage4: captured on Stage 4
+    // confirm (the assessment after Evidence Inject 02 and the
+    // authentication evidence). stage7: captured on Stage 7 confirm (the
+    // assessment after Evidence Inject 04 and the coercion evidence).
+    // final: captured on Stage 9 confirm. Stage 5 has no snapshot of its
+    // own, it introduces no new hypothesis assessment, its review reuses
+    // the stage4 snapshot. All four are write-once: nothing after this
+    // schema's initial capture ever overwrites an already-set snapshot.
+    hypothesisSnapshots: { initial: null, stage4: null, stage7: null, final: null },
     knowledgeTimeline: { entryState: null, prePaymentThreeState: null, changePoint: null },
     controlDecision: null,
     voluntarinessDecision: null,
@@ -156,8 +157,10 @@
     if (!isValidStageNumber(candidate.highestUnlockedStage)) return false;
     if (!isValidHypothesisMap(candidate.hypothesisState)) return false;
 
-    if (!hasExactKeys(candidate.hypothesisSnapshots, ['initial', 'final'])) return false;
+    if (!hasExactKeys(candidate.hypothesisSnapshots, ['initial', 'stage4', 'stage7', 'final'])) return false;
     if (!isNullOr(candidate.hypothesisSnapshots.initial, isValidHypothesisMap)) return false;
+    if (!isNullOr(candidate.hypothesisSnapshots.stage4, isValidHypothesisMap)) return false;
+    if (!isNullOr(candidate.hypothesisSnapshots.stage7, isValidHypothesisMap)) return false;
     if (!isNullOr(candidate.hypothesisSnapshots.final, isValidHypothesisMap)) return false;
 
     if (!hasExactKeys(candidate.knowledgeTimeline, ['entryState', 'prePaymentThreeState', 'changePoint'])) return false;
@@ -347,10 +350,20 @@
       legend.appendChild(document.createTextNode(': ' + hypothesis.description));
       fieldset.appendChild(legend);
 
+      // hypothesisOverride, when supplied (historical review of a stage
+      // whose hypothesis position was frozen into hypothesisSnapshots), is
+      // the source of truth for both the read-only and editable-markup
+      // display value below, never the live state.hypothesisState, so a
+      // review of an earlier stage shows what was actually recorded there,
+      // not a value that may have changed since. Callers reviewing a stage
+      // that never freezes its own snapshot (there are none left after this
+      // change) would fall through to state.hypothesisState.
+      var hypothesisSource = options.hypothesisOverride || state.hypothesisState;
+
       if (options.readOnly) {
         var readOnlyValue = document.createElement('p');
         readOnlyValue.className = 'mmc-hypothesis-readonly-value';
-        readOnlyValue.textContent = state.hypothesisState[id];
+        readOnlyValue.textContent = hypothesisSource[id];
         fieldset.appendChild(readOnlyValue);
       } else {
         var optionsWrap = document.createElement('div');
@@ -366,7 +379,7 @@
           input.name = 'hyp-' + id;
           input.id = inputId;
           input.value = stateValue;
-          input.checked = state.hypothesisState[id] === stateValue;
+          input.checked = hypothesisSource[id] === stateValue;
           // 'click' (not 'change') so re-selecting an already-checked radio
           // still registers as a deliberate touch for the Stage 2 gate: browsers
           // do not fire 'change' when the checked radio does not actually change.
@@ -432,7 +445,7 @@
   // "not yet initialised", not "reset on every render".
   var stage2Touched = null;
 
-  function renderStage2(container) {
+  function renderStage2(container, hypothesisOverride) {
     var state = getState();
     var data = MMC_DATA.stages[2];
 
@@ -585,7 +598,8 @@
       suggested: data.suggestedHypotheses,
       onTouch: function (id) {
         stage2Touched[id] = true;
-      }
+      },
+      hypothesisOverride: hypothesisOverride
     });
     wrapper.appendChild(assessmentSection);
 
@@ -862,7 +876,7 @@
   // updateState call triggers, null means "not yet initialised this visit".
   var stage4Touched = null;
 
-  function renderStage4(container) {
+  function renderStage4(container, hypothesisOverride) {
     var state = getState();
     var data = MMC_DATA.stages[4];
 
@@ -952,7 +966,8 @@
     renderHypothesisBoard(boardSection, state, {
       onTouch: function (id) {
         stage4Touched[id] = true;
-      }
+      },
+      hypothesisOverride: hypothesisOverride
     });
     wrapper.appendChild(boardSection);
 
@@ -966,6 +981,21 @@
     continueButton.className = 'mmc-action';
     continueButton.textContent = 'Continue';
     continueButton.addEventListener('click', function () {
+      // Captures the hypothesis assessment confirmed at this stage (after
+      // Evidence Inject 02 and the authentication evidence) as a frozen
+      // snapshot, the same pattern Stage 2 uses for hypothesisSnapshots.initial,
+      // so a later historical review of Stage 4 (or Stage 5, which reuses
+      // this same snapshot) shows what was actually recorded here, not
+      // whatever hypothesisState has drifted to by the time it's reviewed.
+      updateState(function (s) {
+        s.hypothesisSnapshots.stage4 = {
+          A: s.hypothesisState.A,
+          B: s.hypothesisState.B,
+          C: s.hypothesisState.C,
+          D: s.hypothesisState.D,
+          E: s.hypothesisState.E
+        };
+      });
       stage4Touched = null;
       advanceStage();
     });
@@ -975,7 +1005,7 @@
     container.appendChild(wrapper);
   }
 
-  function renderStage5(container) {
+  function renderStage5(container, hypothesisOverride) {
     var state = getState();
     var data = MMC_DATA.stages[5];
 
@@ -1000,12 +1030,18 @@
     diffHeading.textContent = 'What changed?';
     decisionSection.appendChild(diffHeading);
 
+    // hypothesisOverride, when supplied, is the frozen Stage 4 snapshot
+    // (Stage 5 introduces no new hypothesis assessment of its own, so its
+    // historical review reuses Stage 4's, per the state schema). The label
+    // changes to match: a frozen historical point is no longer honestly
+    // "Current assessment" once it is being viewed after later stages may
+    // have moved on.
     renderHypothesisDiff(
       decisionSection,
       state.hypothesisSnapshots.initial,
-      state.hypothesisState,
+      hypothesisOverride || state.hypothesisState,
       'Initial assessment',
-      'Current assessment'
+      hypothesisOverride ? 'Assessment at Stage 4' : 'Current assessment'
     );
     wrapper.appendChild(decisionSection);
 
@@ -1248,7 +1284,7 @@
   // on revisit via highestUnlockedStage > 7 (the Stage 4/6 pattern).
   var stage7Touched = null;
 
-  function renderStage7(container) {
+  function renderStage7(container, hypothesisOverride) {
     var state = getState();
     var data = MMC_DATA.stages[7];
 
@@ -1419,7 +1455,8 @@
     renderHypothesisBoard(boardSection, state, {
       onTouch: function (id) {
         stage7Touched[id] = true;
-      }
+      },
+      hypothesisOverride: hypothesisOverride
     });
     wrapper.appendChild(boardSection);
 
@@ -1437,7 +1474,20 @@
       // Each control already persists its own field via updateState the
       // moment it is set (see above), so by the time the gate allows this
       // button to be enabled everything is already saved. This just
-      // advances, matching the Stage 4/6 continue handler's shape.
+      // advances, matching the Stage 4/6 continue handler's shape. The
+      // hypothesis snapshot capture below mirrors Stage 4's own pattern:
+      // freezes what was confirmed here (after Evidence Inject 04 and the
+      // coercion evidence) so a later historical review of Stage 7 shows
+      // this, not whatever hypothesisState has drifted to since.
+      updateState(function (s) {
+        s.hypothesisSnapshots.stage7 = {
+          A: s.hypothesisState.A,
+          B: s.hypothesisState.B,
+          C: s.hypothesisState.C,
+          D: s.hypothesisState.D,
+          E: s.hypothesisState.E
+        };
+      });
       stage7Touched = null;
       advanceStage();
     });
@@ -2273,11 +2323,7 @@
 
     var note = document.createElement('p');
     note.className = 'mmc-review-note';
-    var noteText = 'This shows the evidence and any decisions exactly as they were available at this stage. Nothing on this screen can be changed.';
-    if (HYPOTHESIS_SNAPSHOT_NOT_FROZEN[stageNumber]) {
-      noteText += ' The hypothesis positions shown reflect the most recently recorded assessment, which may have been updated at a later stage.';
-    }
-    note.textContent = noteText;
+    note.textContent = 'This shows the evidence and any decisions exactly as they were recorded at this stage. Nothing on this screen can be changed.';
     banner.appendChild(note);
 
     var returnButton = document.createElement('button');
@@ -2297,8 +2343,18 @@
     body.className = 'mmc-review-content';
     container.appendChild(body);
 
+    // Frozen hypothesis snapshot per stage, so review shows the assessment
+    // actually confirmed at that point rather than the live, possibly
+    // since-changed hypothesisState. Stage 5 reuses Stage 4's snapshot
+    // (spec: "Stage 5 does not need a separate duplicate snapshot because
+    // it introduces no new hypothesis assessment"). Stage 9 needs no entry
+    // here: its own renderer already derives phase from
+    // hypothesisSnapshots.final and renders the frozen diff directly.
+    var snapshotKey = { 2: 'initial', 4: 'stage4', 5: 'stage4', 7: 'stage7' }[stageNumber];
+    var hypothesisOverride = snapshotKey ? state.hypothesisSnapshots[snapshotKey] : undefined;
+
     var renderer = STAGE_RENDERERS[stageNumber];
-    if (renderer) renderer(body);
+    if (renderer) renderer(body, hypothesisOverride);
 
     var interactive = body.querySelectorAll('input, button, select, textarea');
     for (var i = 0; i < interactive.length; i += 1) {
