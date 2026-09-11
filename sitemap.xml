@@ -346,4 +346,11 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Case File experiments -->
+  <url>
+    <loc>https://fincrimeradar.org/money-mule-or-victim-case-file.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
