@@ -227,24 +227,66 @@
     renderCurrentStage();
   }
 
+  // Coalesces however many render requests land in the same tick into one
+  // actual renderCurrentStage() call. A real mouse/touch/Space selection
+  // fires both 'click' and 'change' on the same radio, each independently
+  // wanting to trigger a (deferred, see below) render; without this a
+  // single selection would tear down and rebuild the whole stage twice.
+  var renderScheduled = false;
+  function scheduleRender() {
+    if (renderScheduled) return;
+    renderScheduled = true;
+    setTimeout(function () {
+      renderScheduled = false;
+      renderCurrentStage();
+    }, 0);
+  }
+
   // Radio groups only. Identical to updateState (mutate, then persist,
   // synchronously) except the destructive full re-render is deferred one
-  // tick. Native keyboard radio-group navigation (arrow keys) is a
-  // multi-step browser-internal transaction: uncheck the previously
-  // checked radio, check the newly selected one, move focus to it, then
-  // fire 'input' and 'change'. Synchronously tearing down and rebuilding
-  // the whole radio group from inside that transaction's own 'change'
-  // handler (as renderCurrentStage does) corrupts it, and the browser
-  // reverts the selection back to the original radio. Deferring only the
-  // render avoids that: the mutation and save already happened, so a
-  // value read immediately afterwards (CaseFileShell.getState(),
+  // tick via scheduleRender. Native keyboard radio-group navigation (arrow
+  // keys) is a multi-step browser-internal transaction: uncheck the
+  // previously checked radio, check the newly selected one, move focus to
+  // it, then fire 'input' and 'change'. Synchronously tearing down and
+  // rebuilding the whole radio group from inside that transaction's own
+  // 'change' handler (as renderCurrentStage does) corrupts it, and the
+  // browser reverts the selection back to the original radio. Deferring
+  // only the render avoids that: the mutation and save already happened,
+  // so a value read immediately afterwards (CaseFileShell.getState(),
   // localStorage) is always current regardless of the render's timing,
   // and the setTimeout(0) callback has invariably already run by the
   // time any later interaction or check occurs.
   function updateStateAfterRadioChange(mutatorFn) {
     mutatorFn(state);
     saveState(state);
-    setTimeout(renderCurrentStage, 0);
+    scheduleRender();
+  }
+
+  // Wires a persisted radio input so every input modality (mouse, touch,
+  // Space, and native keyboard arrow-key group navigation) updates both
+  // visible and persisted state, in one place rather than hand-duplicated
+  // per radio group: a future radio group (or edit to an existing one)
+  // that copies only the 'change' half would silently reintroduce the
+  // exact click-only keyboard bug this pairing exists to fix.
+  //   persistFn(s) - mutates state to record this option as selected.
+  //   touchFn() - optional. Marks the group touched for a stage's own
+  //     continue gate. Runs on 'change' (a real selection) and also on
+  //     'click' alone (re-selecting an already-checked option, which
+  //     fires no 'change' since the value did not change, must still
+  //     count as deliberate interaction). Stages with no separate touch
+  //     gate (their continue gate reads the persisted value directly)
+  //     omit it, and then no 'click' listener is needed at all.
+  function bindPersistedRadio(input, persistFn, touchFn) {
+    input.addEventListener('change', function () {
+      if (touchFn) touchFn();
+      updateStateAfterRadioChange(persistFn);
+    });
+    if (touchFn) {
+      input.addEventListener('click', function () {
+        touchFn();
+        scheduleRender();
+      });
+    }
   }
 
   function advanceStage() {
@@ -402,31 +444,9 @@
           input.id = inputId;
           input.value = stateValue;
           input.checked = hypothesisSource[id] === stateValue;
-          // State persists on 'change', not 'click': native keyboard radio
-          // navigation (arrow keys) moves the checked radio and fires
-          // 'change' without ever firing 'click', so a click-only handler
-          // desynchronises visible state from persisted state for keyboard
-          // users. 'change' fires for every modality that actually changes
-          // the checked radio (mouse, touch, Space, arrow keys).
-          input.addEventListener('change', function () {
-            if (typeof options.onTouch === 'function') options.onTouch(id);
-            updateStateAfterRadioChange(function (s) {
-              s.hypothesisState[id] = stateValue;
-            });
-          });
-          // 'click' still fires when re-selecting an already-checked radio
-          // (which fires no 'change', since the value did not change), and
-          // that re-selection must still register as a deliberate touch for
-          // the gate, so mark it here without re-persisting the value.
-          // A deferred renderCurrentStage() (not updateState, there is
-          // nothing new to save; deferred for the same reason
-          // updateStateAfterRadioChange defers its own render) still runs
-          // so the continue button's disabled state, only recomputed at
-          // render time, picks up the touch.
-          input.addEventListener('click', function () {
-            if (typeof options.onTouch === 'function') options.onTouch(id);
-            setTimeout(renderCurrentStage, 0);
-          });
+          bindPersistedRadio(input, function (s) {
+            s.hypothesisState[id] = stateValue;
+          }, typeof options.onTouch === 'function' ? function () { options.onTouch(id); } : null);
 
           label.appendChild(input);
           label.appendChild(document.createTextNode(stateValue));
@@ -1226,26 +1246,9 @@
         input.id = inputId;
         input.value = stateValue;
         input.checked = state.knowledgeTimeline[question.key] === stateValue;
-        // State persists on 'change' (see the hypothesis board's radios for
-        // the full rationale: 'click' alone misses native keyboard arrow-key
-        // navigation between radios). 'click' still fires on re-selecting an
-        // already-checked radio, which fires no 'change', and that
-        // re-selection must still register as a deliberate touch for the gate.
-        input.addEventListener('change', function () {
-          stage6Touched[question.key] = true;
-          updateStateAfterRadioChange(function (s) {
-            s.knowledgeTimeline[question.key] = stateValue;
-          });
-        });
-        // Deferred renderCurrentStage() (not updateState, there is nothing
-        // new to save; deferred for the same reason
-        // updateStateAfterRadioChange defers its own render) still runs so
-        // the continue button's disabled state, only recomputed at render
-        // time, picks up the touch.
-        input.addEventListener('click', function () {
-          stage6Touched[question.key] = true;
-          setTimeout(renderCurrentStage, 0);
-        });
+        bindPersistedRadio(input, function (s) {
+          s.knowledgeTimeline[question.key] = stateValue;
+        }, function () { stage6Touched[question.key] = true; });
 
         label.appendChild(input);
         label.appendChild(document.createTextNode(TIMELINE_STATE_LABELS[stateValue]));
@@ -1283,18 +1286,9 @@
       input.id = inputId;
       input.value = pointId;
       input.checked = state.knowledgeTimeline.changePoint === pointId;
-      // Same 'change' plus separate touch-only 'click' split as the timeline
-      // assessment radios above.
-      input.addEventListener('change', function () {
-        stage6Touched.changePoint = true;
-        updateStateAfterRadioChange(function (s) {
-          s.knowledgeTimeline.changePoint = pointId;
-        });
-      });
-      input.addEventListener('click', function () {
-        stage6Touched.changePoint = true;
-        setTimeout(renderCurrentStage, 0);
-      });
+      bindPersistedRadio(input, function (s) {
+        s.knowledgeTimeline.changePoint = pointId;
+      }, function () { stage6Touched.changePoint = true; });
 
       label.appendChild(input);
       label.appendChild(document.createTextNode(point.label));
@@ -1454,21 +1448,9 @@
         input.id = inputId;
         input.value = value;
         input.checked = state[question.key] === value;
-        // State persists on 'change', same reasoning as the hypothesis
-        // board and Stage 6's timeline controls. 'click' still fires on
-        // re-selecting an already-checked radio, which fires no 'change',
-        // and that re-selection must still register as a deliberate touch
-        // for the gate.
-        input.addEventListener('change', function () {
-          stage7Touched[question.key] = true;
-          updateStateAfterRadioChange(function (s) {
-            s[question.key] = value;
-          });
-        });
-        input.addEventListener('click', function () {
-          stage7Touched[question.key] = true;
-          setTimeout(renderCurrentStage, 0);
-        });
+        bindPersistedRadio(input, function (s) {
+          s[question.key] = value;
+        }, function () { stage7Touched[question.key] = true; });
 
         label.appendChild(input);
         label.appendChild(document.createTextNode(DECISION_VALUE_LABELS[value]));
@@ -1779,16 +1761,12 @@
         input.id = inputId;
         input.value = optionValue;
         input.checked = state.decisionRecord[dim.id] === optionValue;
-        // State persists on 'change', not 'click', so native keyboard
-        // arrow-key navigation between radios updates persisted state too
-        // (see the hypothesis board's radios for the full rationale). No
-        // separate touch gate exists here: the continue gate below reads
-        // state.decisionRecord directly, and re-selecting an already-checked
-        // option leaves that value, and the gate, unchanged either way.
-        input.addEventListener('change', function () {
-          updateStateAfterRadioChange(function (s) {
-            s.decisionRecord[dim.id] = optionValue;
-          });
+        // No touchFn: no separate touch gate exists here, the continue
+        // gate below reads state.decisionRecord directly, and re-selecting
+        // an already-checked option leaves that value, and the gate,
+        // unchanged either way.
+        bindPersistedRadio(input, function (s) {
+          s.decisionRecord[dim.id] = optionValue;
         });
 
         label.appendChild(input);
@@ -2060,13 +2038,10 @@
       input.id = inputId;
       input.value = option.value;
       input.checked = state.reasoningShift === option.value;
-      // State persists on 'change', not 'click' (see the hypothesis board's
-      // radios for the full rationale). No separate touch gate exists here:
-      // the continue gate below reads state.reasoningShift directly.
-      input.addEventListener('change', function () {
-        updateStateAfterRadioChange(function (s) {
-          s.reasoningShift = option.value;
-        });
+      // No touchFn: no separate touch gate exists here, the continue gate
+      // below reads state.reasoningShift directly.
+      bindPersistedRadio(input, function (s) {
+        s.reasoningShift = option.value;
       });
 
       label.appendChild(input);
