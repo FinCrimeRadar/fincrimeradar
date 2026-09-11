@@ -316,6 +316,48 @@ def run() -> None:
             require(overflow_ok, f"{width}px page overflow")
             print(f"OK: {width}px no horizontal overflow")
 
+        # --- Shared site-footer (site-chrome.js partial). #site-footer's
+        # content arrives via an async fetch, so poll briefly rather than
+        # assuming it is present the instant readyState is 'complete'. ---
+        for _ in range(40):
+            if cdp.evaluate("!!document.querySelector('#site-footer .site-footer')"):
+                break
+            time.sleep(0.1)
+        else:
+            raise AssertionError("shared #site-footer partial did not render a .site-footer component in time")
+
+        footer_link_hrefs = cdp.evaluate("""Array.from(document.querySelectorAll('#site-footer .footer-link')).map(a => {
+          const raw = a.getAttribute('href');
+          return raw === '#' ? '#' : new URL(raw, location.href).pathname;
+        })""")
+        expected_destinations = [
+            "/", "/knowledge.html", "/screen.html", "/about.html", "/contact.html",
+            "/supporters.html", "/privacy.html", "/terms.html",
+            "/editorial-standards.html", "/methodology.html", "#",
+        ]
+        for destination in expected_destinations:
+            require(destination in footer_link_hrefs, f"shared footer is missing expected destination {destination!r}: found {footer_link_hrefs}")
+        has_sponsor_link = cdp.evaluate("!!document.querySelector('#site-footer a[href*=\"github.com/sponsors\"]')")
+        require(has_sponsor_link, "shared footer is missing the Sponsor destination (github.com/sponsors)")
+        print("OK: shared footer renders the structured .site-footer component with every required destination")
+
+        footer_legal_text = cdp.evaluate("document.querySelector('#site-footer .site-footer-legal') ? document.querySelector('#site-footer .site-footer-legal').textContent : ''")
+        require("FinCrimeRadar Ltd" in footer_legal_text and "17324449" in footer_legal_text, f"shared footer legal line is missing or incomplete: {footer_legal_text!r}")
+        print("OK: shared footer preserves the company legal information")
+
+        # Footer links must be real, focusable anchors reachable by keyboard,
+        # not inert text: tab from the last link backwards is unnecessary,
+        # simply confirm every rendered .footer-link is an <a> with an href
+        # and a non-negative tabindex (i.e. not explicitly removed from the
+        # tab order), which is what "keyboard reachable" requires in practice.
+        footer_link_focusability = cdp.evaluate("""Array.from(document.querySelectorAll('#site-footer .footer-link')).map(a => ({
+          tag: a.tagName, hasHref: a.hasAttribute('href'), tabIndex: a.tabIndex
+        }))""")
+        require(len(footer_link_focusability) >= len(expected_destinations), f"expected at least {len(expected_destinations)} .footer-link elements, found {len(footer_link_focusability)}")
+        for link in footer_link_focusability:
+            require(link["tag"] == "A" and link["hasHref"] and link["tabIndex"] >= 0, f"footer link is not a keyboard-reachable anchor: {link}")
+        print("OK: footer links are real, keyboard-reachable anchors")
+
         # --- Main interactive flow, desktop width. ---
         navigate(cdp, url, 1440)
         pull_errors(cdp, console_error_log, "initial load")
@@ -333,6 +375,73 @@ def run() -> None:
         require(after_bypass == before_bypass, f"goToStage(12) bypassed highestUnlockedStage: before={before_bypass}, after={after_bypass}")
         require(STAGE_HEADINGS[12] not in cdp.evaluate("document.body.innerText"), "Stage 12 rendered despite being locked")
         print("OK: goToStage(12) bypass attempt refused")
+
+        # Hypothesis Board markup: each of the five fieldsets must carry only
+        # the hypothesis name in its <legend>, with the full description as
+        # separate paragraph content inside the same fieldset (not appended
+        # to the legend, which is what broke the fieldset border rendering).
+        hypothesis_names = cdp.evaluate("MMC_DATA ? Object.fromEntries('ABCDE'.split('').map(id => [id, MMC_DATA.hypotheses[id].name])) : {}")
+        hypothesis_descriptions = cdp.evaluate("MMC_DATA ? Object.fromEntries('ABCDE'.split('').map(id => [id, MMC_DATA.hypotheses[id].description])) : {}")
+        fieldsets = cdp.evaluate("""Array.from(document.querySelectorAll('.mmc-hypothesis-board .mmc-hypothesis')).map(fs => {
+          const legend = fs.querySelector('legend');
+          const description = fs.querySelector('.mmc-hypothesis-description');
+          return {
+            legendText: legend ? legend.textContent.trim() : null,
+            descriptionText: description ? description.textContent.trim() : null,
+            descriptionInFieldset: !!(description && fs.contains(description)),
+            legendIsFirstChild: fs.firstElementChild === legend,
+          };
+        })""")
+        require(len(fieldsets) == 5, f"expected 5 hypothesis fieldsets on the Stage 2 board, found {len(fieldsets)}")
+        for id_, name in hypothesis_names.items():
+            match = next((fs for fs in fieldsets if fs["legendText"] == name), None)
+            require(match is not None, f"no fieldset legend equals hypothesis {id_}'s bare name {name!r} (legend must not also carry the description)")
+            require(match["descriptionText"] == hypothesis_descriptions[id_], f"hypothesis {id_}'s description paragraph text does not match MMC_DATA: {match['descriptionText']!r}")
+            require(match["descriptionInFieldset"], f"hypothesis {id_}'s description paragraph is not inside its fieldset")
+            require(match["legendIsFirstChild"], f"hypothesis {id_}'s legend is not the fieldset's first child element")
+        print("OK: Hypothesis Board legends contain only the hypothesis name, descriptions are separate paragraphs inside the same fieldset")
+
+        # Radio group semantics: the four hypothesis-state controls under each
+        # fieldset are real radios sharing one name per hypothesis, each with
+        # a label bound by a matching for/id pair (an accessible name), and
+        # every option is reachable, not merely present in the DOM.
+        radio_groups = cdp.evaluate("""Array.from(document.querySelectorAll('.mmc-hypothesis-board .mmc-hypothesis')).map(fs => {
+          const inputs = Array.from(fs.querySelectorAll('input[type="radio"]'));
+          const names = new Set(inputs.map(i => i.name));
+          const labelledOk = inputs.every(i => {
+            const label = fs.querySelector('label[for="' + i.id + '"]');
+            return !!label && label.textContent.trim().length > 0;
+          });
+          return {count: inputs.length, distinctNames: names.size, labelledOk};
+        })""")
+        require(len(radio_groups) == 5, "expected 5 radio groups, one per hypothesis fieldset")
+        for group in radio_groups:
+            require(group["count"] == 4, f"each hypothesis fieldset should have 4 radio controls (Leading/Plausible/Unresolved/Weak), got {group['count']}")
+            require(group["distinctNames"] == 1, f"a hypothesis fieldset's 4 radios must share a single name attribute, found {group['distinctNames']} distinct names")
+            require(group["labelledOk"], "every radio in a hypothesis fieldset must have a non-empty label bound via for/id")
+        print("OK: Hypothesis Board radio groups retain correct name grouping and accessible labels")
+
+        # Desktop: the five hypothesis cards must not visually overlap.
+        card_rects = cdp.evaluate("""Array.from(document.querySelectorAll('.mmc-hypothesis-board .mmc-hypothesis')).map(el => {
+          const r = el.getBoundingClientRect();
+          return {left: r.left, right: r.right, top: r.top, bottom: r.bottom};
+        })""")
+        for i in range(len(card_rects)):
+            for j in range(i + 1, len(card_rects)):
+                a, b = card_rects[i], card_rects[j]
+                overlap = a["left"] < b["right"] and b["left"] < a["right"] and a["top"] < b["bottom"] and b["top"] < a["bottom"]
+                require(not overlap, f"Hypothesis Board cards {i} and {j} visually overlap at desktop width: {a} vs {b}")
+        print("OK: Hypothesis Board cards do not overlap at desktop width")
+
+        # Mobile: the board collapses to one column and the page still has no
+        # horizontal overflow with all five cards rendered.
+        cdp.call("Emulation.setDeviceMetricsOverride", {"width": 375, "height": 900, "deviceScaleFactor": 1, "mobile": True})
+        mobile_overflow_ok = cdp.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1")
+        require(mobile_overflow_ok, "375px page overflow with the Hypothesis Board populated")
+        mobile_columns = cdp.evaluate("new Set(Array.from(document.querySelectorAll('.mmc-hypothesis-board .mmc-hypothesis')).map(el => Math.round(el.getBoundingClientRect().left))).size")
+        require(mobile_columns == 1, f"Hypothesis Board should collapse to a single column at 375px, found {mobile_columns} distinct left offsets")
+        cdp.call("Emulation.setDeviceMetricsOverride", {"width": 1440, "height": 900, "deviceScaleFactor": 1, "mobile": False})
+        print("OK: Hypothesis Board collapses to one column with no overflow at mobile width")
 
         # Keyboard tab order across the Stage 2 hypothesis board, before it is touched.
         stage2_targets = collect_tab_targets(cdp, 40)
@@ -443,17 +552,57 @@ def run() -> None:
         pre_review_highest = pre_review_state["highestUnlockedStage"]
         pre_review_initial_snapshot = pre_review_state["hypothesisSnapshots"]["initial"]
 
-        completed_buttons = cdp.evaluate("document.querySelectorAll('.mmc-progress-btn').length")
+        completed_buttons = cdp.evaluate("document.querySelectorAll('.mmc-progress-step-btn').length")
         require(completed_buttons == 6, f"expected 6 completed/reviewable CaseProgress entries (Stages 2-7) at Stage 8, found {completed_buttons}")
 
+        # Compact rail: every step, completed or locked, shows only its bare
+        # number as visible text, never the full stage title.
+        step_texts = cdp.evaluate("Array.from(document.querySelectorAll('.mmc-progress-step-btn, .mmc-progress-step-current, .mmc-progress-step-locked')).map(el => el.textContent.trim())")
+        require(all(text.isdigit() for text in step_texts), f"CaseProgress rail items must show only a bare stage number, got {step_texts}")
+        print("OK: CaseProgress rail items show stage numbers only, never full titles")
+
+        # The live current stage (8) gets its own concise header above the
+        # rail, and its own rail item exposes aria-current="step".
+        current_index_text = cdp.evaluate("document.querySelector('.mmc-progress-current-index') ? document.querySelector('.mmc-progress-current-index').textContent : ''")
+        require("Stage 8 of 12" in current_index_text, f"CaseProgress current-stage header should read 'Stage 8 of 12', got {current_index_text!r}")
+        current_title_text = cdp.evaluate("document.querySelector('.mmc-progress-current-title') ? document.querySelector('.mmc-progress-current-title').textContent : ''")
+        require(STAGE_HEADINGS[8].split(": ", 1)[1] in current_title_text, f"CaseProgress current-stage header is missing Stage 8's own title, got {current_title_text!r}")
+        current_step_aria = cdp.evaluate("document.querySelector('.mmc-progress-step-current[data-stage=\"8\"]') ? document.querySelector('.mmc-progress-step-current[data-stage=\"8\"]').getAttribute('aria-current') : null")
+        require(current_step_aria == "step", f"Stage 8's rail item should expose aria-current=\"step\", got {current_step_aria!r}")
+        print("OK: CaseProgress current-stage header and aria-current=\"step\" are both present")
+
         # Future (locked) stages: no button exists at all, so they cannot be
-        # opened through the UI; their entry shows no descriptive title.
+        # opened through the UI; neither their visible text nor their
+        # accessible label discloses the real title.
         for locked_stage in (9, 10, 11, 12):
-            has_button = cdp.evaluate(f"!!document.querySelector('.mmc-progress-btn[data-stage=\"{locked_stage}\"]')")
+            has_button = cdp.evaluate(f"!!document.querySelector('.mmc-progress-step-btn[data-stage=\"{locked_stage}\"]')")
             require(not has_button, f"Stage {locked_stage} is locked but has a clickable CaseProgress button")
-            locked_text = cdp.evaluate(f"document.querySelector('.mmc-progress-locked-label[data-stage=\"{locked_stage}\"]').textContent")
-            require(STAGE_HEADINGS[locked_stage].split(": ", 1)[1] not in locked_text, f"Stage {locked_stage}'s locked CaseProgress entry leaks its real title: {locked_text!r}")
-        print("OK: future stages have no CaseProgress control and no spoiler title")
+            locked_el = f"document.querySelector('.mmc-progress-step-locked[data-stage=\"{locked_stage}\"]')"
+            locked_text = cdp.evaluate(f"{locked_el}.textContent")
+            locked_label = cdp.evaluate(f"{locked_el}.getAttribute('aria-label')")
+            spoiler = STAGE_HEADINGS[locked_stage].split(": ", 1)[1]
+            require(spoiler not in locked_text, f"Stage {locked_stage}'s locked CaseProgress entry leaks its real title in visible text: {locked_text!r}")
+            require(spoiler not in (locked_label or ""), f"Stage {locked_stage}'s locked CaseProgress entry leaks its real title in aria-label: {locked_label!r}")
+            require(cdp.evaluate(f"{locked_el}.tagName") != "BUTTON", f"Stage {locked_stage}'s locked CaseProgress entry must not be a button")
+        print("OK: future stages have no CaseProgress control and no spoiler title in text or aria-label")
+
+        # No decorative text glyphs (▢ ● ◆ ◐ etc.) anywhere in the rail.
+        rail_text = cdp.evaluate("document.querySelector('.mmc-progress-nav').textContent")
+        for glyph in ("▢", "●", "◆", "◐", "◇", "○"):
+            require(glyph not in rail_text, f"CaseProgress rail must not use decorative glyph {glyph!r}")
+        print("OK: CaseProgress rail contains no decorative text glyphs")
+
+        # Desktop: rail items must not visually overlap.
+        step_rects = cdp.evaluate("""Array.from(document.querySelectorAll('.mmc-progress-step')).map(el => {
+          const r = el.getBoundingClientRect();
+          return {left: r.left, right: r.right, top: r.top, bottom: r.bottom};
+        })""")
+        for i in range(len(step_rects)):
+            for j in range(i + 1, len(step_rects)):
+                a, b = step_rects[i], step_rects[j]
+                overlap = a["left"] < b["right"] and b["left"] < a["right"] and a["top"] < b["bottom"] and b["top"] < a["bottom"]
+                require(not overlap, f"CaseProgress rail items {i} and {j} visually overlap at desktop width: {a} vs {b}")
+        print("OK: CaseProgress rail items do not overlap at desktop width")
 
         # The main overflow sweep at the top of this run happens before the
         # case is opened, so it never exercises CaseProgress actually
@@ -467,7 +616,7 @@ def run() -> None:
         print("OK: 320px no horizontal overflow with CaseProgress populated")
 
         # Open a completed stage (4) for review through the real UI control.
-        click_id_selector = "document.querySelector('.mmc-progress-btn[data-stage=\"4\"]').click()"
+        click_id_selector = "document.querySelector('.mmc-progress-step-btn[data-stage=\"4\"]').click()"
         cdp.evaluate(click_id_selector)
         require(cdp.evaluate("CaseFileShell.getReviewStage()") == 4, "clicking the Stage 4 CaseProgress entry should enter review mode for Stage 4")
         require(STAGE_HEADINGS[4] in cdp.evaluate("document.body.innerText"), "Stage 4 content should render while reviewing Stage 4")
@@ -491,7 +640,7 @@ def run() -> None:
         # historical review must reuse the Stage 4 snapshot: the diff view
         # compares initial ('Leading' for A) against stage4 ('Plausible'),
         # never against the live value ('Weak').
-        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"5\"]').click()")
+        cdp.evaluate("document.querySelector('.mmc-progress-step-btn[data-stage=\"5\"]').click()")
         stage5_review_diff_text = cdp.evaluate("document.querySelector('.mmc-review-content .mmc-hypothesis-diff') ? document.querySelector('.mmc-review-content .mmc-hypothesis-diff').textContent : ''")
         require("moved from Leading to Plausible" in stage5_review_diff_text, f"Stage 5 review should show the Stage 4 snapshot in its diff (Leading to Plausible), got: {stage5_review_diff_text!r}")
         require("moved from Leading to Weak" not in stage5_review_diff_text, "Stage 5 review must not show the live (later) hypothesis value in its diff")
@@ -517,7 +666,7 @@ def run() -> None:
         # Reviewing Stage 6 must show only Stage 6's own 5-point timeline
         # reveal set, never Stage 7's later 9-point expansion: no access to
         # evidence not yet unlocked at that historical point.
-        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"6\"]').click()")
+        cdp.evaluate("document.querySelector('.mmc-progress-step-btn[data-stage=\"6\"]').click()")
         stage6_review_text = cdp.evaluate("document.body.innerText")
         require("Attempted Exit" not in stage6_review_text, "reviewing Stage 6 must not expose Stage 7's later timeline reveal (Attempted Exit)")
         print("OK: reviewing an earlier stage does not expose evidence unlocked only at a later stage")
@@ -525,7 +674,7 @@ def run() -> None:
         # Stage 7 historical review must render its own frozen snapshot
         # (hyp-A-Weak), independent of both Stage 4's snapshot and whatever
         # hypothesisState currently holds.
-        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"7\"]').click()")
+        cdp.evaluate("document.querySelector('.mmc-progress-step-btn[data-stage=\"7\"]').click()")
         stage7_review_a_checked = cdp.evaluate("document.querySelector('.mmc-review-content #hyp-A-Weak') ? document.querySelector('.mmc-review-content #hyp-A-Weak').checked : null")
         require(stage7_review_a_checked is True, f"Stage 7 review should show the frozen Stage 7 snapshot (hyp-A-Weak checked), got {stage7_review_a_checked}")
         print("OK: Stage 7 historical review renders the Stage 7 snapshot")
@@ -555,7 +704,7 @@ def run() -> None:
         # Reload persistence: review mode is deliberately not persisted, so a
         # reload while reviewing must resume at the true current stage, not
         # the stage that was being reviewed.
-        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"5\"]').click()")
+        cdp.evaluate("document.querySelector('.mmc-progress-step-btn[data-stage=\"5\"]').click()")
         require(cdp.evaluate("CaseFileShell.getReviewStage()") == 5, "review mode should be active before the reload check")
         pull_errors(cdp, console_error_log, "before review-mode reload")
         reload_page(cdp)
@@ -594,9 +743,9 @@ def run() -> None:
         # further on than the earlier check from Stage 8), to prove the
         # snapshot keeps rendering correctly as the practitioner continues
         # to progress, not just immediately after it was captured.
-        completed_buttons_at_10 = cdp.evaluate("document.querySelectorAll('.mmc-progress-btn').length")
+        completed_buttons_at_10 = cdp.evaluate("document.querySelectorAll('.mmc-progress-step-btn').length")
         require(completed_buttons_at_10 == 8, f"expected 8 completed/reviewable CaseProgress entries (Stages 2-9) at Stage 10, found {completed_buttons_at_10}")
-        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"7\"]').click()")
+        cdp.evaluate("document.querySelector('.mmc-progress-step-btn[data-stage=\"7\"]').click()")
         stage7_review_a_checked_later = cdp.evaluate("document.querySelector('.mmc-review-content #hyp-A-Weak') ? document.querySelector('.mmc-review-content #hyp-A-Weak').checked : null")
         require(stage7_review_a_checked_later is True, f"Stage 7 review must still show its own frozen snapshot after Stage 9 has since changed the live value, got {stage7_review_a_checked_later}")
         require(cdp.evaluate("CaseFileShell.getState().currentStage") == 10, "reviewing Stage 7 from Stage 10 must not alter the current investigation stage")

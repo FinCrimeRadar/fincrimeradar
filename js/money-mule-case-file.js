@@ -344,11 +344,13 @@
       fieldset.className = 'mmc-hypothesis';
 
       var legend = document.createElement('legend');
-      var nameEl = document.createElement('strong');
-      nameEl.textContent = hypothesis.name;
-      legend.appendChild(nameEl);
-      legend.appendChild(document.createTextNode(': ' + hypothesis.description));
+      legend.textContent = hypothesis.name;
       fieldset.appendChild(legend);
+
+      var description = document.createElement('p');
+      description.className = 'mmc-hypothesis-description';
+      description.textContent = hypothesis.description;
+      fieldset.appendChild(description);
 
       // hypothesisOverride, when supplied (historical review of a stage
       // whose hypothesis position was frozen into hypothesisSnapshots), is
@@ -2204,18 +2206,37 @@
   // items). Lists Stages 2-12 only: Stage 1 is the static orientation essay
   // above #caseFileApp and is never removed from the page, so it already
   // satisfies "previous evidence remains reviewable" without any special
-  // handling here. Current/completed/reviewing/locked are distinguished by
-  // real text content and a decorative ::before glyph (see brand pattern at
-  // .mmc-evidence-status), never by colour alone. Locked stages show only
-  // "Stage N (locked)", no descriptive title, so a future stage's subject
-  // is never spoiled through this nav.
+  // handling here. Compact numbered rail: the live current stage gets its
+  // own concise "Stage N of 12" / title header above the rail (renderCurrentStage
+  // never runs while state.currentStage is 1, see advanceStage, so
+  // STAGE_TITLES[state.currentStage] is always defined here); each rail item
+  // shows only its stage number as visible text, with the full state
+  // (completed/current/reviewing/locked) carried in an aria-label rather than
+  // a decorative glyph, so status is never colour alone. Locked stages expose
+  // only "Stage N, locked" in their label, no title, so a future stage's
+  // subject is never spoiled through this nav.
   function renderCaseProgress(container) {
     var nav = document.createElement('nav');
     nav.className = 'mmc-progress-nav';
     nav.setAttribute('aria-label', 'Case progress');
 
+    var currentBlock = document.createElement('div');
+    currentBlock.className = 'mmc-progress-current';
+
+    var currentIndex = document.createElement('p');
+    currentIndex.className = 'mmc-progress-current-index';
+    currentIndex.textContent = 'Stage ' + state.currentStage + ' of 12';
+    currentBlock.appendChild(currentIndex);
+
+    var currentTitle = document.createElement('p');
+    currentTitle.className = 'mmc-progress-current-title';
+    currentTitle.textContent = STAGE_TITLES[state.currentStage];
+    currentBlock.appendChild(currentTitle);
+
+    nav.appendChild(currentBlock);
+
     var list = document.createElement('ol');
-    list.className = 'mmc-progress';
+    list.className = 'mmc-progress-rail';
 
     for (var n = 2; n <= 12; n += 1) {
       (function (stageNum) {
@@ -2235,24 +2256,17 @@
         }
 
         var li = document.createElement('li');
-        li.className = 'mmc-progress-item';
+        li.className = 'mmc-progress-step';
         li.setAttribute('data-progress-state', statusKey);
 
         if (statusKey === 'completed' || statusKey === 'reviewing') {
           var btn = document.createElement('button');
           btn.type = 'button';
-          btn.className = 'mmc-progress-btn';
+          btn.className = 'mmc-progress-step-btn';
           btn.setAttribute('data-stage', String(stageNum));
-
-          var label = document.createElement('span');
-          label.className = 'mmc-progress-stage-label';
-          label.textContent = 'Stage ' + stageNum + ': ' + STAGE_TITLES[stageNum];
-          btn.appendChild(label);
-
-          var stateLabel = document.createElement('span');
-          stateLabel.className = 'mmc-progress-state-label';
-          stateLabel.textContent = statusKey === 'reviewing' ? 'Reviewing' : 'Completed, select to review';
-          btn.appendChild(stateLabel);
+          btn.textContent = String(stageNum);
+          btn.setAttribute('aria-label', 'Stage ' + stageNum + ': ' + STAGE_TITLES[stageNum] + ', ' +
+            (statusKey === 'reviewing' ? 'currently reviewing' : 'completed, select to review'));
 
           btn.addEventListener('click', function () {
             reviewStageNumber = stageNum;
@@ -2261,17 +2275,20 @@
           });
           li.appendChild(btn);
         } else if (statusKey === 'current') {
-          var curLabel = document.createElement('span');
-          curLabel.className = 'mmc-progress-current-label';
-          curLabel.setAttribute('data-stage', String(stageNum));
-          curLabel.textContent = 'Stage ' + stageNum + ': ' + STAGE_TITLES[stageNum] + ' (current)';
-          li.appendChild(curLabel);
+          var curSpan = document.createElement('span');
+          curSpan.className = 'mmc-progress-step-current';
+          curSpan.setAttribute('data-stage', String(stageNum));
+          curSpan.setAttribute('aria-current', 'step');
+          curSpan.setAttribute('aria-label', 'Stage ' + stageNum + ': ' + STAGE_TITLES[stageNum] + ', current stage');
+          curSpan.textContent = String(stageNum);
+          li.appendChild(curSpan);
         } else {
-          var lockedLabel = document.createElement('span');
-          lockedLabel.className = 'mmc-progress-locked-label';
-          lockedLabel.setAttribute('data-stage', String(stageNum));
-          lockedLabel.textContent = 'Stage ' + stageNum + ' (locked)';
-          li.appendChild(lockedLabel);
+          var lockedSpan = document.createElement('span');
+          lockedSpan.className = 'mmc-progress-step-locked';
+          lockedSpan.setAttribute('data-stage', String(stageNum));
+          lockedSpan.setAttribute('aria-label', 'Stage ' + stageNum + ', locked');
+          lockedSpan.textContent = String(stageNum);
+          li.appendChild(lockedSpan);
         }
 
         list.appendChild(li);

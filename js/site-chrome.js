@@ -33,9 +33,15 @@
     '<div class="nav-links"><a href="/">Back to home</a></div></nav>';
 
   var FALLBACK_FOOTER =
-    '<footer>© 2026 FinCrimeRadar · <a href="/">Home</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a>' +
-    '<div class="footer-legal">FinCrimeRadar Ltd · Registered in England and Wales · Company number 17324449 · ' +
-    'Registered office: 128 City Road, London, EC1V 2NX</div></footer>';
+    '<footer class="site-footer"><div class="site-footer-inner">' +
+    '<a href="/" class="site-footer-brand">FinCrimeRadar</a>' +
+    '<nav class="site-footer-links" aria-label="Footer">' +
+    '<a href="/" class="footer-link">Home</a> <a href="/privacy.html" class="footer-link">Privacy</a> ' +
+    '<a href="/terms.html" class="footer-link">Terms</a></nav>' +
+    '<div class="site-footer-bottom"><p class="site-footer-copyright">© 2026 FinCrimeRadar</p>' +
+    '<p class="site-footer-legal">FinCrimeRadar Ltd · Registered in England and Wales · Company number 17324449 · ' +
+    'Registered office: 128 City Road, London, EC1V 2NX</p></div>' +
+    '</div></footer>';
 
   /**
    * Fetches a partial and injects it into the given mount element.
@@ -331,7 +337,11 @@
     var text = source.getAttribute('data-disclaimer');
     if (!text) return;
 
-    var footer = document.querySelector('#site-footer footer');
+    // Prefer the padded inner wrapper so the disclaimer lines up with the
+    // rest of the footer's content instead of running edge to edge; falls
+    // back to the footer element itself only if a partial-fetch error left
+    // FALLBACK_FOOTER's markup unrecognised.
+    var footer = document.querySelector('#site-footer .site-footer-inner') || document.querySelector('#site-footer footer');
     if (!footer) return;
 
     footer.appendChild(document.createElement('br'));

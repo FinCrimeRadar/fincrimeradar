@@ -63,39 +63,35 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .mmc-stage-framing{font-size:1.15rem;font-weight:700;color:#073d3a;margin:1.6rem 0 1.2rem}
 .mmc-action{border:0;border-radius:5px;background:var(--mmc-green);color:#fff;font-weight:700;padding:.85rem 1.4rem;min-height:44px;cursor:pointer;font-size:15px}
 .mmc-action:hover{background:#0b5f59}
-.mmc-action:focus-visible,a:focus-visible,.mmc-progress-btn:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+.mmc-action:focus-visible,a:focus-visible,.mmc-progress-step-btn:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
 .mmc-noscript{background:#0c2c3a;color:#fff;text-align:center;padding:10px 16px;font-size:13px}
 /* Components used from Stage 2 onward. Populated by later tasks; declared
    now so their tokens, focus treatment and reduced-motion behaviour are
    fixed at page-shell time rather than invented piecemeal later. */
-.mmc-progress{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1.5rem}
-/* CaseProgress (historical review nav). Current/completed/reviewing/locked
-   are distinguished by real text content plus a decorative ::before glyph,
-   the same non-colour-only pattern as .mmc-evidence-status above; the glyph
-   alone is never the only signal. */
+/* CaseProgress: compact numbered rail. The live current stage gets its own
+   "Stage N of 12" / title header (.mmc-progress-current); state below that
+   (completed/current/reviewing/locked) is carried by each item's aria-label
+   and by non-colour cues (border style, fill), never by a decorative glyph
+   and never by colour alone. */
 .mmc-progress-nav{margin:0 0 1.5rem}
-.mmc-progress-item{display:flex}
-.mmc-progress-btn{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;border:1px solid var(--mmc-line);background:#fff;border-radius:5px;padding:.5rem .7rem;cursor:pointer;font:inherit;text-align:left;min-height:44px;justify-content:center}
-.mmc-progress-btn:hover{border-color:var(--mmc-green)}
-.mmc-progress-stage-label{font-size:13px;color:var(--mmc-ink);font-weight:600}
-.mmc-progress-state-label{font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase}
-.mmc-progress-item[data-progress-state="completed"] .mmc-progress-state-label{color:var(--mmc-green)}
-.mmc-progress-item[data-progress-state="completed"] .mmc-progress-state-label::before{content:"◆ "}
-.mmc-progress-item[data-progress-state="reviewing"] .mmc-progress-btn{border-color:var(--mmc-amber)}
-.mmc-progress-item[data-progress-state="reviewing"] .mmc-progress-state-label{color:var(--mmc-amber)}
-.mmc-progress-item[data-progress-state="reviewing"] .mmc-progress-state-label::before{content:"◐ "}
-.mmc-progress-current-label,.mmc-progress-locked-label{display:flex;align-items:center;border:1px solid var(--mmc-line);border-radius:5px;padding:.5rem .7rem;min-height:44px;font-size:13px}
-.mmc-progress-current-label{color:var(--mmc-navy);font-weight:700;border-color:var(--mmc-navy)}
-.mmc-progress-current-label::before{content:"● ";color:var(--mmc-navy)}
-.mmc-progress-locked-label{color:var(--mmc-muted)}
-.mmc-progress-locked-label::before{content:"▢ ";color:var(--mmc-muted)}
+.mmc-progress-current{margin:0 0 .85rem}
+.mmc-progress-current-index{margin:0;font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--mmc-green)}
+.mmc-progress-current-title{margin:.25rem 0 0;font-weight:700;color:var(--mmc-navy);font-size:1.05rem}
+.mmc-progress-rail{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:0}
+.mmc-progress-step{display:flex}
+.mmc-progress-step-btn,.mmc-progress-step-current,.mmc-progress-step-locked{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:6px;font:700 13px "IBM Plex Mono",monospace;border:1px solid var(--mmc-line);margin:0}
+.mmc-progress-step-btn{background:#fff;color:var(--mmc-green);cursor:pointer}
+.mmc-progress-step-btn:hover{border-color:var(--mmc-green)}
+.mmc-progress-step[data-progress-state="reviewing"] .mmc-progress-step-btn{border:2px solid var(--mmc-amber);color:var(--mmc-amber)}
+.mmc-progress-step-current{background:var(--mmc-navy);color:#fff;border-color:var(--mmc-navy)}
+.mmc-progress-step-locked{background:var(--mmc-paper);color:var(--mmc-muted);cursor:default}
 .mmc-review-banner{border:2px solid var(--mmc-amber);background:#fff8eb;padding:1.1rem 1.3rem;margin:0 0 1.5rem}
 .mmc-review-banner h2{margin:0 0 .5rem}
 .mmc-review-note{margin:0 0 1rem;font-size:14.5px}
 .mmc-review-content{opacity:.85}
 .mmc-review-content .mmc-action{display:none}
 .mmc-stage{margin:1.5rem 0}
-.mmc-hypothesis-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.85rem}
+.mmc-hypothesis-board{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;align-items:start}
 .mmc-evidence-card{border:1px solid var(--mmc-line);border-top:3px solid var(--mmc-green);padding:1rem;background:#fff;min-width:0}
 .mmc-evidence-status{display:inline-flex;align-items:center;gap:.35rem;font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase}
 .mmc-timeline{list-style:none;padding:0;margin:1rem 0;border-left:2px solid var(--mmc-line)}
@@ -140,11 +136,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .mmc-suggested-board-list dt{font-weight:600;color:var(--mmc-ink);margin:0}
 .mmc-suggested-board-list dd{margin:0;font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--mmc-green);letter-spacing:.03em;text-align:right}
 .mmc-practitioner-board-label{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--mmc-navy);margin:0 0 .65rem}
-.mmc-hypothesis{border:1px solid var(--mmc-line);background:#fff;padding:1rem;margin:0;min-width:0}
-.mmc-hypothesis legend{padding:0 .4rem;font-size:14px;color:var(--mmc-ink)}
-.mmc-hypothesis legend strong{display:block;color:var(--mmc-navy);font-size:15px;margin-bottom:.2rem}
-.mmc-hypothesis-options{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.85rem}
-.mmc-hypothesis-option{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--mmc-line);border-radius:999px;padding:.35rem .7rem .35rem .55rem;font-size:13px;cursor:pointer;min-height:32px}
+.mmc-hypothesis{border:1px solid var(--mmc-line);background:#fff;padding:1.1rem 1.2rem 1.25rem;margin:0;min-width:0;display:flex;flex-direction:column}
+.mmc-hypothesis legend{padding:0 .4rem;font-weight:700;color:var(--mmc-navy);font-size:15px}
+.mmc-hypothesis-description{margin:.5rem 0 0;font-size:14px;color:var(--mmc-ink);line-height:1.55;overflow-wrap:anywhere}
+.mmc-hypothesis-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin-top:.85rem}
+.mmc-hypothesis-option{display:flex;align-items:center;justify-content:center;gap:.4rem;border:1px solid var(--mmc-line);border-radius:999px;padding:.35rem .5rem;font-size:13px;cursor:pointer;min-height:36px;text-align:center}
 .mmc-hypothesis-option:has(input:checked){border-color:var(--mmc-green2);background:rgba(20,184,166,.12);color:var(--mmc-navy)}
 .mmc-hypothesis-readonly-value{font-weight:700;color:var(--mmc-navy);margin:.6rem 0 0}
 .mmc-practitioner-lens{border-left:4px solid var(--mmc-navy);background:var(--mmc-paper);padding:1rem 1.2rem;margin:1.5rem 0;min-width:0}
