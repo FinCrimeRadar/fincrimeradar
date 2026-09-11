@@ -191,9 +191,13 @@ def touch_all_hypotheses(cdp: CDP) -> None:
 def assert_stage_view(cdp: CDP, stage: int) -> None:
     text = cdp.evaluate("document.body.innerText")
     require(STAGE_HEADINGS[stage] in text, f"Stage {stage} heading not present while viewing stage {stage}")
+    # Completed (earlier) stages' headings are now expected to appear, as
+    # short "Stage N: Title" entries in the persistent CaseProgress nav
+    # (this is the historical-review feature's whole point). Only FUTURE,
+    # still-locked stages must never have their heading/title leaked.
     for other, heading in STAGE_HEADINGS.items():
-        if other != stage:
-            require(heading not in text, f"Stage {other} heading leaked while viewing stage {stage}")
+        if other > stage:
+            require(heading not in text, f"Stage {other} heading leaked while viewing stage {stage} (future stage not yet unlocked)")
     for marker_stage, marker in MARKERS.items():
         if marker_stage == stage:
             require(marker in text, f"Stage {stage} marker missing while viewing stage {stage}: {marker}")
@@ -400,6 +404,103 @@ def run() -> None:
         click_continue(cdp)
         assert_stage_view(cdp, 8)
         print("OK: Stage 7 control/voluntariness genuine independence and combined gate")
+
+        # --- CaseProgress historical review. currentStage is 8, so Stages
+        # 2-7 are completed/reviewable, Stage 8 is current, Stages 9-12 are
+        # locked. Exercises every item the remediation brief lists. ---
+        pre_review_state = cdp.evaluate("CaseFileShell.getState()")
+        pre_review_highest = pre_review_state["highestUnlockedStage"]
+        pre_review_initial_snapshot = pre_review_state["hypothesisSnapshots"]["initial"]
+
+        completed_buttons = cdp.evaluate("document.querySelectorAll('.mmc-progress-btn').length")
+        require(completed_buttons == 6, f"expected 6 completed/reviewable CaseProgress entries (Stages 2-7) at Stage 8, found {completed_buttons}")
+
+        # Future (locked) stages: no button exists at all, so they cannot be
+        # opened through the UI; their entry shows no descriptive title.
+        for locked_stage in (9, 10, 11, 12):
+            has_button = cdp.evaluate(f"!!document.querySelector('.mmc-progress-btn[data-stage=\"{locked_stage}\"]')")
+            require(not has_button, f"Stage {locked_stage} is locked but has a clickable CaseProgress button")
+            locked_text = cdp.evaluate(f"document.querySelector('.mmc-progress-locked-label[data-stage=\"{locked_stage}\"]').textContent")
+            require(STAGE_HEADINGS[locked_stage].split(": ", 1)[1] not in locked_text, f"Stage {locked_stage}'s locked CaseProgress entry leaks its real title: {locked_text!r}")
+        print("OK: future stages have no CaseProgress control and no spoiler title")
+
+        # The main overflow sweep at the top of this run happens before the
+        # case is opened, so it never exercises CaseProgress actually
+        # populated with several completed entries. Check narrow-width
+        # overflow again now, in place (no navigate/reload, so Stage 8
+        # progress survives), with 6 real completed entries rendered.
+        cdp.call("Emulation.setDeviceMetricsOverride", {"width": 320, "height": 900, "deviceScaleFactor": 1, "mobile": True})
+        progress_overflow_ok = cdp.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1")
+        require(progress_overflow_ok, "320px overflow once CaseProgress is populated with completed entries")
+        cdp.call("Emulation.setDeviceMetricsOverride", {"width": 1440, "height": 900, "deviceScaleFactor": 1, "mobile": False})
+        print("OK: 320px no horizontal overflow with CaseProgress populated")
+
+        # Open a completed stage (4) for review through the real UI control.
+        click_id_selector = "document.querySelector('.mmc-progress-btn[data-stage=\"4\"]').click()"
+        cdp.evaluate(click_id_selector)
+        require(cdp.evaluate("CaseFileShell.getReviewStage()") == 4, "clicking the Stage 4 CaseProgress entry should enter review mode for Stage 4")
+        require(STAGE_HEADINGS[4] in cdp.evaluate("document.body.innerText"), "Stage 4 content should render while reviewing Stage 4")
+        require("Read-only review: Stage 4 of 12" in cdp.evaluate("document.body.innerText"), "review banner should name the stage being reviewed")
+        print("OK: a completed earlier stage can be opened for review through the user interface")
+
+        mid_review_state = cdp.evaluate("CaseFileShell.getState()")
+        require(mid_review_state["currentStage"] == 8, f"reviewing Stage 4 must not alter the current investigation stage, still expected 8, got {mid_review_state['currentStage']}")
+        require(mid_review_state["highestUnlockedStage"] == pre_review_highest, "reviewing an earlier stage must not change highestUnlockedStage")
+        require(mid_review_state["hypothesisSnapshots"]["initial"] == pre_review_initial_snapshot, "reviewing an earlier stage must not mutate hypothesisSnapshots")
+        print("OK: historical review does not unlock future stages, alter the current stage, or mutate hypothesis snapshots")
+
+        # Every input inside the reviewed Stage 4 content must be disabled,
+        # so nothing can be mutated from the review view.
+        enabled_inputs_in_review = cdp.evaluate("document.querySelectorAll('.mmc-review-content input:not([disabled]), .mmc-review-content button:not([disabled])').length")
+        require(enabled_inputs_in_review == 0, f"Stage 4 review content has {enabled_inputs_in_review} non-disabled interactive element(s)")
+        # Clicking a disabled radio must not change the underlying state
+        # (the disabled attribute already prevents the click event from
+        # firing at all, this proves it end to end rather than assuming it).
+        cdp.evaluate("(() => { const el = document.querySelector('.mmc-review-content input[id^=\"hyp-\"]'); if (el) el.click(); })()")
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisState.A") == mid_review_state["hypothesisState"]["A"], "clicking a disabled control inside a review view must not mutate state")
+        print("OK: reviewed stage content is genuinely read-only, disabled controls cannot mutate state")
+
+        # Reviewing Stage 6 must show only Stage 6's own 5-point timeline
+        # reveal set, never Stage 7's later 9-point expansion: no access to
+        # evidence not yet unlocked at that historical point.
+        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"6\"]').click()")
+        stage6_review_text = cdp.evaluate("document.body.innerText")
+        require("Attempted Exit" not in stage6_review_text, "reviewing Stage 6 must not expose Stage 7's later timeline reveal (Attempted Exit)")
+        print("OK: reviewing an earlier stage does not expose evidence unlocked only at a later stage")
+
+        # Non-colour-only, keyboard-accessible: the Return control is a real
+        # button, reachable and activatable by keyboard.
+        return_focus_ok = cdp.evaluate("document.activeElement && document.activeElement.id === 'mmcReviewHeading'")
+        require(return_focus_ok, "entering review mode should move focus to the review panel's own heading, not leave it stranded")
+        review_tab_targets = collect_tab_targets(cdp, 5)
+        assert_no_keyboard_trap(review_tab_targets, "Stage 6 review panel controls")
+        return_button_reachable = cdp.evaluate("document.querySelector('.mmc-review-return') === document.activeElement || Array.from(document.querySelectorAll('button,input,a')).indexOf(document.querySelector('.mmc-review-return')) >= 0")
+        require(return_button_reachable, "the Return to current stage control must be a real, keyboard-reachable element")
+        print("OK: review controls are keyboard accessible and focus moves predictably on entry")
+
+        # Return to current stage: state is restored correctly, and focus
+        # moves predictably again rather than resetting to <body>.
+        cdp.evaluate("document.querySelector('.mmc-review-return').click()")
+        require(cdp.evaluate("CaseFileShell.getReviewStage()") is None, "Return to current stage should clear review mode")
+        post_return_state = cdp.evaluate("CaseFileShell.getState()")
+        require(post_return_state["currentStage"] == 8, "returning from review must restore the correct active stage")
+        require(post_return_state["highestUnlockedStage"] == pre_review_highest, "returning from review must leave highestUnlockedStage unchanged")
+        assert_stage_view(cdp, 8)
+        focus_after_return_ok = cdp.evaluate("document.activeElement && document.activeElement.tagName === 'H2'")
+        require(focus_after_return_ok, "returning to the current stage should move focus to its own heading")
+        print("OK: returning to current stage restores the correct active stage, state, and predictable focus")
+
+        # Reload persistence: review mode is deliberately not persisted, so a
+        # reload while reviewing must resume at the true current stage, not
+        # the stage that was being reviewed.
+        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"5\"]').click()")
+        require(cdp.evaluate("CaseFileShell.getReviewStage()") == 5, "review mode should be active before the reload check")
+        pull_errors(cdp, console_error_log, "before review-mode reload")
+        reload_page(cdp)
+        require(cdp.evaluate("CaseFileShell.getReviewStage()") is None, "review mode must not survive a reload")
+        require(cdp.evaluate("CaseFileShell.getState().currentStage") == 8, "reload after using historical review must restore the true current stage, not the reviewed one")
+        assert_stage_view(cdp, 8)
+        print("OK: reload persistence remains correct after using historical review")
 
         click_continue(cdp)
 

@@ -4,6 +4,43 @@
   var STORAGE_KEY = 'fcr_case_money_mule_v1';
   var CASE_VERSION = 1;
 
+  // Historical review (CaseProgress). Which completed stage, if any, is
+  // currently being shown read-only. This is deliberately NOT part of the
+  // persisted `state` object: it is ephemeral view state only, so reviewing
+  // an earlier stage can never touch currentStage, highestUnlockedStage, or
+  // localStorage. null means "not reviewing, render the live current stage."
+  // Reset to null by resetCase() so a reset from within a review view leaves
+  // the page consistent.
+  var reviewStageNumber = null;
+
+  // Short titles for CaseProgress's completed/current entries, mirroring
+  // each renderStageN's own `heading.textContent` (kept as a small separate
+  // lookup rather than refactoring 11 existing, already-reviewed renderers
+  // to read from it, to keep this change additive and low risk).
+  var STAGE_TITLES = {
+    2: 'Case Intake and Initial Assessment',
+    3: 'Evidence Inject 01',
+    4: 'Evidence Inject 02',
+    5: 'Decision Point 01',
+    6: 'Evidence Inject 03',
+    7: 'Evidence Inject 04',
+    8: 'Evidence Inject 05',
+    9: 'Final Hypothesis Assessment',
+    10: 'Decision Record and Operational Decisions',
+    11: 'Red Team Review',
+    12: 'Final FinCrimeRadar Analysis'
+  };
+
+  // Stages whose hypothesis-board display in review mode reflects the most
+  // recently recorded assessment rather than a frozen historical snapshot.
+  // Only Stage 2 (hypothesisSnapshots.initial) and Stage 9 (its own review
+  // phase reads hypothesisSnapshots.final) have a dedicated frozen snapshot
+  // in the state schema; Stages 4 and 7 touch the same shared, mutable
+  // `hypothesisState` field that Stage 9 can later overwrite, and no
+  // separate per-stage snapshot exists for them. Disclosed honestly in the
+  // review banner rather than presented as an exact historical record.
+  var HYPOTHESIS_SNAPSHOT_NOT_FROZEN = { 4: true, 7: true };
+
   var DEFAULT_STATE = {
     caseVersion: CASE_VERSION,
     currentStage: 1,
@@ -2111,12 +2148,178 @@
 
   var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9, 10: renderStage10, 11: renderStage11, 12: renderStage12 };
 
+  // CaseProgress. Persistent, rebuilt on every render (cheap, 11 short list
+  // items). Lists Stages 2-12 only: Stage 1 is the static orientation essay
+  // above #caseFileApp and is never removed from the page, so it already
+  // satisfies "previous evidence remains reviewable" without any special
+  // handling here. Current/completed/reviewing/locked are distinguished by
+  // real text content and a decorative ::before glyph (see brand pattern at
+  // .mmc-evidence-status), never by colour alone. Locked stages show only
+  // "Stage N (locked)", no descriptive title, so a future stage's subject
+  // is never spoiled through this nav.
+  function renderCaseProgress(container) {
+    var nav = document.createElement('nav');
+    nav.className = 'mmc-progress-nav';
+    nav.setAttribute('aria-label', 'Case progress');
+
+    var list = document.createElement('ol');
+    list.className = 'mmc-progress';
+
+    for (var n = 2; n <= 12; n += 1) {
+      (function (stageNum) {
+        var statusKey;
+        if (stageNum === reviewStageNumber) {
+          statusKey = 'reviewing';
+        } else if (reviewStageNumber === null && stageNum === state.currentStage) {
+          statusKey = 'current';
+        } else if (stageNum < state.currentStage) {
+          statusKey = 'completed';
+        } else if (stageNum === state.currentStage) {
+          // The live current stage stays labelled "current", even while a
+          // different earlier stage is being reviewed.
+          statusKey = 'current';
+        } else {
+          statusKey = 'locked';
+        }
+
+        var li = document.createElement('li');
+        li.className = 'mmc-progress-item';
+        li.setAttribute('data-progress-state', statusKey);
+
+        if (statusKey === 'completed' || statusKey === 'reviewing') {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'mmc-progress-btn';
+          btn.setAttribute('data-stage', String(stageNum));
+
+          var label = document.createElement('span');
+          label.className = 'mmc-progress-stage-label';
+          label.textContent = 'Stage ' + stageNum + ': ' + STAGE_TITLES[stageNum];
+          btn.appendChild(label);
+
+          var stateLabel = document.createElement('span');
+          stateLabel.className = 'mmc-progress-state-label';
+          stateLabel.textContent = statusKey === 'reviewing' ? 'Reviewing' : 'Completed, select to review';
+          btn.appendChild(stateLabel);
+
+          btn.addEventListener('click', function () {
+            reviewStageNumber = stageNum;
+            renderCurrentStage();
+            focusReviewHeading();
+          });
+          li.appendChild(btn);
+        } else if (statusKey === 'current') {
+          var curLabel = document.createElement('span');
+          curLabel.className = 'mmc-progress-current-label';
+          curLabel.setAttribute('data-stage', String(stageNum));
+          curLabel.textContent = 'Stage ' + stageNum + ': ' + STAGE_TITLES[stageNum] + ' (current)';
+          li.appendChild(curLabel);
+        } else {
+          var lockedLabel = document.createElement('span');
+          lockedLabel.className = 'mmc-progress-locked-label';
+          lockedLabel.setAttribute('data-stage', String(stageNum));
+          lockedLabel.textContent = 'Stage ' + stageNum + ' (locked)';
+          li.appendChild(lockedLabel);
+        }
+
+        list.appendChild(li);
+      }(n));
+    }
+
+    nav.appendChild(list);
+    container.appendChild(nav);
+  }
+
+  // Moves focus to the review panel's own heading once it renders, and to
+  // the restored stage's own heading once review mode exits, so focus moves
+  // predictably rather than resetting to <body> on either transition.
+  function focusReviewHeading() {
+    var heading = document.getElementById('mmcReviewHeading');
+    if (heading) heading.focus();
+  }
+
+  function focusRestoredStageHeading() {
+    var body = document.getElementById('mmcStageBody');
+    var heading = body && body.querySelector('h2');
+    if (heading) {
+      heading.tabIndex = -1;
+      heading.focus();
+    }
+  }
+
+  // Renders a completed stage read-only: reuses the real STAGE_RENDERERS
+  // entry unchanged (so the exact same evidence, narrative and timeline
+  // reveal-set that stage originally showed is what review shows too, since
+  // every renderStageN reads only its own MMC_DATA.stages[n] literal, never
+  // a later stage's), then disables every interactive control found inside
+  // it. Disabling (not removing) preserves the checked/selected state so
+  // the practitioner's recorded answer is still visible, while making it
+  // physically impossible to mutate: disabled controls neither fire
+  // click/change events nor take a tab stop, which is the standard,
+  // expected behaviour for non-interactive replay content.
+  function renderStageReview(container, stageNumber) {
+    var banner = document.createElement('div');
+    banner.className = 'mmc-review-banner';
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-label', 'Read-only stage review');
+
+    var heading = document.createElement('h2');
+    heading.id = 'mmcReviewHeading';
+    heading.tabIndex = -1;
+    heading.textContent = 'Read-only review: Stage ' + stageNumber + ' of 12';
+    banner.appendChild(heading);
+
+    var note = document.createElement('p');
+    note.className = 'mmc-review-note';
+    var noteText = 'This shows the evidence and any decisions exactly as they were available at this stage. Nothing on this screen can be changed.';
+    if (HYPOTHESIS_SNAPSHOT_NOT_FROZEN[stageNumber]) {
+      noteText += ' The hypothesis positions shown reflect the most recently recorded assessment, which may have been updated at a later stage.';
+    }
+    note.textContent = noteText;
+    banner.appendChild(note);
+
+    var returnButton = document.createElement('button');
+    returnButton.type = 'button';
+    returnButton.className = 'mmc-action mmc-review-return';
+    returnButton.textContent = 'Return to current stage (Stage ' + state.currentStage + ')';
+    returnButton.addEventListener('click', function () {
+      reviewStageNumber = null;
+      renderCurrentStage();
+      focusRestoredStageHeading();
+    });
+    banner.appendChild(returnButton);
+
+    container.appendChild(banner);
+
+    var body = document.createElement('div');
+    body.className = 'mmc-review-content';
+    container.appendChild(body);
+
+    var renderer = STAGE_RENDERERS[stageNumber];
+    if (renderer) renderer(body);
+
+    var interactive = body.querySelectorAll('input, button, select, textarea');
+    for (var i = 0; i < interactive.length; i += 1) {
+      interactive[i].disabled = true;
+    }
+  }
+
   function renderCurrentStage() {
     var root = document.getElementById('caseFileApp');
     if (!root) return;
     clearRoot(root);
-    var renderer = STAGE_RENDERERS[state.currentStage];
-    if (renderer) renderer(root);
+    renderCaseProgress(root);
+
+    var body = document.createElement('div');
+    body.id = 'mmcStageBody';
+    root.appendChild(body);
+
+    if (reviewStageNumber !== null) {
+      renderStageReview(body, reviewStageNumber);
+    } else {
+      var renderer = STAGE_RENDERERS[state.currentStage];
+      if (renderer) renderer(body);
+    }
   }
 
   function openCase() {
@@ -2146,6 +2349,7 @@
       // ponytail: nothing to clean up if storage is already unavailable.
     }
     state = defaultState();
+    reviewStageNumber = null;
 
     var root = document.getElementById('caseFileApp');
     var openButton = document.getElementById('openCaseFile');
@@ -2213,6 +2417,7 @@
     advanceStage: advanceStage,
     goToStage: goToStage,
     renderCurrentStage: renderCurrentStage,
-    resetCase: resetCase
+    resetCase: resetCase,
+    getReviewStage: function () { return reviewStageNumber; }
   };
 }());
