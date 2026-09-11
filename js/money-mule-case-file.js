@@ -204,16 +204,6 @@
     while (root.firstChild) root.removeChild(root.firstChild);
   }
 
-  function renderNotYetImplemented(container, stageNumber) {
-    var heading = document.createElement('h2');
-    heading.textContent = 'Stage ' + stageNumber;
-    container.appendChild(heading);
-
-    var note = document.createElement('p');
-    note.textContent = 'Not yet implemented.';
-    container.appendChild(note);
-  }
-
   function formatGBP(amount) {
     return '£' + amount.toLocaleString('en-GB');
   }
@@ -1936,9 +1926,175 @@
     container.appendChild(wrapper);
   }
 
-  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9, 10: renderStage10, 11: renderStage11 };
-  // Stage 12 (Radar View) is the only stage left unimplemented after this task.
-  STAGE_RENDERERS[12] = function (container) { renderNotYetImplemented(container, 12); };
+  // RadarView component. Renders the five case dimension summaries (spec §24)
+  // as a grid of blocks, one heading plus one summary line each. Reuses the
+  // existing .mmc-evidence-card look (border, padding, h3 styling already
+  // defined for the evidence grids on earlier stages) inside the .mmc-radar
+  // grid container that already ships in the page shell CSS, rather than
+  // inventing a new card class for a shape that's already styled.
+  function renderRadarView(container, dimensions) {
+    var grid = document.createElement('div');
+    grid.className = 'mmc-radar';
+    dimensions.forEach(function (dim) {
+      var block = document.createElement('article');
+      block.className = 'mmc-evidence-card';
+
+      var heading = document.createElement('h3');
+      heading.textContent = dim.heading;
+      block.appendChild(heading);
+
+      var summary = document.createElement('p');
+      summary.textContent = dim.summary;
+      block.appendChild(summary);
+
+      grid.appendChild(block);
+    });
+    container.appendChild(grid);
+  }
+
+  // Stage 12: Final reveal. Terminal stage, no Continue button and nothing
+  // further to gate. The `!state.reasoningShift` check is a defensive guard
+  // per spec, not a reachable path in normal use: goToStage already refuses
+  // to navigate past highestUnlockedStage, and highestUnlockedStage only
+  // reaches 12 once Stage 11's Continue handler (which itself requires
+  // reasoningShift to be set) has called advanceStage. It exists only for
+  // the case where localStorage state was hand edited into an inconsistent
+  // shape. caseCompleted is set exactly once, on the first render of this
+  // stage after the gate passes: the check-then-updateState-then-return
+  // shape below relies on updateState's own renderCurrentStage() call to
+  // redo this render from scratch with caseCompleted now true, so nothing
+  // is built or appended to the DOM in the pass that performs the write.
+  function renderStage12(container) {
+    var state = getState();
+    var data = MMC_DATA.stages[12];
+
+    if (!state.reasoningShift) {
+      var lockedWrapper = document.createElement('div');
+      lockedWrapper.className = 'mmc-section';
+
+      var lockedHeading = document.createElement('h2');
+      lockedHeading.textContent = 'Stage 12';
+      lockedWrapper.appendChild(lockedHeading);
+
+      var lockedNote = document.createElement('p');
+      lockedNote.textContent = 'The final FinCrimeRadar analysis is not yet available. Return to Stage 11 and complete the Red Team Review before continuing.';
+      lockedWrapper.appendChild(lockedNote);
+
+      container.appendChild(lockedWrapper);
+      return;
+    }
+
+    if (!state.caseCompleted) {
+      updateState(function (s) { s.caseCompleted = true; });
+      return;
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mmc-section';
+
+    var heading = document.createElement('h2');
+    heading.textContent = 'Stage 12: Final FinCrimeRadar Analysis';
+    wrapper.appendChild(heading);
+
+    // --- Case radar: five dimension summaries, spec §24 ---
+    var radarSection = document.createElement('section');
+    radarSection.className = 'mmc-evidence-section';
+    var radarHeading = document.createElement('h3');
+    radarHeading.textContent = 'Case radar';
+    radarSection.appendChild(radarHeading);
+    renderRadarView(radarSection, data.radar.dimensions);
+    wrapper.appendChild(radarSection);
+
+    var conclusionLine = document.createElement('p');
+    conclusionLine.className = 'mmc-callout mmc-callout-prominent';
+    var conclusionLineStrong = document.createElement('strong');
+    conclusionLineStrong.textContent = data.radar.conclusionLine;
+    conclusionLine.appendChild(conclusionLineStrong);
+    wrapper.appendChild(conclusionLine);
+
+    // --- The Case Conclusion, spec §25. Same paragraphs / quoteOne /
+    // paragraphsAfterQuoteOne / quoteTwo / paragraphsAfterQuoteTwo shape as
+    // Stage 7's disengagement narrative: two short emphasised lines each on
+    // their own <p><strong>, framed by the surrounding plain paragraphs. ---
+    var conclusionSection = document.createElement('section');
+    conclusionSection.className = 'mmc-case-conclusion';
+
+    var conclusionHeading = document.createElement('h3');
+    conclusionHeading.textContent = data.finalAnalysis.caseConclusion.heading;
+    conclusionSection.appendChild(conclusionHeading);
+
+    data.finalAnalysis.caseConclusion.paragraphs.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      conclusionSection.appendChild(p);
+    });
+
+    var quoteOne = document.createElement('p');
+    var quoteOneStrong = document.createElement('strong');
+    quoteOneStrong.textContent = data.finalAnalysis.caseConclusion.quoteOne;
+    quoteOne.appendChild(quoteOneStrong);
+    conclusionSection.appendChild(quoteOne);
+
+    data.finalAnalysis.caseConclusion.paragraphsAfterQuoteOne.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      conclusionSection.appendChild(p);
+    });
+
+    var quoteTwo = document.createElement('p');
+    var quoteTwoStrong = document.createElement('strong');
+    quoteTwoStrong.textContent = data.finalAnalysis.caseConclusion.quoteTwo;
+    quoteTwo.appendChild(quoteTwoStrong);
+    conclusionSection.appendChild(quoteTwo);
+
+    data.finalAnalysis.caseConclusion.paragraphsAfterQuoteTwo.forEach(function (text) {
+      var p = document.createElement('p');
+      p.textContent = text;
+      conclusionSection.appendChild(p);
+    });
+    wrapper.appendChild(conclusionSection);
+
+    // --- The FinCrimeRadar Principle, spec §25: five emphasised lines then
+    // a plain closing sentence, followed directly by the closing question
+    // and closing line (both emphasised, no separate heading per spec since
+    // they read naturally as this section's final two lines). ---
+    var principleSection = document.createElement('section');
+    principleSection.className = 'mmc-fincrimeradar-principle';
+
+    var principleHeading = document.createElement('h3');
+    principleHeading.textContent = data.finalAnalysis.principle.heading;
+    principleSection.appendChild(principleHeading);
+
+    data.finalAnalysis.principle.lines.forEach(function (line) {
+      var p = document.createElement('p');
+      var strong = document.createElement('strong');
+      strong.textContent = line;
+      p.appendChild(strong);
+      principleSection.appendChild(p);
+    });
+
+    var principleClosing = document.createElement('p');
+    principleClosing.textContent = data.finalAnalysis.principle.closing;
+    principleSection.appendChild(principleClosing);
+
+    var closingQuestion = document.createElement('p');
+    var closingQuestionStrong = document.createElement('strong');
+    closingQuestionStrong.textContent = data.finalAnalysis.closing.question;
+    closingQuestion.appendChild(closingQuestionStrong);
+    principleSection.appendChild(closingQuestion);
+
+    var closingLine = document.createElement('p');
+    var closingLineStrong = document.createElement('strong');
+    closingLineStrong.textContent = data.finalAnalysis.closing.line;
+    closingLine.appendChild(closingLineStrong);
+    principleSection.appendChild(closingLine);
+
+    wrapper.appendChild(principleSection);
+
+    container.appendChild(wrapper);
+  }
+
+  var STAGE_RENDERERS = { 2: renderStage2, 3: renderStage3, 4: renderStage4, 5: renderStage5, 6: renderStage6, 7: renderStage7, 8: renderStage8, 9: renderStage9, 10: renderStage10, 11: renderStage11, 12: renderStage12 };
 
   function renderCurrentStage() {
     var root = document.getElementById('caseFileApp');

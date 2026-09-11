@@ -440,6 +440,57 @@ window.MMC_DATA = {
         { label: 'No Material Change', value: 'NoMaterialChange' }
       ],
       gateNote: 'Complete the Red Team Review and record whether the evidence changed your view before continuing.'
+    },
+    12: {
+      radar: {
+        dimensions: [
+          { heading: 'Activity', summary: 'Strong evidence of movement of fraud proceeds' },
+          { heading: 'Control', summary: 'Strong evidence of customer transaction control' },
+          { heading: 'Knowledge', summary: 'Initially weak, later materially increased' },
+          { heading: 'Exploitation', summary: 'Strong evidence during later activity' },
+          { heading: 'Evidence', summary: 'Substantial, but incomplete concerning the precise development of criminal knowledge' }
+        ],
+        conclusionLine: 'Initial deception → emerging suspicion → continued participation → attempted disengagement → coercive pressure'
+      },
+      finalAnalysis: {
+        caseConclusion: {
+          heading: 'The Case Conclusion',
+          paragraphs: [
+            'The strongest interpretation is not simply:'
+          ],
+          quoteOne: 'Money mule.',
+          paragraphsAfterQuoteOne: [
+            'It is also not simply:'
+          ],
+          quoteTwo: 'Victim.',
+          paragraphsAfterQuoteTwo: [
+            'The evidence indicates a changing relationship.',
+            'Customer R appears to have entered the arrangement through deception.',
+            'Questions and inconsistencies subsequently caused suspicion to develop.',
+            'Customer R nevertheless continued participating.',
+            'Customer R later attempted to disengage.',
+            'The recruiter then escalated into threatening and coercive behaviour.',
+            'The same customer’s position cannot safely be reduced to one label covering the entire four day period.',
+            'The analytical failure would be choosing the label first and then forcing every piece of evidence to support it.',
+            'The stronger approach is to reconstruct the customer’s changing position over time.'
+          ]
+        },
+        principle: {
+          heading: 'The FinCrimeRadar Principle',
+          lines: [
+            'Activity tells you what happened.',
+            'Control tells you who performed the action.',
+            'Knowledge tells you what they understood.',
+            'Exploitation tells you what constrained or manipulated their choices.',
+            'Evidence tells you what you can defend.'
+          ],
+          closing: 'A robust investigation does not collapse those questions into a single label.'
+        },
+        closing: {
+          question: 'What did the customer know, what did they control, what influenced their actions, and what can the evidence actually prove at each point in time?',
+          line: 'That is the investigation.'
+        }
+      }
     }
   },
   timelinePoints: [
