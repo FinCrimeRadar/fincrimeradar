@@ -7,12 +7,12 @@ FinCrimeRadar separates two concepts: a **public format** and a **rendering trea
 | Public format | Rendering treatment | Current maturity |
 | --- | --- | --- |
 | Guide | Default Knowledge Hub | Standing |
-| Framework | Default Knowledge Hub with decision or control compositions | Experimental pending Experiment 01 and preferably Experiment 02 evaluation |
-| Case File | Default Knowledge Hub with investigative compositions | Proposed |
+| Framework | Default Knowledge Hub with decision or control compositions | Experimental pending Experiment 01 evaluation; a second Framework implementation remains open |
+| Case File | Default Knowledge Hub with investigative compositions | Experimental pending Experiment 02 evaluation |
 | Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Proposed |
 | Evidence Essay | Evidence Essay | Standing opt-in treatment |
 
-This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment. Framework remains experimental pending evaluation of Experiment 01 and, preferably, Experiment 02 as a second Framework implementation. The table records the approved experimental architecture, not permanent adoption of every format or contract. Every publication still follows the **Universal Evidence Core** and **Guide Quality Layer**. Existing publications are not retrofitted merely to adopt these labels.
+This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment. Framework remains experimental pending evaluation of Experiment 01. A second Framework implementation would strengthen that evaluation, but Experiment 02 was built as a Case File instead, so Framework's own second-instance evaluation remains open. Case File is experimental pending evaluation of Experiment 02, its first publication. The table records the approved experimental architecture, not permanent adoption of every format or contract. Every publication still follows the **Universal Evidence Core** and **Guide Quality Layer**. Existing publications are not retrofitted merely to adopt these labels.
 
 ---
 
@@ -96,7 +96,7 @@ Standard Knowledge Hub card layout and navigation chrome, no experimental shell.
 
 For Experiment 01, the Framework label is used because the reader needs to assess, decide and document a difficult judgement. The publication uses the Default Knowledge Hub shell and adds only the decision compositions justified by the APP scam subject. It is not a separate template or rendering system.
 
-This is the current experimental contract for the APP Scam Decision Framework. It is not permanently binding on all future Framework publications. Any later Framework experiment must retain the Universal Evidence Core, but should reuse these additional requirements only where evaluation through Experiment 01 and, preferably, Experiment 02 shows that the contract genuinely recurs.
+This is the current experimental contract for the APP Scam Decision Framework. It is not permanently binding on all future Framework publications. Any later Framework experiment must retain the Universal Evidence Core, but should reuse these additional requirements only where evaluation through Experiment 01, and a second Framework implementation if one is later built, shows that the contract genuinely recurs.
 
 Experiment 01 must include:
 
@@ -110,6 +110,22 @@ Experiment 01 must include:
 - The mandatory Risk/Signal/Response treatment, knowledge check, FAQ, sources, and export support already required by the Universal Evidence Core.
 
 Practitioner lenses and other progressive disclosure are optional and should remain limited. Material reasoning and conclusions must remain present in the initial HTML and must not depend on completing an interaction.
+
+### Experiment 02 Case File contract
+
+For Experiment 02, the Case File label is used because the reader needs to investigate a contested set of facts and reach a classification, not merely assess a single decision. The publication uses the Default Knowledge Hub shell and adds only the investigative compositions justified by the money mule subject. It is not a separate template or rendering system.
+
+This is the current experimental contract for Money Mule or Victim? It is not permanently binding on all future Case File publications. Any later Case File experiment must retain the Universal Evidence Core, but should reuse these additional requirements only where evaluation through Experiment 02 shows that the contract genuinely recurs.
+
+Experiment 02 must include:
+
+- Twelve-stage gated progressive disclosure of evidence.
+- A persistent five-hypothesis board with snapshot comparison.
+- An evidence-status model distinct from hypothesis status.
+- A keyboard-operable timeline.
+- A five-dimension Decision Record.
+- A Red-Team gate.
+- A Radar View.
 
 ---
 

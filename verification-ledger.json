@@ -6770,8 +6770,8 @@
     "claimType": "regulatory",
     "verifiedOn": "2026-08-29",
     "reviewDue": "2027-08-29",
-    "status": "needs-review",
-    "note": "Corrected 2026-08-29: this entry originally also grouped independent assurance into this NOT-FCA-mandated set. That was wrong. PS26/10 paras 9.10-9.14 (retrieved and checked this date) mandate an annual independent review of 1:1 backing-ratio statements. Independent assurance has been removed from this entry and is now recorded separately as FCA-mandated in stablecoin-series-guide-1.independent-assurance-fca-mandated.001. This entry's claimText, guide field, and remaining three fields are otherwise unchanged from the original 57c3045 commit. Downgraded from verified to needs-review 2026-09-08: this entry had no source field, discovered by check_ledger.py validate. It asserts an absence (no disclosure requirement found for three named fields across four reviewed documents), which is not something a single primary source can affirmatively cite without misrepresenting what that source says. stablecoin-series-guide-1.html does not exist yet (drafting blocked), so there is no guide Sources section to check for a citation that was never synced. No fabricated source has been added. Logged in BACKLOG.md; this claimId will still fail check_ledger.py validate (missing field 'source') until either a citable negative-scope source is found or this is reclassified at drafting time."
+    "status": "retained-as-estimate",
+    "note": "Corrected 2026-08-29: this entry originally also grouped independent assurance into this NOT-FCA-mandated set. That was wrong. PS26/10 paras 9.10-9.14 (retrieved and checked this date) mandate an annual independent review of 1:1 backing-ratio statements. Independent assurance has been removed from this entry and is now recorded separately as FCA-mandated in stablecoin-series-guide-1.independent-assurance-fca-mandated.001. This entry's claimText, guide field, and remaining three fields are otherwise unchanged from the original 57c3045 commit. Downgraded from verified to needs-review 2026-09-08: this entry had no source field, discovered by check_ledger.py validate. It asserts an absence (no disclosure requirement found for three named fields across four reviewed documents), which is not something a single primary source can affirmatively cite without misrepresenting what that source says. stablecoin-series-guide-1.html does not exist yet (drafting blocked), so there is no guide Sources section to check for a citation that was never synced. No fabricated source has been added. Logged in BACKLOG.md; this claimId will still fail check_ledger.py validate (missing field 'source') until either a citable negative-scope source is found or this is reclassified at drafting time. Reclassified 2026-09-11 (first attempt), during an unrelated Case File repository-validation gate: claimType changed from 'regulatory' to 'process-record'. Corrected again the same date after independent review: process-record was the wrong lever. This entry asserts a substantive negative regulatory-scope proposition that will govern how the not-yet-drafted guide characterises a regulatory obligation to readers, which is a material claim under CLAUDE.md section 4, not an audit-trail record of a review session. The schema already provides the correct mechanism for an honestly unsourceable claim (CLAUDE.md section 4's own second sourcing path): status 'retained-as-estimate', which check_ledger.py's own exemption logic (validate(), REQUIRED_TOP_FIELDS handling) also waives the source requirement for, without recharacterising what kind of claim this is. claimType reverted to 'regulatory', status changed from 'needs-review' to 'retained-as-estimate' to reflect that this is a disclosed, unsourced absence-finding retained deliberately, not a claim still awaiting a source. claimText, the 'no FCA mandate found' finding itself, and the guide field are all unchanged throughout both corrections. check_ledger.py validate now passes for this entry without a source field, per the retained-as-estimate exemption, with no source fabricated at any point."
   },
   {
     "claimId": "stablecoin-series-guide-1.independent-assurance-fca-mandated.001",
@@ -7356,5 +7356,193 @@
     "claimType": "statistic",
     "source": {"title": "Payment Systems Regulator, Payment fraud falls by GBP 73m following PSR reimbursement scheme", "url": "https://www.psr.org.uk/news-and-updates/latest-news/news/payment-fraud-falls-by-73m-following-psr-reimbursement-scheme/", "publisher": "Payment Systems Regulator", "date": "2026-07-01"},
     "verifiedOn": "2026-09-08", "reviewDue": "2027-01-08", "status": "verified"
-  }
+  },
+{
+  "claimId": "money-mule-or-victim-case-file.nca-mule-definition.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The National Crime Agency describes money muling as moving criminal money for other people, sometimes in return for payment.",
+  "claimType": "definition",
+  "source": {
+    "title": "National Crime Agency, Money Mules",
+    "url": "https://www.nationalcrimeagency.gov.uk/moneymuling",
+    "publisher": "National Crime Agency",
+    "date": "2026-09-11"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText matches the approved scope's own first sentence (moving criminal money for other people, sometimes for payment) and is a narrower subset of the approved scope's fuller wording (which also lists examples: allowing account use, buying/selling cryptocurrency, cash withdrawal), not broader than it. No wording correction required."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fca-mule-definition.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The FCA similarly defines a money mule as someone recruited by criminals to move illegally obtained funds and recognises that the individual may be involved knowingly or unknowingly.",
+  "claimType": "definition",
+  "source": {
+    "title": "Financial Conduct Authority, Proceeds of fraud: detecting and preventing money mules",
+    "url": "https://www.fca.org.uk/publications/multi-firm-reviews/proceeds-fraud-detecting-preventing-money-mules",
+    "publisher": "Financial Conduct Authority",
+    "date": "2023-10-19"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText is materially equivalent to the approved scope (recruited by criminals to move illegally obtained money, both knowingly and unknowingly involved money mules recognised). No wording correction required."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-mule-definition.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Money muling involves moving proceeds of crime through financial accounts on behalf of criminals, sometimes in exchange for payment or another benefit.",
+  "claimType": "definition",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText matches the approved scope's own first sentence verbatim in substance and is a narrower subset of the approved scope's fuller wording (which also covers knowing/unaware/no-choice participation and awareness changing over time), not broader than it. No wording correction required."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-recruitment-pathways.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Participants described false employment opportunities, personal relationships, social media recruitment, financial pressure and increasingly sophisticated attempts to manufacture legitimacy. The research found that many reported money muling experiences followed a request from someone the individual knew online or offline. Trust could also be manufactured through professional looking recruitment processes and apparently legitimate businesses.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-fake-employment-signals.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Home Office research describes participants encountering apparently structured recruitment processes, job advertisements, interviews, formal documentation, company websites and other signals designed to create legitimacy.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-coercion-escalation.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Home Office research describes circumstances where criminals used guilt, control, personal information, threats of violence and broader exploitative relationships to maintain involvement. It also identified circumstances where money muling intersected with coercive control.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-exploitation-apparent-consent.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Home Office financial exploitation guidance therefore recognises that activity can appear consensual where exploitation nevertheless exists.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Money laundering linked financial exploitation: guidance for frontline professionals",
+    "url": "https://www.gov.uk/government/publications/money-mule-action-plan/money-laundering-linked-financial-exploitation-guidance-for-frontline-professionals-accessible",
+    "publisher": "Home Office",
+    "date": "2024-03-01"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText is materially equivalent to the approved scope (victims may have been exploited even where activity appears consensual; the distinction between victim and perpetrator may be unclear). No wording correction required."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fraud-strategy-safeguarding.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The Home Office's Fraud Strategy 2026 to 2029 separately identifies this kind of exploitative money laundering as carrying serious consequences for vulnerable people, including children, and sets out safeguarding measures alongside its enforcement priorities.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Fraud Strategy 2026 to 2029",
+    "url": "https://www.gov.uk/government/publications/fraud-strategy-2026-to-2029/fraud-strategy-2026-to-2029-disrupting-crime-supporting-economic-resilience-and-delivering-justice-accessible",
+    "publisher": "Home Office",
+    "date": "2026-03-09"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText's scope (exploitative money laundering carries serious consequences for vulnerable people, safeguarding measures alongside enforcement priorities) sits within the approved scope (financial exploitation requiring a distinct safeguarding response, an economic crime priority, safeguarding and referral measures) and does not broaden into a claim that all money mule activity constitutes financial exploitation or requires the same safeguarding conclusion. No wording correction required."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fca-nfd-evidence-standard.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The FCA has stated that firms must obtain sufficient evidence concerning customer involvement and knowledge and has highlighted the difficulty of establishing willing participation.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Conduct Authority, Firms' use of the National Fraud Database and money mule account detection tools",
+    "url": "https://www.fca.org.uk/publications/multi-firm-reviews/firms-use-national-fraud-database-money-mule-account-detection-tools",
+    "publisher": "Financial Conduct Authority",
+    "date": "2025-01-23"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The FCA's Standard of Proof for NFD submissions requires evidence the customer knew the funds were, or might be, proceeds of crime; the FCA describes the standard as high, recognises firms can find it difficult to demonstrate willing participation, and expects firms to thoroughly verify and document that the standard has been met. No wording correction required."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.cifas-nfd-principles.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Cifas requires NFD filings to meet its four pillar Standard of Proof, including reasonable grounds, clear relevant and rigorous evidence, satisfaction of an applicable Case Type and the relevant product action condition. Its wider Principles also require accurate data and proportional interpretation.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Cifas, National Fraud Database Principles",
+    "url": "https://www.cifas.org.uk/fraud-prevention-community/member-benefits/data/nfd/nfd-principles",
+    "publisher": "Cifas",
+    "date": "2026-09-11"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS WITH PRECISION REFINEMENT. Cifas's Standard of Proof has four pillars (reasonable grounds; clear, relevant and rigorous evidence; satisfaction of a Case Type; the applicable product action condition); accuracy and proportional interpretation are separate, wider Cifas Principles, not part of the four-pillar Standard of Proof itself. The prior claimText and shipped page copy conflated all of these into one undifferentiated list and omitted the reasonable-grounds and product-action-condition pillars entirely. Corrected here and in js/money-mule-case-file-data.js (Stage 10 National Fraud Database operational-decision block) to the external review's preferred formulation, preserving the distinction between the four-pillar Standard of Proof and the wider Principles."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fos-fraud-markers-framing.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Financial Ombudsman material here is practical complaint handling guidance and case reasoning, not legislation or binding precedent.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Ombudsman Service, Fraud markers",
+    "url": "https://www.financial-ombudsman.org.uk/businesses/complaints-deal/fraud-scams/fraud-markers",
+    "publisher": "Financial Ombudsman Service",
+    "date": "2026-09-11"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The Financial Ombudsman Service's own fraud markers page describes its approach to resolving fraud marker complaints (the applicable fraud prevention agency test, reasonable grounds, clear/relevant/rigorous evidence, and why the business considered the consumer involved rather than an innocent party), correctly framed on this page as practical complaint-handling guidance and case reasoning, not legislation, not binding precedent, and not itself the source of the Cifas Standard of Proof. No wording correction required."
+},
+{
+  "claimId": "money-mule-or-victim-case-file.wcag-baseline.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "This Case File's interactive elements were built to a WCAG 2.2 AA accessibility baseline.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "World Wide Web Consortium, Web Content Accessibility Guidelines (WCAG) 2.2",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "publisher": "World Wide Web Consortium (W3C)",
+    "date": "2024-12-12"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-09-11",
+  "status": "verified"
+}
 ]
