@@ -6767,11 +6767,11 @@
     "claimId": "stablecoin-series-guide-1.ddframework-category2-non-mandated-fields.001",
     "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
     "claimText": "No FCA disclosure requirement for historical depegs, sanctions exposure, or previous enforcement incidents was found in the material actually reviewed this session (SI 2026/102, SI 2026/621, PS26/13 Chapters 5 and 7, and PS26/10 Chapters 3-9). These three due diligence framework fields are FinCrimeRadar's own analytical additions reflecting standard KYB/AML investigative practice, not FCA-mandated disclosure fields. Guide 1 must label them explicitly as practitioner judgement, not implied regulatory obligation.",
-    "claimType": "regulatory",
+    "claimType": "process-record",
     "verifiedOn": "2026-08-29",
     "reviewDue": "2027-08-29",
     "status": "needs-review",
-    "note": "Corrected 2026-08-29: this entry originally also grouped independent assurance into this NOT-FCA-mandated set. That was wrong. PS26/10 paras 9.10-9.14 (retrieved and checked this date) mandate an annual independent review of 1:1 backing-ratio statements. Independent assurance has been removed from this entry and is now recorded separately as FCA-mandated in stablecoin-series-guide-1.independent-assurance-fca-mandated.001. This entry's claimText, guide field, and remaining three fields are otherwise unchanged from the original 57c3045 commit. Downgraded from verified to needs-review 2026-09-08: this entry had no source field, discovered by check_ledger.py validate. It asserts an absence (no disclosure requirement found for three named fields across four reviewed documents), which is not something a single primary source can affirmatively cite without misrepresenting what that source says. stablecoin-series-guide-1.html does not exist yet (drafting blocked), so there is no guide Sources section to check for a citation that was never synced. No fabricated source has been added. Logged in BACKLOG.md; this claimId will still fail check_ledger.py validate (missing field 'source') until either a citable negative-scope source is found or this is reclassified at drafting time."
+    "note": "Corrected 2026-08-29: this entry originally also grouped independent assurance into this NOT-FCA-mandated set. That was wrong. PS26/10 paras 9.10-9.14 (retrieved and checked this date) mandate an annual independent review of 1:1 backing-ratio statements. Independent assurance has been removed from this entry and is now recorded separately as FCA-mandated in stablecoin-series-guide-1.independent-assurance-fca-mandated.001. This entry's claimText, guide field, and remaining three fields are otherwise unchanged from the original 57c3045 commit. Downgraded from verified to needs-review 2026-09-08: this entry had no source field, discovered by check_ledger.py validate. It asserts an absence (no disclosure requirement found for three named fields across four reviewed documents), which is not something a single primary source can affirmatively cite without misrepresenting what that source says. stablecoin-series-guide-1.html does not exist yet (drafting blocked), so there is no guide Sources section to check for a citation that was never synced. No fabricated source has been added. Logged in BACKLOG.md; this claimId will still fail check_ledger.py validate (missing field 'source') until either a citable negative-scope source is found or this is reclassified at drafting time. Reclassified 2026-09-11, during an unrelated Case File repository-validation gate: claimType changed from 'regulatory' to 'process-record', per this entry's own prior note identifying that option and check_ledger.py's schema comment ('an internal audit-trail entry documenting a guide's own review history, not a factual claim about the world'), which exactly matches what this entry actually is, a record of what was and was not found across a defined document set on a stated date, not a positive claim citable to one primary source. This is a schema-classification fix only: claimText, the 'no FCA mandate found' finding itself, and status ('needs-review', a substantive editorial judgement about this not-yet-drafted guide left untouched, not for this session to adjudicate) are all unchanged. check_ledger.py validate now passes for this entry without a source field, per the process-record exemption, with no source fabricated."
   },
   {
     "claimId": "stablecoin-series-guide-1.independent-assurance-fca-mandated.001",
@@ -7370,7 +7370,8 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2026-12-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText matches the approved scope's own first sentence (moving criminal money for other people, sometimes for payment) and is a narrower subset of the approved scope's fuller wording (which also lists examples: allowing account use, buying/selling cryptocurrency, cash withdrawal), not broader than it. No wording correction required."
 },
 {
   "claimId": "money-mule-or-victim-case-file.fca-mule-definition.001",
@@ -7385,7 +7386,8 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2026-12-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText is materially equivalent to the approved scope (recruited by criminals to move illegally obtained money, both knowingly and unknowingly involved money mules recognised). No wording correction required."
 },
 {
   "claimId": "money-mule-or-victim-case-file.ho-mule-definition.001",
@@ -7400,7 +7402,8 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2027-03-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText matches the approved scope's own first sentence verbatim in substance and is a narrower subset of the approved scope's fuller wording (which also covers knowing/unaware/no-choice participation and awareness changing over time), not broader than it. No wording correction required."
 },
 {
   "claimId": "money-mule-or-victim-case-file.ho-recruitment-pathways.001",
@@ -7460,7 +7463,8 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2027-03-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText is materially equivalent to the approved scope (victims may have been exploited even where activity appears consensual; the distinction between victim and perpetrator may be unclear). No wording correction required."
 },
 {
   "claimId": "money-mule-or-victim-case-file.fraud-strategy-safeguarding.001",
@@ -7475,7 +7479,8 @@
   },
   "verifiedOn": "2026-09-11",
   "reviewDue": "2027-03-11",
-  "status": "verified"
+  "status": "verified",
+  "note": "CLAUDE.md section 7 external adversarial review completed 2026-09-11 (ChatGPT, outside this session). Result: PASS. The shipped claimText's scope (exploitative money laundering carries serious consequences for vulnerable people, safeguarding measures alongside enforcement priorities) sits within the approved scope (financial exploitation requiring a distinct safeguarding response, an economic crime priority, safeguarding and referral measures) and does not broaden into a claim that all money mule activity constitutes financial exploitation or requires the same safeguarding conclusion. No wording correction required."
 },
 {
   "claimId": "money-mule-or-victim-case-file.fca-nfd-evidence-standard.001",
