@@ -173,6 +173,80 @@ def click_id(cdp: CDP, element_id: str) -> None:
         "if (!el) return 'missing'; el.click(); return 'ok'; })()" % json.dumps(element_id)
     )
     require(result == "ok", f"could not find and click #{element_id}")
+    # Radio inputs persist via updateStateAfterRadioChange, which defers its
+    # re-render one tick (see js/money-mule-case-file.js): without this, a
+    # tight loop of clicks (e.g. touch_all_hypotheses) can race ahead of the
+    # pending render and observe a stale continue-button disabled state.
+    # Harmless no-op for buttons, which re-render synchronously already.
+    time.sleep(0.05)
+
+
+def focus_element(cdp: CDP, element_id: str) -> None:
+    result = cdp.evaluate(
+        "(() => { const el = document.getElementById(%s); "
+        "if (!el) return 'missing'; el.focus(); return 'ok'; })()" % json.dumps(element_id)
+    )
+    require(result == "ok", f"could not find and focus #{element_id}")
+    focused = cdp.evaluate("document.activeElement && document.activeElement.id")
+    require(focused == element_id, f"focus() on #{element_id} did not land there, activeElement is {focused!r}")
+
+
+def arrow_key(cdp: CDP, direction: str) -> None:
+    # A real, browser-level key event (CDP Input.dispatchKeyEvent), not a
+    # synthetic DOM value assignment: this is what actually exercises a
+    # native radio group's own arrow-key navigation, which moves the
+    # checked radio and fires 'change' without ever firing 'click'.
+    codes = {"Down": ("ArrowDown", 40), "Up": ("ArrowUp", 38), "Right": ("ArrowRight", 39), "Left": ("ArrowLeft", 37)}
+    code, virtual_key = codes[direction]
+    dispatch_key(cdp, code, code, virtual_key)
+    # The browser's native radio-group navigation (checked state, 'change'
+    # dispatch, and this app's own re-render in response) is not guaranteed
+    # to have settled the instant the CDP call returns.
+    time.sleep(0.1)
+
+
+def persisted_state(cdp: CDP) -> dict[str, Any]:
+    raw = cdp.evaluate(f"localStorage.getItem({json.dumps(STORAGE_KEY)})")
+    require(raw is not None, "expected a persisted Case File state in localStorage, found none")
+    return json.loads(raw)
+
+
+# Full valid state shapes (see isValidState in js/money-mule-case-file.js) for
+# seeding localStorage directly to reach a later stage without walking the
+# whole gated flow again, exactly like the existing corrupted/stale-schema
+# tests below already do.
+def seeded_state(current_stage: int, **overrides: Any) -> dict[str, Any]:
+    base: dict[str, Any] = {
+        "caseVersion": 2,
+        "currentStage": current_stage,
+        "highestUnlockedStage": current_stage,
+        "hypothesisState": {"A": "Leading", "B": "Plausible", "C": "Unresolved", "D": "Weak", "E": "Leading"},
+        "hypothesisSnapshots": {
+            "initial": {"A": "Leading", "B": "Plausible", "C": "Unresolved", "D": "Weak", "E": "Leading"},
+            "stage4": {"A": "Plausible", "B": "Plausible", "C": "Unresolved", "D": "Weak", "E": "Leading"},
+            "stage7": {"A": "Weak", "B": "Plausible", "C": "Unresolved", "D": "Weak", "E": "Leading"},
+            "final": None,
+        },
+        "knowledgeTimeline": {"entryState": "Unaware", "prePaymentThreeState": "ConcernEmerging", "changePoint": "paymentTwo"},
+        "controlDecision": "Yes",
+        "voluntarinessDecision": "No",
+        "decisionRecord": {"activity": None, "control": None, "knowledge": None, "exploitation": None, "evidence": None},
+        "redTeamCompleted": {
+            "transactionBias": False, "authenticationBias": False, "outcomeBias": False,
+            "vulnerabilityBias": False, "culpabilityBias": False, "narrativeBias": False,
+            "suspicionThreshold": False, "corroboration": False, "counterfactual": False, "proportionality": False,
+        },
+        "decisionChangeSelections": {f"item{n}": False for n in range(1, 10)},
+        "reasoningShift": None,
+        "caseCompleted": False,
+    }
+    base.update(overrides)
+    return base
+
+
+def seed_and_reload(cdp: CDP, state: dict[str, Any]) -> None:
+    cdp.evaluate(f"localStorage.setItem({json.dumps(STORAGE_KEY)}, {json.dumps(json.dumps(state))})")
+    reload_page(cdp)
 
 
 def continue_disabled(cdp: CDP) -> bool:
@@ -357,6 +431,234 @@ def run() -> None:
         for link in footer_link_focusability:
             require(link["tag"] == "A" and link["hasHref"] and link["tabIndex"] >= 0, f"footer link is not a keyboard-reachable anchor: {link}")
         print("OK: footer links are real, keyboard-reachable anchors")
+
+        # --- Keyboard radio navigation and persistence (Bug 1 fix). Every
+        # block below uses a real CDP key event (Input.dispatchKeyEvent via
+        # arrow_key), not a synthetic DOM value assignment: this exercises
+        # the browser's own native radio-group arrow-key handling, which
+        # moves the checked radio and fires 'change' without ever firing
+        # 'click', the exact gap the click-only listeners had. Each block is
+        # isolated (its own navigate/seed) so it cannot leak state into the
+        # main interactive flow below. ---
+        navigate(cdp, url, 1440)
+        cdp.evaluate(f"localStorage.removeItem({json.dumps(STORAGE_KEY)})")
+        reload_page(cdp)
+        click_id(cdp, "openCaseFile")
+        assert_stage_view(cdp, 2)
+
+        # Hypothesis A starts on its default 'Unresolved' radio. ArrowDown to
+        # the next radio in the group must update the browser's own checked
+        # state, CaseFileShell state, and localStorage together.
+        focus_element(cdp, "hyp-A-Unresolved")
+        arrow_key(cdp, "Down")
+        require(cdp.evaluate("document.getElementById('hyp-A-Weak').checked") is True,
+                "ArrowDown did not move the browser's own checked radio to hyp-A-Weak")
+        # Focus itself is not asserted past this point: every radio change
+        # here triggers a full re-render (updateState -> renderCurrentStage),
+        # which replaces the whole radio group with freshly created DOM
+        # nodes, an existing, unrelated architectural characteristic of this
+        # page (identical for a mouse click) that owns no relationship to
+        # keyboard focus retention. Not something this fix changes or the
+        # brief asks for; only the checked/persisted state is required.
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisState.A") == "Weak",
+                "keyboard arrow-key selection did not persist into CaseFileShell state (click-only listener regression)")
+        require(persisted_state(cdp)["hypothesisState"]["A"] == "Weak",
+                "keyboard arrow-key selection did not persist to localStorage")
+        print("OK: keyboard ArrowDown on a Hypothesis Board radio updates browser, CaseFileShell, and localStorage state together")
+
+        reload_page(cdp)
+        require(cdp.evaluate("document.getElementById('hyp-A-Weak').checked") is True,
+                "reload did not restore the browser checked state for the keyboard-selected radio")
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisState.A") == "Weak",
+                "reload did not restore the value actually selected via keyboard")
+        print("OK: reload restores the value actually selected via keyboard, not a stale click-only value")
+
+        # Re-selecting an already-checked radio by a real click (no value
+        # change) must still count as a deliberate touch for the gate,
+        # without altering the persisted value: the 'change' vs 'click'
+        # split the fix relies on. hyp-A-Weak is still checked from above.
+        click_id(cdp, "hyp-A-Weak")
+        require(cdp.evaluate("CaseFileShell.getState().hypothesisState.A") == "Weak",
+                "re-clicking an already-checked radio must not change its persisted value")
+
+        # Complete the remaining four hypothesis groups via keyboard arrow-key
+        # navigation alone, then confirm the Stage 2 continue gate enables
+        # from keyboard interaction, proving the touch gate updates correctly
+        # for every input modality, not only click().
+        for letter, direction, target in (("B", "Up", "Plausible"), ("C", "Down", "Weak"), ("D", "Up", "Plausible"), ("E", "Down", "Weak")):
+            focus_element(cdp, f"hyp-{letter}-Unresolved")
+            arrow_key(cdp, direction)
+            require(cdp.evaluate(f"document.getElementById('hyp-{letter}-{target}').checked") is True,
+                    f"Arrow{direction} did not move the browser's own checked radio for hypothesis {letter}")
+            require(cdp.evaluate(f"CaseFileShell.getState().hypothesisState.{letter}") == target,
+                    f"keyboard arrow-key selection for hypothesis {letter} did not persist into CaseFileShell state")
+        require(not continue_disabled(cdp),
+                "Stage 2 continue should enable once all five hypotheses are touched via keyboard arrow keys plus a same-value click")
+        print("OK: Stage 2 continue gate enables from keyboard-only arrow-key interaction across all five hypothesis groups")
+        cdp.evaluate(f"localStorage.removeItem({json.dumps(STORAGE_KEY)})")
+
+        # --- Stage 6 keyboard test: covers both the timeline-question loop
+        # (entryState) and the standalone changePoint fieldset, two distinct
+        # radio-creation code paths that both needed the same fix. Seeded
+        # directly at Stage 6 (highestUnlockedStage equal, not greater, so
+        # stage6Touched's own "already completed" bypass does not apply and
+        # the gate is genuinely exercised) since Bug 1 depends only on
+        # persisted state, not on how Stage 6 was reached. ---
+        seed_and_reload(cdp, seeded_state(6, knowledgeTimeline={"entryState": None, "prePaymentThreeState": None, "changePoint": None}))
+        assert_stage_view(cdp, 6)
+        require(continue_disabled(cdp), "Stage 6 continue should start disabled before any timeline control is touched")
+
+        focus_element(cdp, "tl-entryState-Unaware")
+        arrow_key(cdp, "Down")
+        require(cdp.evaluate("document.getElementById('tl-entryState-ConcernEmerging').checked") is True,
+                "ArrowDown did not move the browser's own checked radio for Stage 6's entryState loop control")
+        require(cdp.evaluate("CaseFileShell.getState().knowledgeTimeline.entryState") == "ConcernEmerging",
+                "keyboard arrow-key selection on Stage 6's entryState did not persist into CaseFileShell state")
+
+        changepoint_ids = cdp.evaluate("Array.from(document.querySelectorAll('input[name=\"tl-changePoint\"]')).map(el => el.id)")
+        require(len(changepoint_ids) >= 2, f"expected at least 2 changePoint options, found {changepoint_ids}")
+        focus_element(cdp, changepoint_ids[0])
+        arrow_key(cdp, "Down")
+        expected_change_point = changepoint_ids[1][len("tl-changePoint-"):]
+        require(cdp.evaluate(f"document.getElementById({json.dumps(changepoint_ids[1])}).checked") is True,
+                "ArrowDown did not move the browser's own checked radio for Stage 6's standalone changePoint fieldset")
+        require(cdp.evaluate("CaseFileShell.getState().knowledgeTimeline.changePoint") == expected_change_point,
+                "keyboard arrow-key selection on Stage 6's changePoint did not persist into CaseFileShell state")
+        require(persisted_state(cdp)["knowledgeTimeline"] == {"entryState": "ConcernEmerging", "prePaymentThreeState": None, "changePoint": expected_change_point},
+                "Stage 6 keyboard selections did not persist to localStorage")
+        print("OK: Stage 6 keyboard arrow-key navigation updates state for both the loop and standalone radio patterns")
+
+        click_id(cdp, "tl-prePaymentThreeState-ConcernEmerging")
+        require(not continue_disabled(cdp),
+                "Stage 6 continue should enable once entryState and changePoint (keyboard) plus prePaymentThreeState (click) are all touched")
+        print("OK: Stage 6 continue gate enables from mixed keyboard and click interaction")
+        cdp.evaluate(f"localStorage.removeItem({json.dumps(STORAGE_KEY)})")
+
+        # --- Stage 7 keyboard test: the coercion-questions loop (control and
+        # voluntariness), a third distinct radio-creation code path. ---
+        seed_and_reload(cdp, seeded_state(7, controlDecision=None, voluntarinessDecision=None))
+        assert_stage_view(cdp, 7)
+        control_ids = cdp.evaluate("Array.from(document.querySelectorAll('input[name=\"cq-controlDecision\"]')).map(el => el.id)")
+        require(len(control_ids) >= 2, f"expected at least 2 controlDecision options, found {control_ids}")
+        focus_element(cdp, control_ids[0])
+        arrow_key(cdp, "Down")
+        expected_control_value = control_ids[1][len("cq-controlDecision-"):]
+        require(cdp.evaluate(f"document.getElementById({json.dumps(control_ids[1])}).checked") is True,
+                "ArrowDown did not move the browser's own checked radio for Stage 7's controlDecision")
+        require(cdp.evaluate("CaseFileShell.getState().controlDecision") == expected_control_value,
+                "keyboard arrow-key selection on Stage 7's controlDecision did not persist into CaseFileShell state")
+        require(persisted_state(cdp)["controlDecision"] == expected_control_value,
+                "Stage 7 keyboard selection did not persist to localStorage")
+        print("OK: Stage 7 coercion-question radios update state via keyboard arrow-key navigation")
+        cdp.evaluate(f"localStorage.removeItem({json.dumps(STORAGE_KEY)})")
+
+        # --- Stage 10 keyboard test: Decision Record radios have no separate
+        # touch gate (the continue gate reads state.decisionRecord directly),
+        # so this only needs to prove the value itself persists. ---
+        seed_and_reload(cdp, seeded_state(10))
+        assert_stage_view(cdp, 10)
+        activity_ids = cdp.evaluate("""(() => {
+          const dim = MMC_DATA.stages[10].dimensions.find(d => d.id === 'activity');
+          const sanitize = v => v.replace(/[^a-zA-Z0-9]+/g, '-');
+          return dim.options.map(o => 'dr-activity-' + sanitize(o));
+        })()""")
+        require(len(activity_ids) >= 2, f"expected at least 2 activity options, found {activity_ids}")
+        focus_element(cdp, activity_ids[0])
+        arrow_key(cdp, "Down")
+        require(cdp.evaluate(f"document.getElementById({json.dumps(activity_ids[1])}).checked") is True,
+                "ArrowDown did not move the browser's own checked radio for Stage 10's Decision Record")
+        expected_activity_value = cdp.evaluate(f"document.getElementById({json.dumps(activity_ids[1])}).value")
+        require(cdp.evaluate("CaseFileShell.getState().decisionRecord.activity") == expected_activity_value,
+                "keyboard arrow-key selection on Stage 10's Decision Record did not persist into CaseFileShell state")
+        require(persisted_state(cdp)["decisionRecord"]["activity"] == expected_activity_value,
+                "Stage 10 keyboard selection did not persist to localStorage")
+        print("OK: Stage 10 Decision Record radios update state via keyboard arrow-key navigation")
+        cdp.evaluate(f"localStorage.removeItem({json.dumps(STORAGE_KEY)})")
+
+        # --- Stage 11 keyboard test: the final reasoning-shift radios, also
+        # gated directly off state.reasoningShift with no separate touch map. ---
+        seed_and_reload(cdp, seeded_state(11, redTeamCompleted={key: True for key in RED_TEAM_KEYS}))
+        assert_stage_view(cdp, 11)
+        focus_element(cdp, "rs-Somewhat")
+        arrow_key(cdp, "Down")
+        require(cdp.evaluate("document.getElementById('rs-NoMaterialChange').checked") is True,
+                "ArrowDown did not move the browser's own checked radio for Stage 11's reasoning-shift question")
+        require(cdp.evaluate("CaseFileShell.getState().reasoningShift") == "NoMaterialChange",
+                "keyboard arrow-key selection on Stage 11's reasoning shift did not persist into CaseFileShell state")
+        require(persisted_state(cdp)["reasoningShift"] == "NoMaterialChange",
+                "Stage 11 keyboard selection did not persist to localStorage")
+        require(not continue_disabled(cdp), "Stage 11 continue should enable once reasoningShift is set via keyboard and red team is already complete")
+        print("OK: Stage 11 reasoning-shift radios update state via keyboard arrow-key navigation, gate enables correctly")
+        cdp.evaluate(f"localStorage.removeItem({json.dumps(STORAGE_KEY)})")
+
+        # --- Reset gate tests (Bug 2 fix): a stale module-level touch
+        # tracker from before a reset must never count towards the fresh
+        # run's gate. Real UI progression and a real Reset Case confirm, not
+        # localStorage seeding, since the bug lives in module-level
+        # JavaScript variables that seeding a persisted state cannot reach. ---
+        reload_page(cdp)
+        click_id(cdp, "openCaseFile")
+        assert_stage_view(cdp, 2)
+        click_id(cdp, "hyp-B-Plausible")
+        click_id(cdp, "hyp-C-Weak")
+        require(continue_disabled(cdp), "Stage 2 continue should remain disabled with only 2 of 5 hypotheses touched")
+
+        click_id(cdp, "mmcResetCase")
+        click_id(cdp, "mmcResetYes")
+        require(not cdp.evaluate("document.getElementById('openCaseFile').hidden"), "Reset Case Yes should show Open Case File again")
+
+        click_id(cdp, "openCaseFile")
+        assert_stage_view(cdp, 2)
+        click_id(cdp, "hyp-A-Leading")
+        click_id(cdp, "hyp-D-Weak")
+        click_id(cdp, "hyp-E-Plausible")
+        require(continue_disabled(cdp),
+                "BUG: Stage 2 continue enabled after reset with only 3 of 5 hypotheses touched in the fresh run "
+                "(B and C's pre-reset touches must not survive Reset Case)")
+        click_id(cdp, "hyp-B-Unresolved")
+        click_id(cdp, "hyp-C-Unresolved")
+        require(not continue_disabled(cdp), "Stage 2 continue should enable once all five hypotheses are genuinely touched in the fresh post-reset run")
+        print("OK: Reset Case clears Stage 2's touch gate, previously touched hypotheses do not count after reset")
+
+        # Reset after partial interaction at a later gated stage (Stage 6),
+        # reached by genuine progression so stage6Touched is a real
+        # module-level object built up by real interaction, not a seeded one.
+        def reach_stage_6() -> None:
+            touch_all_hypotheses(cdp)
+            click_continue(cdp)  # Stage 2 -> 3
+            click_continue(cdp)  # Stage 3 -> 4 (no gate)
+            touch_all_hypotheses(cdp)
+            click_continue(cdp)  # Stage 4 -> 5
+            click_continue(cdp)  # Stage 5 -> 6 (no gate)
+            assert_stage_view(cdp, 6)
+
+        click_id(cdp, "mmcResetCase")
+        click_id(cdp, "mmcResetYes")
+        click_id(cdp, "openCaseFile")
+        assert_stage_view(cdp, 2)
+        reach_stage_6()
+        click_id(cdp, "tl-entryState-Unaware")
+        require(continue_disabled(cdp), "Stage 6 continue should remain disabled with only 1 of 3 timeline controls touched")
+
+        click_id(cdp, "mmcResetCase")
+        click_id(cdp, "mmcResetYes")
+        click_id(cdp, "openCaseFile")
+        assert_stage_view(cdp, 2)
+        reach_stage_6()
+        click_id(cdp, "tl-prePaymentThreeState-Unaware")
+        click_id(cdp, "tl-changePoint-paymentOne")
+        require(continue_disabled(cdp),
+                "BUG: Stage 6 continue enabled after reset with only 2 of 3 timeline controls touched in the fresh run "
+                "(entryState's pre-reset touch must not survive Reset Case)")
+        click_id(cdp, "tl-entryState-Unaware")
+        require(not continue_disabled(cdp), "Stage 6 continue should enable once all three timeline controls are genuinely touched in the fresh post-reset run")
+        print("OK: Reset Case clears Stage 6's touch gate too, previously touched timeline controls do not count after reset")
+
+        # Leave the case reset so the main interactive flow below starts
+        # from a genuinely fresh state, matching its own preconditions.
+        click_id(cdp, "mmcResetCase")
+        click_id(cdp, "mmcResetYes")
+        cdp.evaluate(f"localStorage.removeItem({json.dumps(STORAGE_KEY)})")
 
         # --- Main interactive flow, desktop width. ---
         navigate(cdp, url, 1440)
