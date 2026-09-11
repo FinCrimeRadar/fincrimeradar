@@ -233,13 +233,29 @@
   // wanting to trigger a (deferred, see below) render; without this a
   // single selection would tear down and rebuild the whole stage twice.
   var renderScheduled = false;
+  var renderTimeoutId = null;
   function scheduleRender() {
     if (renderScheduled) return;
     renderScheduled = true;
-    setTimeout(function () {
+    renderTimeoutId = setTimeout(function () {
       renderScheduled = false;
+      renderTimeoutId = null;
       renderCurrentStage();
     }, 0);
+  }
+
+  // resetCase() below must call this: without it, a radio change scheduled
+  // immediately before a reset (only reachable programmatically, not by
+  // normal human click timing, but CaseFileShell exposes resetCase() to
+  // scripted callers) would still fire afterwards and re-render over
+  // whatever resetCase() and the practitioner's next action already
+  // rendered, a redundant and potentially confusing extra render.
+  function cancelScheduledRender() {
+    if (renderTimeoutId !== null) {
+      clearTimeout(renderTimeoutId);
+      renderTimeoutId = null;
+    }
+    renderScheduled = false;
   }
 
   // Radio groups only. Identical to updateState (mutate, then persist,
@@ -2477,6 +2493,10 @@
     stage6Touched = null;
     stage7Touched = null;
     stage9Touched = null;
+    // A radio change scheduled immediately before this reset must not
+    // still fire afterwards and re-render over whatever this function and
+    // the practitioner's next action already render.
+    cancelScheduledRender();
 
     var root = document.getElementById('caseFileApp');
     var openButton = document.getElementById('openCaseFile');
