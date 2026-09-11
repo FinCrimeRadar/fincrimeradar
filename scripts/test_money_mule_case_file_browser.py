@@ -403,8 +403,10 @@ def run() -> None:
 
         click_continue(cdp)
 
-        # Stage 9: classify phase.
-        require(STAGE_HEADINGS[9] in cdp.evaluate("document.body.innerText"), "Stage 9 heading missing")
+        # Stage 9: classify phase. Full isolation check (own heading present,
+        # every other stage's heading and marker absent), not just a presence
+        # check on its own heading.
+        assert_stage_view(cdp, 9)
         require(cdp.evaluate("CaseFileShell.getState().hypothesisSnapshots.final") is None, "Stage 9 should start in classify phase with no final snapshot")
         touch_all_hypotheses(cdp)
         require(not continue_disabled(cdp), "Stage 9 confirm button should enable once all five hypotheses are re-touched")
@@ -415,13 +417,32 @@ def run() -> None:
         assert_stage_view(cdp, 10)
         print("OK: Stage 9 two-phase classify-then-review flow")
 
-        # Stage 10: per-dimension Decision Record reveal isolation.
+        # Stage 10: per-dimension Decision Record reveal isolation. A count of
+        # '.mmc-suggested-board-label' elements alone would not catch a
+        # content-swap regression (e.g. dimension B's fieldset rendering
+        # dimension A's analysis text), since all five dimensions share the
+        # identical label text and the count stays correct regardless of
+        # which dimension's text is actually shown. So fetch the five real
+        # fincrimeradarAnalysis strings straight from MMC_DATA (same order as
+        # DIMENSION_CHOICES: activity, control, knowledge, exploitation,
+        # evidence) and assert on their actual presence/absence in the
+        # Decision Record section, not just a count.
+        analysis_texts = cdp.evaluate("MMC_DATA.stages[10].dimensions.map(d => d.fincrimeradarAnalysis)")
+        require(len(analysis_texts) == 5 and len(set(analysis_texts)) == 5,
+                "Stage 10 must have five distinct fincrimeradarAnalysis strings for a content isolation check to be meaningful")
+
         initial_analysis_count = cdp.evaluate("document.querySelectorAll('.mmc-suggested-board-label').length")
         require(initial_analysis_count == 0, f"Stage 10 should show no FinCrimeRadar analysis before any dimension is set, found {initial_analysis_count}")
         for index, (dim_id, element_id) in enumerate(DIMENSION_CHOICES, start=1):
             click_id(cdp, element_id)
             count = cdp.evaluate("document.querySelectorAll('.mmc-suggested-board-label').length")
             require(count == index, f"Stage 10 analysis reveal count mismatch after setting {dim_id}: expected {index}, got {count}")
+            record_text = cdp.evaluate("document.querySelector('.mmc-decision-record').innerText")
+            for position, text in enumerate(analysis_texts):
+                if position < index:
+                    require(text in record_text, f"Stage 10 dimension at position {position} analysis text missing after setting {dim_id} (step {index}): {text!r}")
+                else:
+                    require(text not in record_text, f"Stage 10 setting {dim_id} (step {index}) leaked a not-yet-selected dimension's analysis text: {text!r}")
         require(not continue_disabled(cdp), "Stage 10 continue should enable once all five dimensions are set")
         click_continue(cdp)
         assert_stage_view(cdp, 11)
