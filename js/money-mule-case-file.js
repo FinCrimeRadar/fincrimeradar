@@ -1712,7 +1712,7 @@
         // Paragraph items are plain strings, except where the sentence cites
         // a real regulatory source, in which case it's { text, sourceRefs }
         // and one or more "[n]" links must be appended as real DOM nodes
-        // (this page never uses innerHTML) after the text node.
+        // (this page never injects raw markup) after the text node.
         var text = typeof item === 'string' ? item : item.text;
         var sourceRefs = typeof item === 'string' ? null : item.sourceRefs;
         var p = document.createElement('p');
