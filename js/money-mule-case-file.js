@@ -1708,9 +1708,24 @@
       positionP.appendChild(positionStrong);
       operationalSection.appendChild(positionP);
 
-      decision.paragraphs.forEach(function (text) {
+      decision.paragraphs.forEach(function (item) {
+        // Paragraph items are plain strings, except where the sentence cites
+        // a real regulatory source, in which case it's { text, sourceRefs }
+        // and one or more "[n]" links must be appended as real DOM nodes
+        // (this page never uses innerHTML) after the text node.
+        var text = typeof item === 'string' ? item : item.text;
+        var sourceRefs = typeof item === 'string' ? null : item.sourceRefs;
         var p = document.createElement('p');
-        p.textContent = text;
+        p.appendChild(document.createTextNode(text));
+        if (sourceRefs) {
+          sourceRefs.forEach(function (n) {
+            p.appendChild(document.createTextNode(' '));
+            var link = document.createElement('a');
+            link.href = '#source-' + n;
+            link.textContent = '[' + n + ']';
+            p.appendChild(link);
+          });
+        }
         operationalSection.appendChild(p);
       });
     });

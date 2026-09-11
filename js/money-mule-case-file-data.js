@@ -398,9 +398,9 @@ window.MMC_DATA = {
           paragraphs: [
             'This decision requires its own evidential assessment.',
             'Suspicious transaction behaviour and mule detection alerts do not automatically satisfy the evidential requirements for a National Fraud Database filing.',
-            'The FCA has stated that firms must obtain sufficient evidence concerning customer involvement and knowledge and has highlighted the difficulty of establishing willing participation.',
-            'Cifas requires clear, relevant and rigorous evidence, satisfaction of the applicable case criteria, accuracy and proportional interpretation.',
-            'Financial Ombudsman material here is practical complaint handling guidance and case reasoning, not legislation or binding precedent.'
+            { text: 'The FCA has stated that firms must obtain sufficient evidence concerning customer involvement and knowledge and has highlighted the difficulty of establishing willing participation.', sourceRefs: [6] },
+            { text: 'Cifas requires clear, relevant and rigorous evidence, satisfaction of the applicable case criteria, accuracy and proportional interpretation.', sourceRefs: [7] },
+            { text: 'Financial Ombudsman material here is practical complaint handling guidance and case reasoning, not legislation or binding precedent.', sourceRefs: [8] }
           ]
         }
       ],
@@ -526,5 +526,19 @@ window.MMC_DATA = {
       description: 'The account holder did not authorise or meaningfully participate in the relevant activity.'
     }
   },
-  sources: {}
+  // Real regulatory/factual sources cited via sourceRefs in stage data and via
+  // #source-N anchors in the static #sources section of the page itself
+  // (money-mule-or-victim-case-file.html). Keys match the [n] numbers used
+  // there. Retrieved and verified live, see verification-ledger.json.
+  sources: {
+    1: { publisher: 'National Crime Agency', title: 'Money Mules', url: 'https://www.nationalcrimeagency.gov.uk/moneymuling' },
+    2: { publisher: 'Financial Conduct Authority', title: 'Proceeds of fraud: detecting and preventing money mules', url: 'https://www.fca.org.uk/publications/multi-firm-reviews/proceeds-fraud-detecting-preventing-money-mules', date: '2023-10-19', updated: '2025-12-03' },
+    3: { publisher: 'Home Office', title: 'Lived experiences of money muling', url: 'https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling', date: '2026-07-16' },
+    4: { publisher: 'Home Office', title: 'Money laundering linked financial exploitation: guidance for frontline professionals', url: 'https://www.gov.uk/government/publications/money-mule-action-plan/money-laundering-linked-financial-exploitation-guidance-for-frontline-professionals-accessible', date: '2024-03-01' },
+    5: { publisher: 'Home Office', title: 'Fraud Strategy 2026 to 2029', url: 'https://www.gov.uk/government/publications/fraud-strategy-2026-to-2029/fraud-strategy-2026-to-2029-disrupting-crime-supporting-economic-resilience-and-delivering-justice-accessible', date: '2026-03-09', updated: '2026-04-30' },
+    6: { publisher: 'Financial Conduct Authority', title: "Firms' use of the National Fraud Database and money mule account detection tools", url: 'https://www.fca.org.uk/publications/multi-firm-reviews/firms-use-national-fraud-database-money-mule-account-detection-tools', date: '2025-01-23', updated: '2025-12-03' },
+    7: { publisher: 'Cifas', title: 'National Fraud Database Principles', url: 'https://www.cifas.org.uk/fraud-prevention-community/member-benefits/data/nfd/nfd-principles' },
+    8: { publisher: 'Financial Ombudsman Service', title: 'Fraud markers', url: 'https://www.financial-ombudsman.org.uk/businesses/complaints-deal/fraud-scams/fraud-markers' },
+    9: { publisher: 'World Wide Web Consortium', title: 'Web Content Accessibility Guidelines (WCAG) 2.2', url: 'https://www.w3.org/TR/WCAG22/', date: '2024-12-12' }
+  }
 };

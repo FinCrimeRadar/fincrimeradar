@@ -262,6 +262,17 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .mmc-redteam-review h4{color:var(--mmc-navy);font-size:14.5px;margin:1.2rem 0 .3rem}
 .mmc-redteam-item,.mmc-decision-change-item{display:flex;align-items:flex-start;gap:.55rem;padding:.4rem 0;font-size:14.5px;cursor:pointer}
 .mmc-redteam-item input,.mmc-decision-change-item input{margin-top:.2rem;min-width:20px;min-height:20px}
+/* Sources and Related sections. #sources reuses .mmc-section's own list and
+   paragraph styling with no extra rule needed. .mmc-related turns its two
+   plain anchors into stacked title+description blocks (the default inline
+   anchor content model would otherwise run both on one line), matching the
+   plain-line card language used throughout this page rather than
+   introducing a new visual treatment. */
+.mmc-related{display:flex;flex-direction:column;gap:1rem}
+.mmc-related a{display:block;border:1px solid var(--mmc-line);padding:1rem 1.2rem;text-decoration:none;color:inherit}
+.mmc-related a:hover{border-color:var(--mmc-green2)}
+.mmc-related a strong{display:block;color:var(--mmc-navy);margin-bottom:.35rem}
+.mmc-related a span{display:block;color:var(--mmc-muted);font-size:14.5px}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--mmc-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.mmc-breadcrumb{align-items:flex-start}.mmc-layout{padding:0 .75rem 3rem}.mmc-hypothesis-board,.mmc-radar{grid-template-columns:minmax(0,1fr)}.mmc-profile-list{grid-template-columns:1fr}.mmc-suggested-board-list{grid-template-columns:1fr}.mmc-suggested-board-list dd{text-align:left;margin-bottom:.35rem}.mmc-evidence-grid,.mmc-hypothesis-impact-list{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{nav,.mobile-nav,.mmc-action,#site-footer{display:none!important}.mmc-layout{display:block;max-width:none}.mmc-section{break-inside:avoid;border-color:#999}}
@@ -303,10 +314,10 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <p>They may buy or sell cryptocurrency.</p>
   <p>They may open additional accounts.</p>
   <p>They may also give another person access to an account so the criminal can move funds directly.</p>
-  <p>The National Crime Agency describes money muling as moving criminal money for other people, sometimes in return for payment.</p>
-  <p>The FCA similarly defines a money mule as someone recruited by criminals to move illegally obtained funds and recognises that the individual may be involved knowingly or unknowingly.</p>
+  <p>The National Crime Agency describes money muling as moving criminal money for other people, sometimes in return for payment. <a href="#source-1">[1]</a></p>
+  <p>The FCA similarly defines a money mule as someone recruited by criminals to move illegally obtained funds and recognises that the individual may be involved knowingly or unknowingly. <a href="#source-2">[2]</a></p>
   <p>The Home Office uses a similarly broad formulation.</p>
-  <p>Money muling involves moving proceeds of crime through financial accounts on behalf of criminals, sometimes in exchange for payment or another benefit.</p>
+  <p>Money muling involves moving proceeds of crime through financial accounts on behalf of criminals, sometimes in exchange for payment or another benefit. <a href="#source-3">[3]</a></p>
   <p>That definition describes the financial mechanism.</p>
   <p>It does not resolve the harder investigative question.</p>
   <p><strong>What did the person understand about the mechanism they were participating in?</strong></p>
@@ -333,7 +344,7 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <p>Recent Home Office research illustrates how varied these pathways can be.</p>
   <p>Participants described false employment opportunities, personal relationships, social media recruitment, financial pressure and increasingly sophisticated attempts to manufacture legitimacy.</p>
   <p>The research found that many reported money muling experiences followed a request from someone the individual knew online or offline.</p>
-  <p>Trust could also be manufactured through professional looking recruitment processes and apparently legitimate businesses.</p>
+  <p>Trust could also be manufactured through professional looking recruitment processes and apparently legitimate businesses. <a href="#source-3">[3]</a></p>
   <p>This matters because an investigator cannot safely assume that behaviour which looks obviously suspicious to a financial crime professional was necessarily understood in the same way by the customer at the time.</p>
 
   <h2>Knowing participation</h2>
@@ -350,7 +361,7 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <p>A second pathway begins with a legitimate looking explanation.</p>
   <p>The customer may believe they have accepted employment, are processing commercial payments, assisting another person, receiving investment proceeds or carrying out some other lawful activity.</p>
   <p>False job opportunities are particularly important.</p>
-  <p>Home Office research describes participants encountering apparently structured recruitment processes, job advertisements, interviews, formal documentation, company websites and other signals designed to create legitimacy.</p>
+  <p>Home Office research describes participants encountering apparently structured recruitment processes, job advertisements, interviews, formal documentation, company websites and other signals designed to create legitimacy. <a href="#source-3">[3]</a></p>
   <p>A customer can therefore personally authenticate transactions while still being deceived about their true purpose.</p>
   <p><strong>Customer control of the payment does not automatically establish customer knowledge of the crime.</strong></p>
 
@@ -371,12 +382,13 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <p>The position can change again.</p>
   <p>A person who attempts to disengage may encounter manipulation, intimidation or threats.</p>
   <p>Home Office research describes circumstances where criminals used guilt, control, personal information, threats of violence and broader exploitative relationships to maintain involvement.</p>
-  <p>It also identified circumstances where money muling intersected with coercive control.</p>
+  <p>It also identified circumstances where money muling intersected with coercive control. <a href="#source-3">[3]</a></p>
   <p>This creates one of the hardest questions in mule investigations.</p>
   <p>A customer can perform a transaction themselves and still be acting within an exploitative relationship.</p>
   <p>Their activity may appear voluntary when viewed solely through payment records.</p>
   <p>The surrounding evidence may tell a very different story.</p>
-  <p>Home Office financial exploitation guidance therefore recognises that activity can appear consensual where exploitation nevertheless exists.</p>
+  <p>Home Office financial exploitation guidance therefore recognises that activity can appear consensual where exploitation nevertheless exists. <a href="#source-4">[4]</a></p>
+  <p>The Home Office's Fraud Strategy 2026 to 2029 separately identifies this kind of exploitative money laundering as carrying serious consequences for vulnerable people, including children, and sets out safeguarding measures alongside its enforcement priorities. <a href="#source-5">[5]</a></p>
 
   <h2>The victim and perpetrator problem</h2>
   <p>Money mule investigations resist simple classifications because victimisation and offending behaviour can coexist.</p>
@@ -460,10 +472,28 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 
 <section class="mmc-section" id="sources">
   <h2>Sources and methodology</h2>
+  <p><strong>Scope:</strong> Customer R, the recruiter and every case-specific fact, message, payment and date in this Case File are fictional, built for investigative-reasoning practice. This is not a real investigation and does not describe a real customer, real correspondence or a real bank's findings.</p>
+  <p><strong>Method:</strong> the money mule definitions, recruitment and exploitation research, and regulatory evidential standards referenced throughout this Case File were checked directly against the primary sources listed below. The synthetic case narrative itself, and FinCrimeRadar's own analysis of it, are never attributed to any of these sources. This Case File's interactive elements were built to a WCAG 2.2 AA accessibility baseline. <a href="#source-9">[9]</a></p>
+  <ol>
+    <li id="source-1"><a href="https://www.nationalcrimeagency.gov.uk/moneymuling" target="_blank" rel="noopener">National Crime Agency, "Money Mules"</a>.</li>
+    <li id="source-2"><a href="https://www.fca.org.uk/publications/multi-firm-reviews/proceeds-fraud-detecting-preventing-money-mules" target="_blank" rel="noopener">Financial Conduct Authority, "Proceeds of fraud: detecting and preventing money mules"</a>, 19 October 2023, updated 3 December 2025.</li>
+    <li id="source-3"><a href="https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling" target="_blank" rel="noopener">Home Office, "Lived experiences of money muling"</a>, 16 July 2026.</li>
+    <li id="source-4"><a href="https://www.gov.uk/government/publications/money-mule-action-plan/money-laundering-linked-financial-exploitation-guidance-for-frontline-professionals-accessible" target="_blank" rel="noopener">Home Office, "Money laundering linked financial exploitation: guidance for frontline professionals"</a>, 1 March 2024.</li>
+    <li id="source-5"><a href="https://www.gov.uk/government/publications/fraud-strategy-2026-to-2029/fraud-strategy-2026-to-2029-disrupting-crime-supporting-economic-resilience-and-delivering-justice-accessible" target="_blank" rel="noopener">Home Office, "Fraud Strategy 2026 to 2029"</a>, 9 March 2026, updated 30 April 2026.</li>
+    <li id="source-6"><a href="https://www.fca.org.uk/publications/multi-firm-reviews/firms-use-national-fraud-database-money-mule-account-detection-tools" target="_blank" rel="noopener">Financial Conduct Authority, "Firms' use of the National Fraud Database and money mule account detection tools"</a>, 23 January 2025, updated 3 December 2025.</li>
+    <li id="source-7"><a href="https://www.cifas.org.uk/fraud-prevention-community/member-benefits/data/nfd/nfd-principles" target="_blank" rel="noopener">Cifas, "National Fraud Database Principles"</a>.</li>
+    <li id="source-8"><a href="https://www.financial-ombudsman.org.uk/businesses/complaints-deal/fraud-scams/fraud-markers" target="_blank" rel="noopener">Financial Ombudsman Service, "Fraud markers"</a>. Practical complaint handling guidance and case reasoning, not legislation or binding precedent.</li>
+    <li id="source-9"><a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">World Wide Web Consortium, "Web Content Accessibility Guidelines (WCAG) 2.2"</a>, 12 December 2024.</li>
+  </ol>
+  <p><strong>Last reviewed:</strong> 11 September 2026.</p>
 </section>
 
 <section class="mmc-section" id="related">
   <h2>Related intelligence</h2>
+  <div class="mmc-related">
+    <a href="/money-mule-financial-crime-networks-handbook.html"><strong>Money Mule Networks: The Account Was Never Fraudulent, Until It Was</strong><span>Works the detection and network mechanics of mule accounts, handovers and instant-payment velocity. This Case File instead works the investigative reasoning inside a single account: what the evidence establishes about one customer's knowledge and control, and what it does not.</span></a>
+    <a href="/false-positive-playbook.html"><strong>The False Positive Playbook: Disposing Alerts Without Getting It Wrong</strong><span>Shares this Case File's core discipline of not letting a surface indicator dictate the outcome before the underlying evidence is actually weighed, applied there to sanctions, PEP and adverse media alerts rather than money mule activity.</span></a>
+  </div>
 </section>
 
 </main>

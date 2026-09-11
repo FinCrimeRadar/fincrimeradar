@@ -7356,5 +7356,185 @@
     "claimType": "statistic",
     "source": {"title": "Payment Systems Regulator, Payment fraud falls by GBP 73m following PSR reimbursement scheme", "url": "https://www.psr.org.uk/news-and-updates/latest-news/news/payment-fraud-falls-by-73m-following-psr-reimbursement-scheme/", "publisher": "Payment Systems Regulator", "date": "2026-07-01"},
     "verifiedOn": "2026-09-08", "reviewDue": "2027-01-08", "status": "verified"
-  }
+  },
+{
+  "claimId": "money-mule-or-victim-case-file.nca-mule-definition.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The National Crime Agency describes money muling as moving criminal money for other people, sometimes in return for payment.",
+  "claimType": "definition",
+  "source": {
+    "title": "National Crime Agency, Money Mules",
+    "url": "https://www.nationalcrimeagency.gov.uk/moneymuling",
+    "publisher": "National Crime Agency",
+    "date": "2026-09-11"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fca-mule-definition.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The FCA similarly defines a money mule as someone recruited by criminals to move illegally obtained funds and recognises that the individual may be involved knowingly or unknowingly.",
+  "claimType": "definition",
+  "source": {
+    "title": "Financial Conduct Authority, Proceeds of fraud: detecting and preventing money mules",
+    "url": "https://www.fca.org.uk/publications/multi-firm-reviews/proceeds-fraud-detecting-preventing-money-mules",
+    "publisher": "Financial Conduct Authority",
+    "date": "2023-10-19"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-mule-definition.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Money muling involves moving proceeds of crime through financial accounts on behalf of criminals, sometimes in exchange for payment or another benefit.",
+  "claimType": "definition",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-recruitment-pathways.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Participants described false employment opportunities, personal relationships, social media recruitment, financial pressure and increasingly sophisticated attempts to manufacture legitimacy. The research found that many reported money muling experiences followed a request from someone the individual knew online or offline. Trust could also be manufactured through professional looking recruitment processes and apparently legitimate businesses.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-fake-employment-signals.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Home Office research describes participants encountering apparently structured recruitment processes, job advertisements, interviews, formal documentation, company websites and other signals designed to create legitimacy.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-coercion-escalation.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Home Office research describes circumstances where criminals used guilt, control, personal information, threats of violence and broader exploitative relationships to maintain involvement. It also identified circumstances where money muling intersected with coercive control.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Lived experiences of money muling",
+    "url": "https://www.gov.uk/government/publications/lived-experiences-of-money-muling/lived-experiences-of-money-muling",
+    "publisher": "Home Office",
+    "date": "2026-07-16"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.ho-exploitation-apparent-consent.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Home Office financial exploitation guidance therefore recognises that activity can appear consensual where exploitation nevertheless exists.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Money laundering linked financial exploitation: guidance for frontline professionals",
+    "url": "https://www.gov.uk/government/publications/money-mule-action-plan/money-laundering-linked-financial-exploitation-guidance-for-frontline-professionals-accessible",
+    "publisher": "Home Office",
+    "date": "2024-03-01"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fraud-strategy-safeguarding.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The Home Office's Fraud Strategy 2026 to 2029 separately identifies this kind of exploitative money laundering as carrying serious consequences for vulnerable people, including children, and sets out safeguarding measures alongside its enforcement priorities.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Home Office, Fraud Strategy 2026 to 2029",
+    "url": "https://www.gov.uk/government/publications/fraud-strategy-2026-to-2029/fraud-strategy-2026-to-2029-disrupting-crime-supporting-economic-resilience-and-delivering-justice-accessible",
+    "publisher": "Home Office",
+    "date": "2026-03-09"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-03-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fca-nfd-evidence-standard.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "The FCA has stated that firms must obtain sufficient evidence concerning customer involvement and knowledge and has highlighted the difficulty of establishing willing participation.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Conduct Authority, Firms' use of the National Fraud Database and money mule account detection tools",
+    "url": "https://www.fca.org.uk/publications/multi-firm-reviews/firms-use-national-fraud-database-money-mule-account-detection-tools",
+    "publisher": "Financial Conduct Authority",
+    "date": "2025-01-23"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.cifas-nfd-principles.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Cifas requires clear, relevant and rigorous evidence, satisfaction of the applicable case criteria, accuracy and proportional interpretation.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Cifas, National Fraud Database Principles",
+    "url": "https://www.cifas.org.uk/fraud-prevention-community/member-benefits/data/nfd/nfd-principles",
+    "publisher": "Cifas",
+    "date": "2026-09-11"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.fos-fraud-markers-framing.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "Financial Ombudsman material here is practical complaint handling guidance and case reasoning, not legislation or binding precedent.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Ombudsman Service, Fraud markers",
+    "url": "https://www.financial-ombudsman.org.uk/businesses/complaints-deal/fraud-scams/fraud-markers",
+    "publisher": "Financial Ombudsman Service",
+    "date": "2026-09-11"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2026-12-11",
+  "status": "verified"
+},
+{
+  "claimId": "money-mule-or-victim-case-file.wcag-baseline.001",
+  "guide": "money-mule-or-victim-case-file.html",
+  "claimText": "This Case File's interactive elements were built to a WCAG 2.2 AA accessibility baseline.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "World Wide Web Consortium, Web Content Accessibility Guidelines (WCAG) 2.2",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "publisher": "World Wide Web Consortium (W3C)",
+    "date": "2024-12-12"
+  },
+  "verifiedOn": "2026-09-11",
+  "reviewDue": "2027-09-11",
+  "status": "verified"
+}
 ]
