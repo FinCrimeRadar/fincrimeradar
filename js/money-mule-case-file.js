@@ -35,11 +35,13 @@
   // recently recorded assessment rather than a frozen historical snapshot.
   // Only Stage 2 (hypothesisSnapshots.initial) and Stage 9 (its own review
   // phase reads hypothesisSnapshots.final) have a dedicated frozen snapshot
-  // in the state schema; Stages 4 and 7 touch the same shared, mutable
-  // `hypothesisState` field that Stage 9 can later overwrite, and no
-  // separate per-stage snapshot exists for them. Disclosed honestly in the
-  // review banner rather than presented as an exact historical record.
-  var HYPOTHESIS_SNAPSHOT_NOT_FROZEN = { 4: true, 7: true };
+  // in the state schema; Stages 4, 5 and 7 all read the same shared, mutable
+  // `hypothesisState` field (Stage 5's "Current assessment" diff column via
+  // renderHypothesisDiff included) that a later stage can still overwrite,
+  // and no separate per-stage snapshot exists for any of the three.
+  // Disclosed honestly in the review banner rather than presented as an
+  // exact historical record.
+  var HYPOTHESIS_SNAPSHOT_NOT_FROZEN = { 4: true, 5: true, 7: true };
 
   var DEFAULT_STATE = {
     caseVersion: CASE_VERSION,

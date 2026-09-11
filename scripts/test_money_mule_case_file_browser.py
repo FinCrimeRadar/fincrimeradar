@@ -176,6 +176,14 @@ def click_id(cdp: CDP, element_id: str) -> None:
 
 
 def continue_disabled(cdp: CDP) -> bool:
+    # NOTE: resolves the FIRST '.mmc-action' in DOM order. While a review
+    # panel is open, the "Return to current stage" button (also '.mmc-action')
+    # renders before the reviewed stage's own (disabled, hidden) continue
+    # button, so this and click_continue below would target Return, not the
+    # reviewed stage's continue control. Not a defect today, no test calls
+    # either helper during review mode, but do not add one without first
+    # scoping the selector to '#mmcStageBody > :not(.mmc-review-banner) .mmc-action'
+    # or similar.
     return bool(cdp.evaluate("document.querySelector('#caseFileApp .mmc-action').disabled"))
 
 
@@ -443,6 +451,19 @@ def run() -> None:
         require("Read-only review: Stage 4 of 12" in cdp.evaluate("document.body.innerText"), "review banner should name the stage being reviewed")
         print("OK: a completed earlier stage can be opened for review through the user interface")
 
+        # Honesty disclosure: Stages 4, 5 and 7 all display the hypothesis
+        # board from the same shared, mutable hypothesisState field (Stage
+        # 5's "Current assessment" diff column included), not a frozen
+        # per-stage snapshot the way Stage 2 (hypothesisSnapshots.initial)
+        # and Stage 9 (.final) do, so their review banner must say so
+        # explicitly rather than silently implying an exact historical
+        # record. Stage 6 has no hypothesis board at all and must not carry
+        # this caveat.
+        caveat_text = "may have been updated at a later stage"
+        require(caveat_text in cdp.evaluate("document.body.innerText"), "Stage 4 review must disclose its hypothesis display is not a frozen snapshot")
+        cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"5\"]').click()")
+        require(caveat_text in cdp.evaluate("document.body.innerText"), "Stage 5 review must disclose its 'Current assessment' diff column is not a frozen snapshot")
+
         mid_review_state = cdp.evaluate("CaseFileShell.getState()")
         require(mid_review_state["currentStage"] == 8, f"reviewing Stage 4 must not alter the current investigation stage, still expected 8, got {mid_review_state['currentStage']}")
         require(mid_review_state["highestUnlockedStage"] == pre_review_highest, "reviewing an earlier stage must not change highestUnlockedStage")
@@ -466,7 +487,9 @@ def run() -> None:
         cdp.evaluate("document.querySelector('.mmc-progress-btn[data-stage=\"6\"]').click()")
         stage6_review_text = cdp.evaluate("document.body.innerText")
         require("Attempted Exit" not in stage6_review_text, "reviewing Stage 6 must not expose Stage 7's later timeline reveal (Attempted Exit)")
+        require(caveat_text not in stage6_review_text, "Stage 6 has no hypothesis board and must not carry the not-a-frozen-snapshot caveat")
         print("OK: reviewing an earlier stage does not expose evidence unlocked only at a later stage")
+        print("OK: hypothesis-board honesty disclosure present for Stages 4/5/7 and absent for Stage 6")
 
         # Non-colour-only, keyboard-accessible: the Return control is a real
         # button, reachable and activatable by keyboard.
