@@ -169,6 +169,47 @@ footer[style*="071912"],
 .cookie-accept-btn{padding:8px 18px;background:var(--teal);border:none;color:#fff;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.15s;}
 .cookie-accept-btn:hover{background:var(--teal-h);}
 
+/* ---------- 6d. Shared site-footer partial component ----------
+   partials/footer.html (loaded into every page's #site-footer mount by
+   site-chrome.js) used to be a bare <footer> with no class of its own, so
+   it inherited whatever generic `footer{...}` rule that particular page's
+   own <style> block happened to define, most commonly the plain white
+   "simple footer" (background:var(--white); text-align:center; padding:2rem;
+   font-size:12px), which left the footer's links and legal copy essentially
+   unstyled against the site's real visual system. `.site-footer` is a
+   namespaced class carrying the same rich navy footer language used
+   site-wide (index.html, about.html, screen.html, knowledge.html, tm-guide.html,
+   sanctions-compliance-guide.html), so it wins on specificity over any
+   page-local bare `footer{}` rule regardless of load order, and every
+   property those legacy rules set (background, border-top, padding,
+   text-align, font-size, color) is reset here explicitly rather than
+   relying on that specificity margin alone, per the component isolation
+   standard. Deliberately does not set `display` on the <footer> element
+   itself: a handful of pages carry a leftover
+   `footer{flex-direction:column!important}` mobile rule intended for the
+   inline-styled rich footer elsewhere, and giving `.site-footer` a flex
+   display would suddenly make that inert rule apply here too. */
+.site-footer{
+  background:var(--navy-mid);
+  color:#94a3b8;
+  text-align:left;
+  padding:0;
+  border-top:none;
+  font-size:14px;
+  margin-top:2rem;
+}
+.site-footer-inner{max-width:1060px;margin:0 auto;padding:2.5rem 1.5rem 2rem}
+.site-footer-brand{display:inline-block;font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;margin-bottom:1.25rem}
+.site-footer-brand:hover,.site-footer-brand:focus-visible{color:var(--teal)}
+.site-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;padding-bottom:1.75rem;margin-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.site-footer-links .footer-link{font-size:13.5px}
+.site-footer-bottom{display:flex;flex-direction:column;gap:.35rem}
+/* #94a3b8 (not the established footer's dimmer #334155/#475569 fine print,
+   which measures well under WCAG AA's 4.5:1 against this #071912
+   background) so the legal line stays readable rather than merely quiet. */
+.site-footer-copyright{margin:0;font-size:12px;color:#94a3b8}
+.site-footer-legal{margin:0;font-size:11px;color:#94a3b8;line-height:1.6}
+
 /* ---------- 7. Mobile horizontal overflow fix ----------
    Root cause found on inspection: the outer footer grids already had
    working overrides, either from the page's own original responsive
