@@ -201,7 +201,17 @@ footer[style*="071912"],
 .site-footer-inner{max-width:1060px;margin:0 auto;padding:2.5rem 1.5rem 2rem}
 .site-footer-brand{display:inline-block;font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;margin-bottom:1.25rem}
 .site-footer-brand:hover,.site-footer-brand:focus-visible{color:var(--teal)}
-.site-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;padding-bottom:1.75rem;margin-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+/* .site-footer-links is a bare <nav>, same collision family as .breadcrumb
+   above: most guide pages define their own local nav{position:sticky;top:0;
+   height:72px;background:#fff;...} rule for the real site header, which this
+   element inherits too since it previously left position/top/z-index/height/
+   background/padding/justify-content untouched. .site-footer-links' own class
+   selector already outranks the bare element selector on specificity, so an
+   explicit reset here is enough, no !important needed. Found on
+   money-mule-or-victim-case-file.html (white sticky box floating mid-footer,
+   "Manage cookie preferences" wrapping onto its own line because the
+   inherited justify-content:space-between fought the wrapped flex row). */
+.site-footer-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:.6rem 1.4rem;padding:0 0 1.75rem;margin-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.08);position:static;top:auto;z-index:auto;height:auto;background:transparent}
 .site-footer-links .footer-link{font-size:13.5px}
 .site-footer-bottom{display:flex;flex-direction:column;gap:.35rem}
 /* #94a3b8 (not the established footer's dimmer #334155/#475569 fine print,
