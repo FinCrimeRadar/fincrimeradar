@@ -77,7 +77,7 @@
 .r16-toc li{margin:.3rem 0}
 .r16-toc a{color:#35505c;font-size:13px;text-decoration:none}
 .r16-toc a:hover{text-decoration:underline}
-.r16-section{background:#fff;border:1px solid var(--r16-line);padding:clamp(1.2rem,4vw,2.2rem);margin-bottom:1.35rem;min-width:0}
+.r16-section{background:#fff;border:1px solid var(--r16-line);padding:clamp(1.2rem,4vw,2.2rem);margin-bottom:1.35rem;min-width:0;scroll-margin-top:92px}
 .r16-section h2{font-family:"Playfair Display",Georgia,serif;color:var(--r16-navy);font-size:clamp(1.7rem,4vw,2.45rem);line-height:1.12;margin:0 0 1rem}
 .r16-section h3{color:var(--r16-navy);font-size:1.12rem;margin:1.4rem 0 .45rem}
 .r16-section p{margin:.75rem 0}
@@ -123,6 +123,30 @@
 .r16-comparison h3{margin:.65rem 0 .45rem}
 .r16-comparison ul{margin:.5rem 0 0;padding-left:1.2rem}
 .r16-comparison li{margin:.55rem 0;font-size:14.5px}
+.r16-radar-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;margin:1.3rem 0}
+.r16-radar-card{border:1px solid var(--r16-line);border-left:5px solid var(--r16-green);padding:1rem;min-width:0;background:#fff}
+.r16-radar-card[data-evidence-state="assessment"]{border-left-color:var(--r16-violet);background:var(--r16-violet-soft)}
+.r16-radar-card[data-evidence-state="industry"]{border-left-color:var(--r16-amber);background:var(--r16-amber-soft)}
+.r16-radar-card h3{margin:.55rem 0 .35rem}
+.r16-radar-card p{font-size:14px;margin:.35rem 0}
+.r16-impact{display:grid;grid-template-columns:88px minmax(0,1fr);gap:.25rem .65rem;margin:.8rem 0 0;font-size:13px}
+.r16-impact dt{font-weight:700;color:#075e57}
+.r16-impact dd{margin:0;color:var(--r16-muted)}
+.r16-industry-note{border-left:5px solid var(--r16-amber);background:var(--r16-amber-soft);padding:1.1rem 1.2rem;margin:1.25rem 0}
+.r16-industry-note p:last-child{margin-bottom:0}
+.r16-horizons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1.25rem 0}
+.r16-horizon{border:1px solid var(--r16-line);border-top:5px solid var(--r16-green);padding:1rem;min-width:0;background:#fff}
+.r16-horizon:nth-child(2){border-top-color:var(--r16-blue);background:var(--r16-blue-soft)}
+.r16-horizon:nth-child(3){border-top-color:var(--r16-navy);background:var(--r16-paper)}
+.r16-horizon strong{display:block;font:700 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:#075e57}
+.r16-horizon h3{margin:.45rem 0 .55rem;font-size:1.02rem}
+.r16-horizon ul,.r16-preparation-list,.r16-trigger-list{margin:.45rem 0 0;padding-left:1.2rem}
+.r16-horizon li,.r16-preparation-list li,.r16-trigger-list li{margin:.55rem 0;font-size:14px}
+.r16-preparation{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1.25rem 0}
+.r16-preparation article{border:1px solid var(--r16-line);padding:1rem;min-width:0;background:var(--r16-paper)}
+.r16-preparation h3{margin:0 0 .45rem;font-size:1.02rem}
+.r16-trigger-list{padding-left:1.35rem}
+.r16-trigger-list strong{color:var(--r16-navy)}
 .r16-update{border-left:5px solid var(--r16-green);background:#eef8f5}
 .r16-update dl{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);margin:0}
 .r16-update dt,.r16-update dd{padding:.75rem;border-top:1px solid #cce2de}
@@ -133,7 +157,8 @@
 .r16-foundation-anchor h2{margin-bottom:0}
 .r16-page a:focus-visible,.r16-page button:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
 @media(max-width:900px){.r16-layout{grid-template-columns:minmax(0,1fr)}.r16-toc{position:static;order:-1}.r16-status-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend,.r16-change-grid,.r16-comparison{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}}
+@media(max-width:720px){.r16-horizons{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend,.r16-change-grid,.r16-comparison,.r16-radar-grid,.r16-preparation{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}}
 @media(max-width:360px){.r16-section{padding:1rem}.r16-hero h1{font-size:2.15rem}.r16-meta{gap:.4rem}}
 @media(prefers-reduced-motion:reduce){.r16-page *,.r16-page *:before,.r16-page *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{.r16-page>nav,.r16-page .mobile-nav,.r16-toc,#site-footer{display:none!important}.r16-layout{display:block;max-width:none}.r16-section{break-inside:avoid;border-color:#999}.r16-hero{background:#fff;color:#000;padding:1rem}.r16-hero-sub{color:#222}.r16-author a{color:#000}}
@@ -292,10 +317,128 @@
     <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">FATF's 2026 public consultation on implementation guidance</a>.</p>
   </section>
 
-  <!-- Task 3 owns the practitioner intelligence components. -->
-  <section class="r16-section r16-foundation-anchor" id="implementation-radar" aria-labelledby="implementation-radar-heading"><h2 id="implementation-radar-heading">Implementation Radar</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="decision-horizon" aria-labelledby="decision-horizon-heading"><h2 id="decision-horizon-heading">Decision Horizon</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="assessment-change" aria-labelledby="assessment-change-heading"><h2 id="assessment-change-heading">What Would Change Our Assessment</h2></section>
+  <section class="r16-section" id="implementation-radar" aria-labelledby="implementation-radar-heading">
+    <h2 id="implementation-radar-heading">Implementation Radar</h2>
+    <p class="r16-lede">Six connected control domains determine whether payment transparency survives from customer record to beneficiary decision.</p>
+    <div class="r16-radar-grid">
+      <article class="r16-radar-card">
+        <span class="r16-state">Settled Standard</span>
+        <h3>Payment data</h3>
+        <p>Required originator and beneficiary information must be captured accurately, structured where possible and remain usable as the payment moves.</p>
+        <dl class="r16-impact"><dt>Control impact</dt><dd>Channel validation, field mapping, truncation controls and exception ownership.</dd><dt>First evidence</dt><dd>Field lineage from initiation through every intermediary and output message.</dd></dl>
+      </article>
+      <article class="r16-radar-card">
+        <span class="r16-state">Settled Standard</span>
+        <h3>Identity</h3>
+        <p>Customer names, addresses, account references and available legal person identifiers need to resolve to the correct party and servicing institution.</p>
+        <dl class="r16-impact"><dt>Control impact</dt><dd>Customer master data, aliases, virtual account attribution and entity identifiers.</dd><dt>First evidence</dt><dd>Quality profiles for each field used to populate a qualifying transfer.</dd></dl>
+      </article>
+      <article class="r16-radar-card">
+        <span class="r16-state">Settled Standard</span>
+        <h3>Fraud</h3>
+        <p>Beneficiary alignment is an explicit protection against payments reaching a person other than the one intended by the originator.</p>
+        <dl class="r16-impact"><dt>Control impact</dt><dd>Match logic, customer warnings, risk thresholds, escalation and outcome recording.</dd><dt>First evidence</dt><dd>Current match outcomes and the decisions each outcome can trigger.</dd></dl>
+      </article>
+      <article class="r16-radar-card">
+        <span class="r16-state">Settled Standard</span>
+        <h3>AML monitoring</h3>
+        <p>Ordering, intermediary and beneficiary institutions need enough preserved information to identify missing data and make risk-based decisions.</p>
+        <dl class="r16-impact"><dt>Control impact</dt><dd>Monitoring features, payment repair, rejection logic and investigative context.</dd><dt>First evidence</dt><dd>Samples showing what monitoring and operations actually receive at each stage.</dd></dl>
+      </article>
+      <article class="r16-radar-card" data-evidence-state="assessment">
+        <span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span>
+        <h3>Sanctions</h3>
+        <p>Richer party data can improve screening quality, but Recommendation 16 does not prescribe the screening modality. Jurisdictional sanctions duties remain the controlling requirement.</p>
+        <dl class="r16-impact"><dt>Control impact</dt><dd>List-screening inputs, timing, false-positive handling and jurisdiction mapping.</dd><dt>First evidence</dt><dd>A documented link between each payment flow and its applicable sanctions control.</dd></dl>
+      </article>
+      <article class="r16-radar-card" data-evidence-state="industry">
+        <span class="r16-state" data-evidence-state="industry">Industry Position</span>
+        <h3>Payments infrastructure</h3>
+        <p>Message standards, schemes and market infrastructures decide whether required data can travel intact. Their constraints can turn a policy requirement into a delivery programme.</p>
+        <dl class="r16-impact"><dt>Control impact</dt><dd>ISO 20022 readiness, scheme rules, intermediary preservation and cross-border interoperability.</dd><dt>First evidence</dt><dd>A dependency register covering internal platforms, correspondents, schemes and market infrastructures.</dd></dl>
+      </article>
+    </div>
+    <div class="r16-industry-note" data-evidence-state="industry">
+      <span class="r16-state" data-evidence-state="industry">Industry Position</span>
+      <p><strong>The delivery problem extends beyond financial crime teams.</strong> UK Finance characterises Recommendation 16 as a major cross-border payments transformation programme requiring coordination across jurisdictions, regulators, payment service providers, schemes and infrastructure providers.</p>
+    </div>
+    <p class="r16-source-row">Sources: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a> and <a href="https://www.ukfinance.org.uk/policy-and-guidance/consultation-responses/uk-finances-response-fatfs-public-consultation-draft" target="_blank" rel="noopener">UK Finance response dated 7 September 2026</a>.</p>
+  </section>
+
+  <section class="r16-section" id="decision-horizon" aria-labelledby="decision-horizon-heading">
+    <h2 id="decision-horizon-heading">Decision Horizon</h2>
+    <p class="r16-lede">Preparation should advance in stages. The open guidance questions are a reason to control sequencing, not a reason to postpone discovery.</p>
+    <div class="r16-horizons">
+      <article class="r16-horizon">
+        <strong>Horizon 1</strong>
+        <h3>Now</h3>
+        <ul>
+          <li>Map end-to-end payment chains and accountable owners.</li>
+          <li>Locate where party data is lost, truncated, transformed or inferred.</li>
+          <li>Catalogue virtual account structures and ultimate beneficiary attribution.</li>
+          <li>Document current beneficiary alignment coverage and decision paths.</li>
+          <li>Separate Recommendation 16 readiness from existing sanctions obligations.</li>
+        </ul>
+      </article>
+      <article class="r16-horizon">
+        <strong>Horizon 2</strong>
+        <h3>Guidance finalisation</h3>
+        <ul>
+          <li>Compare final FATF guidance with the June 2026 consultation draft.</li>
+          <li>Reassess wallets, mobile money and mixed fiat and virtual-asset chains.</li>
+          <li>Resolve privacy, address verification and financial-inclusion impacts.</li>
+          <li>Confirm how the chosen alignment model works across each market.</li>
+          <li>Convert changed assumptions into controlled requirements.</li>
+        </ul>
+      </article>
+      <article class="r16-horizon">
+        <strong>Horizon 3</strong>
+        <h3>Before 2030</h3>
+        <ul>
+          <li>Map each jurisdiction's implementation and effective date.</li>
+          <li>Build production data, control and operating-model changes.</li>
+          <li>Align correspondent, scheme and infrastructure dependencies.</li>
+          <li>Test exception paths, customer outcomes and control evidence.</li>
+          <li>Complete governance approval and independent assurance.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="r16-industry-note" data-evidence-state="industry">
+      <span class="r16-state" data-evidence-state="industry">Industry Signal</span>
+      <p><strong>One data dependency has an earlier clock.</strong> Swift says that from 14 November 2026, town and country must be supplied in designated fields at a minimum for relevant CBPR+ parties and agents, and fully unstructured address messages may be rejected or delayed. This is a Swift network requirement that supports future Recommendation 16 readiness. It is not the FATF 2030 deadline.</p>
+    </div>
+    <p class="r16-source-row">Sources: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">FATF 2026 implementation guidance consultation</a> and <a href="https://www.swift.com/standards/iso-20022/removal-unstructured-address" target="_blank" rel="noopener">Swift guidance on removing unstructured addresses</a>.</p>
+  </section>
+
+  <section class="r16-section" id="operational-preparation" aria-labelledby="operational-preparation-heading">
+    <h2 id="operational-preparation-heading">Operational preparation</h2>
+    <p class="r16-lede">The first deliverable is not a technology purchase. It is a reliable view of data, decisions, ownership and external dependencies.</p>
+    <div class="r16-preparation">
+      <article><h3>Build the data baseline</h3><ul class="r16-preparation-list"><li>Record the source, format, validation and destination of each required field.</li><li>Measure missing, repaired and truncated data by route and intermediary.</li><li>Separate data that is verified from data that is merely supplied or inferred.</li></ul></article>
+      <article><h3>Define control ownership</h3><ul class="r16-preparation-list"><li>Name owners for initiation, message construction, monitoring, alignment and exceptions.</li><li>Specify who can execute, suspend, reject or release a payment.</li><li>Retain the signal, decision, rationale and outcome for later assurance.</li></ul></article>
+      <article><h3>Map external dependencies</h3><ul class="r16-preparation-list"><li>Identify correspondent, processor, scheme and market-infrastructure constraints.</li><li>Confirm what each participant receives, preserves and returns.</li><li>Track dependency deadlines separately from FATF and national deadlines.</li></ul></article>
+      <article><h3>Design for controlled change</h3><ul class="r16-preparation-list"><li>Keep policy assumptions traceable to their evidence state.</li><li>Make thresholds and matching tolerances governed configuration.</li><li>Plan focused reassessment when final guidance or national rules change.</li></ul></article>
+    </div>
+    <div class="r16-clarification">
+      <span class="r16-state">Operational example</span>
+      <p><strong>Confirmation of Payee shows what pre-validation can look like, not what every market must copy.</strong> Pay.UK describes it as a UK domestic account-name checking service that returns match outcomes to help reduce fraud and misdirected payments. The revised global standard permits other alignment routes.</p>
+    </div>
+    <p class="r16-source-row">Sources: <a href="https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/faqs/" target="_blank" rel="noopener">Pay.UK Confirmation of Payee guidance</a> and the three alignment approaches in the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">Interpretive Note to Recommendation 16</a>.</p>
+  </section>
+
+  <section class="r16-section" id="assessment-change" aria-labelledby="assessment-change-heading">
+    <h2 id="assessment-change-heading">What Would Change Our Assessment</h2>
+    <p class="r16-lede">Our current assessment is that institutions should begin evidence gathering and dependency mapping now, while keeping unresolved implementation choices reversible.</p>
+    <p>We would revise that assessment if any of the following material triggers occurs:</p>
+    <ul class="r16-trigger-list">
+      <li><strong>Final FATF guidance narrows or expands an implementation option.</strong> This includes material changes to alignment methods, wallets, mobile money, privacy or address treatment.</li>
+      <li><strong>National implementation diverges materially.</strong> Different thresholds, field rules, transition dates or sanctions expectations could require market-specific control paths.</li>
+      <li><strong>A scheme or infrastructure rule removes a practical option.</strong> Technical validation, message formats or participant coverage could constrain the operating model before legislation does.</li>
+      <li><strong>Observed outcomes reveal disproportionate harm.</strong> Persistent false mismatches, exclusion or privacy conflicts would require different tolerances, safeguards or escalation.</li>
+      <li><strong>New evidence changes the sequencing case.</strong> Reliable evidence of low data quality, failed preservation or weak alignment outcomes could make remediation more urgent.</li>
+    </ul>
+    <div class="r16-assessment-note" data-evidence-state="assessment"><span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span><p>None of these triggers justifies waiting to understand the current estate. They determine which design choices should remain provisional and which remediation should move first.</p></div>
+  </section>
 
   <!-- Task 4 owns the learning components and interactions. -->
   <section class="r16-section r16-foundation-anchor" id="worked-decisions" aria-labelledby="worked-decisions-heading"><h2 id="worked-decisions-heading">Worked decisions</h2></section>
@@ -329,6 +472,7 @@
     <li><a href="#settled-versus-draft">Settled versus draft</a></li>
     <li><a href="#implementation-radar">Implementation Radar</a></li>
     <li><a href="#decision-horizon">Decision Horizon</a></li>
+    <li><a href="#operational-preparation">Operational preparation</a></li>
     <li><a href="#assessment-change">What would change</a></li>
     <li><a href="#worked-decisions">Worked decisions</a></li>
     <li><a href="#risk-signals">Risk, Signal, Response</a></li>
