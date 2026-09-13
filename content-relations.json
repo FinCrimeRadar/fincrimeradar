@@ -14,7 +14,8 @@
     "crypto-guide-part2",
     "crypto-guide-part3",
     "crypto-guide-part4",
-    "scam-compound-money-laundering-guide"
+    "scam-compound-money-laundering-guide",
+    "fatf-recommendation-16-intelligence-brief"
   ],
   "scam-compound-money-laundering-guide": [
     "money-mule-financial-crime-networks-handbook",
@@ -117,7 +118,8 @@
   ],
   "app-scam-decision-framework": [
     "fraud-red-flags-guide",
-    "money-mule-financial-crime-networks-handbook"
+    "money-mule-financial-crime-networks-handbook",
+    "fatf-recommendation-16-intelligence-brief"
   ],
   "money-mule-or-victim-case-file": [
     "money-mule-financial-crime-networks-handbook",
@@ -125,5 +127,9 @@
   ],
   "false-positive-playbook": [
     "money-mule-or-victim-case-file"
+  ],
+  "fatf-recommendation-16-intelligence-brief": [
+    "crypto-travel-rule-sunrise-guide",
+    "app-scam-decision-framework"
   ]
 }

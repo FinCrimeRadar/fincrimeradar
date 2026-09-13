@@ -7544,5 +7544,131 @@
   "verifiedOn": "2026-09-11",
   "reviewDue": "2027-09-11",
   "status": "verified"
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.adopted-standard-control-model.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "The current FATF Recommendation 16 and Interpretive Note define responsibilities along the payment instruction chain, require structured originator and beneficiary information, distinguish information requirements by payment type, and introduce beneficiary alignment measures with pre-validation, post-validation or holistic ongoing monitoring routes.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Action Task Force, The FATF Recommendations",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf",
+    "publisher": "Financial Action Task Force",
+    "date": "2026-09-13"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2026-12-15",
+  "status": "verified",
+  "note": "Access date used because FATF identifies the consolidated Recommendations only as updated June 2026. Direct source check completed 2026-09-13. Final independent regulatory review confirmation remains assigned to Experiment 03 Task 7."
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.explanatory-note-policy-scope.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "FATF's explanatory note states that the revised Recommendation 16 responds to fragmented payment chains, changing technologies and fraud risk, and clarifies that Recommendation 16 does not prescribe whether or how transmitted information must be screened against sanctions lists.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Action Task Force, Explanatory note for revised Recommendation 16",
+    "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf",
+    "publisher": "Financial Action Task Force",
+    "date": "2025-06-18"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2026-12-15",
+  "status": "verified",
+  "note": "Direct source check completed 2026-09-13. The guide separately preserves applicable targeted financial sanctions duties and national implementation requirements."
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.first-consultation-timeline.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "FATF opened its first public consultation on proposed Recommendation 16 revisions on 26 February 2024, covering payment models, messaging standards, card exemptions, payment-chain definitions and beneficiary alignment.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Action Task Force, Public Consultation on Recommendation 16 on Payment Transparency",
+    "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-public-consultation-Feb24.html",
+    "publisher": "Financial Action Task Force",
+    "date": "2024-02-26"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2027-09-13",
+  "status": "verified"
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.second-consultation-timeline.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "FATF opened its second public consultation on Recommendation 16 on 24 February 2025 and accepted responses until 18 April 2025 before finalising the revised standard.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Action Task Force, Second Public Consultation on Recommendation 16 on Payment Transparency",
+    "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-public-consultation-February-2025.html",
+    "publisher": "Financial Action Task Force",
+    "date": "2025-02-24"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2027-09-13",
+  "status": "verified"
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.draft-guidance-and-2030-horizon.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "FATF published draft Recommendation 16 implementation guidance for consultation on 24 June 2026, closed the consultation on 21 August 2026, and states that countries are expected to be ready to implement the revised requirements by the end of 2030.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Financial Action Task Force, Public consultation on guidance to increase payment transparency",
+    "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html",
+    "publisher": "Financial Action Task Force",
+    "date": "2026-06-24"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2026-12-15",
+  "status": "verified",
+  "note": "The guide labels this material Draft Guidance and does not present the consultation as a reopened or replacement standard."
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.uk-finance-transformation-position.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "UK Finance characterises Recommendation 16 implementation as a major cross-border payments transformation programme requiring coordinated action across jurisdictions, regulators, payment service providers, payment systems, scheme operators and infrastructure providers.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "UK Finance, Response to FATF's Public Consultation on Draft Payment Transparency Guidance",
+    "url": "https://www.ukfinance.org.uk/policy-and-guidance/consultation-responses/uk-finances-response-fatfs-public-consultation-draft",
+    "publisher": "UK Finance",
+    "date": "2026-09-07"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2027-03-13",
+  "status": "verified",
+  "note": "The guide labels this as Industry Position, not FATF policy."
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.swift-structured-address-deadline.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "Swift states that from 14 November 2026 town and country must be supplied in designated fields at a minimum for relevant CBPR+ parties and agents, and that messages using fully unstructured addresses will be rejected at network level.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Swift, ISO 20022: The removal of unstructured address",
+    "url": "https://www.swift.com/standards/iso-20022/iso-20022-faqs/iso-20022-removal-unstructured-address",
+    "publisher": "Swift",
+    "date": "2026-09-13"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2026-11-15",
+  "status": "verified",
+  "note": "Access date used because the live guidance page does not expose a publication date. The guide labels this as a Swift network requirement, not the FATF 2030 deadline."
+},
+{
+  "claimId": "fatf-recommendation-16-intelligence-brief.payuk-confirmation-of-payee-example.001",
+  "guide": "fatf-recommendation-16-intelligence-brief.html",
+  "claimText": "Pay.UK describes Confirmation of Payee as a UK domestic account-name checking service designed to reduce misdirected payments and provide greater assurance that payments are routed to the intended account holder.",
+  "claimType": "regulatory",
+  "source": {
+    "title": "Pay.UK, Confirmation of Payee FAQs",
+    "url": "https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/faqs/",
+    "publisher": "Pay.UK",
+    "date": "2026-09-13"
+  },
+  "verifiedOn": "2026-09-13",
+  "reviewDue": "2027-03-13",
+  "status": "verified",
+  "note": "Access date used because the live FAQ page does not expose a publication date. The guide presents Confirmation of Payee as an operating example, not a mandated global model."
 }
 ]

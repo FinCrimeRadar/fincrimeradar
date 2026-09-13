@@ -9,10 +9,10 @@ FinCrimeRadar separates two concepts: a **public format** and a **rendering trea
 | Guide | Default Knowledge Hub | Standing |
 | Framework | Default Knowledge Hub with decision or control compositions | Experimental pending Experiment 01 evaluation; a second Framework implementation remains open |
 | Case File | Default Knowledge Hub with investigative compositions | Experimental pending Experiment 02 evaluation |
-| Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Proposed |
+| Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Experimental pending Experiment 03 evaluation |
 | Evidence Essay | Evidence Essay | Standing opt-in treatment |
 
-This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment. Framework remains experimental pending evaluation of Experiment 01. A second Framework implementation would strengthen that evaluation, but Experiment 02 was built as a Case File instead, so Framework's own second-instance evaluation remains open. Case File is experimental pending evaluation of Experiment 02, its first publication. The table records the approved experimental architecture, not permanent adoption of every format or contract. Every publication still follows the **Universal Evidence Core** and **Guide Quality Layer**. Existing publications are not retrofitted merely to adopt these labels.
+This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment. Framework remains experimental pending evaluation of Experiment 01. A second Framework implementation would strengthen that evaluation, but Experiment 02 was built as a Case File instead, so Framework's own second-instance evaluation remains open. Case File is experimental pending evaluation of Experiment 02, its first publication. Intelligence Brief is experimental pending evaluation of Experiment 03, its first publication. The table records the approved experimental architecture, not permanent adoption of every format or contract. Every publication still follows the **Universal Evidence Core** and **Guide Quality Layer**. Existing publications are not retrofitted merely to adopt these labels.
 
 ---
 

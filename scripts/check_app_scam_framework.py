@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 GUIDE = ROOT / "app-scam-decision-framework.html"
 SCRIPT = ROOT / "js" / "app-scam-decision-framework.js"
-METHODOLOGY_UPDATE_DATE = "8 September 2026"
+METHODOLOGY_UPDATE_DATE = "13 September 2026"
 
 
 class KnowledgeCountParser(HTMLParser):
@@ -125,7 +125,7 @@ def main() -> None:
     require(methodology.count(expected_update) == 1, "methodology Experiment 01 update date is missing or duplicated")
     require("Last updated: 12 July 2026" not in methodology, "stale methodology update date remains")
     metadata_dates = re.findall(r'"dateModified"\s*:\s*"([^"]+)"', methodology)
-    require(not metadata_dates or metadata_dates == ["2026-09-08"], "methodology dateModified metadata is out of sync")
+    require(not metadata_dates or metadata_dates == ["2026-09-13"], "methodology dateModified metadata is out of sync")
     require(re.search(r'<span class="fcr-format">\s*Framework\s*</span>', html) is not None,
             "public Framework label is missing or exposes internal experiment numbering")
     for public_name, public_html in ((GUIDE.name, html), ("knowledge.html", knowledge), ("methodology.html", methodology)):

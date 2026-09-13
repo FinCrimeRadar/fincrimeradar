@@ -192,12 +192,17 @@
 .r16-update dt:first-of-type,.r16-update dd:first-of-type{border-top:0}
 .r16-update dt{font-weight:700;color:#075e57}
 .r16-update dd{margin:0}
-.r16-foundation-anchor{min-height:5.5rem}
-.r16-foundation-anchor h2{margin-bottom:0}
+.r16-sources ol{padding-left:1.35rem;margin:1rem 0}
+.r16-sources li{margin:.75rem 0;font-size:14px;overflow-wrap:anywhere}
+.r16-sources a{color:var(--r16-green)}
+.r16-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1rem}
+.r16-related a{display:block;border:1px solid var(--r16-line);border-top:4px solid var(--r16-green);padding:1rem;text-decoration:none;background:#fff}
+.r16-related strong{display:block;color:var(--r16-navy)}
+.r16-related span{display:block;color:var(--r16-muted);font-size:14px;margin-top:.35rem}
 .r16-page a:focus-visible,.r16-page button:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
 @media(max-width:900px){.r16-layout{grid-template-columns:minmax(0,1fr)}.r16-toc{position:static;order:-1}.r16-status-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.r16-horizons,.r16-saa{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend,.r16-change-grid,.r16-comparison,.r16-radar-grid,.r16-preparation,.r16-facts,.r16-pattern-grid{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}.r16-pattern-lines div{grid-template-columns:66px minmax(0,1fr)}}
+@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend,.r16-change-grid,.r16-comparison,.r16-radar-grid,.r16-preparation,.r16-facts,.r16-pattern-grid,.r16-related{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}.r16-pattern-lines div{grid-template-columns:66px minmax(0,1fr)}}
 @media(max-width:360px){.r16-section{padding:1rem}.r16-hero h1{font-size:2.15rem}.r16-meta{gap:.4rem}}
 @media(prefers-reduced-motion:reduce){.r16-page *,.r16-page *:before,.r16-page *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{.r16-page>nav,.r16-page .mobile-nav,.r16-toc,.r16-decision-form,.r16-save-row,#site-footer{display:none!important}.r16-layout{display:block;max-width:none}.r16-section{break-inside:avoid;border-color:#999}.r16-hero{background:#fff;color:#000;padding:1rem}.r16-hero-sub{color:#222}.r16-author a{color:#000}}
@@ -269,7 +274,7 @@
     </div>
     <p>The adopted text settles the direction of travel. It defines the payment chain, adds richer and more structured information expectations, introduces beneficiary alignment measures and makes fraud an explicit part of the objective. The implementation route is not fully settled. FATF's 2026 consultation asks how the standard should operate across newer payment methods, privacy constraints, financial inclusion and different alignment models.</p>
     <p>The practical dividing line is therefore simple. Institutions can begin understanding their data and control dependencies now, but they should not present draft implementation guidance as though it were already part of the adopted standard.</p>
-    <p class="r16-source-row">Primary basis: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html" target="_blank" rel="noopener">FATF Recommendations</a>, <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note for revised Recommendation 16</a>, and <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">2026 implementation guidance consultation</a>.</p>
+    <p class="r16-source-row">Primary basis: <a href="#source-1">[1]</a>, <a href="#source-2">[2]</a> and <a href="#source-5">[5]</a>.</p>
   </section>
 
   <section class="r16-section" id="intelligence-timeline" aria-labelledby="intelligence-timeline-heading">
@@ -283,7 +288,7 @@
       <li><time datetime="2026-08-21">21 August 2026</time><h3>Guidance consultation closes</h3><p>The consultation is closed. FATF's explanatory material indicated that final guidance was expected later in 2026.</p></li>
       <li><time datetime="2030-12-31">By the end of 2030</time><h3>Global readiness expectation</h3><p>FATF expects countries to be ready to implement the revised requirements by the end of 2030.</p></li>
     </ol>
-    <p class="r16-source-row">Timeline checked against FATF's <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-public-consultation-Feb24.html" target="_blank" rel="noopener">first consultation</a>, <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">adoption explanatory note</a>, and <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">2026 guidance consultation</a>.</p>
+    <p class="r16-source-row">Timeline sources: <a href="#source-2">[2]</a>, <a href="#source-3">[3]</a>, <a href="#source-4">[4]</a> and <a href="#source-5">[5]</a>.</p>
   </section>
 
   <section class="r16-section" id="what-changed" aria-labelledby="what-changed-heading">
@@ -303,7 +308,7 @@
       <p class="r16-metaphor">A populated field is treated as trustworthy without testing how it was produced.</p>
       <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Present data may be inaccurate, unverified or mapped to the wrong party.</dd></div><div><dt>Signal</dt><dd>Completeness passes while repair rates, truncation or placeholder values remain high.</dd></div><div><dt>Response</dt><dd>Measure accuracy, provenance and transformation, not field presence alone.</dd></div></dl>
     </aside>
-    <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 1 to 31, with policy context from the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note</a>.</p>
+    <p class="r16-source-row">Sources: FATF Recommendations, Interpretive Note to Recommendation 16, paragraphs 1 to 31 <a href="#source-1">[1]</a>, with policy context from the explanatory note <a href="#source-2">[2]</a>.</p>
   </section>
 
   <section class="r16-section" id="payment-chain-implications" aria-labelledby="payment-chain-implications-heading">
@@ -320,7 +325,7 @@
       <p class="r16-metaphor">The payment arrives, but part of its identity leaves the train en route.</p>
       <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Intermediary transformation removes information needed by the beneficiary institution.</dd></div><div><dt>Signal</dt><dd>Output messages contain less usable party data than the corresponding inputs.</dd></div><div><dt>Response</dt><dd>Trace required fields across each hop and assign exception ownership.</dd></div></dl>
     </aside>
-    <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 6 and 20 to 31.</p>
+    <p class="r16-source-row">Source: FATF Recommendations, Interpretive Note to Recommendation 16, paragraphs 6 and 20 to 31 <a href="#source-1">[1]</a>.</p>
   </section>
 
   <section class="r16-section" id="sanctions-clarification" aria-labelledby="sanctions-clarification-heading">
@@ -334,9 +339,9 @@
     <aside class="r16-pattern r16-pattern-inline" data-pattern-id="screening-vacuum" aria-label="Risk pattern: The Screening Vacuum">
       <div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128737;</span><h3>The Screening Vacuum</h3></div>
       <p class="r16-metaphor">A clarification about one rule is mistaken for empty space everywhere else.</p>
-      <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A team treats Recommendation 16's silence on screening modality as release from sanctions duties.</dd></div><div><dt>Signal</dt><dd>The rationale cites footnote 49 without mapping the applicable jurisdictional obligations.</dd></div><div><dt>Response</dt><dd>Map every payment flow to its applicable sanctions rules and control timing.</dd></div></dl>
+      <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A team treats Recommendation 16's silence on screening modality as release from sanctions duties.</dd></div><div><dt>Signal</dt><dd>The rationale cites footnote 51 without mapping the applicable jurisdictional obligations.</dd></div><div><dt>Response</dt><dd>Map every payment flow to its applicable sanctions rules and control timing.</dd></div></dl>
     </aside>
-    <p class="r16-source-row">Source: footnote 49 of the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">Interpretive Note to Recommendation 16</a> and paragraphs 11 to 12 of FATF's <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note</a>.</p>
+    <p class="r16-source-row">Sources: footnote 51 of the Interpretive Note to Recommendation 16 <a href="#source-1">[1]</a> and paragraphs 11 to 12 of FATF's explanatory note <a href="#source-2">[2]</a>.</p>
   </section>
 
   <section class="r16-section" id="settled-versus-draft" aria-labelledby="settled-versus-draft-heading">
@@ -368,7 +373,7 @@
       </div>
     </div>
     <p><strong>Control discipline:</strong> do not wait for final guidance to discover where payment data breaks, but do not hard-code a draft interpretation as though FATF has already settled it.</p>
-    <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">FATF's 2026 public consultation on implementation guidance</a>.</p>
+    <p class="r16-source-row">Source: FATF's 2026 public consultation on implementation guidance <a href="#source-5">[5]</a>.</p>
   </section>
 
   <section class="r16-section" id="implementation-radar" aria-labelledby="implementation-radar-heading">
@@ -421,7 +426,7 @@
       <span class="r16-state" data-evidence-state="industry">Industry Position</span>
       <p><strong>The delivery problem extends beyond financial crime teams.</strong> UK Finance characterises Recommendation 16 as a major cross-border payments transformation programme requiring coordination across jurisdictions, regulators, payment service providers, schemes and infrastructure providers.</p>
     </div>
-    <p class="r16-source-row">Sources: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a> and <a href="https://www.ukfinance.org.uk/policy-and-guidance/consultation-responses/uk-finances-response-fatfs-public-consultation-draft" target="_blank" rel="noopener">UK Finance response dated 7 September 2026</a>.</p>
+    <p class="r16-source-row">Sources: FATF Recommendations, Interpretive Note to Recommendation 16 <a href="#source-1">[1]</a> and UK Finance's response dated 7 September 2026 <a href="#source-6">[6]</a>.</p>
   </section>
 
   <section class="r16-section" id="decision-horizon" aria-labelledby="decision-horizon-heading">
@@ -471,7 +476,7 @@
       <p class="r16-metaphor">A distant global date hides the infrastructure cutovers arriving first.</p>
       <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A 2030 programme ignores earlier message, scheme or market deadlines.</dd></div><div><dt>Signal</dt><dd>The roadmap says only "before 2030" and contains no dependency milestones.</dd></div><div><dt>Response</dt><dd>Maintain separate FATF, national, scheme and infrastructure timelines.</dd></div></dl>
     </aside>
-    <p class="r16-source-row">Sources: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">FATF 2026 implementation guidance consultation</a> and <a href="https://www.swift.com/standards/iso-20022/removal-unstructured-address" target="_blank" rel="noopener">Swift guidance on removing unstructured addresses</a>.</p>
+    <p class="r16-source-row">Sources: FATF's 2026 implementation guidance consultation <a href="#source-5">[5]</a> and Swift's guidance on removing unstructured addresses <a href="#source-7">[7]</a>.</p>
   </section>
 
   <section class="r16-section" id="operational-preparation" aria-labelledby="operational-preparation-heading">
@@ -487,7 +492,7 @@
       <span class="r16-state">Operational example</span>
       <p><strong>Confirmation of Payee shows what pre-validation can look like, not what every market must copy.</strong> Pay.UK describes it as a UK domestic account-name checking service that returns match outcomes to help reduce fraud and misdirected payments. The revised global standard permits other alignment routes.</p>
     </div>
-    <p class="r16-source-row">Sources: <a href="https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/faqs/" target="_blank" rel="noopener">Pay.UK Confirmation of Payee guidance</a> and the three alignment approaches in the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">Interpretive Note to Recommendation 16</a>.</p>
+    <p class="r16-source-row">Sources: Pay.UK Confirmation of Payee guidance <a href="#source-8">[8]</a> and the three alignment approaches in the Interpretive Note to Recommendation 16 <a href="#source-1">[1]</a>.</p>
   </section>
 
   <section class="r16-section" id="assessment-change" aria-labelledby="assessment-change-heading">
@@ -555,7 +560,7 @@
         </div>
       </details>
     </article>
-    <p class="r16-source-row">Scenario source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 16, 17, 30 and 31, including footnote 60.</p>
+    <p class="r16-source-row">Scenario source: FATF Recommendations, Interpretive Note to Recommendation 16, paragraphs 16, 17, 30 and 31, including footnote 62 <a href="#source-1">[1]</a>.</p>
   </section>
 
   <section class="r16-section" id="risk-signals" aria-labelledby="risk-signals-heading">
@@ -564,7 +569,7 @@
     <div class="r16-pattern-grid" id="r16ClosingPatterns">
       <article class="r16-pattern" data-pattern-id="filled-box"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#129513;</span><h3>The Filled Box</h3></div><p class="r16-metaphor">A populated field is treated as trustworthy without testing how it was produced.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Present data may be inaccurate, unverified or mapped to the wrong party.</dd></div><div><dt>Signal</dt><dd>Completeness passes while repair rates, truncation or placeholder values remain high.</dd></div><div><dt>Response</dt><dd>Measure accuracy, provenance and transformation, not field presence alone.</dd></div></dl></article>
       <article class="r16-pattern" data-pattern-id="vanishing-passenger"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128279;</span><h3>The Vanishing Passenger</h3></div><p class="r16-metaphor">The payment arrives, but part of its identity leaves the train en route.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Intermediary transformation removes information needed by the beneficiary institution.</dd></div><div><dt>Signal</dt><dd>Output messages contain less usable party data than the corresponding inputs.</dd></div><div><dt>Response</dt><dd>Trace required fields across each hop and assign exception ownership.</dd></div></dl></article>
-      <article class="r16-pattern" data-pattern-id="screening-vacuum"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128737;</span><h3>The Screening Vacuum</h3></div><p class="r16-metaphor">A clarification about one rule is mistaken for empty space everywhere else.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A team treats Recommendation 16's silence on screening modality as release from sanctions duties.</dd></div><div><dt>Signal</dt><dd>The rationale cites footnote 49 without mapping the applicable jurisdictional obligations.</dd></div><div><dt>Response</dt><dd>Map every payment flow to its applicable sanctions rules and control timing.</dd></div></dl></article>
+      <article class="r16-pattern" data-pattern-id="screening-vacuum"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128737;</span><h3>The Screening Vacuum</h3></div><p class="r16-metaphor">A clarification about one rule is mistaken for empty space everywhere else.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A team treats Recommendation 16's silence on screening modality as release from sanctions duties.</dd></div><div><dt>Signal</dt><dd>The rationale cites footnote 51 without mapping the applicable jurisdictional obligations.</dd></div><div><dt>Response</dt><dd>Map every payment flow to its applicable sanctions rules and control timing.</dd></div></dl></article>
       <article class="r16-pattern" data-pattern-id="exact-match-trap"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#127919;</span><h3>The Exact Match Trap</h3></div><p class="r16-metaphor">A contextual identity problem is forced through a binary gate.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Rigid matching creates avoidable rejects or escalations from harmless variation.</dd></div><div><dt>Signal</dt><dd>Spelling, transliteration, aliases and account context all trigger the same hard outcome.</dd></div><div><dt>Response</dt><dd>Use a permitted alignment route with governed tolerances and risk-based follow-up.</dd></div></dl></article>
       <article class="r16-pattern" data-pattern-id="one-clock-fallacy"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#9201;</span><h3>The One Clock Fallacy</h3></div><p class="r16-metaphor">A distant global date hides the infrastructure cutovers arriving first.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A 2030 programme ignores earlier message, scheme or market deadlines.</dd></div><div><dt>Signal</dt><dd>The roadmap says only "before 2030" and contains no dependency milestones.</dd></div><div><dt>Response</dt><dd>Maintain separate FATF, national, scheme and infrastructure timelines.</dd></div></dl></article>
     </div>
@@ -587,11 +592,11 @@
 
   <section class="r16-section r16-faq" id="faq" aria-labelledby="faq-heading">
     <h2 id="faq-heading">FAQ</h2>
-    <details><summary>Does the end of 2030 expectation mean institutions can wait?</summary><p>No. It is FATF's global readiness expectation, not a universal national effective date. Data mapping and dependency discovery can begin without fixing unresolved guidance choices, while schemes and infrastructures may have earlier deadlines.</p></details>
-    <details><summary>Does beneficiary alignment require exact name matching?</summary><p>No. The revised Interpretive Note provides three alignment approaches and makes the required degree of alignment dependent on risk and context. Institutions still need governed matching logic and documented follow-up.</p></details>
-    <details><summary>Does Recommendation 16 require real-time sanctions screening?</summary><p>No. Recommendation 16 does not prescribe whether or how transmitted information must be screened. Applicable targeted financial sanctions requirements and national rules remain separate and may still determine screening timing.</p></details>
-    <details><summary>Is Confirmation of Payee the required global model?</summary><p>No. It is a useful UK domestic example of pre-validation. FATF also permits transaction-level post-validation and holistic ongoing monitoring when their conditions are met.</p></details>
-    <details><summary>Does the revised standard prohibit virtual account numbers?</summary><p>No. The transparency concern is whether the payment identifies the relevant servicing institution and jurisdiction and whether the account structure obscures the party or destination that controls should assess.</p></details>
+    <details><summary>Does the end of 2030 expectation mean institutions can wait?</summary><p>No. It is FATF's global readiness expectation, not a universal national effective date. Data mapping and dependency discovery can begin without fixing unresolved guidance choices, while schemes and infrastructures may have earlier deadlines. <a href="#source-5">[5]</a></p></details>
+    <details><summary>Does beneficiary alignment require exact name matching?</summary><p>No. The revised Interpretive Note provides three alignment approaches and makes the required degree of alignment dependent on risk and context. Institutions still need governed matching logic and documented follow-up. <a href="#source-1">[1]</a></p></details>
+    <details><summary>Does Recommendation 16 require real-time sanctions screening?</summary><p>No. Recommendation 16 does not prescribe whether or how transmitted information must be screened. Applicable targeted financial sanctions requirements and national rules remain separate and may still determine screening timing. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p></details>
+    <details><summary>Is Confirmation of Payee the required global model?</summary><p>No. It is a useful UK domestic example of pre-validation. FATF also permits transaction-level post-validation and holistic ongoing monitoring when their conditions are met. <a href="#source-1">[1]</a> <a href="#source-8">[8]</a></p></details>
+    <details><summary>Does the revised standard prohibit virtual account numbers?</summary><p>No. The transparency concern is whether the payment identifies the relevant servicing institution and jurisdiction and whether the account structure obscures the party or destination that controls should assess. <a href="#source-1">[1]</a></p></details>
   </section>
 
   <section class="r16-section r16-update" id="update-trigger" aria-labelledby="update-trigger-heading">
@@ -603,9 +608,30 @@
     </dl>
   </section>
 
-  <!-- Task 5 owns evidence and site discovery integration. -->
-  <section class="r16-section r16-foundation-anchor" id="sources" aria-labelledby="sources-heading"><h2 id="sources-heading">Sources and methodology</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="related-intelligence" aria-labelledby="related-intelligence-heading"><h2 id="related-intelligence-heading">Related intelligence</h2></section>
+  <section class="r16-section r16-sources" id="sources" aria-labelledby="sources-heading">
+    <h2 id="sources-heading">Sources and methodology</h2>
+    <p><strong>Scope:</strong> This Intelligence Brief analyses the global FATF standard and implementation signals available on 13 September 2026. National transposition, scheme rules and institution-specific obligations must be assessed separately. This is practitioner decision support, not legal advice.</p>
+    <p><strong>Method:</strong> The adopted Recommendation 16 text and FATF explanatory material were treated as the primary authority. Consultation material remains draft guidance. UK Finance is labelled as an industry position, while Swift and Pay.UK are used as operating examples rather than statements of FATF policy.</p>
+    <p><strong>Evidence separation:</strong> Settled Standard identifies adopted FATF text. Draft Guidance identifies unresolved implementation material. Industry Position records attributed stakeholder views. FinCrimeRadar Assessment is analysis and operational judgement, not a claim that FATF mandates the recommended design.</p>
+    <ol>
+      <li id="source-1"><a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf" target="_blank" rel="noopener">Financial Action Task Force, The FATF Recommendations</a>, Recommendation 16 and its Interpretive Note, updated June 2026.</li>
+      <li id="source-2"><a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">Financial Action Task Force, Explanatory note for revised Recommendation 16</a>, June 2025.</li>
+      <li id="source-3"><a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-public-consultation-Feb24.html" target="_blank" rel="noopener">Financial Action Task Force, Public Consultation on Recommendation 16 on Payment Transparency</a>, 26 February 2024.</li>
+      <li id="source-4"><a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-public-consultation-February-2025.html" target="_blank" rel="noopener">Financial Action Task Force, Second Public Consultation on Recommendation 16 on Payment Transparency</a>, 24 February 2025.</li>
+      <li id="source-5"><a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">Financial Action Task Force, Public consultation on guidance to increase payment transparency</a>, 24 June 2026, closed 21 August 2026.</li>
+      <li id="source-6"><a href="https://www.ukfinance.org.uk/policy-and-guidance/consultation-responses/uk-finances-response-fatfs-public-consultation-draft" target="_blank" rel="noopener">UK Finance, Response to FATF's Public Consultation on Draft Payment Transparency Guidance</a>, 7 September 2026.</li>
+      <li id="source-7"><a href="https://www.swift.com/standards/iso-20022/iso-20022-faqs/iso-20022-removal-unstructured-address" target="_blank" rel="noopener">Swift, ISO 20022: The removal of unstructured address</a>, accessed 13 September 2026.</li>
+      <li id="source-8"><a href="https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/faqs/" target="_blank" rel="noopener">Pay.UK, Confirmation of Payee FAQs</a>, accessed 13 September 2026.</li>
+    </ol>
+    <p><strong>Last reviewed:</strong> 13 September 2026. Recheck when FATF publishes final Recommendation 16 implementation guidance and after Swift's November 2026 address change takes effect.</p>
+  </section>
+  <section class="r16-section" id="related-intelligence" aria-labelledby="related-intelligence-heading">
+    <h2 id="related-intelligence-heading">Related intelligence</h2>
+    <div class="r16-related">
+      <a href="/crypto-travel-rule-sunrise-guide.html"><strong>The Crypto Travel Rule Sunrise Problem</strong><span>Apply payment transparency reasoning to virtual asset transfers where counterparties operate under different implementation timetables.</span></a>
+      <a href="/app-scam-decision-framework.html"><strong>APP Scam Decision Framework</strong><span>Work the fraud judgement that follows when payee alignment, warning quality and customer context point in different directions.</span></a>
+    </div>
+  </section>
 </main>
 
 <aside class="r16-toc" aria-label="On this page">

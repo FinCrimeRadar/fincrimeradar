@@ -353,4 +353,11 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Intelligence Brief experiments -->
+  <url>
+    <loc>https://fincrimeradar.org/fatf-recommendation-16-intelligence-brief.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
