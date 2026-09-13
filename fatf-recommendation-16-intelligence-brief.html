@@ -147,6 +147,45 @@
 .r16-preparation h3{margin:0 0 .45rem;font-size:1.02rem}
 .r16-trigger-list{padding-left:1.35rem}
 .r16-trigger-list strong{color:var(--r16-navy)}
+.r16-scenario{border:1px solid #b9d6d1;background:#fbfefd;padding:1.2rem;margin:1.25rem 0}
+.r16-scenario-tag{font:700 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.06em;color:#075e57}
+.r16-scenario h3{margin:.45rem 0 .65rem}
+.r16-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin:.8rem 0 1rem;padding:0;list-style:none}
+.r16-facts li{border-left:3px solid var(--r16-green);background:#eef8f5;padding:.65rem;font-size:14px}
+.r16-decision-form fieldset,.r16-quiz fieldset{border:0;padding:0;margin:1rem 0;min-width:0}
+.r16-decision-form legend,.r16-quiz legend{font-weight:700;margin-bottom:.5rem;max-width:100%}
+.r16-option{display:grid;grid-template-columns:22px minmax(0,1fr);gap:.6rem;align-items:start;padding:.65rem;margin:.35rem 0;border:1px solid var(--r16-line);background:#fff;cursor:pointer}
+.r16-option:hover{background:#f2f8f7}
+.r16-option[data-selected="true"]{border-color:var(--r16-green);background:#edf8f6}
+.r16-option input{margin-top:.25rem;width:18px;height:18px;accent-color:var(--r16-green)}
+.r16-action{border:0;border-radius:5px;background:var(--r16-green);color:#fff;font-weight:700;padding:.75rem 1rem;min-height:44px;cursor:pointer}
+.r16-action:hover{background:#0b5f59}
+.r16-feedback{min-height:1.6rem;margin:.75rem 0 0;font-weight:700;color:#075e57}
+.r16-feedback[data-state="caution"]{color:#8a4b08}
+.r16-feedback[data-state="weak"]{color:#9f231c}
+.r16-reasoning{border-top:1px solid var(--r16-line);margin-top:1rem;padding-top:.75rem}
+.r16-reasoning summary{font-weight:700;cursor:pointer;min-height:44px;padding:.45rem 0;color:var(--r16-navy)}
+.r16-saa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:.75rem 0 0}
+.r16-saa>div{border:1px solid var(--r16-line);background:#fff;padding:.85rem;min-width:0}
+.r16-saa strong{display:block;color:#075e57;margin-bottom:.3rem}
+.r16-saa p{font-size:14px;margin:.25rem 0}
+.r16-pattern-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1.15rem 0}
+.r16-pattern{border:1px solid var(--r16-line);border-top:4px solid var(--r16-green);padding:1rem;background:#fff;min-width:0}
+.r16-pattern-inline{margin:1.25rem 0;background:var(--r16-paper)}
+.r16-pattern-head{display:flex;align-items:center;gap:.65rem}
+.r16-pattern-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#dff4ef;font-size:20px;flex:0 0 auto}
+.r16-pattern h3{margin:0}
+.r16-metaphor{font-size:14px;color:#48616b}
+.r16-pattern-lines{margin:.75rem 0 0}
+.r16-pattern-lines div{display:grid;grid-template-columns:74px minmax(0,1fr);gap:.45rem;border-top:1px solid #e8eeee;padding:.45rem 0;font-size:13px}
+.r16-pattern-lines dt{font-weight:700;color:#075e57}
+.r16-pattern-lines dd{margin:0}
+.r16-quiz fieldset{border-top:1px solid var(--r16-line);padding-top:1rem}
+.r16-save-row{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-top:1rem}
+.r16-save-status{font-size:13px;color:var(--r16-muted)}
+.r16-faq details{border:1px solid var(--r16-line);background:#fff;margin:.55rem 0;padding:.8rem 1rem}
+.r16-faq summary{font-weight:700;cursor:pointer;min-height:44px;padding:.35rem 0;color:var(--r16-navy)}
+.r16-faq details[open] summary{margin-bottom:.55rem}
 .r16-update{border-left:5px solid var(--r16-green);background:#eef8f5}
 .r16-update dl{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);margin:0}
 .r16-update dt,.r16-update dd{padding:.75rem;border-top:1px solid #cce2de}
@@ -157,11 +196,11 @@
 .r16-foundation-anchor h2{margin-bottom:0}
 .r16-page a:focus-visible,.r16-page button:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
 @media(max-width:900px){.r16-layout{grid-template-columns:minmax(0,1fr)}.r16-toc{position:static;order:-1}.r16-status-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:720px){.r16-horizons{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend,.r16-change-grid,.r16-comparison,.r16-radar-grid,.r16-preparation{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}}
+@media(max-width:720px){.r16-horizons,.r16-saa{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend,.r16-change-grid,.r16-comparison,.r16-radar-grid,.r16-preparation,.r16-facts,.r16-pattern-grid{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}.r16-pattern-lines div{grid-template-columns:66px minmax(0,1fr)}}
 @media(max-width:360px){.r16-section{padding:1rem}.r16-hero h1{font-size:2.15rem}.r16-meta{gap:.4rem}}
 @media(prefers-reduced-motion:reduce){.r16-page *,.r16-page *:before,.r16-page *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-@media print{.r16-page>nav,.r16-page .mobile-nav,.r16-toc,#site-footer{display:none!important}.r16-layout{display:block;max-width:none}.r16-section{break-inside:avoid;border-color:#999}.r16-hero{background:#fff;color:#000;padding:1rem}.r16-hero-sub{color:#222}.r16-author a{color:#000}}
+@media print{.r16-page>nav,.r16-page .mobile-nav,.r16-toc,.r16-decision-form,.r16-save-row,#site-footer{display:none!important}.r16-layout{display:block;max-width:none}.r16-section{break-inside:avoid;border-color:#999}.r16-hero{background:#fff;color:#000;padding:1rem}.r16-hero-sub{color:#222}.r16-author a{color:#000}}
 </style>
 <link rel="stylesheet" href="/brand.css">
 </head>
@@ -259,6 +298,11 @@
       <article class="r16-change-item"><span class="r16-state">Settled Standard</span><h3>Cards and cash are separated more carefully</h3><p>Qualifying card purchases retain differentiated treatment, while other card-funded transfers follow the applicable domestic or cross-border rules. Cross-border cash withdrawals gain a targeted cardholder-name retrieval requirement.</p></article>
     </div>
     <p>The revised text also addresses a less visible source of opacity. Payment messages should identify the servicing institutions and their countries, and account numbering should not disguise where the servicing institution resides. This does not prohibit legitimate virtual account numbers. It requires the payment data around them to preserve location transparency.</p>
+    <aside class="r16-pattern r16-pattern-inline" data-pattern-id="filled-box" aria-label="Risk pattern: The Filled Box">
+      <div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#129513;</span><h3>The Filled Box</h3></div>
+      <p class="r16-metaphor">A populated field is treated as trustworthy without testing how it was produced.</p>
+      <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Present data may be inaccurate, unverified or mapped to the wrong party.</dd></div><div><dt>Signal</dt><dd>Completeness passes while repair rates, truncation or placeholder values remain high.</dd></div><div><dt>Response</dt><dd>Measure accuracy, provenance and transformation, not field presence alone.</dd></div></dl>
+    </aside>
     <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 1 to 31, with policy context from the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note</a>.</p>
   </section>
 
@@ -271,6 +315,11 @@
       <li><div><h3>Beneficiary institution</h3><p>It must identify missing information, verify the beneficiary where the standard requires it, use intended-beneficiary information to detect possible misdirection, and maintain risk-based follow-up procedures.</p></div></li>
     </ol>
     <div class="r16-assessment-note" data-evidence-state="assessment"><span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span><p><strong>Message transport is necessary but not sufficient.</strong> A defensible control model must connect onboarding data, payment-message construction, intermediary preservation, beneficiary records, monitoring and operational case handling. If ownership is split across those functions without a tested hand-off, the chain can remain technically populated but analytically blind.</p></div>
+    <aside class="r16-pattern r16-pattern-inline" data-pattern-id="vanishing-passenger" aria-label="Risk pattern: The Vanishing Passenger">
+      <div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128279;</span><h3>The Vanishing Passenger</h3></div>
+      <p class="r16-metaphor">The payment arrives, but part of its identity leaves the train en route.</p>
+      <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Intermediary transformation removes information needed by the beneficiary institution.</dd></div><div><dt>Signal</dt><dd>Output messages contain less usable party data than the corresponding inputs.</dd></div><div><dt>Response</dt><dd>Trace required fields across each hop and assign exception ownership.</dd></div></dl>
+    </aside>
     <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 6 and 20 to 31.</p>
   </section>
 
@@ -282,6 +331,11 @@
       <p>That clarification does not remove or narrow applicable targeted financial sanctions obligations. FATF's explanatory note says that the screening modality is determined through national regulation or industry practice, while the underlying duties to freeze without delay and prevent funds or assets being made available to designated persons remain separate.</p>
     </div>
     <div class="r16-assessment-note" data-evidence-state="assessment"><span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span><p>The wrong conclusions sit at both extremes. It is inaccurate to say that Recommendation 16 itself mandates real-time sanctions screening. It is equally unsafe to infer that screening can therefore be deferred in every market or payment flow. The operative question is which sanctions duties apply in the relevant jurisdiction and how the chosen control meets them.</p></div>
+    <aside class="r16-pattern r16-pattern-inline" data-pattern-id="screening-vacuum" aria-label="Risk pattern: The Screening Vacuum">
+      <div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128737;</span><h3>The Screening Vacuum</h3></div>
+      <p class="r16-metaphor">A clarification about one rule is mistaken for empty space everywhere else.</p>
+      <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A team treats Recommendation 16's silence on screening modality as release from sanctions duties.</dd></div><div><dt>Signal</dt><dd>The rationale cites footnote 49 without mapping the applicable jurisdictional obligations.</dd></div><div><dt>Response</dt><dd>Map every payment flow to its applicable sanctions rules and control timing.</dd></div></dl>
+    </aside>
     <p class="r16-source-row">Source: footnote 49 of the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">Interpretive Note to Recommendation 16</a> and paragraphs 11 to 12 of FATF's <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note</a>.</p>
   </section>
 
@@ -358,6 +412,11 @@
         <dl class="r16-impact"><dt>Control impact</dt><dd>ISO 20022 readiness, scheme rules, intermediary preservation and cross-border interoperability.</dd><dt>First evidence</dt><dd>A dependency register covering internal platforms, correspondents, schemes and market infrastructures.</dd></dl>
       </article>
     </div>
+    <aside class="r16-pattern r16-pattern-inline" data-pattern-id="exact-match-trap" aria-label="Risk pattern: The Exact Match Trap">
+      <div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#127919;</span><h3>The Exact Match Trap</h3></div>
+      <p class="r16-metaphor">A contextual identity problem is forced through a binary gate.</p>
+      <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Rigid matching creates avoidable rejects or escalations from harmless variation.</dd></div><div><dt>Signal</dt><dd>Spelling, transliteration, aliases and account context all trigger the same hard outcome.</dd></div><div><dt>Response</dt><dd>Use a permitted alignment route with governed tolerances and risk-based follow-up.</dd></div></dl>
+    </aside>
     <div class="r16-industry-note" data-evidence-state="industry">
       <span class="r16-state" data-evidence-state="industry">Industry Position</span>
       <p><strong>The delivery problem extends beyond financial crime teams.</strong> UK Finance characterises Recommendation 16 as a major cross-border payments transformation programme requiring coordination across jurisdictions, regulators, payment service providers, schemes and infrastructure providers.</p>
@@ -407,6 +466,11 @@
       <span class="r16-state" data-evidence-state="industry">Industry Signal</span>
       <p><strong>One data dependency has an earlier clock.</strong> Swift says that from 14 November 2026, town and country must be supplied in designated fields at a minimum for relevant CBPR+ parties and agents, and fully unstructured address messages may be rejected or delayed. This is a Swift network requirement that supports future Recommendation 16 readiness. It is not the FATF 2030 deadline.</p>
     </div>
+    <aside class="r16-pattern r16-pattern-inline" data-pattern-id="one-clock-fallacy" aria-label="Risk pattern: The One Clock Fallacy">
+      <div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#9201;</span><h3>The One Clock Fallacy</h3></div>
+      <p class="r16-metaphor">A distant global date hides the infrastructure cutovers arriving first.</p>
+      <dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A 2030 programme ignores earlier message, scheme or market deadlines.</dd></div><div><dt>Signal</dt><dd>The roadmap says only "before 2030" and contains no dependency milestones.</dd></div><div><dt>Response</dt><dd>Maintain separate FATF, national, scheme and infrastructure timelines.</dd></div></dl>
+    </aside>
     <p class="r16-source-row">Sources: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">FATF 2026 implementation guidance consultation</a> and <a href="https://www.swift.com/standards/iso-20022/removal-unstructured-address" target="_blank" rel="noopener">Swift guidance on removing unstructured addresses</a>.</p>
   </section>
 
@@ -440,11 +504,95 @@
     <div class="r16-assessment-note" data-evidence-state="assessment"><span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span><p>None of these triggers justifies waiting to understand the current estate. They determine which design choices should remain provisional and which remediation should move first.</p></div>
   </section>
 
-  <!-- Task 4 owns the learning components and interactions. -->
-  <section class="r16-section r16-foundation-anchor" id="worked-decisions" aria-labelledby="worked-decisions-heading"><h2 id="worked-decisions-heading">Worked decisions</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="risk-signals" aria-labelledby="risk-signals-heading"><h2 id="risk-signals-heading">Risk, Signal, Response</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="knowledge-check" aria-labelledby="knowledge-check-heading"><h2 id="knowledge-check-heading">Knowledge check</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="faq" aria-labelledby="faq-heading"><h2 id="faq-heading">FAQ</h2></section>
+  <section class="r16-section" id="worked-decisions" aria-labelledby="worked-decisions-heading">
+    <h2 id="worked-decisions-heading">Worked decisions</h2>
+    <p class="r16-lede">The facts are synthetic. The reasoning tests how the adopted standard changes an operational decision.</p>
+
+    <article class="r16-scenario" aria-labelledby="scenario-one-heading">
+      <span class="r16-scenario-tag">Scenario 01</span>
+      <h3 id="scenario-one-heading">The beneficiary mismatch</h3>
+      <p>A corporate instructs a qualifying cross-border payment to a long-standing supplier. The beneficiary account number is valid, but the supplied beneficiary name does not align cleanly with the account-holder information returned through the institution's alignment process.</p>
+      <ul class="r16-facts"><li>The payment is above the applicable threshold.</li><li>The account number is structurally valid.</li><li>The name differs beyond simple punctuation.</li><li>No fraud conclusion has yet been reached.</li></ul>
+      <form class="r16-decision-form" id="beneficiaryMismatchDecision" data-scenario-form data-scenario-id="beneficiary_mismatch">
+        <fieldset><legend>What is the strongest next step?</legend>
+          <label class="r16-option"><input type="radio" name="scenario-one" value="exact" data-grade="caution"><span>Reject automatically because alignment requires an exact character-for-character match.</span></label>
+          <label class="r16-option"><input type="radio" name="scenario-one" value="ignore" data-grade="weak"><span>Ignore the mismatch because the account number is valid.</span></label>
+          <label class="r16-option"><input type="radio" name="scenario-one" value="risk" data-grade="best"><span>Feed the mismatch into the chosen alignment control and apply documented risk-based follow-up.</span></label>
+        </fieldset>
+        <button class="r16-action" type="submit">Record decision</button>
+        <p class="r16-feedback" aria-live="polite" role="status"></p>
+      </form>
+      <details class="r16-reasoning">
+        <summary>Show Source, Application and Action reasoning</summary>
+        <div class="r16-saa">
+          <div><strong>Source</strong><p>The revised Interpretive Note permits transaction-level post-validation, holistic ongoing monitoring or pre-validation. The required degree of alignment depends on risk and context rather than universal exact matching.</p></div>
+          <div><strong>Application</strong><p>A valid account number does not neutralise the mismatch. Equally, the mismatch alone does not establish fraud or require the same outcome in every case.</p></div>
+          <div><strong>Action</strong><p>Assess the difference, available identifiers, relationship history and payment context. Record the signal, the chosen follow-up and the rationale for executing, pausing or rejecting.</p></div>
+        </div>
+      </details>
+    </article>
+
+    <article class="r16-scenario" aria-labelledby="scenario-two-heading">
+      <span class="r16-scenario-tag">Scenario 02</span>
+      <h3 id="scenario-two-heading">Purchase or value transfer?</h3>
+      <p>Two cross-border transactions use the same customer's card. The first pays a merchant for goods. The second uses the card to fund a digital wallet before value is sent to another person.</p>
+      <ul class="r16-facts"><li>Transaction A is a genuine purchase of goods.</li><li>Transaction B funds a wallet transfer.</li><li>Both use the same card credentials.</li><li>The economic purpose and payment chain differ.</li></ul>
+      <form class="r16-decision-form" id="cardTreatmentDecision" data-scenario-form data-scenario-id="card_purchase_wallet_funding">
+        <fieldset><legend>How should the transactions be analysed?</legend>
+          <label class="r16-option"><input type="radio" name="scenario-two" value="both-simple" data-grade="weak"><span>Apply the simplified card-purchase treatment to both because both begin with a card.</span></label>
+          <label class="r16-option"><input type="radio" name="scenario-two" value="different" data-grade="best"><span>Apply the purchase treatment to Transaction A and the applicable transfer requirements to Transaction B.</span></label>
+          <label class="r16-option"><input type="radio" name="scenario-two" value="both-full" data-grade="caution"><span>Apply the same complete information treatment to both because both are cross-border.</span></label>
+        </fieldset>
+        <button class="r16-action" type="submit">Record decision</button>
+        <p class="r16-feedback" aria-live="polite" role="status"></p>
+      </form>
+      <details class="r16-reasoning">
+        <summary>Show Source, Application and Action reasoning</summary>
+        <div class="r16-saa">
+          <div><strong>Source</strong><p>The revised standard retains differentiated treatment for qualifying card purchases. Other card-funded transfers, including wallet funding and person-to-person payments, follow the domestic or cross-border requirements that apply to the transfer.</p></div>
+          <div><strong>Application</strong><p>The instrument does not decide the treatment by itself. Transaction A purchases goods. Transaction B uses the card as the funding rail for a separate value transfer.</p></div>
+          <div><strong>Action</strong><p>Classify the economic function before selecting the rule path. Document product flows that reuse card credentials but create a different payment chain.</p></div>
+        </div>
+      </details>
+    </article>
+    <p class="r16-source-row">Scenario source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 16, 17, 30 and 31, including footnote 60.</p>
+  </section>
+
+  <section class="r16-section" id="risk-signals" aria-labelledby="risk-signals-heading">
+    <h2 id="risk-signals-heading">Risk, Signal, Response</h2>
+    <p class="r16-lede">Five implementation failures to keep visible as the programme moves from policy to production.</p>
+    <div class="r16-pattern-grid" id="r16ClosingPatterns">
+      <article class="r16-pattern" data-pattern-id="filled-box"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#129513;</span><h3>The Filled Box</h3></div><p class="r16-metaphor">A populated field is treated as trustworthy without testing how it was produced.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Present data may be inaccurate, unverified or mapped to the wrong party.</dd></div><div><dt>Signal</dt><dd>Completeness passes while repair rates, truncation or placeholder values remain high.</dd></div><div><dt>Response</dt><dd>Measure accuracy, provenance and transformation, not field presence alone.</dd></div></dl></article>
+      <article class="r16-pattern" data-pattern-id="vanishing-passenger"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128279;</span><h3>The Vanishing Passenger</h3></div><p class="r16-metaphor">The payment arrives, but part of its identity leaves the train en route.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Intermediary transformation removes information needed by the beneficiary institution.</dd></div><div><dt>Signal</dt><dd>Output messages contain less usable party data than the corresponding inputs.</dd></div><div><dt>Response</dt><dd>Trace required fields across each hop and assign exception ownership.</dd></div></dl></article>
+      <article class="r16-pattern" data-pattern-id="screening-vacuum"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#128737;</span><h3>The Screening Vacuum</h3></div><p class="r16-metaphor">A clarification about one rule is mistaken for empty space everywhere else.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A team treats Recommendation 16's silence on screening modality as release from sanctions duties.</dd></div><div><dt>Signal</dt><dd>The rationale cites footnote 49 without mapping the applicable jurisdictional obligations.</dd></div><div><dt>Response</dt><dd>Map every payment flow to its applicable sanctions rules and control timing.</dd></div></dl></article>
+      <article class="r16-pattern" data-pattern-id="exact-match-trap"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#127919;</span><h3>The Exact Match Trap</h3></div><p class="r16-metaphor">A contextual identity problem is forced through a binary gate.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>Rigid matching creates avoidable rejects or escalations from harmless variation.</dd></div><div><dt>Signal</dt><dd>Spelling, transliteration, aliases and account context all trigger the same hard outcome.</dd></div><div><dt>Response</dt><dd>Use a permitted alignment route with governed tolerances and risk-based follow-up.</dd></div></dl></article>
+      <article class="r16-pattern" data-pattern-id="one-clock-fallacy"><div class="r16-pattern-head"><span class="r16-pattern-icon" aria-hidden="true">&#9201;</span><h3>The One Clock Fallacy</h3></div><p class="r16-metaphor">A distant global date hides the infrastructure cutovers arriving first.</p><dl class="r16-pattern-lines"><div><dt>Risk</dt><dd>A 2030 programme ignores earlier message, scheme or market deadlines.</dd></div><div><dt>Signal</dt><dd>The roadmap says only "before 2030" and contains no dependency milestones.</dd></div><div><dt>Response</dt><dd>Maintain separate FATF, national, scheme and infrastructure timelines.</dd></div></dl></article>
+    </div>
+    <div class="r16-save-row"><button class="r16-action" id="saveR16Patterns" type="button">Save as image</button><span class="r16-save-status" id="saveR16Status" aria-live="polite" role="status"></span></div>
+  </section>
+
+  <section class="r16-section r16-quiz" id="knowledge-check" aria-labelledby="knowledge-check-heading">
+    <h2 id="knowledge-check-heading">Knowledge check</h2>
+    <p>Choose one answer for each question. The score supports review and does not certify regulatory readiness.</p>
+    <form id="r16KnowledgeForm">
+      <fieldset><legend>1. A beneficiary name does not align cleanly with valid account information. What does the revised standard support?</legend><label class="r16-option"><input type="radio" name="q1" value="a"><span>Automatic rejection in every case.</span></label><label class="r16-option"><input type="radio" name="q1" value="b" data-correct="true"><span>Use of the chosen alignment approach with risk-based follow-up.</span></label><label class="r16-option"><input type="radio" name="q1" value="c"><span>Ignoring the name whenever the account number is valid.</span></label></fieldset>
+      <fieldset><legend>2. Which card-funded transaction keeps the differentiated purchase treatment?</legend><label class="r16-option"><input type="radio" name="q2" value="a" data-correct="true"><span>A qualifying transaction genuinely purchasing goods or services.</span></label><label class="r16-option"><input type="radio" name="q2" value="b"><span>Every wallet top-up made with a card.</span></label><label class="r16-option"><input type="radio" name="q2" value="c"><span>Every person-to-person transfer initiated with card credentials.</span></label></fieldset>
+      <fieldset><legend>3. What does Recommendation 16 say about sanctions screening modality?</legend><label class="r16-option"><input type="radio" name="q3" value="a"><span>It requires real-time screening for every transmitted field.</span></label><label class="r16-option"><input type="radio" name="q3" value="b"><span>It removes the need for payment sanctions screening.</span></label><label class="r16-option"><input type="radio" name="q3" value="c" data-correct="true"><span>It does not specify whether or how transmitted information must be screened.</span></label></fieldset>
+      <fieldset><legend>4. What is the strongest preparation action before final guidance?</legend><label class="r16-option"><input type="radio" name="q4" value="a"><span>Lock every draft implementation choice into production.</span></label><label class="r16-option"><input type="radio" name="q4" value="b" data-correct="true"><span>Map data lineage, control ownership and external dependencies.</span></label><label class="r16-option"><input type="radio" name="q4" value="c"><span>Wait until every jurisdiction publishes final rules.</span></label></fieldset>
+      <fieldset><legend>5. Which statement correctly describes the June 2026 FATF material?</legend><label class="r16-option"><input type="radio" name="q5" value="a"><span>It reopened and replaced the standard adopted in June 2025.</span></label><label class="r16-option"><input type="radio" name="q5" value="b" data-correct="true"><span>It was draft guidance intended to support implementation of the adopted standard.</span></label><label class="r16-option"><input type="radio" name="q5" value="c"><span>It imposed the same national effective date everywhere.</span></label></fieldset>
+      <button class="r16-action" type="submit">Score knowledge check</button>
+      <p class="r16-feedback" id="r16KnowledgeFeedback" aria-live="polite" role="status"></p>
+    </form>
+  </section>
+
+  <section class="r16-section r16-faq" id="faq" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">FAQ</h2>
+    <details><summary>Does the end of 2030 expectation mean institutions can wait?</summary><p>No. It is FATF's global readiness expectation, not a universal national effective date. Data mapping and dependency discovery can begin without fixing unresolved guidance choices, while schemes and infrastructures may have earlier deadlines.</p></details>
+    <details><summary>Does beneficiary alignment require exact name matching?</summary><p>No. The revised Interpretive Note provides three alignment approaches and makes the required degree of alignment dependent on risk and context. Institutions still need governed matching logic and documented follow-up.</p></details>
+    <details><summary>Does Recommendation 16 require real-time sanctions screening?</summary><p>No. Recommendation 16 does not prescribe whether or how transmitted information must be screened. Applicable targeted financial sanctions requirements and national rules remain separate and may still determine screening timing.</p></details>
+    <details><summary>Is Confirmation of Payee the required global model?</summary><p>No. It is a useful UK domestic example of pre-validation. FATF also permits transaction-level post-validation and holistic ongoing monitoring when their conditions are met.</p></details>
+    <details><summary>Does the revised standard prohibit virtual account numbers?</summary><p>No. The transparency concern is whether the payment identifies the relevant servicing institution and jurisdiction and whether the account structure obscures the party or destination that controls should assess.</p></details>
+  </section>
 
   <section class="r16-section r16-update" id="update-trigger" aria-labelledby="update-trigger-heading">
     <h2 id="update-trigger-heading">Update trigger</h2>
@@ -486,6 +634,7 @@
 </div>
 
 <div id="site-footer"></div>
+<script defer src="/js/fatf-recommendation-16-intelligence-brief.js"></script>
 <script defer src="/js/site-chrome.js"></script>
 <script defer src="/brand.js"></script>
 </body>
