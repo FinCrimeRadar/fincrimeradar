@@ -79,6 +79,7 @@
 .r16-toc a:hover{text-decoration:underline}
 .r16-section{background:#fff;border:1px solid var(--r16-line);padding:clamp(1.2rem,4vw,2.2rem);margin-bottom:1.35rem;min-width:0}
 .r16-section h2{font-family:"Playfair Display",Georgia,serif;color:var(--r16-navy);font-size:clamp(1.7rem,4vw,2.45rem);line-height:1.12;margin:0 0 1rem}
+.r16-section h3{color:var(--r16-navy);font-size:1.12rem;margin:1.4rem 0 .45rem}
 .r16-section p{margin:.75rem 0}
 .r16-lede{font-size:1.15rem;color:#28414b}
 .r16-legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin-top:1.25rem}
@@ -88,6 +89,40 @@
 .r16-legend-item[data-evidence-state="assessment"]{border-top-color:var(--r16-violet);background:var(--r16-violet-soft)}
 .r16-legend-label{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--r16-navy)}
 .r16-legend-item p{font-size:14px;margin:.45rem 0 0}
+.r16-state{display:inline-flex;align-items:center;border:1px solid var(--r16-green);border-radius:999px;padding:.25rem .55rem;font:700 10.5px "IBM Plex Mono",monospace;letter-spacing:.05em;text-transform:uppercase;color:#075e57;background:#eef8f5}
+.r16-state[data-evidence-state="draft"]{border-color:var(--r16-blue);color:var(--r16-blue);background:var(--r16-blue-soft)}
+.r16-state[data-evidence-state="industry"]{border-color:var(--r16-amber);color:var(--r16-amber);background:var(--r16-amber-soft)}
+.r16-state[data-evidence-state="assessment"]{border-color:var(--r16-violet);color:var(--r16-violet);background:var(--r16-violet-soft)}
+.r16-assessment-note{border-left:5px solid var(--r16-violet);background:var(--r16-violet-soft);padding:1.15rem 1.25rem;margin:1.25rem 0}
+.r16-assessment-note p:last-child{margin-bottom:0}
+.r16-thesis{font-size:1.18rem;font-weight:700;color:var(--r16-navy)}
+.r16-source-row{border-top:1px solid var(--r16-line);padding-top:.85rem!important;margin-top:1.25rem!important;font-size:13px;color:var(--r16-muted)}
+.r16-source-row a{color:var(--r16-green);overflow-wrap:anywhere}
+.r16-timeline{list-style:none;margin:1.4rem 0 0;padding:0;border-left:3px solid var(--r16-green)}
+.r16-timeline li{position:relative;padding:.2rem 0 1.35rem 1.4rem}
+.r16-timeline li:last-child{padding-bottom:.2rem}
+.r16-timeline li:before{content:"";position:absolute;left:-8px;top:.4rem;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--r16-green)}
+.r16-timeline time{display:block;font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:#075e57}
+.r16-timeline h3{margin:.25rem 0 .2rem}
+.r16-timeline p{margin:.2rem 0;font-size:14px}
+.r16-change-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1.25rem 0}
+.r16-change-item{border:1px solid var(--r16-line);border-top:4px solid var(--r16-green);padding:1rem;min-width:0;background:#fff}
+.r16-change-item h3{margin:.55rem 0 .35rem;font-size:1.03rem}
+.r16-change-item p{font-size:14px;margin:.35rem 0}
+.r16-chain{list-style:none;counter-reset:chain;margin:1.25rem 0;padding:0}
+.r16-chain li{counter-increment:chain;display:grid;grid-template-columns:46px minmax(0,1fr);gap:1rem;padding:1rem 0;border-top:1px solid var(--r16-line)}
+.r16-chain li:before{content:counter(chain);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--r16-navy);color:#fff;font:700 14px "IBM Plex Mono",monospace}
+.r16-chain h3{margin:0 0 .3rem}
+.r16-chain p{margin:.25rem 0;font-size:14.5px}
+.r16-clarification{border:2px solid var(--r16-navy);padding:1.15rem 1.25rem;margin:1.2rem 0;background:var(--r16-paper)}
+.r16-clarification p:last-child{margin-bottom:0}
+.r16-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.25rem 0}
+.r16-comparison>div{border:1px solid var(--r16-line);padding:1.1rem;min-width:0}
+.r16-comparison>div[data-evidence-state="settled"]{border-top:5px solid var(--r16-green);background:#f7fcfa}
+.r16-comparison>div[data-evidence-state="draft"]{border-top:5px solid var(--r16-blue);background:var(--r16-blue-soft)}
+.r16-comparison h3{margin:.65rem 0 .45rem}
+.r16-comparison ul{margin:.5rem 0 0;padding-left:1.2rem}
+.r16-comparison li{margin:.55rem 0;font-size:14.5px}
 .r16-update{border-left:5px solid var(--r16-green);background:#eef8f5}
 .r16-update dl{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);margin:0}
 .r16-update dt,.r16-update dd{padding:.75rem;border-top:1px solid #cce2de}
@@ -98,7 +133,7 @@
 .r16-foundation-anchor h2{margin-bottom:0}
 .r16-page a:focus-visible,.r16-page button:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
 @media(max-width:900px){.r16-layout{grid-template-columns:minmax(0,1fr)}.r16-toc{position:static;order:-1}.r16-status-inner{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}}
+@media(max-width:640px){.r16-page>nav{padding:0 1rem}.r16-page .nav-links{display:none}.r16-page .nav-hamburger{display:block}.r16-page .mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--r16-line)}.r16-page .mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.r16-breadcrumb{align-items:flex-start;flex-wrap:wrap}.r16-hero{padding-top:2.8rem}.r16-status-inner,.r16-legend,.r16-change-grid,.r16-comparison{grid-template-columns:minmax(0,1fr)}.r16-layout{padding:0 .75rem 3rem;gap:1rem}.r16-status{padding:0 .75rem}.r16-update dl{grid-template-columns:minmax(0,1fr)}.r16-update dd{padding-top:.2rem;border-top:0}.r16-update dt:not(:first-of-type){padding-bottom:.2rem}}
 @media(max-width:360px){.r16-section{padding:1rem}.r16-hero h1{font-size:2.15rem}.r16-meta{gap:.4rem}}
 @media(prefers-reduced-motion:reduce){.r16-page *,.r16-page *:before,.r16-page *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media print{.r16-page>nav,.r16-page .mobile-nav,.r16-toc,#site-footer{display:none!important}.r16-layout{display:block;max-width:none}.r16-section{break-inside:avoid;border-color:#999}.r16-hero{background:#fff;color:#000;padding:1rem}.r16-hero-sub{color:#222}.r16-author a{color:#000}}
@@ -160,10 +195,102 @@
     </div>
   </section>
 
-  <!-- Task 2 owns the substantive content for the following three sections. -->
-  <section class="r16-section r16-foundation-anchor" id="executive-assessment" aria-labelledby="executive-assessment-heading"><h2 id="executive-assessment-heading">Executive assessment</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="intelligence-timeline" aria-labelledby="intelligence-timeline-heading"><h2 id="intelligence-timeline-heading">Intelligence timeline</h2></section>
-  <section class="r16-section r16-foundation-anchor" id="what-changed" aria-labelledby="what-changed-heading"><h2 id="what-changed-heading">What changed</h2></section>
+  <section class="r16-section" id="executive-assessment" aria-labelledby="executive-assessment-heading">
+    <h2 id="executive-assessment-heading">Executive assessment</h2>
+    <p class="r16-lede">Recommendation 16 is no longer best understood as a message-completeness rule sitting at the edge of a payment. The revised standard connects the quality and movement of payment data to fraud prevention, transaction monitoring, sanctions compliance and the ability to trace activity across fragmented chains.</p>
+    <div class="r16-assessment-note" data-evidence-state="assessment">
+      <span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span>
+      <p class="r16-thesis">The revision shifts payment transparency towards a distributed control model.</p>
+      <p>Customer records, payment instructions, intermediary data preservation, beneficiary alignment and follow-up decisions now have to work as one chain. A field can be present and still fail operationally if it is unverified where verification is required, stripped during processing, mapped to the wrong party, or unavailable to the institution that must act on it.</p>
+    </div>
+    <p>The adopted text settles the direction of travel. It defines the payment chain, adds richer and more structured information expectations, introduces beneficiary alignment measures and makes fraud an explicit part of the objective. The implementation route is not fully settled. FATF's 2026 consultation asks how the standard should operate across newer payment methods, privacy constraints, financial inclusion and different alignment models.</p>
+    <p>The practical dividing line is therefore simple. Institutions can begin understanding their data and control dependencies now, but they should not present draft implementation guidance as though it were already part of the adopted standard.</p>
+    <p class="r16-source-row">Primary basis: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html" target="_blank" rel="noopener">FATF Recommendations</a>, <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note for revised Recommendation 16</a>, and <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">2026 implementation guidance consultation</a>.</p>
+  </section>
+
+  <section class="r16-section" id="intelligence-timeline" aria-labelledby="intelligence-timeline-heading">
+    <h2 id="intelligence-timeline-heading">Intelligence timeline</h2>
+    <p class="r16-lede">The standard is adopted. The operating interpretation is still developing.</p>
+    <ol class="r16-timeline">
+      <li><time datetime="2024-02-26">26 February 2024</time><h3>First consultation opens</h3><p>FATF tests the case for updating Recommendation 16 around payment models, messaging standards, card exemptions, payment-chain definitions and beneficiary alignment.</p></li>
+      <li><time datetime="2025-02">February to April 2025</time><h3>Second consultation</h3><p>FATF refines the proposed text after industry and public-sector feedback on data fields, alignment, cards, cash withdrawals and complex payment chains.</p></li>
+      <li><time datetime="2025-06">June 2025</time><h3>Revised Recommendation 16 adopted</h3><p>The revised Recommendation, Interpretive Note and related glossary changes become the settled FATF standard.</p></li>
+      <li><time datetime="2026-06-24">24 June 2026</time><h3>Draft implementation guidance published</h3><p>FATF opens a consultation on guidance addressing implementation choices rather than reopening the adopted standard.</p></li>
+      <li><time datetime="2026-08-21">21 August 2026</time><h3>Guidance consultation closes</h3><p>The consultation is closed. FATF's explanatory material indicated that final guidance was expected later in 2026.</p></li>
+      <li><time datetime="2030-12-31">By the end of 2030</time><h3>Global readiness expectation</h3><p>FATF expects countries to be ready to implement the revised requirements by the end of 2030.</p></li>
+    </ol>
+    <p class="r16-source-row">Timeline checked against FATF's <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-public-consultation-Feb24.html" target="_blank" rel="noopener">first consultation</a>, <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">adoption explanatory note</a>, and <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">2026 guidance consultation</a>.</p>
+  </section>
+
+  <section class="r16-section" id="what-changed" aria-labelledby="what-changed-heading">
+    <h2 id="what-changed-heading">What changed in the adopted standard</h2>
+    <p class="r16-lede">The revision changes more than the list of fields carried with a transfer. It changes which control questions institutions must be able to answer across the payment lifecycle.</p>
+    <div class="r16-change-grid">
+      <article class="r16-change-item"><span class="r16-state">Settled Standard</span><h3>Fraud enters the objective</h3><p>The objective now expressly includes associated predicate offences such as fraud, alongside money laundering, terrorist financing and proliferation-financing considerations.</p></article>
+      <article class="r16-change-item"><span class="r16-state">Settled Standard</span><h3>Data becomes richer and more structured</h3><p>Payment information should be structured where possible. Above an applicable cross-border threshold, the required dataset includes names, account or transaction references, location information, an originator's date of birth where relevant, and specified legal-person identifiers where they exist.</p></article>
+      <article class="r16-change-item"><span class="r16-state">Settled Standard</span><h3>The chain has defined endpoints</h3><p>The chain begins with the institution receiving the originator's instruction and ends with the institution servicing the beneficiary account or providing cash to the beneficiary.</p></article>
+      <article class="r16-change-item"><span class="r16-state">Settled Standard</span><h3>Beneficiary alignment becomes a control</h3><p>For qualifying cross-border transfers, beneficiary institutions must use at least one permitted route: transaction-level post-validation, holistic ongoing monitoring, or pre-validation where both institutions participate in a suitable mechanism.</p></article>
+      <article class="r16-change-item"><span class="r16-state">Settled Standard</span><h3>Alignment is not exact matching</h3><p>The expected degree of alignment between beneficiary name and account information varies with risk and context. A mismatch is an input to risk-based follow-up, not an automatic universal verdict.</p></article>
+      <article class="r16-change-item"><span class="r16-state">Settled Standard</span><h3>Cards and cash are separated more carefully</h3><p>Qualifying card purchases retain differentiated treatment, while other card-funded transfers follow the applicable domestic or cross-border rules. Cross-border cash withdrawals gain a targeted cardholder-name retrieval requirement.</p></article>
+    </div>
+    <p>The revised text also addresses a less visible source of opacity. Payment messages should identify the servicing institutions and their countries, and account numbering should not disguise where the servicing institution resides. This does not prohibit legitimate virtual account numbers. It requires the payment data around them to preserve location transparency.</p>
+    <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 1 to 31, with policy context from the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note</a>.</p>
+  </section>
+
+  <section class="r16-section" id="payment-chain-implications" aria-labelledby="payment-chain-implications-heading">
+    <h2 id="payment-chain-implications-heading">The payment chain is now the control boundary</h2>
+    <p>Recommendation 16 assigns connected but different responsibilities to the institutions that order, carry and receive a qualifying cross-border payment. The standard is not satisfied by assuming that another participant owns the data problem.</p>
+    <ol class="r16-chain">
+      <li><div><h3>Ordering institution</h3><p>It must send required and accurate originator information and required beneficiary information for transfers above the applicable threshold, retain what it collects, and not execute a transfer that does not meet the relevant information requirements.</p></div></li>
+      <li><div><h3>Intermediary institution</h3><p>It must preserve accompanying originator and beneficiary information, take reasonable measures to identify missing information, and apply risk-based procedures for execution, rejection, suspension and follow-up.</p></div></li>
+      <li><div><h3>Beneficiary institution</h3><p>It must identify missing information, verify the beneficiary where the standard requires it, use intended-beneficiary information to detect possible misdirection, and maintain risk-based follow-up procedures.</p></div></li>
+    </ol>
+    <div class="r16-assessment-note" data-evidence-state="assessment"><span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span><p><strong>Message transport is necessary but not sufficient.</strong> A defensible control model must connect onboarding data, payment-message construction, intermediary preservation, beneficiary records, monitoring and operational case handling. If ownership is split across those functions without a tested hand-off, the chain can remain technically populated but analytically blind.</p></div>
+    <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">FATF Recommendations, Interpretive Note to Recommendation 16</a>, paragraphs 6 and 20 to 31.</p>
+  </section>
+
+  <section class="r16-section" id="sanctions-clarification" aria-labelledby="sanctions-clarification-heading">
+    <h2 id="sanctions-clarification-heading">The sanctions-screening clarification</h2>
+    <div class="r16-clarification">
+      <span class="r16-state">Settled Standard</span>
+      <p><strong>Recommendation 16 does not itself specify whether or how transmitted payment information must be screened against sanctions lists.</strong></p>
+      <p>That clarification does not remove or narrow applicable targeted financial sanctions obligations. FATF's explanatory note says that the screening modality is determined through national regulation or industry practice, while the underlying duties to freeze without delay and prevent funds or assets being made available to designated persons remain separate.</p>
+    </div>
+    <div class="r16-assessment-note" data-evidence-state="assessment"><span class="r16-state" data-evidence-state="assessment">FinCrimeRadar Assessment</span><p>The wrong conclusions sit at both extremes. It is inaccurate to say that Recommendation 16 itself mandates real-time sanctions screening. It is equally unsafe to infer that screening can therefore be deferred in every market or payment flow. The operative question is which sanctions duties apply in the relevant jurisdiction and how the chosen control meets them.</p></div>
+    <p class="r16-source-row">Source: footnote 49 of the <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/FATF%20Recommendations%202012.pdf.coredownload.inline%0B.pdf" target="_blank" rel="noopener">Interpretive Note to Recommendation 16</a> and paragraphs 11 to 12 of FATF's <a href="https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/Explanatory%20Note%20for%20Revised%20R.16.pdf.coredownload.pdf" target="_blank" rel="noopener">explanatory note</a>.</p>
+  </section>
+
+  <section class="r16-section" id="settled-versus-draft" aria-labelledby="settled-versus-draft-heading">
+    <h2 id="settled-versus-draft-heading">Settled standard versus draft guidance</h2>
+    <p class="r16-lede">The adopted standard defines the outcomes. The draft guidance is intended to help jurisdictions and institutions implement them consistently.</p>
+    <div class="r16-comparison">
+      <div data-evidence-state="settled">
+        <span class="r16-state">Settled Standard</span>
+        <h3>Already adopted</h3>
+        <ul>
+          <li>The revised Recommendation 16, Interpretive Note and related definitions.</li>
+          <li>Structured and sufficiently detailed originator and beneficiary information.</li>
+          <li>Defined ordering, intermediary and beneficiary responsibilities.</li>
+          <li>Three permitted approaches to beneficiary alignment.</li>
+          <li>Differentiated treatment for card purchases, other card-funded transfers and cash withdrawals.</li>
+          <li>The clarification separating Recommendation 16 from the modality of sanctions screening.</li>
+        </ul>
+      </div>
+      <div data-evidence-state="draft">
+        <span class="r16-state" data-evidence-state="draft">Draft Guidance</span>
+        <h3>Still being finalised</h3>
+        <ul>
+          <li>How the standard should operate across digital wallets and mobile money.</li>
+          <li>How payment transparency and data-protection or privacy requirements work together.</li>
+          <li>How alignment approaches should be implemented across different markets and capacities.</li>
+          <li>How financial-inclusion constraints and non-standard address data should be handled.</li>
+          <li>How complex or hybrid payment chains, including fiat and virtual-asset elements, should be treated in practice.</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>Control discipline:</strong> do not wait for final guidance to discover where payment data breaks, but do not hard-code a draft interpretation as though FATF has already settled it.</p>
+    <p class="r16-source-row">Source: <a href="https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html" target="_blank" rel="noopener">FATF's 2026 public consultation on implementation guidance</a>.</p>
+  </section>
 
   <!-- Task 3 owns the practitioner intelligence components. -->
   <section class="r16-section r16-foundation-anchor" id="implementation-radar" aria-labelledby="implementation-radar-heading"><h2 id="implementation-radar-heading">Implementation Radar</h2></section>
@@ -197,6 +324,9 @@
     <li><a href="#executive-assessment">Executive assessment</a></li>
     <li><a href="#intelligence-timeline">Intelligence timeline</a></li>
     <li><a href="#what-changed">What changed</a></li>
+    <li><a href="#payment-chain-implications">Payment chain</a></li>
+    <li><a href="#sanctions-clarification">Sanctions clarification</a></li>
+    <li><a href="#settled-versus-draft">Settled versus draft</a></li>
     <li><a href="#implementation-radar">Implementation Radar</a></li>
     <li><a href="#decision-horizon">Decision Horizon</a></li>
     <li><a href="#assessment-change">What would change</a></li>
