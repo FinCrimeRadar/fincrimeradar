@@ -14,6 +14,15 @@
     window.gtag('event', name, parameters);
   }
 
+  var menuButton = document.getElementById('navHamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  if (menuButton && mobileNav) {
+    menuButton.addEventListener('click', function () {
+      var open = mobileNav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+  }
+
   document.querySelectorAll('[data-scenario-form]').forEach(function (form) {
     form.addEventListener('submit', function (event) {
       event.preventDefault();

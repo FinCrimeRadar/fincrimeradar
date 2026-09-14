@@ -7554,12 +7554,12 @@
     "title": "Financial Action Task Force, The FATF Recommendations",
     "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf",
     "publisher": "Financial Action Task Force",
-    "date": "2026-09-13"
+    "date": "2026-09-14"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2026-12-15",
   "status": "verified",
-  "note": "Access date used because FATF identifies the consolidated Recommendations only as updated June 2026. Direct source check completed 2026-09-13. Final independent regulatory review confirmation remains assigned to Experiment 03 Task 7."
+  "note": "Access date used because FATF identifies the consolidated Recommendations only as updated June 2026. Direct source check completed 2026-09-13 and independent Task 7 regulatory review completed 2026-09-14."
 },
 {
   "claimId": "fatf-recommendation-16-intelligence-brief.explanatory-note-policy-scope.001",
@@ -7572,10 +7572,10 @@
     "publisher": "Financial Action Task Force",
     "date": "2025-06-18"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2026-12-15",
   "status": "verified",
-  "note": "Direct source check completed 2026-09-13. The guide separately preserves applicable targeted financial sanctions duties and national implementation requirements."
+  "note": "Direct source check completed 2026-09-13 and independent Task 7 regulatory review completed 2026-09-14. The guide separately preserves applicable targeted financial sanctions duties and national implementation requirements."
 },
 {
   "claimId": "fatf-recommendation-16-intelligence-brief.first-consultation-timeline.001",
@@ -7588,7 +7588,7 @@
     "publisher": "Financial Action Task Force",
     "date": "2024-02-26"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2027-09-13",
   "status": "verified"
 },
@@ -7603,7 +7603,7 @@
     "publisher": "Financial Action Task Force",
     "date": "2025-02-24"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2027-09-13",
   "status": "verified"
 },
@@ -7618,7 +7618,7 @@
     "publisher": "Financial Action Task Force",
     "date": "2026-06-24"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2026-12-15",
   "status": "verified",
   "note": "The guide labels this material Draft Guidance and does not present the consultation as a reopened or replacement standard."
@@ -7634,7 +7634,7 @@
     "publisher": "UK Finance",
     "date": "2026-09-07"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2027-03-13",
   "status": "verified",
   "note": "The guide labels this as Industry Position, not FATF policy."
@@ -7648,9 +7648,9 @@
     "title": "Swift, ISO 20022: The removal of unstructured address",
     "url": "https://www.swift.com/standards/iso-20022/iso-20022-faqs/iso-20022-removal-unstructured-address",
     "publisher": "Swift",
-    "date": "2026-09-13"
+    "date": "2026-09-14"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2026-11-15",
   "status": "verified",
   "note": "Access date used because the live guidance page does not expose a publication date. The guide labels this as a Swift network requirement, not the FATF 2030 deadline."
@@ -7664,9 +7664,9 @@
     "title": "Pay.UK, Confirmation of Payee FAQs",
     "url": "https://www.wearepay.uk/what-we-do/overlay-services/confirmation-of-payee/faqs/",
     "publisher": "Pay.UK",
-    "date": "2026-09-13"
+    "date": "2026-09-14"
   },
-  "verifiedOn": "2026-09-13",
+  "verifiedOn": "2026-09-14",
   "reviewDue": "2027-03-13",
   "status": "verified",
   "note": "Access date used because the live FAQ page does not expose a publication date. The guide presents Confirmation of Payee as an operating example, not a mandated global model."
