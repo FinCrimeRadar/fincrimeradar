@@ -94,6 +94,17 @@ def main() -> None:
         require(prop in article, f"Article JSON-LD property missing: {prop}")
     print("OK: metadata (title/canonical/og/twitter/JSON-LD) internally consistent")
 
+    # --- Document structure: unique ids, heading order --------------------
+    ids = re.findall(r'(?<![\w-])id="([^"]+)"', html)
+    duplicates = sorted({item for item in ids if ids.count(item) > 1})
+    require(not duplicates, f"duplicate IDs: {duplicates}")
+    require('href="#main-content"' in html and 'id="main-content"' in html, "skip link target is missing")
+    require(html.count("<h1") == 1, "expected exactly one h1")
+    heading_levels = [int(level) for level in re.findall(r"<h([1-6])\b", html)]
+    for previous, current in zip(heading_levels, heading_levels[1:]):
+        require(current <= previous + 1, f"heading order skips from h{previous} to h{current}")
+    print(f"OK: {len(set(ids))} unique ids, one h1, no heading-order skips")
+
     # --- Required sections and ToC -----------------------------------
     for section_id in TOC_SECTIONS:
         require(f'id="{section_id}"' in html, f"section #{section_id} is missing")
@@ -166,7 +177,6 @@ def main() -> None:
     print(f"OK: {len(cited_ids)} citation markers all map to a Sources entry and a JS source record, with no orphans")
 
     # --- Component isolation / formatting rules --------------------------
-    require(re.search(r'class="[^"]*\bcard\b[^"]*"', html, re.I) is None, "a class name contains the word 'card'")
     require(re.search(r"class\s*=\s*[\"'][^\"']*card", html, re.I) is None, "a class attribute contains 'card' as a substring")
     require("—" not in html and "–" not in html, "em or en dash character found in the HTML")
     require("—" not in script and "–" not in script, "em or en dash character found in the JavaScript")
@@ -199,6 +209,9 @@ def main() -> None:
     require(GUIDE_SLUG in relations, "content-relations.json has no entry for this guide")
     relation_count = len(relations[GUIDE_SLUG])
     require(3 <= relation_count <= 4, f"content-relations entry should have 3-4 related guides, found {relation_count}")
+    for target in relations[GUIDE_SLUG]:
+        require(target in relations and GUIDE_SLUG in relations[target],
+                f"content-relations entry is not reciprocal: {GUIDE_SLUG} -> {target}")
     require(SOCIAL_CARD.exists(), "social card PNG is missing")
     try:
         from PIL import Image

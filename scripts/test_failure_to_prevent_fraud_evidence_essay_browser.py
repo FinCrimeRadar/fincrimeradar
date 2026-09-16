@@ -81,6 +81,7 @@ def free_port() -> int:
 def wait_ready(cdp: CDP) -> None:
     for _ in range(80):
         if cdp.evaluate("document.readyState") == "complete":
+            cdp.evaluate("document.fonts ? document.fonts.ready.then(() => true) : Promise.resolve(true)", True)
             time.sleep(0.2)
             return
         time.sleep(0.1)
