@@ -85,6 +85,26 @@
     .ftpf-main, .ftpf-article { min-width:0; }
     .ftpf-section { min-height:6rem; margin-bottom:1.25rem; padding:clamp(1.25rem,4vw,1.8rem); border:1px solid var(--ftpf-line); border-radius:12px; background:#fff; scroll-margin-top:90px; }
     .ftpf-section h2 { margin:0; color:var(--ftpf-forest); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(1.55rem,3.4vw,2rem); font-weight:400; line-height:1.2; }
+    .ftpf-section h3 { margin:1.65rem 0 .55rem; color:var(--ftpf-forest); font-size:1rem; line-height:1.4; }
+    .ftpf-section p { margin:.75rem 0 0; }
+    .ftpf-lede { color:#35453e; font-size:1.08rem; line-height:1.75; }
+    .ftpf-state { display:inline-flex; margin:1rem 0 .1rem; padding:.28rem .58rem; border-radius:999px; font-size:10.5px; font-weight:700; letter-spacing:.06em; line-height:1.3; text-transform:uppercase; }
+    .ftpf-state[data-kind="analysis"] { background:var(--ftpf-gold-soft); color:#674c12; }
+    .ftpf-state[data-kind="source"] { background:#e4f1ec; color:#14533e; }
+    .ftpf-state[data-kind="guidance"] { background:#e9eef7; color:#274976; }
+    .ftpf-state[data-kind="limitation"] { background:#f5e9dc; color:#744512; }
+    .ftpf-thesis { margin:1rem 0 1.15rem; padding:1.15rem 1.25rem; border-left:4px solid var(--ftpf-gold); background:#fbf7ec; color:var(--ftpf-forest); font-family:"DM Serif Display",Georgia,serif; font-size:clamp(1.2rem,2.5vw,1.45rem); line-height:1.45; }
+    .ftpf-elements { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin:1rem 0 0; padding:0; list-style:none; }
+    .ftpf-elements li { padding:.85rem .95rem; border:1px solid var(--ftpf-line); border-top:3px solid #7e9b8e; border-radius:8px; background:#fbfcfb; }
+    .ftpf-elements strong { display:block; margin-bottom:.2rem; color:var(--ftpf-forest); font-size:.82rem; }
+    .ftpf-elements span { display:block; color:var(--ftpf-muted); font-size:.82rem; line-height:1.55; }
+    .ftpf-points { margin:.75rem 0 0; padding-left:1.2rem; }
+    .ftpf-points li { margin:.55rem 0; padding-left:.2rem; }
+    .ftpf-note { margin:1rem 0 0; padding:1rem 1.05rem; border:1px solid #e6c99f; border-radius:8px; background:#fff8ee; }
+    .ftpf-note p { margin:.35rem 0 0; color:#523b25; font-size:.9rem; }
+    .ftpf-source-row { display:flex; flex-wrap:wrap; gap:.45rem .8rem; margin-top:1.1rem; padding-top:.9rem; border-top:1px solid var(--ftpf-line); }
+    .ftpf-source-row a { color:#0b695d; font-size:.78rem; font-weight:600; text-underline-offset:3px; }
+    .ftpf-source-row a:hover { color:var(--ftpf-forest); }
     .ftpf-source-panel { max-height:calc(100vh - 110px); padding:1.1rem; overflow-y:auto; }
     .ftpf-source-empty { margin:0; color:var(--ftpf-muted); font-size:12.5px; line-height:1.6; }
     .ftpf-source-marker { color:var(--ftpf-gold); font-weight:700; }
@@ -100,6 +120,7 @@
       .ftpf-context div:nth-child(2n) { border-right:0; }
       .ftpf-context div:nth-last-child(-n+2) { border-bottom:0; }
       .ftpf-layout { grid-template-columns:minmax(0,1fr); }
+      .ftpf-elements { grid-template-columns:minmax(0,1fr); }
       .ftpf-main { order:1; }
       .ftpf-toc { position:static; order:2; }
       .ftpf-source-panel { position:static; order:3; max-height:none; }
@@ -178,8 +199,56 @@
 
     <main class="ftpf-main" id="main-content">
       <article class="ftpf-article">
-        <div class="ftpf-section" id="argument"><h2>The argument</h2></div>
-        <div class="ftpf-section" id="section-199"><h2>What section 199 actually establishes</h2></div>
+        <div class="ftpf-section" id="argument">
+          <h2>The argument</h2>
+          <p class="ftpf-lede">The first year of the offence changes the practical question. The issue is no longer whether organisations have had time to create a policy. It is whether their decisions can be reconstructed from evidence if an associated person commits fraud for an intended organisational or client benefit.</p>
+          <span class="ftpf-state" data-kind="analysis">FinCrimeRadar analysis</span>
+          <blockquote class="ftpf-thesis">A defensible reasonable procedures position is not a collection of policies. It is a traceable evidence chain connecting the fraud risk, the associated person, the intended benefit pathway, the prevention control, the management decision and the evidence that the control remained appropriate.</blockquote>
+          <p>This is an analytical position, not wording found in section 199. The Act creates the offence and a defence based on procedures that were reasonable in all the circumstances at the time, or on it being reasonable to have no such procedures. The Home Office guidance supplies six flexible principles, but expressly says that it does not provide a safe harbour and that only the courts can decide whether an organisation's procedures were reasonable.</p>
+          <p>The practical consequence is narrower than a demand for perfect prevention. A failed control does not, by itself, prove that the procedures were unreasonable. Equally, the existence of a policy, training deck or due diligence file does not, by itself, answer why that measure addressed the relevant fraud risk. The defensible position lies in the connections between the risk understood, the judgement made, the control operated and the evidence retained.</p>
+          <ul class="ftpf-elements" aria-label="Evidence chain questions">
+            <li><strong>Risk and actor</strong><span>Which in-scope fraud could the associated person commit through the role, service or relationship?</span></li>
+            <li><strong>Benefit pathway</strong><span>How could the conduct be intended to benefit the organisation, its client or another person served on its behalf?</span></li>
+            <li><strong>Control and decision</strong><span>Why was the chosen prevention response proportionate, and who accepted any residual exposure?</span></li>
+            <li><strong>Operation and review</strong><span>What shows that the response worked in practice and remained appropriate as the risk changed?</span></li>
+          </ul>
+          <p>The rest of this essay tests that proposition against the statute, the statutory guidance and current prosecutorial guidance. It does not treat the six principles as a checklist, and it does not assume that documentation can rescue a control environment that was ineffective in practice.</p>
+          <div class="ftpf-source-row" aria-label="Primary sources for the argument">
+            <a href="https://www.legislation.gov.uk/ukpga/2023/56/section/199" target="_blank" rel="noopener">ECCTA 2023, section 199</a>
+            <a href="https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version" target="_blank" rel="noopener">Home Office statutory guidance</a>
+          </div>
+        </div>
+        <div class="ftpf-section" id="section-199">
+          <h2>What section 199 actually establishes</h2>
+          <span class="ftpf-state" data-kind="source">Statutory source</span>
+          <p class="ftpf-lede">Section 199 is not a general offence of corporate fraud. It creates organisational liability only when the statutory conditions connect a relevant body, an associated person, a specified fraud offence and an intended benefit.</p>
+          <h3>The liability route</h3>
+          <ul class="ftpf-points">
+            <li><strong>Organisation:</strong> the core offence applies where the relevant body is a large organisation. Sections 201 and 202 set the size test, including aggregation across a group.</li>
+            <li><strong>Associated person:</strong> the definition includes an employee, agent or subsidiary undertaking and can include another person who performs services for or on behalf of the body. The question is assessed by reference to all relevant circumstances, not merely the contractual label.</li>
+            <li><strong>Base offence:</strong> the associated person must commit an offence listed in Schedule 13, or aid, abet, counsel or procure such an offence. Schedule 13 includes specified offences under the Fraud Act 2006, Theft Act 1968 and Companies Act 2006, among others.</li>
+            <li><strong>Intended benefit:</strong> the associated person must intend to benefit the relevant body directly or indirectly, or intend to benefit a person to whom services are provided for or on the body's behalf. For that client-benefit limb, subsection 199(3) excludes liability where the body itself was or was intended to be a victim.</li>
+          </ul>
+          <p>The offence does not require proof that senior managers or directors ordered or knew about the fraud. That removes one traditional attribution barrier, but it does not remove the need to prove the associated person's base offence and the required intention to benefit. The Act also contains a distinct parent undertaking route for fraud by an employee of a subsidiary undertaking.</p>
+          <h3>The defence is assessed at the time</h3>
+          <p>Under subsection 199(4), the organisation has a defence if it proves that, when the fraud offence was committed, it had prevention procedures that were reasonable in all the circumstances, or that it was reasonable in all the circumstances not to have any such procedures. The Home Office guidance states that the organisation bears that burden on the balance of probabilities.</p>
+          <span class="ftpf-state" data-kind="guidance">Guidance and prosecution context</span>
+          <p>The Home Office frames reasonable fraud prevention through six principles: top-level commitment, risk assessment, proportionate risk-based prevention procedures, due diligence, communication including training, and monitoring and review. These principles are outcome-focused rather than a rigid minimum-controls list. The guidance says it will rarely be reasonable not even to have conducted a risk assessment, asks organisations to document decisions not to introduce a specific procedure, and warns that due diligence designed for a different risk may not be adequate for fraud prevention.</p>
+          <p>The distinction between law and evaluation matters. The six principles are guidance, not additional statutory elements. The CPS says prosecutors can use them to structure lines of inquiry, identify weaknesses or omissions and assess a claimed defence. The SFO's compliance programme guidance similarly treats the section 199 defence as one context in which it may assess whether a programme was effective in practice. Neither source converts a paper framework into an automatic defence.</p>
+          <div class="ftpf-note">
+            <span class="ftpf-state" data-kind="limitation">Evidence limitation</span>
+            <p>A targeted search of official SFO, CPS, Judiciary and National Archives case-law sources on 16 September 2026 did not identify a reported judgment applying section 199 or an official announcement of a completed section 199 prosecution. That search result is not proof that no unreported investigation, charge or other matter exists. This essay therefore does not predict how a court will weigh a particular control or evidence record.</p>
+          </div>
+          <div class="ftpf-source-row" aria-label="Primary sources for the statutory context">
+            <a href="https://www.legislation.gov.uk/ukpga/2023/56/section/199" target="_blank" rel="noopener">Section 199</a>
+            <a href="https://www.legislation.gov.uk/ukpga/2023/56/schedule/13" target="_blank" rel="noopener">Schedule 13</a>
+            <a href="https://www.legislation.gov.uk/ukpga/2023/56/section/201" target="_blank" rel="noopener">Section 201</a>
+            <a href="https://www.legislation.gov.uk/ukpga/2023/56/section/202" target="_blank" rel="noopener">Section 202</a>
+            <a href="https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version" target="_blank" rel="noopener">Home Office statutory guidance</a>
+            <a href="https://www.cps.gov.uk/prosecution-guidance/corporate-prosecutions" target="_blank" rel="noopener">CPS corporate prosecutions guidance</a>
+            <a href="https://www.gov.uk/government/publications/sfo-guidance-on-evaluating-a-corporate-compliance-programme" target="_blank" rel="noopener">SFO compliance programme guidance</a>
+          </div>
+        </div>
         <div class="ftpf-section" id="defensibility-chain"><h2>The Defensibility Chain</h2></div>
         <div class="ftpf-section" id="competing-interpretations"><h2>Competing interpretations</h2></div>
         <div class="ftpf-section" id="worked-decisions"><h2>Worked decisions</h2></div>
