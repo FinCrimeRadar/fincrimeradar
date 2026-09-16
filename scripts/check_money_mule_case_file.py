@@ -186,10 +186,10 @@ def main() -> None:
             require(forbidden not in call, f"sensitive state key leaked into telemetry call: {forbidden} in {call!r}")
 
     require(
-        "Case File | Default Knowledge Hub with investigative compositions | Experimental pending Experiment 02 evaluation" in guide_standard,
+        "Case File | Default Knowledge Hub with investigative compositions | Accepted composition" in guide_standard,
         "GUIDE_STANDARD.md is missing the Case File format-registry row",
     )
-    require("### Experiment 02 Case File contract" in guide_standard, "GUIDE_STANDARD.md is missing the Experiment 02 Case File contract heading")
+    require("### Case File contract" in guide_standard, "GUIDE_STANDARD.md is missing the Case File contract heading")
 
     print("OK: Money Mule or Victim Case File static contract passed")
     print(f"OK: {len(ids)} unique IDs, {len(guide_claims)} ledger claims, {len(wrapped_event_names)} telemetry event call sites")

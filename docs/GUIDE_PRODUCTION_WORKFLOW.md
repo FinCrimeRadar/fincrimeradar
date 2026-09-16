@@ -30,6 +30,7 @@ GPT or Codex owns:
 - Information architecture
 - Scenario and interaction design
 - Acceptance criteria and test specification
+- A Requirement Coverage Matrix covering every requirement the publication must satisfy
 - Implementation specification
 - Release review planning
 
@@ -40,6 +41,7 @@ The goal is to provide one complete implementation contract before repository wo
 Claude Code owns:
 
 - Repository inspection
+- Dividing the implementation contract into small atomic tasks and assigning every requirement to exactly one task
 - HTML and page-specific CSS and JavaScript
 - Metadata
 - Knowledge Hub integration
@@ -47,6 +49,7 @@ Claude Code owns:
 - Verification ledger integration
 - Social assets
 - Automated tests
+- Targeted deterministic checks during each atomic task, and full integration regression once implementation is complete
 - Browser, accessibility and responsive checks
 - Diff inspection
 - Implementation reporting
@@ -76,45 +79,71 @@ Claude Code then performs one consolidated remediation pass. Avoid repeated micr
 
 ## 3. Standard production sequence
 
+This sequence is proven by Experiments 01 to 03, most fully by Experiments 02 and 03. GPT or Codex owns steps 1 to 6; Claude Code owns steps 7 to 11 and 14 to 16; a fresh GPT or Codex context owns step 12; Claude Code owns the remediation in step 13.
+
 ### 01. Select
 
 Choose the topic and public format.
 
 ### 02. Research
 
-Refresh primary sources and identify the original FinCrimeRadar angle.
+Refresh primary sources and verify them directly before drafting any claim.
 
-### 03. Design
+### 03. Establish originality thesis
 
-Define the analytical model, scenarios, interaction pattern and information architecture.
+Identify the original FinCrimeRadar angle and confirm it clears the Guide Quality Layer's originality gate.
 
-### 04. Draft
+### 04. Lock analytical model
 
-Complete the substantive publication before repository implementation.
+Fix the analytical model, scenarios, interaction pattern and information architecture before drafting. Reopening the model after drafting begins is a specification failure, not a normal editing step.
 
-### 05. Specify
+### 05. Draft
 
-Create one complete Claude Code implementation contract.
+Complete the substantive editorial draft before repository implementation begins.
 
-### 06. Build
+### 06. Create Requirement Coverage Matrix
 
-Claude Code implements the publication and automated tests.
+Produce one Claude Code implementation contract listing every requirement the publication must satisfy. This is the "one complete implementation contract" referenced in section 2.
 
-### 07. Review
+### 07. Divide into atomic tasks
+
+Claude Code divides implementation into small atomic tasks, each independently verifiable.
+
+### 08. Assign requirements to tasks
+
+Assign every requirement in the Requirement Coverage Matrix to exactly one task. No requirement is left unassigned, and no requirement is assigned to more than one task.
+
+### 09. Implement sequentially
+
+Implement the atomic tasks in order, one at a time.
+
+### 10. Run targeted checks per task
+
+Run targeted, deterministic checks during each individual task: the smallest checks that actually prove that task's requirements. See the regression discipline lesson in section 5.
+
+### 11. Run full integration regression
+
+Once implementation is complete, run the full regression suite: this publication's own checks, the shared checks it touches (ledger, sitemap, Knowledge Hub counts, reading time), and the other live experiment suites where a shared file changed.
+
+### 12. Independent adversarial release review
 
 A fresh GPT or Codex context performs one independent adversarial release review.
 
-### 08. Remediate
+### 13. Consolidated remediation
 
-Claude Code applies one consolidated remediation pass.
+Claude Code applies one consolidated remediation pass addressing the review's findings.
 
-### 09. Release
+### 14. Final release verification
 
-Run final tests, inspect the diff, commit and push.
+Re-run the full regression suite against the exact revision about to be committed.
 
-### 10. Verify
+### 15. Commit and release
 
-Verify the production URL, metadata, sources, mobile rendering, consent behaviour and discovery.
+Inspect the diff, commit, and push according to the repository's current workflow and authorisation requirements.
+
+### 16. Verify production
+
+Verify the production URL, metadata, sources, mobile rendering, consent behaviour and discovery against the live site, not just the local working tree.
 
 ## 4. Target production time
 
@@ -136,7 +165,11 @@ Longer cycles are acceptable for:
 - New interactive architecture
 - Deep source verification
 
-## 5. Experiment 01 lessons
+## 5. Lessons from Experiments 01 to 03
+
+### Regression discipline (confirmed by Experiments 02 and 03)
+
+Do not run the full repository regression suite after every small task. Use targeted, deterministic checks during individual implementation tasks, the smallest checks that actually prove that task's requirements. Run the full integration regression once implementation is complete, and again at the final release-verification gate. Run the full regression suite mid-implementation only where a task changes shared architecture (shared CSS, shared JavaScript, the Knowledge Hub shell, the verification ledger schema) or otherwise creates a credible cross-site regression risk.
 
 ### Public taxonomy and rendering architecture are separate
 
@@ -240,6 +273,7 @@ Every release should apply the relevant recurring checks:
 - No sensitive telemetry
 - No unrelated diff contamination
 - Production URL verification
+- Regression scope discipline: targeted checks during tasks, full regression at integration and release gates
 
 Use the smallest deterministic checks that prove the requirement. A successful HTTP response does not prove source accuracy, browser behaviour or production parity.
 
@@ -249,29 +283,30 @@ One design gate. One implementation gate. One independent release gate. One cons
 
 Quality should come from strong specifications, automation and independent review rather than repeated sequential review loops. Do not reopen completed editorial or architectural decisions without new evidence.
 
-## 10. Experiment 02
+## 10. Experiment 02 and 03 outcomes
 
-The current preferred candidate is **Money Mule as Victim**, proposed as a **Case File** public format.
+Experiment 02 shipped as **Money Mule or Victim?** (`money-mule-or-victim-case-file.html`), proving the Case File public format. It tested a genuinely different investigative composition from the APP Scam Framework, as intended. Its accepted recurring contract is defined in `GUIDE_STANDARD.md`'s Case File contract; the twelve-stage disclosure, five-hypothesis board, and specific state machine built for that subject are Subject Specific Composition, not standardised beyond it.
 
-Potential experimental elements:
+Experiment 03 shipped as **FATF Recommendation 16: The Payment Transparency Reset** (`fatf-recommendation-16-intelligence-brief.html`), proving the Intelligence Brief public format. Its accepted recurring contract is defined in `GUIDE_STANDARD.md`'s Intelligence Brief contract; Recommendation 16 specific content and component layout are Subject Specific Composition, not standardised beyond it.
 
-- Initial alert
-- Customer profile
-- Transaction chronology
-- Evidence sequence
-- Competing hypotheses
-- Vulnerability indicators
-- Scenario Inject
-- Decision Record
-- SAR implications
-- Customer treatment
-
-Experiment 02 should test a genuinely different investigative composition rather than reproduce the APP Scam Framework structure.
+Both compositions are accepted following the completed cross-experiment review, without requiring a second instance of either. Framework remains the exception: Experiment 01 (`app-scam-decision-framework.html`) is still its only implementation, and a second Framework publication remains required future work to test recurrence.
 
 ## 11. Current status
 
-| Publication | Status | Public format | Production verified | Outstanding Experiment 01 blockers |
+| Publication | Status | Public format | Production verified | Outstanding blockers |
 | --- | --- | --- | --- | --- |
-| APP Scam Decision Framework | Live | Framework | Yes | None |
+| APP Scam Decision Framework | Live | Framework | Yes | A second Framework implementation is required to test recurrence |
+| Money Mule or Victim? | Live | Case File | Yes | None; Case File is an accepted composition |
+| FATF Recommendation 16: The Payment Transparency Reset | Live | Intelligence Brief | Yes | None; Intelligence Brief is an accepted composition |
 
-Framework remains experimental pending further evaluation, preferably including Experiment 02.
+Framework remains experimental pending a second Framework implementation to test recurrence. Case File and Intelligence Brief are accepted compositions and do not require a second instance.
+
+## 12. Shared helper maturity
+
+Following the cross-experiment review, two categories of repeated implementation are approved for future extraction, but not extracted during this review.
+
+**Browser regression harness.** The CDP-based server-and-browser test harness (a threaded local HTTP server, a tracked-PID Chrome launch, a CDP client, and device-width emulation) now repeats near-identically across multiple experiment suites. Approved for extraction into a shared test helper the next time it is touched.
+
+**Consent-aware aggregate telemetry helper.** Approved for extraction only as a small, strict helper with an explicit event allow-list. It must never transmit free text, case decisions, hypothesis selections, Decision Record contents, or unnecessary personal data.
+
+Not approved, and not to be created without separate evidence: a generic Framework renderer, a generic Case File renderer, a generic Intelligence Brief renderer, a generic decision engine, a generic hypothesis engine, a shared publication component library, or a `KnowledgeCountParser` extraction. The principle remains: abstract stable infrastructure, not immature editorial architecture.

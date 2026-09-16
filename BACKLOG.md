@@ -41,7 +41,7 @@ Repository main and origin/main matched 99ba8608307d0c54a9a003d5a907bc4116c9ca9a
   - Case File: money-mule-or-victim-case-file.html, Experiment 02, live.
   - Intelligence Brief: fatf-recommendation-16-intelligence-brief.html, Experiment 03, live.
   - Evidence Essay: gambling-white-label-blind-spot-guide.html, classification-asymmetry-guide.html and failure-to-prevent-fraud-evidence-essay.html, standing opt-in treatment.
-- Framework, Case File and Intelligence Brief remain experimental pending the cross-experiment review below. A second Framework implementation is still required before Framework can be evaluated on recurrence rather than a single example.
+- Case File and Intelligence Brief are accepted compositions following the completed cross-experiment review (see below); neither requires a second instance. Framework remains experimental: a second Framework implementation is still required to test recurrence rather than a single example.
 
 ### Product and publishing capability
 
@@ -59,32 +59,13 @@ Experiment 03 shipped through seven atomic commits from 7ae03c5 to a0e2402. It a
 
 Experiment 04 shipped through nine atomic commits from d98a717 to 3d87db3, merged into main via eb80299 (pull request #7). It added the Failure to Prevent Fraud Evidence Essay, page JavaScript, social card, discovery surfaces, 18 verified ledger records and permanent static and browser regression checks, following the Evidence Essay treatment already standing for gambling-white-label-blind-spot-guide.html and classification-asymmetry-guide.html rather than a new experimental shell. A completed manual adversarial review and a separate PR-based /code-review each found and closed real defects before merge: two statutory-scope overstatements of the section 199(3) victim exclusion, a citation-click handler that let native anchor navigation undermine the enhanced source panel, an unreciprocated content-relations.json entry, and one source record conflating sections 201 and 202 that needed splitting into two precise primary-source citations. Production serves the guide and the Knowledge Hub count is 54. No backend, account model, free-text collection or new shared component library was introduced.
 
+### Cross-experiment review of Experiments 01 to 03
+
+Completed. The permanent publication architecture (Universal Evidence Core, Intelligence Core, Public Format Contract, Subject Specific Composition), the standard evidence vocabulary, and the Framework, Case File and Intelligence Brief contracts are now defined in GUIDE_STANDARD.md. The production workflow, the GPT/Codex and Claude Code responsibility split, and the regression-scope discipline proven by Experiments 02 and 03 are now defined in docs/GUIDE_PRODUCTION_WORKFLOW.md, which also records the browser-harness and telemetry-helper extraction decisions (approved for future extraction, not extracted during this review). Case File and Intelligence Brief are accepted compositions; neither required a second instance. Framework remains experimental: a second Framework implementation is still required to test recurrence and remains open work, tracked below.
+
 ## Next Up
 
-### 1. Cross-experiment learning and rules review
-
-**Status: READY. Priority: highest. Documentation and architecture decision only.**
-
-Review Experiments 01, 02 and 03 together, then update the canonical workflow and format maturity records. The review must distinguish genuinely recurring production patterns from subject-specific interaction design.
-
-Required outcomes:
-
-- Update docs/GUIDE_PRODUCTION_WORKFLOW.md, whose status section still stops at Experiment 01 and describes Experiment 02 as future work.
-- Record the step-by-step task model proven by Experiments 02 and 03: small atomic build tasks, targeted checks during each task, full regression and independent release review at the end.
-- Decide whether Case File and Intelligence Brief remain experimental, become accepted compositions, or require a second instance.
-- Keep Framework experimental until a second Framework publication tests recurrence.
-- Review, but do not automatically extract, the repeated browser harness, KnowledgeCountParser and consent-aware aggregate telemetry helpers now present across three experiments.
-- Preserve static-first content, progressive enhancement, namespaced local components and no backend unless a future content need proves otherwise.
-
-Verification owner: Codex backlog audit, 14 September 2026.
-
-Repository evidence checked: GUIDE_STANDARD.md, docs/GUIDE_PRODUCTION_WORKFLOW.md, the three published experiment pages, their three browser checks, their static checkers and their JavaScript telemetry helpers.
-
-Review date: 14 September 2026.
-
-Verification outcome: confirmed ready. Experiment 03 is shipped, the workflow document is stale, and the third implementation now exists for a recurrence review. No shared extraction is authorised by this outcome.
-
-### 2. Gambling Evidence Essay skip link
+### 1. Gambling Evidence Essay skip link
 
 **Status: READY. Priority: small accessibility correction.**
 
@@ -145,6 +126,7 @@ Scenario Lab expansion remains **PAUSED** until real usage or engagement evidenc
 
 ### Other build candidates
 
+- **Second Framework implementation:** required future work. `app-scam-decision-framework.html` (Experiment 01) is still Framework's only implementation, so its contract in GUIDE_STANDARD.md is evaluated on a single example, not on recurrence. A second Framework publication needs a topic and evidence pack verified through the normal Content Loop before this can enter Next Up, testing whether Framework's candidate primitives (sequential decision stages, Decision Record, Source/Application/Action reasoning, Red Team Questions, What Would Change My Decision, Practitioner Lens, compact operational summary) genuinely recur for a different subject rather than reflecting APP scam's specific reasoning.
 - **SAR Writing Sandbox Phase 1+:** Phase 0 is already live. A later scoping session may consider more cases, a structured evidence log, Practice Case Summary export, stronger session limits and feedback against an expert answer. Keep UK NCA and POCA specific. Never generate filing-ready SAR narratives. Keep deterministic scoring separate from model commentary and model the cost of every added AI call.
 - **Guide chatbot:** proof of concept indexed 29 sources into 1,148 chunks in the separate API repository. Before resuming, re-check that repository and solve the known ranking problem where literal keyword overlap can outrank the substantive answer. Scope source attribution, refusal behaviour, prompt injection, stale content and cost before any public build.
 - **Stablecoin Due Diligence Assessment:** blocked until Stablecoin Guide 1 ships and the static framework has been applied to at least one real case.

@@ -398,10 +398,11 @@ def main() -> None:
         require(f'/{target}.html' in html, f"related guide link missing: {target}")
 
     require(
-        "Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Experimental pending Experiment 03 evaluation"
+        "Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Accepted composition"
         in standard,
         "Guide Standard maturity differs",
     )
+    require("### Intelligence Brief contract" in standard, "GUIDE_STANDARD.md is missing the Intelligence Brief contract heading")
     require(
         "Last updated: 13 September 2026" in methodology
         and f'href="/{GUIDE_NAME}"' in methodology,

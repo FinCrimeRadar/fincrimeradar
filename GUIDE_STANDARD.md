@@ -4,15 +4,26 @@
 
 FinCrimeRadar separates two concepts: a **public format** and a **rendering treatment**. Public format tells the reader what kind of work they are using. Rendering treatment tells the implementation how that work is presented. The same Knowledge Hub shell can support multiple public formats without creating separate page systems.
 
+## Publication architecture
+
+FinCrimeRadar publications are governed through four conceptual layers. These are layers of governance, not four (or five) separate rendering systems or code paths.
+
+1. **Universal Evidence Core.** The non-negotiable quality floor every substantial publication meets, regardless of public format or rendering treatment. Defined below.
+2. **Intelligence Core.** The analytical spine every substantial publication states explicitly: the practitioner question it resolves, the evidence state behind its conclusion, the decision it supports, its material uncertainty, what would change the assessment, and what the reader can now do. Defined below.
+3. **Public Format Contract.** The recurring analytical primitives a chosen public format (Guide, Framework, Case File, Intelligence Brief, Evidence Essay) carries once selected. A primitive earns a place in a format's contract by proving it recurs, not by appearing once in a single reference implementation.
+4. **Subject Specific Composition.** The implementation choices one specific publication makes to serve its own subject: scenario facts, a named case study, an exact component layout, a specific interaction sequence. These stay specific to that publication and are never promoted into a format contract merely because they exist in one reference implementation.
+
+A publication's rendering treatment presents its Public Format Contract, which sits on top of its Intelligence Core, which sits on top of the Universal Evidence Core. Subject Specific Composition is what makes each publication distinct within that structure. The layering is conceptual, and exists to keep decisions at the right altitude, not to create a fifth template.
+
 | Public format | Rendering treatment | Current maturity |
 | --- | --- | --- |
 | Guide | Default Knowledge Hub | Standing |
-| Framework | Default Knowledge Hub with decision or control compositions | Experimental pending Experiment 01 evaluation; a second Framework implementation remains open |
-| Case File | Default Knowledge Hub with investigative compositions | Experimental pending Experiment 02 evaluation |
-| Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Experimental pending Experiment 03 evaluation |
+| Framework | Default Knowledge Hub with decision or control compositions | Experimental pending a second Framework implementation |
+| Case File | Default Knowledge Hub with investigative compositions | Accepted composition |
+| Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Accepted composition |
 | Evidence Essay | Evidence Essay | Standing opt-in treatment |
 
-This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment. Framework remains experimental pending evaluation of Experiment 01. A second Framework implementation would strengthen that evaluation, but Experiment 02 was built as a Case File instead, so Framework's own second-instance evaluation remains open. Case File is experimental pending evaluation of Experiment 02, its first publication. Intelligence Brief is experimental pending evaluation of Experiment 03, its first publication. The table records the approved experimental architecture, not permanent adoption of every format or contract. Every publication still follows the **Universal Evidence Core** and **Guide Quality Layer**. Existing publications are not retrofitted merely to adopt these labels.
+This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment, not separate rendering systems. Following the completed cross-experiment review of Experiments 01 to 03, Case File and Intelligence Brief are accepted compositions: each proved its analytical contract through a real publication, and neither requires a second instance before acceptance. Framework remains experimental because Experiment 01, the APP Scam Decision Framework, is still its only implementation; a second Framework publication is required to test whether its contract genuinely recurs rather than reflecting one subject's specific reasoning. The table records the current approved architecture, not a promise that every future publication in an accepted composition will look identical to its first instance. Every publication still follows the **Universal Evidence Core** and the **Intelligence Core** below. Existing publications are not retrofitted merely to adopt these labels.
 
 ---
 
@@ -52,6 +63,42 @@ This is the Global core referred to elsewhere in this standard. It applies to ev
 
 ---
 
+## Intelligence Core
+
+Every substantial publication states its Intelligence Core explicitly, in addition to meeting the Universal Evidence Core above. This is the publication's analytical spine, not a new mandatory section a reader must find; the elements below can live in the argument, an explicit context strip, an evidence-limitation note, or wherever the format naturally puts them, but each one must actually be answerable from the published page, not merely implied.
+
+**Intelligence question.** The precise practitioner question the publication exists to resolve. Not a topic label ("failure to prevent fraud"); a question a reader could restate in one sentence ("was this control environment reasonable for the fraud risk that existed at the time").
+
+**Evidence state.** What is established, provisional, an industry position, a FinCrimeRadar assessment, or unknown, where those distinctions materially affect how much weight a reader should give the conclusion. See Evidence vocabulary below for the standard labels. Do not force a label onto a claim where the distinction adds no practitioner value.
+
+**Decision object.** The judgement, investigation, control response, or implementation decision the reader is being helped to make. This is what the Universal Evidence Core's Worked decisions requirement and the Guide Quality Layer's Reader outcome test already require a publication to serve; the Intelligence Core names it explicitly rather than leaving it implicit.
+
+**Uncertainty.** The material unresolved facts, limitations, or missing evidence that constrain the conclusion. Governed alongside Evidence uncertainty below; state it honestly rather than converting it into false certainty for visual simplicity.
+
+**Change condition.** The fact, evidence, or event that would materially change the conclusion or require reassessment. This is the shared analytical spine behind Red Team Questions, What Would Change My Decision, What Would Change Our Assessment, and an Evidence Essay's competing-interpretations and assessment-change analysis: one requirement, expressed through whichever challenge mechanism (see Challenge requirement below) actually fits the format and subject.
+
+**Practitioner outcome.** What the reader should now be better able to decide, investigate, recognise, explain, implement, or monitor. This is the Guide Quality Layer's Reader outcome test, restated here as a required Intelligence Core element rather than a pre-publication check performed once and forgotten.
+
+Do not build a dedicated visual component to display these six elements. Most publications already answer them somewhere in existing prose, the thesis, an evidence-limitation note, or a what-would-change-this section; the requirement is that the answer exists and is findable, not that it takes a new fixed shape.
+
+### Evidence vocabulary
+
+Where the distinction materially affects how a reader should weigh a claim, use these five epistemic states consistently.
+
+**Established.** Directly supported by current authoritative evidence: the statute, an in-force regulation, a reported judgment, official guidance currently in effect.
+
+**Provisional.** Published or proposed material whose final form, implementation, or consequence remains unresolved: a consultation, a draft, a de facto standard awaiting formal adoption, guidance expected but not yet issued.
+
+**Industry position.** A documented interpretation, proposal, or operational position from an industry participant or representative body, not from a regulator or legislature.
+
+**FinCrimeRadar assessment.** An analytical conclusion FinCrimeRadar produced from the available evidence: a practitioner framework, a synthesis, a judgement about how facts likely apply. FinCrimeRadar analysis must never be presented as though it were the authoritative source's own wording or a mandatory conclusion the authority itself established; this is the Guide Quality Layer's Source, Application, Action distinction applied at the evidence-state level, not a second standard.
+
+**Unknown.** A material fact needed for a stronger judgement is unavailable or cannot currently be verified. State this honestly rather than filling the gap with a plausible-sounding assumption.
+
+Do not force these five labels into a publication where the distinctions add no practitioner value; a straightforward procedural guide with no contested or time-sensitive claims does not need an evidence-state badge on every paragraph. Use them where a reader's confidence in a conclusion should genuinely vary claim by claim.
+
+---
+
 ## Guide Quality Layer
 
 Treatment-independent. Applies whether a guide uses the Default Knowledge Hub treatment or Evidence Essay, and strengthens the Global core above without replacing or weakening it.
@@ -63,6 +110,8 @@ Treatment-independent. Applies whether a guide uses the Default Knowledge Hub tr
 **Source, Application, Action distinction.** For legally or regulatorily sensitive teaching points, keep three layers visibly separate: **Source**, what the authority expressly establishes; **Application**, how FinCrimeRadar applies that authority to the facts or scenario; **Action**, the operational response or practitioner consideration FinCrimeRadar recommends. Never present FinCrimeRadar's own inference as though it were the precise wording or mandatory conclusion of the cited authority. This is the reader-facing form of the accuracy discipline already defined in `CLAUDE.md`'s Scenario reasoning section; it does not create a second standard, it applies that one to guide prose and scenario copy specifically.
 
 **Counterfactual scenario reasoning.** Where a scenario contains a genuinely decision-determining fact, consider a counterfactual step after the initial reasoning: change one material fact and ask whether the decision changes. Examples: ownership moving from below to above a relevant threshold, a subject changing from a non-qualifying public role to one that satisfies a legal definition, an isolated transaction becoming a repeated behavioural pattern, source-of-funds evidence becoming independently corroborated, control rights changing without a corresponding ownership change. The purpose is to teach which facts actually drive the judgement. Do not add a counterfactual where changing the fact would teach nothing.
+
+**Challenge requirement.** A substantial analytical publication exposes its important reasoning to challenge through at least one suitable mechanism where applicable: Red Team Questions, Competing Hypotheses, Competing Interpretations, Counterfactual reasoning (above), What Would Change My Decision, or What Would Change Our Assessment. These are the format-specific instances of the Intelligence Core's Change condition element; picking one is the requirement, not building all of them. Do not manufacture artificial disagreement merely to satisfy this rule; a publication with no genuinely contested reasoning to challenge does not need one invented.
 
 **Learner confidence.** Where useful, let the reader record High, Medium, or Low confidence after choosing but before seeing the reasoning. A calibration mechanism, not gamification, distinguishing correct-and-confident from correct-but-uncertain from incorrect-but-uncertain from incorrect-and-confidently-wrong. Not mandatory for every scenario.
 
@@ -92,40 +141,65 @@ Beyond the Global core's mandatory floor (two worked scenarios with graded decis
 
 Standard Knowledge Hub card layout and navigation chrome, no experimental shell.
 
-### Experiment 01 Framework contract
+### Framework contract
 
-For Experiment 01, the Framework label is used because the reader needs to assess, decide and document a difficult judgement. The publication uses the Default Knowledge Hub shell and adds only the decision compositions justified by the APP scam subject. It is not a separate template or rendering system.
+Framework is used when the primary reader job is to reach and defend a difficult judgement through structured analysis. The publication uses the Default Knowledge Hub shell and adds only the decision compositions the subject actually justifies. It is not a separate template or rendering system.
 
-This is the current experimental contract for the APP Scam Decision Framework. It is not permanently binding on all future Framework publications. Any later Framework experiment must retain the Universal Evidence Core, but should reuse these additional requirements only where evaluation through Experiment 01, and a second Framework implementation if one is later built, shows that the contract genuinely recurs.
+Framework remains experimental: Experiment 01, the APP Scam Decision Framework, is still its only implementation. `app-scam-decision-framework.html` remains a reference implementation, not a fixed template. A second Framework publication is required to test whether the contract below genuinely recurs, rather than reflecting one subject's specific reasoning.
 
-Experiment 01 must include:
+Retain these as candidate recurring Framework primitives where the subject justifies them:
 
-- At least two materially distinct worked scenarios.
-- A visible sequence of decision gates or control stages.
+- Sequential decision stages.
+- A structured Decision Record separating facts, assumptions, indicators, mitigants, decision, and rationale.
 - Full Source, Application, and Action reasoning.
-- At least one structured Decision Record separating facts, assumptions, indicators, mitigants, decision, and rationale.
-- A static What Would Change My Decision analysis for each major scenario.
-- Red Team questions that test the defensibility of judgement.
+- Red Team Questions that test the defensibility of the judgement.
+- A static What Would Change My Decision analysis.
+- A Practitioner Lens or other limited, optional progressive disclosure.
 - A compact operational summary suitable for practitioner reference.
-- The mandatory Risk/Signal/Response treatment, knowledge check, FAQ, sources, and export support already required by the Universal Evidence Core.
 
-Practitioner lenses and other progressive disclosure are optional and should remain limited. Material reasoning and conclusions must remain present in the initial HTML and must not depend on completing an interaction.
+Do not treat APP scam specific analytical constructs (for example the Four Verdict Problem, the Nominal Performance Trap, or the Consumer Standard of Caution logic) as universal Framework requirements; they are Subject Specific Composition for that publication. Material reasoning and conclusions must remain present in the initial HTML and must not depend on completing an interaction. Do not build a generic Framework renderer.
 
-### Experiment 02 Case File contract
+### Case File contract
 
-For Experiment 02, the Case File label is used because the reader needs to investigate a contested set of facts and reach a classification, not merely assess a single decision. The publication uses the Default Knowledge Hub shell and adds only the investigative compositions justified by the money mule subject. It is not a separate template or rendering system.
+Case File is an accepted composition, used when the reader must investigate incomplete, changing, or conflicting facts and determine which explanation best fits the evidence. The publication uses the Default Knowledge Hub shell and adds only the investigative compositions the subject justifies. It is not a separate template or rendering system.
 
-This is the current experimental contract for Money Mule or Victim? It is not permanently binding on all future Case File publications. Any later Case File experiment must retain the Universal Evidence Core, but should reuse these additional requirements only where evaluation through Experiment 02 shows that the contract genuinely recurs.
+`money-mule-or-victim-case-file.html` remains a reference implementation, not a fixed template. A second Case File is not required for the format to remain accepted.
 
-Experiment 02 must include:
+The recurring analytical contract should normally cover:
 
-- Twelve-stage gated progressive disclosure of evidence.
-- A persistent five-hypothesis board with snapshot comparison.
+- An initial investigative question.
+- Progressive evidence disclosure.
+- A chronology where sequence matters.
+- Competing hypotheses.
 - An evidence-status model distinct from hypothesis status.
-- A keyboard-operable timeline.
-- A five-dimension Decision Record.
-- A Red-Team gate.
-- A Radar View.
+- Decision points requiring practitioner judgement.
+- A final evidence position.
+- A final Decision Record.
+- A challenge to the preferred conclusion.
+- Practitioner actions and their consequences.
+
+Do not standardise Experiment 02's exact twelve stages, exact five hypotheses, or its specific state machine; those are Subject Specific Composition for that publication, not universal Case File requirements. Do not build a generic Case File renderer or a generic hypothesis engine.
+
+### Intelligence Brief contract
+
+Intelligence Brief is an accepted composition, used when a subject is evolving and practitioners need to understand what changed, what is settled, what remains unresolved, and when action is appropriate. The publication uses the Default Knowledge Hub shell and adds only the temporal and comparison compositions the subject justifies. It is not a separate template or rendering system.
+
+`fatf-recommendation-16-intelligence-brief.html` remains a reference implementation, not a fixed template. A second Intelligence Brief is not required for the format to remain accepted.
+
+The recurring analytical contract should normally include:
+
+- A dated intelligence assessment.
+- An evidence checked date.
+- A current assessment status.
+- A clear distinction between settled and unresolved material.
+- An intelligence timeline where the subject's chronology matters.
+- Operational or control implications.
+- A decision horizon.
+- The next material trigger that would prompt reassessment.
+- A static What Would Change Our Assessment analysis.
+- Worked practitioner decisions where actual judgement is materially relevant to the subject.
+
+Do not treat Recommendation 16 specific content or its exact component layout as universal Intelligence Brief requirements; they are Subject Specific Composition for that publication. Do not build a generic Intelligence Brief renderer.
 
 ---
 
@@ -164,20 +238,28 @@ A component belongs in a guide because it improves understanding, judgement, inv
 
 ---
 
-## Evidence freshness
+## Temporal intelligence
 
-Where regulatory or evidential freshness matters, distinguish publication date, editorial update date, and regulatory or source verification date. Do not imply an old regulatory proposition is current merely because surrounding prose was recently edited. Use this only where freshness materially affects practitioner trust or interpretation.
+For a materially change-sensitive subject, publication date alone is not sufficient temporal intelligence. Applicable subjects include regulatory change, sanctions, enforcement, emerging typologies, technology, and policy or implementation guidance. Where a subject is materially change-sensitive, identify:
+
+- **Evidence checked date.** When the underlying evidence was last verified, distinct from when the surrounding prose was last edited.
+- **Current assessment.** What the publication concludes given the evidence as it stood on that date.
+- **Material unresolved issue.** What remains genuinely open and could change the conclusion.
+- **Next known trigger.** A specific, named event or publication expected to resolve or move the issue, where one is known.
+- **Reassessment condition.** What would require the publication to be revisited, whether or not a trigger date is known.
+
+This is the Intelligence Core's Evidence state, Uncertainty, and Change condition elements, applied specifically to time-sensitive subjects; it does not create a second, separate temporal framework. Do not imply an old regulatory proposition is current merely because surrounding prose was recently edited. Use this only where freshness materially affects practitioner trust or interpretation, not on every publication regardless of subject.
 
 ---
 
 ## Evidence uncertainty
 
-Where evidence is genuinely uncertain, preserve that uncertainty; do not convert ambiguity into artificial certainty for visual simplicity. Where useful, distinguish primary authority confirmed, official guidance, specialist secondary evidence, estimate, and illustrative scenario. Do not turn every paragraph into a badge system, use uncertainty treatments only where they materially help the reader assess evidence quality.
+Where evidence is genuinely uncertain, preserve that uncertainty; do not convert ambiguity into artificial certainty for visual simplicity. Where distinguishing claims by confidence helps the reader, use the Evidence vocabulary above rather than inventing a second labelling scheme. Do not turn every paragraph into a badge system, use uncertainty treatments only where they materially help the reader assess evidence quality.
 
 ---
 
 ## Avoid interaction overload
 
-This standard is not permission to add more interactions to every guide. FinCrimeRadar already has a mature interaction system; the priority is better reasoning interactions, not more interaction volume.
+This standard is not permission to add more interactions to every guide. FinCrimeRadar already has a mature interaction system; the priority is better reasoning interactions, not more interaction volume. Do not add interactive state or a component merely because another publication already has it; each publication's interaction choices are Subject Specific Composition, introduced only where they materially improve the reader's intelligence task, not a template every publication fills in.
 
 A strong interaction sequence where appropriate: **Scenario → Decision → Confidence → Reasoning → Change one fact → Reconsider.** Do not require this exact sequence where the subject matter does not justify it.
