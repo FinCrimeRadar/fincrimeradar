@@ -7753,10 +7753,10 @@
   {
     "claimId": "failure-to-prevent-fraud-evidence-essay.large-organisation-size-test.006",
     "guide": "failure-to-prevent-fraud-evidence-essay.html",
-    "claimText": "Sections 201 and 202 set the large-organisation size test, based on turnover, balance sheet total and employee-count thresholds assessed over the preceding financial year, with separate aggregation rules for parent undertakings.",
+    "claimText": "Section 201 sets the large-organisation size test: turnover, balance sheet total and employee-count thresholds assessed over the preceding financial year, at least two of three met.",
     "claimType": "regulatory",
     "source": {
-      "title": "Economic Crime and Corporate Transparency Act 2023, sections 201 and 202",
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 201",
       "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/201",
       "publisher": "legislation.gov.uk (UK National Archives)",
       "date": "2023-10-26"
@@ -7764,7 +7764,7 @@
     "verifiedOn": "2026-09-16",
     "reviewDue": "2027-03-16",
     "status": "verified",
-    "note": "Essay states the test at section level only (no specific thresholds quoted), consistent with CLAUDE.md citation-precision guidance for ordinary explanatory prose."
+    "note": "Split from a broader claim during Task 7 external review remediation: this record now covers section 201 only. The separate group-aggregation rule under section 202 is its own claim, see large-organisation-group-aggregation.018. Essay states the test at section level only (no specific thresholds quoted), consistent with CLAUDE.md citation-precision guidance for ordinary explanatory prose."
   },
   {
     "claimId": "failure-to-prevent-fraud-evidence-essay.defence-timing-burden.007",
@@ -7925,5 +7925,21 @@
     "reviewDue": "2026-12-16",
     "status": "verified",
     "note": "Documents FinCrimeRadar's own search methodology and its limits, per CLAUDE.md's methodology-accuracy requirement. Refreshed during Task 5 with an independent web search on 2026-09-16 that corroborated no recorded section 199 prosecutions to date; the essay's wording is left as an honestly framed absence-of-result, not strengthened into a universal absence claim. Short review cycle because new enforcement activity could emerge at any time."
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.large-organisation-group-aggregation.018",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Section 202 sets a separate group-aggregation rule: a parent undertaking is a large organisation if its group, aggregating each member’s turnover, balance sheet total and employee count under section 201, met at least two of the three thresholds in the preceding financial year.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 202",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/202",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified",
+    "note": "Added during Task 7 external review remediation, split out from large-organisation-size-test.006 so the group-aggregation proposition has its own section-202 source record rather than sharing a section-201-only URL."
   }
 ]

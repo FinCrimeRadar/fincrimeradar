@@ -34,13 +34,13 @@
       limit: 'Only the offences Schedule 13 actually lists qualify as the base offence, not every fraud-related offence in English law.'
     },
     '3': {
-      claim: 'A relevant body is a large organisation if it met at least two of three thresholds (turnover, balance sheet total, employee count) in the preceding financial year; section 202 sets separate group-aggregation rules.',
-      title: 'Economic Crime and Corporate Transparency Act 2023, sections 201 and 202',
+      claim: 'A relevant body is a large organisation if it met at least two of three thresholds (turnover, balance sheet total, employee count) in the preceding financial year.',
+      title: 'Economic Crime and Corporate Transparency Act 2023, section 201',
       publisher: 'legislation.gov.uk (UK National Archives)',
       date: 'Current text as enacted',
       verified: '16 September 2026',
       url: 'https://www.legislation.gov.uk/ukpga/2023/56/section/201',
-      limit: 'This essay states the size test at section level. A specific group structure should be checked against section 202 directly.'
+      limit: 'Does not itself cover a group structure. See source 8 for the separate group-aggregation rule in section 202.'
     },
     '4': {
       claim: 'The Home Office guidance sets out six principles, disclaims safe-harbour status, places the burden of proof on the organisation on the balance of probabilities, and warns that controls built for a different risk may not be adequate for fraud prevention.',
@@ -77,6 +77,15 @@
       verified: '16 September 2026',
       url: 'https://www.legislation.gov.uk/uksi/2025/349/made',
       limit: 'A commencement instrument fixing the date the offence took effect, not the substantive offence itself.'
+    },
+    '8': {
+      claim: 'A parent undertaking is a large organisation if its group, aggregating each member’s turnover, balance sheet total and employee count under section 201, met at least two of the three thresholds.',
+      title: 'Economic Crime and Corporate Transparency Act 2023, section 202',
+      publisher: 'legislation.gov.uk (UK National Archives)',
+      date: 'Current text as enacted',
+      verified: '16 September 2026',
+      url: 'https://www.legislation.gov.uk/ukpga/2023/56/section/202',
+      limit: 'A specific group structure needs checking against section 202 directly.'
     }
   };
 
@@ -118,7 +127,8 @@
   }
 
   document.querySelectorAll('.ftpf-cite[data-src]').forEach(function (el) {
-    el.addEventListener('click', function () {
+    el.addEventListener('click', function (event) {
+      event.preventDefault();
       var id = el.getAttribute('data-src');
       showSource(id);
       if (MOBILE_QUERY.matches && sourcePanelEl) {
