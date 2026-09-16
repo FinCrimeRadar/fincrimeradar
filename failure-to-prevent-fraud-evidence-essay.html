@@ -108,6 +108,23 @@
     .ftpf-source-panel { max-height:calc(100vh - 110px); padding:1.1rem; overflow-y:auto; }
     .ftpf-source-empty { margin:0; color:var(--ftpf-muted); font-size:12.5px; line-height:1.6; }
     .ftpf-source-marker { color:var(--ftpf-gold); font-weight:700; }
+    .ftpf-chain { display:flex; flex-direction:column; gap:.9rem; margin:1.1rem 0 0; padding:0; list-style:none; }
+    .ftpf-chain-link { padding:1rem 1.1rem; border:1px solid var(--ftpf-line); border-left:4px solid #0f766e; border-radius:8px; background:#fbfcfb; }
+    .ftpf-chain-head { display:flex; align-items:baseline; gap:.6rem; }
+    .ftpf-chain-num { display:inline-flex; align-items:center; justify-content:center; width:1.6rem; height:1.6rem; border-radius:50%; background:var(--ftpf-forest); color:#fff; font-size:.78rem; font-weight:700; flex:none; }
+    .ftpf-chain-head h3 { margin:0; }
+    .ftpf-chain-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.7rem 1.1rem; margin:.75rem 0 0; }
+    .ftpf-chain-grid dt { color:var(--ftpf-muted); font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+    .ftpf-chain-grid dd { margin:.2rem 0 0; color:var(--ftpf-ink); font-size:.88rem; line-height:1.55; }
+    @media(max-width:640px) { .ftpf-chain-grid { grid-template-columns:minmax(0,1fr); } }
+    .ftpf-views { display:flex; flex-direction:column; gap:.75rem; margin:1.1rem 0 0; padding:0; list-style:none; }
+    .ftpf-view { padding:.95rem 1.05rem; border:1px solid var(--ftpf-line); border-radius:8px; background:#fbfcfb; }
+    .ftpf-view[data-verdict="preferred"] { border-color:#0f766e; border-left:4px solid #0f766e; background:#f1f8f6; }
+    .ftpf-view-head { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem; margin-bottom:.35rem; }
+    .ftpf-view-head strong { color:var(--ftpf-forest); font-size:.95rem; }
+    .ftpf-view-tag { display:inline-flex; padding:.2rem .5rem; border-radius:999px; background:var(--ftpf-gold-soft); color:#674c12; font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+    .ftpf-view[data-verdict="preferred"] .ftpf-view-tag { background:#0f766e; color:#fff; }
+    .ftpf-view p { margin:.3rem 0 0; color:var(--ftpf-ink); font-size:.9rem; line-height:1.6; }
     @media(max-width:980px) { .ftpf-layout { grid-template-columns:180px minmax(0,1fr) 250px; gap:1rem; } }
     @media(max-width:800px) {
       .ftpf-page #site-nav nav { padding:0 1rem; }
@@ -249,10 +266,112 @@
             <a href="https://www.gov.uk/government/publications/sfo-guidance-on-evaluating-a-corporate-compliance-programme" target="_blank" rel="noopener">SFO compliance programme guidance</a>
           </div>
         </div>
-        <div class="ftpf-section" id="defensibility-chain"><h2>The Defensibility Chain</h2></div>
-        <div class="ftpf-section" id="competing-interpretations"><h2>Competing interpretations</h2></div>
+        <div class="ftpf-section" id="defensibility-chain">
+          <h2>The Defensibility Chain</h2>
+          <span class="ftpf-state" data-kind="analysis">FinCrimeRadar analysis</span>
+          <p class="ftpf-lede">Section 199 asks a single question at trial: were the procedures reasonable in all the circumstances at the time, or was it reasonable to have none. In practice, an organisation answers that question by showing how six things connect, not by producing any one of them in isolation.</p>
+          <p>The six links below are FinCrimeRadar's own practitioner model for organising that evidence. They are not a restatement of section 199(4), and no court has adopted them. Where a link rests on something the statute or guidance actually says, the source is named. Everything else, including the ordering, the framing of each break and the practical consequence, is FinCrimeRadar's application of the statutory test to how these investigations tend to unfold.</p>
+          <ol class="ftpf-chain" aria-label="The six-link Defensibility Chain">
+            <li class="ftpf-chain-link">
+              <div class="ftpf-chain-head"><span class="ftpf-chain-num" aria-hidden="true">1</span><h3>Fraud risk</h3></div>
+              <dl class="ftpf-chain-grid">
+                <div><dt>Decision question</dt><dd>What specific fraud mechanism could an associated person commit through this role, relationship or operating context, and has that mechanism been named rather than assumed to sit inside a general fraud policy?</dd></div>
+                <div><dt>Supporting evidence</dt><dd>A risk assessment that identifies the mechanism, the exposure and the operating context, refreshed when the business or the role changed.</dd></div>
+                <div><dt>Common break</dt><dd>Treating the existence of a fraud policy as proof that the specific mechanism was considered, when the policy never named the pathway that actually occurred.</dd></div>
+                <div><dt>Defensibility consequence</dt><dd>Without a risk-specific record, the organisation is arguing after the fact that a control addressed a risk it never demonstrably identified, which is a harder position to hold.</dd></div>
+              </dl>
+            </li>
+            <li class="ftpf-chain-link">
+              <div class="ftpf-chain-head"><span class="ftpf-chain-num" aria-hidden="true">2</span><h3>Associated person</h3></div>
+              <dl class="ftpf-chain-grid">
+                <div><dt>Decision question</dt><dd>In what capacity was the person acting when the conduct occurred, and does the actual relationship, not the contract label, fit the statutory definition of an associated person?</dd></div>
+                <div><dt>Supporting evidence</dt><dd>Records of the working relationship in practice: instructions given, integration into the organisation's processes, and how the organisation relied on or directed the person's role at the relevant time.</dd></div>
+                <div><dt>Common break</dt><dd>Assuming a contractual label such as "independent contractor" or "introducer" settles the question, when the Act's associated-person test is assessed by reference to all relevant circumstances.</dd></div>
+                <div><dt>Defensibility consequence</dt><dd>If capacity is contested, the organisation ends up arguing status and reasonableness at the same time, which weakens both positions.</dd></div>
+              </dl>
+            </li>
+            <li class="ftpf-chain-link">
+              <div class="ftpf-chain-head"><span class="ftpf-chain-num" aria-hidden="true">3</span><h3>Intended benefit pathway</h3></div>
+              <dl class="ftpf-chain-grid">
+                <div><dt>Decision question</dt><dd>How could the conduct have been intended to benefit the organisation, directly or indirectly, or a person served on its behalf, and does the fact pattern actually support that intention?</dd></div>
+                <div><dt>Supporting evidence</dt><dd>Analysis that traces the alleged conduct to a plausible organisational or client benefit: revenue, cost avoidance, target achievement or a service outcome for a client.</dd></div>
+                <div><dt>Common break</dt><dd>Assuming the benefit element is automatically satisfied because fraud occurred inside the business, without tracing the pathway, or overlooking that subsection 199(3) excludes liability where the organisation itself was the intended victim.</dd></div>
+                <div><dt>Defensibility consequence</dt><dd>A benefit pathway that has not been traced leaves the organisation unable to test one of the statutory conditions before reasonableness even becomes the live question.</dd></div>
+              </dl>
+            </li>
+            <li class="ftpf-chain-link">
+              <div class="ftpf-chain-head"><span class="ftpf-chain-num" aria-hidden="true">4</span><h3>Prevention response</h3></div>
+              <dl class="ftpf-chain-grid">
+                <div><dt>Decision question</dt><dd>Which specific control, or combination of controls, was mapped to this named fraud risk, and can that mapping be shown rather than inferred from a general control inventory?</dd></div>
+                <div><dt>Supporting evidence</dt><dd>A control record that states what the control was designed to catch for this risk and why it was proportionate to the risk's likelihood and impact.</dd></div>
+                <div><dt>Common break</dt><dd>Pointing to due diligence, training or monitoring built for a different risk, such as anti-money laundering or bribery, and treating it as fraud coverage because it exists.</dd></div>
+                <div><dt>Defensibility consequence</dt><dd>A control that was never designed for the risk in question does little to support reasonableness, however well it performs its original purpose.</dd></div>
+              </dl>
+            </li>
+            <li class="ftpf-chain-link">
+              <div class="ftpf-chain-head"><span class="ftpf-chain-num" aria-hidden="true">5</span><h3>Management judgement</h3></div>
+              <dl class="ftpf-chain-grid">
+                <div><dt>Decision question</dt><dd>Who owned the decision to accept, mitigate or decline to act on this risk, and is the proportionality reasoning, including any accepted residual exposure, documented at the time rather than reconstructed afterwards?</dd></div>
+                <div><dt>Supporting evidence</dt><dd>A named decision-maker, a proportionality rationale, and, where a procedure was not introduced for a specific risk, a contemporaneous record of that decision and why it was reasonable.</dd></div>
+                <div><dt>Common break</dt><dd>A decision not to act that survives only as institutional memory, when the Home Office guidance specifically asks organisations to document a decision not to introduce a procedure for a given risk.</dd></div>
+                <div><dt>Defensibility consequence</dt><dd>An undocumented judgement forces the organisation to rely on recollection long after the event, which a fact-finder can discount even when the original decision was sound.</dd></div>
+              </dl>
+            </li>
+            <li class="ftpf-chain-link">
+              <div class="ftpf-chain-head"><span class="ftpf-chain-num" aria-hidden="true">6</span><h3>Operating evidence and review</h3></div>
+              <dl class="ftpf-chain-grid">
+                <div><dt>Decision question</dt><dd>What shows the control actually operated as designed, that exceptions were identified and handled, and that the underlying risk assessment stayed current as the business changed?</dd></div>
+                <div><dt>Supporting evidence</dt><dd>Exception logs, review records, evidence that lessons from near misses fed back into the control, and a dated refresh of the risk assessment.</dd></div>
+                <div><dt>Common break</dt><dd>Treating the existence of a control as evidence that it worked, with no operating record, or letting a risk assessment go stale while the business grew or changed.</dd></div>
+                <div><dt>Defensibility consequence</dt><dd>Without operating evidence, a control looks identical whether it was effective or merely present, which is close to the distinction the SFO's compliance programme guidance draws between effective operation and a paper exercise.</dd></div>
+              </dl>
+            </li>
+          </ol>
+          <p>None of this converts a missing or weak link into an automatic statutory failure. A gap in the chain increases the organisation's evidential difficulty in discharging the subsection 199(4) burden; it does not, by itself, prove that the procedures were unreasonable, and a full chain does not guarantee that a court will agree they were reasonable either. The judgement remains the court's, on the facts of the case.</p>
+          <div class="ftpf-source-row" aria-label="Primary sources for the Defensibility Chain">
+            <a href="https://www.legislation.gov.uk/ukpga/2023/56/section/199" target="_blank" rel="noopener">ECCTA 2023, section 199</a>
+            <a href="https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version" target="_blank" rel="noopener">Home Office statutory guidance</a>
+            <a href="https://www.gov.uk/government/publications/sfo-guidance-on-evaluating-a-corporate-compliance-programme" target="_blank" rel="noopener">SFO compliance programme guidance</a>
+          </div>
+        </div>
+        <div class="ftpf-section" id="competing-interpretations">
+          <h2>Competing interpretations</h2>
+          <span class="ftpf-state" data-kind="analysis">FinCrimeRadar analysis</span>
+          <p class="ftpf-lede">Practitioners tend to collapse the reasonableness question into one of three shortcuts. Each is understandable and each is incomplete against what the statute and the guidance actually ask.</p>
+          <ul class="ftpf-views" aria-label="Interpretations of reasonable procedures">
+            <li class="ftpf-view">
+              <div class="ftpf-view-head"><strong>The policy inventory view</strong><span class="ftpf-view-tag">Incomplete</span></div>
+              <p>Ownership of an anti-fraud policy, a code of conduct and a training deck is treated as the defence itself. This answers whether a document exists, not whether that document addressed the fraud risk that actually materialised. The CPS's own corporate prosecutions guidance treats the six principles as a tool for identifying weaknesses and omissions, which assumes prosecutors will look past the paper rather than stop at it.</p>
+            </li>
+            <li class="ftpf-view">
+              <div class="ftpf-view-head"><strong>The six-principle checklist view</strong><span class="ftpf-view-tag">Incomplete</span></div>
+              <p>Nominal coverage of all six Home Office principles, top-level commitment, risk assessment, proportionate procedures, due diligence, communication and monitoring, is treated as equivalent to reasonableness. The guidance itself frames the principles as outcome-focused and states expressly that it is not a safe harbour and that only a court decides whether procedures were reasonable in a given case.</p>
+            </li>
+            <li class="ftpf-view">
+              <div class="ftpf-view-head"><strong>The outcome view</strong><span class="ftpf-view-tag">Incomplete</span></div>
+              <p>The occurrence of fraud is treated as proof, by itself, that the prevention procedures were unreasonable. Section 199(4) asks whether the procedures were reasonable in all the circumstances at the time, not whether they succeeded in every instance. A failed control is evidence to weigh; it is not, on its own, the statutory test.</p>
+            </li>
+            <li class="ftpf-view" data-verdict="preferred">
+              <div class="ftpf-view-head"><strong>The evidence-chain view</strong><span class="ftpf-view-tag">FinCrimeRadar's preferred reading</span></div>
+              <p>Reasonableness is evaluated through the traceable relationship between the fraud risk, the associated person, the benefit pathway, the control, the management judgement and the operating evidence, the Defensibility Chain above. This is FinCrimeRadar's analytical position for organising that evidence, not a judicially settled interpretation of section 199(4). Only a court applying the subsection to particular facts can decide whether specific procedures were reasonable.</p>
+            </li>
+          </ul>
+        </div>
         <div class="ftpf-section" id="worked-decisions"><h2>Worked decisions</h2></div>
-        <div class="ftpf-section" id="assessment-change"><h2>What would change the assessment</h2></div>
+        <div class="ftpf-section" id="assessment-change">
+          <h2>What would change the assessment</h2>
+          <span class="ftpf-state" data-kind="limitation">Evidence limitation</span>
+          <p class="ftpf-lede">This essay's assessment rests on the statute, the statutory guidance, prosecutorial guidance and the absence of a reported section 199 judgment as at 16 September 2026. FinCrimeRadar would revisit the analysis above if any of the following became available.</p>
+          <ul class="ftpf-points">
+            <li>A reported judgment applying section 199 to a specific set of facts, particularly one that tests the reasonable procedures defence.</li>
+            <li>A completed prosecution, deferred prosecution agreement or other authoritative charging outcome that gives meaningful treatment to the defence.</li>
+            <li>Revised Home Office statutory guidance on the offence.</li>
+            <li>Revised CPS or SFO prosecution or compliance-evaluation guidance touching the offence.</li>
+            <li>A legislative amendment to sections 199 to 206 of the Act or to Schedule 13.</li>
+            <li>Reliable evidence that courts or prosecutors are, in practice, applying a materially different approach to programme effectiveness or to what evidence they treat as sufficient.</li>
+          </ul>
+          <p>None of these would necessarily change the Defensibility Chain's structure. Several would change how much weight particular links deserve, or would answer questions this essay currently leaves open.</p>
+        </div>
         <div class="ftpf-section" id="practitioner-summary"><h2>Practitioner summary</h2></div>
         <div class="ftpf-section" id="knowledge-check"><h2>Knowledge check</h2></div>
         <div class="ftpf-section" id="faq"><h2>FAQ</h2></div>
