@@ -74,7 +74,8 @@
   ],
   "fraud-red-flags-guide": [
     "synthetic-identity-device-network-guide",
-    "app-scam-decision-framework"
+    "app-scam-decision-framework",
+    "failure-to-prevent-fraud-evidence-essay"
   ],
   "screening-algorithm-tuning-guide": [
     "tm-guide",
@@ -119,7 +120,8 @@
   "app-scam-decision-framework": [
     "fraud-red-flags-guide",
     "money-mule-financial-crime-networks-handbook",
-    "fatf-recommendation-16-intelligence-brief"
+    "fatf-recommendation-16-intelligence-brief",
+    "failure-to-prevent-fraud-evidence-essay"
   ],
   "money-mule-or-victim-case-file": [
     "money-mule-financial-crime-networks-handbook",
@@ -131,5 +133,10 @@
   "fatf-recommendation-16-intelligence-brief": [
     "crypto-travel-rule-sunrise-guide",
     "app-scam-decision-framework"
+  ],
+  "failure-to-prevent-fraud-evidence-essay": [
+    "fraud-red-flags-guide",
+    "app-scam-decision-framework",
+    "gambling-white-label-blind-spot-guide"
   ]
 }

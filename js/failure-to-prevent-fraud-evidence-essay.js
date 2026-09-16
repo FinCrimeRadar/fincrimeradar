@@ -14,6 +14,132 @@
     window.gtag('event', name, parameters);
   }
 
+  var SOURCES = {
+    '1': {
+      claim: 'Section 199 creates the failure to prevent fraud offence, its associated-person and intended-benefit conditions, the section 199(3) victim exclusion, the section 199(2) subsidiary route and the section 199(4) reasonable-procedures defence.',
+      title: 'Economic Crime and Corporate Transparency Act 2023, section 199',
+      publisher: 'legislation.gov.uk (UK National Archives)',
+      date: 'Current text as enacted',
+      verified: '16 September 2026',
+      url: 'https://www.legislation.gov.uk/ukpga/2023/56/section/199',
+      limit: 'Read together with sections 200 to 202 and Schedule 13, which supply the defined terms this section relies on.'
+    },
+    '2': {
+      claim: 'Schedule 13 lists the base fraud offences, including offences under the Fraud Act 2006, the Theft Act 1968 and section 993 of the Companies Act 2006.',
+      title: 'Economic Crime and Corporate Transparency Act 2023, Schedule 13',
+      publisher: 'legislation.gov.uk (UK National Archives)',
+      date: 'Current text as enacted',
+      verified: '16 September 2026',
+      url: 'https://www.legislation.gov.uk/ukpga/2023/56/schedule/13',
+      limit: 'Only the offences Schedule 13 actually lists qualify as the base offence, not every fraud-related offence in English law.'
+    },
+    '3': {
+      claim: 'A relevant body is a large organisation if it met at least two of three thresholds (turnover, balance sheet total, employee count) in the preceding financial year; section 202 sets separate group-aggregation rules.',
+      title: 'Economic Crime and Corporate Transparency Act 2023, sections 201 and 202',
+      publisher: 'legislation.gov.uk (UK National Archives)',
+      date: 'Current text as enacted',
+      verified: '16 September 2026',
+      url: 'https://www.legislation.gov.uk/ukpga/2023/56/section/201',
+      limit: 'This essay states the size test at section level. A specific group structure should be checked against section 202 directly.'
+    },
+    '4': {
+      claim: 'The Home Office guidance sets out six principles, disclaims safe-harbour status, places the burden of proof on the organisation on the balance of probabilities, and warns that controls built for a different risk may not be adequate for fraud prevention.',
+      title: 'Economic Crime and Corporate Transparency Act 2023: guidance to organisations on the offence of failure to prevent fraud (accessible version)',
+      publisher: 'Home Office',
+      date: 'Updated 10 October 2025',
+      verified: '16 September 2026',
+      url: 'https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version',
+      limit: 'Statutory guidance, not binding law. The guidance itself says it is not a safe harbour and does not bind a court’s own assessment.'
+    },
+    '5': {
+      claim: 'The CPS treats the six Home Office principles as a tool to structure lines of inquiry, identify weaknesses or omissions, and assess the strength of a claimed reasonable-procedures defence.',
+      title: 'Corporate Prosecutions guidance',
+      publisher: 'Crown Prosecution Service',
+      date: 'Updated 10 November 2025',
+      verified: '16 September 2026',
+      url: 'https://www.cps.gov.uk/prosecution-guidance/corporate-prosecutions',
+      limit: 'Prosecutorial guidance describing the CPS’s own approach, not a judicial ruling on any specific set of procedures.'
+    },
+    '6': {
+      claim: 'The SFO names the section 199 defence as a context in which it may evaluate whether a compliance programme operated effectively in practice, as distinct from existing only on paper.',
+      title: 'Guidance on Evaluating a Corporate Compliance Programme',
+      publisher: 'Serious Fraud Office',
+      date: 'Published 26 November 2025',
+      verified: '16 September 2026',
+      url: 'https://www.gov.uk/government/publications/sfo-guidance-on-evaluating-a-corporate-compliance-programme',
+      limit: 'SFO evaluation guidance, not a finding on any particular organisation’s programme, and not binding on a court’s assessment under section 199(4).'
+    },
+    '7': {
+      claim: 'Sections 199 to 206 of, and Schedule 13 to, the Act came into force on 1 September 2025.',
+      title: 'The Economic Crime and Corporate Transparency Act 2023 (Commencement No. 4) Regulations 2025 (SI 2025/349)',
+      publisher: 'legislation.gov.uk (UK National Archives)',
+      date: 'Made 13 March 2025',
+      verified: '16 September 2026',
+      url: 'https://www.legislation.gov.uk/uksi/2025/349/made',
+      limit: 'A commencement instrument fixing the date the offence took effect, not the substantive offence itself.'
+    }
+  };
+
+  function escapeHtml(value) {
+    var div = document.createElement('div');
+    div.textContent = value == null ? '' : String(value);
+    return div.innerHTML;
+  }
+
+  function showSource(id) {
+    var source = SOURCES[id];
+    var body = document.getElementById('ftpfSourcePanelBody');
+    if (!source || !body) return;
+    body.innerHTML = [
+      '<div class="ftpf-source-claim">' + escapeHtml(source.claim) + '</div>',
+      '<div class="ftpf-source-field-label">Source</div>',
+      '<div class="ftpf-source-field-value">' + escapeHtml(source.title) + '</div>',
+      '<div class="ftpf-source-field-label">Publisher</div>',
+      '<div class="ftpf-source-field-value">' + escapeHtml(source.publisher) + '</div>',
+      '<div class="ftpf-source-field-label">Published</div>',
+      '<div class="ftpf-source-field-value">' + escapeHtml(source.date) + '</div>',
+      '<div class="ftpf-source-field-label">Verified by FinCrimeRadar</div>',
+      '<div class="ftpf-source-field-value">' + escapeHtml(source.verified) + '</div>',
+      '<a class="ftpf-source-link" href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener">Open source &rarr;</a>',
+      '<div class="ftpf-source-field-label">What this does not establish</div>',
+      '<div class="ftpf-source-limit">' + escapeHtml(source.limit) + '</div>'
+    ].join('');
+  }
+
+  var MOBILE_QUERY = window.matchMedia('(max-width:800px)');
+  var sourcePanelEl = document.getElementById('ftpfSourcePanel');
+  var sourcePanelHomeParent = sourcePanelEl ? sourcePanelEl.parentNode : null;
+  var sourcePanelHomeNext = sourcePanelEl ? sourcePanelEl.nextSibling : null;
+
+  function restoreSourcePanelHome() {
+    if (sourcePanelEl && sourcePanelHomeParent) {
+      sourcePanelHomeParent.insertBefore(sourcePanelEl, sourcePanelHomeNext);
+    }
+  }
+
+  document.querySelectorAll('.ftpf-cite[data-src]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var id = el.getAttribute('data-src');
+      showSource(id);
+      if (MOBILE_QUERY.matches && sourcePanelEl) {
+        var anchor = el.closest('p, li, dd') || el.parentElement;
+        if (anchor && anchor.parentNode) {
+          anchor.insertAdjacentElement('afterend', sourcePanelEl);
+        }
+      }
+      emitAggregateEvent('source_record_open', {
+        guide_id: 'failure_to_prevent_fraud_evidence_essay',
+        source_id: id
+      });
+    });
+  });
+
+  if (MOBILE_QUERY.addEventListener) {
+    MOBILE_QUERY.addEventListener('change', function (e) {
+      if (!e.matches) restoreSourcePanelHome();
+    });
+  }
+
   document.querySelectorAll('[data-scenario-form]').forEach(function (form) {
     form.addEventListener('submit', function (event) {
       event.preventDefault();

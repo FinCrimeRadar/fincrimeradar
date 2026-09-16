@@ -7670,5 +7670,260 @@
   "reviewDue": "2027-03-13",
   "status": "verified",
   "note": "Access date used because the live FAQ page does not expose a publication date. The guide presents Confirmation of Payee as an operating example, not a mandated global model."
-}
+},
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.offence-structure.001",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Section 199 creates the failure to prevent fraud offence: a relevant body that is a large organisation is guilty if a person associated with it commits a listed fraud offence intending to benefit the body directly or indirectly, or a person to whom, or to whose subsidiary undertaking, the associate provides services on the body's behalf.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 199",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/199",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified",
+    "note": "Source date used is the Act's Royal Assent date. Current text as enacted checked directly on legislation.gov.uk."
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.associated-person-test.002",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Associated-person status under section 199 includes an employee, agent or subsidiary undertaking, and can include another person who otherwise performs services for or on behalf of the relevant body, with the question assessed by reference to all the relevant circumstances and not merely the nature of the relationship.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 199",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/199",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified",
+    "note": "Corresponds to section 199(7) to (9)."
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.schedule-13-base-offences.003",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Schedule 13 to the Act lists the base fraud offences for section 199, including offences under the Fraud Act 2006, the Theft Act 1968 and section 993 of the Companies Act 2006 (fraudulent trading), among others.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, Schedule 13",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/schedule/13",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified",
+    "note": "Essay states this at the level of illustrative statute names, not an exhaustive list of every Schedule 13 offence."
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.victim-exclusion-199-3.004",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Subsection 199(3) provides that the relevant body is not guilty of an offence under subsection 199(1)(b) if the body itself was, or was intended to be, a victim of the fraud offence.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 199",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/199",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.subsidiary-route-199-2.005",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Subsection 199(2) extends liability to a relevant body that is a subsidiary undertaking and not itself a large organisation, where its own employee commits fraud intending to benefit that subsidiary and the fraud is committed in a financial year in which its parent undertaking is a relevant body that is a large organisation.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 199",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/199",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified",
+    "note": "Corrected during Task 5 review; an earlier draft imprecisely called this a route for fraud benefiting the parent, which is not what subsection (2) says."
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.large-organisation-size-test.006",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Sections 201 and 202 set the large-organisation size test, based on turnover, balance sheet total and employee-count thresholds assessed over the preceding financial year, with separate aggregation rules for parent undertakings.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, sections 201 and 202",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/201",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified",
+    "note": "Essay states the test at section level only (no specific thresholds quoted), consistent with CLAUDE.md citation-precision guidance for ordinary explanatory prose."
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.defence-timing-burden.007",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Under subsection 199(4), a relevant body has a defence if it proves that, at the time the fraud offence was committed, it had prevention procedures that were reasonable in all the circumstances, or that it was reasonable in all the circumstances to have no such procedures.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 199",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/199",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.defence-burden-standard.008",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "The Home Office guidance states that the onus remains on the organisation to prove that it had reasonable prevention procedures in place, to the standard of the balance of probabilities.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023: guidance to organisations on the offence of failure to prevent fraud (accessible version)",
+      "url": "https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version",
+      "publisher": "Home Office",
+      "date": "2025-10-10"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.six-principles.009",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "The Home Office guidance frames reasonable fraud prevention through six principles: top level commitment, risk assessment, proportionate risk-based prevention procedures, due diligence, communication (including training), and monitoring and review.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023: guidance to organisations on the offence of failure to prevent fraud (accessible version)",
+      "url": "https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version",
+      "publisher": "Home Office",
+      "date": "2025-10-10"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.not-safe-harbour.010",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "The Home Office guidance states that it is not intended to provide a safe harbour, that even strict compliance with it will not necessarily amount to having reasonable procedures, and that only the courts can determine whether a relevant body has reasonable prevention procedures in place.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023: guidance to organisations on the offence of failure to prevent fraud (accessible version)",
+      "url": "https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version",
+      "publisher": "Home Office",
+      "date": "2025-10-10"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.risk-assessment-rarely-omit.011",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "The Home Office guidance states that it will rarely be considered reasonable not to have even conducted a risk assessment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023: guidance to organisations on the offence of failure to prevent fraud (accessible version)",
+      "url": "https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version",
+      "publisher": "Home Office",
+      "date": "2025-10-10"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.document-decision-not-to-act.012",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "The Home Office guidance states that any decision made not to implement procedures to prevent a specific risk should be documented, together with the name and position of the person who authorised that decision.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023: guidance to organisations on the offence of failure to prevent fraud (accessible version)",
+      "url": "https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version",
+      "publisher": "Home Office",
+      "date": "2025-10-10"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.different-risk-due-diligence.013",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "The Home Office guidance warns that merely applying existing procedures tailored to a different type of risk will not necessarily be an adequate response to the risk of fraud.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023: guidance to organisations on the offence of failure to prevent fraud (accessible version)",
+      "url": "https://www.gov.uk/government/publications/offence-of-failure-to-prevent-fraud-introduced-by-eccta/economic-crime-and-corporate-transparency-act-2023-guidance-to-organisations-on-the-offence-of-failure-to-prevent-fraud-accessible-version",
+      "publisher": "Home Office",
+      "date": "2025-10-10"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.cps-six-principles-use.014",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "CPS Corporate Prosecutions guidance states that the six Home Office principles may assist in structuring interviews, identifying lines of inquiry, examining areas of weakness or omission in prevention procedures, and informing prosecutors' assessment of a claimed reasonable-procedures defence.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Corporate Prosecutions guidance",
+      "url": "https://www.cps.gov.uk/prosecution-guidance/corporate-prosecutions",
+      "publisher": "Crown Prosecution Service",
+      "date": "2025-11-10"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.sfo-compliance-evaluation.015",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "SFO guidance on evaluating a corporate compliance programme names the section 199 defence as a context in which the SFO may evaluate whether an organisation had reasonable procedures designed to prevent associated persons from committing fraud, distinguishing genuine operation from a paper exercise.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Guidance on Evaluating a Corporate Compliance Programme",
+      "url": "https://www.gov.uk/government/publications/sfo-guidance-on-evaluating-a-corporate-compliance-programme",
+      "publisher": "Serious Fraud Office",
+      "date": "2025-11-26"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.commencement-date.016",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "Sections 199 to 206 of, and Schedule 13 to, the Economic Crime and Corporate Transparency Act 2023 came into force on 1 September 2025.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Economic Crime and Corporate Transparency Act 2023 (Commencement No. 4) Regulations 2025 (SI 2025/349)",
+      "url": "https://www.legislation.gov.uk/uksi/2025/349/made",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2025-03-13"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-03-16",
+    "status": "verified"
+  },
+  {
+    "claimId": "failure-to-prevent-fraud-evidence-essay.no-reported-judgment-search.017",
+    "guide": "failure-to-prevent-fraud-evidence-essay.html",
+    "claimText": "A targeted search of official SFO, CPS, Judiciary and National Archives case-law sources on 16 September 2026 did not identify a reported judgment applying section 199 or an official announcement of a completed section 199 prosecution. That search result is not proof that no unreported investigation, charge or other matter exists.",
+    "claimType": "process-record",
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2026-12-16",
+    "status": "verified",
+    "note": "Documents FinCrimeRadar's own search methodology and its limits, per CLAUDE.md's methodology-accuracy requirement. Refreshed during Task 5 with an independent web search on 2026-09-16 that corroborated no recorded section 199 prosecutions to date; the essay's wording is left as an honestly framed absence-of-result, not strengthened into a universal absence claim. Short review cycle because new enforcement activity could emerge at any time."
+  }
 ]
