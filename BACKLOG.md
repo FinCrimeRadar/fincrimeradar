@@ -33,14 +33,14 @@ Repository main and origin/main matched 99ba8608307d0c54a9a003d5a907bc4116c9ca9a
 
 ### Knowledge Hub
 
-- **53 publications live:** 24 parts across seven series and 29 standalone publications.
+- **54 publications live:** 24 parts across seven series and 30 standalone publications.
 - **Series inventory:** UK AML 3 parts, PEP 3, SAR 3, FATF 2, MLRO 2, Cryptoasset Compliance 6, Stablecoin 5 live of 6 planned.
 - **Stablecoin Series:** Guides 0, 2, 3, 4 and 5 are published. Guide 1 remains externally blocked and is listed under Content.
 - **Current experimental formats:**
   - Framework: app-scam-decision-framework.html, Experiment 01, live.
   - Case File: money-mule-or-victim-case-file.html, Experiment 02, live.
   - Intelligence Brief: fatf-recommendation-16-intelligence-brief.html, Experiment 03, live.
-  - Evidence Essay: gambling-white-label-blind-spot-guide.html and classification-asymmetry-guide.html, standing opt-in treatment.
+  - Evidence Essay: gambling-white-label-blind-spot-guide.html, classification-asymmetry-guide.html and failure-to-prevent-fraud-evidence-essay.html, standing opt-in treatment.
 - Framework, Case File and Intelligence Brief remain experimental pending the cross-experiment review below. A second Framework implementation is still required before Framework can be evaluated on recurrence rather than a single example.
 
 ### Product and publishing capability
@@ -49,11 +49,15 @@ Repository main and origin/main matched 99ba8608307d0c54a9a003d5a907bc4116c9ca9a
 - SAR Writing Sandbox Phase 0 is live on the API service.
 - Screening and PEP search, Knowledge Hub domain filtering, weekly digest and FinCrime Week are shipped.
 - FinCrime Week W36 and W37 are present on main; W37 is the current issue in fincrime-week.html.
-- Verification ledger contains 571 valid entries. python scripts/check_ledger.py validate passed during this audit.
+- Verification ledger contains 589 valid entries. python scripts/check_ledger.py validate passed during this audit.
 
 ### Experiment 03 shipment
 
 Experiment 03 shipped through seven atomic commits from 7ae03c5 to a0e2402. It added the FATF Recommendation 16 Intelligence Brief, page JavaScript, social card, discovery surfaces, eight verified ledger records and permanent static and browser regression checks. Production serves the guide and the Knowledge Hub count is 53. No backend, account model, free-text collection or new shared component library was introduced.
+
+### Experiment 04 shipment
+
+Experiment 04 shipped through nine atomic commits from d98a717 to 3d87db3, merged into main via eb80299 (pull request #7). It added the Failure to Prevent Fraud Evidence Essay, page JavaScript, social card, discovery surfaces, 18 verified ledger records and permanent static and browser regression checks, following the Evidence Essay treatment already standing for gambling-white-label-blind-spot-guide.html and classification-asymmetry-guide.html rather than a new experimental shell. A completed manual adversarial review and a separate PR-based /code-review each found and closed real defects before merge: two statutory-scope overstatements of the section 199(3) victim exclusion, a citation-click handler that let native anchor navigation undermine the enhanced source panel, an unreciprocated content-relations.json entry, and one source record conflating sections 201 and 202 that needed splitting into two precise primary-source citations. Production serves the guide and the Knowledge Hub count is 54. No backend, account model, free-text collection or new shared component library was introduced.
 
 ## Next Up
 
@@ -134,7 +138,7 @@ Scenario Lab expansion remains **PAUSED** until real usage or engagement evidenc
 
 - **Domestic PEP Proportionality:** check FCA FG25/3 and any necessary primary regulatory text.
 - **Event Driven CDD Review:** check the FCA April 2026 customer due diligence review and related primary material.
-- **Failure to Prevent Fraud case:** share one evidence pack with the content candidate below.
+- **Failure to Prevent Fraud case:** a synthetic Scenario Lab case distinct from the shipped Failure to Prevent Fraud Evidence Essay guide (failure-to-prevent-fraud-evidence-essay.html, Experiment 04). Reuse that guide's verified ECCTA 2023 section 199, Home Office, CPS and SFO evidence pack rather than re-verifying from scratch.
 - **Proliferation Financing Investigation:** establish a defensive dual-use scope and primary UK regulatory basis before promotion.
 - **OFAC aggregate ownership case:** a confirmed content gap, but US-only and paused with Scenario Lab.
 - **Message and remittance-line screening case:** a confirmed content gap in the existing 17 cases, but paused with Scenario Lab.
@@ -172,7 +176,6 @@ There is no verified content candidate in Next Up. Every item below is RESEARCH,
 - **Sanctions Ownership and Control: When 50 Percent Tells You Almost Nothing:** HOLD until the UK ownership-and-control consultation outcome. When resumed, cross-link with both Shadow Fleet guides.
 - **Synthetic Data for AML Model Testing:** verify the FCA and Alan Turing Institute programme and the 2026 solution sprint from primary sources before drafting.
 - **Offshore VASPs, Nested Exchanges and Invisible Crypto Counterparties:** verify the claimed FATF March 2026 publication and prove non-overlap with the six-part Crypto series and Travel Rule guide.
-- **Failure to Prevent Fraud, One Year On:** verify ECCTA 2023 section 199, Home Office statutory guidance and SFO or CPS guidance. Share the evidence pack with the Scenario Lab candidate.
 - **Repeat AML Failure as a Risk Signal:** verify the FinCEN UBS action and find a primary FCA comparator. Do not create a blended US and UK standard.
 - **SAR Escalation Under Commercial Pressure:** read the US Senate source directly, preserve allegation versus finding, then prove a defensible UK NCA and POCA angle.
 
