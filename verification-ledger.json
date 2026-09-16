@@ -7941,5 +7941,37 @@
     "reviewDue": "2027-03-16",
     "status": "verified",
     "note": "Added during Task 7 external review remediation, split out from large-organisation-size-test.006 so the group-aggregation proposition has its own section-202 source record rather than sharing a section-201-only URL."
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.perg18-3-5-section418-6b-overseas-deeming.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "PERG 18.3.5 states that issuing a qualifying stablecoin is considered to be carried on in the UK where the offering, redemption, and maintaining value are carried on from, or arranged to be carried on from, an establishment in the UK. Separately, under section 418(6B) of the Act, a person who is not themselves acting from an establishment in the UK is deemed to be carrying out this regulated activity in the UK where all the elements of the issuing activity are being carried out in the UK on their behalf; a person outside the UK arranging for all elements of issuing a qualifying stablecoin to be undertaken in the UK will themselves require authorisation under article 9M.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Policy Statement PS26/18, Cryptoasset Perimeter Guidance, PERG 18.3.5 (Question 3.5: When is issuing a qualifying stablecoin considered to be carried on in the UK?)",
+      "url": "https://www.fca.org.uk/publication/policy/ps26-18.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-16"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-02-28",
+    "status": "verified",
+    "note": "Shorter-than-standard review cycle: PS26/18 para 1.6-1.8 confirms this guidance does not yet reflect a forthcoming statutory instrument, with an FCA PERG consultation planned for early Q4 2026 and final amended guidance expected early 2027. PS26/18's own text indicates the SI's stablecoin-related changes are new dealing/arranging/safeguarding exclusions for UKQS lending, borrowing, collateral and payment-holding, not a redefinition of this territorial test itself, but this has not been independently confirmed against the SI's own text, which has not been retrieved. Flagged for external adversarial review (CLAUDE.md's Regulatory claim review section) before use in published guide text, since it concerns what triggers a regulatory authorisation obligation."
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.perg18-8-5-overseas-issuer-dealing-permission.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "PERG 18.8.5-18.8.6 (Question 8.5: Does a person issuing qualifying stablecoins need dealing permission?) states that where a person undertakes issuance or redemption for a qualifying stablecoin but does not fall within the scope of the issuing a qualifying stablecoin activity, they may require a dealing permission, including where they do not fulfil the territorial criteria for issuing a qualifying stablecoin (see PERG 18.3.5). For example, an overseas issuer who is not considered to be issuing a qualifying stablecoin in the UK will likely not benefit from the exclusion from dealing (as principal or agent) or arranging, and should consider whether a dealing permission is needed; a person who arranges issuance or redemption on the overseas issuer's behalf may require an arranging permission.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Policy Statement PS26/18, Cryptoasset Perimeter Guidance, PERG 18.8.5-18.8.6 (Question 8.5: Does a person issuing qualifying stablecoins need dealing permission?)",
+      "url": "https://www.fca.org.uk/publication/policy/ps26-18.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-16"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-02-28",
+    "status": "verified",
+    "note": "Same shorter review cycle and same rationale as stablecoin-series-guide-1.perg18-3-5-section418-6b-overseas-deeming.001: forthcoming SI and FCA PERG consultation (early Q4 2026) and final amended guidance (early 2027) per PS26/18 para 1.6-1.8. Flagged for external adversarial review (CLAUDE.md's Regulatory claim review section) before use in published guide text, since it concerns what triggers a regulatory authorisation obligation."
   }
 ]
