@@ -102,7 +102,6 @@ Verification outcome: confirmed. Classification Asymmetry has the skip link; Gam
 ### Sourcing and ledger debt
 
 - **Stablecoin Guide 1 absence finding:** stablecoin-series-guide-1.ddframework-category2-non-mandated-fields.001 is correctly recorded as a regulatory retained-as-estimate claim because no source can affirmatively establish the absence. Reassess it when Guide 1 resumes; do not silently promote it to verified.
-- **Stablecoin Guide 1 hybrid-stabilisation and wrapped-token clarifications:** PS26/18 (Cryptoasset Perimeter Guidance) newly clarifies at PERG 18.4.5 that products using hybrid stabilisation mechanisms (part backing assets, part algorithmic) are not qualifying stablecoins, and separately that wrapped stablecoin tokens are not automatically qualifying stablecoins. Found incidentally during the PS26/18 overseas-issuance verification; not yet in the ledger and not yet assessed against Guide 1's existing article-88g-qualifying-stablecoin.001 claim. No owner assigned, not urgent, just don't lose it.
 - **Legacy three-guide re-baseline:** freshly establish the remaining sourcing scope for aml-guide-part1.html, pep-guide-part1.html and sar-guide-part1.html. The prior counts in the old backlog contradicted later audit records and must not be reused.
 - **Nine-guide audit reconciliation:** reconcile the 26-guide audit findings against current main for aml-guide-part3.html, pep-guide-part3.html, sar-guide-part3.html, fatf-guide-part1.html, fatf-guide-part2.html, crypto-guide-part2.html, sanctions-compliance-guide.html, screening-alerts-guide.html and adverse-media-intelligence-guide.html. Verification owner, source pack and review date remain unassigned, so this is RESEARCH, not Next Up.
 - **Ledger hardening:** consider schema enforcement for source requirements by claim type, plus expiry handling that preserves original verification dates and records renewal separately. Post-proof hardening only.
@@ -181,6 +180,7 @@ There is no verified content candidate in Next Up. Every item below is RESEARCH,
 - **Anthropic Open Source Programme application:** submission and support follow-up were previously recorded, but current external status was not available in this repository audit. Confirm externally before treating it as pending action.
 - **SAR Sandbox LinkedIn drafts:** repository state cannot confirm whether they were posted. Check the account before retaining or scheduling them.
 - **Authority building:** continue only through legitimate practitioner contributions, citations, relevant directories and useful community participation. No guaranteed-ranking or paid-link schemes.
+- **Bank of England systemic stablecoin Code of Practice consultation:** closes 2026-09-22. No owner, no urgency, just don't lose the date. Once resolved, it may affect overseas-stablecoin-perimeter.boe-multi-issuance-unsuitable.001, which currently describes the Code of Practice as still in draft.
 
 ## Explicitly removed from the active backlog
 

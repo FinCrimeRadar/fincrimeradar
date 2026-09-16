@@ -6493,42 +6493,53 @@
   },
   {
     "claimId": "overseas-stablecoin-perimeter.fca-cp26-13-status.001",
-    "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
-    "claimText": "The FCA's proposed cryptoasset perimeter guidance covering overseas-issued stablecoins is set out in Consultation Paper CP26/13 (Cryptoasset Perimeter Guidance), published 2026-04-15 (not 28 April, as an earlier draft misdated it), proposing a new PERG 19 chapter. The consultation closed 2026-06-03. Final perimeter guidance timing is inconsistently reported across secondary legal commentary (some sources say autumn 2026, others September 2026); neither should be treated as settled. As of 2026-08-29 the FCA's own page still presents this as proposed, not final, guidance. Re-check directly against the FCA's CP26/13 page immediately before drafting or publication. HMT's qualifying-stablecoin exemption from the dealing/arranging perimeter currently applies only to UK-issued stablecoins; whether overseas-issued stablecoins used for settlement will be carved out depends on the final PERG 19 text. Guide 1's overseas-stablecoin section must maintain a three-way distinction throughout: enacted legislation, versus FCA interpretation proposed in CP26/13, versus industry responses (e.g. Paradigm's consultation response) arguing for a different interpretation, attributed explicitly as industry advocacy, not FCA policy.",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shipped as Guide 2; this claim's FCA/PERG content is a different topic from Guide 2's multi-issuance material and was separately superseded by PS26/18, see note)",
+    "claimText": "CP26/13 (Cryptoasset Perimeter Guidance), published 2026-04-15, was the FCA's consultation-stage draft covering overseas-issued stablecoins, proposing a new PERG 19 chapter; the consultation closed 2026-06-03. CP26/13 has been superseded by the FCA's final guidance, Policy Statement PS26/18 (Cryptoasset Perimeter Guidance), published 16 September 2026, which confirms the guidance sits in PERG 18, not the proposed PERG 19. The specific question this claim originally left open, whether overseas-issued stablecoins are carved out of the dealing/arranging perimeter, is now answered: see stablecoin-series-guide-1.perg18-3-5-section418-6b-overseas-deeming.001 (the PERG 18.3.5 territorial test and the section 418(6B) deeming provision) and stablecoin-series-guide-1.perg18-8-5-overseas-issuer-dealing-permission.001 (the PERG 18.8.5-18.8.6 dealing/arranging permission fallback for an overseas issuer not caught by that test). Guide 1's overseas-stablecoin section should now draw its analysis from PS26/18 directly rather than from CP26/13 or the industry commentary this claim originally flagged (e.g. Paradigm's consultation response), which remains relevant only as a historical record of the pre-final-guidance debate, not as a current source of FCA position.",
     "claimType": "regulatory",
-    "verifiedOn": "2026-08-29",
-    "reviewDue": "2027-08-29",
-    "status": "retained-as-estimate"
+    "source": {
+      "title": "FCA, Policy Statement PS26/18, Cryptoasset Perimeter Guidance, para 2.1 (confirming the guidance sits in PERG 18, previously PERG 19 in CP26/13)",
+      "url": "https://www.fca.org.uk/publication/policy/ps26-18.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-16"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-09-16",
+    "status": "verified",
+    "note": "Superseded by PS26/18, corrected rather than deleted: retained as the historical record of how the overseas-issuance question was tracked before PS26/18 existed. Status changed from retained-as-estimate to verified because the claim no longer describes an open estimate awaiting a primary source; it now states a settled historical fact (CP26/13 superseded) plus a live cross-reference to the claims that answer the question CP26/13 left open. The ledger schema has no dedicated superseded status, so this follows the same pattern used for the PASS WITH CORRECTION notes on the two claims it cross-references. Flagged for external adversarial review (CLAUDE.md's Regulatory claim review section) before use in published guide text, since it still concerns regulatory scope."
   },
   {
-    "claimId": "overseas-stablecoin-perimeter.boe-multi-issuance-unsuitable.001", "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shared dependency)",
+    "claimId": "overseas-stablecoin-perimeter.boe-multi-issuance-unsuitable.001", "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shipped as Guide 2; this claim is legacy, not a live dependency of either guide's evidence pack)",
     "claimText": "The Bank of England's 2026-06-22 policy statement and draft Code of Practice for sterling-denominated systemic stablecoins states that multi-issuance models (the same token issued by multiple legal entities across jurisdictions) are not suitable for systemic UK use, and that the Bank prefers single-issuance backed by a single reserve. Consultation on the draft Code of Practice closes 2026-09-22, finalisation targeted end of 2026.",
     "claimType": "regulatory", "source": {"title": "Policy statement and draft Code of Practice for systemic stablecoins", "url": "https://www.bankofengland.co.uk", "publisher": "Bank of England", "date": "2026-06-22"},
-    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified",
+    "note": "systemic-stablecoins-guide.html has since shipped, and its own live text (the multi-issuance section) already states this exact proposition, sourced independently through that guide's own build; not tied to one specific successor claimId among the guide's own 22 ledger entries, but the guide has already incorporated and sourced this fact. Retained as historical record of how this was tracked before Guide 2 shipped, not a live dependency; do not pull it into either guide's evidence pack going forward."
   },
   {
     "claimId": "overseas-stablecoin-perimeter.boe-40bn-guardrail.001",
-    "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shipped as Guide 2; this claim is legacy, not a live dependency of either guide's evidence pack)",
     "claimText": "The £40bn figure is an initial temporary issuance maximum per systemic stablecoin product proposed by the Bank of England, and the Bank explicitly states this must not be taken as an indicator of the point at which HMT may recognise an issuer as systemic. Both points are confirmed against secondary legal summaries of the Bank's June 2026 publication, not yet checked against the primary policy statement text directly. Pull the exact figure and the exact non-indicator clause from the Bank's own policy statement or Code of Practice text before this is used as a direct claim in Guide 2.",
     "claimType": "regulatory",
     "verifiedOn": "2026-08-29",
     "reviewDue": "2027-08-29",
-    "status": "retained-as-estimate"
+    "status": "retained-as-estimate",
+    "note": "Directly superseded by stablecoin-series-guide-2.40bn-guardrail-legal-status.001, which independently verifies the £40bn figure and the non-indicator clause against the Bank's own primary policy statement text in the now-shipped systemic-stablecoins-guide.html, exactly the primary-source pull this claim itself flagged as still needed. Retained as historical record of how this was tracked before Guide 2 shipped, not a live dependency; do not pull it into either guide's evidence pack going forward."
   },
   {
     "claimId": "overseas-stablecoin-perimeter.boe-guardrail-depeg-risk.001",
-    "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (shared dependency, neither yet shipped, drafting blocked)",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shipped as Guide 2; this claim is legacy, not a live dependency of either guide's evidence pack)",
     "claimText": "Secondary commentary attributes to the Bank of England an acknowledgement that the £40bn issuance guardrail can itself introduce depeg risk where demand exceeds available supply. This is confirmed via secondary commentary only, lower confidence than the £40bn figure and non-indicator clause above. Pull the exact clause from the Bank's own policy statement or Code of Practice text before this is used as a direct claim in Guide 2.",
     "claimType": "regulatory",
     "verifiedOn": "2026-08-29",
     "reviewDue": "2027-08-29",
-    "status": "retained-as-estimate"
+    "status": "retained-as-estimate",
+    "note": "Directly superseded by stablecoin-series-guide-2.40bn-depeg-risk-acknowledgement.001, which quotes the Bank's own verbatim depeg-risk statement directly from primary text in the now-shipped systemic-stablecoins-guide.html, exactly the primary-source pull this claim itself flagged as still needed. Retained as historical record of how this was tracked before Guide 2 shipped, not a live dependency; do not pull it into either guide's evidence pack going forward."
   },
   {
-    "claimId": "overseas-stablecoin-perimeter.fca-boe-joint-regulation-division.001", "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shared dependency)",
+    "claimId": "overseas-stablecoin-perimeter.fca-boe-joint-regulation-division.001", "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shipped as Guide 2; this claim is legacy, not a live dependency of either guide's evidence pack)",
     "claimText": "The FCA regulates UK-issued qualifying stablecoins generally; joint FCA/Bank of England regulation applies once HM Treasury recognises an issuer as systemic.",
     "claimType": "regulatory", "source": {"title": "The BoE and FCA's approach to joint regulation of systemic stablecoin issuers", "url": "https://www.bankofengland.co.uk/paper/2026/boe-and-fcas-approach-to-joint-regulation-of-systemic-stablecoin-issuers", "publisher": "Bank of England", "date": "2026-06-30"},
-    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
+    "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified",
+    "note": "Superseded by two claims in the now-shipped systemic-stablecoins-guide.html's own ledger entries: stablecoin-series-guide-2.systemic-recognition-mechanism.001 (how HMT recognises an issuer as systemic under the Banking Act 2009) and stablecoin-series-guide-2.fca-boe-hmt-responsibility-split.001 (the full three-way FCA/BoE/HMT responsibility split for jointly regulated issuers), both more precise than this one-line summary. Retained as historical record of how this was tracked before Guide 2 shipped, not a live dependency; do not pull it into either guide's evidence pack going forward."
   },
   {
     "claimId": "stablecoin-series-guide-1.article-9m-issuing-conditions.001", "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
@@ -7973,5 +7984,21 @@
     "reviewDue": "2027-02-28",
     "status": "verified",
     "note": "External adversarial review completed: PASS WITH CORRECTION. The review found the claimText's example sentence overstated the exclusion finding by referring generically to 'the exclusion from dealing... or arranging', when PERG 18.8.5-18.8.6 excludes only the specific article 9M issuance-linked exclusions from dealing as principal, dealing as agent and arranging; claimText corrected to name those exclusions specifically and to note that other applicable exclusions and the territorial scope of the relevant dealing or arranging activity must still be considered. Same shorter review cycle and same rationale as stablecoin-series-guide-1.perg18-3-5-section418-6b-overseas-deeming.001: forthcoming SI and FCA PERG consultation (early Q4 2026) and final amended guidance (early 2027) per PS26/18 para 1.6-1.8."
+  },
+  {
+    "claimId": "stablecoin-series-guide-1.perg18-4-5-hybrid-wrapped-stablecoin.001",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped, editorial scope locked, drafting blocked)",
+    "claimText": "PERG 18.4.5 (guidance on Question 4.5: What is a qualifying stablecoin?) states that the requirement to hold backing assets to maintain a stable value means that qualifying cryptoassets which maintain their value partly or wholly through algorithmic methods or other means rather than underlying backing assets do not constitute qualifying stablecoins; this extends the existing Article 88G(2)(b) analysis already in this guide's source pack (which only established that a purely algorithmic model fails that limb) to hybrid stabilisation mechanisms specifically. Separately, PERG 18.4.5 states that a wrapped token relating to qualifying stablecoins will not itself automatically be a qualifying stablecoin, and that in the FCA's view this is unlikely to be the case because of article 88G(3) of the Regulated Activities Order (the non-fiat-reference exclusion already in this guide's source pack); PERG 18.4.4 and PERG 18.4.13 contain further guidance on wrapped tokens generally, and PERG 18.8.7 addresses when a person providing or facilitating wrapping services falls within a regulated activity such as dealing or arranging.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Policy Statement PS26/18, Cryptoasset Perimeter Guidance, PERG 18.4.5 (Question 4.5: What is a qualifying stablecoin?)",
+      "url": "https://www.fca.org.uk/publication/policy/ps26-18.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-16"
+    },
+    "verifiedOn": "2026-09-16",
+    "reviewDue": "2027-09-16",
+    "status": "verified",
+    "note": "Resolves the PERG 18.4.5 gap logged in BACKLOG.md's Sourcing and ledger debt: article-88g-qualifying-stablecoin.001 already covers a purely algorithmic model failing the 88G(2)(b) asset-holding limb, but did not address hybrid stabilisation mechanisms or wrapped tokens specifically; this claim adds both, each tied to the specific Article 88G limb PS26/18 says the FCA relies on. Standard review cycle, not the shorter cycle used for the two overseas-issuance claims added earlier this session: this proposition concerns the Article 88G stablecoin definition, part of the already-enacted SI 2026/102, not the forthcoming statutory instrument PS26/18 says is still pending, whose own stablecoin-related changes are new UKQS dealing/arranging/safeguarding exclusions, not the definition of a qualifying stablecoin. Flagged for external adversarial review (CLAUDE.md's Regulatory claim review section) before use in published guide text, since it concerns what counts as a qualifying stablecoin, i.e. regulatory scope."
   }
 ]
