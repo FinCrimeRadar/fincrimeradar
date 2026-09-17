@@ -6715,7 +6715,7 @@
   },
   {
     "claimId": "stablecoin-series-guide-1.smcr-enhanced-thresholds-stablecoin-custodian.001",
-    "guide": "stablecoin-series-guide-1.html and stablecoin-series-guide-2.html (background cross-reference, neither yet shipped, drafting blocked)",
+    "guide": "stablecoin-series-guide-1.html (not yet shipped) and systemic-stablecoins-guide.html (shipped as Guide 2; background cross-reference, not currently mapped to either guide's section structure, available for Guide 2 if independently relevant there)",
     "claimText": "Adjacent finding, PS26/13 Chapter 7 (SM&CR), background only unless independently relevant to Guide 1 or Guide 2. Final rules, not proposals: a UK qualifying stablecoin issuer becomes subject to the Enhanced SM&CR regime once it holds £20bn in backing assets, calculated as a three-year rolling average; this figure is a direct quotation from the retrieved PS26/13 extract. Cryptoasset custodians become Enhanced SM&CR at £100bn combined safe custody assets and client cryptoassets; this figure appears in the retrieved extract as a paraphrase of the same document rather than a verbatim quotation, so reconfirm the exact wording against PS26/13 Chapter 7's full primary text before citing it directly in either guide.",
     "claimType": "regulatory", "source": {"title": "FCA Policy Statement PS26/13, \"Crypto Regime: Application of FCA Handbook for Regulated Cryptoasset Activities\", Chapter 7", "url": "https://www.fca.org.uk/publication/policy/ps26-13.pdf", "publisher": "Financial Conduct Authority", "date": "2026-06-30"},
     "verifiedOn": "2026-08-29", "reviewDue": "2027-08-29", "status": "verified"
