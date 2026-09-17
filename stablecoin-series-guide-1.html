@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- BUILD STATUS: skeleton + Sections A-L + Worked Scenarios 1-2. The Risk/Signal/Response cards, knowledge check, FAQ and diagram are not yet implemented. Not linked from knowledge.html or sitemap.xml. -->
+  <!-- BUILD STATUS: skeleton + Sections A-L + Worked Scenarios 1-2 + Risk/Signal/Response cards (inline and closing grid) + activity-classification diagram. The knowledge check and FAQ are not yet implemented. Not linked from knowledge.html or sitemap.xml. -->
   <script type="application/ld+json">
   {
       "@context": "https://schema.org",
@@ -66,6 +66,12 @@
       --muted:#6b7280; --text:#111827; --navy:#0f2044;
       --accent:#00c4a7; --accent-h:#00a892; --accent-light:#f0fdf9;
       --danger:#dc2626; --success:#16a34a; --warning:#d97706;
+      --c-limb:#7c3aed; --c-limb-light:#f5f3ff;
+      --c-territory:#0891b2; --c-territory-light:#ecfeff;
+      --c-badge:#b45309; --c-badge-light:#fffbeb;
+      --c-trust:#dc2626; --c-trust-light:#fef2f2;
+      --c-checklist:#00806c; --c-checklist-light:#f0fdf9;
+      --c-clock:#4338ca; --c-clock-light:#eef2ff;
     }
     html { scroll-behavior: smooth; }
     body { font-family:'Inter',system-ui,sans-serif; background:var(--off); color:var(--text); line-height:1.7; }
@@ -165,6 +171,41 @@
     .category-2 { background:#fffbeb; border-color:var(--warning); }
     .category-2 .category-label { background:#fef3c7; color:#92400e; }
 
+    /* MERGED PATTERN CARD (Risk/Signal/Response) */
+    .pattern-card { border-radius:12px; padding:1.5rem; margin:1.25rem 0; border:1px solid; }
+    .pattern-card-head { display:flex; align-items:center; gap:14px; margin-bottom:0.75rem; }
+    .pattern-icon { font-size:32px; line-height:1; flex-shrink:0; }
+    .pattern-name { font-family:'DM Serif Display',Georgia,serif; font-size:1.15rem; color:var(--navy); line-height:1.25; }
+    .pattern-line { font-size:14px; color:#374151; margin-bottom:1rem; font-weight:600; line-height:1.5; }
+    .pattern-ttd { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pattern-ttd-item { background:rgba(255,255,255,0.65); border-radius:8px; padding:10px 12px; }
+    .pattern-ttd-item .ttd-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+    .pattern-ttd-item .ttd-text { font-size:12.5px; color:#374151; line-height:1.45; }
+    .pattern-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.25rem 0 0.5rem; }
+    .pattern-grid .pattern-card { margin:0; }
+
+    /* SAVE AS IMAGE BUTTON */
+    .save-img-row { display:flex; justify-content:flex-end; margin-bottom:0.75rem; }
+    .save-img-btn { display:inline-flex; align-items:center; gap:6px; background:var(--white); color:var(--navy); border:1.5px solid var(--border); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; transition:all 0.15s; }
+    .save-img-btn:hover { border-color:var(--navy); }
+
+    /* CLASSIFICATION DIAGRAM */
+    .diagram-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:1.25rem 0; }
+    .diagram-lane { border-radius:10px; border:1.5px solid var(--border); background:#fafbfc; padding:1rem 0.85rem; }
+    .diagram-lane-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; margin-bottom:0.9rem; padding-bottom:0.5rem; border-bottom:2px solid; }
+    .diagram-node { background:#fff; border:1px solid var(--border); border-radius:8px; padding:9px 11px; font-size:12.5px; color:#374151; line-height:1.45; margin-bottom:4px; }
+    .diagram-node strong { display:block; font-size:11px; color:var(--navy); margin-bottom:2px; }
+    .diagram-arrow { text-align:center; font-size:13px; color:var(--muted); margin:2px 0 6px; }
+    .diagram-outcome { border-radius:8px; padding:9px 11px; font-size:12.5px; font-weight:600; line-height:1.45; }
+    .diagram-caveat { font-size:11.5px; color:var(--muted); font-style:italic; margin-top:8px; line-height:1.4; }
+    .diagram-text-equivalent summary { cursor:pointer; font-size:13px; font-weight:600; color:var(--navy); padding:0.5rem 0; list-style:none; }
+    .diagram-text-equivalent summary::-webkit-details-marker { display:none; }
+    .diagram-text-equivalent[open] summary { margin-bottom:0.5rem; }
+    .diagram-text-equivalent ol { padding-left:1.3rem; }
+    .diagram-text-equivalent li { font-size:13.5px; color:#374151; margin-bottom:0.6rem; line-height:1.6; }
+    .diagram-text-equivalent li ul { margin-top:0.3rem; padding-left:1.1rem; }
+    .diagram-text-equivalent li li { font-size:13px; margin-bottom:0.35rem; }
+
     /* PLACEHOLDER */
     .pending-note { background:#f3f4f6; border:1px dashed #9ca3af; border-radius:12px; padding:1.5rem 2rem; text-align:center; color:var(--muted); font-size:14px; }
 
@@ -178,6 +219,11 @@
       .nav-links { display:none; }
       .nav-brand img { height:40px !important; max-width:160px !important; }
       .article-section { padding:1.25rem; }
+    }
+    @media(max-width:700px) {
+      .pattern-ttd { grid-template-columns:1fr; }
+      .pattern-grid { grid-template-columns:1fr; }
+      .diagram-grid { grid-template-columns:1fr; }
     }
   </style>
 <link rel="stylesheet" href="/brand.css">
@@ -228,7 +274,7 @@
       <span>&#9878; Regulatory Classification</span>
     </div>
   </div>
-  <div class="build-status-banner"><strong>In progress:</strong> this page currently implements Sections A through L and Worked Scenarios 1 and 2 in full. The Risk/Signal/Response cards, knowledge check, FAQ, and structure diagram are not yet built. It is not yet linked from the Knowledge Hub or sitemap and should not be treated as a finished guide.</div>
+  <div class="build-status-banner"><strong>In progress:</strong> this page currently implements Sections A through L, Worked Scenarios 1 and 2, the Risk/Signal/Response cards, and the activity-classification diagram in full. The knowledge check and FAQ are not yet built. It is not yet linked from the Knowledge Hub or sitemap and should not be treated as a finished guide.</div>
 </div>
 
 <!-- MAIN LAYOUT -->
@@ -258,6 +304,16 @@
     <p><strong>Application.</strong> The three-limb structure matters most when the work is split across entities, which is the normal way a stablecoin programme is actually built: one company designs the token and holds the brand relationship with customers, another operates redemption, a third custodies the backing assets. Article 9M(4)(c) answers who's on the hook in that situation directly: where all of the offering, redemption and backing-asset-holding activities are in fact carried on by another person (B) under arrangements A has made, only A is treated as carrying on the issuing activity. B isn't. That's a deliberate design choice, not an oversight, it means a group can genuinely outsource operational delivery of a stablecoin without multiplying who needs a Part 4A permission for issuing it, provided the arrangement genuinely covers everything and A remains the party who arranged it.</p>
     <p>That "provided" is doing real work. If A has only arranged for B to handle two of the three limbs, and A is carrying on the third itself directly, 9M(4)(c) doesn't apply in the same clean way, because the provision is about all of the activities in 2(a) and 2(c) sitting with B, not most of them. Worked Scenario 1 below tests exactly where that line falls.</p>
     <p><strong>Action.</strong> Before treating an outsourcing arrangement as removing an authorisation obligation from the entity that designed the token, map every one of the three 9M(2) limbs, offering, redemption, backing-asset holding, to the specific entity actually carrying it out today, not the entity that would ideally be carrying it out on an org chart. Article 9M(4)(c) protects an arrangement that's genuinely complete. It doesn't protect a partial one.</p>
+  </div>
+
+  <div class="pattern-card" style="background:var(--c-limb-light);border-color:#ddd6fe;">
+    <div class="pattern-card-head"><div class="pattern-icon">&#129513;</div><div class="pattern-name" style="color:var(--c-limb);">The Missing Limb</div></div>
+    <div class="pattern-line">A partial outsourcing arrangement gets read as though it were the complete one that actually moves the issuing obligation.</div>
+    <div class="pattern-ttd">
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-limb);">Risk</div><div class="ttd-text">Two of the three 9M(2) limbs sit with an outsourced operator, and that gets treated as enough to clear the design company of the issuing activity.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-limb);">Signal</div><div class="ttd-text">Article 9M(4)(c) only applies where another person carries on all of the offering, redemption and backing-asset-holding limbs, not most of them, under arrangements the first party made.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-limb);">Response</div><div class="ttd-text">Map each of the three limbs to the entity actually carrying it out today before concluding an outsourcing arrangement has moved who is treated as issuing.</div></div>
+    </div>
   </div>
 
   <!-- WORKED SCENARIO 1 -->
@@ -329,6 +385,73 @@
     <p><strong>Action.</strong> Run the territorial test in two stages, not one: first, whether the issuer's offering, redemption and value-maintenance activity is itself carried on from a UK establishment; second, if not, whether the issuer has arranged for all of those elements, not some of them, to be carried out in the UK on its behalf. If both fail, don't conclude the issuer is outside UK scope, check instead whether its UK-directed conduct needs a dealing or arranging permission under Section D's tests. Separately, and regardless of the answer on activity-level scope, check the issuer's own legal structure against the AICF default of a UK legal entity, unless it is dual-regulated and can demonstrate branch-level compliance with the threshold conditions.</p>
   </div>
 
+  <div class="pattern-card" style="background:var(--c-territory-light);border-color:#a5f3fc;">
+    <div class="pattern-card-head"><div class="pattern-icon">&#127760;</div><div class="pattern-name" style="color:var(--c-territory);">The Offshore Shortcut</div></div>
+    <div class="pattern-line">No UK head office gets treated as the end of the UK-scope question, when a second test can still reach the issuer.</div>
+    <div class="pattern-ttd">
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-territory);">Risk</div><div class="ttd-text">An overseas issuer with no UK establishment is written off as outside UK authorisation the moment the direct territorial test fails.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-territory);">Signal</div><div class="ttd-text">Section 418(6B) deems an overseas person to be issuing in the UK where all the elements of the activity, not some of them, are carried out here on its behalf.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-territory);">Response</div><div class="ttd-text">Run the direct establishment test first, then the deeming provision, and check the dealing or arranging tests if both fail, before concluding an overseas issuer sits outside UK scope.</div></div>
+    </div>
+  </div>
+
+  <!-- CLASSIFICATION DIAGRAM -->
+  <div class="article-section" id="classification-diagram">
+    <div class="section-eyebrow">Classification Diagram</div>
+    <h2>Which regulated activity applies, by actor, and does it change overseas?</h2>
+    <p>Sections B through F each work through one activity in isolation. Read together as a single starting point by actor, an issuer, a custodian, a dealer or arranger, and a firm whose real business is paying or being paid rather than dealing in stablecoins, the same tests resolve into four short routes. Each node cites the section it comes from; nothing here is a new test, it is the existing tests laid out by who is asking, not what activity is being asked about.</p>
+    <div class="diagram-grid" role="img" aria-label="Decision tree with four lanes, one per actor, each routing through the classification tests in Sections B, C, D, E and F to an outcome. The same logic is repeated as an ordered list directly below for screen readers and non-visual browsing.">
+      <div class="diagram-lane" style="border-color:#a5f3fc;">
+        <div class="diagram-lane-title" style="color:var(--c-territory);border-color:#a5f3fc;">Issuer</div>
+        <div class="diagram-node"><strong>Sec. B</strong>Do all three 9M(2) limbs, offering, redemption, backing-asset holding, sit with this person or their group?</div>
+        <div class="diagram-arrow">&darr; yes</div>
+        <div class="diagram-node"><strong>Sec. F</strong>Is offering, redemption and value-maintenance carried on from a UK establishment?</div>
+        <div class="diagram-arrow">&darr; no</div>
+        <div class="diagram-node"><strong>Sec. F, s.418(6B)</strong>Has the person arranged for ALL elements to be carried out in the UK on its behalf?</div>
+        <div class="diagram-arrow">&darr; yes</div>
+        <div class="diagram-outcome" style="background:var(--c-territory-light);color:var(--c-territory);">Issuing activity, UK-deemed. Part 4A permission needed.</div>
+        <div class="diagram-caveat">If both territorial tests fail: not caught as issuing, but check the dealer/arranger lane for the same conduct (PERG 18.8.5-18.8.6).</div>
+      </div>
+      <div class="diagram-lane" style="border-color:#fecaca;">
+        <div class="diagram-lane-title" style="color:var(--c-trust);border-color:#fecaca;">Custodian</div>
+        <div class="diagram-node"><strong>Sec. C, art. 9N(2)(a)</strong>Does this person control the asset by any means letting them bring about a transfer of its benefit, including holding the means of access?</div>
+        <div class="diagram-arrow">&darr; yes</div>
+        <div class="diagram-node"><strong>Sec. C, art. 9O-9R</strong>Does one of the four narrow exclusions apply (connected authorised custodian, unremunerated introduction, temporary settlement hold, agency for instructions)?</div>
+        <div class="diagram-arrow">&darr; no</div>
+        <div class="diagram-outcome" style="background:var(--c-trust-light);color:var(--c-trust);">Safeguarding activity under article 9N(1) applies.</div>
+        <div class="diagram-caveat">Sec. F's territorial test is built for issuing specifically; it sets out no equivalent custodian test, so an overseas question here has to be checked on safeguarding's own terms, not assumed to mirror the issuer route.</div>
+      </div>
+      <div class="diagram-lane" style="border-color:#fde68a;">
+        <div class="diagram-lane-title" style="color:var(--c-badge);border-color:#fde68a;">Dealer / arranger</div>
+        <div class="diagram-node"><strong>Sec. D</strong>Is the conduct a platform (9S), principal dealing (9T), agent dealing (9W), or arranging (9Y)? Staking routes to 9Z6 instead.</div>
+        <div class="diagram-arrow">&darr;</div>
+        <div class="diagram-node"><strong>Sec. D, art. 9U/9X/9Z-9Z5</strong>Does that provision's own exclusion apply? (9S has none; 9T's holding-out escape isn't available to 9W or a bare trustee.)</div>
+        <div class="diagram-arrow">&darr; no exclusion fits</div>
+        <div class="diagram-outcome" style="background:var(--c-badge-light);color:var(--c-badge);">Trading-platform, dealing or arranging activity applies.</div>
+        <div class="diagram-caveat">Sec. F notes this activity's territorial scope is separate from the issuer's UK-establishment/deeming test and isn't detailed further in this guide; check it independently.</div>
+      </div>
+      <div class="diagram-lane" style="border-color:#ddd6fe;">
+        <div class="diagram-lane-title" style="color:var(--c-limb);border-color:#ddd6fe;">Payment-activity firm</div>
+        <div class="diagram-node">Is the firm buying, selling or arranging stablecoin transfers only to pay or be paid for its own goods or services, not offering a dealing service to others?</div>
+        <div class="diagram-arrow">&darr; yes</div>
+        <div class="diagram-node"><strong>Sec. E, art. 9Z10</strong>Does the narrower related-sale exclusion cover it? (Still available for 9T/9W/9Y, unlike safeguarding, where it's switched off.)</div>
+        <div class="diagram-arrow">&darr; no</div>
+        <div class="diagram-node"><strong>Sec. E, art. 9Z11</strong>Do all four conditions hold at once: necessary ancillary, no systematic income, no marketing beyond ancillary disclosure, DPB-supervised business?</div>
+        <div class="diagram-arrow">&darr; any condition fails</div>
+        <div class="diagram-outcome" style="background:var(--c-limb-light);color:var(--c-limb);">No exclusion fits: tested as an ordinary dealer/arranger under Section D, same route and caveat as that lane.</div>
+      </div>
+    </div>
+    <details class="diagram-text-equivalent">
+      <summary>Read the same routes as a plain-text walkthrough</summary>
+      <ol>
+        <li><strong>Issuer.</strong> Check whether all three Section B limbs, offering, redemption, backing-asset holding, sit with this person or group. If they do, check whether that activity is carried on from a UK establishment (Section F). If not, check whether the person has arranged for every element, not some of them, to be carried out in the UK on its behalf; if so, section 418(6B) deems it a UK issuing activity requiring Part 4A permission. If neither territorial test is met, the person is not caught as an issuer, but the same conduct may still need checking against the dealer/arranger route.</li>
+        <li><strong>Custodian.</strong> Check whether this person controls the asset under Section C's test, any means of bringing about a transfer of its benefit, including holding the means of access such as a private key. If they do, check whether one of the four narrow exclusions in articles 9O to 9R applies. If none does, the safeguarding activity under article 9N(1) applies. Section F's overseas test was built for issuing only, so a custodian's territorial position has to be checked separately, not assumed.</li>
+        <li><strong>Dealer or arranger.</strong> Identify which Section D provision the conduct actually falls under: operating a platform (article 9S, no exclusion available), dealing as principal (article 9T), dealing as agent (article 9W), or arranging (article 9Y); route staking conduct to article 9Z6 instead. Check that provision's own exclusion. If none applies, the activity is caught. The territorial scope for this route is separate from the issuer's test and isn't worked out in detail in this guide, so check it independently.</li>
+        <li><strong>Payment-activity firm.</strong> If the firm's stablecoin activity is limited to paying or being paid for its own goods or services, check Section E's narrower article 9Z10 related-sale exclusion first, then article 9Z11's four cumulative conditions, necessary ancillary, no systematic income, no marketing beyond ancillary disclosure, and a Designated Professional Body-supervised business. Failing even one article 9Z11 condition removes that exclusion entirely. If neither exclusion fits, the firm is tested as an ordinary dealer or arranger under the Section D route above, including that route's own territorial caveat.</li>
+      </ol>
+    </details>
+  </div>
+
   <!-- WORKED SCENARIO 2 -->
   <div class="article-section" id="scenario2">
     <div class="scenario-header">
@@ -366,6 +489,16 @@
     <p><strong>Action.</strong> Before treating a firm's pending application as protected, check three things in sequence: whether it applied within the 30 September 2026 to 28 February 2027 window; whether the application remains live, not refused with no pending Tribunal referral, and not withdrawn, at full commencement; and whether the FCA has exercised its power to move the firm into the transitional provision regardless of window timing. Only a firm clearing all three sits in the saving provision. A firm that applied but fails any of them sits in the transitional provision's wind-down-only regime, and a firm that never applied sits outside both, on borrowed time until full commencement.</p>
   </div>
 
+  <div class="pattern-card" style="background:var(--c-clock-light);border-color:#c7d2fe;">
+    <div class="pattern-card-head"><div class="pattern-icon">&#128368;</div><div class="pattern-name" style="color:var(--c-clock);">The Frozen Clock</div></div>
+    <div class="pattern-line">A single headline commencement date gets carried forward from an old summary as though the regime were still waiting on it, when several of its clocks have already moved.</div>
+    <div class="pattern-ttd">
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clock);">Risk</div><div class="ttd-text">A vendor note, news piece or earlier advisory memo is cited for "the" stablecoin commencement date, carrying forward whatever was true only on the day that source was written.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clock);">Signal</div><div class="ttd-text">This regime runs on more than one date at once, preparatory commencement, the application window, full commencement on 25 October 2027, and, on MLR's separate track (Section H), Schedule 6B provisions that took effect around 30 June 2026, already behind us as of this guide's own drafting date.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clock);">Response</div><div class="ttd-text">Check a provision's own commencement date against a primary source or a maintained tracker, and confirm this guide's own data-date, before relying on a secondary summary's stated date as still current.</div></div>
+    </div>
+  </div>
+
   <!-- SECTION H -->
   <div class="article-section" id="section-h">
     <div class="section-eyebrow">Section H</div>
@@ -375,6 +508,16 @@
     <p>Regulation 34A requires a cryptoasset exchange provider or custodian wallet provider with a correspondent relationship involving regulation 14A-type services with a similar overseas provider to go beyond existing correspondent measures: gathering enough information to understand the overseas provider's business fully; assessing its reputation and supervision quality from credible public sources; assessing its AML and counter-terrorist-financing controls; obtaining senior management approval before establishing a new relationship; documenting each party's responsibilities; and being satisfied the overseas provider carries out, and can evidence, customer due diligence for its own direct-access customers. It separately bans correspondent relationships with shell banks outright, and requires enhanced measures to avoid relationships with institutions known to let their accounts be used by one. Schedule 6B applies the existing FSMA change-of-control regime to registered cryptoasset exchange providers and custodian wallet providers, with thresholds that vary by trigger rather than a single flat figure: the initial acquiring-control trigger is 10% of shares or voting power, significant influence, or beneficial-owner status under the relevant MLR provisions, while separate increasing-control and reducing-or-ceasing-control triggers use 20/30/50% step thresholds crossed in either direction.</p>
     <p><strong>Application.</strong> Both Schedule 6B provisions and the general MLR housekeeping provisions took effect around 30 June 2026, which as of this guide's drafting date has already passed. A firm registered under regulation 14A before 25 October 2027 is not waiting for a future obligation here; the change-of-control regime in Schedule 6B paragraphs 1, 2 and 5 already applies to it now. That's easy to miss if a reader assumes every cryptoasset-related date in this guide is still ahead of full commencement; this particular one isn't. Regulation 34A's correspondent due diligence obligations, by contrast, genuinely are still ahead, arriving 1 February 2027, on a clock that runs independently of both the FSMA application window and full commencement in Section G. Registration under regulation 14A doesn't convert into FSMA authorisation automatically either; a firm needs to apply afresh for the new regulated activities covered in this guide, and a firm already FSMA-authorised for other business needs a variation of permission rather than a fresh application, though this specific point is background rather than something independently checked against MLR 2017's own registration text in this pass.</p>
     <p><strong>Action.</strong> Before telling a firm it has until 25 October 2027 to sort out its position, identify which regime, FSMA authorisation or MLR registration, and which specific provision within it, actually governs the obligation being discussed. For a firm already registered under regulation 14A, check Schedule 6B's change-of-control obligations now, since the paragraphs covering pre-25-October-2027 registrations are already in force, not pending. Track regulation 34A's 1 February 2027 date on its own terms, separately from the saving and transitional mechanics in Section G, since the two regimes run on entirely different clocks and neither commencement date substitutes for the other.</p>
+  </div>
+
+  <div class="pattern-card" style="background:var(--c-badge-light);border-color:#fde68a;">
+    <div class="pattern-card-head"><div class="pattern-icon">&#129371;</div><div class="pattern-name" style="color:var(--c-badge);">The Borrowed Badge</div></div>
+    <div class="pattern-line">An existing MLR registration gets worn as though it already covers the new FSMA-authorised activities, when it runs on a different legal basis entirely.</div>
+    <div class="pattern-ttd">
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-badge);">Risk</div><div class="ttd-text">A firm already registered under regulation 14A assumes that status satisfies, or will automatically roll into, the authorisation the new stablecoin issuing, safeguarding, dealing and arranging activities require.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-badge);">Signal</div><div class="ttd-text">MLR registration and FSMA authorisation run on separate legal bases and separate clocks, and Schedule 6B's change-of-control paragraphs for firms registered before 25 October 2027 are already in force now, not waiting for full commencement.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-badge);">Response</div><div class="ttd-text">Identify which regime, and which specific provision within it, actually governs the obligation in question, and check a regulation 14A firm's Schedule 6B position today rather than assuming registration alone covers it.</div></div>
+    </div>
   </div>
 
   <!-- SECTION I -->
@@ -395,6 +538,16 @@
     <p><strong>Source.</strong> CASS 17 applies to a firm safeguarding qualifying cryptoassets within the scope of that chapter, that is, the qualifying-cryptoasset limb of the article 9N safeguarding activity specifically, not the relevant-specified-investment-cryptoasset limb. RSIC custody is not under CASS 17 at all: a firm safeguarding an RSIC is instead subject to CASS 6, described in the FCA's own wording as applying "for the time being," an explicitly provisional arrangement rather than a settled one, with the FCA separately inviting industry feedback through its tokenisation call for input to shape the longer-term custody rules for RSICs. A related clarification in CASS 7.14.5G confirms that a firm safeguarding RSICs under CASS 6 remains within CASS 7 scope for any client money arising in connection with that safeguarding, consistent with the position that already applied to firms in CASS 6 before this regime existed. Separately again, CASS 8, the mandate rules, does not apply to a firm safeguarding cryptoassets within the meaning of article 9N. The FCA draws the two concepts of "control" apart deliberately: CASS 8's control is a firm's authority to instruct or direct a client's assets, while article 9N's control is a firm's ability to bring about a transfer of the benefit of a client's cryptoassets, different tests that happen to share a word. A CASS 8 mandate, a discretionary manager's power of attorney over cryptoassets, for example, can still exist alongside this, but the mandate-holder is not thereby the article 9N safeguarding firm; it is instead in a position to instruct that firm. Whether CASS 8 applies to non-custodial staking depends on whether the firm holds mandate authority meeting all five conditions in CASS 8.2.1R, and the FCA states most existing non-custodial staking models do not currently involve that kind of authority.</p>
     <p><strong>Application.</strong> A firm that has correctly worked through Section C's control-based test and concluded it is safeguarding under article 9N still has one further, asset-specific question to answer before it knows which custody rulebook governs: is the asset a qualifying cryptoasset, in which case CASS 17 applies, or an RSIC, in which case CASS 6 applies instead, on a provisional basis the FCA may still revise. Getting this second question wrong, applying CASS 17's rulebook to an RSIC, or CASS 6's to a qualifying cryptoasset, is a live version of the misclassification risk worth naming directly: the firm correctly identified that it was safeguarding, and still put the client's assets in the wrong regulatory trust because it treated the two asset types as interchangeable. CASS 8 raises a related but distinct risk in the same custody chain: a firm shouldn't assume that holding a discretionary mandate over cryptoassets makes it the article 9N safeguarding firm, or that being the safeguarding firm means no one else in the chain holds a CASS 8 mandate over the same assets. The two roles test for different things and can sit with two different entities at once.</p>
     <p><strong>Action.</strong> Once a firm has established that it is safeguarding under article 9N in Section C, classify the specific asset by type, qualifying cryptoasset or RSIC, before applying CASS 17 or CASS 6, and treat the RSIC position as provisional rather than settled given the FCA's own "for the time being" framing. Separately, check whether any party in the custody chain holds a CASS 8 mandate to instruct the safeguarding firm, since that is a different question from who is actually carrying out the safeguarding.</p>
+  </div>
+
+  <div class="pattern-card" style="background:var(--c-trust-light);border-color:#fecaca;">
+    <div class="pattern-card-head"><div class="pattern-icon">&#128274;</div><div class="pattern-name" style="color:var(--c-trust);">The Wrong Trust</div></div>
+    <div class="pattern-line">Getting the safeguarding question right doesn't guarantee the client's assets land in the right custody rulebook.</div>
+    <div class="pattern-ttd">
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trust);">Risk</div><div class="ttd-text">A firm applies CASS 17 to an RSIC, or CASS 6 to a qualifying cryptoasset, or assumes whoever holds a CASS 8 mandate is automatically the article 9N safeguarding firm.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trust);">Signal</div><div class="ttd-text">CASS 17 governs qualifying cryptoassets, CASS 6 governs RSICs on a "for the time being" basis the FCA may revise, and CASS 8's control test tests for something different from article 9N's, so the two roles can sit with different entities.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trust);">Response</div><div class="ttd-text">Classify the asset type before choosing between CASS 17 and CASS 6, and check separately whether anyone in the chain holds a CASS 8 mandate rather than assuming it tracks the safeguarding role.</div></div>
+    </div>
   </div>
 
   <!-- SECTION K -->
@@ -428,9 +581,85 @@
     <p><strong>Action.</strong> Work through Category 1 first, and escalate any gap found there as a potential breach of a disclosure or prudential obligation. Work through Category 2 second, and record any gap found there as a practice weakness in a due diligence report, never as a finding that the issuer has breached an FCA requirement. Where the technical control fields are used, keep a note that the field names are this guide's decomposition of regulation 13, not regulatory terminology, so a report built on this checklist doesn't misattribute them to the FCA.</p>
   </div>
 
+  <div class="pattern-card" style="background:var(--c-checklist-light);border-color:#99f6e4;">
+    <div class="pattern-card-head"><div class="pattern-icon">&#128203;</div><div class="pattern-name" style="color:var(--c-checklist);">The Generic Checklist</div></div>
+    <div class="pattern-line">A due diligence list that doesn't separate an enforceable duty from the reviewer's own judgement turns every gap into the same finding.</div>
+    <div class="pattern-ttd">
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-checklist);">Risk</div><div class="ttd-text">A missing sanctions-exposure note and a missing independent assurance review get logged in a due diligence report as the same class of failure.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-checklist);">Signal</div><div class="ttd-text">This guide's own checklist keeps Category 1, fields tracing to an FCA-mandated disclosure such as regulation 13's technology, governance and control disclosures, separate from Category 2, fields with no FCA-mandated basis such as historical depegs or sanctions exposure.</div></div>
+      <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-checklist);">Response</div><div class="ttd-text">Escalate a Category 1 gap as a potential breach of a disclosure or prudential obligation, and record a Category 2 gap as a practice weakness, never as an FCA finding.</div></div>
+    </div>
+  </div>
+
+  <!-- AT A GLANCE: CLOSING RISK/SIGNAL/RESPONSE GRID -->
+  <div class="article-section" id="glance">
+    <div class="section-eyebrow">Quick Reference</div>
+    <h2>At a glance</h2>
+    <p>The same six patterns, regrouped as a single reference. Each one is the risk that makes a classification step look routine, the signal that gives it away, and the response that fits.</p>
+    <div class="save-img-row">
+      <button class="save-img-btn" id="saveCardsImgBtn" onclick="saveCardsAsImage()">&#128190; Save as image</button>
+    </div>
+    <div class="pattern-grid" id="glanceCardGrid">
+      <div class="pattern-card" style="background:var(--c-limb-light);border-color:#ddd6fe;">
+        <div class="pattern-card-head"><div class="pattern-icon">&#129513;</div><div class="pattern-name" style="color:var(--c-limb);">The Missing Limb</div></div>
+        <div class="pattern-line">A partial outsourcing arrangement gets read as though it were the complete one that actually moves the issuing obligation.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-limb);">Risk</div><div class="ttd-text">Two of three 9M(2) limbs outsourced gets treated as clearing the design company of issuing.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-limb);">Signal</div><div class="ttd-text">9M(4)(c) only applies where all three limbs, not most, sit with the other party.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-limb);">Response</div><div class="ttd-text">Map every limb to the entity actually carrying it out today.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-territory-light);border-color:#a5f3fc;">
+        <div class="pattern-card-head"><div class="pattern-icon">&#127760;</div><div class="pattern-name" style="color:var(--c-territory);">The Offshore Shortcut</div></div>
+        <div class="pattern-line">No UK head office gets treated as the end of the UK-scope question, when a second test can still reach the issuer.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-territory);">Risk</div><div class="ttd-text">Failing the direct establishment test gets read as failing UK scope outright.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-territory);">Signal</div><div class="ttd-text">Section 418(6B) deems UK issuing where ALL elements are arranged to run here.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-territory);">Response</div><div class="ttd-text">Run the establishment test, then the deeming test, before concluding scope.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-badge-light);border-color:#fde68a;">
+        <div class="pattern-card-head"><div class="pattern-icon">&#129371;</div><div class="pattern-name" style="color:var(--c-badge);">The Borrowed Badge</div></div>
+        <div class="pattern-line">An existing MLR registration gets worn as though it already covers the new FSMA-authorised activities.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-badge);">Risk</div><div class="ttd-text">Regulation 14A registration assumed to satisfy or convert into FSMA authorisation.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-badge);">Signal</div><div class="ttd-text">Separate legal bases, separate clocks; Schedule 6B's pre-2027 paragraphs are already in force.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-badge);">Response</div><div class="ttd-text">Identify which regime and provision governs, and check Schedule 6B status now.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-trust-light);border-color:#fecaca;">
+        <div class="pattern-card-head"><div class="pattern-icon">&#128274;</div><div class="pattern-name" style="color:var(--c-trust);">The Wrong Trust</div></div>
+        <div class="pattern-line">Getting the safeguarding question right doesn't guarantee the assets land in the right custody rulebook.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trust);">Risk</div><div class="ttd-text">CASS 17 and CASS 6 treated as interchangeable, or a CASS 8 mandate mistaken for safeguarding.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trust);">Signal</div><div class="ttd-text">CASS 17 covers qualifying cryptoassets, CASS 6 covers RSICs provisionally; CASS 8's test differs from 9N's.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-trust);">Response</div><div class="ttd-text">Classify the asset type first, and check mandate-holding separately from safeguarding.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-checklist-light);border-color:#99f6e4;">
+        <div class="pattern-card-head"><div class="pattern-icon">&#128203;</div><div class="pattern-name" style="color:var(--c-checklist);">The Generic Checklist</div></div>
+        <div class="pattern-line">A due diligence list that doesn't separate an enforceable duty from judgement turns every gap into the same finding.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-checklist);">Risk</div><div class="ttd-text">A missing disclosure and a missing practice observation logged as the same failure.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-checklist);">Signal</div><div class="ttd-text">Category 1 traces to an FCA-mandated duty; Category 2 is this guide's own judgement.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-checklist);">Response</div><div class="ttd-text">Escalate Category 1 gaps as potential breaches; log Category 2 gaps as practice weaknesses only.</div></div>
+        </div>
+      </div>
+      <div class="pattern-card" style="background:var(--c-clock-light);border-color:#c7d2fe;">
+        <div class="pattern-card-head"><div class="pattern-icon">&#128368;</div><div class="pattern-name" style="color:var(--c-clock);">The Frozen Clock</div></div>
+        <div class="pattern-line">A single headline commencement date gets carried forward as though the regime were still waiting on it, when several of its clocks have already moved.</div>
+        <div class="pattern-ttd">
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clock);">Risk</div><div class="ttd-text">A stale vendor note or old memo is cited for "the" commencement date.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clock);">Signal</div><div class="ttd-text">Preparatory commencement, the application window, full commencement, and MLR's own Schedule 6B dates all run separately, some already passed.</div></div>
+          <div class="pattern-ttd-item"><div class="ttd-label" style="color:var(--c-clock);">Response</div><div class="ttd-text">Check a provision's own date against a primary source or a maintained tracker, not a secondary summary.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- PENDING PLACEHOLDER -->
   <div class="pending-note" id="pending-sections">
-    The Risk/Signal/Response cards, the knowledge check, the FAQ, and the structure diagram are not yet built. This page is a work in progress.
+    The knowledge check and the FAQ are not yet built. This page is a work in progress.
   </div>
 
 </div><!-- /article-layout -->
@@ -522,6 +751,149 @@ function showCounterfactual(scenarioId, btn) {
   panel.classList.add('show');
   panel.setAttribute('aria-live', 'polite');
   btn.remove();
+}
+
+function wrapCanvasText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let line = '';
+  words.forEach(word => {
+    const test = line ? line + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = word; }
+    else { line = test; }
+  });
+  if (line) lines.push(line);
+  return lines;
+}
+
+function saveCardsAsImage() {
+  const grid = document.getElementById('glanceCardGrid');
+  if (!grid) return;
+  const btn = document.getElementById('saveCardsImgBtn');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Rendering…';
+  btn.disabled = true;
+
+  const cardEls = Array.from(grid.querySelectorAll(':scope > .pattern-card'));
+  const cards = cardEls.map(card => {
+    const icon = card.querySelector('.pattern-icon').textContent.trim();
+    const name = card.querySelector('.pattern-name').textContent.trim();
+    const oneLiner = card.querySelector('.pattern-line').textContent.trim();
+    const ttdItems = Array.from(card.querySelectorAll('.pattern-ttd-item')).map(item => ({
+      label: item.querySelector('.ttd-label').textContent.trim(),
+      text: item.querySelector('.ttd-text').textContent.trim()
+    }));
+    const accentColor = getComputedStyle(card.querySelector('.pattern-name')).color;
+    return { icon, name, oneLiner, ttdItems, accentColor };
+  });
+
+  const WIDTH = 1200;
+  const OUTER_PAD = 20;
+  const contentWidth = WIDTH - OUTER_PAD * 2;
+  const CARD_PAD = 20;
+  const TITLE_H = 64;
+  const HEAD_FONT = '700 20px Georgia, serif';
+  const NAME_FONT = '700 17px Inter, system-ui, sans-serif';
+  const LINE_FONT = '600 14px Inter, system-ui, sans-serif';
+  const LABEL_FONT = '700 11px Inter, system-ui, sans-serif';
+  const TEXT_FONT = '13px Inter, system-ui, sans-serif';
+  const LINE_H = 17;
+  const ICON_SIZE = 32;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function measureCard(card) {
+    measure.font = LINE_FONT;
+    const lineLines = wrapCanvasText(measure, card.oneLiner, contentWidth - CARD_PAD * 2);
+    measure.font = TEXT_FONT;
+    const ttdLineCounts = card.ttdItems.map(item => wrapCanvasText(measure, item.text, contentWidth - CARD_PAD * 2 - 90).length);
+    const ttdHeight = ttdLineCounts.reduce((sum, n) => sum + 22 + n * LINE_H, 0) + (card.ttdItems.length - 1) * 10;
+    return { lineLines, ttdLineCounts, height: CARD_PAD + ICON_SIZE + 14 + lineLines.length * LINE_H + 14 + ttdHeight + CARD_PAD };
+  }
+
+  const cardMeasurements = cards.map(measureCard);
+  const totalHeight = OUTER_PAD * 2 + TITLE_H + cardMeasurements.reduce((sum, m) => sum + m.height + 14, 0);
+
+  const canvas = document.createElement('canvas');
+  canvas.width = WIDTH;
+  canvas.height = totalHeight;
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#F4F6F3';
+  ctx.fillRect(0, 0, WIDTH, totalHeight);
+
+  const cardX = OUTER_PAD, cardY = OUTER_PAD, cardW = contentWidth, cardH = totalHeight - OUTER_PAD * 2;
+  ctx.fillStyle = '#FFFFFF';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, cardH, 12); else ctx.rect(cardX, cardY, cardW, cardH);
+  ctx.fill();
+
+  ctx.fillStyle = '#0F2044';
+  ctx.beginPath();
+  if (ctx.roundRect) ctx.roundRect(cardX, cardY, cardW, TITLE_H, [12, 12, 0, 0]); else ctx.rect(cardX, cardY, cardW, TITLE_H);
+  ctx.fill();
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = HEAD_FONT;
+  ctx.textBaseline = 'middle';
+  ctx.fillText('UK Stablecoin Regulation 2026: At a glance', cardX + CARD_PAD, cardY + TITLE_H / 2);
+
+  let y = cardY + TITLE_H + 14;
+
+  cards.forEach((card, i) => {
+    const m = cardMeasurements[i];
+    const blockX = cardX + 10;
+    const blockW = cardW - 20;
+
+    ctx.fillStyle = '#FAFBFA';
+    ctx.strokeStyle = '#E3E8E3';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(blockX, y, blockW, m.height, 10); else ctx.rect(blockX, y, blockW, m.height);
+    ctx.fill();
+    ctx.stroke();
+
+    let cy = y + CARD_PAD;
+    ctx.textBaseline = 'top';
+    ctx.font = (ICON_SIZE - 6) + 'px sans-serif';
+    ctx.fillStyle = '#000';
+    ctx.fillText(card.icon, blockX + CARD_PAD, cy);
+
+    ctx.font = NAME_FONT;
+    ctx.fillStyle = card.accentColor || '#0F2044';
+    ctx.fillText(card.name, blockX + CARD_PAD + ICON_SIZE + 12, cy + 6);
+    cy += ICON_SIZE + 14;
+
+    ctx.font = LINE_FONT;
+    ctx.fillStyle = '#1F2937';
+    m.lineLines.forEach(line => { ctx.fillText(line, blockX + CARD_PAD, cy); cy += LINE_H; });
+    cy += 8;
+
+    card.ttdItems.forEach((item, ti) => {
+      ctx.font = LABEL_FONT;
+      ctx.fillStyle = card.accentColor || '#0F2044';
+      ctx.fillText(item.label.toUpperCase(), blockX + CARD_PAD, cy);
+      ctx.font = TEXT_FONT;
+      ctx.fillStyle = '#3D4E5C';
+      const lines = wrapCanvasText(ctx, item.text, blockW - CARD_PAD * 2 - 90);
+      lines.forEach((line, li) => ctx.fillText(line, blockX + CARD_PAD + 90, cy + li * LINE_H));
+      cy += 22 + m.ttdLineCounts[ti] * LINE_H;
+    });
+
+    y += m.height + 14;
+  });
+
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'uk-stablecoin-regulation-2026-at-a-glance.png';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }, 'image/png');
 }
 </script>
 
