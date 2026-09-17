@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <!-- BUILD STATUS: skeleton + Sections A-L + Worked Scenarios 1-2 + Risk/Signal/Response cards (inline and closing grid) + activity-classification diagram + inline citations and Primary sources section. The knowledge check and FAQ are not yet implemented. Not linked from knowledge.html or sitemap.xml. -->
+  <!-- BUILD STATUS: skeleton + Sections A-L + Worked Scenarios 1-2 + Risk/Signal/Response cards (inline and closing grid) + activity-classification diagram + inline citations and Primary sources section + knowledge check and FAQ. All Universal Evidence Core content components are now built. Outstanding before publication: external adversarial review of the flagged regulatory claims (CLAUDE.md section 7) and linking from knowledge.html/sitemap.xml. -->
   <script type="application/ld+json">
   {
       "@context": "https://schema.org",
@@ -206,6 +206,33 @@
     .diagram-text-equivalent li ul { margin-top:0.3rem; padding-left:1.1rem; }
     .diagram-text-equivalent li li { font-size:13px; margin-bottom:0.35rem; }
 
+    /* KNOWLEDGE CHECK */
+    .quiz-section { background:var(--navy); border-radius:12px; padding:2rem; margin:1.5rem 0; color:#fff; }
+    .quiz-title { font-family:'DM Serif Display',Georgia,serif; font-size:1.3rem; margin-bottom:0.5rem; }
+    .quiz-sub { font-size:13px; color:#93c5fd; margin-bottom:1.5rem; }
+    .quiz-q { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:1.25rem; margin-bottom:1rem; }
+    .quiz-q-text { font-size:14px; font-weight:600; margin-bottom:0.75rem; }
+    .quiz-opts { display:flex; flex-direction:column; gap:6px; }
+    .quiz-opt { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:6px; padding:10px 14px; cursor:pointer; font-size:13px; color:#e2e8f0; transition:all 0.15s; text-align:left; width:100%; }
+    .quiz-opt:hover { background:rgba(255,255,255,0.15); border-color:rgba(255,255,255,0.3); }
+    .quiz-opt.q-correct { background:rgba(22,163,74,0.25); border-color:#4ade80; color:#86efac; }
+    .quiz-opt.q-wrong { background:rgba(220,38,38,0.25); border-color:#f87171; color:#fca5a5; }
+    .quiz-opt:disabled { cursor:default; }
+    .quiz-feedback { font-size:13px; margin-top:8px; padding:8px 12px; border-radius:6px; display:none; }
+    .quiz-feedback.show { display:block; }
+    .quiz-score-display { text-align:center; padding:1.5rem; background:rgba(255,255,255,0.05); border-radius:10px; margin-top:1rem; display:none; }
+    .quiz-score-display.show { display:block; }
+    .quiz-score-num { font-family:'DM Serif Display',Georgia,serif; font-size:3rem; color:#86efac; }
+    .quiz-score-label { font-size:14px; color:#93c5fd; margin-top:4px; }
+
+    /* FAQ ACCORDION */
+    .faq-item { border:1px solid var(--border); border-radius:10px; margin-bottom:7px; overflow:hidden; background:#fff; }
+    .faq-item summary { padding:0.9rem 1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-size:14px; font-weight:500; list-style:none; gap:1rem; }
+    .faq-item summary::-webkit-details-marker { display:none; }
+    .faq-icon { font-weight:700; color:var(--accent); flex-shrink:0; }
+    .faq-item[open] .faq-icon { transform:rotate(45deg); display:inline-block; }
+    .faq-a { font-size:13.5px; color:#374151; padding:0 1.1rem 1rem; line-height:1.6; }
+
     /* PLACEHOLDER */
     .pending-note { background:#f3f4f6; border:1px dashed #9ca3af; border-radius:12px; padding:1.5rem 2rem; text-align:center; color:var(--muted); font-size:14px; }
 
@@ -274,7 +301,7 @@
       <span>&#9878; Regulatory Classification</span>
     </div>
   </div>
-  <div class="build-status-banner"><strong>In progress:</strong> this page currently implements Sections A through L, Worked Scenarios 1 and 2, the Risk/Signal/Response cards, the activity-classification diagram, inline citations and the Primary sources section in full. The knowledge check and FAQ are not yet built. It is not yet linked from the Knowledge Hub or sitemap and should not be treated as a finished guide.</div>
+  <div class="build-status-banner"><strong>In progress:</strong> this page now implements Sections A through L, Worked Scenarios 1 and 2, the Risk/Signal/Response cards, the activity-classification diagram, inline citations and the Primary sources section, the knowledge check and the FAQ in full. It still needs the external adversarial review its flagged regulatory claims require before publication, and it is not yet linked from the Knowledge Hub or sitemap; do not treat it as a finished, publication-ready guide until both are done.</div>
 </div>
 
 <!-- MAIN LAYOUT -->
@@ -673,9 +700,118 @@
     </ol>
   </div>
 
-  <!-- PENDING PLACEHOLDER -->
-  <div class="pending-note" id="pending-sections">
-    The knowledge check and the FAQ are not yet built. This page is a work in progress.
+  <!-- KNOWLEDGE CHECK -->
+  <div class="quiz-section article-section" id="knowledge-check" style="border:none;">
+    <div class="quiz-title">Knowledge Check</div>
+    <div class="quiz-sub">Seven questions on the trickier distinctions from Sections A through L, not the card titles.</div>
+
+    <div class="quiz-q" id="qq1">
+      <div class="quiz-q-text">1. A design company has arranged for an operations firm to handle redemption and backing-asset custody, but the design company still runs the customer-facing offering itself. Does article 9M(4)(c) protect the design company from being treated as issuing?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz('qq1','A')">A - Yes, because two of the three limbs have been arranged out</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq1','B')">B - No, 9M(4)(c) only applies where all three limbs, offering, redemption and backing-asset holding, are carried on by the other person; the design company still carries out the offering itself, so the arrangement is only partial and the design company remains on the hook directly under 9M(2)</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq1','C')">C - No, because outsourcing any limb voids the issuing activity entirely for both parties</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq1','D')">D - Yes, because Worked Scenario 1 established that any outsourcing arrangement removes the authorisation obligation</button>
+      </div>
+      <div class="quiz-feedback" id="qq1-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="qq2">
+      <div class="quiz-q-text">2. An overseas issuer arranges for a UK firm to carry out redemption and backing-asset custody, but keeps the customer-facing offering under its own overseas operation. Does section 418(6B)'s deeming provision treat it as issuing in the UK?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz('qq2','A')">A - Yes, because a UK entity is involved somewhere in the structure</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq2','B')">B - No, because it has no UK establishment, and that alone ends the analysis</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq2','C')">C - No, because section 418(6B) only deems UK issuing where all the elements of the activity, not most of them, are arranged to be carried out in the UK on the issuer's behalf, and this arrangement leaves the offering element overseas</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq2','D')">D - Yes, because redemption and backing-asset custody are the only two limbs that matter for deeming</button>
+      </div>
+      <div class="quiz-feedback" id="qq2-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="qq3">
+      <div class="quiz-q-text">3. A firm correctly identifies that it is safeguarding a relevant specified investment cryptoasset (RSIC) under article 9N. It then applies CASS 17 to that asset, and treats a discretionary manager holding a CASS 8 mandate over it as the article 9N safeguarding firm. What's wrong here?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz('qq3','A')">A - Nothing; CASS 17 covers all article 9N safeguarding regardless of asset type</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq3','B')">B - Two separate errors: RSICs sit under CASS 6, not CASS 17, and a CASS 8 mandate-holder is only in a position to instruct the safeguarding firm, not the safeguarding firm itself, since CASS 8's "control" test differs from article 9N's</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq3','C')">C - Only the CASS 17 point is wrong; holding a mandate is the same thing as safeguarding</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq3','D')">D - Nothing is wrong once article 9N safeguarding has been established</button>
+      </div>
+      <div class="quiz-feedback" id="qq3-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="qq4">
+      <div class="quiz-q-text">4. A firm has been registered under MLR regulation 14A since before 25 October 2027. Does Schedule 6B's change-of-control regime already apply to it, or is that still a future obligation tied to full commencement?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz('qq4','A')">A - Already in force now: Schedule 6B paragraphs 1, 2 and 5 took effect around 30 June 2026 for businesses registered before 25 October 2027, a date that has already passed</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq4','B')">B - Still ahead, arriving only at full commencement on 25 October 2027 alongside everything else in this guide</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq4','C')">C - It never applies to a firm registered under regulation 14A, only to firms authorised under the new FSMA activities</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq4','D')">D - It depends on whether the firm has also applied for Part 4A authorisation</button>
+      </div>
+      <div class="quiz-feedback" id="qq4-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="qq5">
+      <div class="quiz-q-text">5. A due diligence review finds an issuer has no independent assurance review on file, and separately no sanctions-exposure disclosure policy. How should the review report treat the two gaps?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz('qq5','A')">A - As the same class of finding, since both are due diligence gaps</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq5','B')">B - As two different classes: escalate the missing independent assurance review as a potential breach of an FCA-mandated obligation, and record the missing sanctions-exposure policy as a practice weakness only, not an FCA breach, since no FCA source reviewed for this guide requires it</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq5','C')">C - Neither is worth reporting, since this guide's checklist is illustrative only</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq5','D')">D - Both should be escalated as FCA breaches, since a due diligence checklist exists precisely to catch compliance failures</button>
+      </div>
+      <div class="quiz-feedback" id="qq5-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="qq6">
+      <div class="quiz-q-text">6. A firm executes customer orders for a qualifying stablecoin as agent, with no public marketing or solicitation of its own. Can it rely on the same "no holding-out" escape that protects a low-profile principal dealer under article 9U?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz('qq6','A')">A - Yes, the same escape applies equally to principal and agent dealing</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq6','B')">B - No, article 9X, agent dealing's exclusion, contains no holding-out or solicitation test at all, unlike article 9U for principal dealing, so keeping a low profile doesn't help an agent dealer the way it can a principal dealer</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq6','C')">C - Yes, but only if the firm is also FCA-authorised for another activity</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq6','D')">D - No, because agent dealing isn't a specified activity under this regime at all</button>
+      </div>
+      <div class="quiz-feedback" id="qq6-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="qq7">
+      <div class="quiz-q-text">7. A fintech's core business touches cryptoassets, but it argues its stablecoin-related activity is incidental to that business. It satisfies three of article 9Z11's four conditions, but it does market the activity beyond disclosing it as a necessary ancillary. Does the exclusion apply?</div>
+      <div class="quiz-opts">
+        <button class="quiz-opt" onclick="answerQuiz('qq7','A')">A - Yes, satisfying three of four conditions is close enough for a cumulative test</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq7','B')">B - No, article 9Z11 is a cumulative test, not a menu; failing even one condition, here the no-marketing condition, removes the exclusion entirely</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq7','C')">C - Yes, because marketing is only relevant to article 9Z10, not 9Z11</button>
+        <button class="quiz-opt" onclick="answerQuiz('qq7','D')">D - It depends on how large the firm's core business is</button>
+      </div>
+      <div class="quiz-feedback" id="qq7-fb"></div>
+    </div>
+
+    <div class="quiz-score-display" id="quiz-score">
+      <div class="quiz-score-num" id="quiz-score-num">0/7</div>
+      <div class="quiz-score-label" id="quiz-score-label"></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="article-section" id="faq">
+    <div class="section-eyebrow">Frequently Asked</div>
+    <h2>FAQ</h2>
+    <details class="faq-item">
+      <summary>Is a token that a platform markets as an "algorithmic stablecoin" automatically outside UK stablecoin regulation? <span class="faq-icon">+</span></summary>
+      <div class="faq-a">Not automatically, and the marketing label decides nothing. Article 88G's two-limb test asks whether the token seeks to maintain a stable value against a single fiat currency and holds fiat currency or other assets for that purpose. A purely algorithmic model holding no stabilisation assets fails the second limb outright, and the FCA's own PERG 18.4.5 guidance extends that same conclusion to a mechanism relying partly, not just wholly, on algorithmic methods rather than backing assets. Run the token through articles 88F and 88G directly, per Section A, rather than relying on how it's marketed.</div>
+    </details>
+    <details class="faq-item">
+      <summary>If a stablecoin issuer outsources redemption and custody to another regulated firm, does that firm become the one needing authorisation to issue? <span class="faq-icon">+</span></summary>
+      <div class="faq-a">Not automatically, and not by default either. Article 9M(4)(c) says that where another person (B) genuinely carries on all three limbs, offering, redemption and backing-asset holding, under arrangements the first party (A) made, only A is treated as carrying on the issuing activity, not B. That protects a complete outsourcing arrangement; it doesn't create a new issuing obligation for the operations firm. A partial arrangement, where A still carries out one of the three limbs itself, doesn't get 9M(4)(c)'s protection at all, per Section B and Worked Scenario 1.</div>
+    </details>
+    <details class="faq-item">
+      <summary>If a stablecoin issuer has no UK office at all, is it automatically outside UK regulation? <span class="faq-icon">+</span></summary>
+      <div class="faq-a">Not automatically. Run the territorial test in two stages, per Section F. First, whether the issuer's offering, redemption and value-maintenance activity is itself carried on from a UK establishment. Second, if not, whether the issuer has arranged for all of those elements, not some of them, to be carried out in the UK on its behalf, which triggers section 418(6B)'s deeming provision. If both fail, that still isn't the end of it: PERG 18.8.5-18.8.6 means the issuer's UK-directed conduct may still need a dealing or arranging permission, tested under Section D's separate provisions.</div>
+    </details>
+    <details class="faq-item">
+      <summary>If a business only uses stablecoins to pay its own suppliers, is it definitely excluded from the dealing or arranging perimeter? <span class="faq-icon">+</span></summary>
+      <div class="faq-a">Not as a settled, blanket rule, and this guide doesn't present it as one. Section E's article 9Z10 carries a narrower related-sale exclusion that can cover genuine incidental sales, and article 9Z11's incidental-business exclusion is available separately, but only where all four of its conditions hold at once, necessary ancillary, no systematic income, no marketing beyond ancillary disclosure, and a Designated Professional Body-supervised business. Failing even one of those conditions removes the exclusion entirely, and if neither exclusion fits the facts, the firm is tested as an ordinary dealer or arranger under Section D like anyone else. The classification diagram's payment-activity-firm lane walks through this same route; treat it as fact-specific, not resolved in the firm's favour by default.</div>
+    </details>
+    <details class="faq-item">
+      <summary>If an issuer has no sanctions-screening or historical-depeg disclosure policy, has it breached an FCA requirement? <span class="faq-icon">+</span></summary>
+      <div class="faq-a">Not necessarily, and Section L's due diligence checklist is built specifically to keep this distinction visible. Historical depegs, sanctions exposure and previous enforcement incidents sit in Category 2: no FCA source reviewed for this guide requires disclosure of any of the three, so a gap there is a practice observation, this guide's own view that a thorough review should also ask the question, not evidence of a compliance breach. A gap in a Category 1 field, such as the independent assurance review, is different and should be escalated as a potential breach of an actual disclosure or prudential obligation. Collapsing the two into one undifferentiated finding overstates what the FCA has actually required.</div>
+    </details>
   </div>
 
 </div><!-- /article-layout -->
@@ -767,6 +903,48 @@ function showCounterfactual(scenarioId, btn) {
   panel.classList.add('show');
   panel.setAttribute('aria-live', 'polite');
   btn.remove();
+}
+
+const quizFeedback = {
+  qq1: { correct: 'B', fb: 'Article 9M(4)(c) protects an arrangement only where another person carries on all three limbs, offering, redemption and backing-asset holding. Since the design company still carries out the offering itself, the arrangement is only partial, and 9M(4)(c) does not apply in the same clean way; the design company remains on the hook directly under 9M(2).' },
+  qq2: { correct: 'C', fb: 'Section 418(6B) deems UK issuing only where all the elements of the activity are arranged to be carried out in the UK on the issuer\'s behalf, not most of them. Leaving the offering element overseas is a partially onshored arrangement, and deeming, like 9M(4)(c)\'s outsourcing protection, only switches on for a genuinely complete one.' },
+  qq3: { correct: 'B', fb: 'RSIC custody sits under CASS 6, not CASS 17, which covers qualifying cryptoassets specifically. Separately, CASS 8\'s "control" test, a firm\'s authority to instruct or direct a client\'s assets, is different from article 9N\'s, a firm\'s ability to bring about a transfer of benefit; a CASS 8 mandate-holder is in a position to instruct the safeguarding firm, not the safeguarding firm itself.' },
+  qq4: { correct: 'A', fb: 'Schedule 6B paragraphs 1, 2 and 5 took effect approximately 30 June 2026 for businesses registered before 25 October 2027, twenty-one days after the instrument\'s 9 June 2026 making date. As of this guide\'s drafting date, that has already passed; it is not waiting for full commencement the way the FSMA application window and regulation 34A\'s correspondent due diligence obligations are.' },
+  qq5: { correct: 'B', fb: 'Category 1 fields trace to an actual FCA-mandated disclosure or prudential obligation, so a gap there, like a missing independent assurance review, is a potential breach requiring escalation. Category 2 fields, like sanctions-exposure disclosure, have no FCA-mandated basis found in the material reviewed for this guide; a gap there is a practice observation, not evidence of a compliance breach.' },
+  qq6: { correct: 'B', fb: 'Article 9U, principal dealing\'s exclusion, can fall outside the activity where there\'s no holding-out or public solicitation involved. Article 9X, agent dealing\'s exclusion, contains no equivalent holding-out or solicitation test at all, so an agent dealer cannot rely on having kept a low profile the way a principal dealer sometimes can.' },
+  qq7: { correct: 'B', fb: 'Article 9Z11 is a cumulative test: a close factual connection, no systematic income, no marketing beyond ancillary disclosure, and DPB-supervised business must all hold at once. A firm doesn\'t get to satisfy three of the four conditions and call the rest close enough; failing even one, most often the no-marketing condition, removes the exclusion entirely.' }
+};
+
+let quizAnswered = 0;
+let quizCorrect = 0;
+
+function answerQuiz(questionId, chosen) {
+  const questionDiv = document.getElementById(questionId);
+  const fbDiv = document.getElementById(questionId + '-fb');
+  const opts = questionDiv.querySelectorAll('.quiz-opt');
+  const data = quizFeedback[questionId];
+  opts.forEach(o => o.disabled = true);
+  const isCorrect = chosen === data.correct;
+  opts.forEach((o, i) => {
+    const letter = String.fromCharCode(65 + i);
+    if (letter === data.correct) o.classList.add('q-correct');
+    else if (letter === chosen && !isCorrect) o.classList.add('q-wrong');
+  });
+  fbDiv.textContent = data.fb;
+  fbDiv.classList.add('show');
+  fbDiv.setAttribute('aria-live', 'polite');
+  quizAnswered++;
+  if (isCorrect) quizCorrect++;
+  if (quizAnswered === 7) {
+    const scoreDiv = document.getElementById('quiz-score');
+    const scoreNum = document.getElementById('quiz-score-num');
+    const scoreLbl = document.getElementById('quiz-score-label');
+    scoreDiv.classList.add('show');
+    scoreDiv.setAttribute('aria-live', 'polite');
+    scoreNum.textContent = quizCorrect + '/7';
+    const labels = ['Keep studying, the outsourcing and territorial tests are worth another pass.','Getting there, revisit Section B and Section F\'s worked scenarios.','A start, but check the CASS 6/17/8 and Category 1/2 distinctions again.','Solid foundation, a few gaps to close.','Good grasp, you\'re reading the limb and deeming tests well.','Very good, most of the corrected detail is landing.','Excellent, practitioner-level judgement on this classification framework.','Perfect, you\'re ready to work a real authorisation-scoping question.'];
+    scoreLbl.textContent = labels[quizCorrect] || labels[7];
+  }
 }
 
 function wrapCanvasText(ctx, text, maxWidth) {
