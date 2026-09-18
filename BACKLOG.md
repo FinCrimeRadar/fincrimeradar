@@ -65,6 +65,18 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
+### 1. The De-Risking Judgement Call (candidate second Framework)
+
+**Status: READY. Priority: second Framework implementation, testing recurrence of Framework composition against a domain distinct from APP Scam.**
+
+Verification owner: ChatGPT primary source and repository verification session, 18 September 2026.
+
+Primary sources or repository evidence checked: FATF Recommendation 1 amendment of 25 February 2025; FATF final Guidance on Financial Inclusion and Anti Money Laundering and Terrorist Financing Measures, published 23 June 2025, paragraphs 47, 52, 140 to 142; FATF Jurisdictions under Increased Monitoring - 19 June 2026; FCA De-risking: managing money-laundering risk, live page; FCA FCTR 12.3.6G, 12.3.7G, 12.3.8G, last updated 1 November 2024; MLR 2017 regulations 18, 19, 28, 31, 33 and 34, read with SI 2026/621 regulation 19 (verified against the primary instrument text); JMLSG Part I (June 2023, updated August 2025) paragraphs 4.33, 4.57, 4.62, 4.74 to 4.77, 5.2.6 to 5.2.7; JMLSG Part II (June 2023, updated December 2025, current URL under /2026/04/) paragraphs 16.27, 16.28, 16.32 to 16.34; Payment Services and Payment Accounts Contract Termination Amendment Regulations 2025 (SI 2025/688), regulations 51B and 51C; FCA PRIN 2A.2.8R, 2A.2.10G(3) and 2A.2.10G(5)(iv); repository originality review against the six-part Crypto series, Crypto Travel Rule guide, APP Scam Decision Framework, sanctions and Stablecoin publications, and Perpetual KYC publication.
+
+Review date: 18 September 2026.
+
+Verification outcome: PASS. Suitable for promotion as candidate second Framework. Decision architecture: risk identification, legal constraint check, available mitigants, control effectiveness, operational capability, residual risk assessment (FinCrimeRadar assessment, not regulator terminology), escalation or approval, relationship outcome (ordinary continuation, enhanced continuation, conditional or restricted continuation, discretionary decline or exit, mandatory decline or termination), exit execution where relevant, documented rationale. Scope to UK AML relationship decisioning, correspondent banking as principal hard test. Preserve the distinction between FATF Increased Monitoring and the current UK statutory FATF Call for Action trigger (MLR 33(1)(b) as amended by SI 2026/621). JMLSG remains Industry position, subject to an active update caveat for SI 2026/621. Consumer Duty and Payment Services Regulations 51B/51C are scoped narrowly to exit execution overlays, not the core AML determination.
+
 ## Polish Loop
 
 ### Confirmed product and accessibility debt
@@ -114,7 +126,7 @@ Scenario Lab expansion remains **PAUSED** until real usage or engagement evidenc
 
 ### Other build candidates
 
-- **Second Framework implementation:** required future work. `app-scam-decision-framework.html` (Experiment 01) is still Framework's only implementation, so its contract in GUIDE_STANDARD.md is evaluated on a single example, not on recurrence. A second Framework publication needs a topic and evidence pack verified through the normal Content Loop before this can enter Next Up, testing whether Framework's candidate primitives (sequential decision stages, Decision Record, Source/Application/Action reasoning, Red Team Questions, What Would Change My Decision, Practitioner Lens, compact operational summary) genuinely recur for a different subject rather than reflecting APP scam's specific reasoning.
+- **Second Framework implementation:** `app-scam-decision-framework.html` (Experiment 01) is still Framework's only implementation, so its contract in GUIDE_STANDARD.md is evaluated on a single example, not on recurrence. Topic and evidence pack are now verified and promoted to Next Up as "The De-Risking Judgement Call" (see above), testing whether Framework's candidate primitives (sequential decision stages, Decision Record, Source/Application/Action reasoning, Red Team Questions, What Would Change My Decision, Practitioner Lens, compact operational summary) genuinely recur for a different subject rather than reflecting APP scam's specific reasoning.
 - **SAR Writing Sandbox Phase 1+:** Phase 0 is already live. A later scoping session may consider more cases, a structured evidence log, Practice Case Summary export, stronger session limits and feedback against an expert answer. Keep UK NCA and POCA specific. Never generate filing-ready SAR narratives. Keep deterministic scoring separate from model commentary and model the cost of every added AI call.
 - **Guide chatbot:** proof of concept indexed 29 sources into 1,148 chunks in the separate API repository. Before resuming, re-check that repository and solve the known ranking problem where literal keyword overlap can outrank the substantive answer. Scope source attribution, refusal behaviour, prompt injection, stale content and cost before any public build.
 - **Stablecoin Due Diligence Assessment:** blocked until Stablecoin Guide 1 ships and the static framework has been applied to at least one real case.
