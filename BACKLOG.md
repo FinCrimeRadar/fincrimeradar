@@ -65,20 +65,6 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
-### 1. Gambling Evidence Essay skip link
-
-**Status: READY. Priority: small accessibility correction.**
-
-Add the Global Core skip-to-content link to gambling-white-label-blind-spot-guide.html, matching its Evidence Essay sibling. Scope one file and run a targeted keyboard and focus check.
-
-Verification owner: Codex backlog audit, 14 September 2026.
-
-Repository evidence checked: GUIDE_STANDARD.md, gambling-white-label-blind-spot-guide.html, classification-asymmetry-guide.html.
-
-Review date: 14 September 2026.
-
-Verification outcome: confirmed. Classification Asymmetry has the skip link; Gambling does not.
-
 ## Polish Loop
 
 ### Confirmed product and accessibility debt
@@ -90,6 +76,7 @@ Verification outcome: confirmed. Classification Asymmetry has the skip link; Gam
 - **Scenario Lab case sync proof:** on the next real edit to scenario-lab/data/cases.json, confirm both the GitHub Action and the triggered API deployment complete. The manual deploy path is proven; the automated trigger has not yet had its first production exercise.
 - **Screening cold-path latency:** last measured at 6.6 to 9.9 seconds. Re-measure before changing anything. First test a smaller OpenSanctions result limit with explicit truncation escalation; parallel RSS work can only recover a minor share of the delay.
 - **Quiz-title heading gap (fleet-wide, found and confirmed fixable 2026-09-17):** the Knowledge Check title renders as a plain `<div class="quiz-title">`, not a heading, breaking the h1 to h2 outline for screen-reader navigation. Fixed on stablecoin-series-guide-1.html the same day, verified live at 320px and 768px: change to `<h2 class="quiz-title">`, and where the quiz-section wrapper also carries the article-section class, add a scoped `.quiz-section h2 { color:#fff; }` override, since without it the heading inherits `.article-section h2`'s navy color against the quiz section's own navy background and renders invisible, confirmed with a computed-style check before and after the fix. Confirmed by wrapper class and live computed-style check, not assumed, across 25 shipped guides in two groups. Five guides carry `class="quiz-section article-section"` and need both the tag change and the override: a7a5-sanctions-evasion-guide.html, freezing-a-stablecoin-guide.html, stablecoin-financial-crime-guide.html, systemic-stablecoins-guide.html, why-stablecoins-compliance-priority-guide.html. The remaining twenty carry `class="quiz-section"` alone, with no competing `.article-section h2` rule, so the tag change alone should suffice, confirmed live on adverse-media-intelligence-guide.html: adverse-media-intelligence-guide.html, ai-agent-transaction-guide.html, crypto-travel-rule-sunrise-guide.html, deepfake-onboarding-guide.html, false-positive-playbook.html, fatf-guide-part1.html, fatf-guide-part2.html, fraud-investigation-playbook.html, fraud-red-flags-guide.html, kyc-onboarding-dilemma.html, money-mule-financial-crime-networks-handbook.html, perpetual-kyc-framework-guide.html, private-markets-financial-crime-investigation-handbook.html, scam-compound-money-laundering-guide.html, screening-algorithm-tuning-guide.html, shadow-fleet-guide-part1.html, shadow-fleet-guide-part2.html, source-of-wealth-investigation-handbook.html, synthetic-identity-device-network-guide.html, ubo-investigation-handbook.html. learn.html also matches the quiz-title class name but is a visually distinct inline badge component with its own already-legible blue-on-white styling, not part of this bug. CSS-only, no logic change, so this does not need external review before execution, just a scripted batch pass with a spot-check on at least one guide from each group before and after, since the two groups need different treatment and the adverse-media-intelligence-guide.html result should not be assumed to generalise to all twenty untested.
+- **Fleet-wide skip-link focus target gap:** classification-asymmetry-guide.html's #main-content skip-link target has no tabindex="-1", so activating the skip link scrolls but does not move focus, a WCAG failure. Found while fixing gambling-white-label-blind-spot-guide.html (18 September 2026, commit 36907ab, confirmed via production browser check). Likely affects every guide sharing this skip-link pattern. Needs a scan across all guides using #main-content as a skip target, then a scripted batch fix, same shape as the quiz-title heading gap entry above. RESEARCH until scope is confirmed across guides, not Next Up.
 
 ### Shared architecture and presentation debt
 
