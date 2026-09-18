@@ -106,6 +106,12 @@
     body { font-family:'Inter',system-ui,sans-serif; background:var(--ee-warm); color:var(--text); line-height:1.7; }
     h1, h2, h3 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; color:var(--navy-mid); }
 
+    /* SKIP LINK, standard accessibility pattern, visually hidden until
+       keyboard focus. Class name checked against brand.css's watched
+       selectors (bare nav/footer/table, [class*="card"]), no collision. */
+    .skip-link { position:absolute; left:-9999px; top:0; background:var(--teal); color:#fff; padding:10px 16px; z-index:1000; border-radius:0 0 6px 0; font-size:14px; font-weight:600; text-decoration:none; }
+    .skip-link:focus { left:0; }
+
     /* NAV */
     nav { position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:72px; background:rgba(255,255,255,0.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
     .nav-brand { display:flex; align-items:center; gap:8px; text-decoration:none; }
@@ -341,6 +347,7 @@
 <link rel="stylesheet" href="/brand.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <noscript><div style="background:var(--navy-mid);color:#fff;text-align:center;padding:10px 16px;font-size:13px;line-height:1.5;">This guide's content works without JavaScript. The site footer at the bottom of the page requires JavaScript to load.</div></noscript>
 
 <div class="progress-bar" id="progressBar"></div>
@@ -401,7 +408,7 @@
     <a href="#methodology" data-toc>Methodology</a>
   </aside>
 
-  <main class="ee-body">
+  <main class="ee-body" id="main-content" tabindex="-1">
 
     <div class="ee-section briefing-box" id="briefing">
       <div class="ee-eyebrow-sm">Executive briefing</div>
