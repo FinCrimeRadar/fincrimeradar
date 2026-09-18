@@ -102,7 +102,7 @@ Verification outcome: confirmed. Classification Asymmetry has the skip link; Gam
 
 ### Sourcing and ledger debt
 
-- **Stablecoin Guide 1 absence finding:** stablecoin-series-guide-1.ddframework-category2-non-mandated-fields.001 is correctly recorded as a regulatory retained-as-estimate claim because no source can affirmatively establish the absence. Reassess it when Guide 1 resumes; do not silently promote it to verified.
+- **Stablecoin Guide 1 absence finding:** stablecoin-series-guide-1.ddframework-category2-non-mandated-fields.001 is correctly recorded as a regulatory retained-as-estimate claim because no source can affirmatively establish the absence. Reassess this finding as part of a future editorial pass on the shipped guide; do not silently promote it to verified.
 - **Legacy three-guide re-baseline:** freshly establish the remaining sourcing scope for aml-guide-part1.html, pep-guide-part1.html and sar-guide-part1.html. The prior counts in the old backlog contradicted later audit records and must not be reused.
 - **Nine-guide audit reconciliation:** reconcile the 26-guide audit findings against current main for aml-guide-part3.html, pep-guide-part3.html, sar-guide-part3.html, fatf-guide-part1.html, fatf-guide-part2.html, crypto-guide-part2.html, sanctions-compliance-guide.html, screening-alerts-guide.html and adverse-media-intelligence-guide.html. Verification owner, source pack and review date remain unassigned, so this is RESEARCH, not Next Up.
 - **Ledger hardening:** consider schema enforcement for source requirements by claim type, plus expiry handling that preserves original verification dates and records renewal separately. Post-proof hardening only.
