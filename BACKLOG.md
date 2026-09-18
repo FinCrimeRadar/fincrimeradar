@@ -33,9 +33,9 @@ Repository main and origin/main matched 99ba8608307d0c54a9a003d5a907bc4116c9ca9a
 
 ### Knowledge Hub
 
-- **54 publications live:** 24 parts across seven series and 30 standalone publications.
-- **Series inventory:** UK AML 3 parts, PEP 3, SAR 3, FATF 2, MLRO 2, Cryptoasset Compliance 6, Stablecoin 5 live of 6 planned.
-- **Stablecoin Series:** Guides 0, 2, 3, 4 and 5 are published. Guide 1 remains externally blocked and is listed under Content.
+- **55 publications live:** 25 parts across seven series and 30 standalone publications.
+- **Series inventory:** UK AML 3 parts, PEP 3, SAR 3, FATF 2, MLRO 2, Cryptoasset Compliance 6, Stablecoin 6.
+- **Stablecoin Series:** Guides 0 through 5 are published. All six guides are live.
 - **Current experimental formats:**
   - Framework: app-scam-decision-framework.html, Experiment 01, live.
   - Case File: money-mule-or-victim-case-file.html, Experiment 02, live.
@@ -150,7 +150,6 @@ There is no verified content candidate in Next Up. Every item below is RESEARCH,
 
 ### Priority research candidates
 
-- **Stablecoin Guide 1: UK Stablecoin Regulation 2026. Status: RESEARCH, moved from BLOCKED. DRAFTING: UNBLOCKED.** Guides 0, 2, 3, 4 and 5 are live. The overseas-issuance dependency this guide was blocked on is now resolved: FCA PS26/18 (Cryptoasset Perimeter Guidance, published September 2026) confirms the PERG chapter is PERG 18 (renumbered from PERG 19 in CP26/13), and PERG 18.3.5 states the territorial test for stablecoin issuance (carried on from, or arranged from, a UK establishment, or deemed under FSMA section 418(6B) where elements are carried out in the UK on the overseas person's behalf), with PERG 18.8.5-18.8.6 confirming an overseas issuer not caught by that test may still need dealing or arranging permission. Remaining dependency, narrower than before: the Government's still-unpublished statutory instrument, which PS26/18 confirms introduces new UKQS-specific dealing/arranging/safeguarding exclusions (lending, borrowing, collateral, payment-holding). The FCA plans to consult on the resulting PERG amendments in early Q4 2026 and publish final amended guidance in early 2027; re-check against that consultation and final guidance, not the now-superseded 30 September 2026 date, which was the authorisation-window opening, not a guidance-publication trigger. The payment-activity dealing/arranging carve-out referenced in the original locked scope was checked directly against both the enacted SI 2026/102 (articles 9U and 9Z5 contain no such exclusion) and PS26/18 (no settled guidance on it either) and found unsettled in both; the guide will present it as an explicit open question rather than dropping it, recheck against the FCA's Q4 2026 PERG consultation.
 - **Scam or Civil Dispute? The APP Fraud Decision Framework:** sources for the GBP 85,000 cap and PSR merits-based classification principle were previously verified. Refresh the evidence pack and add all four queue-gate fields before drafting. Keep distinct from the already-shipped APP Scam Framework.
 - **The De-Risking Judgement Call:** test the practitioner decision angle against current FATF risk-based-approach material and UK correspondent-banking relevance.
 - **Sanctions Ownership and Control: When 50 Percent Tells You Almost Nothing:** HOLD until the UK ownership-and-control consultation outcome. When resumed, cross-link with both Shadow Fleet guides.
