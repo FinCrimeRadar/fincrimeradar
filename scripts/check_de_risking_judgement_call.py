@@ -321,6 +321,13 @@ def main() -> None:
         ("not a lawful ground", ("scenario-two-b",)),
         ("never as a lawful ground", ("sequence", "reasoning-traps", "patterns", "operational-summary")),
         ("\u201cCorrespondent relationship\u201d", ("open-points",)),
+        # retired in the second external review
+        ("No verdict in this guide rests on either reading", ("open-points", "faq", "knowledge-check")),
+        ("if it ends in exit, meets regulation 51B", ("scenario-two",)),
+        ("is the case that needs 51B", ("exit",)),
+        ("so regulation 27(8) requires", ("scenario-two-a",)),
+        ("regulation 27(8) requires the firm to apply", ("scenario-two-a",)),
+        ("at a review required by regulation 27(8)", ("scenario-two-a",)),
     )
     for phrase, sections in bans:
         for element in elements_in(*sections):
