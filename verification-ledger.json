@@ -8249,7 +8249,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). FATF page \"High-Risk Jurisdictions subject to a Call for Action - 19 June 2026\": three jurisdictions, countermeasures for DPRK and Iran, enhanced due diligence \"and not countermeasures\" for Myanmar, and if no further progress by October 2026 the FATF will consider countermeasures. Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.fatf-increased-monitoring-no-edd-call.001",
@@ -8264,7 +8265,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). FATF page \"Jurisdictions under Increased Monitoring - 19 June 2026\": a separate, larger list (22 jurisdictions) working with the FATF on action plans; the FATF \"does not call for the application of enhanced due diligence measures\" to them and encourages taking the information into account in risk analysis. Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.fatf-r1-proportionate-simplified-measures.001",
@@ -8287,7 +8289,8 @@
     ],
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). R.1 in the Recommendations \"Updated June 2026\" (RBA proportionate; \"Where countries identify lower risks, they should allow and encourage simplified measures as appropriate\") and the FATF press release of 25 February 2025 (R.1 changes, \"commensurate\" replaced by \"proportionate\", explicit requirement to allow and encourage simplified measures in lower risk scenarios). Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.fatf-inr1-enhanced-measures-higher-risk.001",
@@ -8302,7 +8305,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). INR.1 paras 12 to 16 in the Recommendations \"Updated June 2026\": para 14 says where higher risks are identified financial institutions should be required to take enhanced measures to manage and mitigate the risks. Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.fatf-r10-unable-to-comply-cdd.001",
@@ -8317,7 +8321,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). R.10 failure clause read verbatim in the Recommendations \"Updated June 2026\" (unable to comply with paragraphs (a) to (d): not open the account, commence business relations or perform the transaction, or terminate, and consider an STR). Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.fatf-inr10-paras-1-3-tipping-off.001",
@@ -8332,7 +8337,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). INR.10 paras 1 to 3 and para 15 in the Recommendations \"Updated June 2026\". Paras 2 and 3 match exactly, including the tip-off sentence (\"may choose not to pursue that process, and should file an STR\"). Para 1 matches except that its footnote numeral is 36 in this edition (34 in the February 2025 edition)."
   },
   {
     "claimId": "de-risking-judgement-call.fatf-fi-guidance-para47-derisking-definition.001",
@@ -8355,7 +8361,8 @@
     ],
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). FATF Guidance on Financial Inclusion (June 2025) paras 47, 52 and 53: para 47 defines de-risking; para 52 and its continuation say wholesale de-risking, and the wholesale cutting loose of entire classes of customers without regard to risk, are contrary to the RBA; para 53 says the FATF does not call for EDD on Increased Monitoring jurisdictions. Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.fatf-fi-guidance-para140-142-mitigants-before-rejection.001",
@@ -8370,7 +8377,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). Guidance paras 140 to 142 (Step Two, identify risk mitigating measures): para 142 says regulated entities are \"only required under FATF Standards to terminate or reject customer relationships, on a case-by-case basis, where the ML/TF risks cannot be mitigated\" and lists options to try before rejection. Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.fca-derisking-page-expectations.001",
@@ -8415,7 +8423,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). JMLSG Part I (cover \"Updated August 2025\") para 4.77: on a case-by-case basis firms should document the rationale for additional due diligence measures undertaken or waived. Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.jmlsg-part1-5-2-7-unable-to-apply-cdd.001",
@@ -8430,7 +8439,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). JMLSG Part I paras 5.2.6 (restates reg 31(1)(a) to (d)) and 5.2.7 (consider whether the inability is caused by the customer not possessing the right documents). Extract matches."
   },
   {
     "claimId": "de-risking-judgement-call.jmlsg-update-caveat-si-2026-621.001",
@@ -8445,7 +8455,8 @@
     },
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
-    "status": "verified"
+    "status": "verified",
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). JMLSG Part I (Updated August 2025) and Part II (Updated December 2025): neither mentions SI 2026/621, and \"high-risk third country\" appears 16 times in Part I and 5 times in Part II. The JMLSG current guidance page says the guidance is being updated for SI 2026/621 and that revisions awaiting HMT approval are linked separately (not used). Part II paras 16.27, 16.28 and 16.32 to 16.34 also read as cited. Matches."
   },
   {
     "claimId": "de-risking-judgement-call.psr-2017-reg-51b-termination-notice.001",
@@ -8753,7 +8764,7 @@
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
     "status": "verified",
-    "note": "Pack read: the Updated June 2026 edition was read on 2026-09-21 (source pack section B4). It was not re-fetched in the external review pass, because the FATF site returned a script shell to a plain request. Re-read before merge."
+    "note": "Re-read from source in a real browser session on 2026-09-21 (finished by 21:26 UTC). R.13 (a) to (e) (in addition to normal CDD, (e) payable-through accounts) and both shell bank sentences read in the Recommendations \"Updated June 2026\". Extract matches. Replaces the earlier pack-read note."
   },
   {
     "claimId": "de-risking-judgement-call.mlr-reg33-3-call-for-action-country-definition.001",

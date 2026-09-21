@@ -273,3 +273,11 @@ Primary text re-read from legislation.gov.uk data.xml on 2026-09-21 at 20:55 UTC
 3. **Reg 27.** Regulation 27 is now in source [1]'s provision list (and in the ledger source titles). Reg 27(8)(a) requires customer due diligence "at other appropriate times to existing customers on a risk based approach". Scenario 2A now presents it as a stipulated fact ("the scenario stipulates ... an occasion within regulation 27(8)(a)"), and says the regulation does not itself make any given review such a time. The analyses say "on the stipulated facts".
 
 Reviewer to test again: that no remaining sentence states 51B as applying without its conditions, and that the stipulation reading of 27(8)(a) is fair.
+
+## M. Source re-read in a real browser, 2026-09-21 (finished by 21:26 UTC)
+
+Method: pages read in Chrome (FATF list pages, the FATF press release of 25 February 2025 and the JMLSG current guidance page). The PDFs were downloaded through a real Chrome session on the source site (FATF Recommendations "Updated June 2026", FATF Guidance on Financial Inclusion June 2025, JMLSG Part I "Updated August 2025", JMLSG Part II "Updated December 2025") and their text extracted for comparison with the ledger extracts. An earlier plain HTTP request to the FATF site returned only a script shell, so the browser route was needed.
+
+Result: every ledger extract checked matched. Entries re-read: the two FATF list pages (19 June 2026), R.1 with the press release, INR.1 paras 12 to 16, the R.10 failure clause, R.13 (a) to (e) and the shell bank sentences, INR.10 paras 1 to 3 and 15, Financial Inclusion Guidance paras 47, 52, 53 and 140 to 142, JMLSG Part I 4.77, 5.2.6 and 5.2.7, JMLSG Part II 16.27, 16.28 and 16.32 to 16.34, and the pre-SI 2026/621 caveat. No mismatch was found and the guide was not edited.
+
+Noted, not a mismatch: INR.10 para 1 has footnote numeral 36 in the June 2026 edition (34 in February 2025), as recorded at B4. JMLSG Part I has "call for action" wording in seven places, but neither part mentions SI 2026/621 and both still use "high-risk third country" (16 and 5 times), so the caveat stands. Ledger entries carry a re-read note. The FCA de-risking page was re-read earlier the same day by HTTP request, and FCTR 12.3 was not re-read in this pass.
