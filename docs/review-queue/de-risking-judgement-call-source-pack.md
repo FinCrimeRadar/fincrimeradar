@@ -47,6 +47,8 @@ Compiled 2026-09-21 on `main` at `97dbe65`. Revised the same day after external-
 - REVIEW (priority): the two readings and the regulation 28(12) argument, tested against regulation 3(1), regulation 28(1), 28(12), 28(16), regulation 31(1) and the 51C(a) phrasing.
 - Claim ID: `de-risking-judgement-call.mlr-reg31-unable-to-apply-cdd.001`
 
+- **Post-drafting addition (section I):** regulation 3(1) also defines "enhanced customer due diligence measures" as "the customer due diligence measures required under regulations 33 to 35" (re-read from legislation.gov.uk data.xml on 2026-09-21, 19:20 UTC). It is one textual argument for the wide reading. It sits beside the narrow-reading anchor "as required by regulation 28" and does not settle the point. Also, 31(1)(b) is two limbs (establishing a business relationship, and a transaction otherwise than through a bank account), which section I records as a precision correction.
+
 ### A5. Regulation 33(1)(b) as amended by SI 2026/621 regulation 19. VERIFIED. Established. REVIEW.
 - Made 9 June 2026; in force 21 days after making, recorded on legislation.gov.uk as effective 30 June 2026 (SI 2026/621 reg 1(2)). Reg 19(a), (c) are not caught by the 1 February 2027 delayed commencement, which applies only to reg 20 and reg 36(b) (reg 1(4)).
 - Current 33(1)(b): EDD and enhanced ongoing monitoring "in any business relationship ... with a person established in a FATF call for action country or in relation to any relevant transaction where either of the parties to the transaction is established in a FATF call for action country".
@@ -218,10 +220,18 @@ Claim IDs (all Industry position): `de-risking-judgement-call.jmlsg-part1-4-33-4
 ## H. Claims requiring external adversarial review (CLAUDE.md section 7), for the delivery report
 
 1. Regulation 33(1)(b) as amended: the two list to one list change, the effect that Increased Monitoring no longer triggers it, and, as a FinCrimeRadar application and not statute, whether an Increased Monitoring listing may bear on the firm's assessment through 33(6)(c), 33(1)(a), 33(1)(g) and 33(7) (A5, A6).
-2. Regulation 31: whether "customer due diligence measures" (defined at regulation 3(1) to include, where relevant, the measures required by regulations 33 to 37) reaches regulation 33 EDD and regulation 34 respondent measures, given the qualifier "as required by regulation 28" (A4). The text does not settle it.
+2. Regulation 31: whether "customer due diligence measures" (defined at regulation 3(1) to include, where relevant, the measures required by regulations 33 to 37) reaches regulation 33 EDD and regulation 34 respondent measures, given the qualifier "as required by regulation 28" (A4). The text does not settle it. Post-drafting additions for this claim (enhanced customer due diligence definition at 3(1), and 31(1)(b) precision) are in section I.
 3. Regulation 34: that 34(1) measures apply to third-country respondents only, and the interaction with 33(1)(c) (A7).
 4. PSRs 2017 regs 51B and 51C: vintage condition, the 51C(a) and (c) exemptions, that a discretionary AML exit falls inside 51B, tipping-off interaction, and reg 40(7) disapplication (D1).
 5. PRIN 2A: that it does or does not apply to an AML exit (C3).
 6. JMLSG 16.27 "must" against regulation 34(1) (E).
 7. FATF Guidance para 142 read as a statement of what the Standards require, and its use next to UK law (B2).
 8. Any scenario verdict or feedback string that names a mandatory versus discretionary outcome (CLAUDE.md section 10, and legally defined categories).
+
+## I. Post-drafting changes for the reviewer brief (claim 2 and regulation 31 precision)
+
+Recorded 2026-09-21 after the first branch commit (`1297c08`). Both changes are in the guide, the ledger and the memo, and both fall under external review claim 2 (regulation 31 and EDD-only failure).
+
+1. **Regulation 31(1)(b) precision.** The guide, the ledger extract `mlr-reg31-unable-to-apply-cdd` and the memo previously shortened 31(1)(b) to "no new relationship". The text bars establishing a business relationship, or carrying out a transaction, with the customer otherwise than through a bank account. Guide wording in the reg 31 source blocks, the wide-reading paragraph of the EDD-only open point, and the memo 4B wide row and stage 2 description now paraphrase both limbs. No quotation of 31(1)(b) is used (the full text is over fifteen words). The pack line at A4 already carried the full text.
+2. **Enhanced customer due diligence definition.** Reg 3(1) defines "enhanced customer due diligence measures" as "the customer due diligence measures required under regulations 33 to 35". The guide adds it to the reg 31 and EDD-only failure open point as one argument for the wide reading, and adds "as required by regulation 28" to the narrow reading paragraph so both anchors are visible. Ledger: new entry `de-risking-judgement-call.mlr-reg3-1-enhanced-cdd-definition.001` (verified after the re-read), and the open-point and reg 31 claimText entries updated to the live wording.
+3. **What the reviewer should test.** Whether the enhanced definition supports the wide reading as a matter of construction, whether the "where relevant" qualifier in the main definition limits it, whether the guide presents the point as one argument and not a conclusion, and whether any verdict text rests on either reading. In this pass no verdict rests on either reading: scenario one records the reading as open and grades the reading-neutral route best, and scenario two branch a rests on the plain regulation 28 measures.

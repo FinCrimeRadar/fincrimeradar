@@ -8020,7 +8020,7 @@
   {
     "claimId": "de-risking-judgement-call.mlr-reg31-unable-to-apply-cdd.001",
     "guide": "de-risking-judgement-call.html",
-    "claimText": "Regulation 31(1) of the MLR 2017 applies where a relevant person \"is unable to apply customer due diligence measures as required by regulation 28\". Regulation 31(1)(a) to (c) bar transactions through a bank account, bar establishing a business relationship and require termination of an existing business relationship. Regulation 31(2) permits repayment of deposited money, with consent where a disclosure is required. Regulation 31 contains no express cure or grace provision and does not state the effect of later evidence.",
+    "claimText": "Regulation 31(1) of the MLR 2017 applies where a relevant person \"is unable to apply customer due diligence measures as required by regulation 28\". Regulation 31(1)(a) bars any transaction through a bank account with or on behalf of the customer. Regulation 31(1)(b) bars establishing a business relationship, or carrying out a transaction, with the customer otherwise than through a bank account. Regulation 31(1)(c) requires termination of any existing business relationship. Regulation 31(1)(d) requires the firm to consider a disclosure under Part 3 of the Terrorism Act 2000 or Part 7 of the Proceeds of Crime Act 2002. Regulation 31(2) permits repayment of deposited money, with consent where a disclosure is required. Regulation 31 contains no express cure or grace provision and does not state the effect of later evidence.",
     "claimType": "regulatory",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
@@ -8548,7 +8548,7 @@
   {
     "claimId": "de-risking-judgement-call.open-point-reg31-edd-only-failure.001",
     "guide": "de-risking-judgement-call.html",
-    "claimText": "Open point: whether regulation 31(1)(a) to (c) apply where only enhanced due diligence cannot be completed. One reading confines \"customer due diligence measures as required by regulation 28\" to the regulation 28 measures. The other relies on the regulation 3(1) definition, which includes, \"where relevant\", those required by regulations 29 and 33 to 37. Both readings agree that mandatory EDD items cannot be ignored and that dated records and escalation are needed.",
+    "claimText": "Open point: whether regulation 31(1)(a) to (c) apply where only enhanced due diligence cannot be completed. One reading confines \"customer due diligence measures as required by regulation 28\" to the regulation 28 measures. The other relies on the regulation 3(1) definition, which includes, \"where relevant\", those required by regulations 29 and 33 to 37. Regulation 3(1) also defines \"enhanced customer due diligence measures\" as \"the customer due diligence measures required under regulations 33 to 35\", presented in the guide as one textual argument for the wide reading, not a settled answer, with the qualifier \"as required by regulation 28\" kept equally visible for the narrow reading. Both readings agree that mandatory EDD items cannot be ignored and that dated records and escalation are needed.",
     "claimType": "regulatory",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
@@ -8690,5 +8690,21 @@
     "note": "Process record backed by the source pack and design memo committed at 7dd3739 (docs/review-queue/de-risking-judgement-call-source-pack.md and design memo). Not independently re-run in the drafting session; it records the reading already logged in the pack.",
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg3-1-enhanced-cdd-definition.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 3(1) of the MLR 2017 defines \"enhanced customer due diligence measures\" as \"the customer due diligence measures required under regulations 33 to 35\". The guide presents this as one textual argument for the wide reading of the reg 31 and EDD-only failure open point, alongside the narrow-reading anchor \"as required by regulation 28\". It is not presented as settling the point.",
+    "claimType": "definition",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified",
+    "note": "Re-read from legislation.gov.uk data.xml (uksi/2017/692/regulation/3) on 2026-09-21 at 19:20 UTC before this entry was added. Current revised text, restrict start date 2026-06-30. Added in the post-drafting pass recorded in source pack section I."
   }
 ]
