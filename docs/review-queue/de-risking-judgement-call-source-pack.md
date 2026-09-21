@@ -1,0 +1,201 @@
+# The De-Risking Judgement Call: source pack (Task 1)
+
+Compiled 2026-09-21 on `main` at `97dbe65`. Ledger pre-flight `python scripts/check_ledger_base.py` passed (593 of 593 claimIds present) before work started. No ledger entries have been created. No prose has been drafted.
+
+**Convention note.** The repository has no dedicated source-pack directory or template. The closest precedent is `docs/review-queue/annex-1-firms-review-pack-v2.md`, so this file lives beside it. Ledger claim IDs follow `<guide-slug>.<topic-kebab>.<NNN>` (for example `app-scam-decision-framework.fps-timescales-stop-clock.001`), so proposed IDs below use the slug `de-risking-judgement-call`.
+
+**Retrieval method.** legislation.gov.uk, the FCA Handbook and the FCA website were fetched raw and text-extracted. The FATF and JMLSG sites return 403 to non-browser clients, so their pages and PDFs were read through a real browser session (the PDFs parsed in-page with pdf.js). Nothing below is taken from a search snippet or a summarising fetch.
+
+**Status key.** VERIFIED = primary text read and proposition matches. CHANGED = backlog proposition needed correction. CAVEAT = true but with a scope condition the guide must carry. REVIEW = requires external adversarial review under CLAUDE.md section 7. Evidence state uses the GUIDE_STANDARD vocabulary (Established, Provisional, Industry position, FinCrimeRadar assessment, Unknown).
+
+---
+
+## A. MLR 2017 (SI 2017/692), current revised text, stated up to date to 20 September 2026
+
+### A1. Regulation 18, risk assessment. VERIFIED. Established.
+- 18(1): "A relevant person must take appropriate steps to identify and assess the risks of money laundering and terrorist financing to which its business is subject."
+- 18(2)(b): must take into account risk factors "relating to (i) its customers; (ii) the countries or geographic areas in which it operates; (iii) its products or services; (iv) its transactions; and (v) its delivery channels."
+- 18(3): steps appropriate to "the size and nature of its business". 18(4): written record of steps taken.
+- Scope: firm-level (business-wide) risk assessment, not a customer-level decision rule.
+- Claim ID: `de-risking-judgement-call.mlr-reg18-risk-assessment.001`
+
+### A2. Regulation 19, policies, controls and procedures. VERIFIED. Established.
+- 19(1)(a): "policies, controls and procedures to mitigate and manage effectively the risks of money laundering and terrorist financing identified in any risk assessment undertaken by the relevant person under regulation 18(1)".
+- 19(2): must be "proportionate with regard to the size and nature of the relevant person's business" and "approved by its senior management".
+- 19(3)(c): must include customer due diligence (regulations 27 to 38).
+- Claim ID: `de-risking-judgement-call.mlr-reg19-policies-controls.001`
+
+### A3. Regulation 28, CDD and its risk sensitivity. VERIFIED. Established.
+- 28(11): ongoing monitoring including "scrutiny of transactions ... to ensure that the transactions are consistent with the relevant person's knowledge of the customer, the customer's business and risk profile".
+- 28(12): the ways CDD is complied with and its extent "must reflect (i) the risk assessment carried out by the relevant person under regulation 18(1); (ii) its assessment of the level of risk arising in any particular case" and "may differ from case to case".
+- 28(13): risk factors include purpose of the account or relationship, level of assets or size of transactions, regularity and duration of the relationship.
+- 28(16): the relevant person "must be able to demonstrate to its supervisory authority that the extent of the measures it has taken ... are appropriate in view of the risks of money laundering and terrorist financing".
+- Claim ID: `de-risking-judgement-call.mlr-reg28-cdd-risk-sensitivity.001`
+
+### A4. Regulation 31, inability to complete CDD. VERIFIED. Established. REVIEW (boundary).
+- 31(1): "Where, in relation to any customer, a relevant person is unable to apply customer due diligence measures as required by regulation 28, that person (a) must not carry out any transaction through a bank account with the customer or on behalf of the customer; (b) must not establish a business relationship or carry out a transaction with the customer otherwise than through a bank account; (c) must terminate any existing business relationship with the customer; (d) must consider whether the relevant person is required to make a disclosure ... [Terrorism Act 2000 Part 3; POCA 2002 Part 7]".
+- 31(2): repayment of money deposited in an account is not prevented, where a disclosure is required, only if the relevant consent has been obtained (TA 2000 s21ZA or POCA s335).
+- Exceptions: 31(3) to (5) (legal professionals advising on a client's legal position, insolvency practitioners).
+- **The trigger is inability to apply CDD as required by regulation 28.** It is not a risk-level trigger. A high residual risk, a jurisdiction listing or a commercial preference is not, by itself, a regulation 31 trigger. This is the statutory line between mandatory termination and discretionary exit.
+- REVIEW: whether a failure to complete the regulation 34(1) respondent measures (which sit "in addition to" regulation 33, not in regulation 28) engages regulation 31. The text ties regulation 31 to regulation 28 only. Any statement that failing regulation 34(1) forces exit is FinCrimeRadar assessment, not statute.
+- Claim ID: `de-risking-judgement-call.mlr-reg31-unable-to-apply-cdd.001`
+
+### A5. Regulation 33(1)(b) as amended by SI 2026/621 regulation 19. VERIFIED. Established. REVIEW.
+- Made 9 June 2026; in force 21 days after making, recorded on legislation.gov.uk as effective 30 June 2026 (SI 2026/621 reg 1(2)). Reg 19(a), (c) are not caught by the 1 February 2027 delayed commencement, which applies only to reg 20 and reg 36(b) (reg 1(4)).
+- Current 33(1)(b): EDD and enhanced ongoing monitoring "in any business relationship ... with a person established in a FATF call for action country or in relation to any relevant transaction where either of the parties to the transaction is established in a FATF call for action country".
+- Current 33(3)(a): "a 'FATF call for action country' means a country named on the list of High-Risk Jurisdictions subject to a Call for Action published by the Financial Action Task Force as such list has effect from time to time".
+- 33(3)(c): "established in" means, for a legal person, incorporated in or having its principal place of business there, or for a financial or credit institution, having its principal regulatory authority there; for an individual, resident there.
+- 33(3A): EDD for (1)(b) "must include" additional customer and beneficial owner information, information on the intended nature of the relationship, source of funds and source of wealth, reasons for transactions, senior management approval for establishing or continuing the relationship, and enhanced monitoring.
+- **Before 30 June 2026** (text as at 29 June 2026): 33(3)(a) defined "high-risk third country" as "a country named on either of the following lists published by the Financial Action Task Force as they have effect from time to time (i) High-Risk Jurisdictions subject to a Call for Action; (ii) Jurisdictions under Increased Monitoring".
+- **Effect (verified from the two texts):** the mandatory 33(1)(b) trigger moved from two FATF lists to one. Jurisdictions under Increased Monitoring no longer trigger 33(1)(b) by listing alone.
+- Not verified: HM Treasury's stated policy reason. The SI 2026/621 Explanatory Note describes the amendment only as substituting the definition ("Regulations 19(a), 19(c) and 23 amend regulations 33 and 39 ... to substitute the definition of 'high-risk third country' for a new definition of 'FATF call for action country'") and gives no rationale. The guide must not attribute a rationale to the Government.
+- Not modified by SI 2026/621 and still carrying pre-2021 drafting: 33(2) (exception for a branch or majority-owned subsidiary of an entity established in "a third country", tied to "the fourth money laundering directive" equivalence). Do not build teaching on 33(2) without separate review.
+- The two lists as published 19 June 2026 (see D1, D2): Call for Action names three jurisdictions (Democratic People's Republic of Korea, Iran, Myanmar). Increased Monitoring names 22. Both lists change at each FATF plenary, and the statute follows the Call for Action list "as such list has effect from time to time". The guide must date-stamp any list contents and must not hard-code them as current.
+- Claim IDs: `de-risking-judgement-call.mlr-reg33-1b-fatf-call-for-action.001` (current text and definition), `de-risking-judgement-call.mlr-reg33-1b-prior-two-list-definition.001` (as at 29 June 2026), `de-risking-judgement-call.mlr-reg33-3a-mandatory-edd-content.001`
+
+### A6. Where the Increased Monitoring list now sits in the statute. REVIEW. FinCrimeRadar assessment (Application), not Established.
+- Text that can carry it: 33(6)(c)(i) (geographical risk factor: "countries identified by credible sources, such as mutual evaluations, detailed assessment reports or published follow-up reports, as not having effective systems to counter money laundering or terrorist financing") and 33(6)(c)(vi) (credible sources, including FATF publications, identifying countries as "not implementing requirements to counter money laundering and terrorist financing that are consistent with the recommendations published by the Financial Action Task Force in February 2012 and updated in June 2019"). 33(1)(a) and 33(1)(g) then apply where the firm's assessment is high risk or the case "by its nature can present a higher risk".
+- 33(7): "the presence of one or more risk factors may not always indicate that there is a high risk of money laundering or terrorist financing in a particular situation."
+- The statute does not name the Increased Monitoring list in any of these paragraphs. Treating an Increased Monitoring listing as a 33(6)(c) risk factor is an application. The guide must present it as one.
+- Claim ID: `de-risking-judgement-call.mlr-reg33-6-7-geographic-risk-factor-application.001`
+
+### A7. Regulation 34, correspondent relationships. VERIFIED. Established. REVIEW (scope).
+- 34(1): a credit or financial institution (the correspondent) with or proposing a correspondent relationship "involving the execution of payments" with "another such institution (the 'respondent') from a third country must, in addition to the measures required by regulation 33": (a) gather sufficient information to understand the respondent's business; (b) determine reputation and quality of supervision from public information from credible sources; (c) assess the respondent's AML/CTF controls; (d) obtain senior management approval before establishing a new correspondent relationship; (e) document the responsibilities of each party; (f) be satisfied that, for the respondent's customers with direct access to accounts with the correspondent, the respondent has verified their identity, conducts ongoing CDD, and can provide the documents or information on request.
+- 34(2): "must not enter into, or continue, a correspondent relationship with a shell bank" (definition at 34(4)(b)). 34(3): appropriate enhanced measures so as not to enter into or continue a relationship with an institution known to allow its accounts to be used by a shell bank.
+- Scope conditions: the 34(1) measures apply to a respondent "from a third country". They apply to new relationships (d) and to the correspondent relationship as defined at 34(4)(a). The UK-respondent case is not covered by 34(1) as written.
+- 33(1)(c) requires EDD "in relation to correspondent relationships with a credit institution or a financial institution (in accordance with regulation 34)". REVIEW: the interaction, in particular whether 33(1)(c) creates any EDD duty for a non-third-country respondent that regulation 34 itself does not spell out.
+- Regulation 34 was not changed by SI 2026/621 (only a 2020 amendment is annotated). New regulation 34A (SI 2026/621 reg 20) covers cryptoasset exchange providers and custodian wallet providers, and does not commence until 1 February 2027. It is out of scope for a UK bank correspondent guide. Drop from the guide, mention at most in one scope line.
+- Claim IDs: `de-risking-judgement-call.mlr-reg34-1-respondent-measures.001`, `de-risking-judgement-call.mlr-reg34-2-shell-bank-prohibition.001`
+
+---
+
+## B. FATF
+
+### B1. Recommendation 1 amendment, 25 February 2025. VERIFIED. Established (FATF Standards, not UK law).
+- Press release "FATF updates Standards and consults on guidance to better promote financial inclusion", 25 February 2025: Plenary approved changes to Recommendation 1 and its Interpretive Note, with corresponding amendments to INR 10 and INR 15 and related Glossary definitions. Changes include replacing "commensurate" with "proportionate" (defined as "a measure or action that appropriately corresponds to the level of identified risk and effectively mitigates the risks"), an explicit requirement that countries "allow and encourage simplified measures in lower risk scenarios", and a requirement for supervisors to "review and take into account the risk mitigation measures undertaken by financial institutions and DNFBPs to avoid overcompliance resulting from an only partial understanding of associated risks".
+- Recommendation 1 text (February 2025 Recommendations): "Where countries identify lower risks, they should allow and encourage simplified measures as appropriate." INR 1 paragraph 15: "Where lower risks are identified, financial institutions and DNFBPs should be allowed and encouraged to take simplified measures." INR 1 paragraph 16: firms "should consider differentiating the extent of measures, depending on the type and level of risk for the various risk factors (e.g. in a particular situation, they could apply normal CDD for customer acceptance measures, but simplified or enhanced CDD for ongoing monitoring, or vice versa)".
+- Scope: obligations on countries and expectations of firms in the FATF Standards. The UK's own legal duties are those in the MLRs. Do not present FATF text as UK law.
+- Claim IDs: `de-risking-judgement-call.fatf-r1-proportionate-simplified-measures.001`, `de-risking-judgement-call.fatf-inr1-para16-differentiating-measures.001`
+
+### B2. FATF Guidance on Financial Inclusion and AML/CFT Measures, June 2025 (148 pages). VERIFIED. Established as guidance, non-binding.
+- Para 47: "Generally speaking, de-risking refers to the phenomenon of FIs' refusing to provide, terminating or restricting business relationships with, and services for, customers or categories of customers to avoid risk rather than sufficiently understanding and managing the risk in line with the FATF's RBA."
+- Para 52: the FATF "has long recognised the harmful impact of wholesale de-risking and has consistently emphasised that the practice is not in line with the RBA"; the 2014 statement that "the wholesale cutting loose of entire classes of customers, without taking into account, seriously and comprehensively, their level of risk or risk mitigation measures for individual customers within a particular sector is contrary to the RBA"; the 2021 statement that de-risking is "by ... definition inconsistent with a proper application of the RBA".
+- Para 53 (bonus, relevant to the grey list): "Since October 2019 the FATF has repeatedly emphasised that it does not call for the application of enhanced customer due diligence (EDD) measures to these jurisdictions. In October 2022, the FATF further clarified that the FATF Standards does not envisage de-risking or cutting-off entire classes of customers."
+- Para 140: regulated entities "should consider differentiating between different types of CDD measures and their levels of intensity", and where several effective measures exist "should consider adopting the least invasive option to avoid placing undue burden on customers".
+- Para 141: think broadly about mitigating measures, including innovative technologies or delivery platforms.
+- Para 142: "regulated entities are only required under FATF Standards to terminate or reject customer relationships, on a case-by-case basis, where the ML/TF risks cannot be mitigated. Regulated entities should include in their policies, procedures, and controls a range of options for mitigating higher ML/TF risks, before resorting to customer rejection on risk grounds." Options listed include EDD measures, increased transaction monitoring and offering limited or basic services.
+- Note: the guidance is FATF guidance. It is not the FATF Standards and not UK law. Para 142's "only required" is FATF's statement of what the Standards require, quoted as that.
+- Claim IDs: `de-risking-judgement-call.fatf-fi-guidance-para47-derisking-definition.001`, `...para52-wholesale-derisking-contrary-rba.001`, `...para140-142-mitigants-before-rejection.001`
+
+### B3. FATF list status pages, 19 June 2026. VERIFIED. Established (as at date).
+- Increased Monitoring page (19 June 2026): "The FATF does not call for the application of enhanced due diligence measures to be applied to these jurisdictions. The FATF Standards do not envisage derisking, or cutting-off entire classes of customers, but call for the application of a risk-based approach. Therefore, the FATF encourages its members and all jurisdictions to take into account the information presented below in their risk analysis." Also that flows for humanitarian assistance, legitimate NPO activity and remittances should be "neither disrupted nor discouraged".
+- Call for Action page (19 June 2026): "For all countries identified as high-risk, the FATF calls on all members and urges all jurisdictions to apply enhanced due diligence, and, in the most serious cases, countries are called upon to apply counter-measures".
+- Lists as at 19 June 2026. Call for Action: DPRK, Iran, Myanmar. Increased Monitoring: Angola, Bolivia, Bosnia and Herzegovina, Bulgaria, Cameroon, Cote d'Ivoire, DRC, Haiti, Iraq, Kenya, Kuwait, Lao PDR, Lebanon, Monaco, Nepal, Papua New Guinea, South Sudan, Syria, Venezuela, Vietnam, Virgin Islands (UK), Yemen. Algeria and Namibia were removed.
+- Volatility: the next plenary will supersede these. Only the structure (what each list means and what the FATF calls for) is durable.
+- Claim IDs: `de-risking-judgement-call.fatf-increased-monitoring-no-edd-call.001`, `de-risking-judgement-call.fatf-call-for-action-edd-and-countermeasures.001`
+
+---
+
+## C. FCA and UK conduct material
+
+### C1. FCA page "De-risking: managing money-laundering risk". VERIFIED. Established (regulator statement of expectations, not a rule).
+- First published 24/02/2016, last updated 11/02/2026 (recent entries are system, navigation and editorial updates, not policy changes).
+- "we are clear that effective money-laundering risk management does not need to end in wholesale de-risking."
+- "If a bank does not believe that it can effectively manage the money-laundering risk associated with a business relationship, it should not enter into or maintain that business relationship. But the risk-based approach does not mean that banks should deal generically with whole categories of customers or potential customers."
+- "While the decision to accept or maintain a business relationship is ultimately a commercial one for the bank, we think that there should be relatively few cases where it is necessary to decline business relationships solely because of anti-money laundering requirements."
+- "we now consider during our anti-money laundering requirements work, whether banks' de-risking strategies could lead to consumer protection and/or competition issues."
+- Scope: addressed to banks; the page also says "some banks are withdrawing from providing correspondent banking services".
+- Claim ID: `de-risking-judgement-call.fca-derisking-page-expectations.001`
+
+### C2. FCTR 12.3.6G, 12.3.7G, 12.3.8G. VERIFIED, with a CHANGED date.
+- **CHANGED:** the backlog records these as "last updated 1 November 2024". The Handbook page states "FCTR 12.3 Consolidated examples of good and poor practice was last updated on 13/12/2018" and each of 12.3.6, 12.3.7, 12.3.8 carries the date 13/12/2018. The 1 November 2024 date is not supported by the primary page. Cite 13/12/2018, and record the evidence date of retrieval (21 September 2026). Do not repeat the 2024 date.
+- Status: FCTR is FCA guidance ("G") consisting of consolidated examples of good and poor practice from the thematic review. It is not a rule and the examples are not exhaustive obligations.
+- 12.3.6G (risk assessment of respondent banks): good practice includes regular assessments taking into account "the country (and its AML regime); ownership/management structure ...; products/operations; transaction volumes; market segments; the quality of the respondent's AML systems and controls and any adverse information"; poor practice includes applying "a 'one size fits all' approach to due diligence with no assessment of the risks of doing business with respondents located in higher risk countries".
+- 12.3.7G (customer take-on): good practice includes EDD "for respondents that present greater risks or where there is less publicly available information"; poor practice includes "Collecting CDD information but failing to assess the risks".
+- 12.3.8G (ongoing monitoring): good practice includes "Involving senior management and AML staff in reviews of respondent relationships and consideration of whether to maintain or exit high-risk relationships" and "using intelligence reports to help decide whether to maintain or exit a relationship"; poor practice includes "Focusing too much on reputational or business issues when deciding whether to exit relationships with respondents which give rise to high money-laundering risk".
+- Use: the last quoted poor practice is the FCA's own boundary marker against exits driven by non-AML considerations. It is Guidance, and any use in a scenario is Application.
+- Claim IDs: `de-risking-judgement-call.fctr-12-3-6g-respondent-risk-assessment.001`, `...fctr-12-3-7g-respondent-take-on.001`, `...fctr-12-3-8g-respondent-monitoring-and-exit.001`
+
+### C3. PRIN 2A (Consumer Duty). VERIFIED, scope CAVEAT. Established (rule R) and guidance (G).
+- PRIN 2A.2.8R (31/07/2023): "A firm must avoid causing foreseeable harm to retail customers."
+- PRIN 2A.2.10G(3): avoiding causing foreseeable harm "includes ... identifying the potential for harm that might arise if it withdraws a product, its products change or its understanding about the impact on retail customers changes".
+- PRIN 2A.2.10G(5)(iv): appropriate mitigating action "including for example by ... allowing time and support for retail customers to find suitable alternatives where a product is withdrawn."
+- PRIN 2A.2 chapter last updated 26/06/2026.
+- **Caveat:** nothing in PRIN 2A mentions AML-driven relationship exits. The text speaks of withdrawing a "product". Applying it to an AML account closure is FinCrimeRadar assessment. It applies to retail customers only, so it is irrelevant to a bank respondent in the correspondent banking hard test. PRIN 2A.2.13G says avoiding foreseeable harm "does not mean a firm has a responsibility to prevent all harm".
+- REVIEW: any sentence that says the Consumer Duty applies to (or is disapplied by) an AML exit.
+- Claim IDs: `de-risking-judgement-call.prin-2a-2-8r-foreseeable-harm.001`, `de-risking-judgement-call.prin-2a-2-10g-withdrawal-harm-and-time-to-find-alternatives.001`
+
+---
+
+## D. Payment services termination overlay
+
+### D1. SI 2025/688 and PSRs 2017 regulations 51B and 51C. VERIFIED, with CHANGED framing. Established. REVIEW.
+- **CHANGED (citation):** the instrument's title is the Payment Services and Payment Accounts (Contract Termination) (Amendment) Regulations 2025. It came into force on 28 April 2026 (reg 1(2)). Regulations 51B and 51C are provisions inserted into the Payment Services Regulations 2017 (SI 2017/752) by reg 3(4) of SI 2025/688, not free-standing regulations of SI 2025/688. Cite them as PSRs 2017 regulations 51B and 51C, inserted by SI 2025/688.
+- **Vintage condition:** regulation 51B applies only to "a framework contract concluded for an indefinite period and entered into on or after 28th April 2026". For an earlier contract, regulation 51A allows termination "by giving at least two months' notice, if the contract so provides". The overlay therefore depends on when the account contract was entered into.
+- 51B(1) to (3): before terminating, the PSP must give notice containing "an explanation of the reasons for termination which is sufficiently detailed and specific to enable the payment service user to understand why the framework contract is being terminated", how to complain and any ombudsman right, at least 90 days before termination takes effect.
+- 51B(4): "In the event of a conflict between a requirement in paragraphs (1) to (3) above and another legal requirement to which the payment service provider is subject, the other legal requirement prevails to the extent of the conflict."
+- 51C: regulation 51B(1) does not apply where, among other grounds, (a) the PSP is required to apply CDD under MLR regulation 27 and "is unable to apply them as required by regulation 28", or (c) "the payment service provider has reasonable grounds to suspect a payment service provided under the framework contract has been used, is being used or will be used in connection with a serious crime". "Serious crime" is defined by reference to Schedule 1 of the Serious Crime Act 2007. 51C(b), (d), (e) cover the Immigration Act 2014 s40G closures, FCA, Treasury or Secretary of State directions and offending conduct towards third parties.
+- 51D (not AML): public order or harassment conduct towards the PSP's staff, or incorrect information at onboarding, remove only the 90 day minimum period.
+- What 51C does not list: a discretionary risk-based exit (high residual risk with CDD complete and no suspicion). That exit is inside 51B (for contracts entered on or after 28 April 2026), with the 90 day notice and the detailed reasons. This is the practical tension with tipping-off, and it is FinCrimeRadar assessment territory.
+- Consumer-account parallel: SI 2025/688 reg 2 amends Payment Accounts Regulations 2015 regulation 26. The new 26(9) requires, for contracts entered on or after 28 April 2026, an explanation of reasons "unless providing that information would be unlawful", and 90 days (two months for earlier contracts) for designated credit institutions dealing with consumers.
+- **Scope of Part 6:** PSRs regulation 40(7): "If the payment service user is not a consumer, a micro-enterprise or a charity, the parties to a contract for payment services may agree that any or all of the provisions of this Part do not apply." Regulation 51B sits in Part 6. For institutional respondents in the correspondent hard test, whether 51B applies depends on the contract and on whether the arrangement is a payment services framework contract in the first place (not verified here).
+- REVIEW claims: the vintage condition; the 51C(a) and (c) exemptions; whether a discretionary AML exit falls inside 51B; the interaction of 51B(2)(a) reasons with the tipping-off offences (POCA s333A, TA s21D, cited in MLR 28(15)); and the reg 40(7) disapplication for non-consumer users.
+- Claim IDs: `de-risking-judgement-call.psr-2017-reg-51b-termination-notice.001`, `...psr-2017-reg-51c-aml-exemptions.001`, `...psr-2017-reg-40-7-non-consumer-disapplication.001`, `...par-2015-reg-26-9-reasons-unless-unlawful.001`
+
+---
+
+## E. JMLSG (Industry position)
+
+Evidence state for all JMLSG material: **Industry position**. JMLSG guidance is approved by HM Treasury but is not law, and courts and regulators may have regard to it. Current documents (per jmlsg.org.uk/guidance/current-guidance/): Part I "June 2023 updated August 2025" (URL under /2025/09/), Part II "June 2023 updated December 2025" (URL under /2026/04/).
+
+**SI 2026/621 update caveat (verified).** Both current documents pre-date SI 2026/621 (made 9 June 2026, effective 30 June 2026). Part I contains 21 occurrences of "high-risk third country" and no occurrence of "FATF call for action". Part II contains 6 occurrences of "high-risk third country". The JMLSG Revisions page lists September 2026 (Part I paras 2.9, 5.2.4A, 5.3.94A, 5.3.99, 5.3.142 and Annex 5-V) and February 2026 (Part I Chapter 3 extracts, paras 6.90 to 6.99) revisions, each marked "Awaiting HMT approval". Of these I read 5.2.4A (insolvent bank customers) and the Chapter 3 extracts; neither addresses regulation 33(1)(b). I did not read 2.9, 5.3.x, Annex 5-V or 6.90 to 6.99. **Unknown** whether or when JMLSG will conform its high-risk third country text to SI 2026/621.
+
+| Para | Source text (short quotation) | Status |
+|---|---|---|
+| Part I 4.33 | "Based on the risk assessment carried out, a firm will determine the level of CDD that should be applied in respect of each customer and beneficial owner." Standard level "based on the firm's risk appetite". | VERIFIED |
+| Part I 4.57 | "Firms should not, however, judge the level of risk solely on the nature of the customer or the product." | VERIFIED (first sentence read; balance of paragraph read only as far as the higher-risk product point) |
+| Part I 4.62 | "Where the risks of ML/TF/PF are higher, firms must conduct enhanced due diligence measures consistent with the risks identified", including examining background and purpose and increasing monitoring, with further examples of other EDD measures. | VERIFIED (opening and first examples read) |
+| Part I 4.74 to 4.76 | Firms "must document their risk assessments in order to be able to demonstrate their basis, keep these assessments up to date"; documented responses should enable the firm to demonstrate to its regulator "and/or to a court" how it assesses risk and implements systems. | VERIFIED for 4.74 to 4.76. 4.77 located, **not read in full**. |
+| Part I 5.2.6 to 5.2.7 | 5.2.6 restates regulation 31(1)(a) to (d). 5.2.7: firms "should always consider whether an inability to apply CDD measures is caused by the customer not possessing the 'right' documents or information" and consider other ways to be reasonably satisfied as to identity. | VERIFIED |
+| Part II 16.27 | "A Correspondent Banking Relationship is typically higher risk and therefore firms must apply the Enhanced Due Diligence measures in full." | VERIFIED. CAVEAT and REVIEW: this is stronger than regulation 34(1), which by its terms covers a "respondent ... from a third country". JMLSG 16.1 treats all credit and financial institution relationships as correspondent relationships. Present as Industry position, not as statute. |
+| Part II 16.28 | EDD measures "should be considered", drawing on nature of business, reputation and supervision. Country test still framed as whether the respondent is in a "non-EEA country, which has AML/CTF requirements which are equivalent to the ML Regulations and/or the fourth money laundering directive". | VERIFIED. Pre-SI 2026/621 and pre-2021 wording in part. |
+| Part II 16.32 | "Where a firm identifies additional risk or is not able to satisfy the measures set out in 16.31, it should consider what further due diligence measures would be appropriate to mitigate the additional risk." | VERIFIED. Useful: JMLSG's own next step is further due diligence, not automatic exit. |
+| Part II 16.33 to 16.34 | Documented monitoring procedures; monitoring level "commensurate with the risks determined to be posed by the Respondent"; electronic and post-execution monitoring "often the norm". | VERIFIED |
+
+Claim IDs (all Industry position): `de-risking-judgement-call.jmlsg-part1-4-33-4-57-risk-based-cdd-level.001`, `...jmlsg-part1-4-62-edd-when-higher-risk.001`, `...jmlsg-part1-5-2-6-5-2-7-unable-to-apply-cdd.001`, `...jmlsg-part2-16-27-16-28-correspondent-edd.001`, `...jmlsg-part2-16-32-16-34-additional-risk-and-monitoring.001`, `...jmlsg-update-caveat-si-2026-621.001`
+
+---
+
+## F. Backlog propositions changed, dropped or not supported as stated
+
+| # | Backlog statement | Result |
+|---|---|---|
+| 1 | FCTR 12.3.6G to 12.3.8G "last updated 1 November 2024" | **CHANGED.** Primary page: last updated 13/12/2018. The 2024 date is unsupported. |
+| 2 | "SI 2025/688 regulations 51B and 51C" | **CHANGED (citation and scope).** They are PSRs 2017 regs 51B and 51C inserted by SI 2025/688. 51B applies only to indefinite-term framework contracts entered on or after 28 April 2026 (51A gives two months for earlier ones). Part 6 can be disapplied for non-consumer, non-micro-enterprise, non-charity users by agreement (reg 40(7)). |
+| 3 | "MLR 33(1)(b) ... current UK statutory FATF Call for Action trigger" | **VERIFIED and sharpened.** Before 30 June 2026 the trigger covered both Call for Action and Increased Monitoring. SI 2026/621 reg 19 narrowed it to Call for Action. The Government's reason is not stated in the SI or its Explanatory Note. |
+| 4 | "Preserve the distinction between FATF Increased Monitoring and the UK statutory trigger" | **VERIFIED.** The FATF itself says it "does not call for the application of enhanced due diligence" to Increased Monitoring jurisdictions. |
+| 5 | JMLSG Part II 16.27 "must apply EDD in full" (implicit in Industry position use) | **CAVEAT.** Stronger than regulation 34(1). Label as Industry position. |
+| 6 | Decision architecture includes "residual risk assessment (FinCrimeRadar assessment, not regulator terminology)" | **VERIFIED as labelled.** No source uses "residual risk assessment" as an obligation. Keep the label. |
+| 7 | Consumer Duty scoped narrowly to exit execution | **CAVEAT.** PRIN 2A is silent on AML exits and concerns product withdrawal. Applicability to an AML exit is FinCrimeRadar assessment, and it excludes bank respondents. |
+| 8 | "Payment Services and Payment Accounts Contract Termination Amendment Regulations 2025" | **CHANGED (title).** Official title has the parenthesised words: (Contract Termination) (Amendment). |
+| 9 | SI 2026/621 regulation 20 (34A) | **DROPPED from scope.** Crypto exchange and custodian wallet providers only, effective 1 February 2027. Not a UK bank correspondent rule. |
+| 10 | FATF Increased Monitoring list 19 June 2026 as current | **CAVEAT.** Correct as of that date. Any list contents must be date-stamped. The next plenary supersedes them. |
+
+## G. Propositions not fully verified (do not use as stated until closed)
+
+1. JMLSG Part I 4.77 (located, not read) and the back half of 4.57 and 4.62.
+2. JMLSG September 2026 revisions 2.9, 5.3.94A, 5.3.99, 5.3.142 and Annex 5-V, and February 2026 paras 6.90 to 6.99 (headings only).
+3. Whether a correspondent banking account is a payment services "framework contract" for PSRs Part 6 at all (regulation 40(7) disapplication and scope not tested against a real respondent arrangement).
+4. HM Treasury's rationale for narrowing regulation 33(1)(b) (no source found).
+5. Whether the FATF Guidance's Annex or footnote text adds conditions to para 142 (footnotes read only where they interleaved with the paragraphs).
+
+## H. Claims requiring external adversarial review (CLAUDE.md section 7), for the delivery report
+
+1. Regulation 33(1)(b) as amended: the two list to one list change, the effect that Increased Monitoring no longer triggers it, and that Increased Monitoring now operates only through 33(6)(c), 33(1)(a) and 33(1)(g) (A5, A6).
+2. Regulation 31: that the trigger is inability to apply CDD under regulation 28 only, and that it is not engaged by failure of the regulation 34(1) respondent measures (A4).
+3. Regulation 34: that 34(1) measures apply to third-country respondents only, and the interaction with 33(1)(c) (A7).
+4. PSRs 2017 regs 51B and 51C: vintage condition, the 51C(a) and (c) exemptions, that a discretionary AML exit falls inside 51B, tipping-off interaction, and reg 40(7) disapplication (D1).
+5. PRIN 2A: that it does or does not apply to an AML exit (C3).
+6. JMLSG 16.27 "must" against regulation 34(1) (E).
+7. FATF Guidance para 142 read as a statement of what the Standards require, and its use next to UK law (B2).
+8. Any scenario verdict or feedback string that names a mandatory versus discretionary outcome (CLAUDE.md section 10, and legally defined categories).
