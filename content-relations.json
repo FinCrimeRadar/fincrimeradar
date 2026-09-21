@@ -58,7 +58,8 @@
   "kyc-onboarding-dilemma": [
     "synthetic-identity-device-network-guide",
     "ubo-investigation-handbook",
-    "annex-1-firms-aml-blind-spot-guide"
+    "annex-1-firms-aml-blind-spot-guide",
+    "de-risking-judgement-call"
   ],
   "source-of-wealth-investigation-handbook": [
     "annex-1-firms-aml-blind-spot-guide"
@@ -121,7 +122,8 @@
     "fraud-red-flags-guide",
     "money-mule-financial-crime-networks-handbook",
     "fatf-recommendation-16-intelligence-brief",
-    "failure-to-prevent-fraud-evidence-essay"
+    "failure-to-prevent-fraud-evidence-essay",
+    "de-risking-judgement-call"
   ],
   "money-mule-or-victim-case-file": [
     "money-mule-financial-crime-networks-handbook",
@@ -141,5 +143,9 @@
   ],
   "gambling-white-label-blind-spot-guide": [
     "failure-to-prevent-fraud-evidence-essay"
+  ],
+  "de-risking-judgement-call": [
+    "app-scam-decision-framework",
+    "kyc-onboarding-dilemma"
   ]
 }

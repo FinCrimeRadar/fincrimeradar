@@ -351,6 +351,12 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://fincrimeradar.org/de-risking-judgement-call.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Case File experiments -->
   <url>
     <loc>https://fincrimeradar.org/money-mule-or-victim-case-file.html</loc>

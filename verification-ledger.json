@@ -8016,5 +8016,679 @@
     "reviewDue": "2027-09-16",
     "status": "verified",
     "note": "Split out from stablecoin-series-guide-1.perg18-4-5-hybrid-wrapped-stablecoin.001 following external adversarial review: that claim originally carried a one-sentence cross-reference to PERG 18.8.7 as part of the qualifying-stablecoin definition question, but PERG 18.8.7 is a separate, standalone activity-scope determination (dealing/arranging/safeguarding classification for wrapping and bridging services), not part of what counts as a qualifying stablecoin. The forthcoming statutory instrument (see the two overseas-issuance claims' notes) introduces a new exclusion for certain technical services from the arranging activity; PS26/18 does not confirm whether that exclusion touches wrapping or bridging services specifically, so this claim does not assume either way. Reviewed in-session 2026-09-17: PASS WITH CORRECTION. One issue found: an unflagged illustrative gloss, the sale-and-purchase example, was presented at the same weight as PERG 18.8.7's own quoted guidance text rather than marked as this guide's own illustrative reading; corrected in claimText, and the following drafting guardrail added: Do not simplify this into an unqualified statement such as 'wrapping or bridging services need dealing permission' when used in guide text. PERG 18.8.7 is explicit that the answer depends on the substance and facts of each arrangement, assessed case-by-case; any guide treatment must preserve that conditionality. This review was conducted in-session rather than via a separate external model, so it satisfies CLAUDE.md's regulatory claim review check for now, but a formal cross-model pass is still advisable before this guide ships. Correction reversed 2026-09-17 after direct verification against the primary PS26/18 extracted text: PERG 18.8.7's own paragraph reads, verbatim, \"Depending on how they are structured and operated, wrapping or bridging arrangements may involve dealing in qualifying cryptoassets (as principal or agent). For example, wrapping or bridging services may fall within the dealing activity because they involve the sale and purchase of qualifying cryptoassets.\" The sale-and-purchase example is PERG 18.8.7's own illustrative example, in the sentence immediately following the dealing-may-involve sentence, not an outside gloss. The prior correction's disclaimer, that this illustrative reading is not itself quoted from PERG 18.8.7, was itself inaccurate and has been removed from claimText. The drafting guardrail above, against simplifying into an unqualified 'wrapping or bridging services need dealing permission' statement, remains correct and unaffected, since PERG 18.8.7 is still explicit that the overall classification is case-by-case; only the sourcing disclaimer for this one illustrative sub-point was wrong."
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg31-unable-to-apply-cdd.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 31(1) of the MLR 2017 applies where a relevant person \"is unable to apply customer due diligence measures as required by regulation 28\". Regulation 31(1)(a) to (c) bar transactions through a bank account, bar establishing a business relationship and require termination of an existing business relationship. Regulation 31(2) permits repayment of deposited money, with consent where a disclosure is required. Regulation 31 contains no express cure or grace provision and does not state the effect of later evidence.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg3-1-cdd-measures-definition.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 3(1) of the MLR 2017 defines customer due diligence measures to include, \"where relevant, those required by regulations 29 and 33 to 37\".",
+    "claimType": "definition",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg28-cdd-risk-sensitivity.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 28(11) requires ongoing monitoring, and regulation 28(12) says the extent of the measures must reflect the risk assessment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg18-risk-assessment.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 18(2) of the MLR 2017 sets the factors for the business-wide risk assessment, and regulation 33(6) lists risk factors for a case.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg33-1b-fatf-call-for-action.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 33(1)(b) of the MLR 2017, as amended by SI 2026/621 from 30 June 2026, applies to a \"FATF call for action country\", by reference to the FATF Call for Action list \"as such list has effect from time to time\". Regulation 33(1)(b) then requires enhanced due diligence.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "additionalSources": [
+      {
+        "title": "The Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (SI 2026/621), regulations 1, 19 and 20",
+        "url": "https://www.legislation.gov.uk/uksi/2026/621/made",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-06-09"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg33-1b-prior-two-list-definition.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Before 30 June 2026 the definition covering regulation 33(1)(b) included both FATF lists (Call for Action and Increased Monitoring). SI 2026/621, in force 30 June 2026, narrowed it to the Call for Action list.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (SI 2026/621), regulations 1, 19 and 20",
+      "url": "https://www.legislation.gov.uk/uksi/2026/621/made",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-06-09"
+    },
+    "additionalSources": [
+      {
+        "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+        "url": "https://www.legislation.gov.uk/uksi/2017/692",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-09-21"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg33-3a-mandatory-edd-content.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "In a regulation 33(1)(b) Call for Action case, regulation 33(3A) fixes the enhanced due diligence content, including senior management approval at 33(3A)(e).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg33-6-7-geographic-risk-factor-application.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 33(6) lists risk factors for a case, and regulation 33(7) reminds firms that a risk factor may not always indicate high risk.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg34-1-respondent-measures.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 34(1)(a) to (f) list the measures for a payments correspondent with a respondent from a third country. Paragraph (f) covers the respondent's verification and monitoring of customers with direct account access. \"Third country\" means a state other than the UK. Regulation 34(1)(d) requires senior management approval before establishing a new correspondent relationship.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg34-2-shell-bank-prohibition.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 34(2) of the MLR 2017 prohibits a correspondent relationship with a shell bank.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg35-5-pep-edd.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "For a politically exposed person regulation 35(5) adds senior management approval, source of wealth and source of funds, and enhanced ongoing monitoring.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.si-2026-621-purpose-not-stated-in-si.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "SI 2026/621 does not itself state the purpose of the change to regulation 33(1)(b). The stated objective appears in HM Treasury's Explanatory Memorandum, a separate document from the Explanatory Note printed with the Regulations, and is the Treasury's objective, not the wording or effect of the amendment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Money Laundering and Terrorist Financing (Amendment) Regulations 2026 (SI 2026/621), regulations 1, 19 and 20",
+      "url": "https://www.legislation.gov.uk/uksi/2026/621/made",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-06-09"
+    },
+    "additionalSources": [
+      {
+        "title": "HM Treasury, Explanatory Memorandum to SI 2026/621, paragraphs 5.2, 5.5 and 5.6",
+        "url": "https://www.legislation.gov.uk/uksi/2026/621/memorandum/contents",
+        "publisher": "HM Treasury",
+        "date": "2026-09-21"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.em-si-2026-621-purpose.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "HM Treasury's Explanatory Memorandum describes an objective of a more risk based and proportionate approach, including narrowing mandatory enhanced due diligence for high-risk jurisdictions to the FATF Call for Action list.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "HM Treasury, Explanatory Memorandum to SI 2026/621, paragraphs 5.2, 5.5 and 5.6",
+      "url": "https://www.legislation.gov.uk/uksi/2026/621/memorandum/contents",
+      "publisher": "HM Treasury",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-call-for-action-19-june-2026.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "As at 19 June 2026 the FATF Call for Action list names three jurisdictions in two tiers: countermeasures for two, and enhanced due diligence \"and not countermeasures\" for one (Myanmar). The FATF said that if there is no further progress on Myanmar by October 2026 it will consider countermeasures.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Action Task Force, High-Risk Jurisdictions subject to a Call for Action",
+      "url": "https://www.fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/call-for-action-june-2026.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-06-19"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-increased-monitoring-no-edd-call.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The FATF Increased Monitoring list (as at 19 June 2026) is a separate, larger list of jurisdictions working with the FATF on action plans. The FATF says it does not call for enhanced due diligence on those jurisdictions and encourages firms to take the information into account in their risk analysis.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Action Task Force, Jurisdictions under Increased Monitoring",
+      "url": "https://www.fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-june-2026.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-06-19"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-r1-proportionate-simplified-measures.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "In February 2025 the FATF amended Recommendation 1 to stress proportionate measures and to require countries to allow and encourage simplified measures in lower risk cases.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Action Task Force, FATF updates Standards and consults on guidance to better promote financial inclusion",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/update-standards-promote-financial-conclusion-feb-2025.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2025-02-25"
+    },
+    "additionalSources": [
+      {
+        "title": "Financial Action Task Force, The FATF Recommendations, Updated June 2026: Recommendations 1, 10 and 13 and Interpretive Notes 1 and 10",
+        "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html",
+        "publisher": "Financial Action Task Force",
+        "date": "2026-09-21"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-inr1-enhanced-measures-higher-risk.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "FATF Interpretive Note 1 expects enhanced measures where higher risks are identified. Cited to the Recommendations, Updated June 2026 edition.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Action Task Force, The FATF Recommendations, Updated June 2026: Recommendations 1, 10 and 13 and Interpretive Notes 1 and 10",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-r10-unable-to-comply-cdd.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "FATF Recommendation 10 ties refusal or termination of a relationship to inability to comply with the customer due diligence requirements.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Action Task Force, The FATF Recommendations, Updated June 2026: Recommendations 1, 10 and 13 and Interpretive Notes 1 and 10",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-inr10-paras-1-3-tipping-off.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "FATF Interpretive Note 10 says that if a firm reasonably believes that performing the due diligence would tip off the customer, it may choose not to pursue it and should file a suspicious transaction report.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Action Task Force, The FATF Recommendations, Updated June 2026: Recommendations 1, 10 and 13 and Interpretive Notes 1 and 10",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-fi-guidance-para47-derisking-definition.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The FATF defines de-risking as refusing, terminating or restricting relationships to avoid risk rather than understanding and managing it, and describes wholesale cutting loose of entire classes of customers as contrary to the risk-based approach. It is non-binding guidance.",
+    "claimType": "definition",
+    "source": {
+      "title": "Financial Action Task Force, Guidance on Financial Inclusion and Anti-Money Laundering and Terrorist Financing Measures, paragraphs 47, 52, 53 and 140 to 142",
+      "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-Financial-Inclusion%20-Anti-Money-Laundering-Terrorist-Financing-Measures.pdf",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-09-21"
+    },
+    "additionalSources": [
+      {
+        "title": "Financial Action Task Force, FATF updates Standards and consults on guidance to better promote financial inclusion",
+        "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/update-standards-promote-financial-conclusion-feb-2025.html",
+        "publisher": "Financial Action Task Force",
+        "date": "2025-02-25"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-fi-guidance-para140-142-mitigants-before-rejection.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The FATF financial inclusion guidance lists mitigating options to try before rejection. It is guidance, not a Standard.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Action Task Force, Guidance on Financial Inclusion and Anti-Money Laundering and Terrorist Financing Measures, paragraphs 47, 52, 53 and 140 to 142",
+      "url": "https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Guidance-Financial-Inclusion%20-Anti-Money-Laundering-Terrorist-Financing-Measures.pdf",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fca-derisking-page-expectations.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The FCA says effective risk management does not need to end in wholesale de-risking, that a bank should not enter into or maintain a relationship it cannot manage, and that the decision to accept or maintain a relationship is ultimately a commercial one for the bank, with relatively few cases where declining solely for anti-money laundering reasons is necessary. The FCA names customer segments often affected by de-risking. The page is guidance, not a rule.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Conduct Authority, De-risking: managing money-laundering risk",
+      "url": "https://www.fca.org.uk/firms/financial-crime/money-laundering-terrorist-financing/derisking-managing-risk",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.fctr-12-3-guidance-paragraphs.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "FCTR 12.3.7G treats failing to follow up outstanding due diligence information as poor practice. FCTR 12.3 is guidance cited by paragraph, and the guide states no last updated date for it.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Conduct Authority, FCA Handbook, FCTR 12.3 (paragraphs 12.3.3G, 12.3.7G and 12.3.8G)",
+      "url": "https://handbook.fca.org.uk/handbook/FCTR/12/3.html",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.jmlsg-part1-4-77-document-rationale.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "JMLSG Part I 4.77 asks firms to document the rationale for additional measures they undertake or waive. This is an industry position, not law.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Joint Money Laundering Steering Group, Prevention of money laundering and combating terrorist financing: Guidance for the UK financial sector, Part I and Part II",
+      "url": "https://www.jmlsg.org.uk/guidance/current-guidance/",
+      "publisher": "Joint Money Laundering Steering Group",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.jmlsg-part1-5-2-7-unable-to-apply-cdd.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "JMLSG Part I 5.2.7 asks firms to consider whether the problem is missing documents. This is an industry position, not law.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Joint Money Laundering Steering Group, Prevention of money laundering and combating terrorist financing: Guidance for the UK financial sector, Part I and Part II",
+      "url": "https://www.jmlsg.org.uk/guidance/current-guidance/",
+      "publisher": "Joint Money Laundering Steering Group",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.jmlsg-update-caveat-si-2026-621.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The current published JMLSG Part I and Part II were updated in August and December 2025, pre-date SI 2026/621, and still use the earlier \"high-risk third country\" wording.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Joint Money Laundering Steering Group, Prevention of money laundering and combating terrorist financing: Guidance for the UK financial sector, Part I and Part II",
+      "url": "https://www.jmlsg.org.uk/guidance/current-guidance/",
+      "publisher": "Joint Money Laundering Steering Group",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.psr-2017-reg-51b-termination-notice.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 51B of the Payment Services Regulations 2017 applies to an indefinite-term framework contract entered into on or after 28 April 2026. It requires reasons \"sufficiently detailed and specific\", provision as regulation 55(1) requires, complaint and ombudsman information, and at least 90 days before termination takes effect. Regulation 51A allows termination of an earlier contract on at least two months' notice \"if the contract so provides\". Regulation 51B(4) provides that where a requirement in 51B(1) to (3) conflicts with \"another legal requirement\", the other requirement prevails \"to the extent of the conflict\".",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "additionalSources": [
+      {
+        "title": "The Payment Services and Payment Accounts (Contract Termination) (Amendment) Regulations 2025 (SI 2025/688)",
+        "url": "https://www.legislation.gov.uk/uksi/2025/688/made",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-04-28"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.psr-2017-reg-51c-51d-exemptions.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 51C lists grounds on which 51B(1) does not apply. Regulation 51C(a) applies where the payment service provider is required to apply customer due diligence and is unable to apply it as regulation 28 requires. Regulation 51C(c) applies only if both conditions are met: reasonable grounds to suspect, and a suspicion that a payment service under the contract has been, is being or will be used in connection with serious crime. Regulation 51D lists cases where the 90-day period does not apply.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.psr-2017-reg-40-7-disapplication-by-agreement.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Regulation 40(7) allows Part 6 to be disapplied only where the user is none of a consumer, a micro-enterprise or a charity, and the parties have agreed. The guide does not state the micro-enterprise size thresholds.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.psr-2017-framework-contract-definition.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "A framework contract is a contract for payment services that \"governs the future execution of individual and successive payment transactions\". Payment transactions between payment service providers \"for their own account\" are not payment services.",
+    "claimType": "definition",
+    "source": {
+      "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.poca-333a-333d-tipping-off-elements.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The POCA section 333A offence needs a disclosure of a specified matter and a likelihood of prejudice. Section 333D(3) gives no offence where the person does not know or suspect that prejudice. Section 333D(1) permits disclosure for the purpose of detection, investigation or prosecution of an offence, and to the supervisory authority. The guide calls never telling the customer about the suspicion or the disclosure a conservative FinCrimeRadar limit, not the statutory test.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, sections 333A to 333D",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.ta-2000-21d-21g-tipping-off-elements.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The Terrorism Act 2000 section 21D offence needs a disclosure of a specified matter and a likelihood of prejudice. Section 21G(3) gives no offence where the person does not know or suspect that prejudice. Section 21G(1) permits disclosure for the purpose of detection, investigation or prosecution of an offence, and to the supervisory authority.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Terrorism Act 2000, sections 21D to 21G",
+      "url": "https://www.legislation.gov.uk/ukpga/2000/11/section/21D",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified"
+  },
+  {
+    "claimId": "de-risking-judgement-call.open-point-reg31-edd-only-failure.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Open point: whether regulation 31(1)(a) to (c) apply where only enhanced due diligence cannot be completed. One reading confines \"customer due diligence measures as required by regulation 28\" to the regulation 28 measures. The other relies on the regulation 3(1) definition, which includes, \"where relevant\", those required by regulations 29 and 33 to 37. Both readings agree that mandatory EDD items cannot be ignored and that dated records and escalation are needed.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "needs-review",
+    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+  },
+  {
+    "claimId": "de-risking-judgement-call.open-point-reg33-1c-reach.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Open point: whether regulation 33(1)(c) (\"in relation to correspondent relationships with a credit institution or a financial institution\", \"in accordance with regulation 34\") is a signpost to regulation 34(1) or an independent enhanced due diligence trigger for every correspondent relationship. The limits \"from a third country\" and \"involving the execution of payments\" sit in regulation 34(1).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "needs-review",
+    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+  },
+  {
+    "claimId": "de-risking-judgement-call.open-point-51b-4-legal-requirement.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Open point: whether a tipping-off offence is \"another legal requirement\" for regulation 51B(4), so that the 51B reasons duty is displaced to the extent of the conflict. Where both conditions of regulation 51C(c) are met, 51B(1) does not apply under either reading.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "additionalSources": [
+      {
+        "title": "Proceeds of Crime Act 2002, sections 333A to 333D",
+        "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-09-21"
+      },
+      {
+        "title": "Terrorism Act 2000, sections 21D to 21G",
+        "url": "https://www.legislation.gov.uk/ukpga/2000/11/section/21D",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-09-21"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "needs-review",
+    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+  },
+  {
+    "claimId": "de-risking-judgement-call.open-point-framework-contract.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Open point: whether a correspondent banking arrangement is a payment services framework contract, which determines whether the regulation 51B notice rules apply.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "needs-review",
+    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+  },
+  {
+    "claimId": "de-risking-judgement-call.open-point-cure-timing.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "Open point: whether evidence supplied after the regulation 31(1) inability arises cures it before termination. Regulation 31 states no cure or grace provision, and says the firm \"is unable\", not that it concludes it is unable.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "needs-review",
+    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+  },
+  {
+    "claimId": "de-risking-judgement-call.scenario-verdict-text-application-recommendation.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimText": "The Application and Recommendation text in the three graded decisions and the five knowledge check answer notes applies the sources above to fictional scenario facts. It is FinCrimeRadar assessment, not regulatory or legal advice, and is pending manual external adversarial review under CLAUDE.md sections 7 and 15.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "additionalSources": [
+      {
+        "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+        "url": "https://www.legislation.gov.uk/uksi/2017/752",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-09-21"
+      },
+      {
+        "title": "Proceeds of Crime Act 2002, sections 333A to 333D",
+        "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-09-21"
+      },
+      {
+        "title": "Terrorism Act 2000, sections 21D to 21G",
+        "url": "https://www.legislation.gov.uk/ukpga/2000/11/section/21D",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2026-09-21"
+      },
+      {
+        "title": "Financial Action Task Force, The FATF Recommendations, Updated June 2026: Recommendations 1, 10 and 13 and Interpretive Notes 1 and 10",
+        "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html",
+        "publisher": "Financial Action Task Force",
+        "date": "2026-09-21"
+      }
+    ],
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "needs-review",
+    "note": "Interpretive. Not a statement of what any authority requires."
+  },
+  {
+    "claimId": "de-risking-judgement-call.methodology-statement.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimType": "process-record",
+    "status": "verified",
+    "claimText": "Methodology statement as published: statutory text was read from legislation.gov.uk on 21 September 2026, FATF documents from fatf-gafi.org including the Recommendations as updated in June 2026, FCA material from the FCA website and Handbook, and JMLSG Part I and Part II from the current published PDFs. Some provisions were read only for the parts the guide uses, the wider POCA and Terrorism Act reporting duties were not analysed, and draft JMLSG revisions awaiting Treasury approval were not used. The five open points are presented as open because the listed sources do not settle them.",
+    "note": "Process record backed by the source pack and design memo committed at 7dd3739 (docs/review-queue/de-risking-judgement-call-source-pack.md and design memo). Not independently re-run in the drafting session; it records the reading already logged in the pack.",
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21"
   }
 ]
