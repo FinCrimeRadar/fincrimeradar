@@ -403,6 +403,8 @@ def check_link_clears_nav(cdp: CDP, url: str) -> None:
           form.querySelector('.fcr-feedback a').click();
         })()""")
         wait_scroll_settled(cdp)
+        # brand.js reveal transitions translate sections while they fade in, which moves getBoundingClientRect.
+        time.sleep(1.5)
         geometry = cdp.evaluate("""(() => {
           const block = document.getElementById('optfb-respondent-escalate').getBoundingClientRect();
           const nav = document.querySelector('nav[aria-label="Primary"]') || document.querySelector('nav');
