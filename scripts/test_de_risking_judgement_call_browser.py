@@ -455,32 +455,34 @@ def check_no_script(cdp: CDP, url: str) -> None:
     print("OK: no script: buttons hidden, all analyses visible, stray submit does not navigate")
 
 
-def wait_scroll_settled(cdp: CDP, limit: float = 12.0) -> None:
-    """Smooth scrolling can take a while on a long page, so wait until scrollY stops moving."""
+def wait_scroll_settled(cdp: CDP, start_y: int, limit: float = 25.0) -> None:
+    """Smooth scrolling can start late and take a while on a long page. Wait until it has moved away from
+    start_y and then stops, so a slow start is not mistaken for a finished scroll."""
     last = None
     stable = 0
     deadline = time.time() + limit
     while time.time() < deadline:
         current = cdp.evaluate("Math.round(window.scrollY)")
         stable = stable + 1 if current == last else 0
-        if stable >= 4:
+        if stable >= 5 and current != start_y:
             return
         last = current
         time.sleep(0.15)
-    raise AssertionError("scrolling did not settle")
+    raise AssertionError(f"scrolling did not start and settle away from {start_y}")
 
 
 def check_link_clears_nav(cdp: CDP, url: str) -> None:
     """After 'Read the analysis of your choice', the block must sit at or below the sticky nav."""
     for width in (320, 390, 768):
         navigate(cdp, url, width)
+        start_y = cdp.evaluate("Math.round(window.scrollY)")
         cdp.evaluate("""(() => {
           const form = document.querySelector('[data-scenario-id="respondent"]');
           form.querySelector('input[data-grade="best"]').checked = true;
           form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
           form.querySelector('.fcr-feedback a').click();
         })()""")
-        wait_scroll_settled(cdp)
+        wait_scroll_settled(cdp, start_y)
         # brand.js reveal transitions translate sections while they fade in, which moves getBoundingClientRect.
         time.sleep(1.5)
         geometry = cdp.evaluate("""(() => {
