@@ -222,6 +222,8 @@ def main() -> None:
     require(len(re.findall(r'<div class="fcr-optfb-set"[^>]* role="group" aria-labelledby="optfb-title-\w+"', html)) == 3, "option analysis sets need role=group and a label")
     require(html.count('id="optfb-') >= 12, "each option analysis needs an id for the feedback link")
     require("classList.add('js')" in script and script.count("event.preventDefault()") >= 2, "script must set the js class and prevent default on submit")
+    require(script.rindex("classList.add('js')") > script.rindex("addEventListener("), "the js class must be set after every handler is attached")
+    require(".fcr-optfb{scroll-margin-top:96px}" in html, "analysis blocks need a scroll margin so the feedback link clears the sticky nav")
     require("sentEvents" in script and "try {" in script and "setTimeout(function () { URL.revokeObjectURL" in script, "telemetry once-only, gtag guard or delayed revoke missing")
     require("addEventListener('change'" in script, "change handler that clears stale feedback is missing")
     require("javascript:" not in html and "javascript:" not in script, "no javascript: URLs")

@@ -38,6 +38,23 @@ class QuietHandler(SimpleHTTPRequestHandler):
         return
 
 
+class ProbeHandler(QuietHandler):
+    """Serves the repository, and can swap the guide script for one that throws."""
+
+    MODE = {"throw": False}
+
+    def do_GET(self) -> None:
+        if ProbeHandler.MODE["throw"] and self.path.split("?")[0] == "/js/de-risking-judgement-call.js":
+            body = b"throw new Error('probe: script failure');"
+            self.send_response(200)
+            self.send_header("Content-Type", "text/javascript")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+        super().do_GET()
+
+
 class QuietServer(ThreadingHTTPServer):
     def handle_error(self, request: object, client_address: object) -> None:
         return
@@ -360,12 +377,83 @@ def check_no_script(cdp: CDP, url: str) -> None:
     print("OK: no script: buttons hidden, all analyses visible, stray submit does not navigate")
 
 
+def wait_scroll_settled(cdp: CDP, limit: float = 12.0) -> None:
+    """Smooth scrolling can take a while on a long page, so wait until scrollY stops moving."""
+    last = None
+    stable = 0
+    deadline = time.time() + limit
+    while time.time() < deadline:
+        current = cdp.evaluate("Math.round(window.scrollY)")
+        stable = stable + 1 if current == last else 0
+        if stable >= 4:
+            return
+        last = current
+        time.sleep(0.15)
+    raise AssertionError("scrolling did not settle")
+
+
+def check_link_clears_nav(cdp: CDP, url: str) -> None:
+    """After 'Read the analysis of your choice', the block must sit at or below the sticky nav."""
+    for width in (320, 390, 768):
+        navigate(cdp, url, width)
+        cdp.evaluate("""(() => {
+          const form = document.querySelector('[data-scenario-id="respondent"]');
+          form.querySelector('input[data-grade="best"]').checked = true;
+          form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+          form.querySelector('.fcr-feedback a').click();
+        })()""")
+        wait_scroll_settled(cdp)
+        geometry = cdp.evaluate("""(() => {
+          const block = document.getElementById('optfb-respondent-escalate').getBoundingClientRect();
+          const nav = document.querySelector('nav[aria-label="Primary"]') || document.querySelector('nav');
+          return {blockTop: block.top, navBottom: nav.getBoundingClientRect().bottom, active: document.activeElement.id,
+                  inView: block.top < window.innerHeight};
+        })()""")
+        require(geometry["active"] == "optfb-respondent-escalate", f"{width}px focus did not reach the analysis: {geometry}")
+        require(geometry["blockTop"] >= geometry["navBottom"] - 0.5, f"{width}px analysis top is under the sticky nav: {geometry}")
+        require(geometry["inView"], f"{width}px analysis is not in the viewport after the link: {geometry}")
+        print(f"OK: {width}px feedback link lands with the analysis below the sticky nav ({geometry['blockTop']:.0f}px >= {geometry['navBottom']:.0f}px)")
+
+
+def check_no_flash(cdp: CDP, url: str) -> None:
+    """Before the js class is set, no action button may be visible and no analysis may be on screen."""
+    for width in (390, 1440):
+        navigate(cdp, url, width)
+        flash = cdp.evaluate("window.__fcrFlash")
+        require(flash is not None and flash["jsAt"] is not None, f"{width}px the js class was never set: {flash}")
+        require(flash["buttons"] == 0, f"{width}px action buttons were visible before the js class: {flash}")
+        require(flash["analysesInView"] == 0, f"{width}px an option analysis was on screen before the js class: {flash}")
+        print(f"OK: {width}px no visible flash before the js class ({flash['frames']} frames observed, buttons {flash['buttons']}, analyses on screen {flash['analysesInView']})")
+
+
+def check_script_throws(cdp: CDP, url: str) -> None:
+    """A script that throws leaves the guide in its no-script state."""
+    ProbeHandler.MODE["throw"] = True
+    try:
+        navigate(cdp, url, 375)
+        state = cdp.evaluate("""(() => ({
+          jsClass: document.documentElement.classList.contains('js'),
+          buttons: [...document.querySelectorAll('.fcr-choice .fcr-action, #knowledgeForm .fcr-action, #saveFrameworkImage')].map(b => getComputedStyle(b).display),
+          blocks: [...document.querySelectorAll('.fcr-optfb')].filter(b => b.getBoundingClientRect().height > 0).length,
+          href: location.href
+        }))()""")
+        require(state["jsClass"] is False, f"a throwing script must not set the js class: {state}")
+        require(state["buttons"] and all(d == "none" for d in state["buttons"]), f"buttons must stay hidden when the script throws: {state}")
+        require(state["blocks"] == 12, f"all analyses must stay visible when the script throws: {state}")
+        cdp.evaluate("document.forms[0].requestSubmit()")
+        time.sleep(0.4)
+        require(cdp.evaluate("location.href") == state["href"], "a submit after a script failure must not navigate")
+        print("OK: script throws: no js class, buttons hidden, all 12 analyses visible, no navigation")
+    finally:
+        ProbeHandler.MODE["throw"] = False
+
+
 def run() -> None:
     chrome = next((path for path in CHROME_CANDIDATES if path.exists()), None)
     require(chrome is not None, "Chrome not found")
     local_variable_audit()
 
-    server = QuietServer(("127.0.0.1", 0), lambda *args: QuietHandler(*args, directory=str(ROOT)))
+    server = QuietServer(("127.0.0.1", 0), lambda *args: ProbeHandler(*args, directory=str(ROOT)))
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()
     site_port = server.server_address[1]
@@ -397,6 +485,26 @@ def run() -> None:
           new PerformanceObserver(list => {
             list.getEntries().forEach(entry => { if (!entry.hadRecentInput) window.__fcrLayoutShift += entry.value; });
           }).observe({type: 'layout-shift', buffered: true});
+        """})
+
+        cdp.call("Network.enable")
+        cdp.call("Network.setCacheDisabled", {"cacheDisabled": True})
+        cdp.call("Page.addScriptToEvaluateOnNewDocument", {"source": """
+          window.__fcrFlash = {buttons: 0, analysesInView: 0, frames: 0, jsAt: null};
+          (function loop() {
+            const flash = window.__fcrFlash;
+            if (!document.documentElement) { requestAnimationFrame(loop); return; }
+            if (document.documentElement.classList.contains('js')) { flash.jsAt = performance.now(); return; }
+            flash.frames += 1;
+            document.querySelectorAll('.fcr-choice .fcr-action, #knowledgeForm .fcr-action, #saveFrameworkImage').forEach(b => {
+              if (getComputedStyle(b).display !== 'none') flash.buttons += 1;
+            });
+            document.querySelectorAll('.fcr-optfb-set').forEach(set => {
+              const r = set.getBoundingClientRect();
+              if (getComputedStyle(set).display !== 'none' && r.height > 0 && r.top < window.innerHeight && r.bottom > 0) flash.analysesInView += 1;
+            });
+            requestAnimationFrame(loop);
+          })();
         """})
 
         url = f"http://127.0.0.1:{site_port}/{SLUG}.html"
@@ -458,6 +566,8 @@ def run() -> None:
         navigate(cdp, url, 390)
         check_reveal_and_change(cdp)
         check_quiz_guessing(cdp)
+        check_link_clears_nav(cdp, url)
+        check_no_flash(cdp, url)
         navigate(cdp, url, 390)
         check_telemetry_once(cdp)
 
@@ -628,6 +738,7 @@ def run() -> None:
         print("OK: long-label expansion")
 
         check_no_script(cdp, url)
+        check_script_throws(cdp, url)
         cdp.call("Emulation.setScriptExecutionDisabled", {"value": True})
         navigate(cdp, url, 375)
         no_js = page_metrics(cdp)

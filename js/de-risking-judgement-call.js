@@ -3,10 +3,6 @@
 
   var GUIDE_ID = 'de_risking_judgement_call';
 
-  // Buttons and the hidden option analyses depend on this class. Without the script the
-  // buttons stay hidden and every analysis stays visible.
-  document.documentElement.classList.add('js');
-
   var sentEvents = {};
 
   function consentGranted() {
@@ -281,4 +277,9 @@
 
   var saveButton = document.getElementById('saveFrameworkImage');
   if (saveButton) saveButton.addEventListener('click', exportClosingPatterns);
+
+  // Set last, once every handler is attached. The buttons and the hidden option analyses
+  // depend on this class, so a script that fails part way leaves the buttons hidden and
+  // every analysis visible.
+  document.documentElement.classList.add('js');
 }());
