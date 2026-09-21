@@ -1,0 +1,69 @@
+{
+  "week": "2026-W38",
+  "period_start": "2026-09-14",
+  "period_end": "2026-09-20",
+  "published_at": "2026-09-21",
+  "author": "Pratik Zanke",
+  "items": [
+    {
+      "id": "fca-ps26-18-cryptoasset-perimeter-guidance",
+      "headline": "FCA finalises PERG 18 crypto perimeter guidance as transitional application window nears",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/publications/policy-statements/ps26-18-cryptoasset-perimeter-guidance",
+      "published_date": "2026-09-16",
+      "jurisdiction": "UK",
+      "category": "CRYPTO",
+      "signal": "REGULATORY",
+      "what_happened": "On 16 September 2026 the FCA published PS26/18, its final guidance on when cryptoasset activities need FCA authorisation, which sits in the Handbook as PERG 18. The FCA states that from 25 October 2027 the Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 will introduce new regulated activities for cryptoassets into its perimeter, and that anyone wishing to carry on those activities by way of business in the UK will need to apply for authorisation unless a relevant exemption applies or they can use the savings or transitional run off provisions. The FCA also states that existing registrations and permissions will not convert automatically, and that the application window for firms wanting to use the transitional arrangements opens on 30 September 2026 and closes on 28 February 2027. PERG 18 describes itself as the FCA's view of how the statutory perimeter applies to regulated cryptoasset activities. It says it does not create, widen or narrow the regulated activities, specified investments, exclusions or exemptions set out in legislation, and that it does not bind the courts. The FCA adds that it plans to consult on further changes to the guidance in late 2026, following a Government statutory instrument amending the underlying regulations.",
+      "why_it_matters": "The perimeter is set by legislation. PERG 18 is the FCA's interpretation of it, and the FCA itself says the guidance cannot address every business model and that outcomes depend on the particular facts. That distinction matters for anyone reading the guidance as a checklist: it tells a firm how the regulator will approach the question, not what a court would necessarily decide. The guidance also says the new territorial rules can bring certain regulated cryptoasset activities involving UK consumers into the UK perimeter even where the provider is established overseas, so a provider's location is not a safe proxy for whether it needs UK authorisation. The transitional window is short, and the FCA's statement that existing registrations do not convert removes the assumption that a firm already registered under the Money Laundering Regulations is covered.",
+      "radar_implication": "This is a control judgement, not a finding by the FCA. Firms with UK crypto counterparties, VASP customers or crypto-linked payment flows should list which of those counterparties will need authorisation or a transitional route, and record whether each has said it intends to apply before the window closes on 28 February 2027. Do not treat an existing MLR registration as evidence that a counterparty will be authorised. For overseas counterparties that serve UK consumers, ask for their own perimeter analysis rather than relying on where they are incorporated, and escalate the ones that cannot give one. Keep the status of each analysis (counterparty view, your view, legal advice taken) on file, since PERG 18 is guidance and the FCA says perimeter outcomes are fact specific.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "ofac-bitbank-iran-digital-asset-designations",
+      "headline": "OFAC designates BitBank, its developer and three Zanjani associates in Iran digital asset action",
+      "source_name": "US Department of the Treasury",
+      "source_url": "https://home.treasury.gov/news/press-releases/sb0632",
+      "published_date": "2026-09-17",
+      "jurisdiction": "US",
+      "category": "SANCTIONS",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 17 September 2026 the US Treasury's Office of Foreign Assets Control (OFAC) designated BitBank, which Treasury describes as an Iranian digital assets exchange controlled by OFAC-designated financier Babak Zanjani, together with its developer, Pishtaz Simorgh Electronic Trade Company, and three individuals Treasury calls associates of Zanjani: Hossein Ali Zaker Hossein, Mohammad Mahdi Zaker Hossein and Seyed Adel Heidari. Treasury states that all designations were taken pursuant to Executive Order 13902. It gives different bases within that order: BitBank and Pishtaz Simorgh for operating in the digital asset sector of the Iranian economy, and each of the three individuals for having acted or purported to act, directly or indirectly, for or on behalf of Zanjani, Pishtaz Simorgh and Dot One Value Creation Group respectively. Treasury describes the designated persons as key components of the Iranian regime's digital assets-based sanctions evasion infrastructure and states that OFAC-designated Hormuz Safe Marine Services Authority has used BitBank since June 2026 to transfer payments it received to the Iranian regime. Treasury points readers to OFAC FAQs 1250 and 1257 on sanctions risk associated with Iranian digital asset exchanges.",
+      "why_it_matters": "The action reaches both an exchange and the company Treasury identifies as its software developer, showing OFAC targeting operational components of the digital asset network rather than only named financiers or wallet addresses. Treasury's release says designated persons' property in the United States or in the possession or control of US persons is blocked and reportable to OFAC, and that entities owned 50 percent or more by blocked persons are also blocked. It also states that financial institutions and other persons may risk exposure to sanctions for engaging in certain transactions involving blocked persons, and that non-US persons are prohibited from causing US persons to violate US sanctions. Those are Treasury's statements of US law and enforcement posture. For non US firms, the applicable consequences are fact specific and should be assessed against the relevant OFAC authority, transaction and parties rather than inferred from place of incorporation alone.",
+      "radar_implication": "This is a control judgement, not a Treasury finding. Add the designated names and known BitBank and Pishtaz Simorgh identifiers to screening lists if your provider has not already done so, and search historic crypto payment and on-chain exposure data for direct or indirect links to BitBank. Read FAQs 1250 and 1257 before adjusting your Iranian digital asset exchange risk position. Non US firms should distinguish legal obligations from internal risk appetite and document how OFAC designations affect their sanctions, correspondent banking and USD clearing policies.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "doj-alex-saab-guilty-plea-clap-laundering",
+      "headline": "Alex Saab pleads guilty to conspiracy to launder proceeds of Venezuelan CLAP contract bribery scheme",
+      "source_name": "US Department of Justice",
+      "source_url": "https://www.justice.gov/opa/pr/maduro-regime-ally-alex-saab-pleads-guilty-money-laundering-scheme-involving-bribery-and",
+      "published_date": "2026-09-15",
+      "jurisdiction": "US",
+      "category": "CORRUPTION",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 15 September 2026 the US Department of Justice announced that Alex Nain Saab Moran, a former Minister of Industry in the Maduro government, pleaded guilty to conspiracy to launder monetary instruments. The plea was heard by US District Judge Kathleen M. Williams in Miami. According to court documents, DOJ states that Saab carried out a nearly decade-long conspiracy to corruptly profit from Venezuela's CLAP food and medicine programme. As part of the plea, DOJ states that Saab admitted organising a system of bribes and other illegal payments to public officials so that entities secretly controlled by the conspirators could win Venezuelan government contracts, and that he used shell companies outside Venezuela to launder the proceeds around the world, including to the United States. DOJ also states that the conspirators used fake companies, false invoices, false shipping records and other fraudulent documents to skim hundreds of millions of dollars, but the release does not present that description as part of the plea. Saab faces a maximum penalty of 20 years in prison. DOJ states that a sentencing date has not been set and that a federal judge will determine any sentence after considering the US Sentencing Guidelines and other statutory factors.",
+      "why_it_matters": "The plea is to a laundering conspiracy, and DOJ's account shows how the proceeds are said to have been moved: shell companies outside Venezuela, false invoices and false shipping records that made trade in food and medicine look legitimate. Those are documentary controls a trade or correspondent bank would ordinarily rely on. The 20 year figure is the statutory maximum, not a sentence, and DOJ says a court will decide the sentence later. The DOJ description of the wider scheme is drawn from court documents and the release rather than from the plea itself, so it should be recorded with that limit.",
+      "radar_implication": "This is a control judgement, not a DOJ finding. For trade finance and correspondent relationships involving public-procurement supply of food, medicine or similar staples, test whether your file relies on invoices and shipping records alone, and whether you have independent evidence that the goods moved and that the beneficial owners of the counterparties are known. Check whether shell company counterparties in third countries are the ones paying or receiving on behalf of sanctioned or politically exposed principals. In adverse media records, log this as a guilty plea awaiting sentencing, not as a sentence, and keep the admitted matters separate from the allegations in court documents.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "nca-debt-bondage-people-smuggling-laundering-sentencing",
+      "headline": "Five jailed for almost 40 years in total over Vietnamese people smuggling network that laundered over £1.6m",
+      "source_name": "National Crime Agency",
+      "source_url": "https://www.nationalcrimeagency.gov.uk/news/five-sentenced-over-debt-bondage-people-smuggling-conspiracy",
+      "published_date": "2026-09-15",
+      "jurisdiction": "UK",
+      "category": "AML_CTF",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 15 September 2026 five members of an organised crime group were sentenced at Liverpool Crown Court to a combined total of almost 40 years in an NCA case involving the facilitation of illegal entry by Vietnamese migrants and the laundering of more than £1.6m in cash from the criminal activity. The NCA worked jointly with French and Belgian law enforcement partners. The NCA states the group took migrants' passports in France, used them as a form of debt bondage, collected money from the migrants and sent payments back to Vietnam through Post Offices and money transfer bureaux including Western Union, MoneyGram and Ria. Production Orders served on those three providers showed more than £1.65m transferred across 740 transactions to accounts in Vietnam between July 2024 and October 2025. The NCA also states that migrants were placed in workplaces under debt bondage arrangements, including nail salons referred to in the group's messages, and that many worked in the grey economy after arriving. Individual sentences ranged from four years to 12 years and six months.",
+      "why_it_matters": "The laundering here was low-tech and high-volume: 740 transfers through regulated money service channels over roughly 15 months, funded by cash the NCA says was collected from various locations across the UK. Nothing in the NCA account suggests a complex structure, which is the point: the exposure sat in the pattern across many small transactions and senders, not in any single payment. The case also shows organised immigration crime generating a laundering channel as well as people smuggling activity, with debt repayments as the source of the cash.",
+      "radar_implication": "This is a control judgement, not an NCA finding, and it does not make migrant-related cash or remittances suspicious in themselves. For money service business and bank monitoring, the indicators worth testing are repeated cash deposits or remittances to the same destination country by multiple unrelated senders, sender clusters using the same accounts or receipt patterns across several Post Office or agent locations, and cash collections from small businesses such as nail bars that are passed on to individuals rather than banked through the business. Where a business account is linked to a cash-collecting pattern, look at the wider profile before filing: who owns and staffs the business, whether staff pay looks consistent with the sector, and whether any debt bondage or forced labour indicators are present. Document why a pattern is or is not suspicious rather than relying on nationality or destination country.",
+      "primary_source": true,
+      "reviewed": true
+    }
+  ]
+}
