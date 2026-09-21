@@ -9,12 +9,15 @@ import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from de_risking_contract import ALLOWED_GRADES, EXPECTED_OPTION_GRADES, GRADE_LABELS  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 SLUG = "de-risking-judgement-call"
 GUIDE = ROOT / f"{SLUG}.html"
 SCRIPT = ROOT / "js" / f"{SLUG}.js"
 CLAIM_PREFIX = f"{SLUG}."
-GRADES = {"best", "reading", "incomplete", "unsupported", "unsupported-facts"}
+GRADES = set(ALLOWED_GRADES)
 
 
 class KnowledgeCountParser(HTMLParser):
@@ -60,6 +63,76 @@ class KnowledgeCountParser(HTMLParser):
         value = "".join(self.text_by_id[element_id]).strip()
         require(value.isdigit(), f"Knowledge Hub {element_id} is not a numeric static count")
         return int(value)
+
+
+class PageModel(HTMLParser):
+    """Element-level view of the page: block text with its section, radio inputs and grade badges.
+
+    Text is attributed to the nearest enclosing block element, so headings, list items, definition
+    entries, table cells and option labels are all seen individually, whatever the attribute order.
+    """
+
+    BLOCKS = {
+        "p", "li", "dd", "dt", "td", "th", "h1", "h2", "h3", "h4", "h5", "h6",
+        "summary", "legend", "label", "figcaption", "blockquote", "div",
+    }
+    VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.stack: list[dict] = []
+        self.elements: list[dict] = []
+        self.radios: list[dict] = []
+        self.badges: list[dict] = []
+        self.skip = 0
+
+    def _ancestor(self, predicate):
+        for entry in reversed(self.stack):
+            if predicate(entry):
+                return entry
+        return None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attributes = {name: (value or "") for name, value in attrs}
+        if tag in ("script", "style"):
+            self.skip += 1
+        if tag == "input" and attributes.get("type") == "radio":
+            form = self._ancestor(lambda e: e["tag"] == "form")
+            record = dict(attributes)
+            record["_form"] = (form or {}).get("attrs", {}).get("data-scenario-id", "")
+            self.radios.append(record)
+        if tag in self.VOID:
+            return
+        classes = attributes.get("class", "").split()
+        self.stack.append({"tag": tag, "attrs": attributes, "buf": [], "badge": "fcr-grade" in classes})
+
+    def handle_data(self, data: str) -> None:
+        if self.skip:
+            return
+        entry = self._ancestor(lambda e: e["tag"] in self.BLOCKS or e["badge"])
+        if entry is not None:
+            entry["buf"].append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in ("script", "style") and self.skip:
+            self.skip -= 1
+        for index in range(len(self.stack) - 1, -1, -1):
+            if self.stack[index]["tag"] == tag:
+                entry = self.stack[index]
+                del self.stack[index:]
+                text = re.sub(r"\s+", " ", "".join(entry["buf"])).strip()
+                section = next((e for e in reversed(self.stack) if e["tag"] == "section" and e["attrs"].get("id")), None)
+                section_id = section["attrs"]["id"] if section else ""
+                if entry["badge"]:
+                    group = next((e for e in reversed(self.stack) if "data-optfb-for" in e["attrs"]), None)
+                    option = next((e for e in reversed(self.stack) if "data-option" in e["attrs"]), None)
+                    record = dict(entry["attrs"])
+                    record.update({"_text": text, "_form": (group or {}).get("attrs", {}).get("data-optfb-for", ""),
+                                   "_option": (option or {}).get("attrs", {}).get("data-option", "")})
+                    self.badges.append(record)
+                elif entry["tag"] in self.BLOCKS and text:
+                    self.elements.append({"tag": entry["tag"], "section": section_id, "text": text})
+                break
 
 
 def fail(message: str) -> None:
@@ -213,27 +286,58 @@ def main() -> None:
     require('id="saveFrameworkStatus" aria-live="polite" role="status"' in html, "export feedback is not a polite status")
     require('id="fcrClosingPatterns"' in html and "fcrClosingPatterns" in script, "export is not sourced from the closing DOM")
 
-    # ---- external review contract (wording that must not regress)
-    require('data-scenario-id="ownership"' in html, "ownership decision missing")
-    ownership = section(html, "scenario-two-a")
-    wait = re.search(r'value="wait" data-grade="([^"]+)" data-grade-label="([^"]+)"', ownership)
-    require(wait is not None and wait.group(1) == "unsupported-facts" and wait.group(2) == "Not supported on the stated facts", "the wait option must be graded Not supported on the stated facts")
-    require(re.search(r'<span class="fcr-grade" data-grade="unsupported-facts">Not supported on the stated facts</span>', ownership) is not None, "the wait analysis badge must read Not supported on the stated facts")
-    visible = re.sub(r"<script.*?</script>|<style.*?</style>", "", html, flags=re.S)
-    plain = text_only(visible)
-    for banned in ("Stop new transactions", "stop new transactions", "turn on purpose", "and nothing else", "no verdict in this guide rests", "No verdict rests", "cannot rest on either reading", "not a lawful ground", "never as a lawful ground"):
-        require(banned not in plain, f"superseded wording is still present: {banned}")
-    require("“Correspondent relationship”" not in plain, "a quoted defined term must keep its lower-case initial")
-    require("sections 333D(3) and 21G(3)" in plain and "333D(1)(b) or 21G(1)(b)" in plain, "both offence exceptions must be stated in the exit section")
-    require("subject to 51D(2)" in plain and "without delay" in plain, "51D must be described as substituting notice without delay, subject to 51D(2)")
-    for chunk in re.split(r"</(?:p|dd|li)>", visible):
-        chunk_text = text_only(chunk)
-        if "51C(a)" in chunk_text:
-            require("regulation 27" in chunk_text, f"51C(a) is applied without stating the regulation 27 condition: {chunk_text[:120]}")
-    require("regulation 27(8)" in text_only(section(html, "scenario-two-a")), "the branch a facts must state the regulation 27 occasion")
-    require(re.search(r"51B conditions are met[^.]*\.", plain) is None or "Whether the 51B conditions are met depends on Part 6 applying under regulation 40(1)" in plain, "the charity 51B conclusion must be conditional")
-    require("regulation 34(2) or 34(3) does not require non-continuation" in plain, "the urgent exit sentence must carry the 34(2) and 34(3) scope")
-    require(plain.count("Recommendation 13") >= 3 and "the refuse or terminate consequence in Recommendation 10 is not engaged" in plain, "R.10 must be confined to complete due diligence, with R.13 separate")
+    # ---- decision grades: one shared constant, parsed per element, attribute order independent
+    page = PageModel()
+    page.feed(html)
+    for key, expected in EXPECTED_OPTION_GRADES.items():
+        found = {radio.get("value"): (radio.get("data-grade"), radio.get("data-grade-label")) for radio in page.radios if radio["_form"] == key}
+        require(set(found) == set(expected), f"{key} options differ from the contract: {sorted(found)}")
+        for value, grade in expected.items():
+            require(found[value] == (grade, GRADE_LABELS[grade]), f"{key}/{value} must be graded {grade} with its label: {found[value]}")
+        badges = {badge["_option"]: (badge.get("data-grade"), badge["_text"]) for badge in page.badges if badge["_form"] == key}
+        require(badges == {value: (grade, GRADE_LABELS[grade]) for value, grade in expected.items()}, f"{key} analysis badges differ from the contract: {badges}")
+    require(set(re.findall(r"'([a-z-]+)'", re.search(r"var KNOWN_GRADES = \[(.*?)\];", script, re.S).group(1))) == set(ALLOWED_GRADES), "the script grade allow-list differs from the contract")
+    css = re.search(r"<style>(.*?)</style>", html, re.S).group(1)
+    for grade in ALLOWED_GRADES:
+        require(f'[data-grade="{grade}"]' in css, f"missing CSS grade rule for {grade}")
+        # best keeps the default feedback colour, every other grade has its own state colour
+        require(grade == "best" or f'[data-state="{grade}"]' in css, f"missing CSS state rule for {grade}")
+    require('.fcr-grade[data-grade="unsupported-facts"]' in css, "the unsupported-facts badge needs its own style")
+
+    # ---- regression bans, each scoped to the section it was superseded in
+    def elements_in(*section_ids: str) -> list[dict]:
+        found = [element for element in page.elements if element["section"] in section_ids]
+        require(found, f"scope matched no element: {section_ids}")
+        return found
+
+    bans = (
+        ("Stop new transactions", ("scenario-two-a",)),
+        ("stop new transactions", ("scenario-two-a",)),
+        ("turn on purpose", ("exit",)),
+        ("and nothing else", ("knowledge-check",)),
+        ("no verdict in this guide rests", ("knowledge-check",)),
+        ("No verdict rests", ("faq",)),
+        ("cannot rest on either reading", ("scenario-one",)),
+        ("not a lawful ground", ("scenario-two-b",)),
+        ("never as a lawful ground", ("sequence", "reasoning-traps", "patterns", "operational-summary")),
+        ("\u201cCorrespondent relationship\u201d", ("open-points",)),
+    )
+    for phrase, sections in bans:
+        for element in elements_in(*sections):
+            require(phrase not in element["text"], f"superseded wording is back in {element['section']}: {phrase}")
+
+    # ---- required conditions, each checked on every element that triggers it and matched at least once
+    applied = [element for element in page.elements if "51C(a)" in element["text"]]
+    require(applied, "no element applies 51C(a), so the regulation 27 check matched nothing")
+    for element in applied:
+        require("regulation 27" in element["text"], f"51C(a) is applied without the regulation 27 condition: {element['text'][:120]}")
+    occasion = [element for element in elements_in("scenario-two-a") if "regulation 27" in element["text"] and "51C(a)" not in element["text"]]
+    require(occasion, "the branch a facts must state the regulation 27 occasion")
+    r10 = [element for element in page.elements if "Recommendation 10" in element["text"] and re.search(r"refus|terminat", element["text"])]
+    require(r10, "no element states the Recommendation 10 consequence, so the confinement check matched nothing")
+    for element in r10:
+        require("Recommendation 13" in element["text"], f"Recommendation 13 must be mentioned with Recommendation 10: {element['text'][:120]}")
+        require("due diligence is complete" in element["text"] or "inability to comply" in element["text"], f"Recommendation 10 must be tied to its trigger: {element['text'][:120]}")
 
     # ---- progressive enhancement and interaction contract
     require('<form' in html and 'action="' not in " ".join(re.findall(r"<form\b[^>]*>", html)), "forms must not carry an action attribute")

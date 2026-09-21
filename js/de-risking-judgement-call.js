@@ -5,6 +5,9 @@
 
   var sentEvents = {};
 
+  // Grades this guide defines. Anything else is ignored for the state attribute and for telemetry.
+  var KNOWN_GRADES = ['best', 'reading', 'incomplete', 'unsupported', 'unsupported-facts'];
+
   function consentGranted() {
     try {
       return localStorage.getItem('fcr_cookie_consent_v2') === 'accepted';
@@ -86,7 +89,7 @@
         });
       }
 
-      var grade = selected.dataset.grade || 'ungraded';
+      var grade = KNOWN_GRADES.indexOf(selected.dataset.grade) !== -1 ? selected.dataset.grade : null;
       var label = selected.dataset.gradeLabel || '';
       feedback.textContent = 'Recorded: ' + label + '. ';
       if (target && target.id) {
@@ -95,13 +98,14 @@
         link.textContent = 'Read the analysis of your choice';
         feedback.appendChild(link);
       }
-      feedback.dataset.state = grade;
-
-      emitAggregateEvent('scenario:' + scenarioId, 'scenario_complete', {
-        guide_id: GUIDE_ID,
-        scenario_id: scenarioId,
-        decision_grade: grade
-      });
+      if (grade) {
+        feedback.dataset.state = grade;
+        emitAggregateEvent('scenario:' + scenarioId, 'scenario_complete', {
+          guide_id: GUIDE_ID,
+          scenario_id: scenarioId,
+          decision_grade: grade
+        });
+      }
     });
   });
 

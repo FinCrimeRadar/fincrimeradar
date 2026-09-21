@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import sys
 import subprocess
 import tempfile
 import threading
@@ -17,6 +18,9 @@ from typing import Any
 import requests
 import websocket
 from PIL import Image
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from de_risking_contract import ALLOWED_GRADES, EXPECTED_OPTION_GRADES, GRADE_LABELS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SLUG = "de-risking-judgement-call"
@@ -264,8 +268,24 @@ def check_reveal_and_change(cdp: CDP) -> None:
     print("OK: analyses hidden before Record, revealed with the choice marked, focus link works, change clears the verdict")
 
 
+def check_grade_contract(cdp: CDP) -> None:
+    """Every option in every form carries the grade and label in the shared contract."""
+    dom = cdp.evaluate("""(() => Object.fromEntries([...document.querySelectorAll('[data-decision-form]')].map(form => [
+      form.dataset.scenarioId,
+      Object.fromEntries([...form.querySelectorAll('input[type=radio]')].map(r => [r.value, [r.dataset.grade, r.dataset.gradeLabel]]))
+    ])))()""")
+    expected = {key: {value: [grade, GRADE_LABELS[grade]] for value, grade in options.items()} for key, options in EXPECTED_OPTION_GRADES.items()}
+    require(dom == expected, f"option grades differ from the contract: {dom}")
+    for key, options in EXPECTED_OPTION_GRADES.items():
+        require(sum(1 for grade in options.values() if grade == "best") == 1, f"{key} must have exactly one best option")
+        require(set(options.values()) <= set(ALLOWED_GRADES), f"{key} uses a grade outside the allow-list")
+    print("OK: all 12 options carry the grade and label in the shared contract")
+
+
 def check_wait_option_grade(cdp: CDP) -> None:
-    """The wait option is graded on the stated facts: badge, feedback and state all agree, and the best option is unchanged."""
+    """The wait option is graded on the stated facts, and its badge has its own style and keeps its text."""
+    grade = EXPECTED_OPTION_GRADES["ownership"]["wait"]
+    label = GRADE_LABELS[grade]
     result = cdp.evaluate("""(() => {
       const form = document.querySelector('[data-scenario-id="ownership"]');
       const sec = form.closest('.fcr-section');
@@ -275,15 +295,51 @@ def check_wait_option_grade(cdp: CDP) -> None:
       const fb = form.querySelector('.fcr-feedback');
       const block = sec.querySelector('.fcr-optfb[data-selected="true"]');
       const badge = block && block.querySelector('.fcr-grade');
-      const grades = [...form.querySelectorAll('input[type=radio]')].map(r => r.value + ':' + r.dataset.grade);
+      const best = sec.querySelector('.fcr-optfb[data-grade="best"] .fcr-grade');
+      const plain = sec.querySelector('.fcr-optfb[data-grade="unsupported"] .fcr-grade');
+      const look = el => el && (({borderTopColor, color, backgroundColor}) => [borderTopColor, color, backgroundColor])(getComputedStyle(el));
       return {grade: radio.dataset.grade, label: radio.dataset.gradeLabel, state: fb.dataset.state, feedback: fb.textContent,
-              badge: badge && badge.textContent, badgeGrade: badge && badge.dataset.grade, option: block && block.dataset.option, grades};
+              badge: badge && badge.textContent, badgeGrade: badge && badge.dataset.grade, option: block && block.dataset.option,
+              waitLook: look(badge), bestLook: look(best), plainLook: look(plain)};
     })()""")
-    require(result["grade"] == "unsupported-facts" and result["label"] == "Not supported on the stated facts", f"wait option grade wrong: {result}")
-    require(result["state"] == "unsupported-facts" and "Not supported on the stated facts" in result["feedback"], f"wait feedback wrong: {result}")
-    require(result["option"] == "wait" and result["badge"] == "Not supported on the stated facts" and result["badgeGrade"] == "unsupported-facts", f"wait analysis badge wrong: {result}")
-    require(sorted(result["grades"]) == sorted(["apply31:best", "enhanced:unsupported", "notice:unsupported", "wait:unsupported-facts"]), f"ownership grades changed unexpectedly: {result['grades']}")
-    print("OK: wait option graded Not supported on the stated facts in badge, analysis, feedback and state")
+    require(result["grade"] == grade and result["label"] == label, f"wait option grade wrong: {result}")
+    require(result["state"] == grade and label in result["feedback"], f"wait feedback wrong: {result}")
+    require(result["option"] == "wait" and result["badge"] == label and result["badgeGrade"] == grade, f"wait analysis badge wrong: {result}")
+    require(result["waitLook"] != result["bestLook"] and result["waitLook"] != result["plainLook"], f"the unsupported-facts badge needs its own style: {result}")
+    print("OK: wait option graded on the stated facts in badge, analysis, feedback and state, with its own badge style")
+
+
+def check_unknown_grade(cdp: CDP) -> None:
+    """An unknown or missing grade is ignored for data-state and telemetry, and only aggregate fields are sent."""
+    result = cdp.evaluate("""(() => {
+      window.__ev = []; window.gtag = (...a) => window.__ev.push(a);
+      localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
+      const form = document.querySelector('[data-scenario-id="ownership"]');
+      const fb = form.querySelector('.fcr-feedback');
+      const submitWith = (value, grade) => {
+        const radio = form.querySelector('input[value="' + value + '"]');
+        const original = radio.dataset.grade;
+        if (grade === null) radio.removeAttribute('data-grade'); else radio.dataset.grade = grade;
+        radio.checked = true;
+        form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+        const seen = {state: fb.getAttribute('data-state'), text: fb.textContent, events: window.__ev.length};
+        radio.dataset.grade = original;
+        return seen;
+      };
+      const unknown = submitWith('enhanced', 'not-a-grade');
+      const proto = submitWith('enhanced', '__proto__');
+      const missing = submitWith('enhanced', null);
+      const uppercase = submitWith('enhanced', 'BEST');
+      const known = submitWith('apply31', 'best');
+      return {unknown, proto, missing, uppercase, known, sent: window.__ev.map(e => e.slice(0, 2).concat([Object.keys(e[2]).sort(), e[2].decision_grade]))};
+    })()""")
+    for name in ("unknown", "proto", "missing", "uppercase"):
+        seen = result[name]
+        require(seen["state"] is None and seen["events"] == 0, f"an {name} grade must not set data-state or send telemetry: {result}")
+        require(seen["text"].startswith("Recorded:"), f"an {name} grade must still record the choice: {result}")
+    require(result["known"]["state"] == "best" and result["known"]["events"] == 1, f"a known grade must still work after unknown ones: {result}")
+    require(result["sent"] == [["event", "scenario_complete", ["decision_grade", "guide_id", "scenario_id"], "best"]], f"only aggregate fields with an allowed grade may be sent: {result['sent']}")
+    print("OK: unknown, missing and unusual grades are ignored for state and telemetry, only aggregate fields are sent")
 
 
 def check_quiz_guessing(cdp: CDP) -> None:
@@ -590,7 +646,10 @@ def run() -> None:
         navigate(cdp, url, 390)
         check_reveal_and_change(cdp)
         check_quiz_guessing(cdp)
+        check_grade_contract(cdp)
         check_wait_option_grade(cdp)
+        navigate(cdp, url, 390)
+        check_unknown_grade(cdp)
         check_link_clears_nav(cdp, url)
         check_no_flash(cdp, url)
         navigate(cdp, url, 390)

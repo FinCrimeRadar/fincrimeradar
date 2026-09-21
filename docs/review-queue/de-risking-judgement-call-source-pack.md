@@ -255,3 +255,11 @@ Primary text re-read from legislation.gov.uk data.xml on 2026-09-21: MLR 2017 re
 13. **Capitalisation.** "A correspondent relationship" quoted with a lower-case initial, matching reg 34(4)(a).
 
 Reviewer to test again: the reading-dependence statement in scenario one, the wait option grade, and every place 51C(a) is applied.
+
+## K. Quiz question 1 rewrite after the code review of 929efdd..1b2ede0
+
+Primary text re-read for this change: MLR 2017 reg 33(1)(b) and 33(3)(a) from legislation.gov.uk data.xml on 2026-09-21 at 20:43 UTC. Reg 33(1)(b) applies to a business relationship with a person established in a FATF call for action country, or a relevant transaction where either party is so established. Reg 33(3)(a) defines the country by the Call for Action list as it has effect from time to time.
+
+The question stem now speaks of establishment in a country on either FATF list (the earlier "listing" shorthand did not match the establishment link in the regulation). The three options are 89, 86 and 83 characters, the correct option is the middle length and sits at position b, and the five-question positions remain b, c, a, c, b. New ledger entry: `de-risking-judgement-call.mlr-reg33-3-call-for-action-country-definition.001`.
+
+Reviewer to confirm: the correct option ("Only establishment in a Call for Action country triggers it, not Increased Monitoring") is right on the text, and that neither distractor is arguable under any reading of the pre-amendment definition.

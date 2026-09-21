@@ -8754,5 +8754,21 @@
     "reviewDue": "2027-09-21",
     "status": "verified",
     "note": "Pack read: the Updated June 2026 edition was read on 2026-09-21 (source pack section B4). It was not re-fetched in the external review pass, because the FATF site returned a script shell to a plain request. Re-read before merge."
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg33-3-call-for-action-country-definition.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimType": "definition",
+    "claimText": "For the purposes of regulation 33(1)(b) of the MLR 2017, a \"FATF call for action country\" means a country named on the list of High-Risk Jurisdictions subject to a Call for Action published by the Financial Action Task Force as such list has effect from time to time (regulation 33(3)(a)). Regulation 33(1)(b) applies to a business relationship with a person established in such a country, or to a relevant transaction where either party is established in one. Quiz question 1 and its answer note rely on this: the trigger is establishment in a Call for Action country, and Increased Monitoring is not an automatic trigger.",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified",
+    "note": "Re-read from legislation.gov.uk data.xml (uksi/2017/692/regulation/33) on 2026-09-21 at 20:43 UTC before the quiz question 1 options were rewritten."
   }
 ]
