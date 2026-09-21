@@ -14,7 +14,7 @@ SLUG = "de-risking-judgement-call"
 GUIDE = ROOT / f"{SLUG}.html"
 SCRIPT = ROOT / "js" / f"{SLUG}.js"
 CLAIM_PREFIX = f"{SLUG}."
-GRADES = {"best", "reading", "incomplete", "unsupported"}
+GRADES = {"best", "reading", "incomplete", "unsupported", "unsupported-facts"}
 
 
 class KnowledgeCountParser(HTMLParser):
@@ -212,6 +212,28 @@ def main() -> None:
     require("Answer notes" in quiz_html and quiz_html.count("<em>Source:</em>") == 5, "answer notes must separate Source, Application and Recommendation for each question")
     require('id="saveFrameworkStatus" aria-live="polite" role="status"' in html, "export feedback is not a polite status")
     require('id="fcrClosingPatterns"' in html and "fcrClosingPatterns" in script, "export is not sourced from the closing DOM")
+
+    # ---- external review contract (wording that must not regress)
+    require('data-scenario-id="ownership"' in html, "ownership decision missing")
+    ownership = section(html, "scenario-two-a")
+    wait = re.search(r'value="wait" data-grade="([^"]+)" data-grade-label="([^"]+)"', ownership)
+    require(wait is not None and wait.group(1) == "unsupported-facts" and wait.group(2) == "Not supported on the stated facts", "the wait option must be graded Not supported on the stated facts")
+    require(re.search(r'<span class="fcr-grade" data-grade="unsupported-facts">Not supported on the stated facts</span>', ownership) is not None, "the wait analysis badge must read Not supported on the stated facts")
+    visible = re.sub(r"<script.*?</script>|<style.*?</style>", "", html, flags=re.S)
+    plain = text_only(visible)
+    for banned in ("Stop new transactions", "stop new transactions", "turn on purpose", "and nothing else", "no verdict in this guide rests", "No verdict rests", "cannot rest on either reading", "not a lawful ground", "never as a lawful ground"):
+        require(banned not in plain, f"superseded wording is still present: {banned}")
+    require("“Correspondent relationship”" not in plain, "a quoted defined term must keep its lower-case initial")
+    require("sections 333D(3) and 21G(3)" in plain and "333D(1)(b) or 21G(1)(b)" in plain, "both offence exceptions must be stated in the exit section")
+    require("subject to 51D(2)" in plain and "without delay" in plain, "51D must be described as substituting notice without delay, subject to 51D(2)")
+    for chunk in re.split(r"</(?:p|dd|li)>", visible):
+        chunk_text = text_only(chunk)
+        if "51C(a)" in chunk_text:
+            require("regulation 27" in chunk_text, f"51C(a) is applied without stating the regulation 27 condition: {chunk_text[:120]}")
+    require("regulation 27(8)" in text_only(section(html, "scenario-two-a")), "the branch a facts must state the regulation 27 occasion")
+    require(re.search(r"51B conditions are met[^.]*\.", plain) is None or "Whether the 51B conditions are met depends on Part 6 applying under regulation 40(1)" in plain, "the charity 51B conclusion must be conditional")
+    require("regulation 34(2) or 34(3) does not require non-continuation" in plain, "the urgent exit sentence must carry the 34(2) and 34(3) scope")
+    require(plain.count("Recommendation 13") >= 3 and "the refuse or terminate consequence in Recommendation 10 is not engaged" in plain, "R.10 must be confined to complete due diligence, with R.13 separate")
 
     # ---- progressive enhancement and interaction contract
     require('<form' in html and 'action="' not in " ".join(re.findall(r"<form\b[^>]*>", html)), "forms must not carry an action attribute")

@@ -44,3 +44,5 @@ For a manual ChatGPT or Codex review outside Claude Code. No prose has been draf
 **Return format per claim.** Verdict; operative words quoted from the primary text with provision reference; structural check (correct limb, conditions, entity scope, exceptions, effect); what the guide may safely say; what it must not say; any citation or quotation error in the pack.
 
 **Known gaps you should not fill from memory.** JMLSG Sept 2026 and Feb 2026 revisions (unread, awaiting HMT approval). The 2024 HM Treasury consultation and the Government response (unread).
+
+Post-review addition (source pack section J): the 13 external review findings on the drafted guide were applied at head e5eea64. Please re-test the reading-dependence statement in scenario one, the grade of the "wait" option, the conditional 51B conclusion for the charity, and each place 51C(a) is applied.

@@ -8080,7 +8080,7 @@
   {
     "claimId": "de-risking-judgement-call.mlr-reg33-1b-fatf-call-for-action.001",
     "guide": "de-risking-judgement-call.html",
-    "claimText": "Regulation 33(1)(b) of the MLR 2017, as amended by SI 2026/621 from 30 June 2026, applies to a \"FATF call for action country\", by reference to the FATF Call for Action list \"as such list has effect from time to time\". Regulation 33(1)(b) then requires enhanced due diligence.",
+    "claimText": "Regulation 33(1)(b) of the MLR 2017, as amended by SI 2026/621 from 30 June 2026, applies to a \"FATF call for action country\", by reference to the FATF Call for Action list \"as such list has effect from time to time\". Regulation 33(1)(b) then requires enhanced due diligence. It applies to a business relationship with a person established in a FATF call for action country, or to a relevant transaction where either party is so established, so the trigger is the establishment link and not a listing alone.",
     "claimType": "regulatory",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
@@ -8171,7 +8171,7 @@
   {
     "claimId": "de-risking-judgement-call.mlr-reg34-2-shell-bank-prohibition.001",
     "guide": "de-risking-judgement-call.html",
-    "claimText": "Regulation 34(2) of the MLR 2017 prohibits a correspondent relationship with a shell bank.",
+    "claimText": "Regulation 34(2) of the MLR 2017 prohibits a correspondent relationship with a shell bank. Regulation 34(3) requires appropriate enhanced measures to ensure the firm does not enter into or continue a correspondent relationship with an institution known to allow its accounts to be used by a shell bank. The guide scopes its urgent exit sentence to cases where 34(2) or 34(3) does not require non-continuation.",
     "claimType": "regulatory",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
@@ -8307,7 +8307,7 @@
   {
     "claimId": "de-risking-judgement-call.fatf-r10-unable-to-comply-cdd.001",
     "guide": "de-risking-judgement-call.html",
-    "claimText": "FATF Recommendation 10 ties refusal or termination of a relationship to inability to comply with the customer due diligence requirements.",
+    "claimText": "FATF Recommendation 10 ties refusal or termination of a relationship to inability to comply with the customer due diligence requirements. The guide confines its Recommendation 10 statement to customers where due diligence is complete (the refuse or terminate consequence is then not engaged) and mentions Recommendation 13 separately.",
     "claimType": "regulatory",
     "source": {
       "title": "Financial Action Task Force, The FATF Recommendations, Updated June 2026: Recommendations 1, 10 and 13 and Interpretive Notes 1 and 10",
@@ -8473,7 +8473,7 @@
   {
     "claimId": "de-risking-judgement-call.psr-2017-reg-51c-51d-exemptions.001",
     "guide": "de-risking-judgement-call.html",
-    "claimText": "Regulation 51C lists grounds on which 51B(1) does not apply. Regulation 51C(a) applies where the payment service provider is required to apply customer due diligence and is unable to apply it as regulation 28 requires. Regulation 51C(c) applies only if both conditions are met: reasonable grounds to suspect, and a suspicion that a payment service under the contract has been, is being or will be used in connection with serious crime. Regulation 51D lists cases where the 90-day period does not apply.",
+    "claimText": "Regulation 51C lists grounds on which 51B(1) does not apply. Regulation 51C(a) applies where the payment service provider is required by regulation 27 of the MLR 2017 to apply customer due diligence measures and is unable to apply them as regulation 28 requires. Regulation 51C(c) applies only if both conditions are met: reasonable grounds to suspect, and a suspicion that a payment service under the contract has been, is being or will be used in connection with serious crime. Regulation 51D disapplies the 90-day period in two listed cases (conduct amounting to a listed public order or harassment offence towards a person acting for the provider, and incorrect information given when entering the contract) and requires the notice without delay after the decision to terminate instead, subject to 51D(2), under which another legal requirement prevails to the extent of the conflict.",
     "claimType": "regulatory",
     "source": {
       "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
@@ -8559,7 +8559,7 @@
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
     "status": "needs-review",
-    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+    "note": "Published as Unknown or Ambiguous with both readings set out. The recommended steps in the scenarios hold on either reading, and where a continue-or-exit choice turns on a reading the guide says so. Pending manual external adversarial review under CLAUDE.md section 7."
   },
   {
     "claimId": "de-risking-judgement-call.open-point-reg33-1c-reach.001",
@@ -8575,7 +8575,7 @@
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
     "status": "needs-review",
-    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+    "note": "Published as Unknown or Ambiguous with both readings set out. The recommended steps in the scenarios hold on either reading, and where a continue-or-exit choice turns on a reading the guide says so. Pending manual external adversarial review under CLAUDE.md section 7."
   },
   {
     "claimId": "de-risking-judgement-call.open-point-51b-4-legal-requirement.001",
@@ -8605,7 +8605,7 @@
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
     "status": "needs-review",
-    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+    "note": "Published as Unknown or Ambiguous with both readings set out. The recommended steps in the scenarios hold on either reading, and where a continue-or-exit choice turns on a reading the guide says so. Pending manual external adversarial review under CLAUDE.md section 7."
   },
   {
     "claimId": "de-risking-judgement-call.open-point-framework-contract.001",
@@ -8621,7 +8621,7 @@
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
     "status": "needs-review",
-    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+    "note": "Published as Unknown or Ambiguous with both readings set out. The recommended steps in the scenarios hold on either reading, and where a continue-or-exit choice turns on a reading the guide says so. Pending manual external adversarial review under CLAUDE.md section 7."
   },
   {
     "claimId": "de-risking-judgement-call.open-point-cure-timing.001",
@@ -8637,12 +8637,12 @@
     "verifiedOn": "2026-09-21",
     "reviewDue": "2027-09-21",
     "status": "needs-review",
-    "note": "Published as Unknown or Ambiguous with both readings set out, and no verdict rests on either reading. Pending manual external adversarial review under CLAUDE.md section 7."
+    "note": "Published as Unknown or Ambiguous with both readings set out. The recommended steps in the scenarios hold on either reading, and where a continue-or-exit choice turns on a reading the guide says so. Pending manual external adversarial review under CLAUDE.md section 7."
   },
   {
     "claimId": "de-risking-judgement-call.scenario-verdict-text-application-recommendation.001",
     "guide": "de-risking-judgement-call.html",
-    "claimText": "The Application and Recommendation text in the three graded decisions and the five knowledge check answer notes applies the sources above to fictional scenario facts. It is FinCrimeRadar assessment, not regulatory or legal advice, and is pending manual external adversarial review under CLAUDE.md sections 7 and 15.",
+    "claimText": "The Application and Recommendation text in the three graded decisions and the five knowledge check answer notes applies the sources above to fictional scenario facts. It is FinCrimeRadar assessment, not regulatory or legal advice, and is pending manual external adversarial review under CLAUDE.md sections 7 and 15. It includes the statements that capacity and cost do not themselves create an AML statutory duty to exit but may inform a commercial decision subject to other applicable law, and that the continue-or-exit choice in the respondent scenario depends on the reading of regulation 31 adopted.",
     "claimType": "regulatory",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
@@ -8706,5 +8706,53 @@
     "reviewDue": "2027-09-21",
     "status": "verified",
     "note": "Re-read from legislation.gov.uk data.xml (uksi/2017/692/regulation/3) on 2026-09-21 at 19:20 UTC before this entry was added. Current revised text, restrict start date 2026-06-30. Added in the post-drafting pass recorded in source pack section I."
+  },
+  {
+    "claimId": "de-risking-judgement-call.mlr-reg27-cdd-occasions.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimType": "regulatory",
+    "claimText": "Regulation 27(1) of the MLR 2017 requires customer due diligence measures when a relevant person establishes a business relationship, carries out a qualifying occasional transaction, suspects money laundering or terrorist financing, or doubts the veracity or adequacy of documents or information previously obtained. Regulation 27(8) also requires them in the cases it lists, including at other appropriate times to existing customers on a risk based approach (27(8)(a)). The guide's branch a facts rely on regulation 27(8) as the regulation 27 condition in 51C(a).",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulations 3, 18, 19, 28, 31, 33, 34 and 35, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified",
+    "note": "Re-read from legislation.gov.uk data.xml (uksi/2017/692/regulation/27) on 2026-09-21 in the external review pass. Source pack section J."
+  },
+  {
+    "claimId": "de-risking-judgement-call.psr-2017-reg-40-1-application.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimType": "regulatory",
+    "claimText": "Regulation 40(1) of the Payment Services Regulations 2017 provides that Part 6 applies to payment services where the services are provided from an establishment maintained by the payment service provider or its agent in the United Kingdom, and in one of the circumstances listed in 40(1)(b). The guide makes the charity 51B conclusion conditional on this, on there being no regulation 40(7) agreement, and on there being no 51C or 51D ground.",
+    "source": {
+      "title": "Payment Services Regulations 2017 (SI 2017/752), regulations 2, 40, 51A to 51D and 55, as inserted or amended by SI 2025/688",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified",
+    "note": "Re-read from legislation.gov.uk data.xml (uksi/2017/752/regulation/40) on 2026-09-21 in the external review pass. Source pack section J."
+  },
+  {
+    "claimId": "de-risking-judgement-call.fatf-r13-correspondent-banking-and-shell-banks.001",
+    "guide": "de-risking-judgement-call.html",
+    "claimType": "regulatory",
+    "claimText": "FATF Recommendation 13 separately deals with correspondent banking and shell banks. Its measures are expressed to be in addition to normal customer due diligence, and it prohibits relationships with shell banks. The guide mentions Recommendation 13 separately from Recommendation 10.",
+    "source": {
+      "title": "Financial Action Task Force, The FATF Recommendations, Updated June 2026: Recommendations 1, 10 and 13 and Interpretive Notes 1 and 10",
+      "url": "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html",
+      "publisher": "Financial Action Task Force",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-09-21",
+    "reviewDue": "2027-09-21",
+    "status": "verified",
+    "note": "Pack read: the Updated June 2026 edition was read on 2026-09-21 (source pack section B4). It was not re-fetched in the external review pass, because the FATF site returned a script shell to a plain request. Re-read before merge."
   }
 ]

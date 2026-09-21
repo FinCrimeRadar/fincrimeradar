@@ -264,6 +264,28 @@ def check_reveal_and_change(cdp: CDP) -> None:
     print("OK: analyses hidden before Record, revealed with the choice marked, focus link works, change clears the verdict")
 
 
+def check_wait_option_grade(cdp: CDP) -> None:
+    """The wait option is graded on the stated facts: badge, feedback and state all agree, and the best option is unchanged."""
+    result = cdp.evaluate("""(() => {
+      const form = document.querySelector('[data-scenario-id="ownership"]');
+      const sec = form.closest('.fcr-section');
+      const radio = form.querySelector('input[value="wait"]');
+      radio.checked = true;
+      form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const fb = form.querySelector('.fcr-feedback');
+      const block = sec.querySelector('.fcr-optfb[data-selected="true"]');
+      const badge = block && block.querySelector('.fcr-grade');
+      const grades = [...form.querySelectorAll('input[type=radio]')].map(r => r.value + ':' + r.dataset.grade);
+      return {grade: radio.dataset.grade, label: radio.dataset.gradeLabel, state: fb.dataset.state, feedback: fb.textContent,
+              badge: badge && badge.textContent, badgeGrade: badge && badge.dataset.grade, option: block && block.dataset.option, grades};
+    })()""")
+    require(result["grade"] == "unsupported-facts" and result["label"] == "Not supported on the stated facts", f"wait option grade wrong: {result}")
+    require(result["state"] == "unsupported-facts" and "Not supported on the stated facts" in result["feedback"], f"wait feedback wrong: {result}")
+    require(result["option"] == "wait" and result["badge"] == "Not supported on the stated facts" and result["badgeGrade"] == "unsupported-facts", f"wait analysis badge wrong: {result}")
+    require(sorted(result["grades"]) == sorted(["apply31:best", "enhanced:unsupported", "notice:unsupported", "wait:unsupported-facts"]), f"ownership grades changed unexpectedly: {result['grades']}")
+    print("OK: wait option graded Not supported on the stated facts in badge, analysis, feedback and state")
+
+
 def check_quiz_guessing(cdp: CDP) -> None:
     result = cdp.evaluate("""(() => {
       const f = document.getElementById('knowledgeForm'), fb = document.getElementById('knowledgeFeedback');
@@ -568,6 +590,7 @@ def run() -> None:
         navigate(cdp, url, 390)
         check_reveal_and_change(cdp)
         check_quiz_guessing(cdp)
+        check_wait_option_grade(cdp)
         check_link_clears_nav(cdp, url)
         check_no_flash(cdp, url)
         navigate(cdp, url, 390)
