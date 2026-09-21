@@ -7,7 +7,7 @@ Companion to `de-risking-judgement-call-source-pack.md`. Scope: confirm the Inte
 | Element | Answer for this guide |
 |---|---|
 | Intelligence question | When a UK bank faces a higher-risk correspondent bank or customer relationship, at what point does exit stop being a defensible AML decision and become de-risking, and can the analyst evidence that line to a supervisor? |
-| Evidence state | Established: MLR regs 18, 19, 28, 31, 33 as amended, 34; PSRs regs 51B, 51C; PRIN 2A text. Established as non-binding guidance: FATF Guidance, FCA de-risking page, FCTR 12.3. Industry position: JMLSG, carrying the SI 2026/621 update caveat. FinCrimeRadar assessment: residual risk, the outcome ladder, the mapping of the Increased Monitoring list to reg 33(6)(c), Consumer Duty on exit. Provisional: JMLSG revisions awaiting HMT approval. Unknown: JMLSG conformity date, HMT rationale for the 33(1)(b) narrowing. |
+| Evidence state | Established: MLR regs 18, 19, 28, 31, 33 as amended, 34; PSRs regs 51B, 51C; PRIN 2A text. Established as non-binding guidance: FATF Guidance, FCA de-risking page, FCTR 12.3. Industry position: JMLSG, carrying the SI 2026/621 update caveat. FinCrimeRadar assessment: residual risk, the outcome ladder, the mapping of the Increased Monitoring list to reg 33(6)(c), Consumer Duty on exit. Provisional: JMLSG revisions awaiting HMT approval. Unknown: JMLSG conformity date. HM Treasury's stated objective for the 33(1)(b) narrowing is known from its Explanatory Memorandum para 5.2 (not part of the instrument). |
 | Decision object | One relationship outcome from five: ordinary continuation, enhanced continuation, conditional or restricted continuation, discretionary decline or exit, mandatory decline or termination. Plus the Decision Record that defends it. |
 | Uncertainty | JMLSG has not conformed to SI 2026/621. FATF lists change each plenary. Whether regulation 31 reaches inability to complete EDD (source pack A4). Whether Part 6 of the PSRs reaches an institutional respondent. How the FCA reads tipping-off against the 51B reasons duty. No source defines a residual risk threshold. |
 | Change condition | Named facts that flip the outcome: jurisdiction moves onto the Call for Action list (33(1)(b) and 33(3A) engage), CDD becomes impossible under reg 28 (reg 31 makes the decision for the firm), a shell bank link surfaces (reg 34(2)), suspicion arises (51C(c), POCA route), mitigants stop being verifiable. |
@@ -39,7 +39,7 @@ Materially distinct in facts, decision context, risk mechanism and the practitio
 - Context: institution-to-institution. Respondent bank established in a jurisdiction on the FATF Increased Monitoring list, not on the Call for Action list. Nested access to downstream customers. Some information requests answered, some not.
 - Risk mechanism: geography plus opacity of downstream customers.
 - Judgement tested: the post 30 June 2026 structure. No automatic reg 33(1)(b) trigger, but reg 34(1) measures still apply for a third-country respondent and the listing is a 33(6)(c) risk factor as an application. Outcome is likely conditional or restricted continuation (for example limited payment types, enhanced monitoring, senior sign-off) rather than exit.
-- Counterfactual: the jurisdiction moves onto the Call for Action list. 33(1)(b) and 33(3A) now mandate EDD content and senior approval. Exit is still not mandated by that fact alone. This isolates which fact drives the outcome.
+- Counterfactual: the jurisdiction moves onto the Call for Action list. 33(1)(b) and 33(3A) now mandate EDD content and senior approval. Exit is still not mandated by reg 33 alone. This isolates which fact drives the outcome. Use an EDD-only Call for Action jurisdiction for the counterfactual (the FATF page's second tier, Myanmar as at 19 June 2026), not DPRK or Iran, because for those two the FATF calls for countermeasures that include correspondent-relationship measures (source pack B3). Date-stamp it, since the FATF said it would consider countermeasures for Myanmar in October 2026.
 - Overlay stage: PSRs 51B may not apply (institutional user, regulation 40(7) disapplication by agreement, and it is not established that the arrangement is a payment services framework contract). PRIN 2A does not apply (a bank respondent is not a retail customer). Stage 8 is contract notice, documentation and any SAR consent point. Do not assert the 51B position either way in the scenario feedback.
 - The respondent's failure to answer information requests is used only to test whether mitigants are verifiable (stage 3). It is not used to trigger regulation 31, for the reason in section 2 stage 2.
 
@@ -88,8 +88,8 @@ Excluded on purpose: any APP scam construct (Four Verdict Problem, Nominal Perfo
 ## 5. Risks to manage in the build
 
 - Do not hard-code the FATF list contents as current. Date-stamp them.
-- Do not state the reason HM Treasury narrowed 33(1)(b).
-- Do not cite FCTR 12.3 as updated in 2024.
+- The reason for narrowing 33(1)(b) may be stated only as HM Treasury's Explanatory Memorandum objective (para 5.2), labelled as such, never as the effect of the regulation.
+- Do not attribute the FCTR 12 chapter-level date (01/11/2024) to FCTR 12.3.6G to 12.3.8G. Cite the paragraphs by number and use their own date (13/12/2018) if a date is given (source pack C2).
 - Keep the Consumer Duty as an overlay for retail exits only.
 - Section 10 discipline for every scenario feedback string: Source, Application, Recommendation kept visibly separate, especially for reg 31 versus reg 34 and 51B versus 51C.
 - Section 7 external review is required before publication for the claims listed in the source pack, part H.
