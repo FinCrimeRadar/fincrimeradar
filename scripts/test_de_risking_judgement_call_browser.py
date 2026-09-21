@@ -121,7 +121,7 @@ def complete_form_by_keyboard(cdp: CDP, scenario_id: str, radio_name: str) -> No
 
     focus_style = cdp.evaluate("getComputedStyle(document.activeElement.closest('.fcr-option')).outlineStyle")
     require(focus_style != "none", f"{scenario_id} keyboard focus indicator is not visible")
-    for _ in range(4):
+    for _ in range(6):
         if cdp.evaluate(f"document.querySelector('[data-scenario-id=\"{scenario_id}\"] input[data-grade=\"best\"]').checked"):
             break
         dispatch_key(cdp, "ArrowDown", "ArrowDown", 40)
@@ -189,6 +189,175 @@ def local_variable_audit() -> None:
     inline_leaks = sorted(set(re.findall(r'style="[^"]*var\((--[\w-]+)', html)) - defined)
     require(not inline_leaks, f"inline style variables not defined in the guide's own :root: {inline_leaks}")
     print(f"OK: {len(used)} CSS variables used, all defined in the guide's own :root")
+
+
+def check_reveal_and_change(cdp: CDP) -> None:
+    """Analyses are hidden with JS on until Record, then all revealed with the choice marked; any change clears the verdict."""
+    result = cdp.evaluate("""(() => {
+      const out = [];
+      document.querySelectorAll('[data-decision-form]').forEach(form => {
+        const sec = form.closest('.fcr-section');
+        const set = sec.querySelector('.fcr-optfb-set');
+        const button = form.querySelector('.fcr-action');
+        const before = getComputedStyle(set).display;
+        const buttonBefore = getComputedStyle(button).display;
+        const radios = [...form.querySelectorAll('input[type=radio]')];
+        const pick = radios.find(r => r.dataset.grade === 'best');
+        pick.checked = true;
+        form.dispatchEvent(new Event('change', {bubbles: true}));
+        const stillHidden = getComputedStyle(set).display;
+        form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+        const after = getComputedStyle(set).display;
+        const blocks = [...set.querySelectorAll('.fcr-optfb')];
+        const visible = blocks.filter(b => b.getBoundingClientRect().height > 0).length;
+        const marked = blocks.filter(b => b.dataset.selected === 'true').map(b => b.dataset.option);
+        const link = form.querySelector('.fcr-feedback a');
+        let focused = null;
+        if (link) { link.click(); focused = document.activeElement && document.activeElement.id; }
+        const target = blocks.find(b => b.dataset.option === pick.value);
+        // change after submit: pick a different option without recording
+        const other = radios.find(r => r !== pick);
+        other.checked = true;
+        form.dispatchEvent(new Event('change', {bubbles: true}));
+        const fb = form.querySelector('.fcr-feedback');
+        out.push({
+          sid: form.dataset.scenarioId, before, buttonBefore, stillHidden, after, blocks: blocks.length, visible, marked,
+          linkOk: Boolean(link) && link.getAttribute('href') === '#' + (target && target.id), focusedOk: Boolean(target) && focused === target.id,
+          cleared: {
+            text: fb.textContent, state: fb.getAttribute('data-state'),
+            optionMarks: form.querySelectorAll('.fcr-option[data-selected]').length,
+            blockMarks: set.querySelectorAll('.fcr-optfb[data-selected]').length,
+            revealed: getComputedStyle(set).display
+          }
+        });
+      });
+      return out; })()""")
+    for item in result:
+        sid = item["sid"]
+        require(item["before"] == "none", f"{sid} analyses must be hidden before Record with JS on: {item}")
+        require(item["buttonBefore"] != "none", f"{sid} Record button must be visible with JS on")
+        require(item["stillHidden"] == "none", f"{sid} choosing an option must not reveal the analyses")
+        require(item["after"] != "none" and item["visible"] == item["blocks"] == 4, f"{sid} Record must reveal all four analyses: {item}")
+        require(len(item["marked"]) == 1, f"{sid} exactly one analysis must be marked: {item}")
+        require(item["linkOk"] and item["focusedOk"], f"{sid} feedback link must lead to and focus the chosen analysis: {item}")
+        cleared = item["cleared"]
+        require(cleared["text"] == "" and cleared["state"] is None and cleared["optionMarks"] == 0 and cleared["blockMarks"] == 0,
+                f"{sid} a change after Record must clear feedback, state and marks: {cleared}")
+        require(cleared["revealed"] != "none", f"{sid} analyses stay revealed after a change")
+    print("OK: analyses hidden before Record, revealed with the choice marked, focus link works, change clears the verdict")
+
+
+def check_quiz_guessing(cdp: CDP) -> None:
+    result = cdp.evaluate("""(() => {
+      const f = document.getElementById('knowledgeForm'), fb = document.getElementById('knowledgeFeedback');
+      const out = {};
+      for (const pos of [0, 1, 2]) {
+        f.querySelectorAll('input').forEach(i => i.checked = false);
+        ['q1','q2','q3','q4','q5'].forEach(q => { f.querySelectorAll('input[name=' + q + ']')[pos].checked = true; });
+        f.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+        out[pos] = [fb.textContent.slice(0, 14), fb.dataset.state];
+      }
+      f.dispatchEvent(new Event('change', {bubbles: true}));
+      out.afterChange = [fb.textContent, fb.getAttribute('data-state')];
+      return out; })()""")
+    for pos in ("0", "1", "2"):
+        require(result[pos][1] != "best", f"choosing option {int(pos) + 1} everywhere must not score best: {result}")
+    require(result["afterChange"] == ["", None], f"a quiz change must clear the score: {result}")
+    print("OK: first, second and third option everywhere never score best, quiz change clears the score")
+
+
+def check_telemetry_once(cdp: CDP) -> None:
+    result = cdp.evaluate("""(() => {
+      window.__ev = []; window.__errs = 0;
+      window.addEventListener('error', () => { window.__errs += 1; });
+      window.gtag = (...a) => window.__ev.push(a);
+      localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
+      const f = document.querySelector('[data-scenario-id="ownership"]');
+      const submit = () => f.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      f.querySelector('input[data-grade="best"]').checked = true;
+      submit(); submit(); f.querySelector('input[data-grade="unsupported"]').checked = true; submit();
+      const scenarioEvents = window.__ev.length;
+      const k = document.getElementById('knowledgeForm');
+      k.querySelectorAll('input[data-correct="true"]').forEach(i => i.checked = true);
+      k.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      k.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const total = window.__ev.length;
+      // consent not given first, then given: the event must still be sent once
+      localStorage.removeItem('fcr_cookie_consent_v2');
+      const r = document.querySelector('[data-scenario-id="respondent"]');
+      r.querySelector('input[data-grade="best"]').checked = true;
+      r.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const noConsent = window.__ev.length;
+      localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
+      r.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      r.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const afterConsent = window.__ev.length;
+      // analytics that throws must not surface an error or use up the event
+      window.gtag = () => { throw new Error('analytics down'); };
+      const l = document.querySelector('[data-scenario-id="residual"]');
+      l.querySelector('input[data-grade="best"]').checked = true;
+      l.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const feedback = l.querySelector('.fcr-feedback').textContent;
+      return {scenarioEvents, total, noConsent, afterConsent, errs: window.__errs, feedbackOk: feedback.startsWith('Recorded:')}; })()""")
+    require(result["scenarioEvents"] == 1, f"repeated Record must send one scenario event: {result}")
+    require(result["total"] == 2, f"repeated scoring must send one knowledge event: {result}")
+    require(result["noConsent"] == 2, f"nothing may be sent without consent: {result}")
+    require(result["afterConsent"] == 3, f"the event must send once after consent is given: {result}")
+    require(result["errs"] == 0 and result["feedbackOk"], f"a failing analytics call must not surface an error or block feedback: {result}")
+    print("OK: telemetry once per form per page load, consent respected, analytics failure contained")
+
+
+def check_export_layout(image: Image.Image) -> None:
+    """Every card must end shortly after its last text row (height computed from the drawn fonts)."""
+    rgb = image.convert("RGB")
+    x = 100
+    runs = []
+    start = None
+    for y in range(rgb.height):
+        white = rgb.getpixel((x, y)) == (255, 255, 255)
+        if white and start is None:
+            start = y
+        if not white and start is not None:
+            runs.append((start, y - 1))
+            start = None
+    require(len(runs) == 5, f"expected five card surfaces in the export, found {len(runs)}")
+    for top, bottom in runs:
+        last_text = top
+        for y in range(top, bottom + 1):
+            if any(rgb.getpixel((px, y)) != (255, 255, 255) for px in range(112, 1100, 3)):
+                last_text = y
+        require(bottom - last_text <= 40, f"card {top}-{bottom} has {bottom - last_text}px of empty space below its text")
+        require(bottom - last_text >= 8, f"card {top}-{bottom} text runs too close to the card edge")
+
+
+def check_no_script(cdp: CDP, url: str) -> None:
+    """Script unavailable: buttons hidden, analyses visible, and a stray submit navigates nowhere."""
+    cdp.call("Emulation.setScriptExecutionDisabled", {"value": True})
+    navigate(cdp, url, 375)
+    state = cdp.evaluate("""(() => ({
+      jsClass: document.documentElement.classList.contains('js'),
+      buttons: [...document.querySelectorAll('.fcr-choice .fcr-action, #knowledgeForm .fcr-action, #saveFrameworkImage')].map(b => getComputedStyle(b).display),
+      sets: [...document.querySelectorAll('.fcr-optfb-set')].map(s => [getComputedStyle(s).display, s.getBoundingClientRect().height > 100]),
+      blocks: [...document.querySelectorAll('.fcr-optfb')].filter(b => b.getBoundingClientRect().height > 0).length,
+      href: location.href
+    }))()""")
+    require(state["jsClass"] is False, "the js class must not be set without the script")
+    require(state["buttons"] and all(d == "none" for d in state["buttons"]), f"action buttons must be hidden without the script: {state['buttons']}")
+    require(len(state["sets"]) == 3 and all(d != "none" and tall for d, tall in state["sets"]), f"analyses must be visible without the script: {state['sets']}")
+    require(state["blocks"] == 12, f"all twelve option analyses must be visible without the script: {state['blocks']}")
+    dispatch_key(cdp, "Tab", "Tab", 9)
+    for _ in range(200):
+        dispatch_key(cdp, "Tab", "Tab", 9)
+        if cdp.evaluate("document.activeElement && document.activeElement.type") == "radio":
+            break
+    cdp.evaluate("document.activeElement.checked = true")
+    dispatch_key(cdp, "Enter", "Enter", 13, "\r")
+    cdp.evaluate("document.forms[0].requestSubmit()")
+    time.sleep(0.4)
+    after = cdp.evaluate("({href: location.href, search: location.search, hash: location.hash})")
+    require(after["search"] == "" and after["href"] == state["href"], f"a submit without the script must not navigate or add the selection to the URL: {after}")
+    cdp.call("Emulation.setScriptExecutionDisabled", {"value": False})
+    print("OK: no script: buttons hidden, all analyses visible, stray submit does not navigate")
 
 
 def run() -> None:
@@ -285,6 +454,12 @@ def run() -> None:
             navigate(cdp, url, 390)
             complete_form_by_keyboard(cdp, scenario_id, radio_name)
             print(f"OK: {scenario_id} decision keyboard operation, one option analysis marked")
+
+        navigate(cdp, url, 390)
+        check_reveal_and_change(cdp)
+        check_quiz_guessing(cdp)
+        navigate(cdp, url, 390)
+        check_telemetry_once(cdp)
 
         # Every option in every form carries a grade and the correct one is graded best.
         grades = cdp.evaluate("""[...document.querySelectorAll('[data-decision-form]')].map(f =>
@@ -428,6 +603,7 @@ def run() -> None:
             require(rendered.getpixel((10, 10)) == (7, 29, 43), "Canvas export brand background is missing")
             require(rendered.getpixel((75, 190)) == (15, 118, 110), "Canvas export first pattern accent is missing")
             require(rendered.getpixel((100, 190)) == (255, 255, 255), "Canvas export first pattern content surface is missing")
+            check_export_layout(image)
         require(cdp.evaluate("document.querySelectorAll('#saveFrameworkStatus[role=\"status\"]').length") == 1, "export status semantics are missing or duplicated")
         print("OK: closing DOM Canvas export content and status semantics")
 
@@ -451,6 +627,7 @@ def run() -> None:
         require(expanded["scrollWidth"] <= expanded["clientWidth"] + 1, "long label expansion introduced page overflow")
         print("OK: long-label expansion")
 
+        check_no_script(cdp, url)
         cdp.call("Emulation.setScriptExecutionDisabled", {"value": True})
         navigate(cdp, url, 375)
         no_js = page_metrics(cdp)

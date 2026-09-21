@@ -3,6 +3,12 @@
 
   var GUIDE_ID = 'de_risking_judgement_call';
 
+  // Buttons and the hidden option analyses depend on this class. Without the script the
+  // buttons stay hidden and every analysis stays visible.
+  document.documentElement.classList.add('js');
+
+  var sentEvents = {};
+
   function consentGranted() {
     try {
       return localStorage.getItem('fcr_cookie_consent_v2') === 'accepted';
@@ -11,9 +17,17 @@
     }
   }
 
-  function emitAggregateEvent(name, parameters) {
+  // Sends at most once per key per page load. A send that did not happen (no consent,
+  // no analytics, or an analytics error) does not use up the key.
+  function emitAggregateEvent(key, name, parameters) {
+    if (sentEvents[key]) return;
     if (!consentGranted() || typeof window.gtag !== 'function') return;
-    window.gtag('event', name, parameters);
+    try {
+      window.gtag('event', name, parameters);
+      sentEvents[key] = true;
+    } catch (error) {
+      // Analytics failure must never affect the guide.
+    }
   }
 
   var menuButton = document.getElementById('navHamburger');
@@ -25,7 +39,28 @@
     });
   }
 
+  function clearDecision(form) {
+    var feedback = form.querySelector('.fcr-feedback');
+    if (feedback) {
+      feedback.textContent = '';
+      feedback.removeAttribute('data-state');
+    }
+    form.querySelectorAll('.fcr-option').forEach(function (option) {
+      option.removeAttribute('data-selected');
+    });
+    var scope = form.closest('.fcr-section');
+    if (scope) {
+      scope.querySelectorAll('.fcr-optfb').forEach(function (block) {
+        block.removeAttribute('data-selected');
+      });
+    }
+  }
+
   document.querySelectorAll('[data-decision-form]').forEach(function (form) {
+    form.addEventListener('change', function () {
+      clearDecision(form);
+    });
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       var selected = form.querySelector('input[type="radio"]:checked');
@@ -37,27 +72,36 @@
         return;
       }
 
-      form.querySelectorAll('.fcr-option').forEach(function (option) {
-        option.removeAttribute('data-selected');
-      });
+      clearDecision(form);
       selected.closest('.fcr-option').setAttribute('data-selected', 'true');
 
+      var target = null;
       var scope = form.closest('.fcr-section');
       if (scope) {
+        scope.querySelectorAll('.fcr-optfb-set').forEach(function (set) {
+          set.setAttribute('data-revealed', 'true');
+        });
         scope.querySelectorAll('.fcr-optfb').forEach(function (block) {
-          block.removeAttribute('data-selected');
           if (block.dataset.option === selected.value) {
             block.setAttribute('data-selected', 'true');
+            block.setAttribute('tabindex', '-1');
+            target = block;
           }
         });
       }
 
       var grade = selected.dataset.grade || 'ungraded';
       var label = selected.dataset.gradeLabel || '';
-      feedback.textContent = 'Recorded: ' + label + '. The Source, Application and Recommendation analysis for your choice is marked in the list below.';
+      feedback.textContent = 'Recorded: ' + label + '. ';
+      if (target && target.id) {
+        var link = document.createElement('a');
+        link.href = '#' + target.id;
+        link.textContent = 'Read the analysis of your choice';
+        feedback.appendChild(link);
+      }
       feedback.dataset.state = grade;
 
-      emitAggregateEvent('scenario_complete', {
+      emitAggregateEvent('scenario:' + scenarioId, 'scenario_complete', {
         guide_id: GUIDE_ID,
         scenario_id: scenarioId,
         decision_grade: grade
@@ -67,6 +111,12 @@
 
   var knowledgeForm = document.getElementById('knowledgeForm');
   if (knowledgeForm) {
+    knowledgeForm.addEventListener('change', function () {
+      var feedback = document.getElementById('knowledgeFeedback');
+      feedback.textContent = '';
+      feedback.removeAttribute('data-state');
+    });
+
     knowledgeForm.addEventListener('submit', function (event) {
       event.preventDefault();
       var groups = ['q1', 'q2', 'q3', 'q4', 'q5'];
@@ -87,13 +137,17 @@
       feedback.textContent = 'Score: ' + score + ' of 5. The answer notes below the questions set out the Source, Application and Recommendation for each.';
       feedback.dataset.state = score >= 4 ? 'best' : 'caution';
 
-      emitAggregateEvent('knowledge_check_complete', {
+      emitAggregateEvent('knowledge', 'knowledge_check_complete', {
         guide_id: GUIDE_ID,
         score: score,
         total: 5
       });
     });
   }
+
+  // Card layout. The same routine measures and paints, so the card height always matches
+  // the fonts and line heights actually drawn.
+  var CARD_TEXT_WIDTH_INSET = 64;
 
   function wrapLines(context, text, maxWidth) {
     var words = text.trim().split(/\s+/);
@@ -112,12 +166,41 @@
     return lines;
   }
 
-  function drawWrapped(context, text, x, y, maxWidth, lineHeight) {
+  function drawWrapped(context, text, x, y, maxWidth, lineHeight, paint) {
     var lines = wrapLines(context, text, maxWidth);
-    lines.forEach(function (line, index) {
-      context.fillText(line, x, y + index * lineHeight);
-    });
+    if (paint) {
+      lines.forEach(function (line, index) {
+        context.fillText(line, x, y + index * lineHeight);
+      });
+    }
     return y + lines.length * lineHeight;
+  }
+
+  function flowCard(context, pattern, textX, top, contentWidth, paint) {
+    var textWidth = contentWidth - CARD_TEXT_WIDTH_INSET;
+    var textY = top + 38;
+
+    if (paint) context.fillStyle = '#071d2b';
+    context.font = '700 27px Arial';
+    textY = drawWrapped(context, pattern.querySelector('h3').textContent, textX, textY, textWidth, 34, paint) + 6;
+
+    if (paint) context.fillStyle = '#48616b';
+    context.font = '20px Arial';
+    textY = drawWrapped(context, pattern.querySelector('.fcr-metaphor').textContent, textX, textY, textWidth, 28, paint) + 10;
+
+    pattern.querySelectorAll('.fcr-lines div').forEach(function (line) {
+      var label = line.querySelector('dt').textContent + ':';
+      context.font = '700 19px Arial';
+      var labelWidth = context.measureText(label + ' ').width;
+      if (paint) {
+        context.fillStyle = '#0f5e57';
+        context.fillText(label, textX, textY);
+        context.fillStyle = '#203842';
+      }
+      context.font = '19px Arial';
+      textY = drawWrapped(context, line.querySelector('dd').textContent, textX + labelWidth, textY, textWidth - labelWidth, 27, paint) + 8;
+    });
+    return textY;
   }
 
   function exportClosingPatterns() {
@@ -132,24 +215,16 @@
     var width = 1200;
     var margin = 72;
     var contentWidth = width - margin * 2;
-    var context = document.createElement('canvas').getContext('2d');
-    context.font = '26px Arial';
-    var measured = patterns.map(function (pattern) {
-      var blocks = [
-        pattern.querySelector('h3').textContent,
-        pattern.querySelector('.fcr-metaphor').textContent
-      ];
-      pattern.querySelectorAll('.fcr-lines div').forEach(function (line) {
-        blocks.push(line.querySelector('dt').textContent + ': ' + line.querySelector('dd').textContent);
-      });
-      var lineCount = blocks.reduce(function (total, block) {
-        return total + wrapLines(context, block, contentWidth - 64).length;
-      }, 0);
-      return { node: pattern, height: 104 + lineCount * 34 };
+    var textX = margin + 32;
+    var measure = document.createElement('canvas').getContext('2d');
+    var cards = patterns.map(function (pattern) {
+      // The last line ends 8px above the returned position and the line height is 27px,
+      // so this leaves 26px below the final baseline.
+      return { node: pattern, height: flowCard(measure, pattern, textX, 0, contentWidth, false) - 9 };
     });
 
-    var height = 190 + measured.reduce(function (total, item) {
-      return total + item.height + 24;
+    var height = 184 + cards.reduce(function (total, card) {
+      return total + card.height + 24;
     }, 0) + 72;
     var canvas = document.createElement('canvas');
     canvas.width = width;
@@ -169,33 +244,13 @@
     ctx.fillText('Risk, Signal, Response', margin, 150);
 
     var y = 184;
-    measured.forEach(function (item) {
-      var pattern = item.node;
+    cards.forEach(function (card) {
       ctx.fillStyle = '#ffffff';
-      ctx.fillRect(margin, y, contentWidth, item.height);
+      ctx.fillRect(margin, y, contentWidth, card.height);
       ctx.fillStyle = '#0f766e';
-      ctx.fillRect(margin, y, 8, item.height);
-      var textX = margin + 32;
-      var textY = y + 38;
-
-      ctx.fillStyle = '#071d2b';
-      ctx.font = '700 27px Arial';
-      textY = drawWrapped(ctx, pattern.querySelector('h3').textContent, textX, textY, contentWidth - 64, 34) + 6;
-      ctx.fillStyle = '#48616b';
-      ctx.font = '20px Arial';
-      textY = drawWrapped(ctx, pattern.querySelector('.fcr-metaphor').textContent, textX, textY, contentWidth - 64, 28) + 10;
-
-      pattern.querySelectorAll('.fcr-lines div').forEach(function (line) {
-        ctx.fillStyle = '#0f5e57';
-        ctx.font = '700 19px Arial';
-        var label = line.querySelector('dt').textContent + ':';
-        ctx.fillText(label, textX, textY);
-        var labelWidth = ctx.measureText(label + ' ').width;
-        ctx.fillStyle = '#203842';
-        ctx.font = '19px Arial';
-        textY = drawWrapped(ctx, line.querySelector('dd').textContent, textX + labelWidth, textY, contentWidth - 64 - labelWidth, 27) + 8;
-      });
-      y += item.height + 24;
+      ctx.fillRect(margin, y, 8, card.height);
+      flowCard(ctx, card.node, textX, y, contentWidth, true);
+      y += card.height + 24;
     });
 
     ctx.fillStyle = '#99f6e4';
@@ -214,9 +269,10 @@
       document.body.appendChild(link);
       link.click();
       link.remove();
-      URL.revokeObjectURL(url);
+      // Some browsers start the download asynchronously, so keep the URL alive briefly.
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
       status.textContent = 'Summary image created.';
-      emitAggregateEvent('card_export', {
+      emitAggregateEvent('export', 'card_export', {
         guide_id: GUIDE_ID,
         export_type: 'closing_patterns'
       });

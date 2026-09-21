@@ -85,7 +85,7 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .fcr-illustrative{font-size:13px;color:var(--fcr-muted);margin:0 0 .8rem;font-style:italic}
 .fcr-feedback[data-state="reading"]{color:#8a4b08}.fcr-feedback[data-state="unsupported"]{color:#8f1d14}.fcr-feedback[data-state="incomplete"]{color:#8a4b08}
 .fcr-optfb-set{margin:1.2rem 0}.fcr-optfb{border:1px solid var(--fcr-line);border-left:4px solid var(--fcr-line);padding:.8rem .9rem;margin:.7rem 0;background:#fff}.fcr-optfb[data-grade="best"]{border-left-color:#0f766e}.fcr-optfb[data-grade="reading"],.fcr-optfb[data-grade="incomplete"]{border-left-color:#b45309}.fcr-optfb[data-grade="unsupported"]{border-left-color:#b42318}.fcr-optfb[data-selected="true"]{background:#edf8f6;box-shadow:0 0 0 2px #0f766e}
-.fcr-optfb-head{margin:0 0 .5rem;font-size:15px}.fcr-grade{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:.12rem .45rem;border:1px solid var(--fcr-line);background:#f5f8f7;margin-right:.35rem}
+.fcr-choice .fcr-action,#knowledgeForm .fcr-action,#saveFrameworkImage{display:none}.js .fcr-choice .fcr-action,.js #knowledgeForm .fcr-action,.js #saveFrameworkImage{display:inline-block}.js .fcr-optfb-set:not([data-revealed="true"]){display:none}.fcr-optfb:focus{outline:3px solid #0f766e;outline-offset:2px}.fcr-feedback a{color:#075e57;font-weight:700}@media print{.js .fcr-optfb-set{display:block!important}}\n.fcr-optfb-head{margin:0 0 .5rem;font-size:15px}.fcr-grade{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:.12rem .45rem;border:1px solid var(--fcr-line);background:#f5f8f7;margin-right:.35rem}
 .fcr-counterfactual{border:1px solid #d6c8a4;background:#fbf8ef;padding:1rem;margin:1rem 0}.fcr-counterfactual h3{margin:0 0 .5rem}
 .fcr-branch-note{font-size:14px;color:var(--fcr-muted)}
 .fcr-answer-notes summary{font-weight:700}
@@ -264,10 +264,10 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <div class="fcr-scenario">
     <p class="fcr-illustrative">Composite scenario for teaching. It does not describe a real firm, respondent or customer.</p>
     <ul class="fcr-facts"><li>The firm is a UK credit institution. The respondent is a bank established outside the UK, and the relationship involves the execution of payments.</li><li>On the FATF lists published on 19 June 2026, the respondent’s jurisdiction is under Increased Monitoring and is not on the Call for Action list. <a href="#source-10">[10]</a> <a href="#source-11">[11]</a></li><li>The respondent is not a shell bank, and no sanctions designation or other legal prohibition affects the relationship.</li><li>The firm applied its customer due diligence to the respondent as a customer.</li><li>The respondent has answered questions about its business, its supervisor and its controls. It will not confirm that it verifies and monitors the customers who have direct access to the firm’s accounts.</li><li>The annual review is due and the relationship manager wants to keep the relationship.</li></ul>
-    <form class="fcr-choice" data-decision-form data-scenario-id="respondent">
+    <form class="fcr-choice" data-decision-form data-scenario-id="respondent" method="dialog">
       <fieldset>
         <legend>What is the most defensible current decision?</legend>
-        <label class="fcr-option"><input type="radio" name="respondent-decision" value="terminate" data-grade="reading" data-grade-label="Rests on one reading of an open point"><span>Terminate the relationship now. The refusal means the firm is unable to apply its due diligence measures, so regulation 31 requires termination.</span></label><label class="fcr-option"><input type="radio" name="respondent-decision" value="unchanged" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Continue unchanged. The jurisdiction is under Increased Monitoring, not on the Call for Action list, so enhanced measures are not required.</span></label><label class="fcr-option"><input type="radio" name="respondent-decision" value="restrict" data-grade="reading" data-grade-label="Rests on one reading of an open point"><span>Continue with restricted payment types and enhanced monitoring, and keep asking for the missing confirmation. Regulation 31 cannot apply to a gap in respondent information.</span></label><label class="fcr-option"><input type="radio" name="respondent-decision" value="escalate" data-grade="best" data-grade-label="Supported on the text, whichever reading applies"><span>Escalate to legal and the MLRO, apply the respondent measures the firm can complete, treat the gap as a potential regulation 31 event, record which reading the firm adopts and why, and fix a short dated review before the outcome is chosen.</span></label>
+        <label class="fcr-option"><input type="radio" name="respondent-decision" value="terminate" data-grade="reading" data-grade-label="Rests on one reading of an open point"><span>Terminate the relationship now. The refusal means the firm is unable to apply its due diligence measures, so regulation 31 requires termination.</span></label><label class="fcr-option"><input type="radio" name="respondent-decision" value="unchanged" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Continue unchanged. The jurisdiction is under Increased Monitoring, not on the Call for Action list, so enhanced measures are not required.</span></label><label class="fcr-option"><input type="radio" name="respondent-decision" value="escalate" data-grade="best" data-grade-label="Supported on the text, whichever reading applies"><span>Escalate to legal and the MLRO, apply the measures the firm can complete, treat the gap as a potential regulation 31 event, and record the reading adopted and why.</span></label><label class="fcr-option"><input type="radio" name="respondent-decision" value="restrict" data-grade="reading" data-grade-label="Rests on one reading of an open point"><span>Continue with restricted payment types and enhanced monitoring, and keep asking for the missing confirmation. Regulation 31 cannot apply to a gap in respondent information.</span></label>
       </fieldset>
       <button class="fcr-action" type="submit">Record decision</button>
       <p class="fcr-feedback" aria-live="polite" role="status"></p>
@@ -276,9 +276,9 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <h3>What the listing changes, and what it leaves</h3>
   <div class="fcr-compare"><div><h3>Removed as an automatic trigger</h3><p>Before 30 June 2026, a listing on either FATF list triggered mandatory EDD under regulation 33(1)(b). Now only the Call for Action list does. The stated objective of the change appears in HM Treasury’s Explanatory Memorandum, not in the Regulations. <a href="#source-3">[3]</a></p></div><div><h3>Still operating</h3><p>Regulation 33(1)(f), the regulation 33(6) risk factors (which the listing may inform), regulation 34 for this respondent, and the firm’s own assessment. Regulation 33(7) reminds firms that a risk factor may not always indicate high risk. <a href="#source-1">[1]</a></p></div></div>
   <p>The listing may be weighed under regulation 33(6)(c), 33(1)(a) and 33(1)(g). That is a FinCrimeRadar application. The statute does not name the Increased Monitoring list in those provisions.</p>
-  <div class="fcr-optfb-set" data-optfb-for="respondent" aria-label="How each option grades">
-  <h3>How each option grades</h3>
-  <div class="fcr-optfb" data-option="terminate" data-grade="reading">
+  <div class="fcr-optfb-set" data-optfb-for="respondent" role="group" aria-labelledby="optfb-title-respondent">
+  <h3 id="optfb-title-respondent">How each option grades</h3>
+  <div class="fcr-optfb" id="optfb-respondent-terminate" data-option="terminate" data-grade="reading">
     <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="reading">Rests on one reading of an open point</span> Terminate the relationship now. The refusal means the firm is unable to apply its due diligence measures, so regulation 31 requires termination.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 31(1) applies where a firm “is unable to apply customer due diligence measures as required by regulation 28”, and regulation 3(1) defines those measures to include, “where relevant, those required by regulations 29 and 33 to 37”. <a href="#source-1">[1]</a></p></div>
@@ -286,7 +286,7 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Treat the gap as a potential regulation 31 event, take legal advice on which reading to adopt, and record the choice. This is a FinCrimeRadar recommendation.</p></div>
     </div>
   </div>
-  <div class="fcr-optfb" data-option="unchanged" data-grade="unsupported">
+  <div class="fcr-optfb" id="optfb-respondent-unchanged" data-option="unchanged" data-grade="unsupported">
     <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Continue unchanged. The jurisdiction is under Increased Monitoring, not on the Call for Action list, so enhanced measures are not required.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>From 30 June 2026, regulation 33(1)(b) applies to a “FATF call for action country”. Before that date the definition covered both FATF lists. <a href="#source-2">[2]</a> <a href="#source-1">[1]</a> The FATF page for Increased Monitoring says it does not call for enhanced due diligence on those jurisdictions. <a href="#source-10">[10]</a> Regulation 34(1) separately applies to a third-country respondent in a payments relationship, and “third country” means a state other than the UK. <a href="#source-1">[1]</a></p></div>
@@ -294,20 +294,20 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Do not treat the list position as the decision. Record what the listing changes and what it leaves in place.</p></div>
     </div>
   </div>
-  <div class="fcr-optfb" data-option="restrict" data-grade="reading">
+  <div class="fcr-optfb" id="optfb-respondent-escalate" data-option="escalate" data-grade="best">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="best">Supported on the text, whichever reading applies</span> Escalate to legal and the MLRO, apply the measures the firm can complete, treat the gap as a potential regulation 31 event, and record the reading adopted and why.</p>
+    <div class="fcr-saa">
+      <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 34(1)(a) to (f) list the measures for a third-country payments correspondent, and (f) covers the respondent’s verification and monitoring of customers with direct account access. <a href="#source-1">[1]</a> JMLSG Part I 4.77 says firms should document the rationale for additional due diligence measures they undertake or waive. That is an industry position, not law. <a href="#source-15">[15]</a></p></div>
+      <div class="fcr-saa-block"><h3>Application</h3><p>The gap sits in 34(1)(f), and the text does not say whether it engages regulation 31. The outcome therefore cannot rest on either reading. Escalation, a dated record of what was asked and answered, and a record of the reading adopted stay sound on both.</p></div>
+      <div class="fcr-saa-block"><h3>Recommendation</h3><p>Escalate, take advice, record the reading and the reason, and choose conditional continuation or exit once that is done. This is a FinCrimeRadar recommendation. It does not decide the regulation 31 question.</p></div>
+    </div>
+  </div>
+  <div class="fcr-optfb" id="optfb-respondent-restrict" data-option="restrict" data-grade="reading">
     <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="reading">Rests on one reading of an open point</span> Continue with restricted payment types and enhanced monitoring, and keep asking for the missing confirmation. Regulation 31 cannot apply to a gap in respondent information.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 31(1)(a) bars transactions through a bank account. Regulation 31(1)(b) bars establishing a business relationship, or carrying out a transaction, with the customer otherwise than through a bank account. Regulation 31(1)(c) requires termination of an existing relationship. All apply where the inability condition is met. <a href="#source-1">[1]</a></p></div>
       <div class="fcr-saa-block"><h3>Application</h3><p>If a regulation 34 gap is inability under regulation 31, continuing with restrictions still carries out transactions and does not terminate. That reading is open, so continuing on the view that regulation 31 cannot apply rests on one reading. Legal advice and a short interim period are not statutory exceptions to regulation 31(1)(a) to (c) on the wide reading.</p></div>
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Restrictions and monitoring do not answer the regulation 31 question. Take legal advice, record the reading adopted, and keep any interim period short and dated. This is a FinCrimeRadar recommendation.</p></div>
-    </div>
-  </div>
-  <div class="fcr-optfb" data-option="escalate" data-grade="best">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="best">Supported on the text, whichever reading applies</span> Escalate to legal and the MLRO, apply the respondent measures the firm can complete, treat the gap as a potential regulation 31 event, record which reading the firm adopts and why, and fix a short dated review before the outcome is chosen.</p>
-    <div class="fcr-saa">
-      <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 34(1)(a) to (f) list the measures for a third-country payments correspondent, and (f) covers the respondent’s verification and monitoring of customers with direct account access. <a href="#source-1">[1]</a> JMLSG Part I 4.77 says firms should document the rationale for additional due diligence measures they undertake or waive. That is an industry position, not law. <a href="#source-15">[15]</a></p></div>
-      <div class="fcr-saa-block"><h3>Application</h3><p>The gap sits in 34(1)(f), and the text does not say whether it engages regulation 31. The outcome therefore cannot rest on either reading. Escalation, a dated record of what was asked and answered, and a record of the reading adopted stay sound on both.</p></div>
-      <div class="fcr-saa-block"><h3>Recommendation</h3><p>Escalate, take advice, record the reading and the reason, and choose conditional continuation or exit once that is done. This is a FinCrimeRadar recommendation. It does not decide the regulation 31 question.</p></div>
     </div>
   </div>
 </div>
@@ -340,47 +340,47 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <div class="fcr-scenario">
     <p class="fcr-illustrative">Composite scenario for teaching. It does not describe a real firm, respondent or customer.</p>
     <ul class="fcr-facts"><li>The customer is a company that runs a small money remittance service and holds a payment account under an indefinite-term contract entered into after 28 April 2026.</li><li>The firm cannot identify and verify a beneficial owner under regulation 28(4), after trying alternative ways to establish who owns the company and checking whether the problem is missing documents rather than missing ownership information.</li><li>The firm has no suspicion, and no disclosure has been made.</li><li>The customer belongs to a segment the FCA names as often affected by de-risking. <a href="#source-13">[13]</a></li></ul>
-    <form class="fcr-choice" data-decision-form data-scenario-id="ownership">
+    <form class="fcr-choice" data-decision-form data-scenario-id="ownership" method="dialog">
       <fieldset>
         <legend>What is the most defensible current decision?</legend>
-        <label class="fcr-option"><input type="radio" name="ownership-decision" value="enhanced" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Continue on enhanced terms. The risk can be managed with enhanced monitoring instead of identifying the owner.</span></label><label class="fcr-option"><input type="radio" name="ownership-decision" value="notice" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Terminate on 90 days’ notice under the payment services rules and keep the account open in the meantime.</span></label><label class="fcr-option"><input type="radio" name="ownership-decision" value="wait" data-grade="reading" data-grade-label="Rests on one reading of an open point"><span>Ask for the ownership evidence again and keep the account open while waiting for a reply.</span></label><label class="fcr-option"><input type="radio" name="ownership-decision" value="apply31" data-grade="best" data-grade-label="Supported on the text, whichever reading applies"><span>Stop new transactions, terminate the relationship, return deposited funds only as regulation 31(2) permits, and consider whether a disclosure is required.</span></label>
+        <label class="fcr-option"><input type="radio" name="ownership-decision" value="apply31" data-grade="best" data-grade-label="Supported on the text, whichever reading applies"><span>Stop new transactions, terminate, repay deposited funds only as regulation 31(2) permits, and consider whether a disclosure is required.</span></label><label class="fcr-option"><input type="radio" name="ownership-decision" value="enhanced" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Continue on enhanced terms. The ownership risk can be managed with enhanced monitoring and lower limits, so identifying the owner is not needed.</span></label><label class="fcr-option"><input type="radio" name="ownership-decision" value="notice" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Terminate on 90 days’ notice under the payment services rules, keep the account open while it runs, and note that the owner could not be identified.</span></label><label class="fcr-option"><input type="radio" name="ownership-decision" value="wait" data-grade="reading" data-grade-label="Rests on one reading of an open point"><span>Ask for the ownership evidence again and keep the account open while waiting for a reply, because the firm has not yet concluded that it is unable to comply.</span></label>
       </fieldset>
       <button class="fcr-action" type="submit">Record decision</button>
       <p class="fcr-feedback" aria-live="polite" role="status"></p>
     </form>
   </div>
-  <div class="fcr-optfb-set" data-optfb-for="ownership" aria-label="How each option grades">
-  <h3>How each option grades</h3>
-  <div class="fcr-optfb" data-option="enhanced" data-grade="unsupported">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Continue on enhanced terms. The risk can be managed with enhanced monitoring instead of identifying the owner.</p>
+  <div class="fcr-optfb-set" data-optfb-for="ownership" role="group" aria-labelledby="optfb-title-ownership">
+  <h3 id="optfb-title-ownership">How each option grades</h3>
+  <div class="fcr-optfb" id="optfb-ownership-apply31" data-option="apply31" data-grade="best">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="best">Supported on the text, whichever reading applies</span> Stop new transactions, terminate, repay deposited funds only as regulation 31(2) permits, and consider whether a disclosure is required.</p>
+    <div class="fcr-saa">
+      <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 31(1)(a) bars transactions through a bank account. Regulation 31(1)(b) bars establishing a business relationship, or carrying out a transaction, with the customer otherwise than through a bank account. Regulation 31(1)(c) requires termination of an existing relationship, and 31(1)(d) requires the firm to consider a disclosure under the Terrorism Act or POCA. Regulation 31(2) permits repayment of deposited money, with consent where a disclosure is required. <a href="#source-1">[1]</a> Regulation 51C(a) removes the 51B(1) notice requirement in this case. <a href="#source-4">[4]</a> JMLSG Part I 5.2.7 asks firms to consider whether the problem is missing documents. <a href="#source-15">[15]</a></p></div>
+      <div class="fcr-saa-block"><h3>Application</h3><p>The facts fit the plain regulation 28 case, so the open points about EDD-only failures and cure timing do not arise. The firm has tested the document explanation.</p></div>
+      <div class="fcr-saa-block"><h3>Recommendation</h3><p>Apply regulation 31, use the 31(2) proviso for any repayment, record why the firm is unable, and make the disclosure consideration required by 31(1)(d). This is a FinCrimeRadar recommendation on the statutory text.</p></div>
+    </div>
+  </div>
+  <div class="fcr-optfb" id="optfb-ownership-enhanced" data-option="enhanced" data-grade="unsupported">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Continue on enhanced terms. The ownership risk can be managed with enhanced monitoring and lower limits, so identifying the owner is not needed.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 28(4) requires the firm to identify the beneficial owner and take reasonable measures to verify identity. Regulation 31(1)(a) to (c) apply where the firm “is unable to apply customer due diligence measures as required by regulation 28”. <a href="#source-1">[1]</a></p></div>
       <div class="fcr-saa-block"><h3>Application</h3><p>Enhanced measures are added to the regulation 28 measures. They do not replace identification, so enhanced terms cannot cure the inability on these facts.</p></div>
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Do not use enhanced monitoring as a substitute for identifying the owner. Treat the case as a regulation 31 case.</p></div>
     </div>
   </div>
-  <div class="fcr-optfb" data-option="notice" data-grade="unsupported">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Terminate on 90 days’ notice under the payment services rules and keep the account open in the meantime.</p>
+  <div class="fcr-optfb" id="optfb-ownership-notice" data-option="notice" data-grade="unsupported">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Terminate on 90 days’ notice under the payment services rules, keep the account open while it runs, and note that the owner could not be identified.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 51C(a) says the 51B(1) notice requirement does not apply where the payment service provider is required to apply customer due diligence and is unable to apply it as regulation 28 requires. <a href="#source-4">[4]</a> Regulation 31(1)(a) bars transactions through a bank account. <a href="#source-1">[1]</a></p></div>
       <div class="fcr-saa-block"><h3>Application</h3><p>A 90-day continuing relationship is not what the plain regulation 31 words allow, and 51C(a) means the 51B notice duty is not engaged on these facts.</p></div>
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Do not build the exit around a 51B notice period. Check the contract only for how the termination is communicated.</p></div>
     </div>
   </div>
-  <div class="fcr-optfb" data-option="wait" data-grade="reading">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="reading">Rests on one reading of an open point</span> Ask for the ownership evidence again and keep the account open while waiting for a reply.</p>
+  <div class="fcr-optfb" id="optfb-ownership-wait" data-option="wait" data-grade="reading">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="reading">Rests on one reading of an open point</span> Ask for the ownership evidence again and keep the account open while waiting for a reply, because the firm has not yet concluded that it is unable to comply.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 31 contains no express cure or grace provision and does not state the effect of later evidence. <a href="#source-1">[1]</a></p></div>
       <div class="fcr-saa-block"><h3>Application</h3><p>The firm has already tried alternatives and remains unable, so continuing to transact while it waits has no support in the text. A short wait rests on one reading of when the duty crystallises, and that point is open.</p></div>
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Set a short, dated deadline for each request, in writing, and keep a dated record. Do not treat the date the firm records as the date it became unable. This is a FinCrimeRadar recommendation.</p></div>
-    </div>
-  </div>
-  <div class="fcr-optfb" data-option="apply31" data-grade="best">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="best">Supported on the text, whichever reading applies</span> Stop new transactions, terminate the relationship, return deposited funds only as regulation 31(2) permits, and consider whether a disclosure is required.</p>
-    <div class="fcr-saa">
-      <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 31(1)(a) bars transactions through a bank account. Regulation 31(1)(b) bars establishing a business relationship, or carrying out a transaction, with the customer otherwise than through a bank account. Regulation 31(1)(c) requires termination of an existing relationship, and 31(1)(d) requires the firm to consider a disclosure under the Terrorism Act or POCA. Regulation 31(2) permits repayment of deposited money, with consent where a disclosure is required. <a href="#source-1">[1]</a> Regulation 51C(a) removes the 51B(1) notice requirement in this case. <a href="#source-4">[4]</a> JMLSG Part I 5.2.7 asks firms to consider whether the problem is missing documents. <a href="#source-15">[15]</a></p></div>
-      <div class="fcr-saa-block"><h3>Application</h3><p>The facts fit the plain regulation 28 case, so the open points about EDD-only failures and cure timing do not arise. The firm has tested the document explanation.</p></div>
-      <div class="fcr-saa-block"><h3>Recommendation</h3><p>Apply regulation 31, use the 31(2) proviso for any repayment, record why the firm is unable, and make the disclosure consideration required by 31(1)(d). This is a FinCrimeRadar recommendation on the statutory text.</p></div>
     </div>
   </div>
 </div>
@@ -406,47 +406,47 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <div class="fcr-scenario">
     <p class="fcr-illustrative">Composite scenario for teaching. It does not describe a real firm, respondent or customer.</p>
     <ul class="fcr-facts"><li>The customer is a charity within the PSRs Part 6 meaning, and it holds a payment account under an indefinite-term contract entered into after 28 April 2026. No regulation 40(7) agreement exists.</li><li>Due diligence is complete. Cross-border flows to jurisdictions the firm assesses as higher risk leave residual risk high after the mitigants the firm has considered.</li><li>The firm has no suspicion, and no disclosure has been made.</li><li>The customer belongs to a segment the FCA names as often affected by de-risking. <a href="#source-13">[13]</a></li></ul>
-    <form class="fcr-choice" data-decision-form data-scenario-id="residual">
+    <form class="fcr-choice" data-decision-form data-scenario-id="residual" method="dialog">
       <fieldset>
         <legend>What is the most defensible current decision?</legend>
-        <label class="fcr-option"><input type="radio" name="residual-decision" value="exit30" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Give 30 days’ notice and exit. High residual risk is enough.</span></label><label class="fcr-option"><input type="radio" name="residual-decision" value="fatf" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Do not exit. FATF guidance says a relationship may be ended only where the risk cannot be mitigated.</span></label><label class="fcr-option"><input type="radio" name="residual-decision" value="unchanged" data-grade="incomplete" data-grade-label="Supported on the text but incomplete"><span>Keep the account unchanged. Due diligence is complete, so the risk is managed.</span></label><label class="fcr-option"><input type="radio" name="residual-decision" value="test" data-grade="best" data-grade-label="Supported on the text, whichever reading applies"><span>Test whether each available mitigant works and whether the firm can run it, record why each does or does not reduce the risk, then choose conditions or exit. If exit follows, check whether the payment services notice rules apply before fixing the period.</span></label>
+        <label class="fcr-option"><input type="radio" name="residual-decision" value="exit30" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Give 30 days’ notice and exit now. High residual risk is enough on its own, and no mitigant needs to be tested first.</span></label><label class="fcr-option"><input type="radio" name="residual-decision" value="test" data-grade="best" data-grade-label="Supported on the text, whichever reading applies"><span>Test whether each mitigant works and can be run, record why it does or does not reduce the risk, then choose conditions or exit and check the notice rules.</span></label><label class="fcr-option"><input type="radio" name="residual-decision" value="fatf" data-grade="unsupported" data-grade-label="Not supported on the text"><span>Do not exit. FATF guidance says a relationship may be ended only where the risk cannot be mitigated, so the firm may not exit while any mitigant is still available.</span></label><label class="fcr-option"><input type="radio" name="residual-decision" value="unchanged" data-grade="incomplete" data-grade-label="Supported on the text but incomplete"><span>Keep the account unchanged. Due diligence is complete, so the risk is managed and nothing further needs to be tested or recorded.</span></label>
       </fieldset>
       <button class="fcr-action" type="submit">Record decision</button>
       <p class="fcr-feedback" aria-live="polite" role="status"></p>
     </form>
   </div>
-  <div class="fcr-optfb-set" data-optfb-for="residual" aria-label="How each option grades">
-  <h3>How each option grades</h3>
-  <div class="fcr-optfb" data-option="exit30" data-grade="unsupported">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Give 30 days’ notice and exit. High residual risk is enough.</p>
+  <div class="fcr-optfb-set" data-optfb-for="residual" role="group" aria-labelledby="optfb-title-residual">
+  <h3 id="optfb-title-residual">How each option grades</h3>
+  <div class="fcr-optfb" id="optfb-residual-exit30" data-option="exit30" data-grade="unsupported">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Give 30 days’ notice and exit now. High residual risk is enough on its own, and no mitigant needs to be tested first.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Where regulation 51B applies, the notice must contain reasons “sufficiently detailed and specific”, be provided as regulation 55(1) requires, give complaint and ombudsman information, and be given at least 90 days before termination takes effect. <a href="#source-4">[4]</a> <a href="#source-5">[5]</a> The FCA says it expects few cases where declining solely for anti-money laundering reasons is necessary. <a href="#source-13">[13]</a></p></div>
       <div class="fcr-saa-block"><h3>Application</h3><p>On these facts the 51B conditions are met: an indefinite-term contract entered into on or after 28 April 2026, Part 6 applying to a charity, and no 51C or 51D ground. Thirty days falls short of 51B(3). The decision to exit is discretionary, and the FCA says relatively few cases need declining solely for anti-money laundering reasons.</p></div>
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Do not fix the notice period until you have confirmed whether 51B applies. Treat high residual risk as a reason to test the mitigants first.</p></div>
     </div>
   </div>
-  <div class="fcr-optfb" data-option="fatf" data-grade="unsupported">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Do not exit. FATF guidance says a relationship may be ended only where the risk cannot be mitigated.</p>
+  <div class="fcr-optfb" id="optfb-residual-test" data-option="test" data-grade="best">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="best">Supported on the text, whichever reading applies</span> Test whether each mitigant works and can be run, record why it does or does not reduce the risk, then choose conditions or exit and check the notice rules.</p>
+    <div class="fcr-saa">
+      <div class="fcr-saa-block"><h3>Source</h3><p>The FATF guidance lists mitigating options to try before rejection. <a href="#source-9">[9]</a> FCTR 12.3.7G treats failing to follow up outstanding due diligence information as poor practice. <a href="#source-14">[14]</a> Regulations 51A to 51D set the notice conditions. <a href="#source-4">[4]</a> JMLSG Part I 4.77 asks firms to document the rationale for additional measures they undertake or waive. <a href="#source-15">[15]</a></p></div>
+      <div class="fcr-saa-block"><h3>Application</h3><p>The discretionary decision is open on these facts. Capacity and cost are practical inputs and are not a lawful ground for refusal or exit by themselves. If exit follows, 51B applies on the stated facts, so the plan needs 90 days, detailed reasons and the complaint and ombudsman information.</p></div>
+      <div class="fcr-saa-block"><h3>Recommendation</h3><p>Record the rationale for each mitigant. If exit follows, draft the reasons and plan the 90 days first. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="fcr-optfb" id="optfb-residual-fatf" data-option="fatf" data-grade="unsupported">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="unsupported">Not supported on the text</span> Do not exit. FATF guidance says a relationship may be ended only where the risk cannot be mitigated, so the firm may not exit while any mitigant is still available.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Paragraph 142 of the FATF guidance says regulated entities are only required to terminate or reject relationships case by case where risks cannot be mitigated. It is non-binding guidance. <a href="#source-9">[9]</a> <a href="#source-12">[12]</a> The FATF Standards’ own basis for refusing or ending a relationship is Recommendation 10, which turns on inability to comply with the due diligence requirements. <a href="#source-8">[8]</a> The FCA calls the decision “ultimately a commercial one for the bank”. <a href="#source-13">[13]</a></p></div>
       <div class="fcr-saa-block"><h3>Application</h3><p>The guidance shapes what a supervisor will expect the firm to have tried. It does not remove the firm’s discretion where due diligence is complete. This option treats guidance as a bar.</p></div>
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Use paragraph 142 as a list of options to try before rejection. Do not cite it as a legal prohibition.</p></div>
     </div>
   </div>
-  <div class="fcr-optfb" data-option="unchanged" data-grade="incomplete">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="incomplete">Supported on the text but incomplete</span> Keep the account unchanged. Due diligence is complete, so the risk is managed.</p>
+  <div class="fcr-optfb" id="optfb-residual-unchanged" data-option="unchanged" data-grade="incomplete">
+    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="incomplete">Supported on the text but incomplete</span> Keep the account unchanged. Due diligence is complete, so the risk is managed and nothing further needs to be tested or recorded.</p>
     <div class="fcr-saa">
       <div class="fcr-saa-block"><h3>Source</h3><p>Regulation 28(11) requires ongoing monitoring, and 28(12) says the extent of the measures must reflect the risk assessment. <a href="#source-1">[1]</a> FATF Interpretive Note 1 expects enhanced measures where higher risks are identified. <a href="#source-8">[8]</a></p></div>
       <div class="fcr-saa-block"><h3>Application</h3><p>Complete due diligence is an input, not an answer. Residual risk is stated as high, so leaving everything as it is leaves the decision unmade. Keeping may still be right if the record supports it.</p></div>
       <div class="fcr-saa-block"><h3>Recommendation</h3><p>Record why the residual risk is acceptable, or the condition that would change it.</p></div>
-    </div>
-  </div>
-  <div class="fcr-optfb" data-option="test" data-grade="best">
-    <p class="fcr-optfb-head"><span class="fcr-grade" data-grade="best">Supported on the text, whichever reading applies</span> Test whether each available mitigant works and whether the firm can run it, record why each does or does not reduce the risk, then choose conditions or exit. If exit follows, check whether the payment services notice rules apply before fixing the period.</p>
-    <div class="fcr-saa">
-      <div class="fcr-saa-block"><h3>Source</h3><p>The FATF guidance lists mitigating options to try before rejection. <a href="#source-9">[9]</a> FCTR 12.3.7G treats failing to follow up outstanding due diligence information as poor practice. <a href="#source-14">[14]</a> Regulations 51A to 51D set the notice conditions. <a href="#source-4">[4]</a> JMLSG Part I 4.77 asks firms to document the rationale for additional measures they undertake or waive. <a href="#source-15">[15]</a></p></div>
-      <div class="fcr-saa-block"><h3>Application</h3><p>The discretionary decision is open on these facts. Capacity and cost are practical inputs and are not a lawful ground for refusal or exit by themselves. If exit follows, 51B applies on the stated facts, so the plan needs 90 days, detailed reasons and the complaint and ombudsman information.</p></div>
-      <div class="fcr-saa-block"><h3>Recommendation</h3><p>Record the rationale for each mitigant. If exit follows, draft the reasons and plan the 90 days first. This is a FinCrimeRadar recommendation.</p></div>
     </div>
   </div>
 </div>
@@ -524,26 +524,26 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 <section class="fcr-section fcr-quiz" id="knowledge-check">
   <h2>Knowledge check</h2>
   <p>Choose one answer for each question. The score is an aid to review, not a credential or a case decision.</p>
-  <form id="knowledgeForm">
+  <form id="knowledgeForm" method="dialog">
     <fieldset><legend>1. Before 30 June 2026 a listing on either FATF list triggered mandatory enhanced due diligence under regulation 33(1)(b). What is the position now?</legend>
-      <label class="fcr-option"><input type="radio" name="q1" value="a" data-correct="true"><span>Only a listing on the Call for Action list triggers it.</span></label>
-      <label class="fcr-option"><input type="radio" name="q1" value="b"><span>Both lists still trigger it.</span></label>
-      <label class="fcr-option"><input type="radio" name="q1" value="c"><span>Neither triggers it, and the firm decides entirely on its own assessment.</span></label>
+      <label class="fcr-option"><input type="radio" name="q1" value="a"><span>A listing on either list still triggers it, as it did before 30 June 2026.</span></label>
+      <label class="fcr-option"><input type="radio" name="q1" value="b" data-correct="true"><span>Only a listing on the Call for Action list triggers it.</span></label>
+      <label class="fcr-option"><input type="radio" name="q1" value="c"><span>A listing on the Increased Monitoring list alone triggers it.</span></label>
     </fieldset>
     <fieldset><legend>2. A UK bank has a payments correspondent relationship with a bank in a third country. Which provision lists the measures to understand the respondent’s business, assess its controls and be satisfied about customers with direct account access?</legend>
-      <label class="fcr-option"><input type="radio" name="q2" value="a" data-correct="true"><span>Regulation 34(1).</span></label>
-      <label class="fcr-option"><input type="radio" name="q2" value="b"><span>Regulation 33(3A).</span></label>
-      <label class="fcr-option"><input type="radio" name="q2" value="c"><span>Regulation 51B.</span></label>
+      <label class="fcr-option"><input type="radio" name="q2" value="a"><span>Regulation 33(3A).</span></label>
+      <label class="fcr-option"><input type="radio" name="q2" value="b"><span>Regulation 51B.</span></label>
+      <label class="fcr-option"><input type="radio" name="q2" value="c" data-correct="true"><span>Regulation 34(1).</span></label>
     </fieldset>
     <fieldset><legend>3. Regulation 51C(c) applies because both of its conditions are met. What does it remove?</legend>
       <label class="fcr-option"><input type="radio" name="q3" value="a" data-correct="true"><span>The regulation 51B(1) notice requirement, and nothing else.</span></label>
       <label class="fcr-option"><input type="radio" name="q3" value="b"><span>Every notice duty, including the contract’s own terms.</span></label>
-      <label class="fcr-option"><input type="radio" name="q3" value="c"><span>The firm’s duty to consider a disclosure.</span></label>
+      <label class="fcr-option"><input type="radio" name="q3" value="c"><span>The firm’s duty to consider a disclosure where it suspects.</span></label>
     </fieldset>
     <fieldset><legend>4. What is the status of paragraph 142 of the FATF financial inclusion guidance in UK law?</legend>
-      <label class="fcr-option"><input type="radio" name="q4" value="a" data-correct="true"><span>It is non-binding FATF guidance.</span></label>
-      <label class="fcr-option"><input type="radio" name="q4" value="b"><span>It is a binding UK rule.</span></label>
-      <label class="fcr-option"><input type="radio" name="q4" value="c"><span>It reproduces the wording of Recommendation 10.</span></label>
+      <label class="fcr-option"><input type="radio" name="q4" value="a"><span>It is a binding UK rule.</span></label>
+      <label class="fcr-option"><input type="radio" name="q4" value="b"><span>It reproduces the wording of Recommendation 10.</span></label>
+      <label class="fcr-option"><input type="radio" name="q4" value="c" data-correct="true"><span>It is non-binding FATF guidance.</span></label>
     </fieldset>
     <fieldset><legend>5. Which of these is a point the text does not settle?</legend>
       <label class="fcr-option"><input type="radio" name="q5" value="a"><span>Whether regulation 34(2) prohibits a correspondent relationship with a shell bank.</span></label>

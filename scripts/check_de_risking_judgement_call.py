@@ -131,9 +131,10 @@ def main() -> None:
 
     # ---- scenarios: three decisions, graded, each option with Source, Application, Recommendation
     scenario_ids = {"scenario-one": "respondent", "scenario-two-a": "ownership", "scenario-two-b": "residual"}
+    best_positions: list[int] = []
     for sid, key in scenario_ids.items():
         body = section(html, sid)
-        form = re.search(rf'<form class="fcr-choice" data-decision-form data-scenario-id="{key}">(.*?)</form>', body, re.S)
+        form = re.search(rf'<form class="fcr-choice" data-decision-form data-scenario-id="{key}" method="dialog">(.*?)</form>', body, re.S)
         require(form is not None, f"{sid} decision form missing")
         form_html = form.group(1)
         require(form_html.count("<fieldset>") == 1 and form_html.count("<legend>") == 1, f"{sid} decision is not one native fieldset")
@@ -143,10 +144,14 @@ def main() -> None:
         grades = [re.search(r'data-grade="([^"]+)"', radio).group(1) for radio in radios]
         require(set(grades) <= GRADES, f"{sid} has an unknown grade: {grades}")
         require(grades.count("best") == 1, f"{sid} must contain exactly one best-supported option")
+        option_texts = [text_only(t) for t in re.findall(r'<span>(.*?)</span>', form_html, re.S)]
+        best_index = grades.index("best")
+        best_positions.append(best_index)
+        require(len(option_texts[best_index]) < max(len(t) for t in option_texts), f"{sid} best option must not be the longest")
         require(all('data-grade-label="' in radio for radio in radios), f"{sid} grade labels missing")
         require('class="fcr-feedback" aria-live="polite" role="status"' in form_html, f"{sid} feedback is not a polite status")
         values = re.findall(r'value="([^"]+)"', " ".join(radios))
-        blocks = re.findall(r'<div class="fcr-optfb" data-option="([^"]+)" data-grade="([^"]+)">(.*?)</div>\s*</div>', body, re.S)
+        blocks = re.findall(r'<div class="fcr-optfb" id="optfb-[^"]+" data-option="([^"]+)" data-grade="([^"]+)">(.*?)</div>\s*</div>', body, re.S)
         require(sorted(v for v, _, _ in blocks) == sorted(values), f"{sid} option analysis blocks do not match options")
         for value, grade, inner in blocks:
             for label in ("Source", "Application", "Recommendation"):
@@ -159,6 +164,7 @@ def main() -> None:
         for field in ("Facts", "Assumptions", "Indicators", "Mitigants", "Decision", "Rationale"):
             require(re.search(rf'<dt[^>]*>{field}</dt>', record.group(1)) is not None, f"{sid} Decision Record field missing: {field}")
     require(len(re.findall(r"data-decision-form", html)) == 3, "expected exactly three decision forms")
+    require(best_positions.count(3) <= 1 and len(set(best_positions)) >= 2, f"best option position is too predictable: {best_positions}")
 
     # ---- open points
     open_block = section(html, "open-points")
@@ -193,10 +199,32 @@ def main() -> None:
         require(len(radios) == 3, f"knowledge question {number} must contain three options")
         require(sum('data-correct="true"' in radio for radio in radios) == 1, f"knowledge question {number} must contain one correct option")
     require(html.count('data-correct="true"') == quiz_html.count('data-correct="true"'), "correct-answer markers must stay inside the knowledge check")
+    positions = []
+    longest = 0
+    for fieldset in fieldsets:
+        radios = re.findall(r'<input\b[^>]*type="radio"[^>]*>', fieldset)
+        positions.append(next(i for i, radio in enumerate(radios) if 'data-correct="true"' in radio))
+        lengths = [len(text_only(t)) for t in re.findall(r'<span>(.*?)</span>', fieldset, re.S)]
+        longest += lengths[positions[-1]] == max(lengths)
+    require(max(positions.count(i) for i in range(3)) <= 2, f"correct answer position is too predictable: {positions}")
+    require(longest <= 2, f"the correct answer is the longest option in {longest} of 5 questions")
     require('id="knowledgeFeedback"' in quiz_html and 'aria-live="polite" role="status"' in quiz_html, "knowledge feedback is not a polite status")
     require("Answer notes" in quiz_html and quiz_html.count("<em>Source:</em>") == 5, "answer notes must separate Source, Application and Recommendation for each question")
     require('id="saveFrameworkStatus" aria-live="polite" role="status"' in html, "export feedback is not a polite status")
     require('id="fcrClosingPatterns"' in html and "fcrClosingPatterns" in script, "export is not sourced from the closing DOM")
+
+    # ---- progressive enhancement and interaction contract
+    require('<form' in html and 'action="' not in " ".join(re.findall(r"<form\b[^>]*>", html)), "forms must not carry an action attribute")
+    require(all('method="dialog"' in tag for tag in re.findall(r"<form\b[^>]*>", html)), "every form must use method=dialog so a pre-script submit cannot navigate or leak a selection into the URL")
+    require(".js .fcr-optfb-set:not([data-revealed=\"true\"]){display:none}" in html, "option analyses must be hidden only when the js class is set")
+    require(".fcr-choice .fcr-action,#knowledgeForm .fcr-action,#saveFrameworkImage{display:none}" in html and ".js .fcr-choice .fcr-action" in html, "action buttons must be hidden until the js class is set")
+    require(re.search(r'<div class="fcr-optfb-set"[^>]*aria-label=', html) is None, "aria-label must not sit on a generic div")
+    require(len(re.findall(r'<div class="fcr-optfb-set"[^>]* role="group" aria-labelledby="optfb-title-\w+"', html)) == 3, "option analysis sets need role=group and a label")
+    require(html.count('id="optfb-') >= 12, "each option analysis needs an id for the feedback link")
+    require("classList.add('js')" in script and script.count("event.preventDefault()") >= 2, "script must set the js class and prevent default on submit")
+    require("sentEvents" in script and "try {" in script and "setTimeout(function () { URL.revokeObjectURL" in script, "telemetry once-only, gtag guard or delayed revoke missing")
+    require("addEventListener('change'" in script, "change handler that clears stale feedback is missing")
+    require("javascript:" not in html and "javascript:" not in script, "no javascript: URLs")
 
     # ---- script discipline
     require("innerHTML" not in script, "page script must not inject HTML reasoning")
