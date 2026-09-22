@@ -8830,8 +8830,8 @@
     "verifiedOn": "2026-09-22",
     "reviewDue": "2027-09-22",
     "status": "verified",
-    "location": "fincrimeradar-api/case_sar_003.json, subject.review_trigger (visible to the trainee in the case brief) and distractor_facts[0] (server-side, keeps the enquiry out of the scored red_flags answer key)",
-    "note": "Source passages: Court orders and law enforcement enquiries, document page 12; Suspicion should not be inherited, document page 21. The NCA publications register date is 19 November 2025; the document is labelled December 2025, version 1.1. No case-specific frontend feedback panel or teaching note exists for sar-003: scenario-lab.js's renderSarResults is generic across all three SAR Sandbox cases and carries no case-specific text, so this claim is embodied entirely in the API's whitelisted case-detail field and the server-side answer-key exclusion, both in the separately deployed fincrimeradar-api repository."
+    "location": "fincrimeradar-api/case_sar_003.json, subject.review_trigger (visible, factually records the enquiry and review trigger without stating the pedagogical verdict), distractor_facts[0] and the red_flags answer key (server-side, keep the enquiry out of scoring)",
+    "note": "Source passages: Court orders and law enforcement enquiries, document page 12; Suspicion should not be inherited, document page 21. The NCA publications register date is 19 November 2025; the document is labelled December 2025, version 1.1. No case-specific frontend feedback panel or teaching note exists for sar-003: scenario-lab.js's renderSarResults is generic across all three SAR Sandbox cases and carries no case-specific text. The visible review_trigger records only that the verified enquiry disclosed no allegation or finding and prompted review; it deliberately does not pre-state the conclusion the trainee must apply. The claim is operationalised by the server-side answer-key exclusion in the separately deployed fincrimeradar-api repository."
   },
   {
     "claimId": "sar-writing-sandbox.sar-003.poca-s330-conditions.001",
