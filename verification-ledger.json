@@ -8781,5 +8781,39 @@
     "reviewDue": "2027-09-21",
     "status": "verified",
     "note": "Re-read from legislation.gov.uk data.xml (uksi/2017/692/regulation/33) on 2026-09-21 at 20:43 UTC before the quiz question 1 options were rewritten."
+  },
+  {
+    "claimId": "scenario-lab.sanctions-alert-surge.ofsi-citibank-penalty.001",
+    "guide": "scenario-lab/data/cases.json",
+    "claimType": "enforcement",
+    "claimText": "OFSI's 2026 Citibank N.A. London Branch penalty notice records 970 payments with a cumulative value of GBP 19,720,127.43 and a GBP 4,732,830.58 penalty. It identifies control issues including alert backlogs, failure to match the corporate prefix PAO, screening before automated correspondent banks were added, and a temporary guidance change that increased the risk and duration of accounts remaining unrestricted.",
+    "source": {
+      "title": "Imposition of Monetary Penalty - Citibank, N.A., London Branch",
+      "url": "https://www.gov.uk/government/publications/imposition-of-monetary-penalty-citibank-na-london-branch",
+      "publisher": "Office of Financial Sanctions Implementation, HM Treasury",
+      "date": "2026-09-02"
+    },
+    "verifiedOn": "2026-09-22",
+    "reviewDue": "2027-09-22",
+    "status": "verified",
+    "location": "scenario-lab/data/cases.json, Risk Scoring Case 7 rationale and evidence cards",
+    "note": "Rechecked against the current GOV.UK publication and its attached OFSI penalty notice on 22 September 2026. The fictional Northbridge scenario is an original training application of the notice's control findings."
+  },
+  {
+    "claimId": "scenario-lab.fatf-grey-list-rule-change.si-2026-621.001",
+    "guide": "scenario-lab/data/cases.json",
+    "claimType": "regulatory",
+    "claimText": "From 30 June 2026, regulation 19 of SI 2026/621 narrowed the automatic country-based EDD trigger in MLR 2017 regulation 33(1)(b) to FATF Call for Action countries. FATF mutual evaluations remain a geographical risk factor under regulation 33(6)(c), and EDD remains required where the firm's own assessment identifies high money laundering or terrorist financing risk.",
+    "source": {
+      "title": "Money Laundering Advisory Notice: June 2026",
+      "url": "https://www.gov.uk/government/publications/money-laundering-advisory-notice-high-risk-third-countries--2/money-laundering-advisory-notice-high-risk-third-countries--2",
+      "publisher": "HM Treasury",
+      "date": "2026-06-22"
+    },
+    "verifiedOn": "2026-09-22",
+    "reviewDue": "2027-09-22",
+    "status": "verified",
+    "location": "scenario-lab/data/cases.json, Risk Scoring Case 8 rationale and evidence cards",
+    "note": "Rechecked against HM Treasury's implementation notice on 22 September 2026; the notice states both the narrowed Call for Action trigger and the continuing risk-factor treatment."
   }
 ]

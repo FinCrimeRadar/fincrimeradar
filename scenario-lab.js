@@ -113,11 +113,11 @@
   const LOCAL_CASES_URL = "/scenario-lab/data/cases.json";
   const LIVE_CASES_TIMEOUT_MS = 15000;
 
-  // Known shipped baseline (17 total: KYC 5, Fraud 6, Risk Scoring 6), see
+  // Known repository baseline (19 total: KYC 5, Fraud 6, Risk Scoring 8), see
   // BACKLOG.md "fetchCasesFrom accepts a stale-but-non-empty API response".
   // A live payload can be non-empty and still be a stale partial deploy;
   // check it looks like the real shipped set, not just that it parsed.
-  const CASE_COUNT_BASELINE = { total: 17, kyc: 5, fraud: 6, risk_scoring: 6 };
+  const CASE_COUNT_BASELINE = { total: 19, kyc: 5, fraud: 6, risk_scoring: 8 };
 
   function caseCountShortfall(data) {
     const counts = { total: data.length, kyc: 0, fraud: 0, risk_scoring: 0 };
@@ -239,7 +239,7 @@
     riskTile.innerHTML = [
       "<div>",
       "<h3>Risk Scoring</h3>",
-      "<p>Weigh a profile of risk signals and choose the proportionate response, then see what was material and what was noise, across six cases.</p>",
+      "<p>Weigh a profile of risk signals and choose the proportionate response, then see what was material and what was noise, across eight cases.</p>",
       "</div>",
     ].join("");
     riskTile.addEventListener("click", () => startRiskModule(dashboard, workspace, state));
@@ -318,10 +318,11 @@
     return { label: "Attempted, review again", cls: "attempted" };
   }
 
-  // "Sources: N" in the case header. No case carries literal cited-source
-  // data (Scenario Lab cases are illustrative composites, not sourced
-  // claims the way the guides are), so this counts the real structured
-  // evidence the case's decision is actually grounded in: screening
+  // "Evidence items: N" in the case header counts the structured evidence
+  // the analyst must review, not the number of external citations. Most cases
+  // are illustrative composites; source-grounded cases keep their regulatory
+  // or enforcement claims in the verification ledger. This function counts
+  // screening
   // records consulted for KYC cases, timeline steps for sequential fraud
   // cases, cross-reference facts for the simultaneous-fact cases.
   function caseSourceCount(c) {
@@ -475,7 +476,7 @@
     caseHeader.innerHTML = [
       "<h2>Case " + c.case_number + " of " + workspace.dataset.total + ": " + escapeHtml(c.title) + "</h2>",
       "<p>" + escapeHtml(c.briefing) + "</p>",
-      '<div class="sl-case-meta"><span>Entities: ' + c.nodes.length + "</span><span>Sources: " + caseSourceCount(c) + "</span></div>",
+      '<div class="sl-case-meta"><span>Entities: ' + c.nodes.length + "</span><span>Evidence items: " + caseSourceCount(c) + "</span></div>",
     ].join("");
     workspace.appendChild(caseHeader);
 
@@ -1581,7 +1582,7 @@
     caseHeader.innerHTML = [
       "<h2>Case " + c.case_number + ": " + escapeHtml(c.title) + "</h2>",
       "<p>" + escapeHtml(c.briefing) + "</p>",
-      '<div class="sl-case-meta"><span>Sources: ' + caseSourceCount(c) + "</span></div>",
+      '<div class="sl-case-meta"><span>Evidence items: ' + caseSourceCount(c) + "</span></div>",
     ].join("");
     workspace.appendChild(caseHeader);
 
@@ -1985,7 +1986,7 @@
   }
 
   // ---- Cross-reference fact card component (Cases 5/6, and Risk Scoring's
-  // Cases 1/2/4/5/6, see docs/risk-scoring-module-spec.md) ----
+  // cross-reference cases, see docs/risk-scoring-module-spec.md) ----
   // Reuses the header scene renderer, disposition panel button/banner
   // pattern, and back-to-case-list/related-guide helpers unchanged. The
   // only new interactive surface is the fact card grid immediately below:
@@ -2004,7 +2005,7 @@
     caseHeader.innerHTML = [
       "<h2>Case " + c.case_number + ": " + escapeHtml(c.title) + "</h2>",
       "<p>" + escapeHtml(c.briefing) + "</p>",
-      '<div class="sl-case-meta"><span>Sources: ' + caseSourceCount(c) + "</span></div>",
+      '<div class="sl-case-meta"><span>Evidence items: ' + caseSourceCount(c) + "</span></div>",
     ].join("");
     workspace.appendChild(caseHeader);
 

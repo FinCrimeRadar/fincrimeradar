@@ -984,5 +984,121 @@
       "url": "/crypto-guide-part3.html",
       "reason": "More on mixer typologies and why the pattern matters more than the tool"
     }
+  },
+  {
+    "module": "risk_scoring",
+    "case_number": 7,
+    "entity_id": "risk-sanctions-alert-surge-107",
+    "name": "Northbridge Bank, Correspondent Banking Operations",
+    "title": "Sanctions Alert Surge",
+    "briefing": "A wave of new designations has overwhelmed a correspondent bank's sanctions operation. Review the control failures and the proposed pressure response, then decide.",
+    "layout": "cross_reference",
+    "header_scene": {
+      "nodes": [
+        { "id": "n1", "label": "Northbridge Bank", "color": "teal" },
+        { "id": "n2", "label": "Alert queue", "sublabel": "Backlog growing", "color": "amber" },
+        { "id": "n3", "label": "Name matching", "sublabel": "Prefix gap", "color": "amber" },
+        { "id": "n4", "label": "Payment chain", "sublabel": "Screened too early", "color": "amber" },
+        { "id": "n5", "label": "Pressure response", "sublabel": "Weaken restriction rule", "color": "red" }
+      ],
+      "edges": [
+        { "from": "n1", "to": "n2" },
+        { "from": "n1", "to": "n3" },
+        { "from": "n1", "to": "n4" },
+        { "from": "n1", "to": "n5" }
+      ]
+    },
+    "cross_reference_facts": [
+      {
+        "icon": "pattern",
+        "title": "Alert handling backlog",
+        "body": "New designations have sharply increased potential matches. Third-level manual review is falling several weeks behind, leaving some alerts unadjudicated while accounts and payments remain active."
+      },
+      {
+        "icon": "id",
+        "title": "Corporate prefix mismatch",
+        "body": "The screening system treats a designated company's core name and the same name with the corporate prefix 'PAO' as materially different, so known customer records can fail to generate alerts."
+      },
+      {
+        "icon": "network",
+        "title": "Correspondent added after screening",
+        "body": "The payment processor screens the instruction before it automatically selects a correspondent bank. It does not re-screen the completed payment chain before release."
+      },
+      {
+        "icon": "decision",
+        "title": "Proposed pressure response",
+        "body": "To reduce the queue, management proposes that staff should stop requesting temporary account restrictions during an ownership or control investigation unless they already hold evidence of at least 50 percent designated ownership."
+      }
+    ],
+    "disposition_options": [
+      { "key": "standard", "label": "Standard monitoring" },
+      { "key": "edd", "label": "Enhanced Due Diligence (EDD)" },
+      { "key": "escalate_mlro", "label": "Escalate to MLRO" },
+      { "key": "block_sar", "label": "Block or SAR" }
+    ],
+    "correct_disposition": ["escalate_mlro"],
+    "rationale": "Source: OFSI's 2026 Citibank London Branch penalty notice describes 970 payments with a cumulative value of GBP 19,720,127.43 and a GBP 4,732,830.58 penalty. It identifies alert backlogs, a corporate-prefix matching failure, screening before correspondent banks were added, and a temporary guidance change that increased the risk and duration of accounts remaining unrestricted. Application: Northbridge is a synthetic scenario, but all four facts show foreseeable systems and controls weaknesses, not four isolated low-risk exceptions. Operational pressure does not make the unresolved exposure safe, and weakening the restriction rule would deepen the control failure. Action: escalate immediately to the MLRO and sanctions leadership, contain affected processing while the actual legal and licence position is established, clear the alert backlog on a documented risk basis, correct the matching and payment-chain controls, and assess any OFSI reporting obligation separately. A SAR is not a substitute for sanctions restrictions or reporting, so the combined 'Block or SAR' option is not the best first answer on these facts.",
+    "related_guide": {
+      "title": "Sanctions Compliance: OFAC, OFSI and Beyond",
+      "url": "/sanctions-compliance-guide.html",
+      "reason": "More on sanctions controls, ownership and jurisdiction"
+    }
+  },
+  {
+    "module": "risk_scoring",
+    "case_number": 8,
+    "entity_id": "risk-fatf-grey-list-change-108",
+    "name": "Existing Trade Finance Customer",
+    "title": "FATF Grey List Rule Change",
+    "briefing": "An existing customer's home jurisdiction is on the FATF Increased Monitoring list, but not the Call for Action list. A legacy rules engine still labels the relationship as mandatory Regulation 33 EDD. Review the current facts, then decide.",
+    "layout": "cross_reference",
+    "header_scene": {
+      "nodes": [
+        { "id": "n1", "label": "Existing customer", "color": "teal" },
+        { "id": "n2", "label": "FATF status", "sublabel": "Increased Monitoring", "color": "amber" },
+        { "id": "n3", "label": "Regulation 33 rule", "sublabel": "Legacy logic", "color": "red" },
+        { "id": "n4", "label": "Customer risk", "sublabel": "No other high-risk facts", "color": "teal" }
+      ],
+      "edges": [
+        { "from": "n1", "to": "n2" },
+        { "from": "n1", "to": "n3" },
+        { "from": "n1", "to": "n4" }
+      ]
+    },
+    "cross_reference_facts": [
+      {
+        "icon": "network",
+        "title": "Current FATF classification",
+        "body": "The jurisdiction is on FATF's Jurisdictions under Increased Monitoring list. It is not on the High-Risk Jurisdictions subject to a Call for Action list."
+      },
+      {
+        "icon": "id",
+        "title": "Customer and ownership file",
+        "body": "The customer and its beneficial owners are verified. There are no sanctions or PEP matches, no adverse media and no unexplained ownership or control feature."
+      },
+      {
+        "icon": "cash",
+        "title": "Activity and purpose",
+        "body": "Trade activity matches the stated business, source of funds is documented, transaction values are consistent with historic turnover and enhanced monitoring has found no anomaly."
+      },
+      {
+        "icon": "pattern",
+        "title": "Legacy rules engine",
+        "body": "The engine was written before 30 June 2026 and still treats both FATF public lists as automatic Regulation 33(1)(b) triggers. It has not been updated for the amended definition."
+      }
+    ],
+    "disposition_options": [
+      { "key": "standard", "label": "Standard monitoring" },
+      { "key": "edd", "label": "Enhanced Due Diligence (EDD)" },
+      { "key": "escalate_mlro", "label": "Escalate to MLRO" },
+      { "key": "block_sar", "label": "Block or SAR" }
+    ],
+    "correct_disposition": ["standard"],
+    "rationale": "Source: regulation 19 of SI 2026/621 narrowed the automatic country-based trigger in MLR 2017 regulation 33(1)(b) to FATF Call for Action countries from 30 June 2026. HM Treasury also states that FATF mutual evaluations continue to be a geographical risk factor under regulation 33(6)(c), and EDD remains necessary wherever the firm's own assessment identifies high money laundering or terrorist financing risk. Application: this customer is linked only to an Increased Monitoring jurisdiction and the stated file contains no separate high-risk factor. The legacy engine is applying the old rule, so its mandatory-EDD label is not the current statutory test. Action: document the reassessment, correct the rules engine and apply Standard monitoring on these facts. Do not treat grey-list status as irrelevant: if the jurisdictional weaknesses or other evidence make the relationship high risk, EDD and enhanced ongoing monitoring are still required on that independent basis.",
+    "related_guide": {
+      "title": "The FATF 40 Recommendations: The Practitioner's Handbook",
+      "url": "/fatf-guide-part1.html",
+      "reason": "More on FATF lists and the risk-based approach"
+    }
   }
 ]

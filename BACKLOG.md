@@ -65,7 +65,13 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
-Empty. No item currently meets the Next Up queue-gate fields (see Queue rules above). The De-Risking Judgement Call shipped (merged to main at 1906819) and is removed from this queue rather than relabelled.
+### Scenario Lab cases 7 and 8 release
+
+- **Status:** READY. The prior blanket pause is lifted for these two cases only. Implementation is present in the working tree; independent review, commit, API sync and production verification remain pending.
+- **Verification owner:** Codex research session, 12 September 2026; primary sources rechecked during implementation on 22 September 2026.
+- **Primary sources or repository evidence checked:** OFSI's Citibank N.A. London Branch penalty notice; SI 2026/621 regulation 19; HM Treasury's June 2026 Money Laundering Advisory Notice; the existing Risk Scoring schema and live-payload fallback contract.
+- **Review date:** 22 September 2026.
+- **Verification outcome:** source propositions confirmed and two deterministic cross-reference cases implemented locally. Release remains unverified until the automated case sync and resulting production behaviour are checked.
 
 ## Polish Loop
 
@@ -101,12 +107,7 @@ Empty. No item currently meets the Next Up queue-gate fields (see Queue rules ab
 
 ## Build Loop
 
-Scenario Lab expansion remains **PAUSED** until real usage or engagement evidence justifies further investment. The two verified cases below remain ready research assets, but the pause blocks implementation.
-
-### Verified but paused Scenario Lab cases
-
-- **Sanctions Alert Surge:** grounded in OFSI's Citibank London Branch penalty notice. Verified figures: 970 payments, about GBP 19.7 million cumulative value and GBP 4,732,830.58 penalty. Verified 12 September 2026.
-- **FATF Grey List Rule Change:** grounded in SI 2026/621. Verified proposition: from 30 June 2026, mandatory Regulation 33 EDD narrowed to FATF Call for Action jurisdictions, while grey-list status became a geographical risk factor. Verified 12 September 2026.
+Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are in the release queue above. Further expansion remains gated by the queue rules and evidence of user value.
 
 ### Research candidates
 
@@ -114,8 +115,6 @@ Scenario Lab expansion remains **PAUSED** until real usage or engagement evidenc
 - **Event Driven CDD Review:** check the FCA April 2026 customer due diligence review and related primary material.
 - **Failure to Prevent Fraud case:** a synthetic Scenario Lab case distinct from the shipped Failure to Prevent Fraud Evidence Essay guide (failure-to-prevent-fraud-evidence-essay.html, Experiment 04). Reuse that guide's verified ECCTA 2023 section 199, Home Office, CPS and SFO evidence pack rather than re-verifying from scratch.
 - **Proliferation Financing Investigation:** establish a defensive dual-use scope and primary UK regulatory basis before promotion.
-- **OFAC aggregate ownership case:** a confirmed content gap, but US-only and paused with Scenario Lab.
-- **Message and remittance-line screening case:** a confirmed content gap in the existing 17 cases, but paused with Scenario Lab.
 
 ### Other build candidates
 

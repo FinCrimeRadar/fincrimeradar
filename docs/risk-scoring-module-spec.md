@@ -1,6 +1,6 @@
 # Scenario Lab, Risk Scoring Module Spec
 
-**Status: approved case list, ready for build. Rebuilt from scratch 2026-08-17 after the original "master spec doc" was confirmed never committed to the repo. Commit this file so it does not go missing again.**
+**Status: initial six-case module shipped. Cases 7 and 8 were promoted from the verified backlog for implementation on 22 September 2026.**
 
 Guide/interaction standards: see GUIDE_STANDARD.md. Enforcement, sourcing, review triggers: see CLAUDE.md. This spec defines module content and component reuse only, it does not restate those rules.
 
@@ -53,11 +53,11 @@ After the decision, the reveal names which factors were **material** and which w
 
 ## Sourcing note
 
-Scenario Lab cases are illustrative composites, not sourced claims, so no verification ledger entries are required (same split as KYC and Fraud). But every regulatory principle a case states must be accurate. Do not invent scenario or regulatory content beyond what this spec defines. Where a case names a real rule, the framing below is the approved framing.
+The initial six Scenario Lab cases are illustrative composites. Cases 7 and 8 are synthetic training scenarios grounded in a named public enforcement notice and a regulatory change, so their load-bearing claims are recorded in the verification ledger. Every regulatory principle a case states must be accurate. Do not invent scenario or regulatory content beyond what this spec defines. Where a case names a real rule, the framing below is the approved framing.
 
 ---
 
-## The six cases
+## The initial six cases
 
 ### Case 1: The Country Flag That Is Not the Risk
 
@@ -159,9 +159,33 @@ The case must state this contrast in the reveal. A UK analyst should learn the O
 
 ---
 
+## Expansion cases
+
+### Case 7: Sanctions Alert Surge
+
+**Signals:** a sanctions alert backlog, a corporate-prefix matching gap, payment-chain screening that runs before an automated correspondent is added, and a proposal to weaken temporary restriction guidance while ownership or control remains unresolved.
+
+**Material:** the combined control weaknesses and the proposal to relax containment under pressure. **Noise:** treating each event as an isolated processing exception.
+
+**Correct response:** Escalate to MLRO. Establish the actual legal and licence position, contain affected processing, remediate the controls and assess sanctions reporting separately. Do not use a SAR as a substitute for sanctions restrictions or reporting.
+
+**Teaches:** operational pressure can expose foreseeable design and configuration weaknesses. This is a synthetic scenario grounded in OFSI's Citibank London Branch penalty notice, not a claim that the fictional bank or its precise facts are real.
+
+### Case 8: FATF Grey List Rule Change
+
+**Signals:** an Increased Monitoring jurisdiction, no Call for Action classification, a low-risk verified customer file and a legacy rule engine still applying the pre-30 June 2026 definition.
+
+**Material:** the amended regulation 33 trigger and the customer's documented risk assessment. **Noise:** the old engine's automatic mandatory-EDD label.
+
+**Correct response:** Standard monitoring on the stated facts, with a documented reassessment and rule correction. Increased Monitoring status remains a geographical risk factor and can still support EDD where the overall assessment identifies high risk.
+
+**Teaches:** the removal of an automatic statutory trigger is not the removal of risk-based judgement.
+
+---
+
 ## Build acceptance criteria
 
-- All 6 cases load from the single `cases.json` via the existing FastAPI router, no new endpoint.
+- All 8 cases load from the single `cases.json` via the existing FastAPI router, no new endpoint.
 - Cross reference board gating works: decision locked until every signal card seen at least once (verify by triggering, not by reading CSS).
 - Case 3 UBO tree computes the aggregate correctly and the reveal states the OFSI contrast.
 - Case 4 model is visibly labelled illustrative and the override path works.
