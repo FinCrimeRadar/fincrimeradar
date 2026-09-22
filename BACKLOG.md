@@ -75,7 +75,7 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ### SAR Writing Sandbox Phase 1A: third practice case (`sar-003`)
 
-- **Status:** READY. Build one API-backed practice case, **The Enquiry Is Not the Suspicion**, by reusing the existing SAR case schema, picker, extraction flow and deterministic scoring. Do not add an evidence-log interface, export, session-limit redesign, expert-answer comparison, new endpoint, shared engine or extra AI call.
+- **Status:** READY. Build one API-backed practice case, **The Information Request**, by reusing the existing SAR case schema, picker, extraction flow and deterministic scoring. Do not add an evidence-log interface, export, session-limit redesign, expert-answer comparison, new endpoint, shared engine or extra AI call.
 - **Verification owner:** Claude Code implementation and verification session, with Pratik as release approver. Independent regulatory review and remediation recheck completed before implementation.
 - **Primary sources or repository evidence checked:** UKFIU SARs Best Practice Guidance, Chapter 2, version 1.1; NCA SARs in Action Issue 36; current official POCA sections 330 and 340 XML; both live SAR case payloads; `fincrimeradar-api` case schema, whitelist, extraction, answer-key and rate-limit paths; `scenario-lab.js` SAR picker, editor and results paths. The source pack is `C:\Users\prats\Documents\Codex\2026-09-22\sar-is-a-separate-product-from\outputs\SAR_Sandbox_Phase_1A_Source_Pack.md`.
 - **Review date:** 22 September 2026.
