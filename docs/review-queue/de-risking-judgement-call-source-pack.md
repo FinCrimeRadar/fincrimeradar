@@ -47,6 +47,8 @@ Compiled 2026-09-21 on `main` at `97dbe65`. Revised the same day after external-
 - REVIEW (priority): the two readings and the regulation 28(12) argument, tested against regulation 3(1), regulation 28(1), 28(12), 28(16), regulation 31(1) and the 51C(a) phrasing.
 - Claim ID: `de-risking-judgement-call.mlr-reg31-unable-to-apply-cdd.001`
 
+- **Post-drafting addition (section I):** regulation 3(1) also defines "enhanced customer due diligence measures" as "the customer due diligence measures required under regulations 33 to 35" (re-read from legislation.gov.uk data.xml on 2026-09-21, 19:20 UTC). It is one textual argument for the wide reading. It sits beside the narrow-reading anchor "as required by regulation 28" and does not settle the point. Also, 31(1)(b) is two limbs (establishing a business relationship, and a transaction otherwise than through a bank account), which section I records as a precision correction.
+
 ### A5. Regulation 33(1)(b) as amended by SI 2026/621 regulation 19. VERIFIED. Established. REVIEW.
 - Made 9 June 2026; in force 21 days after making, recorded on legislation.gov.uk as effective 30 June 2026 (SI 2026/621 reg 1(2)). Reg 19(a), (c) are not caught by the 1 February 2027 delayed commencement, which applies only to reg 20 and reg 36(b) (reg 1(4)).
 - Current 33(1)(b): EDD and enhanced ongoing monitoring "in any business relationship ... with a person established in a FATF call for action country or in relation to any relevant transaction where either of the parties to the transaction is established in a FATF call for action country".
@@ -218,10 +220,64 @@ Claim IDs (all Industry position): `de-risking-judgement-call.jmlsg-part1-4-33-4
 ## H. Claims requiring external adversarial review (CLAUDE.md section 7), for the delivery report
 
 1. Regulation 33(1)(b) as amended: the two list to one list change, the effect that Increased Monitoring no longer triggers it, and, as a FinCrimeRadar application and not statute, whether an Increased Monitoring listing may bear on the firm's assessment through 33(6)(c), 33(1)(a), 33(1)(g) and 33(7) (A5, A6).
-2. Regulation 31: whether "customer due diligence measures" (defined at regulation 3(1) to include, where relevant, the measures required by regulations 33 to 37) reaches regulation 33 EDD and regulation 34 respondent measures, given the qualifier "as required by regulation 28" (A4). The text does not settle it.
+2. Regulation 31: whether "customer due diligence measures" (defined at regulation 3(1) to include, where relevant, the measures required by regulations 33 to 37) reaches regulation 33 EDD and regulation 34 respondent measures, given the qualifier "as required by regulation 28" (A4). The text does not settle it. Post-drafting additions for this claim (enhanced customer due diligence definition at 3(1), and 31(1)(b) precision) are in section I.
 3. Regulation 34: that 34(1) measures apply to third-country respondents only, and the interaction with 33(1)(c) (A7).
 4. PSRs 2017 regs 51B and 51C: vintage condition, the 51C(a) and (c) exemptions, that a discretionary AML exit falls inside 51B, tipping-off interaction, and reg 40(7) disapplication (D1).
 5. PRIN 2A: that it does or does not apply to an AML exit (C3).
 6. JMLSG 16.27 "must" against regulation 34(1) (E).
 7. FATF Guidance para 142 read as a statement of what the Standards require, and its use next to UK law (B2).
 8. Any scenario verdict or feedback string that names a mandatory versus discretionary outcome (CLAUDE.md section 10, and legally defined categories).
+
+## I. Post-drafting changes for the reviewer brief (claim 2 and regulation 31 precision)
+
+Recorded 2026-09-21 after the first branch commit (`1297c08`). Both changes are in the guide, the ledger and the memo, and both fall under external review claim 2 (regulation 31 and EDD-only failure).
+
+1. **Regulation 31(1)(b) precision.** The guide, the ledger extract `mlr-reg31-unable-to-apply-cdd` and the memo previously shortened 31(1)(b) to "no new relationship". The text bars establishing a business relationship, or carrying out a transaction, with the customer otherwise than through a bank account. Guide wording in the reg 31 source blocks, the wide-reading paragraph of the EDD-only open point, and the memo 4B wide row and stage 2 description now paraphrase both limbs. No quotation of 31(1)(b) is used (the full text is over fifteen words). The pack line at A4 already carried the full text.
+2. **Enhanced customer due diligence definition.** Reg 3(1) defines "enhanced customer due diligence measures" as "the customer due diligence measures required under regulations 33 to 35". The guide adds it to the reg 31 and EDD-only failure open point as one argument for the wide reading, and adds "as required by regulation 28" to the narrow reading paragraph so both anchors are visible. Ledger: new entry `de-risking-judgement-call.mlr-reg3-1-enhanced-cdd-definition.001` (verified after the re-read), and the open-point and reg 31 claimText entries updated to the live wording.
+3. **What the reviewer should test.** Whether the enhanced definition supports the wide reading as a matter of construction, whether the "where relevant" qualifier in the main definition limits it, whether the guide presents the point as one argument and not a conclusion, and whether any verdict text rests on either reading. In this pass the recommended step in scenario one is reading-neutral (escalate, record, take advice), and scenario two branch a rests on the plain regulation 28 measures. Section J refines this: the choice between continuing and exiting in scenario one is stated as reading-dependent.
+
+## J. External review findings applied at head e5eea64 (13 items, primary text read 2026-09-21 20:06 UTC)
+
+Primary text re-read from legislation.gov.uk data.xml on 2026-09-21: MLR 2017 regs 27, 31, 33, 34; PSRs 2017 regs 40, 51B, 51C, 51D; POCA s333D; Terrorism Act s21G. FCA de-risking page re-read the same day from fca.org.uk. FATF R.10 and R.13 could not be re-fetched (the FATF site returned a script shell to a plain request), so those two rest on the pack read of the June 2026 edition recorded at B4 and are labelled as pack reads in the ledger.
+
+1. **"Stop new transactions" replaced.** The options, decision record and feedback now preserve 31(1)(a) (no transaction through a bank account) and 31(1)(b) (no business relationship, and no transaction otherwise than through a bank account).
+2. **51C(a) both conditions.** Every application of 51C(a) now states CDD required by reg 27 and inability to apply it as reg 28 requires. Branch a facts previously gave no reg 27 occasion. They now state that the firm is reviewing an existing customer at an appropriate time on a risk based approach, so reg 27(8) requires CDD. The reg 27(1) occasions (establishing a relationship, doubt about documents) were checked and not used, because the customer is existing.
+3. **51D.** Described as disapplying the 90 days in two listed cases and requiring notice without delay after the decision, subject to 51D(2) (another legal requirement prevails to the extent of the conflict). Confirmed against 51D(1) to (3).
+4. **Offence exceptions.** "Turn on purpose" replaced with both exceptions: the purpose exception (333D(1)(b), 21G(1)(b)) and the no knowledge or suspicion exception (333D(3), 21G(3)). Confirmed against both sections.
+5. **Respondent decision.** The recommendation stays reading-neutral. The continue-or-exit choice is stated as reading-dependent, and on the wide reading, while inability persists, no bank account transactions and termination. The Q5 note, the FAQ and the open-points introduction no longer say that no verdict rests on either reading.
+6. **Capacity and cost.** Now: no AML statutory duty to exit, but may inform a commercial decision subject to other applicable law. Supported by the FCA page ("ultimately a commercial one for the bank"). FCTR 12.3.7G is labelled guidance.
+7. **"Wait" option.** Graded Not supported on the stated facts (new grade `unsupported-facts`), because the facts say the firm has tried alternatives and remains unable, so inability already persists. The open cure-timing point is kept for the counterfactual.
+8. **Charity 51B conclusion.** Made conditional on Part 6 applying under reg 40(1) (services from a UK establishment in a listed circumstance), no reg 40(7) agreement, and no 51C or 51D ground.
+9. **R.10 and R.13.** The R.10 statement is confined to the charity facts (complete due diligence, so its refuse or terminate consequence is not engaged) and R.13 is mentioned separately.
+10. **Quiz.** Q3 loses "and nothing else". Q1 note: the trigger is the establishment link to a Call for Action country, not a listing alone, and the amendment removes Increased Monitoring as an automatic trigger. Q4 note: the supervisor-expectation sentence is labelled FinCrimeRadar assessment (also in the charity "fatf" option).
+11. **"Keep unchanged" option.** Added the fact that the required EDD and enhanced monitoring are in place and adequate. The option stays graded Incomplete, because residual risk is stated as high after those measures and nothing has been tested or recorded.
+12. **4B row 4.** Added "where reg 34(2) or 34(3) does not require non-continuation" to the scope of the no-immediate-termination sentence, in the memo and in the guide (framework contract open point).
+13. **Capitalisation.** "A correspondent relationship" quoted with a lower-case initial, matching reg 34(4)(a).
+
+Reviewer to test again: the reading-dependence statement in scenario one, the wait option grade, and every place 51C(a) is applied.
+
+## K. Quiz question 1 rewrite after the code review of 929efdd..1b2ede0
+
+Primary text re-read for this change: MLR 2017 reg 33(1)(b) and 33(3)(a) from legislation.gov.uk data.xml on 2026-09-21 at 20:43 UTC. Reg 33(1)(b) applies to a business relationship with a person established in a FATF call for action country, or a relevant transaction where either party is so established. Reg 33(3)(a) defines the country by the Call for Action list as it has effect from time to time.
+
+The question stem now speaks of establishment in a country on either FATF list (the earlier "listing" shorthand did not match the establishment link in the regulation). The three options are 89, 86 and 83 characters, the correct option is the middle length and sits at position b, and the five-question positions remain b, c, a, c, b. New ledger entry: `de-risking-judgement-call.mlr-reg33-3-call-for-action-country-definition.001`.
+
+Reviewer to confirm: the correct option ("Only establishment in a Call for Action country triggers it, not Increased Monitoring") is right on the text, and that neither distractor is arguable under any reading of the pre-amendment definition.
+
+## L. External review 2 applied at head 25e8d1e
+
+Primary text re-read from legislation.gov.uk data.xml on 2026-09-21 at 20:55 UTC: PSRs 2017 regs 40, 51A, 51B, 51C and 51D, and MLR 2017 reg 27.
+
+1. **"No preferred verdict."** The open point cards, and every place that said no verdict rests on either reading, now say "No preferred verdict in this guide rests on either reading". The guide does state that the respondent scenario continue-or-exit choice turns on the reading of reg 31 (section J item 5), so the unqualified sentence overstated it. Ledger notes on the five open points and the scenario verdict text entry carry the same wording. Section J item 5 above is superseded by this wording. The memo carried no version of the phrase.
+2. **Conditional 51B.** "If it ends in exit, meets regulation 51B" and "a discretionary exit is the case that needs 51B" are replaced with statements conditional on Part 6 applying under reg 40(1) (services from a UK establishment in a listed circumstance), an indefinite-term framework contract entered into on or after 28 April 2026 (51A covers earlier contracts, two months "if the contract so provides"), no reg 40(7) agreement and no 51C or 51D ground. The sweep also changed: the exit section source sentence, the framework contract open point, the FAQ, the charity analyses and Decision Record, the charity "test" recommendation and the Q2 answer note.
+3. **Reg 27.** Regulation 27 is now in source [1]'s provision list (and in the ledger source titles). Reg 27(8)(a) requires customer due diligence "at other appropriate times to existing customers on a risk based approach". Scenario 2A now presents it as a stipulated fact ("the scenario stipulates ... an occasion within regulation 27(8)(a)"), and says the regulation does not itself make any given review such a time. The analyses say "on the stipulated facts".
+
+Reviewer to test again: that no remaining sentence states 51B as applying without its conditions, and that the stipulation reading of 27(8)(a) is fair.
+
+## M. Source re-read in a real browser, 2026-09-21 (finished by 21:26 UTC)
+
+Method: pages read in Chrome (FATF list pages, the FATF press release of 25 February 2025 and the JMLSG current guidance page). The PDFs were downloaded through a real Chrome session on the source site (FATF Recommendations "Updated June 2026", FATF Guidance on Financial Inclusion June 2025, JMLSG Part I "Updated August 2025", JMLSG Part II "Updated December 2025") and their text extracted for comparison with the ledger extracts. An earlier plain HTTP request to the FATF site returned only a script shell, so the browser route was needed.
+
+Result: every ledger extract checked matched. Entries re-read: the two FATF list pages (19 June 2026), R.1 with the press release, INR.1 paras 12 to 16, the R.10 failure clause, R.13 (a) to (e) and the shell bank sentences, INR.10 paras 1 to 3 and 15, Financial Inclusion Guidance paras 47, 52, 53 and 140 to 142, JMLSG Part I 4.77, 5.2.6 and 5.2.7, JMLSG Part II 16.27, 16.28 and 16.32 to 16.34, and the pre-SI 2026/621 caveat. No mismatch was found and the guide was not edited.
+
+Noted, not a mismatch: INR.10 para 1 has footnote numeral 36 in the June 2026 edition (34 in February 2025), as recorded at B4. JMLSG Part I has "call for action" wording in seven places, but neither part mentions SI 2026/621 and both still use "high-risk third country" (16 and 5 times), so the caveat stands. Ledger entries carry a re-read note. The FCA de-risking page was re-read earlier the same day by HTTP request, and FCTR 12.3 was not re-read in this pass.
