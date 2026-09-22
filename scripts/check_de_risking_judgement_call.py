@@ -338,8 +338,14 @@ def main() -> None:
     require(applied, "no element applies 51C(a), so the regulation 27 check matched nothing")
     for element in applied:
         require("regulation 27" in element["text"], f"51C(a) is applied without the regulation 27 condition: {element['text'][:120]}")
-    occasion = [element for element in elements_in("scenario-two-a") if "regulation 27" in element["text"] and "51C(a)" not in element["text"]]
-    require(occasion, "the branch a facts must state the regulation 27 occasion")
+    occasion = [element for element in elements_in("scenario-two-a") if "regulation 27(8)" in element["text"] and "51C(a)" not in element["text"]]
+    require(occasion, "the branch a facts must state the regulation 27(8) occasion")
+
+    # ---- positive content pins: legally load-bearing wording that must not regress silently
+    exit_text = text_only(section(html, "exit"))
+    require("sections 333D(3) and 21G(3)" in exit_text and "333D(1)(b) or 21G(1)(b)" in exit_text, "both offence exceptions must be stated in the exit section")
+    require("subject to 51D(2)" in exit_text and "without delay" in exit_text, "51D must be described as substituting notice without delay, subject to 51D(2)")
+    require("regulation 34(2) or 34(3) does not require non-continuation" in text_only(open_block), "the urgent exit sentence must carry the 34(2) and 34(3) scope")
     r10 = [element for element in page.elements if "Recommendation 10" in element["text"] and re.search(r"refus|terminat", element["text"])]
     require(r10, "no element states the Recommendation 10 consequence, so the confinement check matched nothing")
     for element in r10:

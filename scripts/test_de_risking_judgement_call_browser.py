@@ -455,16 +455,19 @@ def check_no_script(cdp: CDP, url: str) -> None:
     print("OK: no script: buttons hidden, all analyses visible, stray submit does not navigate")
 
 
-def wait_scroll_settled(cdp: CDP, start_y: int, limit: float = 25.0) -> None:
+def wait_scroll_settled(cdp: CDP, start_y: int, limit: float = 25.0, grace: float = 1.5) -> None:
     """Smooth scrolling can start late and take a while on a long page. Wait until it has moved away from
-    start_y and then stops, so a slow start is not mistaken for a finished scroll."""
+    start_y and then stops, so a slow start is not mistaken for a finished scroll. At some viewport widths
+    the target may already be at start_y and need no scroll at all, so a stable zero-delta read is also
+    accepted once the grace period has passed, giving a slow start time to begin first."""
     last = None
     stable = 0
-    deadline = time.time() + limit
+    began = time.time()
+    deadline = began + limit
     while time.time() < deadline:
         current = cdp.evaluate("Math.round(window.scrollY)")
         stable = stable + 1 if current == last else 0
-        if stable >= 5 and current != start_y:
+        if stable >= 5 and (current != start_y or time.time() - began >= grace):
             return
         last = current
         time.sleep(0.15)
