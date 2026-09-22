@@ -73,6 +73,14 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 - **Review date:** 22 September 2026.
 - **Verification outcome:** source propositions confirmed; two deterministic cross-reference cases committed and pushed; local schema, JavaScript syntax, ledger and browser checks passed. Static production serves the 19-case data and the live page shows Risk Scoring cases 7 and 8 through its local fallback. GitHub Actions run 35721418857 succeeded, but the API remained at 17 cases after the triggered deployment, so API sync is not verified.
 
+### SAR Writing Sandbox Phase 1A: third practice case (`sar-003`)
+
+- **Status:** READY. Build one API-backed practice case, **The Information Request**, by reusing the existing SAR case schema, picker, extraction flow and deterministic scoring. Do not add an evidence-log interface, export, session-limit redesign, expert-answer comparison, new endpoint, shared engine or extra AI call.
+- **Verification owner:** Claude Code implementation and verification session, with Pratik as release approver. Independent regulatory review and remediation recheck completed before implementation.
+- **Primary sources or repository evidence checked:** UKFIU SARs Best Practice Guidance, Chapter 2, version 1.1; NCA SARs in Action Issue 36; current official POCA sections 330 and 340 XML; both live SAR case payloads; `fincrimeradar-api` case schema, whitelist, extraction, answer-key and rate-limit paths; `scenario-lab.js` SAR picker, editor and results paths. The source pack is `C:\Users\prats\Documents\Codex\2026-09-22\sar-is-a-separate-product-from\outputs\SAR_Sandbox_Phase_1A_Source_Pack.md`.
+- **Review date:** 22 September 2026.
+- **Verification outcome:** PASS. The corrected regulatory source pack, synthetic-fact application, six-item answer key and proposed L1 to L4 ledger records passed a fresh independent remediation recheck. The build must still use a real GitHub pull request, `/code-review` and a separate post-implementation ChatGPT or Codex adversarial review because the answer key affects grading. Implementation, deployment and live verification remain outstanding.
+
 ## Polish Loop
 
 ### Confirmed product and accessibility debt
@@ -118,7 +126,7 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are in 
 
 ### Other build candidates
 
-- **SAR Writing Sandbox Phase 1+:** Phase 0 is already live. A later scoping session may consider more cases, a structured evidence log, Practice Case Summary export, stronger session limits and feedback against an expert answer. Keep UK NCA and POCA specific. Never generate filing-ready SAR narratives. Keep deterministic scoring separate from model commentary and model the cost of every added AI call.
+- **Remaining SAR Writing Sandbox Phase 1+ ideas:** after the scoped `sar-003` case above, a later scoping session may separately consider a structured evidence log, Practice Case Summary export, stronger session limits or feedback against an expert answer. Do not combine them. Keep UK NCA and POCA specific. Never generate filing-ready SAR narratives. Keep deterministic scoring separate from model commentary and model the cost of every added AI call.
 - **Guide chatbot:** proof of concept indexed 29 sources into 1,148 chunks in the separate API repository. Before resuming, re-check that repository and solve the known ranking problem where literal keyword overlap can outrank the substantive answer. Scope source attribution, refusal behaviour, prompt injection, stale content and cost before any public build.
 - **Stablecoin Due Diligence Assessment:** blocked until Stablecoin Guide 1 ships and the static framework has been applied to at least one real case.
 - **Companies House KYB Investigation Lab:** retain as the preferred future public-data integration. Merge the "Companies House verified does not mean KYC complete" content angle and the phoenixism red-flag scenario into this one product concept.

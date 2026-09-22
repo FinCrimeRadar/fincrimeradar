@@ -8815,5 +8815,73 @@
     "status": "verified",
     "location": "scenario-lab/data/cases.json, Risk Scoring Case 8 rationale and evidence cards",
     "note": "Rechecked against HM Treasury's implementation notice on 22 September 2026; the notice states both the narrowed Call for Action trigger and the continuing risk-factor treatment."
+  },
+  {
+    "claimId": "sar-writing-sandbox.sar-003.nca-independent-suspicion.001",
+    "guide": "scenario-lab.html",
+    "claimType": "regulatory",
+    "claimText": "NCA UKFIU guidance states that a court order, production order or information from law enforcement may prompt a relationship review but should not, by itself, be the sole basis for suspicion. Where the review leads the reporter to reach its own independent suspicion, the reporter should consider its SAR obligations and must be able to articulate its own suspicion in the SAR.",
+    "source": {
+      "title": "UKFIU SARs Best Practice Guidance, Chapter 2: Submitting a SAR, version 1.1",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/775-ukfiu-chapter-2-submitting-a-sar/file",
+      "publisher": "National Crime Agency, UK Financial Intelligence Unit",
+      "date": "2025-11-19"
+    },
+    "verifiedOn": "2026-09-22",
+    "reviewDue": "2027-09-22",
+    "status": "verified",
+    "location": "fincrimeradar-api/case_sar_003.json, subject.review_trigger (visible, factually records the enquiry and review trigger without stating the pedagogical verdict), distractor_facts[0] and the red_flags answer key (server-side, keep the enquiry out of scoring)",
+    "note": "Source passages: Court orders and law enforcement enquiries, document page 12; Suspicion should not be inherited, document page 21. The NCA publications register date is 19 November 2025; the document is labelled December 2025, version 1.1. No case-specific frontend feedback panel or teaching note exists for sar-003: scenario-lab.js's renderSarResults is generic across all three SAR Sandbox cases and carries no case-specific text. The visible review_trigger records only that the verified enquiry disclosed no allegation or finding and prompted review; it deliberately does not pre-state the conclusion the trainee must apply. The claim is operationalised by the server-side answer-key exclusion in the separately deployed fincrimeradar-api repository."
+  },
+  {
+    "claimId": "sar-writing-sandbox.sar-003.poca-s330-conditions.001",
+    "guide": "scenario-lab.html",
+    "claimType": "regulatory",
+    "claimText": "POCA section 330 creates the regulated-sector failure-to-disclose offence only where all four statutory conditions are satisfied: knowledge, suspicion or reasonable grounds for knowing or suspecting money laundering; receipt of the relevant information or matter through regulated-sector business; the identification-or-assistance condition in section 330(3A); and failure to make the required disclosure to a nominated officer or a person authorised for Part 7 purposes by the NCA Director General as soon as practicable after the relevant information or matter comes to the person. This is a non-exhaustive teaching summary and remains subject to the statutory exceptions and other provisions affecting liability.",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 330",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/330/data.xml",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-09-22",
+    "reviewDue": "2027-09-22",
+    "status": "verified",
+    "location": "fincrimeradar-api/case_sar_003.json, red_flags answer key (rf1-rf6), which excludes the law-enforcement enquiry; routes_sar_sandbox.py's score_extraction, which computes red_flags_score only from the intersection of the model's extracted red_flags_mentioned ids and this case's own red_flags id set",
+    "note": "No case-specific frontend POCA teaching note exists for sar-003; scenario-lab.js's SAR Sandbox screens are generic across all three cases. Mechanically, case_sar_003.json's red_flags list never includes the enquiry as an id, and score_extraction only awards points for ids present in that list, so the enquiry cannot score even if a given extraction reports it; score_extraction itself performs a set intersection and does not judge whether suspicion is independently grounded, that judgement is embedded in the case's answer key at authoring time, both in the separately deployed fincrimeradar-api repository."
+  },
+  {
+    "claimId": "sar-writing-sandbox.sar-003.nca-reason-for-suspicion.001",
+    "guide": "scenario-lab.html",
+    "claimType": "regulatory",
+    "claimText": "NCA UKFIU guidance says the reason for suspicion should explain why the reporter is suspicious and how it reached that view, identify who is involved and how, set out the relevant events chronologically, describe the suspected criminal property and include intended next steps in clear and concise language.",
+    "source": {
+      "title": "UKFIU SARs Best Practice Guidance, Chapter 2: Submitting a SAR, version 1.1",
+      "url": "https://www.nationalcrimeagency.gov.uk/who-we-are/publications/775-ukfiu-chapter-2-submitting-a-sar/file",
+      "publisher": "National Crime Agency, UK Financial Intelligence Unit",
+      "date": "2025-11-19"
+    },
+    "verifiedOn": "2026-09-22",
+    "reviewDue": "2027-09-22",
+    "status": "verified",
+    "location": "fincrimeradar-api/routes_sar_sandbox.py, the shared five_ws extraction schema (who/what/when/where/why); case_sar_003.json's subject, transactions, onward_movement and supporting_facts, which supply the parties, chronology and suspected-property detail the narrative must draw on to satisfy that schema for this case",
+    "note": "No case-specific frontend narrative guidance or feedback mapping exists for sar-003; the five_ws extraction and 'Core facts' scoring row in scenario-lab.js's renderSarResults are generic across all three cases. This claim is embodied in the shared extraction schema together with the case-specific facts it is applied against, both in the separately deployed fincrimeradar-api repository."
+  },
+  {
+    "claimId": "sar-writing-sandbox.sar-003.poca-s340-criminal-property.001",
+    "guide": "scenario-lab.html",
+    "claimType": "regulatory",
+    "claimText": "POCA section 340 provides that property is criminal property where it constitutes or represents, wholly or partly and directly or indirectly, a person's benefit from criminal conduct and the alleged offender knows or suspects that fact. For Part 7, property includes money and all property wherever situated. In this exercise, the reporter should describe the relevant funds as suspected criminal property unless the statutory position has been established.",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 340",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/340/data.xml",
+      "publisher": "legislation.gov.uk (UK Public General Acts)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-09-22",
+    "reviewDue": "2027-09-22",
+    "status": "verified",
+    "location": "fincrimeradar-api/case_sar_003.json, subject.practice_instruction (the visible narrative requirement instructing the trainee to identify the funds suspected to be criminal property and explain the supporting facts without asserting the property is criminal property, that a predicate offence occurred, or that any person is guilty) and onward_movement (the pooled payment to the solicitor's client account, the suspected property in this exercise)",
+    "note": "No bespoke frontend feedback panel or UI component was built for sar-003; the practice_instruction field is delivered to the trainee through the existing dynamic subject rendering in scenario-lab.js (subjectRows, which renders every subject key as a label/value row), so no UI change was needed. subject.practice_instruction is the case-specific field that visibly carries this claim's qualification to the trainee, instructing them not to assert the property is criminal property, that a predicate offence occurred, or that any person is guilty; onward_movement documents the suspected property the instruction refers to. Separately, routes_sar_sandbox.py's EXTRACTION_SYSTEM_PROMPT restricts the model to extracting what the trainee's own narrative contains, so the service never generates a replacement or filing-ready SAR narrative; it does not itself enforce practice_instruction's legal qualification, in the separately deployed fincrimeradar-api repository."
   }
 ]
