@@ -18,12 +18,12 @@ A publication's rendering treatment presents its Public Format Contract, which s
 | Public format | Rendering treatment | Current maturity |
 | --- | --- | --- |
 | Guide | Default Knowledge Hub | Standing |
-| Framework | Default Knowledge Hub with decision or control compositions | Experimental pending a second Framework implementation |
+| Framework | Default Knowledge Hub with decision or control compositions | Accepted composition |
 | Case File | Default Knowledge Hub with investigative compositions | Accepted composition |
 | Intelligence Brief | Default Knowledge Hub with temporal and comparison compositions | Accepted composition |
 | Evidence Essay | Evidence Essay | Standing opt-in treatment |
 
-This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment, not separate rendering systems. Following the completed cross-experiment review of Experiments 01 to 03, Case File and Intelligence Brief are accepted compositions: each proved its analytical contract through a real publication, and neither requires a second instance before acceptance. Framework remains experimental because Experiment 01, the APP Scam Decision Framework, is still its only implementation; a second Framework publication is required to test whether its contract genuinely recurs rather than reflecting one subject's specific reasoning. The table records the current approved architecture, not a promise that every future publication in an accepted composition will look identical to its first instance. Every publication still follows the **Universal Evidence Core** and the **Intelligence Core** below. Existing publications are not retrofitted merely to adopt these labels.
+This is not a five-template system. Framework, Case File, and Intelligence Brief are candidate compositions within the Default Knowledge Hub treatment, not separate rendering systems. Following the completed cross-experiment review of Experiments 01 to 03, Case File and Intelligence Brief are accepted compositions: each proved its analytical contract through a real publication, and neither requires a second instance before acceptance. Framework is now an accepted composition too: Experiment 01, the APP Scam Decision Framework, was its only implementation until `de-risking-judgement-call.html` tested the contract against a distinct subject (UK AML relationship decisioning, correspondent banking as the principal hard test) and confirmed its primitives recur rather than reflecting one subject's specific reasoning. The table records the current approved architecture, not a promise that every future publication in an accepted composition will look identical to its first instance. Every publication still follows the **Universal Evidence Core** and the **Intelligence Core** below. Existing publications are not retrofitted merely to adopt these labels.
 
 ---
 
@@ -143,9 +143,9 @@ Standard Knowledge Hub card layout and navigation chrome, no experimental shell.
 
 ### Framework contract
 
-Framework is used when the primary reader job is to reach and defend a difficult judgement through structured analysis. The publication uses the Default Knowledge Hub shell and adds only the decision compositions the subject actually justifies. It is not a separate template or rendering system.
+Framework is an accepted composition, used when the primary reader job is to reach and defend a difficult judgement through structured analysis. The publication uses the Default Knowledge Hub shell and adds only the decision compositions the subject actually justifies. It is not a separate template or rendering system.
 
-Framework remains experimental: Experiment 01, the APP Scam Decision Framework, is still its only implementation. `app-scam-decision-framework.html` remains a reference implementation, not a fixed template. A second Framework publication is required to test whether the contract below genuinely recurs, rather than reflecting one subject's specific reasoning.
+`app-scam-decision-framework.html` and `de-risking-judgement-call.html` are reference implementations, not fixed templates. The second instance tested recurrence across a distinct subject (UK AML relationship decisioning vs. APP scam) and confirmed the primitives below; a further instance is not required for the format to remain accepted.
 
 Retain these as candidate recurring Framework primitives where the subject justifies them:
 
