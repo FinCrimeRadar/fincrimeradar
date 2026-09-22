@@ -228,7 +228,7 @@
     sarTile.innerHTML = [
       "<div>",
       "<h3>SAR Writing Practice</h3>",
-      "<p>Draft a practice Suspicious Activity Report against one case, then get fact-coverage feedback on your narrative.</p>",
+      "<p>Draft a practice Suspicious Activity Report against a synthetic case, then get fact-coverage feedback on your narrative.</p>",
       "</div>",
     ].join("");
     sarTile.addEventListener("click", () => startSarModule(dashboard, workspace, state));
@@ -2210,13 +2210,14 @@
   }
 
   // ---- SAR Sandbox module ----
-  // Three screens, no case picker (one case), no auto-advance anywhere, no
-  // decide()-style scoring loop back into state.results: this module is
-  // self contained, it never touches the KYC/Fraud completion or accuracy
-  // tracking. Standing standard from the Fraud Detection section above still
-  // applies here too: nothing in this module may auto-advance on a timer,
-  // and a second case must never be added as an auto-advancing sequence
-  // later, per the no-auto-advance rule that's locked for every module.
+  // Four screens (case picker, brief, editor, results), no auto-advance
+  // anywhere, no decide()-style scoring loop back into state.results: this
+  // module is self contained, it never touches the KYC/Fraud completion or
+  // accuracy tracking. Standing standard from the Fraud Detection section
+  // above still applies here too: nothing in this module may auto-advance
+  // on a timer, and a new case must never be added as an auto-advancing
+  // sequence later, per the no-auto-advance rule that's locked for every
+  // module.
 
   function sarSandboxUrl(state, path) {
     return (state.apiBase || "").replace(/\/$/, "") + path;
