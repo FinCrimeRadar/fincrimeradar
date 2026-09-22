@@ -33,15 +33,15 @@ Repository main and origin/main matched 99ba8608307d0c54a9a003d5a907bc4116c9ca9a
 
 ### Knowledge Hub
 
-- **55 publications live:** 25 parts across seven series and 30 standalone publications.
+- **56 publications live:** 25 parts across seven series and 31 standalone publications.
 - **Series inventory:** UK AML 3 parts, PEP 3, SAR 3, FATF 2, MLRO 2, Cryptoasset Compliance 6, Stablecoin 6.
 - **Stablecoin Series:** Guides 0 through 5 are published. All six guides are live.
 - **Current experimental formats:**
-  - Framework: app-scam-decision-framework.html, Experiment 01, live.
+  - Framework: app-scam-decision-framework.html (Experiment 01) and de-risking-judgement-call.html, both live. Second implementation confirms the Framework contract's candidate primitives (sequential decision stages, Decision Record, Source/Application/Action, Red Team Questions, What Would Change My Decision, compact operational summary) recur across a distinct subject (UK AML relationship decisioning vs. APP scam). Framework promoted from experimental to accepted, per GUIDE_STANDARD.md's own promotion criteria (a second instance testing recurrence, now complete). GUIDE_STANDARD.md's Framework contract table entry should be updated to reflect this at the next standards edit.
   - Case File: money-mule-or-victim-case-file.html, Experiment 02, live.
   - Intelligence Brief: fatf-recommendation-16-intelligence-brief.html, Experiment 03, live.
   - Evidence Essay: gambling-white-label-blind-spot-guide.html, classification-asymmetry-guide.html and failure-to-prevent-fraud-evidence-essay.html, standing opt-in treatment.
-- Case File and Intelligence Brief are accepted compositions following the completed cross-experiment review (see below); neither requires a second instance. Framework remains experimental: a second Framework implementation is still required to test recurrence rather than a single example.
+- Case File, Intelligence Brief and Framework are all now accepted compositions. Framework's recurrence test (a second implementation, distinct subject) is complete as of de-risking-judgement-call.html.
 
 ### Product and publishing capability
 
@@ -65,17 +65,7 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
-### 1. The De-Risking Judgement Call (candidate second Framework)
-
-**Status: READY. Priority: second Framework implementation, testing recurrence of Framework composition against a domain distinct from APP Scam.**
-
-Verification owner: ChatGPT primary source and repository verification session, 18 September 2026.
-
-Primary sources or repository evidence checked: FATF Recommendation 1 amendment of 25 February 2025; FATF final Guidance on Financial Inclusion and Anti Money Laundering and Terrorist Financing Measures, published 23 June 2025, paragraphs 47, 52, 140 to 142; FATF Jurisdictions under Increased Monitoring - 19 June 2026; FCA De-risking: managing money-laundering risk, live page; FCA FCTR 12.3.6G, 12.3.7G, 12.3.8G, last updated 1 November 2024; MLR 2017 regulations 18, 19, 28, 31, 33 and 34, read with SI 2026/621 regulation 19 (verified against the primary instrument text); JMLSG Part I (June 2023, updated August 2025) paragraphs 4.33, 4.57, 4.62, 4.74 to 4.77, 5.2.6 to 5.2.7; JMLSG Part II (June 2023, updated December 2025, current URL under /2026/04/) paragraphs 16.27, 16.28, 16.32 to 16.34; Payment Services and Payment Accounts Contract Termination Amendment Regulations 2025 (SI 2025/688), regulations 51B and 51C; FCA PRIN 2A.2.8R, 2A.2.10G(3) and 2A.2.10G(5)(iv); repository originality review against the six-part Crypto series, Crypto Travel Rule guide, APP Scam Decision Framework, sanctions and Stablecoin publications, and Perpetual KYC publication.
-
-Review date: 18 September 2026.
-
-Verification outcome: PASS. Suitable for promotion as candidate second Framework. Decision architecture: risk identification, legal constraint check, available mitigants, control effectiveness, operational capability, residual risk assessment (FinCrimeRadar assessment, not regulator terminology), escalation or approval, relationship outcome (ordinary continuation, enhanced continuation, conditional or restricted continuation, discretionary decline or exit, mandatory decline or termination), exit execution where relevant, documented rationale. Scope to UK AML relationship decisioning, correspondent banking as principal hard test. Preserve the distinction between FATF Increased Monitoring and the current UK statutory FATF Call for Action trigger (MLR 33(1)(b) as amended by SI 2026/621). JMLSG remains Industry position, subject to an active update caveat for SI 2026/621. Consumer Duty and Payment Services Regulations 51B/51C are scoped narrowly to exit execution overlays, not the core AML determination.
+Empty. No item currently meets the Next Up queue-gate fields (see Queue rules above). The De-Risking Judgement Call shipped (merged to main at 1906819) and is removed from this queue rather than relabelled.
 
 ## Polish Loop
 
@@ -89,6 +79,7 @@ Verification outcome: PASS. Suitable for promotion as candidate second Framework
 - **Screening cold-path latency:** last measured at 6.6 to 9.9 seconds. Re-measure before changing anything. First test a smaller OpenSanctions result limit with explicit truncation escalation; parallel RSS work can only recover a minor share of the delay.
 - **Quiz-title heading gap (fleet-wide, found and confirmed fixable 2026-09-17):** the Knowledge Check title renders as a plain `<div class="quiz-title">`, not a heading, breaking the h1 to h2 outline for screen-reader navigation. Fixed on stablecoin-series-guide-1.html the same day, verified live at 320px and 768px: change to `<h2 class="quiz-title">`, and where the quiz-section wrapper also carries the article-section class, add a scoped `.quiz-section h2 { color:#fff; }` override, since without it the heading inherits `.article-section h2`'s navy color against the quiz section's own navy background and renders invisible, confirmed with a computed-style check before and after the fix. Confirmed by wrapper class and live computed-style check, not assumed, across 25 shipped guides in two groups. Five guides carry `class="quiz-section article-section"` and need both the tag change and the override: a7a5-sanctions-evasion-guide.html, freezing-a-stablecoin-guide.html, stablecoin-financial-crime-guide.html, systemic-stablecoins-guide.html, why-stablecoins-compliance-priority-guide.html. The remaining twenty carry `class="quiz-section"` alone, with no competing `.article-section h2` rule, so the tag change alone should suffice, confirmed live on adverse-media-intelligence-guide.html: adverse-media-intelligence-guide.html, ai-agent-transaction-guide.html, crypto-travel-rule-sunrise-guide.html, deepfake-onboarding-guide.html, false-positive-playbook.html, fatf-guide-part1.html, fatf-guide-part2.html, fraud-investigation-playbook.html, fraud-red-flags-guide.html, kyc-onboarding-dilemma.html, money-mule-financial-crime-networks-handbook.html, perpetual-kyc-framework-guide.html, private-markets-financial-crime-investigation-handbook.html, scam-compound-money-laundering-guide.html, screening-algorithm-tuning-guide.html, shadow-fleet-guide-part1.html, shadow-fleet-guide-part2.html, source-of-wealth-investigation-handbook.html, synthetic-identity-device-network-guide.html, ubo-investigation-handbook.html. learn.html also matches the quiz-title class name but is a visually distinct inline badge component with its own already-legible blue-on-white styling, not part of this bug. CSS-only, no logic change, so this does not need external review before execution, just a scripted batch pass with a spot-check on at least one guide from each group before and after, since the two groups need different treatment and the adverse-media-intelligence-guide.html result should not be assumed to generalise to all twenty untested.
 - **Fleet-wide skip-link focus target gap:** classification-asymmetry-guide.html's #main-content skip-link target has no tabindex="-1", so activating the skip link scrolls but does not move focus, a WCAG failure. Found while fixing gambling-white-label-blind-spot-guide.html (18 September 2026, commit 36907ab, confirmed via production browser check). Likely affects every guide sharing this skip-link pattern. Needs a scan across all guides using #main-content as a skip target, then a scripted batch fix, same shape as the quiz-title heading gap entry above. RESEARCH until scope is confirmed across guides, not Next Up.
+- **FCTR dated-field ambiguity:** the FCTR 12 chapter page (handbook.fca.org.uk/handbook/fctr12) shows a page-level "last updated 01/11/2024", while the FCTR 12.3 section page and its individual paragraphs (12.3.6G-12.3.8G) each independently show 13/12/2018. Confirmed as two genuinely different dated fields, not an error in either reading, during de-risking-judgement-call.html sourcing (2026-09-21). Any other guide citing FCTR 12.3 by its chapter-level date rather than its paragraph-level date should be checked for the same conflation. RESEARCH until scope across guides is confirmed.
 
 ### Shared architecture and presentation debt
 
@@ -98,6 +89,7 @@ Verification outcome: PASS. Suitable for promotion as candidate second Framework
 - **End-of-guide cheat sheets:** the old entry understated scope. Re-baseline before work. The named pages amount to 13 pages, not 8: MLRO Part 2, Crypto Part 1, AML Parts 1 to 3, PEP Parts 1 to 3, SAR Parts 1 to 3 and FATF Parts 1 to 2. Each needs bespoke content.
 - **Merged-card retrofit:** Fraud Red Flags, False Positive Playbook, UBO Investigation Handbook and Source of Wealth predate the current composition. Treat this as optional quality improvement, not a publication defect or automatic retrofit requirement.
 - **Delta page punctuation:** decide whether the generator should normalise em and en punctuation or whether generated sanctions delta pages receive a formal rule exception. Edit the generator, never generated pages individually.
+- **content-relations.json exact-relation-set checker:** de-risking-judgement-call.html's relations exclude fatf-recommendation-16-intelligence-brief.html because that guide's own checker pins an exact relation set and would fail if a new inbound relation were added without updating it. Update that checker to allow additive relations, then add the reciprocal relation.
 
 ### Sourcing and ledger debt
 
@@ -105,6 +97,7 @@ Verification outcome: PASS. Suitable for promotion as candidate second Framework
 - **Legacy three-guide re-baseline:** freshly establish the remaining sourcing scope for aml-guide-part1.html, pep-guide-part1.html and sar-guide-part1.html. The prior counts in the old backlog contradicted later audit records and must not be reused.
 - **Nine-guide audit reconciliation:** reconcile the 26-guide audit findings against current main for aml-guide-part3.html, pep-guide-part3.html, sar-guide-part3.html, fatf-guide-part1.html, fatf-guide-part2.html, crypto-guide-part2.html, sanctions-compliance-guide.html, screening-alerts-guide.html and adverse-media-intelligence-guide.html. Verification owner, source pack and review date remain unassigned, so this is RESEARCH, not Next Up.
 - **Ledger hardening:** consider schema enforcement for source requirements by claim type, plus expiry handling that preserves original verification dates and records renewal separately. Post-proof hardening only.
+- **De-Risking Judgement Call, unreviewed wording:** six PSRs 51B-conditionality sentences and the regulation 27(8) stipulation (added in the wording-only delta after external Review 2, commit range 25e8d1e..8d67fb6) were not independently reviewed by either the manual cross-model process or /code-review. All primary-text checks passed internally, but this content has not had the same external scrutiny as the rest of the guide. Flag for the next editorial pass on this guide, or run the deferred optional manual pass against review-paste-8d67fb6/ if it still exists locally.
 
 ## Build Loop
 
@@ -126,7 +119,6 @@ Scenario Lab expansion remains **PAUSED** until real usage or engagement evidenc
 
 ### Other build candidates
 
-- **Second Framework implementation:** `app-scam-decision-framework.html` (Experiment 01) is still Framework's only implementation, so its contract in GUIDE_STANDARD.md is evaluated on a single example, not on recurrence. Topic and evidence pack are now verified and promoted to Next Up as "The De-Risking Judgement Call" (see above), testing whether Framework's candidate primitives (sequential decision stages, Decision Record, Source/Application/Action reasoning, Red Team Questions, What Would Change My Decision, Practitioner Lens, compact operational summary) genuinely recur for a different subject rather than reflecting APP scam's specific reasoning.
 - **SAR Writing Sandbox Phase 1+:** Phase 0 is already live. A later scoping session may consider more cases, a structured evidence log, Practice Case Summary export, stronger session limits and feedback against an expert answer. Keep UK NCA and POCA specific. Never generate filing-ready SAR narratives. Keep deterministic scoring separate from model commentary and model the cost of every added AI call.
 - **Guide chatbot:** proof of concept indexed 29 sources into 1,148 chunks in the separate API repository. Before resuming, re-check that repository and solve the known ranking problem where literal keyword overlap can outrank the substantive answer. Scope source attribution, refusal behaviour, prompt injection, stale content and cost before any public build.
 - **Stablecoin Due Diligence Assessment:** blocked until Stablecoin Guide 1 ships and the static framework has been applied to at least one real case.
@@ -150,7 +142,6 @@ There is no verified content candidate in Next Up. Every item below is RESEARCH,
 ### Priority research candidates
 
 - **Scam or Civil Dispute? The APP Fraud Decision Framework:** sources for the GBP 85,000 cap and PSR merits-based classification principle were previously verified. Refresh the evidence pack and add all four queue-gate fields before drafting. Keep distinct from the already-shipped APP Scam Framework.
-- **The De-Risking Judgement Call:** test the practitioner decision angle against current FATF risk-based-approach material and UK correspondent-banking relevance.
 - **Sanctions Ownership and Control: When 50 Percent Tells You Almost Nothing:** HOLD until the UK ownership-and-control consultation outcome. When resumed, cross-link with both Shadow Fleet guides.
 - **Synthetic Data for AML Model Testing:** verify the FCA and Alan Turing Institute programme and the 2026 solution sprint from primary sources before drafting.
 - **Offshore VASPs, Nested Exchanges and Invisible Crypto Counterparties:** verify the claimed FATF March 2026 publication and prove non-overlap with the six-part Crypto series and Travel Rule guide.
