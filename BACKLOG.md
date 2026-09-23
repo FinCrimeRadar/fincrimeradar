@@ -6,6 +6,8 @@ This file is the current work queue for Claude Chat, Claude Code and Codex. It c
 
 Guide structure and presentation are governed by GUIDE_STANDARD.md. Operating, sourcing and review rules are governed by CLAUDE.md. The guide production process is governed by docs/GUIDE_PRODUCTION_WORKFLOW.md.
 
+The approved 90-day publishing cadence, automation boundaries, release gates and initial content queue are governed by `docs/CONTENT_OPERATING_PLAN.md`.
+
 ## Queue rules
 
 Work rotates through Polish, Build and Content. One working session should normally advance one loop only.
