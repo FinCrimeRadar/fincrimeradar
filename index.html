@@ -83,7 +83,8 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 @keyframes flicker{0%{opacity:1}18%{opacity:.55}30%{opacity:1}46%{opacity:.7}60%{opacity:1}}
 .btn .arr{transition:transform .35s var(--ease)}
 .btn:hover .arr{transform:translateX(4px)}
-.hero-scrollhint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;font-family:var(--mono);font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp 1.4s var(--ease) 1.6s forwards;}
+.hero-scrollhint{position:absolute;bottom:34px;left:0;right:0;z-index:2;font-family:var(--mono);font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp 1.4s var(--ease) 1.6s forwards;}
+.hero-scrollhint span:first-child{padding-left:.3em}
 .hero-scrollhint .line{width:1px;height:44px;background:linear-gradient(to bottom,var(--radar),transparent);animation:dropLine 2.2s var(--ease) infinite}
 @keyframes dropLine{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 .marquee-band{background:var(--void);padding:0 0 78px;position:relative;}

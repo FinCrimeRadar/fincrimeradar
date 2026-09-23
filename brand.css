@@ -365,3 +365,15 @@ html{
 .article-layout > *{
   min-width:0;
 }
+
+/* ---------- 11. Header logo/link legibility ----------
+   Beats inline style="height:44px" and local .nav-brand img
+   !important overrides in guide mobile media queries: nav .nav-brand
+   img is 0,1,2 specificity, higher than the 0,1,1 local rules, so it
+   wins over !important regardless of brand.css load order. */
+nav .nav-brand img{height:56px!important;max-width:200px!important}
+nav .nav-links a{font-size:15px}
+nav .nav-links{gap:14px}
+@media (max-width:767px){
+  nav .nav-brand img{height:48px!important;max-width:170px!important}
+}
