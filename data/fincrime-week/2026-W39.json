@@ -1,0 +1,69 @@
+{
+  "week": "2026-W39",
+  "period_start": "2026-09-21",
+  "period_end": "2026-09-27",
+  "published_at": "2026-09-28",
+  "author": "Pratik Zanke",
+  "items": [
+    {
+      "id": "fca-money-mules-cashing-out-findings",
+      "headline": "FCA multi-firm review finds fraud proceeds concentrate at the second mule account as 238,396 suspected mule accounts closed in 2025",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/publications/multi-firm-reviews/money-mules-activity-cashing-out-findings",
+      "published_date": "2026-09-23",
+      "jurisdiction": "UK",
+      "category": "AML_CTF",
+      "signal": "CRITICAL",
+      "what_happened": "On 23 September 2026 the FCA published findings from a multi-firm review into money mule activity and cashing out, drawing on a survey of 35 retail banks, building societies, challenger banks, payment institutions and EMIs, together with a public/private cell involving 22 regulated firms that examined 140 cases covering seven fraud types. The FCA states that 238,396 suspected mule accounts were reported closed in 2025, compared with 184,935 in 2023 and 233,269 in 2024. It is explicit that this increase should not be read as proof that underlying mule account prevalence has grown, since it may also reflect growth in firms' customer bases and improvements in how firms identify mule activity. On cashing out, the FCA found that fraud proceeds were usually moved through two to five mule accounts before being cashed out, with the highest concentration of cash-out activity occurring at the second mule account in the chain. Card payments were the most common cash-out method, and international and crypto cash-outs were generally higher in value than other methods.",
+      "why_it_matters": "The review's central point is not simply that mule account volumes are large or rising. The FCA has identified where in the payment chain monetisation of fraud proceeds actually concentrates, at the second account rather than the first, most often through card payments, with international and crypto legs carrying disproportionately higher value. The three-year closure trend gives useful context, but the FCA's own caveat, that the rise from 184,935 to 233,269 to 238,396 may reflect reporting firms' growth and improved detection rather than more mule activity, means the year-on-year figures should not be treated as a standalone prevalence indicator.",
+      "radar_implication": "This is FinCrimeRadar analysis, not an FCA conclusion: detection strategies that concentrate monitoring effort on the receiving account or the first hop in a suspected mule chain risk missing the downstream behaviour where the FCA found cashing out actually concentrates. Firms should check whether transaction monitoring scenarios extend coverage to second and subsequent hop accounts, and whether card-based cash-out patterns at that stage are covered as well as cash withdrawal patterns. Because the FCA cautions against reading the closure trend as evidence of rising mule prevalence, treat the 238,396 figure as an indicator of industry detection and closure activity rather than evidence that your own firm's mule risk has increased, and benchmark internal closure and SAR volumes against the published three-year trend rather than any single year in isolation. International and crypto cash-out legs identified within a mule chain, which the FCA found tend to be higher value, warrant closer review.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "fca-aml-supervisory-reform-legal-accountancy-tcsp",
+      "headline": "FCA confirms it will take on AML supervision of legal, accountancy and trust and company service providers from PBSs and HMRC",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/firms/aml-supervisory-reform",
+      "published_date": "2026-09-22",
+      "jurisdiction": "UK",
+      "category": "AML_CTF",
+      "signal": "REGULATORY",
+      "what_happened": "On 22 September 2026 the FCA set out its plan for AML supervisory reform, under which it will take over anti-money laundering and counter-terrorist financing supervision of legal service providers, accountancy service providers, and trust and company service providers currently supervised by professional body supervisors (PBSs) or by HMRC. The FCA states that approximately 60,000 businesses and sole practitioners are expected to be affected by the transfer. It says legislation is still required before the reform can take effect, and that it does not expect the phased transition to begin until late 2028, with the remaining PBS-supervised population moving to the FCA by around 2030. The FCA states that, in the meantime, nothing changes: affected businesses should continue their existing AML processes and current supervisory relationships.",
+      "why_it_matters": "This is a change to supervisory architecture, who supervises which population of businesses, not a change to the underlying AML obligations those businesses already owe under the Money Laundering Regulations. The FCA's own timeline places this several years out: legislation is still required, the phased transition is not expected to begin until late 2028, and full completion is not expected until around 2030. The FCA is explicit that current supervisory relationships and AML processes are unaffected for now.",
+      "radar_implication": "This is a control judgement, not an FCA instruction: given the FCA's own timeline, the appropriate response for affected legal, accountancy and TCSP businesses now is horizon monitoring rather than premature control remediation. Firms in the roughly 60,000-business affected population should note which PBS or HMRC currently supervises them, watch for the legislation the FCA says is still required, and avoid restructuring AML governance, reporting lines or supervisory contacts ahead of a transfer that is not expected to begin before late 2028. Firms that rely on these professions as gatekeepers or intermediaries, for example law firms or TCSPs appearing in a customer's structure, should track this as a multi-year architecture change rather than treat it as an immediate change to the standard of supervision those intermediaries currently receive.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "ofsi-presumption-of-denial-designated-iranian-banks",
+      "headline": "OFSI introduces presumption of denial for licence applications involving five designated Iranian banks",
+      "source_name": "Office of Financial Sanctions Implementation, HM Treasury",
+      "source_url": "https://www.gov.uk/government/publications/hmt-licensing-guidance-presumption-of-denial-of-licence-applications-for-designated-iranian-banks/presumption-of-denial-of-licence-applications-for-designated-iranian-banks",
+      "published_date": "2026-09-23",
+      "jurisdiction": "UK",
+      "category": "SANCTIONS",
+      "signal": "REGULATORY",
+      "what_happened": "On 23 September 2026 the Office of Financial Sanctions Implementation (OFSI) introduced an immediate presumption of denial for licence applications made by, or connected to, five designated Iranian banks: Bank Sepah, Melli Bank plc, Bank Saderat, Persia International Bank and Bank Tejarat. OFSI states that applications continue to be considered individually, and that applicants must demonstrate clear and compelling reasons for a licence to be granted. OFSI also confirms that General Licence INT/2025/7628424 will not be renewed when it expires on 22 October 2026. In FAQ 204, added to OFSI's UK financial sanctions FAQs on 24 September 2026, OFSI states that licences for the covered banks will only be granted where required by law or in exceptional and urgent circumstances.",
+      "why_it_matters": "The presumption of denial changes the starting position for an application, not the underlying licensing framework: OFSI's own wording is that applications continue to be considered individually and that a licence can still be granted where an applicant shows clear and compelling reasons, or, per FAQ 204, where required by law or in exceptional and urgent circumstances. That is narrower than the general licence regime it replaces for one of the five named banks, but it is not an outright licensing prohibition, and it should not be described as one.",
+      "radar_implication": "This is a control judgement, not an OFSI finding. Compliance teams should keep three questions separate for any transaction touching these five banks: whether the underlying activity is prohibited outright under existing Iran sanctions, whether a licensing ground technically exists under OFSI's general licensing framework, and whether OFSI's presumption of denial makes a licence realistically obtainable given the clear-and-compelling or exceptional-and-urgent thresholds it has now set. Firms currently relying on General Licence INT/2025/7628424 need a wind-down or alternative-licensing plan in place before it expires on 22 October 2026, since OFSI has confirmed it will not be renewed.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "uk-cambodia-online-scam-network-cooperation-mou",
+      "headline": "UK and Cambodia sign memorandum of understanding to share intelligence and target online scam networks",
+      "source_name": "UK Government",
+      "source_url": "https://www.gov.uk/government/news/uk-and-cambodia-join-forces-to-take-down-online-scam-networks",
+      "published_date": "2026-09-22",
+      "jurisdiction": "UK/Cambodia",
+      "category": "FINANCIAL_CRIME",
+      "signal": "EMERGING",
+      "what_happened": "On 22 September 2026 the UK and Cambodian governments announced a new memorandum of understanding addressing online scam networks. The announcement states the cooperation will include closer intelligence sharing, joint financial and digital investigations, and stronger protections for trafficking victims linked to scam operations. The UK Government places the initiative within wider international efforts targeting scam compounds operating across Southeast Asia.",
+      "why_it_matters": "The announcement commits to a cooperation framework, intelligence sharing, joint investigations and victim protections, rather than describing specific operational results, arrests or asset recovery achieved to date. Its significance lies in formally linking three strands that scam compound cases typically require together: financial investigation into how proceeds move, digital investigation into the scam infrastructure itself, and protection for the trafficking victims often forced to work inside these operations.",
+      "radar_implication": "This is FinCrimeRadar's operational reading, not a finding or instruction from the UK Government. Firms with exposure to payment flows, remittance corridors or crypto off-ramps connected to Southeast Asian scam compound activity should treat scam-related fraud, money laundering and possible forced-labour or trafficking indicators as a single case picture rather than three separate assessments, consistent with the model this MOU is built around. Where transaction monitoring or network analytics tooling flags a suspected scam-compound-linked payment chain, consider whether the same customer, counterparty or device network also shows indicators consistent with trafficking or debt bondage among the individuals involved, and route such cases for combined fraud, AML and safeguarding review rather than fraud triage alone. Treat this MOU as a cooperation framework to watch for downstream enforcement outcomes, not as an enforcement action in itself.",
+      "primary_source": true,
+      "reviewed": true
+    }
+  ]
+}
