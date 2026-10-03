@@ -76,6 +76,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 @media print{.js .isi-optfb-set{display:block!important}.isi-choice{display:none}}
 @media(max-width:640px){.isi-facts{grid-template-columns:minmax(0,1fr)}}
 .isi-counterfactual{border:1px solid #d6c8a4;background:#fbf8ef;padding:1rem;margin:1rem 0}.isi-counterfactual h3{margin:0 0 .5rem}.isi-counterfactual p{margin:.5rem 0}
+.isi-patterns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.isi-pattern{border:1px solid var(--isi-line);border-top:4px solid var(--isi-green);padding:1rem;background:#fff;min-width:0}.isi-pattern h3{margin:0 0 .35rem}.isi-pattern .isi-metaphor{font-size:14px;color:#48616b;margin:.2rem 0}.isi-lines{margin:.75rem 0 0}.isi-lines div{display:grid;grid-template-columns:74px minmax(0,1fr);gap:.45rem;border-top:1px solid #e8eeee;padding:.45rem 0;font-size:13px}.isi-lines dt{font-weight:700;color:#075e57}.isi-lines dd{margin:0}
+.isi-quiz fieldset{border:0;padding:0;margin:1.25rem 0;min-width:0}.isi-quiz legend{font-weight:700;margin-bottom:.45rem;max-width:100%}#knowledgeForm .isi-action{display:none}.js #knowledgeForm .isi-action{display:inline-block}.isi-quiz .isi-feedback[data-state="best"]{color:#075e57}
+.isi-details details{border:1px solid var(--isi-line);background:#fff;margin:.55rem 0;padding:.8rem 1rem}.isi-details summary{font-weight:700;cursor:pointer;min-height:34px}.isi-details details[open] summary{margin-bottom:.65rem}.isi-answer-notes p{font-size:14.5px}
+@media(max-width:640px){.isi-patterns{grid-template-columns:minmax(0,1fr)}.isi-lines div{grid-template-columns:66px minmax(0,1fr)}}
+.isi-pattern-inline{margin:1.2rem 0}
 @media(max-width:900px){.isi-layout{grid-template-columns:minmax(0,1fr)}.isi-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--isi-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.isi-breadcrumb{align-items:flex-start;flex-wrap:wrap}.isi-hero{padding-top:2.8rem}.isi-core,.isi-saa{grid-template-columns:minmax(0,1fr)}.isi-layout{padding:0 .75rem 3rem;gap:1rem}.isi-scope{padding:0 .75rem}}
 @media(max-width:360px){.isi-section{padding:1rem}.isi-hero h1{font-size:2rem}.isi-meta{gap:.4rem}}
@@ -155,6 +160,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
     <p>A promise of returns is not the product. A visible balance is not proof that the asset exists or is held for the customer. Ask what evidence would exist if the proposition were genuine: a verifiable issuer, independently confirmed product documentation, a custody record, a contract with coherent counterparties, or an asset visible through a channel the promoter does not control.</p>
   </div>
 
+  <div class="isi-pattern isi-pattern-inline" data-pattern-id="screen-money" data-pattern-placement="inline">
+    <h3>The Screen Balance</h3><p class="isi-metaphor">A number on a screen is treated as money held for the customer.</p>
+    <dl class="isi-lines"><div><dt>Risk</dt><dd>A functioning dashboard is treated as custody evidence.</dd></div><div><dt>Signal</dt><dd>The only proof of value is a promoter-controlled screen.</dd></div><div><dt>Response</dt><dd>Seek independent asset, custody, transaction or withdrawal evidence.</dd></div></dl>
+  </div>
+
   <div class="isi-stream" id="stream-identity">
     <h3><span class="isi-stream-no">2</span> The identity</h3>
     <p>Four questions are often collapsed into one. Keep them apart.</p>
@@ -166,6 +176,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
     </ul>
     <p>Authorisation, registration and permission are not synonyms. The FCA says that being authorised means a firm has met standards and has permission to provide certain products and services, while being registered means it cannot provide regulated products that need authorisation, and that an authorised firm can offer both regulated and unregulated products <a href="#source-1">[1]</a>. A genuine firm identity therefore does not validate every product carrying its name, and clone firms depend on that shortcut.</p>
     <p>Compare the email domain, telephone number, website and payment instructions with details retrieved independently from the Firm Checker or Financial Services Register. The FCA notes that a firm's contact details are provided and confirmed by the firm, so a match narrows the question without settling who actually controls the channel <a href="#source-1">[1]</a>. Where an appointed representative is claimed, the FCA says to check with the principal, so confirm the relationship and the permitted activity through contact details you sourced yourself <a href="#source-1">[1]</a>.</p>
+  </div>
+
+  <div class="isi-pattern isi-pattern-inline" data-pattern-id="borrowed-badge" data-pattern-placement="inline">
+    <h3>The Borrowed Badge</h3><p class="isi-metaphor">A genuine register entry is made to vouch for the whole journey.</p>
+    <dl class="isi-lines"><div><dt>Risk</dt><dd>A genuine register entry clears the whole journey.</dd></div><div><dt>Signal</dt><dd>The file records the firm reference number but not independently verified contact details or permissions.</dd></div><div><dt>Response</dt><dd>Attribute every channel, product and payment instruction separately.</dd></div></dl>
   </div>
 
   <div class="isi-stream" id="stream-journey">
@@ -220,6 +235,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   <p>What can still be stopped, recalled, frozen or preserved? Run this work alongside classification wherever delay can reduce options. Notify the relevant payment institution or provider promptly, preserve communications and transaction identifiers, and identify the recipient or wallet path. The FCA tells a person who has made a payment or given personal information to tell their bank immediately <a href="#source-3">[3]</a>.</p>
   <p>Do not promise recovery. Do not point a customer to a recovery service because it claims specialist access: the FCA warns that people who have been targeted are at greater risk of being targeted again, potentially by recovery room scammers who pose as legitimate firms offering to recover lost funds <a href="#source-3">[3]</a>.</p>
 
+  <div class="isi-pattern isi-pattern-inline" data-pattern-id="waiting-room" data-pattern-placement="inline">
+    <h3>The Waiting Room</h3><p class="isi-metaphor">Recovery waits in a queue behind a perfect classification.</p>
+    <dl class="isi-lines"><div><dt>Risk</dt><dd>Recovery waits for perfect classification.</dd></div><div><dt>Signal</dt><dd>No recall, provider contact or evidence preservation begins while the file seeks certainty.</dd></div><div><dt>Response</dt><dd>Run time-sensitive containment and preservation in parallel with targeted investigation.</dd></div></dl>
+  </div>
+
   <h3>3. Escalation and routing</h3>
   <p>Which process owns the next decision?</p>
   <ul>
@@ -271,6 +291,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
     </div>
   </div>
 
+  <div class="isi-pattern isi-pattern-inline" data-pattern-id="scope-verdict" data-pattern-placement="inline">
+    <h3>The Scope Verdict</h3><p class="isi-metaphor">A statement about scheme scope is read as a finding about fraud.</p>
+    <dl class="isi-lines"><div><dt>Risk</dt><dd>Reimbursement scope becomes the fraud verdict.</dd></div><div><dt>Signal</dt><dd>An own-account or crypto route is rejected as not a scam because it falls outside mandatory scheme scope.</dd></div><div><dt>Response</dt><dd>Classify the scam evidence first, then apply the payment-route rules separately.</dd></div></dl>
+  </div>
+
   <div class="isi-teach" id="teach-reporting">
     <h3>Reporting is not recovery</h3>
     <div class="isi-saa">
@@ -278,6 +303,11 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
       <div class="isi-saa-block"><h4>Application <span class="isi-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>A report supports intelligence and disruption. It is not a recovery route, and no body that receives a report guarantees an investigation or the return of funds. Whether any money can still be recalled is a separate, time-sensitive question for the sending and receiving firms.</p></div>
       <div class="isi-saa-block"><h4>Action <span class="isi-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Start recall and preservation work at once, report through the current routes, and never promise recovery. Treat any approach offering to recover funds as a new proposition that needs independent verification, and warn the customer against paying for it.</p></div>
     </div>
+  </div>
+
+  <div class="isi-pattern isi-pattern-inline" data-pattern-id="second-hook" data-pattern-placement="inline">
+    <h3>The Second Hook</h3><p class="isi-metaphor">The victim of one scam becomes the target of the next.</p>
+    <dl class="isi-lines"><div><dt>Risk</dt><dd>The victim is exposed to a second scam.</dd></div><div><dt>Signal</dt><dd>A new party requests an upfront fee to recover funds.</dd></div><div><dt>Response</dt><dd>Treat the recovery offer as a new proposition that needs independent verification, and warn against further payment.</dd></div></dl>
   </div>
 
   <div class="isi-teach" id="teach-correspondence">
@@ -438,6 +468,74 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
     <li>Evidence that the dispute concerns performance or service rather than false identity, non-existent assets or dishonest inducement.</li>
   </ul>
 </section>
+<section class="isi-section" id="patterns">
+  <h2>Risk, Signal, Response</h2>
+  <p class="isi-lede">Five ways a file goes wrong. Each card names the risk, the signal that shows it in the record, and the response.</p>
+  <div class="isi-patterns" id="isiClosingPatterns">
+    <div class="isi-pattern" data-pattern-id="borrowed-badge">
+      <h3>1. The Borrowed Badge</h3><p class="isi-metaphor">A genuine register entry is made to vouch for the whole journey.</p>
+      <dl class="isi-lines"><div><dt>Risk</dt><dd>A genuine register entry clears the whole journey.</dd></div><div><dt>Signal</dt><dd>The file records the firm reference number but not independently verified contact details or permissions.</dd></div><div><dt>Response</dt><dd>Attribute every channel, product and payment instruction separately.</dd></div></dl>
+    </div>
+    <div class="isi-pattern" data-pattern-id="screen-money">
+      <h3>2. The Screen Balance</h3><p class="isi-metaphor">A number on a screen is treated as money held for the customer.</p>
+      <dl class="isi-lines"><div><dt>Risk</dt><dd>A functioning dashboard is treated as custody evidence.</dd></div><div><dt>Signal</dt><dd>The only proof of value is a promoter-controlled screen.</dd></div><div><dt>Response</dt><dd>Seek independent asset, custody, transaction or withdrawal evidence.</dd></div></dl>
+    </div>
+    <div class="isi-pattern" data-pattern-id="scope-verdict">
+      <h3>3. The Scope Verdict</h3><p class="isi-metaphor">A statement about scheme scope is read as a finding about fraud.</p>
+      <dl class="isi-lines"><div><dt>Risk</dt><dd>Reimbursement scope becomes the fraud verdict.</dd></div><div><dt>Signal</dt><dd>An own-account or crypto route is rejected as not a scam because it falls outside mandatory scheme scope.</dd></div><div><dt>Response</dt><dd>Classify the scam evidence first, then apply the payment-route rules separately.</dd></div></dl>
+    </div>
+    <div class="isi-pattern" data-pattern-id="waiting-room">
+      <h3>4. The Waiting Room</h3><p class="isi-metaphor">Recovery waits in a queue behind a perfect classification.</p>
+      <dl class="isi-lines"><div><dt>Risk</dt><dd>Recovery waits for perfect classification.</dd></div><div><dt>Signal</dt><dd>No recall, provider contact or evidence preservation begins while the file seeks certainty.</dd></div><div><dt>Response</dt><dd>Run time-sensitive containment and preservation in parallel with targeted investigation.</dd></div></dl>
+    </div>
+    <div class="isi-pattern" data-pattern-id="second-hook">
+      <h3>5. The Second Hook</h3><p class="isi-metaphor">The victim of one scam becomes the target of the next.</p>
+      <dl class="isi-lines"><div><dt>Risk</dt><dd>The victim is exposed to a second scam.</dd></div><div><dt>Signal</dt><dd>A new party requests an upfront fee to recover funds.</dd></div><div><dt>Response</dt><dd>Treat the recovery offer as a new proposition that needs independent verification, and warn against further payment.</dd></div></dl>
+    </div>
+  </div>
+</section>
+
+<section class="isi-section isi-quiz" id="knowledge-check">
+  <h2>Knowledge check</h2>
+  <p>Choose one answer for each question. The score is an aid to review, not a credential or a case decision.</p>
+  <form id="knowledgeForm" method="dialog">
+    <fieldset><legend>1. What does an FCA firm match prove?</legend>
+      <label class="isi-option"><input type="radio" name="q1" value="a" data-correct="true"><span>The named firm exists and has a recorded status or permissions. It does not prove that the contact or product in the case belongs to that firm.</span></label>
+      <label class="isi-option"><input type="radio" name="q1" value="b"><span>That the person who contacted the customer works for the firm.</span></label>
+      <label class="isi-option"><input type="radio" name="q1" value="c"><span>That the investment on offer is genuine and the customer is protected.</span></label>
+    </fieldset>
+    <fieldset><legend>2. Does absence from the FCA Warning List clear a firm?</legend>
+      <label class="isi-option"><input type="radio" name="q2" value="a"><span>Yes. The list is complete, so a firm that is not on it is authorised.</span></label>
+      <label class="isi-option"><input type="radio" name="q2" value="b" data-correct="true"><span>No. The FCA says a firm that is not on the list may still be unauthorised or be a scam.</span></label>
+      <label class="isi-option"><input type="radio" name="q2" value="c"><span>Yes, as long as the firm has a website and a firm reference number.</span></label>
+    </fieldset>
+    <fieldset><legend>3. Why can a real exchange sit inside a fraudulent journey?</legend>
+      <label class="isi-option"><input type="radio" name="q3" value="a"><span>Because exchanges vouch for the investments their customers go on to buy.</span></label>
+      <label class="isi-option"><input type="radio" name="q3" value="b"><span>It cannot. If the exchange is registered, the whole journey is genuine.</span></label>
+      <label class="isi-option"><input type="radio" name="q3" value="c" data-correct="true"><span>It may provide a genuine conversion or custody service while the value then moves to a destination the scammer controls.</span></label>
+    </fieldset>
+    <fieldset><legend>4. Does exclusion from mandatory reimbursement scope mean no scam occurred?</legend>
+      <label class="isi-option"><input type="radio" name="q4" value="a"><span>Yes. Scheme scope is the test of whether a scam occurred.</span></label>
+      <label class="isi-option"><input type="radio" name="q4" value="b" data-correct="true"><span>No. Classification, scheme scope and wider complaint responsibility are separate questions.</span></label>
+      <label class="isi-option"><input type="radio" name="q4" value="c"><span>Yes, but only where the payment was made in crypto.</span></label>
+    </fieldset>
+    <fieldset><legend>5. What is the Legitimate Node Trap?</legend>
+      <label class="isi-option"><input type="radio" name="q5" value="a" data-correct="true"><span>Allowing one genuine firm, account, exchange, document or interface to validate the whole investment journey.</span></label>
+      <label class="isi-option"><input type="radio" name="q5" value="b"><span>A scam in which every element of the journey, including the firm, is invented.</span></label>
+      <label class="isi-option"><input type="radio" name="q5" value="c"><span>A rule that treats every registered firm as legitimate.</span></label>
+    </fieldset>
+    <button class="isi-action" type="submit">Score knowledge check</button>
+    <p id="knowledgeFeedback" class="isi-feedback" aria-live="polite" role="status"></p>
+  </form>
+  <div class="isi-details isi-answer-notes"><details><summary>Answer notes</summary>
+    <p><strong>Question 1.</strong> <em>Source:</em> The FCA says the Firm Checker shows whether a firm is authorised and has permission for the product or service, and that a clone firm is a copy of a genuine, authorised firm. <a href="#source-1">[1]</a> <em>Application:</em> A match establishes the firm and its recorded permissions. It says nothing about who controls this domain, number or account. <em>Action:</em> Test each channel against details you retrieved yourself.</p>
+    <p><strong>Question 2.</strong> <em>Source:</em> The FCA says a firm that is not on the Warning List may still be unauthorised or be a scam. <a href="#source-2">[2]</a> <em>Application:</em> A non-hit records that no matching warning was found at the time of the check. <em>Action:</em> Record the date of the check and keep investigating.</p>
+    <p><strong>Question 3.</strong> <em>Source:</em> The Financial Ombudsman Service describes persuading a person to pay into an account in their own name, such as a crypto account, before sending cryptocurrency to the fraudster. <a href="#source-8">[8]</a> <em>Application:</em> FinCrimeRadar assessment: the exchange can be genuine while the destination is not, which is why a genuine node cannot vouch for the journey. <em>Action:</em> Trace from the exchange account to the external addresses.</p>
+    <p><strong>Question 4.</strong> <em>Source:</em> The Ombudsman says the Faster Payments and CHAPS reimbursement rules do not cover payments in cryptocurrency or payments to an account under the consumer's control, and that it will still investigate whether the firm could have done more. <a href="#source-6">[6]</a> <em>Application:</em> Scheme scope, classification and complaint responsibility are separate questions. <em>Action:</em> Classify first, then apply the route rules separately.</p>
+    <p><strong>Question 5.</strong> <em>Source:</em> This is not a regulator's term and no source is cited for it. <em>Application:</em> FinCrimeRadar assessment: the trap is letting a genuine element answer a larger question than it can support. <em>Action:</em> Write what each reassuring fact establishes and what it does not.</p>
+  </details></div>
+</section>
+
 <section class="isi-section isi-sources" id="sources">
   <h2>Sources and methodology</h2>
   <p><strong>Scope:</strong> UK investment scam investigation, drawn from regulator and ombudsman publications about firm status, scam reporting, crypto promotions and reimbursement routes. It does not cover other jurisdictions, recipient-account intent or the reimbursement rules themselves. This is decision support for practitioners, not legal advice.</p>
@@ -459,7 +557,7 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 </main>
 <aside class="isi-toc" aria-label="On this page">
 <strong>Investigation route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#node-trap">The Legitimate Node Trap</a></li><li><a href="#streams">Four evidence streams</a></li><li><a href="#evidence-table">Evidence table</a></li><li><a href="#three-decisions">Three decisions</a></li><li><a href="#source-limits">What the sources say</a></li><li><a href="#scenario-one">Scenario 1</a></li><li><a href="#scenario-two">Scenario 2</a></li><li><a href="#what-would-change">What would change it</a></li><li><a href="#sources">Sources</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#node-trap">The Legitimate Node Trap</a></li><li><a href="#streams">Four evidence streams</a></li><li><a href="#evidence-table">Evidence table</a></li><li><a href="#three-decisions">Three decisions</a></li><li><a href="#source-limits">What the sources say</a></li><li><a href="#scenario-one">Scenario 1</a></li><li><a href="#scenario-two">Scenario 2</a></li><li><a href="#what-would-change">What would change it</a></li><li><a href="#patterns">Risk, Signal, Response</a></li><li><a href="#knowledge-check">Knowledge check</a></li><li><a href="#sources">Sources</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

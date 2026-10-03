@@ -107,6 +107,43 @@
     });
   });
 
+  var knowledgeForm = document.getElementById('knowledgeForm');
+  if (knowledgeForm) {
+    knowledgeForm.addEventListener('change', function () {
+      var feedback = document.getElementById('knowledgeFeedback');
+      feedback.textContent = '';
+      feedback.removeAttribute('data-state');
+    });
+
+    knowledgeForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var groups = ['q1', 'q2', 'q3', 'q4', 'q5'];
+      var selected = groups.map(function (name) {
+        return knowledgeForm.querySelector('input[name="' + name + '"]:checked');
+      });
+      var feedback = document.getElementById('knowledgeFeedback');
+
+      if (selected.some(function (answer) { return !answer; })) {
+        feedback.textContent = 'Answer all five questions before scoring.';
+        feedback.dataset.state = 'caution';
+        return;
+      }
+
+      var score = selected.filter(function (answer) {
+        return answer.dataset.correct === 'true';
+      }).length;
+      feedback.textContent = 'Score: ' + score + ' of 5. The answer notes below the questions set out the Source, Application and Action for each.';
+      feedback.dataset.state = score >= 4 ? 'best' : 'caution';
+
+      // Aggregate score only. Individual answers are never sent.
+      emitAggregateEvent('knowledge', 'knowledge_check_complete', {
+        guide_id: GUIDE_ID,
+        score: score,
+        total: 5
+      });
+    });
+  }
+
   // Set last, once every handler is attached. Buttons and hidden analyses depend on this class,
   // so a script that fails part way leaves the page in its fully readable no-script state.
   document.documentElement.classList.add('js');

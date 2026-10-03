@@ -290,6 +290,53 @@ def check_r7() -> None:
     require(html.count('data-decision-form') == 2, "counterfactuals must not add decision forms")
 
 
+PATTERN_IDS = ["borrowed-badge", "screen-money", "scope-verdict", "waiting-room", "second-hook"]
+
+
+def check_r9() -> None:
+    """R9: five Risk, Signal, Response cards and a five-question knowledge check with visible feedback."""
+    html = html_text()
+    section = re.search(r'<section class="isi-section" id="patterns">.*?</section>', html, re.S).group(0)
+    pieces = re.split(r'<div class="isi-pattern" data-pattern-id="([^"]+)">', section)
+    cards = list(zip(pieces[1::2], pieces[2::2]))
+    require([c[0] for c in cards] == PATTERN_IDS, f"pattern cards found: {[c[0] for c in cards]}")
+    for number, (pattern_id, body) in enumerate(cards, 1):
+        require(re.search(rf"<h3>{number}\. [^<]+</h3>", body) is not None, f"{pattern_id} needs a numbered metaphor-style name")
+        require('<p class="isi-metaphor">' in body, f"{pattern_id} needs its one short explanatory line")
+        lines = re.findall(r"<div><dt>(\w+)</dt><dd>(.*?)</dd></div>", body, re.S)
+        require([l[0] for l in lines] == ["Risk", "Signal", "Response"], f"{pattern_id} needs Risk, Signal, Response in order")
+        require(all(len(l[1]) > 25 for l in lines), f"{pattern_id} has a thin line")
+    # The same card appears a second time, inline, where its pattern is introduced, with identical wording.
+    outside = html.replace(section, "")
+    inline = re.findall(r'<div class="isi-pattern isi-pattern-inline" data-pattern-id="([^"]+)" data-pattern-placement="inline">(.*?)\n  </div>', outside, re.S)
+    require(sorted(i[0] for i in inline) == sorted(PATTERN_IDS), f"inline pattern placements found: {[i[0] for i in inline]}")
+
+    def flat(body: str) -> str:
+        return re.sub(r"\s+", " ", re.sub(r"<h3>\d\. ", "<h3>", body)).strip()
+
+    closing_by_id = dict(cards)
+    for pattern_id, body in inline:
+        require(flat(body) == flat(closing_by_id[pattern_id].rsplit("\n    </div>", 1)[0]),
+                f"inline {pattern_id} wording differs from the closing card")
+    quiz = re.search(r'<section class="isi-section isi-quiz" id="knowledge-check">.*?</section>', html, re.S).group(0)
+    fieldsets = re.findall(r"<fieldset><legend>(\d)\. (.*?)</legend>(.*?)</fieldset>", quiz, re.S)
+    require([f[0] for f in fieldsets] == ["1", "2", "3", "4", "5"], "the knowledge check needs five numbered questions")
+    positions = []
+    for number, _, body in fieldsets:
+        radios = re.findall(r'<input type="radio" name="q(\d)" value="(\w)"( data-correct="true")?>', body)
+        require(len(radios) == 3 and all(r[0] == number for r in radios), f"question {number} needs three options in its own group")
+        correct = [r[1] for r in radios if r[2]]
+        require(len(correct) == 1, f"question {number} needs exactly one correct option")
+        positions.append(correct[0])
+    require(max(positions.count(p) for p in "abc") < 4, f"correct answers sit in the same position too often: {positions}")
+    require('id="knowledgeFeedback" class="isi-feedback" aria-live="polite" role="status"' in quiz, "knowledge check feedback needs aria-live and role=status")
+    notes = re.search(r'<details><summary>Answer notes</summary>(.*?)</details>', quiz, re.S).group(1)
+    items = re.findall(r"<p><strong>Question (\d)\.</strong>(.*?)</p>", notes, re.S)
+    require([i[0] for i in items] == ["1", "2", "3", "4", "5"], "answer notes must cover all five questions")
+    for number, text in items:
+        require(all(f"<em>{layer}:</em>" in text for layer in ("Source", "Application", "Action")), f"answer note {number} needs Source, Application, Action")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -298,6 +345,7 @@ CHECKS = [
     ("R6", check_r6),
     ("R7", check_r7),
     ("R8", check_r8),
+    ("R9", check_r9),
 ]
 
 

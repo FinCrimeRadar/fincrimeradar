@@ -419,7 +419,52 @@ def check_r7_counterfactuals(ctx: Context) -> None:
     print("OK: both counterfactuals visible before and after Record, positioned after the option analyses")
 
 
+# R9 -----------------------------------------------------------------------------------------------
+
+def check_r9_cards_and_quiz(ctx: Context) -> None:
+    """R9: five cards render, and the knowledge check scores right, wrong, unanswered and guessed paths correctly."""
+    navigate(ctx.cdp, ctx.url, 390)
+    cards = ctx.cdp.evaluate("""[...document.querySelectorAll('#isiClosingPatterns .isi-pattern')].map(c => ({
+      lines: c.querySelectorAll('.isi-lines dt').length, height: c.getBoundingClientRect().height,
+      columns: getComputedStyle(c.parentElement).gridTemplateColumns.split(' ').length}))""")
+    require(len(cards) == 5 and all(c["lines"] == 3 and c["height"] > 100 for c in cards), f"five closing cards with three lines each expected: {cards}")
+    require(all(c["columns"] == 1 for c in cards), f"cards must stack on a 390px screen: {cards}")
+    inline = ctx.cdp.evaluate("""[...document.querySelectorAll('.isi-pattern-inline')].map(c => ({
+      id: c.dataset.patternId, section: c.closest('.isi-section').id, lines: c.querySelectorAll('.isi-lines dt').length,
+      height: c.getBoundingClientRect().height, display: getComputedStyle(c).display}))""")
+    require(len(inline) == 5 and all(c["lines"] == 3 and c["height"] > 100 and c["display"] != "none" for c in inline), f"five inline cards expected: {inline}")
+    require(sorted(c["id"] for c in inline) == sorted(["borrowed-badge", "screen-money", "scope-verdict", "waiting-room", "second-hook"]), f"inline card ids: {inline}")
+    require({c["section"] for c in inline} <= {"streams", "three-decisions", "source-limits"}, f"inline cards must sit where the patterns are introduced: {inline}")
+    result = ctx.cdp.evaluate("""(() => {
+      const f = document.getElementById('knowledgeForm'), fb = document.getElementById('knowledgeFeedback');
+      const submit = () => f.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const out = {live: fb.getAttribute('aria-live'), role: fb.getAttribute('role')};
+      f.querySelectorAll('input').forEach(i => i.checked = false); submit();
+      out.unanswered = [fb.textContent, fb.dataset.state];
+      f.querySelectorAll('fieldset').forEach(fs => { fs.querySelector('input:not([data-correct="true"])').checked = true; }); submit();
+      out.wrong = [fb.textContent.slice(0, 16), fb.dataset.state];
+      f.querySelectorAll('input[data-correct="true"]').forEach(i => i.checked = true); submit();
+      out.right = [fb.textContent.slice(0, 16), fb.dataset.state];
+      out.guess = {};
+      for (const pos of [0, 1, 2]) {
+        f.querySelectorAll('input').forEach(i => i.checked = false);
+        ['q1','q2','q3','q4','q5'].forEach(q => { f.querySelectorAll('input[name=' + q + ']')[pos].checked = true; });
+        submit(); out.guess[pos] = fb.dataset.state;
+      }
+      f.dispatchEvent(new Event('change', {bubbles: true}));
+      out.afterChange = [fb.textContent, fb.getAttribute('data-state')];
+      return out; })()""")
+    require(result["live"] == "polite" and result["role"] == "status", f"knowledge feedback semantics: {result}")
+    require("Answer all five" in result["unanswered"][0] and result["unanswered"][1] == "caution", f"unanswered path: {result}")
+    require(result["wrong"] == ["Score: 0 of 5. T", "caution"], f"all-wrong path: {result}")
+    require(result["right"] == ["Score: 5 of 5. T", "best"], f"all-right path: {result}")
+    require(all(state != "best" for state in result["guess"].values()), f"choosing one position throughout must not score best: {result}")
+    require(result["afterChange"] == ["", None], f"a change must clear the score: {result}")
+    print("OK: five cards stack at 390px, knowledge check unanswered, wrong, right and guessed paths, change clears the score")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R9", check_r9_cards_and_quiz),
     ("R7", check_r7_counterfactuals),
     ("R6", check_r6_keyboard),
     ("R6", check_r6_reveal_and_change),
