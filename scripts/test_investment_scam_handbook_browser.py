@@ -199,10 +199,12 @@ def check_r8_layout(ctx: Context) -> None:
           const rows = [...t.querySelectorAll('tbody tr')];
           const cells = [...t.querySelectorAll('tbody td')];
           const labelled = cells.filter(td => getComputedStyle(td, '::before').content !== 'none' && getComputedStyle(td, '::before').content !== 'normal');
-          return {fits: r.left >= -1 && r.right <= root.clientWidth + 1, rows: rows.length, rowsVisible: rows.filter(x => x.getBoundingClientRect().height > 0).length,
+          const cap = t.querySelector('caption').getBoundingClientRect();
+          return {captionFull: cap.width >= r.width - 2, fits: r.left >= -1 && r.right <= root.clientWidth + 1, rows: rows.length, rowsVisible: rows.filter(x => x.getBoundingClientRect().height > 0).length,
                   cells: cells.length, labelled: labelled.length, stacked: getComputedStyle(rows[0]).display === 'block'};
         })()""")
         require(table["fits"] and table["rows"] == 8 and table["rowsVisible"] == 8, f"{width}px evidence table does not fit or lost rows: {table}")
+        require(table["captionFull"], f"{width}px evidence table caption is narrower than the table: {table}")
         if width <= 760:
             require(table["stacked"] and table["labelled"] == table["cells"] == 24, f"{width}px stacked table lacks per-cell labels: {table}")
         else:
