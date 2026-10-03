@@ -538,7 +538,119 @@ def check_r10_tab_walk(ctx: Context) -> None:
         print(f"OK: {width}px {len(stops)} keyboard stops, every one with a visible focus indicator")
 
 
+# R11 ----------------------------------------------------------------------------------------------
+
+def check_r11_reduced_motion(ctx: Context) -> None:
+    """R11: with reduced motion requested, smooth scrolling and transitions are off."""
+    ctx.cdp.call("Emulation.setEmulatedMedia", {"features": [{"name": "prefers-reduced-motion", "value": "reduce"}]})
+    try:
+        navigate(ctx.cdp, ctx.url, 428)
+        state = ctx.cdp.evaluate("""(() => ({
+          scroll: getComputedStyle(document.documentElement).scrollBehavior,
+          transitions: [...document.querySelectorAll('.isi-option, .isi-action, a')].every(el => parseFloat(getComputedStyle(el).transitionDuration) < 0.01),
+          animations: [...document.querySelectorAll('body *')].every(el => parseFloat(getComputedStyle(el).animationDuration) < 0.01)
+        }))()""")
+        require(state == {"scroll": "auto", "transitions": True, "animations": True}, f"reduced motion not honoured: {state}")
+    finally:
+        ctx.cdp.call("Emulation.setEmulatedMedia", {"features": [{"name": "prefers-reduced-motion", "value": "no-preference"}]})
+    print("OK: reduced motion switches off smooth scrolling, transitions and animations")
+
+
+def check_r11_touch_targets(ctx: Context) -> None:
+    """R11: every control is at least 44 by 44 CSS pixels on a phone."""
+    navigate(ctx.cdp, ctx.url, 390)
+    small = ctx.cdp.evaluate("""[...document.querySelectorAll('.isi-action, .isi-option, .isi-details summary, .nav-hamburger')]
+      .map(el => ({cls: el.className || el.tagName, rect: el.getBoundingClientRect()}))
+      .filter(x => x.rect.width > 0 && (x.rect.height < 44 || x.rect.width < 44))
+      .map(x => ({cls: x.cls, w: Math.round(x.rect.width), h: Math.round(x.rect.height)}))""")
+    require(not small, f"controls smaller than 44px: {small[:5]}")
+    count = ctx.cdp.evaluate("document.querySelectorAll('.isi-action, .isi-option, .isi-details summary, .nav-hamburger').length")
+    require(count >= 30, f"expected at least 30 controls to measure, found {count}")
+    print(f"OK: {count} controls measured, all at least 44 by 44 CSS pixels at 390px")
+
+
+def settle_scroll(cdp: CDP, limit: float = 6.0) -> None:
+    """Smooth scrolling is animated, so wait until the scroll position stops changing before measuring."""
+    deadline = time.time() + limit
+    last = None
+    while time.time() < deadline:
+        position = cdp.evaluate("window.scrollY")
+        if position == last:
+            return
+        last = position
+        time.sleep(0.06)
+
+
+def check_r11_focus_not_obscured(ctx: Context) -> None:
+    """R11: a keyboard stop is never hidden under the sticky navigation bar."""
+    navigate(ctx.cdp, ctx.url, 1440)
+    nav_bottom = ctx.cdp.evaluate("document.querySelector('nav').getBoundingClientRect().bottom")
+    hidden = []
+    for _ in range(140):
+        dispatch_key(ctx.cdp, "Tab", "Tab", 9)
+        settle_scroll(ctx.cdp)
+        stop = ctx.cdp.evaluate("""(() => { const el = document.activeElement;
+          if (!el || el === document.body || el.classList.contains('isi-skip') || el.closest('nav') || el.closest('.isi-toc') || el.closest('#site-footer')) return null;
+          const r = el.closest('.isi-option') ? el.closest('.isi-option').getBoundingClientRect() : el.getBoundingClientRect();
+          return {text: (el.textContent || el.name || '').trim().slice(0, 30), top: r.top, bottom: r.bottom}; })()""")
+        if stop and (stop["top"] < nav_bottom - 1 or stop["bottom"] > 904):
+            hidden.append(stop)
+    require(not hidden, f"keyboard stops hidden by the sticky nav or off screen: {hidden[:3]}")
+    print("OK: keyboard stops through the content stay below the sticky nav")
+
+
+def luminance(rgb: list[float]) -> float:
+    def channel(value: float) -> float:
+        value /= 255
+        return value / 12.92 if value <= 0.03928 else ((value + 0.055) / 1.055) ** 2.4
+    r, g, b = (channel(c) for c in rgb)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def check_r11_contrast(ctx: Context) -> None:
+    """R11: text and badge colours meet WCAG AA contrast against the background they are drawn on."""
+    navigate(ctx.cdp, ctx.url, 1440)
+    pairs = ctx.cdp.evaluate("""(() => {
+      const parse = c => (c.match(/[\\d.]+/g) || []).map(Number);
+      const bgOf = el => { for (let n = el; n; n = n.parentElement) { const c = parse(getComputedStyle(n).backgroundColor);
+        if (c.length >= 3 && (c.length < 4 || c[3] > 0.9)) return c.slice(0, 3); } return [255, 255, 255]; };
+      const samples = ['.isi-note', '.isi-illustrative', '.isi-scope dt', '.isi-action', '.isi-state[data-state="established"]', '.isi-state[data-state="assessment"]',
+        '.isi-state[data-state="unknown"]', '.isi-grade[data-grade="best"]', '.isi-grade[data-grade="incomplete"]', '.isi-grade[data-grade="unsupported"]',
+        '.isi-saa-block h4', '.isi-evidence thead th', '.isi-evidence tbody th', '.isi-lines dt', '.isi-metaphor', '.isi-optfb-head', '.isi-scenario-tag',
+        '.isi-stream-no', '.isi-sources li', '.isi-core strong', '.isi-lede'];
+      const out = samples.map(sel => { const el = document.querySelector(sel); if (!el) return {sel, missing: true};
+        const cs = getComputedStyle(el); return {sel, fg: parse(cs.color).slice(0, 3), bg: bgOf(el), size: parseFloat(cs.fontSize), weight: parseInt(cs.fontWeight)}; });
+      const fb = document.querySelector('.isi-feedback');
+      for (const state of ['best', 'incomplete', 'unsupported', 'caution']) { fb.dataset.state = state;
+        const cs = getComputedStyle(fb); out.push({sel: 'feedback ' + state, fg: parse(cs.color).slice(0, 3), bg: bgOf(fb), size: parseFloat(cs.fontSize), weight: parseInt(cs.fontWeight)}); }
+      return out; })()""")
+    failures = []
+    for pair in pairs:
+        require(not pair.get("missing"), f"contrast sample not found: {pair['sel']}")
+        l1, l2 = luminance(pair["fg"]), luminance(pair["bg"])
+        ratio = (max(l1, l2) + 0.05) / (min(l1, l2) + 0.05)
+        large = pair["size"] >= 24 or (pair["size"] >= 18.66 and pair["weight"] >= 700)
+        if ratio < (3.0 if large else 4.5):
+            failures.append((pair["sel"], round(ratio, 2)))
+    require(not failures, f"contrast below WCAG AA: {failures}")
+    print(f"OK: {len(pairs)} text and badge colours meet WCAG AA contrast")
+
+
+def check_r11_live_regions(ctx: Context) -> None:
+    """R11: every live region is polite and in the document from the start, so announcements are not lost."""
+    navigate(ctx.cdp, ctx.url, 390)
+    regions = ctx.cdp.evaluate("""[...document.querySelectorAll('[aria-live]')].map(el => ({live: el.getAttribute('aria-live'), role: el.getAttribute('role'),
+      empty: el.textContent === '', id: el.id || el.closest('form').dataset.scenarioId || ''}))""")
+    require(len(regions) == 3 and all(r["live"] == "polite" and r["role"] == "status" and r["empty"] for r in regions), f"live regions: {regions}")
+    print("OK: three polite status regions present and empty at load")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R11", check_r11_reduced_motion),
+    ("R11", check_r11_touch_targets),
+    ("R11", check_r11_focus_not_obscured),
+    ("R11", check_r11_contrast),
+    ("R11", check_r11_live_regions),
     ("R10", check_r10_skip_link),
     ("R10", check_r10_faq_keyboard),
     ("R10", check_r10_tab_walk),

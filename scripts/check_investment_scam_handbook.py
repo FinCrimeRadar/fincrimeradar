@@ -357,6 +357,22 @@ def check_r10() -> None:
     require(not re.search(r"\sonclick=|\sonkeydown=", html), "inline event handlers are not allowed")
 
 
+def check_r11() -> None:
+    """R11: reduced motion, touch targets, scroll padding under the sticky nav and polite live regions are in place."""
+    html = html_text()
+    css = re.search(r"<style>(.*?)</style>", html, re.S).group(1)
+    require("@media(prefers-reduced-motion:reduce)" in css and "transition-duration:.01ms!important" in css and "animation-duration:.01ms!important" in css,
+            "a reduced-motion block that neutralises transitions and animations is required")
+    require("html{scroll-behavior:smooth}" in css and "html{scroll-behavior:auto}" in css, "smooth scrolling must be switched off under reduced motion")
+    require("scroll-padding-top:" in css, "scroll padding is needed so focus is not hidden by the sticky nav")
+    for rule in (".isi-action{min-height:44px", ".isi-option{min-height:44px", ".isi-details summary{min-height:44px"):
+        require(rule in css, f"touch target rule missing: {rule}")
+    live = re.findall(r'<[^>]*aria-live="([^"]+)"[^>]*>', html)
+    require(len(live) == 3 and set(live) == {"polite"}, f"expected three polite live regions, found {live}")
+    for tag in re.findall(r'<[^>]*aria-live="polite"[^>]*>', html):
+        require('role="status"' in tag, f"live region without role=status: {tag}")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -367,6 +383,7 @@ CHECKS = [
     ("R8", check_r8),
     ("R9", check_r9),
     ("R10", check_r10),
+    ("R11", check_r11),
 ]
 
 
