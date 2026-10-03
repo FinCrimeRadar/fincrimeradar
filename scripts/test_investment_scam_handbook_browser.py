@@ -400,7 +400,27 @@ def check_r6_empty_submit(ctx: Context) -> None:
     print("OK: empty decision rejected without revealing analyses")
 
 
+# R7 -----------------------------------------------------------------------------------------------
+
+def check_r7_counterfactuals(ctx: Context) -> None:
+    """R7: both counterfactuals are on screen without any interaction, and Record does not hide or move them."""
+    navigate(ctx.cdp, ctx.url, 390)
+    before = ctx.cdp.evaluate("""[...document.querySelectorAll('.isi-counterfactual')].map(c => ({
+      id: c.id, display: getComputedStyle(c).display, height: c.getBoundingClientRect().height,
+      afterAnalyses: Boolean(c.closest('.isi-section').querySelector('.isi-optfb-set').compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING)}))""")
+    require([c["id"] for c in before] == ["counterfactual-clone-firm", "counterfactual-real-exchange"], f"counterfactuals found: {before}")
+    require(all(c["display"] != "none" and c["height"] > 60 and c["afterAnalyses"] for c in before), f"counterfactuals must be visible and follow the analyses: {before}")
+    ctx.cdp.evaluate("""document.querySelectorAll('[data-decision-form]').forEach(form => {
+      form.querySelector('input[data-grade="best"]').checked = true;
+      form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+    })""")
+    after = ctx.cdp.evaluate("[...document.querySelectorAll('.isi-counterfactual')].map(c => getComputedStyle(c).display)")
+    require(all(d != "none" for d in after), "Record must not hide a counterfactual")
+    print("OK: both counterfactuals visible before and after Record, positioned after the option analyses")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R7", check_r7_counterfactuals),
     ("R6", check_r6_keyboard),
     ("R6", check_r6_reveal_and_change),
     ("R6", check_r6_grade_contract),

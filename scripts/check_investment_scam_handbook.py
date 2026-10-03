@@ -268,12 +268,35 @@ def check_r6() -> None:
             require(word not in visible, f"{scenario} uses blaming wording {word!r}")
 
 
+def check_r7() -> None:
+    """R7: each scenario carries a material counterfactual, and counterfactuals do not stand in for the second scenario."""
+    html = html_text()
+    scenarios = scenario_sections(html)
+    require(len(scenarios) == 2, "two scenarios must remain after adding counterfactuals")
+    required = {
+        "clone-firm": ("would materially weaken", "distinguish fraud from an investment loss or a service dispute"),
+        "real-exchange": ("would materially weaken", "Loss of market value alone would not establish fraud"),
+    }
+    for scenario, block in scenarios.items():
+        found = re.findall(r'<div class="isi-counterfactual" id="counterfactual-([^"]+)">(.*?)</div>', block, re.S)
+        require(len(found) == 1 and found[0][0] == scenario, f"{scenario} needs exactly one counterfactual")
+        body = found[0][1]
+        require("Counterfactual: change one fact" in body and 'data-state="assessment"' in body, f"{scenario} counterfactual heading or label is missing")
+        require("<strong>The fact changed.</strong>" in body and "<strong>What follows.</strong>" in body, f"{scenario} counterfactual needs the changed fact and its effect")
+        for needle in required[scenario]:
+            require(needle in body, f"{scenario} counterfactual is missing {needle!r}")
+        require("<form" not in body and "<input" not in body, f"{scenario} counterfactual must be static")
+        require(block.index('class="isi-optfb-set"') < block.index("isi-counterfactual"), f"{scenario} counterfactual must follow the option analyses")
+    require(html.count('data-decision-form') == 2, "counterfactuals must not add decision forms")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
     ("R3", check_r3),
     ("R4", check_r4),
     ("R6", check_r6),
+    ("R7", check_r7),
     ("R8", check_r8),
 ]
 
