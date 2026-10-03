@@ -37,8 +37,23 @@ DEVICE_WIDTHS = (320, 375, 390, 428, 768)
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
+    """Serves the repository, and can swap the guide script for one that throws (the script failure probe)."""
+
+    MODE = {"throw": False}
+
     def log_message(self, format: str, *args: object) -> None:
         return
+
+    def do_GET(self) -> None:
+        if QuietHandler.MODE["throw"] and self.path.split("?")[0] == f"/js/{SLUG}.js":
+            body = b"throw new Error('probe: script failure');"
+            self.send_response(200)
+            self.send_header("Content-Type", "text/javascript")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+        super().do_GET()
 
 
 class QuietServer(ThreadingHTTPServer):
@@ -731,7 +746,95 @@ def check_r14_image_export(ctx: Context) -> None:
     print(f"OK: exported summary image {rendered.width}x{rendered.height}, six surfaces, no clipped text, status region announced")
 
 
+# R15 ----------------------------------------------------------------------------------------------
+
+CONTROLS = ".isi-choice .isi-action, #knowledgeForm .isi-action, #saveSummaryImage"
+COMPREHENSION_MARKERS = (
+    "Legitimate Node Trap", "Source", "Application", "Action", "What would change the assessment", "One-screen summary",
+    "Counterfactual: change one fact", "Answer notes", "Risk, Signal, Response", "Sources and methodology",
+    "Best supported by the evidence", "Not supported by the evidence",
+)
+
+
+def static_state(ctx: Context) -> dict[str, Any]:
+    return ctx.cdp.evaluate(f"""(() => {{
+      const shown = el => el.getBoundingClientRect().height > 0 && getComputedStyle(el).display !== 'none' && getComputedStyle(el).visibility !== 'hidden';
+      const text = document.body.textContent;
+      return {{
+        jsClass: document.documentElement.classList.contains('js'),
+        controls: [...document.querySelectorAll('{CONTROLS}')].map(b => getComputedStyle(b).display),
+        analyses: [...document.querySelectorAll('.isi-optfb')].filter(shown).length,
+        counterfactuals: [...document.querySelectorAll('.isi-counterfactual')].filter(shown).length,
+        evidenceRows: [...document.querySelectorAll('.isi-evidence tbody tr')].filter(shown).length,
+        patterns: [...document.querySelectorAll('.isi-pattern')].filter(shown).length,
+        summary: shown(document.getElementById('operational-summary')),
+        sources: [...document.querySelectorAll('#sources li')].filter(shown).length,
+        faq: document.querySelectorAll('#faq details').length,
+        notes: document.querySelectorAll('.isi-answer-notes details p').length,
+        mainHeight: document.getElementById('main-content').getBoundingClientRect().height,
+        missing: {list(COMPREHENSION_MARKERS)!r}.filter(m => !text.includes(m)),
+        href: location.href
+      }};
+    }})()""")
+
+
+def require_static_state(state: dict[str, Any], label: str) -> None:
+    require(state["jsClass"] is False, f"{label}: the js class must not be set")
+    require(state["controls"] and all(d == "none" for d in state["controls"]), f"{label}: action buttons must be hidden: {state['controls']}")
+    require(state["analyses"] == 8, f"{label}: all eight option analyses must be visible, found {state['analyses']}")
+    require(state["counterfactuals"] == 2 and state["evidenceRows"] == 8 and state["patterns"] == 10, f"{label}: counterfactuals, evidence rows or cards missing: {state}")
+    require(state["summary"] and state["sources"] == 8 and state["faq"] == 6 and state["notes"] == 5, f"{label}: summary, sources, FAQ or answer notes missing: {state}")
+    require(state["mainHeight"] > 8000, f"{label}: the article is unexpectedly short: {state['mainHeight']}")
+    require(not state["missing"], f"{label}: reasoning text missing: {state['missing']}")
+
+
+def check_r15_no_script(ctx: Context) -> None:
+    """R15: with scripts disabled every analysis, verdict explanation, citation and conclusion is on the page."""
+    ctx.cdp.call("Emulation.setScriptExecutionDisabled", {"value": True})
+    try:
+        for width in (320, 375):
+            navigate(ctx.cdp, ctx.url, width)
+            state = static_state(ctx)
+            require_static_state(state, f"no script {width}px")
+            metrics = page_metrics(ctx.cdp)
+            require(metrics["scrollWidth"] <= metrics["clientWidth"] + 1, f"no script {width}px page overflow: {metrics}")
+        ctx.cdp.evaluate("document.forms[0].requestSubmit()")
+        time.sleep(0.4)
+        require(ctx.cdp.evaluate("location.href") == state["href"], "a submit without the script must not navigate or add the selection to the URL")
+        print("OK: no script, 8 analyses, 2 counterfactuals, table, cards, summary, FAQ, answer notes and sources all visible, no navigation on submit")
+    finally:
+        ctx.cdp.call("Emulation.setScriptExecutionDisabled", {"value": False})
+
+
+def check_r15_script_throws(ctx: Context) -> None:
+    """R15: a script that throws leaves the page in its fully readable no-script state."""
+    QuietHandler.MODE["throw"] = True
+    try:
+        navigate(ctx.cdp, ctx.url, 375)
+        state = static_state(ctx)
+        require_static_state(state, "script throws")
+        ctx.cdp.evaluate("document.forms[0].requestSubmit()")
+        time.sleep(0.4)
+        require(ctx.cdp.evaluate("location.href") == state["href"], "a submit after a script failure must not navigate")
+    finally:
+        QuietHandler.MODE["throw"] = False
+    print("OK: script throws: no js class, buttons hidden, all analyses and reasoning visible, no navigation")
+
+
+def check_r15_no_flash(ctx: Context) -> None:
+    """R15: before the js class is set no action button is visible and no option analysis is on screen."""
+    for width in (390, 1440):
+        navigate(ctx.cdp, ctx.url, width)
+        flash = ctx.cdp.evaluate("window.__isiFlash")
+        require(flash is not None and flash["jsAt"] is not None, f"{width}px the js class was never set: {flash}")
+        require(flash["buttons"] == 0 and flash["analysesInView"] == 0, f"{width}px flash before the js class: {flash}")
+        print(f"OK: {width}px no visible flash before the js class ({flash['frames']} frames observed)")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R15", check_r15_no_script),
+    ("R15", check_r15_script_throws),
+    ("R15", check_r15_no_flash),
     ("R14", check_r14_image_export),
     ("R13", check_r13_knowledge_hub),
     ("R11", check_r11_reduced_motion),
@@ -787,6 +890,23 @@ def run() -> None:
         cdp.call("Runtime.enable")
         cdp.call("Network.enable")
         cdp.call("Network.setCacheDisabled", {"cacheDisabled": True})
+        cdp.call("Page.addScriptToEvaluateOnNewDocument", {"source": """
+          window.__isiFlash = {buttons: 0, analysesInView: 0, frames: 0, jsAt: null};
+          (function loop() {
+            const flash = window.__isiFlash;
+            if (!document.documentElement) { requestAnimationFrame(loop); return; }
+            if (document.documentElement.classList.contains('js')) { flash.jsAt = performance.now(); return; }
+            flash.frames += 1;
+            document.querySelectorAll('.isi-choice .isi-action, #knowledgeForm .isi-action, #saveSummaryImage').forEach(b => {
+              if (getComputedStyle(b).display !== 'none') flash.buttons += 1;
+            });
+            document.querySelectorAll('.isi-optfb-set').forEach(set => {
+              const r = set.getBoundingClientRect();
+              if (getComputedStyle(set).display !== 'none' && r.height > 0 && r.top < window.innerHeight && r.bottom > 0) flash.analysesInView += 1;
+            });
+            requestAnimationFrame(loop);
+          })();
+        """})
         cdp.call("Browser.setDownloadBehavior", {"behavior": "allow", "downloadPath": str(downloads)})
         ctx = Context(cdp, f"http://127.0.0.1:{site_port}/{SLUG}.html", downloads)
         for _, check in BROWSER_CHECKS:

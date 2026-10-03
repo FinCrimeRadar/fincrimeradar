@@ -580,6 +580,65 @@ def check_r14() -> None:
     require((h1_title, h1_subtitle) == (HEADLINE, "Reconstructing the offer, identity and money route"), f"the card source text is {(h1_title, h1_subtitle)}")
 
 
+def js_string_literals(source: str) -> list[str]:
+    """String literals in the page script, skipping comments. The script has no template literals."""
+    require("`" not in source, "the page script must not use template literals")
+    found, i, n = [], 0, len(source)
+    while i < n:
+        two = source[i:i + 2]
+        if two == "//":
+            i = source.find("\n", i)
+            i = n if i == -1 else i
+        elif two == "/*":
+            i = source.find("*/", i) + 2
+        elif source[i] in "'\"":
+            quote, j, chars = source[i], i + 1, []
+            while j < n and source[j] != quote:
+                if source[j] == "\\":
+                    chars.append(source[j + 1])
+                    j += 1
+                else:
+                    chars.append(source[j])
+                j += 1
+            found.append("".join(chars))
+            i = j + 1
+        else:
+            i += 1
+    return found
+
+
+ALLOWED_LONG_LITERALS = {
+    "investment-scam-investigation-handbook-summary.png",
+    "Choose an option before recording the decision.",
+    " of 5. The answer notes below the questions set out the Source, Application and Action for each.",
+}
+
+
+def check_r15() -> None:
+    """R15: material content is static HTML, the script only reveals and scores, and failure leaves the page readable."""
+    html = html_text()
+    css = re.search(r"<style>(.*?)</style>", html, re.S).group(1)
+    for rule in (".isi-choice .isi-action{display:none}.js .isi-choice .isi-action{display:inline-block}",
+                 ".js .isi-optfb-set:not([data-revealed=\"true\"]){display:none}",
+                 "#knowledgeForm .isi-action{display:none}.js #knowledgeForm .isi-action{display:inline-block}",
+                 "#saveSummaryImage{display:none}.js #saveSummaryImage{display:inline-block}"):
+        require(rule in css, f"progressive enhancement rule missing: {rule}")
+    hidden = [rule for rule in re.findall(r"([^{}]+)\{[^}]*display:none", css)
+              if not re.search(r"\.js |\.isi-action|saveSummaryImage|\.isi-evidence thead|\.nav-links|\.nav-hamburger|\.mobile-nav|@media|\.isi-choice|#knowledgeForm", rule)]
+    require(not hidden, f"CSS hides content outside the JavaScript-gated controls: {hidden}")
+    require("hidden" not in re.sub(r"visibility:hidden|overflow:hidden", "", re.sub(r"<style>.*?</style>", "", html, flags=re.S)).lower().replace("aria-hidden=\"true\"", ""),
+            "no element may be hidden through an attribute")
+    main = html.split("<main", 1)[1].split("</main>", 1)[0]
+    require(main.count("aria-hidden") == 0, "material content must not be aria-hidden")
+    require("class=\"js\"" not in html.split("</head>")[0] and 'classList.add(\'js\')' in SCRIPT.read_text(encoding="utf-8"), "the js class is set by the script, last")
+    script = SCRIPT.read_text(encoding="utf-8")
+    require(script.rstrip().endswith("document.documentElement.classList.add('js');\n}());"), "the js class must be the last statement the script runs")
+    long_literals = {literal for literal in js_string_literals(script) if len(literal) > 45}
+    require(long_literals <= ALLOWED_LONG_LITERALS, f"the script carries long wording of its own: {sorted(long_literals - ALLOWED_LONG_LITERALS)}")
+    require("createElement('p'" not in script and not re.search(r"(?<!feedback)(?<!status)(?<!link)\.textContent = '", script),
+            "the script must not build reasoning text")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -595,6 +654,7 @@ CHECKS = [
     ("R12", check_r12),
     ("R13", check_r13),
     ("R14", check_r14),
+    ("R15", check_r15),
 ]
 
 
