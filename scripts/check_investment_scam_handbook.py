@@ -446,6 +446,52 @@ def check_r5() -> None:
     require(flagged == {f"{n:03d}" for n in range(1, 10)}, "claim numbers must run 001 to 009")
 
 
+SHARED_CLASSES = {"nav-brand", "nav-links", "nav-cta", "nav-hamburger", "mobile-nav", "open", "js"}
+ALLOWED_SCRIPT_SOURCES = {
+    "https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1",
+    "https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH",
+    "/js/investment-scam-investigation-handbook.js", "/js/site-chrome.js", "/brand.js",
+}
+SHARED_FILES = ("brand.css", "brand.js", "js/site-chrome.js", "partials")
+FORBIDDEN_JS = ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket", "localStorage.setItem", "sessionStorage", "document.cookie",
+                "eval(", "new Function", "indexedDB", "importScripts", "innerHTML")
+
+
+def check_r12() -> None:
+    """R12: no new shared architecture: namespaced classes, standard scripts only, no network or storage in the page script."""
+    html = html_text()
+    css = re.sub(r"/\*.*?\*/", "", re.search(r"<style>(.*?)</style>", html, re.S).group(1), flags=re.S)
+    selectors = re.findall(r"([^{}@]+)\{", css)
+    css_classes = {c for sel in selectors for c in re.findall(r"\.([A-Za-z_][\w-]*)", sel)}
+    stray = sorted(c for c in css_classes if not c.startswith("isi-") and c not in SHARED_CLASSES)
+    require(not stray, f"CSS classes outside the isi- namespace: {stray}")
+    used = {c for attr in re.findall(r'\sclass="([^"]*)"', html) for c in attr.split()}
+    stray_used = sorted(c for c in used if not c.startswith("isi-") and c not in SHARED_CLASSES)
+    require(not stray_used, f"HTML classes outside the isi- namespace: {stray_used}")
+    watched = sorted(c for c in used if "card" in c)
+    require(not watched, f"class names brand.js reveals by substring: {watched}")
+    scripts = re.findall(r'<script[^>]*\ssrc="([^"]+)"', html)
+    require(set(scripts) == ALLOWED_SCRIPT_SOURCES, f"unexpected script sources: {sorted(set(scripts) ^ ALLOWED_SCRIPT_SOURCES)}")
+    require(len(re.findall(r"<script(?![^>]*\ssrc=)(?![^>]*ld\+json)", html)) == 2, "only the standard consent bootstrap and Funding Choices inline scripts are allowed")
+    require(not re.search(r"@import|<link[^>]+rel=\"stylesheet\"[^>]+href=\"(?!/brand\.css|https://fonts\.googleapis\.com)", html), "unexpected stylesheet")
+    script = SCRIPT.read_text(encoding="utf-8")
+    found = [token for token in FORBIDDEN_JS if token in script]
+    require(not found, f"page script uses forbidden capabilities: {found}")
+    require(script.count("localStorage") == 1 and "localStorage.getItem('fcr_cookie_consent_v2')" in script, "the script may only read the existing consent key")
+    require("window.gtag('event'" in script and script.count("window.gtag(") == 1, "telemetry must go only through the existing gtag")
+    require(not (ROOT / "js" / "isi-shared.js").exists(), "no shared helper module may be added")
+    try:
+        import subprocess
+        base = subprocess.run(["git", "log", "--format=%H", "--grep=Investment Scam Handbook foundation"], cwd=ROOT,
+                              capture_output=True, text=True, check=True).stdout.split()
+        if base:
+            changed = subprocess.run(["git", "diff", "--name-only", f"{base[-1]}~1", "HEAD", "--", *SHARED_FILES], cwd=ROOT,
+                                     capture_output=True, text=True, check=True).stdout.split()
+            require(not changed, f"shared files changed since the guide work began: {changed}")
+    except (OSError, subprocess.CalledProcessError):
+        pass
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -458,6 +504,7 @@ CHECKS = [
     ("R9", check_r9),
     ("R10", check_r10),
     ("R11", check_r11),
+    ("R12", check_r12),
 ]
 
 
