@@ -32,11 +32,11 @@ Status meanings:
 
 ## Current shipped baseline
 
-Production outside the Scenario Lab synchronisation was last checked independently on 14 September 2026. Repository-derived facts below were refreshed from the working tree on 3 October 2026 at HEAD 125045a; that refresh was not a full production audit. The Scenario Lab API was separately verified on 3 October 2026 and served the repository's 19 unique cases exactly.
+Production outside the Scenario Lab synchronisation and the Investment Scam Investigation Handbook was last checked independently on 14 September 2026. The handbook was verified live on 3 October 2026. Repository-derived facts below were refreshed from the working tree on 3 October 2026 at HEAD 125045a; that refresh was not a full production audit. The Scenario Lab API was separately verified on 3 October 2026 and served the repository's 19 unique cases exactly.
 
 ### Knowledge Hub
 
-- **56 publications live:** 25 parts across seven series and 31 standalone publications.
+- **57 publications live:** 25 parts across seven series and 32 standalone publications.
 - **Series inventory:** UK AML 3 parts, PEP 3, SAR 3, FATF 2, MLRO 2, Cryptoasset Compliance 6, Stablecoin 6.
 - **Stablecoin Series:** Guides 0 through 5 are published. All six guides are live.
 - **Experiment formats (all now accepted compositions or standing treatments):**
@@ -52,7 +52,7 @@ Production outside the Scenario Lab synchronisation was last checked independent
 - SAR Writing Sandbox is live on the API service with three practice cases. Case files are schema validated at load; five W, transaction and speculative scoring use only learner-verified evidence. Red-flag credit remains model-judged (see Build Loop).
 - Screening and PEP search, Knowledge Hub domain filtering, weekly digest and FinCrime Week are shipped.
 - FinCrime Week issues W36 to W39 are present on main; W39 (21 to 27 September 2026) is the current issue per the latest content commit.
-- Verification ledger contains 643 valid entries. python scripts/check_ledger.py validate and scripts/check_ledger_base.py passed on 3 October 2026.
+- Verification ledger contains 652 valid entries. python scripts/check_ledger.py validate and scripts/check_ledger_base.py passed on 3 October 2026.
 
 ### Experiment 03 shipment
 
@@ -68,13 +68,15 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
-### Investment Scam Investigation Handbook: Reconstructing the Offer, Identity and Money Route
+### Investment Scam Investigation Handbook: COMPLETE and live, 3 October 2026
 
-- **Status:** IMPLEMENTED on branch release/investment-scam-handbook, not yet merged or live. R17 (independent regulatory review of ledger claims 001, 005, 006 and 007) passed on 3 October 2026. Pending the mandatory pull request review and R18 production verification. Public format Guide, Default Knowledge Hub treatment. The specification was a research pack dated 3 October 2026 that fixed the analytical model (the Legitimate Node Trap and four evidence streams), both scenarios, nine ledger claims and a Requirement Coverage Matrix.
-- **Verification owner:** GPT/Codex research session, 3 October 2026.
-- **Primary sources or repository evidence checked:** FCA Firm Checker and Financial Services Register guidance, FCA Warning List, FCA scam reporting guidance, FCA crypto investment scam guidance, FCA crypto financial promotions guidance, Financial Ombudsman Service guidance for firms handling authorised scam complaints, PSR consolidated APP reimbursement guidance, and the four overlapping FinCrimeRadar publications (app-scam-decision-framework.html, fraud-investigation-playbook.html, scam-compound-money-laundering-guide.html, money-mule-or-victim-case-file.html).
-- **Review date:** 3 October 2026.
-- **Verification outcome:** PASS. Current primary-source base and a distinct practitioner decision model, with non-overlap shown against the four publications above. No publication claim is approved beyond the propositions and qualifications recorded in the pack. Independent regulatory review of ledger claims 001, 005, 006 and 007 against the final wording passed on 3 October 2026, and checked the Pay.UK FPS Reimbursement Rules Schedule 4 version 4.0 and the Bank of England CHAPS reimbursement rules as well as PS25/5. Source titles, dates and targets must still be rechecked at the release gate, and production must be verified after merge.
+Retained as an evidence record, not an active queue item. Public format Guide, Default Knowledge Hub treatment, at https://fincrimeradar.org/investment-scam-investigation-handbook.html.
+
+- **Status:** COMPLETE. Merged through pull request #13 (merge commit c7f12506abeccf99d030c643a010f790e3bf40f5). Local HEAD, fetched origin/main, git ls-remote and the GitHub commit matched, and the merge changed exactly the 11 intended files.
+- **Reviews:** R17 independent regulatory review of ledger claims 001, 005, 006 and 007 passed on 3 October 2026, and checked PS25/5, Pay.UK FPS Reimbursement Rules Schedule 4 v4.0 and the Bank of England CHAPS reimbursement rules. The pull request /code-review ran four reviewers over the full diff. One material finding (claim 008 wording had dropped "only") was fixed in a84cca7 with the checker pinned, and the affected checks were rerun.
+- **R18 production verification, 3 October 2026:** the live page, social card and page script matched the merged repository files byte for byte. Canonical, Open Graph, Article and BreadcrumbList metadata matched. The sitemap lists the guide once. The Knowledge Hub card is present and the count reads 57. The guide's browser suite passed against production (widths 320 to 1440, 200 and 400 percent zoom, keyboard and focus, JavaScript disabled, image export), and with the real gtag, analytics consent defaults to denied, no guide event is sent without consent or after Reject analytics, and accepted events carry only the guide id and aggregate values.
+- **Not verified:** a real-device mobile test, a W3C validator, and the PSR legal instruments behind PS25/5, which were not analysed.
+- **Next reserve topic:** Financial Crime Information Sharing, not started, not researched and not gated.
 
 ### Scenario Lab API synchronisation: COMPLETE, 3 October 2026
 
@@ -156,7 +158,7 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are rel
 
 ## Content Loop
 
-Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. The only content item in Next Up is the Investment Scam Investigation Handbook. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
+Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. There is no content item in Next Up. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
 
 ### Priority research candidates
 
@@ -174,7 +176,7 @@ Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. The only content i
 ### Reserve and parked content
 
 - **Repeat AML Failure as a Risk Signal:** moved from the priority list to reserve research. It depends on the FinCEN UBS action and an unverified UK comparator. Find a primary FCA comparator first and do not create a blended US and UK standard.
-- Financial Crime Information Sharing: Can I Tell Another Bank? Next reserve topic, immediately behind the Investment Scam Investigation Handbook. Not yet researched or gated, so it is not READY and no source has been checked.
+- Financial Crime Information Sharing: Can I Tell Another Bank? Next reserve topic, now that the Investment Scam Investigation Handbook is live. Not yet researched or gated, so it is not READY and no source has been checked.
 - Possible MLRO Handbook Part 3: resourcing benchmarks and the future professional-services AML supervisor.
 - Victim, Mule or Fraudster? The First Party Fraud Decision Handbook. Run an originality check against the shipped Money Mule Case File first.
 - AI in AML: Where the Model Stops and the Control Begins.
