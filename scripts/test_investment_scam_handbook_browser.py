@@ -463,7 +463,85 @@ def check_r9_cards_and_quiz(ctx: Context) -> None:
     print("OK: five cards stack at 390px, knowledge check unanswered, wrong, right and guessed paths, change clears the score")
 
 
+# R10 ----------------------------------------------------------------------------------------------
+
+def check_r10_skip_link(ctx: Context) -> None:
+    """R10: the skip link is the first stop, becomes visible, and moves focus into the main content."""
+    navigate(ctx.cdp, ctx.url, 390)
+    dispatch_key(ctx.cdp, "Tab", "Tab", 9)
+    state = ctx.cdp.evaluate("""(() => { const a = document.activeElement;
+      return {skip: a.classList.contains('isi-skip'), target: a.getAttribute('href'), visible: a.getBoundingClientRect().top >= 0}; })()""")
+    require(state == {"skip": True, "target": "#main-content", "visible": True}, f"skip link is not the first visible keyboard stop: {state}")
+    dispatch_key(ctx.cdp, "Enter", "Enter", 13, "\r")
+    time.sleep(0.2)
+    after = ctx.cdp.evaluate("({hash: location.hash, focusId: document.activeElement && document.activeElement.id})")
+    require(after == {"hash": "#main-content", "focusId": "main-content"}, f"skip link did not move focus to the main content: {after}")
+    print("OK: skip link first, visible on focus, moves focus to the main content")
+
+
+def check_r10_faq_keyboard(ctx: Context) -> None:
+    """R10: native FAQ disclosures open and close from the keyboard with Enter and Space."""
+    navigate(ctx.cdp, ctx.url, 390)
+    ctx.cdp.call("Emulation.setScriptExecutionDisabled", {"value": True})
+    try:
+        navigate(ctx.cdp, ctx.url, 390)
+        for _ in range(400):
+            dispatch_key(ctx.cdp, "Tab", "Tab", 9)
+            if ctx.cdp.evaluate("document.activeElement && document.activeElement.tagName") == "SUMMARY":
+                break
+        else:
+            raise AssertionError("keyboard could not reach an FAQ summary")
+        require(ctx.cdp.evaluate("document.activeElement.parentElement.open") is False, "FAQ item should start closed")
+        dispatch_key(ctx.cdp, "Enter", "Enter", 13, "\r")
+        require(ctx.cdp.evaluate("document.activeElement.parentElement.open") is True, "Enter must open the FAQ item without JavaScript")
+        dispatch_key(ctx.cdp, " ", "Space", 32, " ")
+        require(ctx.cdp.evaluate("document.activeElement.parentElement.open") is False, "Space must close the FAQ item without JavaScript")
+        dispatch_key(ctx.cdp, "Tab", "Tab", 9)
+        require(ctx.cdp.evaluate("document.activeElement.tagName") == "SUMMARY", "Tab should move to the next FAQ summary")
+    finally:
+        ctx.cdp.call("Emulation.setScriptExecutionDisabled", {"value": False})
+    print("OK: FAQ opens with Enter, closes with Space and moves on with Tab, with scripts disabled")
+
+
+def check_r10_tab_walk(ctx: Context) -> None:
+    """R10: every keyboard stop shows a visible focus indicator, and each kind of control is reachable."""
+    for width in (390, 1440):
+        navigate(ctx.cdp, ctx.url, width)
+        stops: list[dict[str, Any]] = []
+        for _ in range(500):
+            dispatch_key(ctx.cdp, "Tab", "Tab", 9)
+            stop = ctx.cdp.evaluate("""(() => { const el = document.activeElement;
+              if (!el || el === document.body) return null;
+              const own = getComputedStyle(el);
+              const wrap = el.matches('input[type=radio]') ? getComputedStyle(el.closest('.isi-option')) : null;
+              const visible = s => s && s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) >= 2;
+              return {tag: el.tagName, cls: typeof el.className === 'string' ? el.className : '', type: el.type || '', id: el.id,
+                      text: (el.textContent || el.value || '').trim().slice(0, 40), indicator: visible(own) || visible(wrap)}; })()""")
+            if stop is None:
+                break
+            stops.append(stop)
+            if len(stops) > 1 and stop == stops[0]:
+                break
+        missing = [s for s in stops if not s["indicator"]]
+        require(not missing, f"{width}px stops without a visible focus indicator: {missing[:3]}")
+        kinds = {
+            "skip": any("isi-skip" in s["cls"] for s in stops),
+            "summary": sum(1 for s in stops if s["tag"] == "SUMMARY") >= 6,
+            "record": sum(1 for s in stops if "isi-action" in s["cls"]) >= 3,
+            "radio": sum(1 for s in stops if s["type"] == "radio") >= 7,
+            "source link": any(s["tag"] == "A" and "teach" in s["text"].lower() or s["tag"] == "A" and s["text"].startswith("Financial") for s in stops),
+        }
+        if width == 390:
+            kinds["menu"] = any(s["id"] == "navHamburger" for s in stops)
+        failed = [k for k, ok in kinds.items() if not ok]
+        require(not failed, f"{width}px these controls were not reached by keyboard: {failed} in {len(stops)} stops")
+        print(f"OK: {width}px {len(stops)} keyboard stops, every one with a visible focus indicator")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R10", check_r10_skip_link),
+    ("R10", check_r10_faq_keyboard),
+    ("R10", check_r10_tab_walk),
     ("R9", check_r9_cards_and_quiz),
     ("R7", check_r7_counterfactuals),
     ("R6", check_r6_keyboard),

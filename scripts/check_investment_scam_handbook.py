@@ -337,6 +337,26 @@ def check_r9() -> None:
         require(all(f"<em>{layer}:</em>" in text for layer in ("Source", "Application", "Action")), f"answer note {number} needs Source, Application, Action")
 
 
+def check_r10() -> None:
+    """R10: the FAQ uses native disclosure, with a skip link and visible focus rules for every control."""
+    html = html_text()
+    faq = re.search(r'<section class="isi-section isi-details" id="faq">.*?</section>', html, re.S).group(0)
+    items = re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", faq, re.S)
+    require(len(items) == 6, f"expected six FAQ items, found {len(items)}")
+    require(all(len(answer) > 120 for _, answer in items), "an FAQ answer is too thin")
+    body = html.split("<body>", 1)[1]
+    first_link = re.search(r"<a [^>]*>", body).group(0)
+    require('class="isi-skip"' in first_link and 'href="#main-content"' in first_link, "the skip link must be the first link in the body")
+    require('<main id="main-content" class="isi-article" tabindex="-1">' in html, "the skip target must be focusable with tabindex=-1")
+    css = re.search(r"<style>(.*?)</style>", html, re.S).group(1)
+    for selector in ("a:focus-visible", "summary:focus-visible", ".isi-action:focus-visible",
+                     ".isi-option:has(input:focus-visible)", ".nav-hamburger:focus-visible", "input:focus-visible"):
+        require(selector in css, f"missing visible focus rule for {selector}")
+    script = SCRIPT.read_text(encoding="utf-8")
+    require("details" not in script and "summary" not in script, "the FAQ must not depend on JavaScript")
+    require(not re.search(r"\sonclick=|\sonkeydown=", html), "inline event handlers are not allowed")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -346,6 +366,7 @@ CHECKS = [
     ("R7", check_r7),
     ("R8", check_r8),
     ("R9", check_r9),
+    ("R10", check_r10),
 ]
 
 
