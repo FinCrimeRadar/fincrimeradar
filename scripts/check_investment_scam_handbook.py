@@ -187,11 +187,40 @@ def check_r4() -> None:
     require("Last reviewed" in sources and "not legal advice" in sources, "sources section needs its review date and scope note")
 
 
+EVIDENCE_ROWS = [
+    "FCA firm match", "Warning List hit", "No Warning List hit", "Companies House record",
+    "Small withdrawal", "Genuine exchange", "Platform balance", "Beneficiary name match",
+]
+EVIDENCE_COLUMNS = ["Evidence", "What it may establish", "What it cannot establish alone", "Next check"]
+
+
+def check_r8() -> None:
+    """R8: the evidence table is complete in the initial HTML, with a label on every cell for narrow screens."""
+    html = html_text()
+    section = re.search(r'<section class="isi-section" id="evidence-table">.*?</section>', html, re.S).group(0)
+    table = re.search(r'<table class="isi-evidence".*?</table>', section, re.S)
+    require(table is not None, "evidence table is missing from the initial HTML")
+    table_html = table.group(0)
+    head = re.findall(r'<th scope="col"[^>]*>(.*?)</th>', table_html)
+    require(head == EVIDENCE_COLUMNS, f"column headings are {head}")
+    rows = re.findall(r'<tr role="row"><th scope="row"[^>]*data-label="Evidence">(.*?)</th>(.*?)</tr>', table_html, re.S)
+    require([r[0] for r in rows] == EVIDENCE_ROWS, f"evidence rows are {[r[0] for r in rows]}")
+    for name, rest in rows:
+        cells = re.findall(r'<td[^>]*data-label="([^"]+)">(.*?)</td>', rest, re.S)
+        require([c[0] for c in cells] == EVIDENCE_COLUMNS[1:], f"{name} cell labels are {[c[0] for c in cells]}")
+        require(all(len(re.sub(r"<[^>]+>", "", c[1]).strip()) > 15 for c in cells), f"{name} has an empty or trivial cell")
+    require("caption" in table_html, "the table needs a caption")
+    require("Companies House row is a FinCrimeRadar investigative recommendation" in section, "Companies House row must be labelled as our recommendation")
+    require('class="isi-evidence"' in section and "data-table" not in section and "ref-table" not in section and "compare-table" not in section,
+            "table must not use the classes brand.js wraps")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
     ("R3", check_r3),
     ("R4", check_r4),
+    ("R8", check_r8),
 ]
 
 
