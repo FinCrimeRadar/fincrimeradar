@@ -373,11 +373,85 @@ def check_r11() -> None:
         require('role="status"' in tag, f"live region without role=status: {tag}")
 
 
+CLAIM_PREFIX = "investment-scam-handbook."
+LEDGER = ROOT / "verification-ledger.json"
+# claim id -> (source numbers it covers, phrases that must appear in the visible body copy)
+CLAIM_PLAN = {
+    "authorisation-registration-permissions.001": ((1,), [
+        "being authorised means a firm must meet certain standards", "being registered means it cannot provide regulated products",
+        "firms it authorises can offer both regulated and unregulated products",
+        "will greatly reduce the risk of harm but will not remove all risk"]),
+    "clone-contact-match.002": ((1,), [
+        "a clone firm as a copy of a genuine, authorised firm", "match those on the firm checker",
+        "provided and confirmed by the firm", "check with the principal"]),
+    "warning-list-non-clearance.003": ((2,), [
+        "may still be unauthorised or be a scam", "often change their names", "overseas regulators"]),
+    "fake-platform-returns.004": ((4,), [
+        "manipulate software to fake prices and investment returns", "until they try to sell"]),
+    "crypto-promotion-scope.005": ((5,), [
+        "regardless of whether the firm is based overseas or what technology is used",
+        "mobile apps, social media posts and online advertising"]),
+    "reimbursement-route-scope.006": ((6, 7), [
+        "came into force on 7 october 2024",
+        "do not cover payments in cryptocurrency or payments to an account under the consumer's control",
+        "general guidance that consolidates earlier publications"]),
+    "outside-scheme-review.007": ((6,), [
+        "will still investigate whether the firm could have done more", "payments to cryptocurrency providers",
+        "card payments to a genuine merchant", "payments to an overseas payee", "cash withdrawals"]),
+    "report-and-recovery-scam.008": ((3, 4), [
+        "tell their bank immediately", "report scams to report fraud", "cannot help a victim get their money back",
+        "recovery room scammers", "buy back the investment after a fee is paid"]),
+    "preserve-correspondence.009": ((8,), [
+        "keep records of all contact and correspondence", "not all disputes are scams"]),
+}
+# The source list prints these last-updated dates, and the ledger records the same date for the primary source.
+PAGE_DATES = {1: "22 September 2026", 2: "30 June 2026", 3: "19 January 2026", 4: "16 February 2026", 5: "6 February 2026"}
+
+
+def check_r5() -> None:
+    """R5: nine ledger claims cover the final wording, with matching sources, dates and no unmapped citation."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import check_ledger as ledger
+
+    entries = json.loads(LEDGER.read_text(encoding="utf-8"))
+    errors = ledger.validate(entries)
+    require(not errors, f"ledger does not validate: {errors[:3]}")
+    ours = {e["claimId"]: e for e in entries if e["claimId"].startswith(CLAIM_PREFIX)}
+    require(sorted(ours) == sorted(CLAIM_PREFIX + key for key in CLAIM_PLAN), f"ledger claim ids are {sorted(ours)}")
+    html = html_text()
+    sources = re.search(r'<section class="isi-section isi-sources".*?</section>', html, re.S).group(0)
+    listed = {int(n): (url, li) for n, url, li in re.findall(r'<li id="source-(\d)"><a href="([^"]+)"[^>]*>.*?</a>(.*?)</li>', sources, re.S)}
+    body = html.split('<section class="isi-section isi-sources"')[0]
+    text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body)).lower()
+    text = text.replace("’", "'")
+    for key, (numbers, phrases) in CLAIM_PLAN.items():
+        entry = ours[CLAIM_PREFIX + key]
+        require(entry["guide"] == GUIDE.name and entry["status"] == "verified" and entry["claimType"] == "regulatory", f"{key} metadata is wrong")
+        urls = [entry["source"]["url"]] + [s["url"] for s in entry.get("additionalSources", [])]
+        require(urls == [listed[n][0] for n in numbers], f"{key} ledger sources {urls} differ from page sources {numbers}")
+        for phrase in phrases:
+            require(phrase in text, f"{key}: body copy is missing the claimed wording {phrase!r}")
+        date = entry["source"]["date"]
+        if numbers[0] in PAGE_DATES:
+            printed = PAGE_DATES[numbers[0]]
+            require(printed in listed[numbers[0]][1], f"page source list no longer prints {printed}")
+            require(date == __import__("datetime").datetime.strptime(printed, "%d %B %Y").strftime("%Y-%m-%d"), f"{key} source date {date} differs from the page")
+        require(entry["reviewDue"] > entry["verifiedOn"], f"{key} reviewDue must follow verifiedOn")
+    covered = {n for numbers, _ in CLAIM_PLAN.values() for n in numbers}
+    cited = {int(n) for n in re.findall(r'href="#source-(\d)"', body)}
+    require(cited <= covered, f"sources cited in the body with no ledger claim: {sorted(cited - covered)}")
+    flagged = {key.rsplit(".", 1)[1] for key in CLAIM_PLAN}
+    for number in ("001", "005", "006", "007"):
+        require("independent regulatory review" in ours[next(k for k in ours if k.endswith("." + number))]["note"], f"claim {number} must be flagged for independent review")
+    require(flagged == {f"{n:03d}" for n in range(1, 10)}, "claim numbers must run 001 to 009")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
     ("R3", check_r3),
     ("R4", check_r4),
+    ("R5", check_r5),
     ("R6", check_r6),
     ("R7", check_r7),
     ("R8", check_r8),
