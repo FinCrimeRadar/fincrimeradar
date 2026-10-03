@@ -402,7 +402,8 @@ CLAIM_PLAN = {
         "will still investigate whether the firm could have done more", "payments to cryptocurrency providers",
         "card payments to a genuine merchant", "payments to an overseas payee", "cash withdrawals"]),
     "report-and-recovery-scam.008": ((3, 4), [
-        "tell their bank immediately", "report scams to report fraud", "cannot help a victim get their money back",
+        "tell their bank immediately", "report scams to report fraud", "can only look into scams involving financial services it regulates",
+        "cannot help a victim get their money back",
         "recovery room scammers", "buy back the investment after a fee is paid"]),
     "preserve-correspondence.009": ((8,), [
         "keep records of all contact and correspondence", "not all disputes are scams"]),
