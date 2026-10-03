@@ -8883,5 +8883,183 @@
     "status": "verified",
     "location": "fincrimeradar-api/case_sar_003.json, subject.practice_instruction (the visible narrative requirement instructing the trainee to identify the funds suspected to be criminal property and explain the supporting facts without asserting the property is criminal property, that a predicate offence occurred, or that any person is guilty) and onward_movement (the pooled payment to the solicitor's client account, the suspected property in this exercise)",
     "note": "No bespoke frontend feedback panel or UI component was built for sar-003; the practice_instruction field is delivered to the trainee through the existing dynamic subject rendering in scenario-lab.js (subjectRows, which renders every subject key as a label/value row), so no UI change was needed. subject.practice_instruction is the case-specific field that visibly carries this claim's qualification to the trainee, instructing them not to assert the property is criminal property, that a predicate offence occurred, or that any person is guilty; onward_movement documents the suspected property the instruction refers to. Separately, routes_sar_sandbox.py's EXTRACTION_SYSTEM_PROMPT restricts the model to extracting what the trainee's own narrative contains, so the service never generates a replacement or filing-ready SAR narrative; it does not itself enforce practice_instruction's legal qualification, in the separately deployed fincrimeradar-api repository."
+  },
+  {
+    "claimId": "investment-scam-handbook.authorisation-registration-permissions.001",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The FCA states that being authorised means a firm must meet certain standards and has permission to provide certain products and services, while being registered means it must meet certain requirements but cannot provide regulated products and services that need authorisation. It states that the Firm Checker shows whether a firm is authorised and has permission for the product or service, that firms it authorises can offer both regulated and unregulated products and services, and that using an authorised firm with the correct permissions will greatly reduce the risk of harm but will not remove all risk.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, How to check a firm or individual is authorised",
+      "url": "https://www.fca.org.uk/consumers/how-check-firm-individual-authorised",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-22"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-04-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, Evidence streams (the identity) and What the sources say (authorisation, registration, permission and contact details)",
+    "note": "FCA consumer guidance, not a rule. The page does not use the phrase \"distinct checks\". The distinction is carried by its separate definitions of authorised and registered and its permission check, and the handbook states it as the FCA's description, not as a statutory test. Independent regulatory review passed on 3 October 2026."
+  },
+  {
+    "claimId": "investment-scam-handbook.clone-contact-match.002",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The FCA describes a clone firm as a copy of a genuine, authorised firm, advises that the contact details given for a firm should match those on the Firm Checker, and states that a firm's contact details on the Firm Checker and Financial Services Register are provided and confirmed by the firm. Where a firm is listed as an appointed representative, it states that a person should check with the principal if they have concerns about the representative or the products and services it can offer.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, How to check a firm or individual is authorised",
+      "url": "https://www.fca.org.uk/consumers/how-check-firm-individual-authorised",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-09-22"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-04-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, The Legitimate Node Trap, Evidence streams (the identity), What the sources say, Scenario 1",
+    "note": "The contact-details-confirmed-by-the-firm statement is what stops the handbook describing register contact details as verified by the FCA. A match narrows the question and does not settle who controls the channel; that second step is a FinCrimeRadar assessment and is labelled as one."
+  },
+  {
+    "claimId": "investment-scam-handbook.warning-list-non-clearance.003",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The FCA states that its Warning List shows the firms it is concerned are working without its permission, that it adds firms to the list as soon as possible, that a firm not on the list may still be unauthorised or be a scam, and that unauthorised firms often change their names and the FCA may not be aware of it yet. It advises checking the warnings of overseas regulators when dealing with an overseas firm.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, FCA Warning List of unauthorised firms",
+      "url": "https://www.fca.org.uk/consumers/warning-list-unauthorised-firms",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-04-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, The Legitimate Node Trap, What the sources say (the Warning List), Scenario 1 option D, Knowledge check question 2, FAQ",
+    "note": "The handbook treats a hit as strong official evidence of concern, not a conviction, and a non-hit as a record of the check only. Both of those readings are FinCrimeRadar assessments and are labelled as such."
+  },
+  {
+    "claimId": "investment-scam-handbook.fake-platform-returns.004",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The FCA states that crypto investment scam adverts often link to professional-looking websites where fraudsters may manipulate software to fake prices and investment returns, and that a person may not realise they have invested in a scam until they try to sell their investment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Crypto investment scams",
+      "url": "https://www.fca.org.uk/consumers/crypto-investment-scams",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-02-16"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-04-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, Evidence streams (the journey), Scenario 2, FAQ",
+    "note": "The FCA page says sell, not withdraw. The handbook uses the FCA wording for the sourced statement and applies it to the withdrawal in Scenario 2 as a FinCrimeRadar application."
+  },
+  {
+    "claimId": "investment-scam-handbook.crypto-promotion-scope.005",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The FCA states that its financial promotions regime for cryptoassets applies to all firms marketing cryptoassets to UK consumers regardless of whether the firm is based overseas or what technology is used, and that the definition of a financial promotion is broad and applies to a wide range of communications made by a firm, including its website, mobile apps, social media posts and online advertising.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Cryptoasset firms marketing to UK consumers",
+      "url": "https://www.fca.org.uk/firms/cryptoassets/marketing-uk-consumers",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-02-06"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-01-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, What the sources say (crypto promotions and registered exchanges)",
+    "note": "Change-sensitive, so the review interval is three months. The page text describes the regime as it began on 8 October 2023 and refers to legislation then before Parliament. The handbook does not reproduce the communication routes or penalties and says why. Independent regulatory review passed on 3 October 2026."
+  },
+  {
+    "claimId": "investment-scam-handbook.reimbursement-route-scope.006",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The Financial Ombudsman Service states that the Faster Payments Scheme and CHAPS reimbursement rules came into force on 7 October 2024 and do not cover payments in cryptocurrency or payments to an account under the consumer's control, among other exclusions. The Payment Systems Regulator describes PS25/5 as general guidance that consolidates earlier publications, with its definitive requirements set out in its legal instruments.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Ombudsman Service, APP fraud and other scams involving authorised payments or withdrawals (guidance for businesses)",
+      "url": "https://www.financial-ombudsman.org.uk/businesses/resolving-complaint/complaints-deal/fraud-scams/app-fraud-scams-involving-authorised-payments",
+      "publisher": "Financial Ombudsman Service",
+      "date": "2026-10-03"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-01-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, What the sources say (reimbursement scope), Scenario 2, Knowledge check question 4",
+    "note": "Change-sensitive, so the review interval is three months. The page carries no date, so source.date records the date the page was read. Independent regulatory review passed on 3 October 2026. It checked PS25/5, the Pay.UK FPS Reimbursement Rules Schedule 4 version 4.0 dated 1 May 2026 and the Bank of England's current CHAPS reimbursement rules (Annex A to the CHAPS Reference Manual) against the handbook's reimbursement wording. During implementation the scope provisions of the two rule documents were also read as text (Schedule 4 rule 3.10, CHAPS Annex A definition of a CHAPS APP scam payment). Both define an in-scope payment by settlement through FPS or CHAPS and receipt in a UK relevant account that is not controlled by the consumer. Neither text uses the word cryptocurrency, so the cryptocurrency statement in the claim rests on the Ombudsman page and the own-account statement is also visible in the rule text. The PSR legal instruments themselves were not analysed.",
+    "additionalSources": [
+      {
+        "title": "Payment Systems Regulator, PS25/5 APP scams reimbursement requirement",
+        "url": "https://www.psr.org.uk/publications/policy-statements/ps255-app-scams-reimbursement-requirement/",
+        "publisher": "Payment Systems Regulator"
+      },
+      {
+        "title": "Pay.UK, FPS Reimbursement Rules, Schedule 4, Version 4.0 (1 May 2026)",
+        "url": "https://www.wearepay.uk/wp-content/uploads/2024/12/FPS-Reimbursement-Rules-Schedule-4-v4.0.pdf",
+        "publisher": "Pay.UK"
+      },
+      {
+        "title": "Bank of England, Annex A to the CHAPS Reference Manual: CHAPS Reimbursement Rules",
+        "url": "https://www.bankofengland.co.uk/-/media/boe/files/payments/chaps/chaps-reimbursement--rules-annex-1.pdf",
+        "publisher": "Bank of England"
+      }
+    ]
+  },
+  {
+    "claimId": "investment-scam-handbook.outside-scheme-review.007",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The Financial Ombudsman Service states that where the Faster Payments, CHAPS and CRM Code rules do not apply it will still investigate whether a firm could have done more to prevent the scam, including for payments to the customer's own account, payments to cryptocurrency providers, card payments to a genuine merchant, payments to an overseas payee and cash withdrawals. It states that it will consider whether the payments should have alerted the firm, what warning was given and what the firm did to recover the money, and that for a receiving firm it examines the steps taken once made aware of the scam and whether anything should have alerted it to concern about its customer.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Ombudsman Service, APP fraud and other scams involving authorised payments or withdrawals (guidance for businesses)",
+      "url": "https://www.financial-ombudsman.org.uk/businesses/resolving-complaint/complaints-deal/fraud-scams/app-fraud-scams-involving-authorised-payments",
+      "publisher": "Financial Ombudsman Service",
+      "date": "2026-10-03"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-01-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, What the sources say (reimbursement scope), Scenario 2 options A to C, Knowledge check question 4",
+    "note": "Change-sensitive, so the review interval is three months. The page carries no date, so source.date records the date the page was read. The Ombudsman says it \"may ask\" a firm to reimburse where the firm could and should have prevented the loss. The handbook does not state that a missed intervention creates liability. Independent regulatory review passed on 3 October 2026."
+  },
+  {
+    "claimId": "investment-scam-handbook.report-and-recovery-scam.008",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The FCA states that a person who has given personal information or made a payment should tell their bank immediately, that UK victims should report scams to Report Fraud, that it can only look into scams involving financial services it regulates, and that it cannot help a victim get their money back although it looks into every report it receives. It states that people targeted by scammers are at greater risk of being targeted again, potentially by recovery room scammers who pose as legitimate firms offering to recover lost funds, and that a follow-up to a crypto investment scam may include an offer to get the money back or an offer to buy back the investment after a fee is paid.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Report a scam",
+      "url": "https://www.fca.org.uk/consumers/report-scam",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-01-19"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-04-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, Three decisions (containment and recovery, routing), What the sources say (reporting is not recovery), Scenario 2 option D, FAQ",
+    "note": "The FCA statement that it cannot help recover money supports the FCA half of the proposition only. The page says nothing about Report Fraud recovering money, so the handbook limits that half to the observation that reporting supports intelligence and disruption, which is a FinCrimeRadar assessment.",
+    "additionalSources": [
+      {
+        "title": "FCA, Crypto investment scams",
+        "url": "https://www.fca.org.uk/consumers/crypto-investment-scams",
+        "publisher": "Financial Conduct Authority",
+        "date": "2026-02-16"
+      }
+    ]
+  },
+  {
+    "claimId": "investment-scam-handbook.preserve-correspondence.009",
+    "guide": "investment-scam-investigation-handbook.html",
+    "claimText": "The Financial Ombudsman Service tells a person who thinks they have been scammed to keep records of all contact and correspondence between them and the scammer, which it says is useful when asking the bank to reimburse and if a complaint is brought to it later. It also states that not all disputes are scams, and that it may need to consider whether a person has fallen victim to a scam or is involved in a civil dispute.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Financial Ombudsman Service, Scams where you've been tricked into making a payment (guidance for consumers)",
+      "url": "https://www.financial-ombudsman.org.uk/consumers/complaints-can-help/fraud-scams/scams-youve-tricked-making-payment",
+      "publisher": "Financial Ombudsman Service",
+      "date": "2026-10-03"
+    },
+    "verifiedOn": "2026-10-03",
+    "reviewDue": "2027-04-03",
+    "status": "verified",
+    "location": "investment-scam-investigation-handbook.html, What the sources say (keep the correspondence), Scenario 1 option C, FAQ",
+    "note": "Two statements from the same page share one record because the handbook uses them together in one teaching point. The page carries no date, so source.date records the date the page was read."
   }
 ]
