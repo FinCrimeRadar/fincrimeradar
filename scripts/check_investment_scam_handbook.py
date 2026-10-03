@@ -160,10 +160,38 @@ def check_r3() -> None:
     require(change.count("<li>") == 7, "what-would-change must list seven conditions")
 
 
+def check_r4() -> None:
+    """R4: Source, Application and Action stay visibly separate for each regulatory teaching point, with resolving citations."""
+    html = html_text()
+    section = re.search(r'<section class="isi-section" id="source-limits">.*?</section>', html, re.S).group(0)
+    parts = re.split(r'<div class="isi-teach" id="([^"]+)">', section)
+    teaching = list(zip(parts[1::2], parts[2::2]))
+    require(len(teaching) == 6, f"expected six regulatory teaching points, found {len(teaching)}")
+    for teach_id, body in teaching:
+        blocks = re.findall(r'<div class="isi-saa-block"><h4>(\w+) <span class="isi-state" data-state="(\w+)">[^<]*</span></h4><p>(.*?)</p></div>', body, re.S)
+        require([b[0] for b in blocks] == ["Source", "Application", "Action"], f"{teach_id} must have Source, Application, Action in order")
+        require([b[1] for b in blocks] == ["established", "assessment", "assessment"], f"{teach_id} evidence states are wrong")
+        require(re.search(r'href="#source-\d"', blocks[0][2]) is not None, f"{teach_id} Source block has no citation")
+        for block in blocks[1:]:
+            require('href="#source-' not in block[2], f"{teach_id} {block[0]} block must not cite as if it were the authority")
+    # Every in-page link resolves, every source is cited in the body, and the list is complete.
+    ids = set(re.findall(r'\bid="([^"]+)"', html))
+    broken = sorted({h for h in re.findall(r'href="#([^"]+)"', html) if h not in ids})
+    require(not broken, f"in-page links do not resolve: {broken}")
+    body_html = html.split('<section class="isi-section isi-sources"')[0]
+    cited = set(re.findall(r'href="#source-(\d)"', body_html))
+    require(cited == {str(n) for n in range(1, 9)}, f"sources cited in the body: {sorted(cited)}")
+    sources = re.search(r'<section class="isi-section isi-sources".*?</section>', html, re.S).group(0)
+    entries = re.findall(r'<li id="source-(\d)"><a href="(https://[^"]+)"', sources)
+    require([e[0] for e in entries] == [str(n) for n in range(1, 9)], "source list must hold sources 1 to 8 in order")
+    require("Last reviewed" in sources and "not legal advice" in sources, "sources section needs its review date and scope note")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
     ("R3", check_r3),
+    ("R4", check_r4),
 ]
 
 
