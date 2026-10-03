@@ -31,27 +31,27 @@ Status meanings:
 
 ## Current shipped baseline
 
-Repository main and origin/main matched 99ba8608307d0c54a9a003d5a907bc4116c9ca9a during this audit. Production was checked independently on 14 September 2026.
+Production was last checked independently on 14 September 2026. Repository-derived facts below (FinCrime Week issue, ledger count, Scenario Lab case count) were refreshed from the working tree on 3 October 2026 at HEAD 125045a. That refresh is not a production audit. The one live observation made that day was a read-only request to the Scenario Lab API, which still returned 17 cases.
 
 ### Knowledge Hub
 
 - **56 publications live:** 25 parts across seven series and 31 standalone publications.
 - **Series inventory:** UK AML 3 parts, PEP 3, SAR 3, FATF 2, MLRO 2, Cryptoasset Compliance 6, Stablecoin 6.
 - **Stablecoin Series:** Guides 0 through 5 are published. All six guides are live.
-- **Current experimental formats:**
-  - Framework: app-scam-decision-framework.html (Experiment 01) and de-risking-judgement-call.html, both live. Second implementation confirms the Framework contract's candidate primitives (sequential decision stages, Decision Record, Source/Application/Action, Red Team Questions, What Would Change My Decision, compact operational summary) recur across a distinct subject (UK AML relationship decisioning vs. APP scam). Framework promoted from experimental to accepted, per GUIDE_STANDARD.md's own promotion criteria (a second instance testing recurrence, now complete). GUIDE_STANDARD.md's Framework contract table entry should be updated to reflect this at the next standards edit.
+- **Experiment formats (all now accepted compositions or standing treatments):**
+  - Framework (accepted composition): app-scam-decision-framework.html (Experiment 01) and de-risking-judgement-call.html, both live. The second implementation confirmed the contract's primitives recur across a distinct subject, completing the recurrence test in GUIDE_STANDARD.md.
   - Case File: money-mule-or-victim-case-file.html, Experiment 02, live.
   - Intelligence Brief: fatf-recommendation-16-intelligence-brief.html, Experiment 03, live.
   - Evidence Essay: gambling-white-label-blind-spot-guide.html, classification-asymmetry-guide.html and failure-to-prevent-fraud-evidence-essay.html, standing opt-in treatment.
-- Case File, Intelligence Brief and Framework are all now accepted compositions. Framework's recurrence test (a second implementation, distinct subject) is complete as of de-risking-judgement-call.html.
+- Case File, Intelligence Brief and Framework are all accepted compositions.
 
 ### Product and publishing capability
 
 - Scenario Lab's static production release contains 19 cases: KYC and KYB 5, Fraud Detection 6, Risk Scoring 8. The live API still returns the previous 17-case payload, so the page currently exposes all 19 through its completeness-checked local fallback.
 - SAR Writing Sandbox is live on the API service with three practice cases. Case files are schema validated at load; five W, transaction and speculative scoring use only learner-verified evidence. Red-flag credit remains model-judged (see Build Loop).
 - Screening and PEP search, Knowledge Hub domain filtering, weekly digest and FinCrime Week are shipped.
-- FinCrime Week W36 and W37 are present on main; W37 is the current issue in fincrime-week.html.
-- Verification ledger contains 589 valid entries. python scripts/check_ledger.py validate passed during this audit.
+- FinCrime Week issues W36 to W39 are present on main; W39 (21 to 27 September 2026) is the current issue per the latest content commit.
+- Verification ledger contains 643 valid entries. python scripts/check_ledger.py validate and scripts/check_ledger_base.py passed on 3 October 2026.
 
 ### Experiment 03 shipment
 
@@ -63,7 +63,7 @@ Experiment 04 shipped through nine atomic commits from d98a717 to 3d87db3, merge
 
 ### Cross-experiment review of Experiments 01 to 03
 
-Completed. The permanent publication architecture (Universal Evidence Core, Intelligence Core, Public Format Contract, Subject Specific Composition), the standard evidence vocabulary, and the Framework, Case File and Intelligence Brief contracts are now defined in GUIDE_STANDARD.md. The production workflow, the GPT/Codex and Claude Code responsibility split, and the regression-scope discipline proven by Experiments 02 and 03 are now defined in docs/GUIDE_PRODUCTION_WORKFLOW.md, which also records the browser-harness and telemetry-helper extraction decisions (approved for future extraction, not extracted during this review). Case File and Intelligence Brief are accepted compositions; neither required a second instance. Framework remains experimental: a second Framework implementation is still required to test recurrence and remains open work, tracked below.
+Completed. The permanent publication architecture (Universal Evidence Core, Intelligence Core, Public Format Contract, Subject Specific Composition), the standard evidence vocabulary, and the Framework, Case File and Intelligence Brief contracts are now defined in GUIDE_STANDARD.md. The production workflow, the GPT/Codex and Claude Code responsibility split, and the regression-scope discipline proven by Experiments 02 and 03 are now defined in docs/GUIDE_PRODUCTION_WORKFLOW.md, which also records the browser-harness and telemetry-helper extraction decisions (approved for future extraction, not extracted during this review). Case File and Intelligence Brief are accepted compositions; neither required a second instance. Framework has since been accepted too, after de-risking-judgement-call.html completed its recurrence test.
 
 ## Next Up
 
@@ -82,8 +82,7 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 - **Evidence Essay viewport restoration:** the narrow-screen source-record reparent works on both Evidence Essays, but restoration after widening has not been proven on a real device or genuine responsive-mode viewport. This is an unverified transition, not a confirmed defect.
 - **Classification Asymmetry scenario depth:** the guide has one worked scenario and no formal counterfactual. Decide whether to add a second scenario, add a formal counterfactual, or document a historical exception to the current standard.
 - **Scenario Lab dispatch hardening:** replace conflicting silent module fallbacks with one explicit per-module dispatch map that fails loudly for an unknown module.
-- **Scenario Lab stale API defence:** fetchCasesFrom accepts any non-empty array. Add response-shape and minimum-completeness checks so a stale partial API deployment cannot silently empty newer modules.
-- **Scenario Lab case sync proof:** the first production exercise completed the GitHub Action and triggered Render deploy dep-dap6bjijnfac73amjlbg, but the API continued to serve the old 17-case payload. Inspect the Render deployment result and build-time case fetch before treating the automated sync path as proven.
+- **Scenario Lab case sync proof:** the first production exercise completed the GitHub Action and triggered Render deploy dep-dap6bjijnfac73amjlbg, but the API continued to serve the old 17-case payload. Root cause confirmed: Render dashboard configuration drift. The effective build command is only `pip install -r requirements.txt`, so the render.yaml case fetch never runs. The deploy hook targets the correct service. The sync workflow now carries a pinned deploy ref and a live-API comparison step (local commit, not yet pushed or run). The path stays unproven until a production run passes that comparison.
 - **Scenario Lab API load-crash pattern:** routes_scenario_lab.py `_load_cases` can crash app import on one bad file; reuse the fincrimeradar-api PR #3 pydantic validation. Also test whether the Render buildCommand's raw.githubusercontent.com fetch served a CDN-cached 17-case cases.json during deploy dep-dap6bjijnfac73amjlbg.
 - **Screening cold-path latency:** last measured at 6.6 to 9.9 seconds. Re-measure before changing anything. First test a smaller OpenSanctions result limit with explicit truncation escalation; parallel RSS work can only recover a minor share of the delay.
 - **Quiz-title heading gap (fleet-wide, found and confirmed fixable 2026-09-17):** the Knowledge Check title renders as a plain `<div class="quiz-title">`, not a heading, breaking the h1 to h2 outline for screen-reader navigation. Fixed on stablecoin-series-guide-1.html the same day, verified live at 320px and 768px: change to `<h2 class="quiz-title">`, and where the quiz-section wrapper also carries the article-section class, add a scoped `.quiz-section h2 { color:#fff; }` override, since without it the heading inherits `.article-section h2`'s navy color against the quiz section's own navy background and renders invisible, confirmed with a computed-style check before and after the fix. Confirmed by wrapper class and live computed-style check, not assumed, across 25 shipped guides in two groups. Five guides carry `class="quiz-section article-section"` and need both the tag change and the override: a7a5-sanctions-evasion-guide.html, freezing-a-stablecoin-guide.html, stablecoin-financial-crime-guide.html, systemic-stablecoins-guide.html, why-stablecoins-compliance-priority-guide.html. The remaining twenty carry `class="quiz-section"` alone, with no competing `.article-section h2` rule, so the tag change alone should suffice, confirmed live on adverse-media-intelligence-guide.html: adverse-media-intelligence-guide.html, ai-agent-transaction-guide.html, crypto-travel-rule-sunrise-guide.html, deepfake-onboarding-guide.html, false-positive-playbook.html, fatf-guide-part1.html, fatf-guide-part2.html, fraud-investigation-playbook.html, fraud-red-flags-guide.html, kyc-onboarding-dilemma.html, money-mule-financial-crime-networks-handbook.html, perpetual-kyc-framework-guide.html, private-markets-financial-crime-investigation-handbook.html, scam-compound-money-laundering-guide.html, screening-algorithm-tuning-guide.html, shadow-fleet-guide-part1.html, shadow-fleet-guide-part2.html, source-of-wealth-investigation-handbook.html, synthetic-identity-device-network-guide.html, ubo-investigation-handbook.html. learn.html also matches the quiz-title class name but is a visually distinct inline badge component with its own already-legible blue-on-white styling, not part of this bug. CSS-only, no logic change, so this does not need external review before execution, just a scripted batch pass with a spot-check on at least one guide from each group before and after, since the two groups need different treatment and the adverse-media-intelligence-guide.html result should not be assumed to generalise to all twenty untested.
@@ -123,7 +122,7 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are in 
 
 - **Remaining SAR Writing Sandbox Phase 1+ ideas:** after the scoped `sar-003` case above, a later scoping session may separately consider a structured evidence log, Practice Case Summary export, stronger session limits or feedback against an expert answer. Do not combine them. Keep UK NCA and POCA specific. Never generate filing-ready SAR narratives. Keep deterministic scoring separate from model commentary and model the cost of every added AI call.
 - **Guide chatbot:** proof of concept indexed 29 sources into 1,148 chunks in the separate API repository. Before resuming, re-check that repository and solve the known ranking problem where literal keyword overlap can outrank the substantive answer. Scope source attribution, refusal behaviour, prompt injection, stale content and cost before any public build.
-- **Stablecoin Due Diligence Assessment:** blocked until Stablecoin Guide 1 ships and the static framework has been applied to at least one real case.
+- **Stablecoin Due Diligence Assessment:** RESEARCH. Stablecoin Guide 1 has shipped, so that dependency is cleared. Remaining work is to apply the static framework to at least one real case and complete the queue-gate fields. Not READY.
 - **Companies House KYB Investigation Lab:** retain as the preferred future public-data integration. Merge the "Companies House verified does not mean KYC complete" content angle and the phoenixism red-flag scenario into this one product concept.
 - **Precision versus recall teaching visual:** defensive, synthetic and educational only. Keep distinct from the live screening tool.
 - **Freemium API tier and API documentation:** unscoped. Treat pricing, authentication, rate limits, abuse protection and service obligations as one architecture decision before either item enters the queue.
@@ -140,19 +139,24 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are in 
 
 ## Content Loop
 
-There is no verified content candidate in Next Up. Every item below is RESEARCH, BLOCKED or PARKED.
+Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. There is no verified content candidate in Next Up. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
 
 ### Priority research candidates
 
-- **Scam or Civil Dispute? The APP Fraud Decision Framework:** sources for the GBP 85,000 cap and PSR merits-based classification principle were previously verified. Refresh the evidence pack and add all four queue-gate fields before drafting. Keep distinct from the already-shipped APP Scam Framework.
+1. **Digital Identity Is Not the Whole of CDD: What Verification Does and Does Not Prove:** RESEARCH. Intelligence Brief. Check the February 2026 HM Treasury and DSIT guidance, the statutory digital verification services register and the line between identity verification and the wider CDD obligation.
+2. **Customer Risk Scores: What the Number Cannot Decide:** RESEARCH. Decision framework on factors, weightings, overrides, evidence, model changes and review triggers. Check the FCA November 2025 risk-assessment findings. Link to the Scenario Lab Risk Scoring module.
+3. **Financial Crime Control Testing: A Control Exists, But Does It Work?:** RESEARCH. Separate design, implementation and operating effectiveness. Check the FCA 2025 and 2026 good-and-poor-practice findings on CDD, risk assessments, monitoring, testing and audit.
+4. **SAR Escalation Under Commercial Pressure:** RESEARCH. Develop as a UK-first judgement guide. Read the US Senate source directly and preserve allegation versus finding, but do not convert it into a UK legal standard. Establish the NCA, POCA, governance and documentation basis before promotion.
+5. **Synthetic Data for AML Model Testing:** RESEARCH. Verify the FCA and Alan Turing Institute programme from primary sources, and check whether the 2026 Solution Sprint has published outcomes before stating what synthetic data can prove about model effectiveness.
+6. **Nested VASP Exposure: The Counterparty You Cannot See:** RESEARCH. Narrow Intelligence Brief on nested relationships, visibility, attribution and due-diligence limits. Replaces the broader offshore-VASP proposal. Verify the claimed FATF March 2026 publication and prove a distinct decision model beyond the six-part Crypto series, the Travel Rule guide and the Scam Compound guide.
+
+### Deliberate hold
+
 - **Sanctions Ownership and Control: When 50 Percent Tells You Almost Nothing:** HOLD until the UK ownership-and-control consultation outcome. When resumed, cross-link with both Shadow Fleet guides.
-- **Synthetic Data for AML Model Testing:** verify the FCA and Alan Turing Institute programme and the 2026 solution sprint from primary sources before drafting.
-- **Offshore VASPs, Nested Exchanges and Invisible Crypto Counterparties:** verify the claimed FATF March 2026 publication and prove non-overlap with the six-part Crypto series and Travel Rule guide.
-- **Repeat AML Failure as a Risk Signal:** verify the FinCEN UBS action and find a primary FCA comparator. Do not create a blended US and UK standard.
-- **SAR Escalation Under Commercial Pressure:** read the US Senate source directly, preserve allegation versus finding, then prove a defensible UK NCA and POCA angle.
 
 ### Reserve and parked content
 
+- **Repeat AML Failure as a Risk Signal:** moved from the priority list to reserve research. It depends on the FinCEN UBS action and an unverified UK comparator. Find a primary FCA comparator first and do not create a blended US and UK standard.
 - Possible MLRO Handbook Part 3: resourcing benchmarks and the future professional-services AML supervisor.
 - Victim, Mule or Fraudster? The First Party Fraud Decision Handbook. Run an originality check against the shipped Money Mule Case File first.
 - Investment Scam Investigation Handbook.
@@ -167,20 +171,22 @@ There is no verified content candidate in Next Up. Every item below is RESEARCH,
 - **Digital Asset Attribution Standard:** the proposed four-level model was tested through the A7A5 work. The next action is a formal adoption review for CLAUDE.md and the verification ledger schema, not further informal validation.
 - **Shared working-tree review safety:** move the rule "commit implementation before launching a review tool that can mutate the same working tree" into the canonical workflow. Do not leave it as backlog folklore.
 - **Content guardrail migration:** decide whether the mechanism-first rule for nationality or ethnicity-labelled network topics and the defensive dual-use rule for proliferation-financing content should be added to CLAUDE.md. Neither is an active guide candidate by itself.
+- **OPEN DECISION, Scenario Lab cadence:** docs/CONTENT_OPERATING_PLAN.md section 1 sets "two Scenario Lab cases per fortnight" while section 9 limits days 1 to 30 to two cases during the month. These conflict. Decide which governs, then amend the plan. Neither is edited here. Both remain gated by a proven API sync path.
 - **FinCrime Week recurring cadence:** each Monday, manually source and publish the completed prior ISO week, run the generator and dedicated tests, complete the required external claim review, then verify production. Automated headline discovery and unattended publication remain out of scope.
 - **AdSense:** resubmitted 7 September 2026. FinCrimeRadar-side consent and content-readiness fixes are closed. Google's Funding Choices displayStatus hidden symptom remained external and unexplained at the last authenticated review. Make no speculative frontend change. Revisit only after a Google response, account-status change or fresh production diagnostic change.
 - **Trademark and LinkedIn slug:** trademark filing remains resource-dependent; slug reclaim depends on it.
 - **Anthropic Open Source Programme application:** submission and support follow-up were previously recorded, but current external status was not available in this repository audit. Confirm externally before treating it as pending action.
 - **SAR Sandbox LinkedIn drafts:** repository state cannot confirm whether they were posted. Check the account before retaining or scheduling them.
 - **Authority building:** continue only through legitimate practitioner contributions, citations, relevant directories and useful community participation. No guaranteed-ranking or paid-link schemes.
-- **Bank of England systemic stablecoin Code of Practice consultation:** closes 2026-09-22. No owner, no urgency, just don't lose the date. Once resolved, it may affect overseas-stablecoin-perimeter.boe-multi-issuance-unsuitable.001, which currently describes the Code of Practice as still in draft.
+- **Bank of England systemic stablecoin Code of Practice:** a primary-source recheck on 3 October 2026 confirmed that the consultation closed on 22 September 2026, the Code remains draft, and finalisation is still targeted for the end of 2026. Ledger claim overseas-stablecoin-perimeter.boe-multi-issuance-unsuitable.001 remains materially accurate, so no ledger edit is required. Revisit it once the Code is finalised. No owner, no urgency.
 
 ## Explicitly removed from the active backlog
 
 The 14 September 2026 audit removed completed narratives, duplicate entries and rejected proposals. Important removals include:
 
+- Scam or Civil Dispute? The APP Fraud Decision Framework, removed from the active queue because the shipped APP Scam Decision Framework already covers the civil-dispute boundary, partial or nominal performance, the GBP 85,000 cap and the PSR decision factors;
 - the duplicate "Money Mule Is Also a Victim" guide, now shipped as the Experiment 02 Case File;
-- all five published Stablecoin guide checkboxes, leaving only externally blocked Guide 1;
+- all Stablecoin guide checkboxes: all six guides are live and the obsolete Guide 1 blocker has been removed;
 - the obsolete summary-snapshot candidate, superseded by the programmatic social-card standard;
 - duplicate APP scam and MLRO Part 3 entries;
 - the rejected Private Markets duplicate, topics-hub rebuild, nine-domain taxonomy, 14-step universal framework, 30-guide schedule, automated FinCrime Week sourcing and full learning-platform architecture;
