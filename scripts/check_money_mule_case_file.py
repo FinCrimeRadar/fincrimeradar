@@ -146,7 +146,10 @@ def main() -> None:
     require(new_slug in relations, "new relation entry missing")
     for target in relations[new_slug]:
         require(target in relations and new_slug in relations[target], f"new relation is not reciprocal: {new_slug} -> {target}")
-    expected_targets = {"money-mule-financial-crime-networks-handbook", "false-positive-playbook"}
+    expected_targets = {
+        "money-mule-financial-crime-networks-handbook", "false-positive-playbook",
+        "investment-scam-investigation-handbook",
+    }
     require(set(relations[new_slug]) == expected_targets, f"unexpected related slugs: {relations[new_slug]}")
 
     guide_claims = [item for item in ledger if item.get("guide") == GUIDE.name]

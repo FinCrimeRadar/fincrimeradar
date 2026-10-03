@@ -492,6 +492,53 @@ def check_r12() -> None:
         pass
 
 
+RELATED_SLUGS = [
+    "app-scam-decision-framework", "fraud-investigation-playbook",
+    "money-mule-or-victim-case-file", "scam-compound-money-laundering-guide",
+]
+
+
+def check_r13() -> None:
+    """R13: Knowledge Hub card, sitemap, content relations, guide counts and reading time are consistent."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from check_de_risking_judgement_call import KnowledgeCountParser
+    from word_count import word_count
+
+    html = html_text()
+    knowledge = (ROOT / "knowledge.html").read_text(encoding="utf-8")
+    counts = KnowledgeCountParser()
+    counts.feed(knowledge)
+    declared = counts.standalone_guides + counts.series_guides
+    require(counts.count_text("khHeroCount") == counts.count_text("khStatGuides") == declared,
+            f"Knowledge Hub counts differ: hero={counts.count_text('khHeroCount')}, stat={counts.count_text('khStatGuides')}, declared={declared}")
+    cards = re.findall(rf'<a href="/{SLUG}\.html" class="kh-article-card"([^>]*)>(.*?)</a>', knowledge, re.S)
+    require(len(cards) == 1, f"expected one Knowledge Hub card, found {len(cards)}")
+    attrs, inner = cards[0]
+    require('data-date="2026-10-03"' in attrs and 'data-cats="fraud-detection"' in attrs, "card needs data-date and the fraud category")
+    require('<span class="kh-format-label">Guide</span>' in inner, "card format label must be Guide")
+    minutes = int(re.search(r'<span class="kh-read">(\d+) MIN</span>', inner).group(1))
+    hero_minutes = int(re.search(r"(\d+) min read", html).group(1))
+    require(minutes == hero_minutes, f"card says {minutes} MIN but the hero says {hero_minutes} min read")
+    words = word_count(html)
+    require(words / 223 <= minutes <= words / 163, f"{minutes} min is outside the site interquartile reading speed for {words} words")
+    require(abs(minutes - round(words / 181)) <= 2, f"{minutes} min differs from the site median speed estimate {round(words / 181)}")
+    description = re.search(r'<div class="kh-item-desc">(.*?)</div>', inner, re.S).group(1)
+    page_description = meta(html, "name", "description")
+    require(description == page_description, "card description differs from the page description")
+    title = re.search(r'<div class="kh-item-title">(.*?)</div>', inner, re.S).group(1)
+    require(title.startswith(HEADLINE), "card title differs from the headline")
+    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    block = re.findall(rf"<url>\s*<loc>{re.escape(URL)}</loc>\s*<changefreq>monthly</changefreq>\s*<priority>0\.7</priority>\s*</url>", sitemap)
+    require(len(block) == 1 and sitemap.count(URL) == 1, "sitemap needs exactly one entry in the comparable guide format")
+    relations = json.loads((ROOT / "content-relations.json").read_text(encoding="utf-8"))
+    require(relations.get(SLUG) == RELATED_SLUGS, f"relation set is {relations.get(SLUG)}")
+    for target in RELATED_SLUGS:
+        require(SLUG in relations.get(target, []), f"relation is not reciprocal: {target}")
+        require((ROOT / f"{target}.html").exists(), f"related guide {target} does not exist")
+    related = re.search(r'<section class="isi-section" id="related">.*?</section>', html, re.S).group(0)
+    require(re.findall(r'<a href="/([^"]+)\.html">', related) == RELATED_SLUGS, "the on-page related links must match the relation set")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -505,6 +552,7 @@ CHECKS = [
     ("R10", check_r10),
     ("R11", check_r11),
     ("R12", check_r12),
+    ("R13", check_r13),
 ]
 
 

@@ -84,6 +84,8 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 a:focus-visible,summary:focus-visible,.isi-action:focus-visible,.isi-option:has(input:focus-visible),.nav-hamburger:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}.isi-optfb:focus{outline:3px solid #0f766e;outline-offset:2px}#main-content:focus{outline:none}
 html{scroll-padding-top:96px}.isi-action{min-height:44px;min-width:44px}.isi-option{min-height:44px}.isi-details summary{min-height:44px;padding:.55rem 0;box-sizing:border-box}.nav-hamburger{min-width:44px;min-height:44px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+.isi-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.isi-related a{display:block;border:1px solid var(--isi-line);padding:1rem;text-decoration:none;background:#fff}.isi-related strong{display:block;color:#073d3a}.isi-related span{color:#536a74;font-size:14px}
+@media(max-width:640px){.isi-related{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:900px){.isi-layout{grid-template-columns:minmax(0,1fr)}.isi-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--isi-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.isi-breadcrumb{align-items:flex-start;flex-wrap:wrap}.isi-hero{padding-top:2.8rem}.isi-core,.isi-saa{grid-template-columns:minmax(0,1fr)}.isi-layout{padding:0 .75rem 3rem;gap:1rem}.isi-scope{padding:0 .75rem}}
 @media(max-width:360px){.isi-section{padding:1rem}.isi-hero h1{font-size:2rem}.isi-meta{gap:.4rem}}
@@ -107,7 +109,7 @@ html{scroll-padding-top:96px}.isi-action{min-height:44px;min-width:44px}.isi-opt
     <h1>Investment Scam Investigation Handbook:<br><em>Reconstructing the offer, identity and money route</em></h1>
     <p class="isi-hero-sub">Investment scams borrow credibility. The investigation fails when one real element is allowed to prove that everything around it was real too.</p>
     <p>Written by <a href="/about.html" style="color:#99f6e4">Pratik Zanke</a></p>
-    <div class="isi-meta"><span>UK</span><span>Evidence reviewed 3 October 2026</span><span>2 worked scenarios, 3 decisions</span></div>
+    <div class="isi-meta"><span>UK</span><span>Evidence reviewed 3 October 2026</span><span>40 min read</span><span>2 worked scenarios, 3 decisions</span></div>
   </div>
 </header>
 <div class="isi-scope">
@@ -566,6 +568,15 @@ html{scroll-padding-top:96px}.isi-action{min-height:44px;min-width:44px}.isi-opt
     <li id="source-8"><a href="https://www.financial-ombudsman.org.uk/consumers/complaints-can-help/fraud-scams/scams-youve-tricked-making-payment" target="_blank" rel="noopener">Financial Ombudsman Service, Scams where you've been tricked into making a payment</a>, guidance for consumers, no date shown.</li>
   </ol>
   <p><strong>Last reviewed:</strong> 3 October 2026. Recheck when the FCA updates its crypto promotions or firm-checking pages, when the reimbursement rules or the Ombudsman's approach change, and before release.</p>
+</section>
+<section class="isi-section" id="related">
+  <h2>Related intelligence</h2>
+  <div class="isi-related">
+    <a href="/app-scam-decision-framework.html"><strong>APP Scam Decision Framework</strong><span>Reimbursement and complaint defensibility for authorised push payment scams. This handbook stops where that decision begins.</span></a>
+    <a href="/fraud-investigation-playbook.html"><strong>Fraud Investigation Playbook</strong><span>The general fraud investigation method: theory testing, chronology and documentation.</span></a>
+    <a href="/money-mule-or-victim-case-file.html"><strong>Money Mule or Victim?</strong><span>What account evidence says about a receiving customer. This handbook does not classify the recipient.</span></a>
+    <a href="/scam-compound-money-laundering-guide.html"><strong>Scam Compound Money Laundering</strong><span>The downstream laundering chain after the victim's payment, where this handbook treats the receiving account as one node.</span></a>
+  </div>
 </section>
 </main>
 <aside class="isi-toc" aria-label="On this page">

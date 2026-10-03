@@ -645,7 +645,31 @@ def check_r11_live_regions(ctx: Context) -> None:
     print("OK: three polite status regions present and empty at load")
 
 
+# R13 ----------------------------------------------------------------------------------------------
+
+def check_r13_knowledge_hub(ctx: Context) -> None:
+    """R13: the live Knowledge Hub shows the card, counts it, and the Fraud filter keeps it."""
+    base = ctx.url.rsplit("/", 1)[0]
+    navigate(ctx.cdp, f"{base}/knowledge.html", 1440)
+    state = ctx.cdp.evaluate(f"""(() => {{
+      const card = document.querySelector('a.kh-article-card[href="/{SLUG}.html"]');
+      return {{found: Boolean(card), visible: Boolean(card) && card.getBoundingClientRect().height > 0,
+              hero: document.getElementById('khHeroCount').textContent, stat: document.getElementById('khStatGuides').textContent,
+              cards: document.querySelectorAll('#khArticlesGrid .kh-article-card').length,
+              read: card && card.querySelector('.kh-read').textContent, format: card && card.querySelector('.kh-format-label').textContent}};
+    }})()""")
+    require(state["found"] and state["visible"], f"Knowledge Hub card missing or hidden: {state}")
+    require(state["hero"] == state["stat"] and state["read"] == "40 MIN" and state["format"] == "Guide", f"Knowledge Hub card details: {state}")
+    navigate(ctx.cdp, f"{base}/knowledge.html?domain=fraud-detection", 1440)
+    time.sleep(0.5)
+    filtered = ctx.cdp.evaluate(f"""(() => {{ const c = document.querySelector('a.kh-article-card[href="/{SLUG}.html"]');
+      return Boolean(c) && getComputedStyle(c).display !== 'none' && c.getBoundingClientRect().height > 0; }})()""")
+    require(filtered, "the Fraud domain filter must keep the guide visible")
+    print(f"OK: Knowledge Hub card visible, count {state['stat']} matches the hero, Fraud filter keeps it")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R13", check_r13_knowledge_hub),
     ("R11", check_r11_reduced_motion),
     ("R11", check_r11_touch_targets),
     ("R11", check_r11_focus_not_obscured),

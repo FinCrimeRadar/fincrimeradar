@@ -20,7 +20,8 @@
   "scam-compound-money-laundering-guide": [
     "money-mule-financial-crime-networks-handbook",
     "crypto-travel-rule-sunrise-guide",
-    "crypto-guide-part3"
+    "crypto-guide-part3",
+    "investment-scam-investigation-handbook"
   ],
   "synthetic-identity-device-network-guide": [
     "money-mule-financial-crime-networks-handbook",
@@ -48,7 +49,8 @@
     "crypto-travel-rule-sunrise-guide"
   ],
   "fraud-investigation-playbook": [
-    "money-mule-financial-crime-networks-handbook"
+    "money-mule-financial-crime-networks-handbook",
+    "investment-scam-investigation-handbook"
   ],
   "ubo-investigation-handbook": [
     "money-mule-financial-crime-networks-handbook",
@@ -123,11 +125,13 @@
     "money-mule-financial-crime-networks-handbook",
     "fatf-recommendation-16-intelligence-brief",
     "failure-to-prevent-fraud-evidence-essay",
-    "de-risking-judgement-call"
+    "de-risking-judgement-call",
+    "investment-scam-investigation-handbook"
   ],
   "money-mule-or-victim-case-file": [
     "money-mule-financial-crime-networks-handbook",
-    "false-positive-playbook"
+    "false-positive-playbook",
+    "investment-scam-investigation-handbook"
   ],
   "false-positive-playbook": [
     "money-mule-or-victim-case-file"
@@ -147,5 +151,11 @@
   "de-risking-judgement-call": [
     "app-scam-decision-framework",
     "kyc-onboarding-dilemma"
+  ],
+  "investment-scam-investigation-handbook": [
+    "app-scam-decision-framework",
+    "fraud-investigation-playbook",
+    "money-mule-or-victim-case-file",
+    "scam-compound-money-laundering-guide"
   ]
 }
