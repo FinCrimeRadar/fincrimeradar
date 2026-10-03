@@ -254,7 +254,157 @@ def check_r8_no_script(ctx: Context) -> None:
         ctx.cdp.call("Emulation.setScriptExecutionDisabled", {"value": False})
 
 
+# R6 -----------------------------------------------------------------------------------------------
+
+FORMS = (("clone-firm", "clone-firm-decision"), ("real-exchange", "real-exchange-decision"))
+EXPECTED_OPTION_GRADES = {
+    "clone-firm": {"a": "unsupported", "b": "best", "c": "unsupported", "d": "incomplete"},
+    "real-exchange": {"a": "unsupported", "b": "best", "c": "incomplete", "d": "unsupported"},
+}
+GRADE_LABELS = {
+    "best": "Best supported by the evidence",
+    "incomplete": "Contains a true point, stops short",
+    "unsupported": "Not supported by the evidence",
+}
+
+
+def dispatch_key(cdp: CDP, key: str, code: str, virtual_key: int, text: str | None = None) -> None:
+    key_down = {
+        "type": "keyDown", "key": key, "code": code,
+        "windowsVirtualKeyCode": virtual_key, "nativeVirtualKeyCode": virtual_key,
+    }
+    if text is not None:
+        key_down["text"] = text
+    cdp.call("Input.dispatchKeyEvent", key_down)
+    cdp.call("Input.dispatchKeyEvent", {
+        "type": "keyUp", "key": key, "code": code,
+        "windowsVirtualKeyCode": virtual_key, "nativeVirtualKeyCode": virtual_key,
+    })
+
+
+def complete_form_by_keyboard(cdp: CDP, scenario_id: str, radio_name: str) -> None:
+    for _ in range(300):
+        dispatch_key(cdp, "Tab", "Tab", 9)
+        if cdp.evaluate("document.activeElement && document.activeElement.name") == radio_name:
+            break
+    else:
+        raise AssertionError(f"keyboard could not reach the {scenario_id} decision group")
+    for _ in range(6):
+        if cdp.evaluate(f"document.querySelector('[data-scenario-id=\"{scenario_id}\"] input[data-grade=\"best\"]').checked"):
+            break
+        dispatch_key(cdp, "ArrowDown", "ArrowDown", 40)
+    else:
+        raise AssertionError(f"keyboard could not select the {scenario_id} best-graded option")
+    dispatch_key(cdp, "Tab", "Tab", 9)
+    focused = cdp.evaluate(f"document.activeElement === document.querySelector('[data-scenario-id=\"{scenario_id}\"] .isi-action')")
+    require(focused, f"keyboard could not reach the {scenario_id} submit control")
+    dispatch_key(cdp, "Enter", "Enter", 13, "\r")
+    feedback = cdp.evaluate(f"document.querySelector('[data-scenario-id=\"{scenario_id}\"] .isi-feedback').textContent")
+    require(feedback.startswith("Recorded:"), f"{scenario_id} keyboard feedback failed: {feedback!r}")
+    state = cdp.evaluate(f"document.querySelector('[data-scenario-id=\"{scenario_id}\"] .isi-feedback').dataset.state")
+    require(state == "best", f"{scenario_id} feedback state is {state!r}")
+    marked = cdp.evaluate(
+        f"document.querySelector('[data-scenario-id=\"{scenario_id}\"]').closest('.isi-section')"
+        ".querySelectorAll('.isi-optfb[data-selected=\"true\"]').length")
+    require(marked == 1, f"{scenario_id} should mark exactly one option analysis, marked {marked}")
+
+
+def check_r6_keyboard(ctx: Context) -> None:
+    """R6: both decisions work by keyboard alone and mark exactly one option analysis."""
+    for scenario_id, radio_name in FORMS:
+        navigate(ctx.cdp, ctx.url, 390)
+        complete_form_by_keyboard(ctx.cdp, scenario_id, radio_name)
+        print(f"OK: {scenario_id} decision by keyboard, one option analysis marked")
+
+
+def check_r6_reveal_and_change(ctx: Context) -> None:
+    """R6: with JavaScript on, analyses stay hidden until Record, then all four show with the choice marked."""
+    navigate(ctx.cdp, ctx.url, 390)
+    result = ctx.cdp.evaluate("""(() => {
+      const out = [];
+      document.querySelectorAll('[data-decision-form]').forEach(form => {
+        const sec = form.closest('.isi-section');
+        const set = sec.querySelector('.isi-optfb-set');
+        const button = form.querySelector('.isi-action');
+        const before = getComputedStyle(set).display;
+        const buttonBefore = getComputedStyle(button).display;
+        const radios = [...form.querySelectorAll('input[type=radio]')];
+        const pick = radios.find(r => r.dataset.grade === 'best');
+        pick.checked = true;
+        form.dispatchEvent(new Event('change', {bubbles: true}));
+        const stillHidden = getComputedStyle(set).display;
+        form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+        const after = getComputedStyle(set).display;
+        const blocks = [...set.querySelectorAll('.isi-optfb')];
+        const visible = blocks.filter(b => b.getBoundingClientRect().height > 0).length;
+        const marked = blocks.filter(b => b.dataset.selected === 'true').map(b => b.dataset.option);
+        const fb = form.querySelector('.isi-feedback');
+        const link = fb.querySelector('a');
+        const target = blocks.find(b => b.dataset.option === pick.value);
+        const linkOk = Boolean(link) && link.getAttribute('href') === '#' + target.id;
+        const state = fb.getAttribute('data-state');
+        const live = fb.getAttribute('aria-live'), role = fb.getAttribute('role');
+        const other = radios.find(r => r !== pick);
+        other.checked = true;
+        form.dispatchEvent(new Event('change', {bubbles: true}));
+        out.push({sid: form.dataset.scenarioId, before, buttonBefore, stillHidden, after, blocks: blocks.length, visible, marked, linkOk, state, live, role,
+          cleared: {text: fb.textContent, state: fb.getAttribute('data-state'), optionMarks: form.querySelectorAll('.isi-option[data-selected]').length,
+                    blockMarks: set.querySelectorAll('.isi-optfb[data-selected]').length}});
+      });
+      return out; })()""")
+    require(len(result) == 2, f"expected two decision forms, found {len(result)}")
+    for item in result:
+        sid = item["sid"]
+        require(item["before"] == "none", f"{sid} analyses must be hidden before Record with JS on: {item}")
+        require(item["buttonBefore"] != "none", f"{sid} Record button must be visible with JS on")
+        require(item["stillHidden"] == "none", f"{sid} choosing an option must not reveal the analyses")
+        require(item["after"] != "none" and item["visible"] == item["blocks"] == 4, f"{sid} Record must reveal all four analyses: {item}")
+        require(item["marked"] == ["b"], f"{sid} the chosen analysis must be marked: {item}")
+        require(item["linkOk"], f"{sid} feedback must link to the chosen analysis: {item}")
+        require(item["state"] == "best" and item["live"] == "polite" and item["role"] == "status", f"{sid} verdict region semantics: {item}")
+        cleared = item["cleared"]
+        require(cleared["text"] == "" and cleared["state"] is None and cleared["optionMarks"] == 0 and cleared["blockMarks"] == 0,
+                f"{sid} a change after Record must clear feedback, state and marks: {cleared}")
+    print("OK: analyses hidden before Record, revealed with the choice marked, verdict region polite, change clears the verdict")
+
+
+def check_r6_grade_contract(ctx: Context) -> None:
+    """R6: every option carries its grade and label, and each scenario has exactly one best option."""
+    navigate(ctx.cdp, ctx.url, 390)
+    dom = ctx.cdp.evaluate("""(() => Object.fromEntries([...document.querySelectorAll('[data-decision-form]')].map(form => [
+      form.dataset.scenarioId,
+      Object.fromEntries([...form.querySelectorAll('input[type=radio]')].map(r => [r.value, [r.dataset.grade, r.dataset.gradeLabel]]))
+    ])))()""")
+    expected = {key: {value: [grade, GRADE_LABELS[grade]] for value, grade in options.items()} for key, options in EXPECTED_OPTION_GRADES.items()}
+    require(dom == expected, f"option grades differ from the contract: {dom}")
+    unknown = ctx.cdp.evaluate("""(() => {
+      const form = document.querySelector('[data-scenario-id="clone-firm"]');
+      const radio = form.querySelector('input[value="a"]'), fb = form.querySelector('.isi-feedback');
+      radio.dataset.grade = '__proto__'; radio.checked = true;
+      form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      return fb.getAttribute('data-state'); })()""")
+    require(unknown is None, f"an unknown grade must not set the feedback state: {unknown!r}")
+    print("OK: all 8 options carry their grade and label, unknown grade ignored")
+
+
+def check_r6_empty_submit(ctx: Context) -> None:
+    """R6: recording with nothing chosen asks for a choice instead of revealing anything."""
+    navigate(ctx.cdp, ctx.url, 390)
+    result = ctx.cdp.evaluate("""(() => {
+      const form = document.querySelector('[data-scenario-id="real-exchange"]');
+      form.querySelectorAll('input').forEach(i => i.checked = false);
+      form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const set = form.closest('.isi-section').querySelector('.isi-optfb-set');
+      return {text: form.querySelector('.isi-feedback').textContent, display: getComputedStyle(set).display}; })()""")
+    require("Choose an option" in result["text"] and result["display"] == "none", f"empty submission must be rejected: {result}")
+    print("OK: empty decision rejected without revealing analyses")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R6", check_r6_keyboard),
+    ("R6", check_r6_reveal_and_change),
+    ("R6", check_r6_grade_contract),
+    ("R6", check_r6_empty_submit),
     ("R8", check_r8_layout),
     ("R8", check_r8_device_frames),
     ("R8", check_r8_zoom_reflow),

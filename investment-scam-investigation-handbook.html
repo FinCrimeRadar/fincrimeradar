@@ -68,6 +68,13 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .isi-sources ol{padding-left:1.4rem}.isi-sources li{margin:.7rem 0;font-size:14px;overflow-wrap:anywhere}
 .isi-evidence{width:100%;border-collapse:collapse;margin:1.2rem 0 .6rem;font-size:14px;table-layout:fixed}.isi-evidence caption{text-align:left;font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--isi-muted);padding-bottom:.6rem}.isi-evidence th,.isi-evidence td{border:1px solid var(--isi-line);padding:.7rem .75rem;text-align:left;vertical-align:top;overflow-wrap:anywhere}.isi-evidence thead th{background:var(--isi-navy);color:#fff;font-size:13px}.isi-evidence tbody th{background:#eef5f3;color:var(--isi-navy);font-weight:700}
 @media(max-width:760px){.isi-evidence,.isi-evidence thead,.isi-evidence tbody,.isi-evidence tr,.isi-evidence th,.isi-evidence td{display:block}.isi-evidence thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.isi-evidence tr{margin:0 0 1rem;border:1px solid var(--isi-line)}.isi-evidence th,.isi-evidence td{border:0;border-top:1px solid var(--isi-line)}.isi-evidence tbody th{border-top:0}.isi-evidence td:before{content:attr(data-label);display:block;font:700 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:#075e57;margin-bottom:.2rem}}
+.isi-scenario-tag{font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;color:#0f766e;letter-spacing:.07em}
+.isi-scenario{border:1px solid #b9d6d1;background:#fbfefd;margin:1.4rem 0;padding:clamp(1rem,4vw,1.6rem)}.isi-illustrative{font-size:13px;color:var(--isi-muted);margin:0 0 .8rem;font-style:italic}.isi-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin:1rem 0;padding:0;list-style:none}.isi-facts li{padding:.7rem;background:#eef5f3;border-left:3px solid #5aa89c;font-size:14px}
+.isi-choice{margin:1.2rem 0}.isi-choice fieldset{border:1px solid var(--isi-line);padding:1rem;min-width:0;margin:0}.isi-choice legend{font-weight:700;padding:0 .35rem;max-width:100%}.isi-option{display:grid;grid-template-columns:22px minmax(0,1fr);gap:.6rem;align-items:start;padding:.65rem;margin:.3rem 0;border:1px solid transparent;border-radius:5px}.isi-option:hover{background:#f2f8f7}.isi-option[data-selected="true"]{border-color:#0f766e;background:#edf8f6}.isi-option input{margin-top:.28rem;width:18px;height:18px;accent-color:#0f766e}.isi-action{border:0;border-radius:5px;background:var(--isi-green);color:#fff;font-weight:700;padding:.75rem 1rem;cursor:pointer}.isi-action:hover{background:#0b5f59}.isi-feedback{min-height:1.6rem;margin:.75rem 0 0;font-weight:700;color:#075e57}.isi-feedback[data-state="incomplete"]{color:#8a4b08}.isi-feedback[data-state="unsupported"]{color:#8f1d14}.isi-feedback[data-state="caution"]{color:#8a4b08}.isi-feedback a{color:#075e57;font-weight:700}
+.isi-optfb-set{margin:1.2rem 0}.isi-optfb{border:1px solid var(--isi-line);border-left:4px solid var(--isi-line);padding:.8rem .9rem;margin:.7rem 0;background:#fff;scroll-margin-top:120px}.isi-optfb[data-grade="best"]{border-left-color:#0f766e}.isi-optfb[data-grade="incomplete"]{border-left-color:#b45309}.isi-optfb[data-grade="unsupported"]{border-left-color:#b42318}.isi-optfb[data-selected="true"]{background:#edf8f6;box-shadow:0 0 0 2px #0f766e}.isi-optfb-head{margin:0 0 .5rem;font-size:15px}.isi-grade{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:.12rem .45rem;border:1px solid var(--isi-line);background:#f5f8f7;margin-right:.35rem}.isi-grade[data-grade="best"]{border-color:#0f766e;color:#065f46;background:#ecfdf5}.isi-grade[data-grade="incomplete"]{border-color:#b45309;color:#7c2d12;background:#fff7ed}.isi-grade[data-grade="unsupported"]{border-color:#b42318;color:#8f1d14;background:#fdf0ee}
+.isi-choice .isi-action{display:none}.js .isi-choice .isi-action{display:inline-block}.js .isi-optfb-set:not([data-revealed="true"]){display:none}
+@media print{.js .isi-optfb-set{display:block!important}.isi-choice{display:none}}
+@media(max-width:640px){.isi-facts{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:900px){.isi-layout{grid-template-columns:minmax(0,1fr)}.isi-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--isi-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.isi-breadcrumb{align-items:flex-start;flex-wrap:wrap}.isi-hero{padding-top:2.8rem}.isi-core,.isi-saa{grid-template-columns:minmax(0,1fr)}.isi-layout{padding:0 .75rem 3rem;gap:1rem}.isi-scope{padding:0 .75rem}}
 @media(max-width:360px){.isi-section{padding:1rem}.isi-hero h1{font-size:2rem}.isi-meta{gap:.4rem}}
@@ -282,6 +289,131 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
   </div>
 </section>
 
+<section class="isi-section" id="scenario-one" data-scenario="clone-firm">
+  <span class="isi-scenario-tag">Worked scenario 1 · Identity stream</span>
+  <h2>The authorised firm that never made the offer</h2>
+  <p class="isi-lede">Every document in the file is real. The offer is not.</p>
+  <div class="isi-scenario">
+    <p class="isi-illustrative">Composite scenario for teaching. It does not describe a real firm, customer or case.</p>
+    <ul class="isi-facts">
+      <li>A customer reports three transfers totalling 72,000 GBP for a fixed-return green bond.</li>
+      <li>The proposal carries the name and firm reference number of an FCA-authorised wealth manager.</li>
+      <li>The customer found the offer after searching online, then spoke with an adviser who used a similar domain.</li>
+      <li>The first 500 GBP interest payment arrived on time.</li>
+      <li>The register confirms the named firm exists. The email domain, telephone number and beneficiary account do not match the details retrieved independently.</li>
+      <li>The genuine firm confirms that it did not issue the bond.</li>
+    </ul>
+    <form class="isi-choice" data-decision-form data-scenario-id="clone-firm" method="dialog">
+      <fieldset>
+        <legend>What is the strongest next conclusion?</legend>
+        <label class="isi-option"><input type="radio" name="clone-firm-decision" value="a" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>A.</strong> Close as genuine because the firm reference number and interest payment verify the investment.</span></label>
+        <label class="isi-option"><input type="radio" name="clone-firm-decision" value="b" data-grade="best" data-grade-label="Best supported by the evidence"><span><strong>B.</strong> Treat the evidence as supporting a probable clone-firm investment scam, begin recovery and reporting actions, and keep recipient intent separate pending further evidence.</span></label>
+        <label class="isi-option"><input type="radio" name="clone-firm-decision" value="c" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>C.</strong> Treat the case only as a poor investment because a payment was returned.</span></label>
+        <label class="isi-option"><input type="radio" name="clone-firm-decision" value="d" data-grade="incomplete" data-grade-label="Contains a true point, stops short"><span><strong>D.</strong> Wait for the firm to appear on the FCA Warning List before acting.</span></label>
+      </fieldset>
+      <button class="isi-action" type="submit">Record decision</button>
+      <p class="isi-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="isi-optfb-set" data-optfb-for="clone-firm" role="group" aria-labelledby="optfb-title-clone-firm">
+    <h3 id="optfb-title-clone-firm">How each option grades</h3>
+    <div class="isi-optfb" id="optfb-clone-firm-a" data-option="a" data-grade="unsupported">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="unsupported">Not supported by the evidence</span> A. Close as genuine because the firm reference number and interest payment verify the investment.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The FCA describes a clone firm as a copy of a genuine, authorised firm, and advises that the contact details given for a firm should match those on the Firm Checker. <a href="#source-1">[1]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>The firm reference number belongs to a genuine firm, which establishes only that the firm exists. It does not attach this domain, number, beneficiary or bond to that firm, and here none of them match its record and the firm denies issuing the bond. The 500 GBP payment shows value was returned once. It does not show that the bond exists.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Do not close the file. Write down what each reassuring fact establishes and what it does not, and open the clone-firm assessment.</p></div>
+      </div>
+    </div>
+    <div class="isi-optfb" id="optfb-clone-firm-b" data-option="b" data-grade="best">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="best">Best supported by the evidence</span> B. Treat the evidence as supporting a probable clone-firm investment scam, begin recovery and reporting actions, and keep recipient intent separate pending further evidence.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The FCA says a clone firm copies a genuine, authorised firm and advises that contact details given for the firm should match those on the Firm Checker. It also says a firm that is not on the Warning List may still be unauthorised or be a scam. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>The authorised firm is genuine, but the case-specific channels, beneficiary and purported product are not attributable to it. The small return proves only that value was returned once. The genuine firm's denial materially weakens the legitimate-offer explanation. These facts support a probable clone-firm assessment. They do not establish the receiving account holder's knowledge.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Begin available recall or freeze work. Preserve the proposal, communications, domain and payment records. Report through the appropriate fraud and FCA routes. Route recipient-account analysis separately.</p></div>
+      </div>
+    </div>
+    <div class="isi-optfb" id="optfb-clone-firm-c" data-option="c" data-grade="unsupported">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="unsupported">Not supported by the evidence</span> C. Treat the case only as a poor investment because a payment was returned.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The Financial Ombudsman Service says not all disputes are scams, and gives the example of a legitimate business whose work or product was poor. <a href="#source-8">[8]</a> The FCA says a clone firm is a copy of a genuine, authorised firm. <a href="#source-1">[1]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>A poor-investment reading needs a real issuer and a real product. Here the named firm denies issuing the bond and the channel details do not match its record, so the usual starting point for a genuine loss is missing. Our classification labels reserve a genuine loss or dispute for cases where the promoter, product, custody and journey are evidenced.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Do not record the file as a dispute. Hold it as a probable scam, or as unresolved but high risk if you need targeted checks first, and start containment.</p></div>
+      </div>
+    </div>
+    <div class="isi-optfb" id="optfb-clone-firm-d" data-option="d" data-grade="incomplete">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="incomplete">Contains a true point, stops short</span> D. Wait for the firm to appear on the FCA Warning List before acting.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The FCA says the Warning List shows firms it is concerned are working without its permission, that a firm not on the list may still be unauthorised or be a scam, and that unauthorised firms often change names before the FCA is aware of it. <a href="#source-2">[2]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>Checking the list is sensible, and a hit would add official evidence of concern. Waiting for one is the error. The clone's domain may not be listed yet, and the contact mismatch and the genuine firm's denial already carry weight. Delay can also reduce what recall or freezing can still achieve.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Check the list and record the result and the date, then act without waiting: recall, preservation and reporting do not depend on a warning being published.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="isi-section" id="scenario-two" data-scenario="real-exchange">
+  <span class="isi-scenario-tag">Worked scenario 2 · Money route stream</span>
+  <h2>The real exchange and the false investment</h2>
+  <p class="isi-lede">The fiat payments went somewhere genuine. The investment never did.</p>
+  <div class="isi-scenario">
+    <p class="isi-illustrative">Composite scenario for teaching. It does not describe a real firm, customer or case.</p>
+    <ul class="isi-facts">
+      <li>A customer sends 38,000 GBP over four payments to an account in their own name at a genuine crypto exchange.</li>
+      <li>They buy stablecoins and, following instructions from an investment coach met through a social-media advertisement, send them to external wallet addresses.</li>
+      <li>A professional dashboard shows a balance of 61,000 GBP.</li>
+      <li>When the customer asks to withdraw, the coach demands a further 9,000 GBP for tax and liquidity release.</li>
+      <li>The customer does not control the destination wallets and cannot verify the displayed trades independently.</li>
+    </ul>
+    <form class="isi-choice" data-decision-form data-scenario-id="real-exchange" method="dialog">
+      <fieldset>
+        <legend>What should the investigator do?</legend>
+        <label class="isi-option"><input type="radio" name="real-exchange-decision" value="a" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>A.</strong> Clear the concern because the fiat payments reached the customer's own account at a genuine exchange.</span></label>
+        <label class="isi-option"><input type="radio" name="real-exchange-decision" value="b" data-grade="best" data-grade-label="Best supported by the evidence"><span><strong>B.</strong> Record a suspected investment scam, preserve the full fiat and on-chain route, stop further payment if possible, and assess prevention, recovery and reimbursement under their separate applicable standards.</span></label>
+        <label class="isi-option"><input type="radio" name="real-exchange-decision" value="c" data-grade="incomplete" data-grade-label="Contains a true point, stops short"><span><strong>C.</strong> Reject the report because crypto payments are outside the mandatory reimbursement rules.</span></label>
+        <label class="isi-option"><input type="radio" name="real-exchange-decision" value="d" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>D.</strong> Advise the customer to pay the release fee so the withdrawal can prove whether the platform is genuine.</span></label>
+      </fieldset>
+      <button class="isi-action" type="submit">Record decision</button>
+      <p class="isi-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="isi-optfb-set" data-optfb-for="real-exchange" role="group" aria-labelledby="optfb-title-real-exchange">
+    <h3 id="optfb-title-real-exchange">How each option grades</h3>
+    <div class="isi-optfb" id="optfb-real-exchange-a" data-option="a" data-grade="unsupported">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="unsupported">Not supported by the evidence</span> A. Clear the concern because the fiat payments reached the customer's own account at a genuine exchange.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The Financial Ombudsman Service describes a scam in which a person is persuaded to pay money into an account in their own name, such as a cryptocurrency account, before sending cryptocurrency to the fraudster, sometimes called a me-to-me scam. <a href="#source-8">[8]</a> The FCA says scam adverts often link to professional-looking websites where fraudsters may fake prices and returns. <a href="#source-4">[4]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>The exchange leg is genuine, which is the Legitimate Node Trap in its plainest form. The exchange does not control or validate the external wallets, and it does not validate the dashboard. A genuine first hop says nothing about where the value went next.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Do not clear the file. Trace the route from the exchange account to the external addresses and record who controlled each.</p></div>
+      </div>
+    </div>
+    <div class="isi-optfb" id="optfb-real-exchange-b" data-option="b" data-grade="best">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="best">Best supported by the evidence</span> B. Record a suspected investment scam, preserve the full fiat and on-chain route, stop further payment if possible, and assess prevention, recovery and reimbursement under their separate applicable standards.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The FCA describes fake platforms that display manipulated prices and returns, where a customer may not realise it is a scam until they try to sell. <a href="#source-4">[4]</a> The Financial Ombudsman Service says the Faster Payments and CHAPS reimbursement rules do not cover payments in cryptocurrency or payments to an account under the consumer's control, and that it will still investigate whether the firm could have done more to prevent the scam and what it did to recover the money. <a href="#source-6">[6]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>The exchange is a genuine node, but it does not control or validate the external wallets or the dashboard. The customer lacks control of the destination, the trades are not independently evidenced and the withdrawal request has produced a further payment demand. Those facts support a suspected scam assessment. Scheme scope does not decide whether a scam occurred.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Preserve exchange and wallet records, transaction hashes, communications and the advertisement. Attempt available intervention or recovery. Prevent further payment where the firm's authority and controls permit. Route reimbursement and complaint analysis separately.</p></div>
+      </div>
+    </div>
+    <div class="isi-optfb" id="optfb-real-exchange-c" data-option="c" data-grade="incomplete">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="incomplete">Contains a true point, stops short</span> C. Reject the report because crypto payments are outside the mandatory reimbursement rules.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The Financial Ombudsman Service says the Faster Payments and CHAPS reimbursement rules do not cover payments in cryptocurrency or payments to an account under the consumer's control. It also says that where those rules do not apply it will still investigate whether the firm could have done more to prevent the scam, including for payments to cryptocurrency providers, and will consider warnings and recovery. <a href="#source-6">[6]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>The scope point is accurate and it answers a narrow question: whether a mandatory scheme applies. It does not answer whether a scam occurred, and it does not end the examination of the firm's prevention, warning and recovery conduct.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Record scheme scope as its own finding. Classify the scam evidence on its merits, and let the complaint and prevention analysis follow the rules that apply to the route and date.</p></div>
+      </div>
+    </div>
+    <div class="isi-optfb" id="optfb-real-exchange-d" data-option="d" data-grade="unsupported">
+      <p class="isi-optfb-head"><span class="isi-grade" data-grade="unsupported">Not supported by the evidence</span> D. Advise the customer to pay the release fee so the withdrawal can prove whether the platform is genuine.</p>
+      <div class="isi-saa">
+        <div class="isi-saa-block"><h4>Source</h4><p>The FCA says a customer may not realise they have invested in a scam until they try to sell, that people who have been scammed may be targeted again, and that a follow-up scam can include an offer to get the money back or an offer to buy back the investment after a fee is paid. <a href="#source-4">[4]</a></p></div>
+        <div class="isi-saa-block"><h4>Application</h4><p>The withdrawal request has already produced a payment demand in place of a withdrawal. Paying to test the platform asks the customer to fund the test with more money, and a demand like this fits deception more readily than it fits a genuine platform. That is our reading of the facts. The FCA does not describe this exact demand.</p></div>
+        <div class="isi-saa-block"><h4>Action</h4><p>Do not advise payment. Warn the customer, preserve the demand, and stop further payment where the firm's authority and controls permit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="isi-section" id="what-would-change">
   <h2>What would change the assessment?</h2>
   <p>A conclusion at the evidence date is a position, not a verdict. These facts would move it.</p>
@@ -316,7 +448,7 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 </main>
 <aside class="isi-toc" aria-label="On this page">
 <strong>Investigation route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#node-trap">The Legitimate Node Trap</a></li><li><a href="#streams">Four evidence streams</a></li><li><a href="#evidence-table">Evidence table</a></li><li><a href="#three-decisions">Three decisions</a></li><li><a href="#source-limits">What the sources say</a></li><li><a href="#what-would-change">What would change it</a></li><li><a href="#sources">Sources</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#node-trap">The Legitimate Node Trap</a></li><li><a href="#streams">Four evidence streams</a></li><li><a href="#evidence-table">Evidence table</a></li><li><a href="#three-decisions">Three decisions</a></li><li><a href="#source-limits">What the sources say</a></li><li><a href="#scenario-one">Scenario 1</a></li><li><a href="#scenario-two">Scenario 2</a></li><li><a href="#what-would-change">What would change it</a></li><li><a href="#sources">Sources</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

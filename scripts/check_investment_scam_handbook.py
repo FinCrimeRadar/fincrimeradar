@@ -215,11 +215,65 @@ def check_r8() -> None:
             "table must not use the classes brand.js wraps")
 
 
+GRADE_LABELS = {
+    "best": "Best supported by the evidence",
+    "incomplete": "Contains a true point, stops short",
+    "unsupported": "Not supported by the evidence",
+}
+EXPECTED_OPTION_GRADES = {
+    "clone-firm": {"a": "unsupported", "b": "best", "c": "unsupported", "d": "incomplete"},
+    "real-exchange": {"a": "unsupported", "b": "best", "c": "incomplete", "d": "unsupported"},
+}
+BLAME_WORDS = ("negligent", "careless", "gullible", "naive", "complicit", "foolish", "at fault")
+
+
+def scenario_sections(html: str) -> dict[str, str]:
+    found = re.findall(r'(<section class="isi-section" id="scenario-(?:one|two)" data-scenario="([^"]+)">.*?</section>)', html, re.S)
+    return {scenario: block for block, scenario in found}
+
+
+def check_r6() -> None:
+    """R6: two distinct scenarios with graded options, complete Source, Application, Action reasoning and accessible feedback."""
+    html = html_text()
+    scenarios = scenario_sections(html)
+    require(sorted(scenarios) == sorted(EXPECTED_OPTION_GRADES), f"scenarios found: {sorted(scenarios)}")
+    tags = [re.search(r'isi-scenario-tag">([^<]*)<', block).group(1) for block in scenarios.values()]
+    require(len(set(tags)) == 2, "the two scenarios must target different evidence streams")
+    for scenario, block in scenarios.items():
+        form = re.search(r'<form class="isi-choice" data-decision-form data-scenario-id="([^"]+)".*?</form>', block, re.S)
+        require(form is not None and form.group(1) == scenario, f"{scenario} decision form is missing or mislabelled")
+        form_html = form.group(0)
+        radio_pattern = (r'<input type="radio" name="[^"]+" value="(\w)" data-grade="(\w+)" '
+                         r'data-grade-label="([^"]+)"><span><strong>([A-D])\.</strong> (.*?)</span>')
+        radios = re.findall(radio_pattern, form_html, re.S)
+        require([r[0] for r in radios] == ["a", "b", "c", "d"], f"{scenario} must offer four options in order")
+        require({r[0]: r[1] for r in radios} == EXPECTED_OPTION_GRADES[scenario], f"{scenario} option grades differ from the contract")
+        require(all(GRADE_LABELS[r[1]] == r[2] for r in radios), f"{scenario} grade labels differ from the contract")
+        require(sum(1 for r in radios if r[1] == "best") == 1, f"{scenario} must have exactly one best option")
+        require('<p class="isi-feedback" aria-live="polite" role="status"></p>' in form_html, f"{scenario} feedback region needs aria-live and role=status")
+        require("<legend>" in form_html and "<fieldset>" in form_html, f"{scenario} options must sit in a fieldset with a legend")
+        pieces = re.split(r'<div class="isi-optfb" id="([^"]+)" data-option="(\w)" data-grade="(\w+)">', block)
+        analyses = list(zip(pieces[1::4], pieces[2::4], pieces[3::4], pieces[4::4]))
+        require([a[1] for a in analyses] == ["a", "b", "c", "d"], f"{scenario} must analyse every option, found {[a[1] for a in analyses]}")
+        for (analysis_id, option, grade, body), radio in zip(analyses, radios):
+            require(grade == radio[1] and analysis_id == f"optfb-{scenario}-{option}", f"{scenario} analysis {option} does not match its option")
+            require(radio[4].strip() in body, f"{scenario} analysis {option} does not restate its option")
+            require(f'<span class="isi-grade" data-grade="{grade}">{GRADE_LABELS[grade]}</span>' in body, f"{scenario} analysis {option} badge is wrong")
+            layers = re.findall(r'<div class="isi-saa-block"><h4>(\w+)</h4><p>(.*?)</p></div>', body, re.S)
+            require([l[0] for l in layers] == ["Source", "Application", "Action"], f"{scenario} analysis {option} needs Source, Application, Action")
+            require(all(len(re.sub(r"<[^>]+>", "", l[1])) > 60 for l in layers), f"{scenario} analysis {option} has a thin layer")
+            require(re.search(r'href="#source-\d"', layers[0][1]) is not None, f"{scenario} analysis {option} Source layer is uncited")
+        visible = re.sub(r"<[^>]+>", " ", block).lower()
+        for word in BLAME_WORDS:
+            require(word not in visible, f"{scenario} uses blaming wording {word!r}")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
     ("R3", check_r3),
     ("R4", check_r4),
+    ("R6", check_r6),
     ("R8", check_r8),
 ]
 
