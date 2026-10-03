@@ -11,27 +11,51 @@ name: Sync Scenario Lab cases to fincrimeradar-api
 # picks up the fresh file. Without this, the build-time fetch alone only
 # keeps deploys that happen anyway from being stale, it does nothing if
 # nobody remembers to trigger one.
+#
+# The deploy-hook response only acknowledges the request. Success is proven
+# by polling the live API until its entity_id set and per-module counts
+# match this repo's file exactly (scripts/verify_scenario_lab_sync.py).
+# FINCRIMERADAR_API_DEPLOY_REF is a non-secret repository variable naming the
+# fincrimeradar-api commit to deploy, passed to Render as ?ref=.
 on:
   push:
     branches: [main]
     paths:
       - "scenario-lab/data/cases.json"
+  workflow_dispatch:
 
-# No checkout step and no GitHub API calls anywhere in this job, only an
-# outbound curl to an external Render URL using a repo secret, so the
-# GITHUB_TOKEN needs zero scope, not even read access to repo contents.
-permissions: {}
+# Checkout needs read access to contents, nothing else. The Render call is an
+# outbound curl using a repo secret.
+permissions:
+  contents: read
 
 jobs:
   trigger-api-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 35
     steps:
+      - uses: actions/checkout@v4
+
       - name: Trigger fincrimeradar-api Render deploy
         env:
           RENDER_DEPLOY_HOOK_FINCRIMERADAR_API: ${{ secrets.RENDER_DEPLOY_HOOK_FINCRIMERADAR_API }}
+          FINCRIMERADAR_API_DEPLOY_REF: ${{ vars.FINCRIMERADAR_API_DEPLOY_REF }}
         run: |
+          if [ -z "$FINCRIMERADAR_API_DEPLOY_REF" ]; then
+            echo "::error::FINCRIMERADAR_API_DEPLOY_REF repository variable is not set, refusing to trigger a deploy of an unspecified API revision. Add it in this repo's Settings > Secrets and variables > Actions > Variables, value is the approved fincrimeradar-api commit SHA."
+            exit 1
+          fi
+          if ! printf '%s' "$FINCRIMERADAR_API_DEPLOY_REF" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "::error::FINCRIMERADAR_API_DEPLOY_REF must be a full 40-character lowercase hex commit SHA."
+            exit 1
+          fi
           if [ -z "$RENDER_DEPLOY_HOOK_FINCRIMERADAR_API" ]; then
             echo "::error::RENDER_DEPLOY_HOOK_FINCRIMERADAR_API secret is not set, cannot trigger the fincrimeradar-api deploy. Add it in this repo's Settings > Secrets and variables > Actions, value from the Render dashboard, fincrimeradar-api service > Settings > Deploy Hook."
             exit 1
           fi
-          curl -fsSL -X POST "$RENDER_DEPLOY_HOOK_FINCRIMERADAR_API"
+          # -sS without -v: never echo the hook URL. Response is acknowledgement only.
+          curl -fsS -o /dev/null -X POST "${RENDER_DEPLOY_HOOK_FINCRIMERADAR_API}&ref=${FINCRIMERADAR_API_DEPLOY_REF}"
+          echo "Render deploy requested for ref ${FINCRIMERADAR_API_DEPLOY_REF}. Verifying live API next."
+
+      - name: Verify live API matches repository cases
+        run: python3 scripts/verify_scenario_lab_sync.py --timeout 1500 --interval 30 --request-timeout 90
