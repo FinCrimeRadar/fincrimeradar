@@ -135,9 +135,35 @@ def check_r2() -> None:
         require(needle in question, f"question section is missing {needle!r}")
 
 
+def check_r3() -> None:
+    """R3: Legitimate Node Trap and four evidence streams are present and labelled as FinCrimeRadar analysis."""
+    html = html_text()
+    model = text_model()
+    trap = model.section_text("node-trap")
+    require("Legitimate Node Trap" in trap and "FinCrimeRadar assessment" in trap, "trap must be named and labelled as our assessment")
+    require("what this establishes" in trap and "what this does not establish" in trap, "two-sentence discipline is missing")
+    require(re.search(r'<h2>The Legitimate Node Trap</h2>', html) is not None, "trap h2 is missing")
+    streams = model.section_text("streams")
+    require("our own investigative structure" in streams and "not a legal test" in streams, "streams must be labelled as FinCrimeRadar structure")
+    order = [m.start() for m in (re.search(f'id="stream-{name}"', html) for name in ("proposition", "identity", "journey", "money"))
+             if m]
+    require(len(order) == 4 and order == sorted(order), "the four evidence streams must be present in order")
+    for number, name in enumerate(("The proposition", "The identity", "The journey", "The money route"), 1):
+        require(re.search(rf'<span class="isi-stream-no">{number}</span> {name}</h3>', html) is not None, f"stream {number} heading missing")
+    decisions = model.section_text("three-decisions")
+    for label in ("Probable investment scam", "Unresolved but high risk", "Genuine investment loss or dispute", "Insufficient evidence"):
+        require(label in decisions, f"classification label {label!r} missing")
+    require("not legal categories" in decisions, "classification labels must be marked as non-legal")
+    for heading in ("1. Classification", "2. Containment and recovery", "3. Escalation and routing"):
+        require(heading in decisions, f"decision heading {heading!r} missing")
+    change = re.search(r'<ul class="isi-change">(.*?)</ul>', html, re.S).group(1)
+    require(change.count("<li>") == 7, "what-would-change must list seven conditions")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
+    ("R3", check_r3),
 ]
 
 
