@@ -28,10 +28,11 @@ Status meanings:
 - **BLOCKED:** a named external dependency prevents progress.
 - **PAUSED:** valid work deliberately held pending evidence of user value or a specific decision.
 - **PARKED:** not scheduled and not part of the active rotation.
+- **COMPLETE:** closed work retained as an evidence record; it is not an active queue item.
 
 ## Current shipped baseline
 
-Production was last checked independently on 14 September 2026. Repository-derived facts below (FinCrime Week issue, ledger count, Scenario Lab case count) were refreshed from the working tree on 3 October 2026 at HEAD 125045a. That refresh is not a production audit. The one live observation made that day was a read-only request to the Scenario Lab API, which still returned 17 cases.
+Production outside the Scenario Lab synchronisation was last checked independently on 14 September 2026. Repository-derived facts below were refreshed from the working tree on 3 October 2026 at HEAD 125045a; that refresh was not a full production audit. The Scenario Lab API was separately verified on 3 October 2026 and served the repository's 19 unique cases exactly.
 
 ### Knowledge Hub
 
@@ -47,7 +48,7 @@ Production was last checked independently on 14 September 2026. Repository-deriv
 
 ### Product and publishing capability
 
-- Scenario Lab's static production release contains 19 cases: KYC and KYB 5, Fraud Detection 6, Risk Scoring 8. The live API still returns the previous 17-case payload, so the page currently exposes all 19 through its completeness-checked local fallback.
+- Scenario Lab's static production release contains 19 cases: KYC and KYB 5, Fraud Detection 6, Risk Scoring 8. The live API served the same 19 unique cases at the 3 October 2026 synchronisation closure recorded under Next Up. The page's local fallback remains in place but is no longer masking a stale API.
 - SAR Writing Sandbox is live on the API service with three practice cases. Case files are schema validated at load; five W, transaction and speculative scoring use only learner-verified evidence. Red-flag credit remains model-judged (see Build Loop).
 - Screening and PEP search, Knowledge Hub domain filtering, weekly digest and FinCrime Week are shipped.
 - FinCrime Week issues W36 to W39 are present on main; W39 (21 to 27 September 2026) is the current issue per the latest content commit.
@@ -67,13 +68,22 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
-### Scenario Lab cases 7 and 8 release
+### Scenario Lab API synchronisation: COMPLETE, 3 October 2026
 
-- **Status:** BLOCKED. Commit ca5e3ac is on main and origin/main. The GitHub sync workflow succeeded and requested Render deploy dep-dap6bjijnfac73amjlbg, but the live API still returns 17 cases. The external API deployment state prevents release closure.
-- **Verification owner:** Codex research session, 12 September 2026; primary sources rechecked during implementation on 22 September 2026.
-- **Primary sources or repository evidence checked:** OFSI's Citibank N.A. London Branch penalty notice; SI 2026/621 regulation 19; HM Treasury's June 2026 Money Laundering Advisory Notice; the existing Risk Scoring schema and live-payload fallback contract.
-- **Review date:** 22 September 2026.
-- **Verification outcome:** source propositions confirmed; two deterministic cross-reference cases committed and pushed; local schema, JavaScript syntax, ledger and browser checks passed. Static production serves the 19-case data and the live page shows Risk Scoring cases 7 and 8 through its local fallback. GitHub Actions run 35721418857 succeeded, but the API remained at 17 cases after the triggered deployment, so API sync is not verified.
+Closes the Scenario Lab cases 7 and 8 release. No other item is in Next Up.
+
+- **Status:** COMPLETE. The live API serves the repository's cases exactly. The blocker is removed and Build Loop gating may resume. This record does not gate or approve any new case.
+- **Evidence:**
+  - GitHub Actions run 37151431128 passed (https://github.com/FinCrimeRadar/fincrimeradar/actions/runs/37151431128).
+  - Render deployment dep-db0m932d0e5s73c8i8ug succeeded in 1 minute 27 seconds.
+  - The deployed API commit was the approved SHA 00a69a2f342f53760af569bb3d64b93c0531a84c.
+  - Render logged "cases.json synced from fincrimeradar main".
+  - The workflow's exact repository versus production comparison passed after four polling attempts.
+  - A subsequent independent live API check passed on its first attempt.
+  - Production contains 19 unique cases: KYC 5, Fraud 6, Risk Scoring 8. The previously missing risk-fatf-grey-list-change-108 and risk-sanctions-alert-surge-107 are live.
+- **Root cause:** the Render dashboard build-command override installed dependencies but did not fetch the frontend cases.json, so the render.yaml fetch never ran. Triggering a deployment was therefore not proof of synchronisation. The earlier deploy dep-dap6bjijnfac73amjlbg and run 35721418857 had succeeded without syncing.
+- **Control outcome:** the corrected Render build command fetches the source file and is guarded against deploying an unapproved API commit. FINCRIMERADAR_API_DEPLOY_REF is set to the same approved SHA in GitHub and Render. Future API releases must update both values. A mismatch fails closed rather than deploying an unintended commit.
+- **Release proof standard:** direct API inventory comparison (sorted entity_id set and per-module counts, scripts/verify_scenario_lab_sync.py) is the release proof for Scenario Lab case changes. Browser display alone is insufficient because the frontend fallback can mask a stale API.
 
 ## Polish Loop
 
@@ -82,8 +92,7 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 - **Evidence Essay viewport restoration:** the narrow-screen source-record reparent works on both Evidence Essays, but restoration after widening has not been proven on a real device or genuine responsive-mode viewport. This is an unverified transition, not a confirmed defect.
 - **Classification Asymmetry scenario depth:** the guide has one worked scenario and no formal counterfactual. Decide whether to add a second scenario, add a formal counterfactual, or document a historical exception to the current standard.
 - **Scenario Lab dispatch hardening:** replace conflicting silent module fallbacks with one explicit per-module dispatch map that fails loudly for an unknown module.
-- **Scenario Lab case sync proof:** the first production exercise completed the GitHub Action and triggered Render deploy dep-dap6bjijnfac73amjlbg, but the API continued to serve the old 17-case payload. Root cause confirmed: Render dashboard configuration drift. The effective build command is only `pip install -r requirements.txt`, so the render.yaml case fetch never runs. The deploy hook targets the correct service. The sync workflow now carries a pinned deploy ref and a live-API comparison step (local commit, not yet pushed or run). The path stays unproven until a production run passes that comparison.
-- **Scenario Lab API load-crash pattern:** routes_scenario_lab.py `_load_cases` can crash app import on one bad file; reuse the fincrimeradar-api PR #3 pydantic validation. Also test whether the Render buildCommand's raw.githubusercontent.com fetch served a CDN-cached 17-case cases.json during deploy dep-dap6bjijnfac73amjlbg.
+- **Scenario Lab API load-crash pattern:** routes_scenario_lab.py `_load_cases` can crash app import on one bad file; reuse the fincrimeradar-api PR #3 pydantic validation.
 - **Screening cold-path latency:** last measured at 6.6 to 9.9 seconds. Re-measure before changing anything. First test a smaller OpenSanctions result limit with explicit truncation escalation; parallel RSS work can only recover a minor share of the delay.
 - **Quiz-title heading gap (fleet-wide, found and confirmed fixable 2026-09-17):** the Knowledge Check title renders as a plain `<div class="quiz-title">`, not a heading, breaking the h1 to h2 outline for screen-reader navigation. Fixed on stablecoin-series-guide-1.html the same day, verified live at 320px and 768px: change to `<h2 class="quiz-title">`, and where the quiz-section wrapper also carries the article-section class, add a scoped `.quiz-section h2 { color:#fff; }` override, since without it the heading inherits `.article-section h2`'s navy color against the quiz section's own navy background and renders invisible, confirmed with a computed-style check before and after the fix. Confirmed by wrapper class and live computed-style check, not assumed, across 25 shipped guides in two groups. Five guides carry `class="quiz-section article-section"` and need both the tag change and the override: a7a5-sanctions-evasion-guide.html, freezing-a-stablecoin-guide.html, stablecoin-financial-crime-guide.html, systemic-stablecoins-guide.html, why-stablecoins-compliance-priority-guide.html. The remaining twenty carry `class="quiz-section"` alone, with no competing `.article-section h2` rule, so the tag change alone should suffice, confirmed live on adverse-media-intelligence-guide.html: adverse-media-intelligence-guide.html, ai-agent-transaction-guide.html, crypto-travel-rule-sunrise-guide.html, deepfake-onboarding-guide.html, false-positive-playbook.html, fatf-guide-part1.html, fatf-guide-part2.html, fraud-investigation-playbook.html, fraud-red-flags-guide.html, kyc-onboarding-dilemma.html, money-mule-financial-crime-networks-handbook.html, perpetual-kyc-framework-guide.html, private-markets-financial-crime-investigation-handbook.html, scam-compound-money-laundering-guide.html, screening-algorithm-tuning-guide.html, shadow-fleet-guide-part1.html, shadow-fleet-guide-part2.html, source-of-wealth-investigation-handbook.html, synthetic-identity-device-network-guide.html, ubo-investigation-handbook.html. learn.html also matches the quiz-title class name but is a visually distinct inline badge component with its own already-legible blue-on-white styling, not part of this bug. CSS-only, no logic change, so this does not need external review before execution, just a scripted batch pass with a spot-check on at least one guide from each group before and after, since the two groups need different treatment and the adverse-media-intelligence-guide.html result should not be assumed to generalise to all twenty untested.
 - **Fleet-wide skip-link focus target gap:** classification-asymmetry-guide.html's #main-content skip-link target has no tabindex="-1", so activating the skip link scrolls but does not move focus, a WCAG failure. Found while fixing gambling-white-label-blind-spot-guide.html (18 September 2026, commit 36907ab, confirmed via production browser check). Likely affects every guide sharing this skip-link pattern. Needs a scan across all guides using #main-content as a skip target, then a scripted batch fix, same shape as the quiz-title heading gap entry above. RESEARCH until scope is confirmed across guides, not Next Up.
@@ -109,7 +118,7 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Build Loop
 
-Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are in the release queue above. Further expansion remains gated by the queue rules and evidence of user value.
+Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are released and the API synchronisation blocker closed on 3 October 2026, so queue-rule gating may resume. Further expansion remains gated by the queue rules and evidence of user value. No new case has been gated or approved.
 
 ### Research candidates
 
