@@ -8899,7 +8899,7 @@
     "reviewDue": "2027-04-03",
     "status": "verified",
     "location": "investment-scam-investigation-handbook.html, Evidence streams (the identity) and What the sources say (authorisation, registration, permission and contact details)",
-    "note": "FCA consumer guidance, not a rule. The page does not use the phrase \"distinct checks\". The distinction is carried by its separate definitions of authorised and registered and its permission check, and the handbook states it as the FCA's description, not as a statutory test. Flagged for independent regulatory review against the final wording before release."
+    "note": "FCA consumer guidance, not a rule. The page does not use the phrase \"distinct checks\". The distinction is carried by its separate definitions of authorised and registered and its permission check, and the handbook states it as the FCA's description, not as a statutory test. Independent regulatory review passed on 3 October 2026."
   },
   {
     "claimId": "investment-scam-handbook.clone-contact-match.002",
@@ -8967,7 +8967,7 @@
     "reviewDue": "2027-01-03",
     "status": "verified",
     "location": "investment-scam-investigation-handbook.html, What the sources say (crypto promotions and registered exchanges)",
-    "note": "Change-sensitive, so the review interval is three months. The page text describes the regime as it began on 8 October 2023 and refers to legislation then before Parliament. The handbook does not reproduce the communication routes or penalties and says why. Flagged for independent regulatory review against the final wording before release."
+    "note": "Change-sensitive, so the review interval is three months. The page text describes the regime as it began on 8 October 2023 and refers to legislation then before Parliament. The handbook does not reproduce the communication routes or penalties and says why. Independent regulatory review passed on 3 October 2026."
   },
   {
     "claimId": "investment-scam-handbook.reimbursement-route-scope.006",
@@ -8984,12 +8984,22 @@
     "reviewDue": "2027-01-03",
     "status": "verified",
     "location": "investment-scam-investigation-handbook.html, What the sources say (reimbursement scope), Scenario 2, Knowledge check question 4",
-    "note": "Change-sensitive, so the review interval is three months. The page carries no date, so source.date records the date the page was read. Only the PSR page description of PS25/5 was read. The PS25/5 document and the legal instruments were not analysed, and the handbook says so. Flagged for independent regulatory review against the final wording before release.",
+    "note": "Change-sensitive, so the review interval is three months. The page carries no date, so source.date records the date the page was read. Independent regulatory review passed on 3 October 2026. It checked PS25/5, the Pay.UK FPS Reimbursement Rules Schedule 4 version 4.0 dated 1 May 2026 and the Bank of England's current CHAPS reimbursement rules (Annex A to the CHAPS Reference Manual) against the handbook's reimbursement wording. During implementation the scope provisions of the two rule documents were also read as text (Schedule 4 rule 3.10, CHAPS Annex A definition of a CHAPS APP scam payment). Both define an in-scope payment by settlement through FPS or CHAPS and receipt in a UK relevant account that is not controlled by the consumer. Neither text uses the word cryptocurrency, so the cryptocurrency statement in the claim rests on the Ombudsman page and the own-account statement is also visible in the rule text. The PSR legal instruments themselves were not analysed.",
     "additionalSources": [
       {
         "title": "Payment Systems Regulator, PS25/5 APP scams reimbursement requirement",
         "url": "https://www.psr.org.uk/publications/policy-statements/ps255-app-scams-reimbursement-requirement/",
         "publisher": "Payment Systems Regulator"
+      },
+      {
+        "title": "Pay.UK, FPS Reimbursement Rules, Schedule 4, Version 4.0 (1 May 2026)",
+        "url": "https://www.wearepay.uk/wp-content/uploads/2024/12/FPS-Reimbursement-Rules-Schedule-4-v4.0.pdf",
+        "publisher": "Pay.UK"
+      },
+      {
+        "title": "Bank of England, Annex A to the CHAPS Reference Manual: CHAPS Reimbursement Rules",
+        "url": "https://www.bankofengland.co.uk/-/media/boe/files/payments/chaps/chaps-reimbursement--rules-annex-1.pdf",
+        "publisher": "Bank of England"
       }
     ]
   },
@@ -9008,7 +9018,7 @@
     "reviewDue": "2027-01-03",
     "status": "verified",
     "location": "investment-scam-investigation-handbook.html, What the sources say (reimbursement scope), Scenario 2 options A to C, Knowledge check question 4",
-    "note": "Change-sensitive, so the review interval is three months. The page carries no date, so source.date records the date the page was read. The Ombudsman says it \"may ask\" a firm to reimburse where the firm could and should have prevented the loss. The handbook does not state that a missed intervention creates liability. Flagged for independent regulatory review against the final wording before release."
+    "note": "Change-sensitive, so the review interval is three months. The page carries no date, so source.date records the date the page was read. The Ombudsman says it \"may ask\" a firm to reimburse where the firm could and should have prevented the loss. The handbook does not state that a missed intervention creates liability. Independent regulatory review passed on 3 October 2026."
   },
   {
     "claimId": "investment-scam-handbook.report-and-recovery-scam.008",

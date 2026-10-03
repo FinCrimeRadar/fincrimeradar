@@ -785,7 +785,7 @@ def require_static_state(state: dict[str, Any], label: str) -> None:
     require(state["controls"] and all(d == "none" for d in state["controls"]), f"{label}: action buttons must be hidden: {state['controls']}")
     require(state["analyses"] == 8, f"{label}: all eight option analyses must be visible, found {state['analyses']}")
     require(state["counterfactuals"] == 2 and state["evidenceRows"] == 8 and state["patterns"] == 10, f"{label}: counterfactuals, evidence rows or cards missing: {state}")
-    require(state["summary"] and state["sources"] == 8 and state["faq"] == 6 and state["notes"] == 5, f"{label}: summary, sources, FAQ or answer notes missing: {state}")
+    require(state["summary"] and state["sources"] == 10 and state["faq"] == 6 and state["notes"] == 5, f"{label}: summary, sources, FAQ or answer notes missing: {state}")
     require(state["mainHeight"] > 8000, f"{label}: the article is unexpectedly short: {state['mainHeight']}")
     require(not state["missing"], f"{label}: reasoning text missing: {state['missing']}")
 

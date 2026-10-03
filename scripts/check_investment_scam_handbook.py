@@ -179,11 +179,13 @@ def check_r4() -> None:
     broken = sorted({h for h in re.findall(r'href="#([^"]+)"', html) if h not in ids})
     require(not broken, f"in-page links do not resolve: {broken}")
     body_html = html.split('<section class="isi-section isi-sources"')[0]
-    cited = set(re.findall(r'href="#source-(\d)"', body_html))
+    cited = set(re.findall(r'href="#source-(\d+)"', body_html))
     require(cited == {str(n) for n in range(1, 9)}, f"sources cited in the body: {sorted(cited)}")
     sources = re.search(r'<section class="isi-section isi-sources".*?</section>', html, re.S).group(0)
-    entries = re.findall(r'<li id="source-(\d)"><a href="(https://[^"]+)"', sources)
-    require([e[0] for e in entries] == [str(n) for n in range(1, 9)], "source list must hold sources 1 to 8 in order")
+    entries = re.findall(r'<li id="source-(\d+)"><a href="(https://[^"]+)"', sources)
+    require([e[0] for e in entries] == [str(n) for n in range(1, 11)], "source list must hold sources 1 to 10 in order")
+    require(all(f'href="#source-{n}"' in sources for n in (7, 9, 10)), "the methodology must cite PS25/5, Schedule 4 and the CHAPS rules it says were reviewed")
+    require("independent review on 3 October 2026 checked PS25/5" in sources and "legal instruments themselves were not analysed" in sources, "the methodology must record what the independent review checked and what was not analysed")
     require("Last reviewed" in sources and "not legal advice" in sources, "sources section needs its review date and scope note")
 
 
@@ -392,7 +394,7 @@ CLAIM_PLAN = {
     "crypto-promotion-scope.005": ((5,), [
         "regardless of whether the firm is based overseas or what technology is used",
         "mobile apps, social media posts and online advertising"]),
-    "reimbursement-route-scope.006": ((6, 7), [
+    "reimbursement-route-scope.006": ((6, 7, 9, 10), [
         "came into force on 7 october 2024",
         "do not cover payments in cryptocurrency or payments to an account under the consumer's control",
         "general guidance that consolidates earlier publications"]),
@@ -421,7 +423,7 @@ def check_r5() -> None:
     require(sorted(ours) == sorted(CLAIM_PREFIX + key for key in CLAIM_PLAN), f"ledger claim ids are {sorted(ours)}")
     html = html_text()
     sources = re.search(r'<section class="isi-section isi-sources".*?</section>', html, re.S).group(0)
-    listed = {int(n): (url, li) for n, url, li in re.findall(r'<li id="source-(\d)"><a href="([^"]+)"[^>]*>.*?</a>(.*?)</li>', sources, re.S)}
+    listed = {int(n): (url, li) for n, url, li in re.findall(r'<li id="source-(\d+)"><a href="([^"]+)"[^>]*>.*?</a>(.*?)</li>', sources, re.S)}
     body = html.split('<section class="isi-section isi-sources"')[0]
     text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body)).lower()
     text = text.replace("’", "'")
@@ -439,11 +441,12 @@ def check_r5() -> None:
             require(date == __import__("datetime").datetime.strptime(printed, "%d %B %Y").strftime("%Y-%m-%d"), f"{key} source date {date} differs from the page")
         require(entry["reviewDue"] > entry["verifiedOn"], f"{key} reviewDue must follow verifiedOn")
     covered = {n for numbers, _ in CLAIM_PLAN.values() for n in numbers}
-    cited = {int(n) for n in re.findall(r'href="#source-(\d)"', body)}
+    cited = {int(n) for n in re.findall(r'href="#source-(\d+)"', body)}
     require(cited <= covered, f"sources cited in the body with no ledger claim: {sorted(cited - covered)}")
     flagged = {key.rsplit(".", 1)[1] for key in CLAIM_PLAN}
     for number in ("001", "005", "006", "007"):
-        require("independent regulatory review" in ours[next(k for k in ours if k.endswith("." + number))]["note"], f"claim {number} must be flagged for independent review")
+        note = ours[next(k for k in ours if k.endswith("." + number))]["note"]
+        require("Independent regulatory review passed on 3 October 2026" in note and "Flagged for independent" not in note, f"claim {number} must record the passed independent review")
     require(flagged == {f"{n:03d}" for n in range(1, 10)}, "claim numbers must run 001 to 009")
 
 
