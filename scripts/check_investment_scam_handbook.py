@@ -353,7 +353,8 @@ def check_r10() -> None:
                      ".isi-option:has(input:focus-visible)", ".nav-hamburger:focus-visible", "input:focus-visible"):
         require(selector in css, f"missing visible focus rule for {selector}")
     script = SCRIPT.read_text(encoding="utf-8")
-    require("details" not in script and "summary" not in script, "the FAQ must not depend on JavaScript")
+    require(not re.search(r"querySelector(?:All)?\(\s*['\"][^'\"]*(?:details|summary)", script) and ".open =" not in script,
+            "the FAQ must not depend on JavaScript")
     require(not re.search(r"\sonclick=|\sonkeydown=", html), "inline event handlers are not allowed")
 
 
@@ -368,7 +369,7 @@ def check_r11() -> None:
     for rule in (".isi-action{min-height:44px", ".isi-option{min-height:44px", ".isi-details summary{min-height:44px"):
         require(rule in css, f"touch target rule missing: {rule}")
     live = re.findall(r'<[^>]*aria-live="([^"]+)"[^>]*>', html)
-    require(len(live) == 3 and set(live) == {"polite"}, f"expected three polite live regions, found {live}")
+    require(len(live) == 4 and set(live) == {"polite"}, f"expected four polite live regions (two scenarios, the quiz and the image export), found {live}")
     for tag in re.findall(r'<[^>]*aria-live="polite"[^>]*>', html):
         require('role="status"' in tag, f"live region without role=status: {tag}")
 
@@ -539,6 +540,46 @@ def check_r13() -> None:
     require(re.findall(r'<a href="/([^"]+)\.html">', related) == RELATED_SLUGS, "the on-page related links must match the relation set")
 
 
+CLAIM_VOCABULARY = re.compile(r"FCA|Ombudsman|PSR|Payment Systems|regulator|authoris|Warning List|reimburs|Report Fraud|Companies House", re.I)
+
+
+def check_r14() -> None:
+    """R14: the social card, the one-screen summary and the saved image carry nothing the reviewed body copy does not."""
+    import struct
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from generate_social_card import extract_title_subtitle
+
+    html = html_text()
+    summary = re.search(r'<section class="isi-section isi-summary" id="operational-summary">.*?</section>', html, re.S).group(0)
+    body = html.replace(summary, "")
+    body_text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body))
+    lists = re.findall(r'<ol class="isi-summary-list" data-summary="(\w+)">(.*?)</ol>', summary, re.S)
+    require([name for name, _ in lists] == ["streams", "decisions"], "summary needs a streams list and a decisions list")
+    for name, expected in (("streams", 4), ("decisions", 3)):
+        items = re.findall(r"<li><strong>([^<]+)</strong> <span>([^<]+)</span></li>", dict(lists)[name])
+        require(len(items) == expected, f"summary {name} list needs {expected} items, found {len(items)}")
+        for label, sentence in items:
+            require(sentence in body_text, f"summary line is not verbatim body copy: {sentence!r}")
+    require("adds no new claim" in summary, "the summary must say it adds no new claim")
+    require('id="saveSummaryImage"' in html and 'id="saveSummaryStatus" aria-live="polite" role="status"' in html, "the save button and its status region are required")
+    require("#saveSummaryImage{display:none}.js #saveSummaryImage{display:inline-block}" in html, "the save button must stay hidden without JavaScript")
+    script = SCRIPT.read_text(encoding="utf-8")
+    start = script.index("function exportSummary")
+    literals = re.findall(r"'([^'\\]*)'", script[start:]) + re.findall(r'"([^"\\]*)"', script[start:])
+    claims = [l for l in literals if CLAIM_VOCABULARY.search(l)]
+    require(not claims, f"the image export carries wording of its own that looks like a claim: {claims}")
+    require("querySelector('h3')" in script and "isiClosingPatterns" in script and "isiOperationalSummary" in script, "the export must read the page's own text")
+    card = ROOT / f"{SLUG}-social-card.png"
+    require(card.exists(), "social card is missing")
+    data = card.read_bytes()
+    width, height = struct.unpack(">II", data[16:24])
+    require(data[:8] == b"\x89PNG\r\n\x1a\n" and (width, height) == (1200, 630), f"social card is {width}x{height}")
+    require(len(data) <= 400_000, f"social card is {len(data)} bytes, over the 400KB ceiling")
+    h1_title, h1_subtitle = extract_title_subtitle(GUIDE)
+    require((h1_title, h1_subtitle) == (HEADLINE, "Reconstructing the offer, identity and money route"), f"the card source text is {(h1_title, h1_subtitle)}")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -553,6 +594,7 @@ CHECKS = [
     ("R11", check_r11),
     ("R12", check_r12),
     ("R13", check_r13),
+    ("R14", check_r14),
 ]
 
 

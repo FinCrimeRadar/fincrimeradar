@@ -80,12 +80,15 @@ nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:s
 .isi-quiz fieldset{border:0;padding:0;margin:1.25rem 0;min-width:0}.isi-quiz legend{font-weight:700;margin-bottom:.45rem;max-width:100%}#knowledgeForm .isi-action{display:none}.js #knowledgeForm .isi-action{display:inline-block}.isi-quiz .isi-feedback[data-state="best"]{color:#075e57}
 .isi-details details{border:1px solid var(--isi-line);background:#fff;margin:.55rem 0;padding:.8rem 1rem}.isi-details summary{font-weight:700;cursor:pointer;min-height:34px}.isi-details details[open] summary{margin-bottom:.65rem}.isi-answer-notes p{font-size:14.5px}
 @media(max-width:640px){.isi-patterns{grid-template-columns:minmax(0,1fr)}.isi-lines div{grid-template-columns:66px minmax(0,1fr)}}
-.isi-pattern-inline{margin:1.2rem 0}
 a:focus-visible,summary:focus-visible,.isi-action:focus-visible,.isi-option:has(input:focus-visible),.nav-hamburger:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}.isi-optfb:focus{outline:3px solid #0f766e;outline-offset:2px}#main-content:focus{outline:none}
 html{scroll-padding-top:96px}.isi-action{min-height:44px;min-width:44px}.isi-option{min-height:44px}.isi-details summary{min-height:44px;padding:.55rem 0;box-sizing:border-box}.nav-hamburger{min-width:44px;min-height:44px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 .isi-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.isi-related a{display:block;border:1px solid var(--isi-line);padding:1rem;text-decoration:none;background:#fff}.isi-related strong{display:block;color:#073d3a}.isi-related span{color:#536a74;font-size:14px}
 @media(max-width:640px){.isi-related{grid-template-columns:minmax(0,1fr)}}
+.isi-pattern-inline{margin:1.2rem 0}
+.isi-summary{border:2px solid #0f766e;background:#eff9f6}.isi-summary h3{margin:1rem 0 .3rem}.isi-summary-list{list-style:none;padding:0;margin:.4rem 0}.isi-summary-list li{display:grid;grid-template-columns:190px minmax(0,1fr);gap:.8rem;padding:.65rem 0;border-top:1px solid #cce2de}.isi-summary-list strong{color:#075e57}
+.isi-save-row{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin-top:1rem}.isi-save-status{font-size:13px;color:#536a74}#saveSummaryImage{display:none}.js #saveSummaryImage{display:inline-block}
+@media(max-width:640px){.isi-summary-list li{grid-template-columns:minmax(0,1fr);gap:.15rem}}
 @media(max-width:900px){.isi-layout{grid-template-columns:minmax(0,1fr)}.isi-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--isi-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.isi-breadcrumb{align-items:flex-start;flex-wrap:wrap}.isi-hero{padding-top:2.8rem}.isi-core,.isi-saa{grid-template-columns:minmax(0,1fr)}.isi-layout{padding:0 .75rem 3rem;gap:1rem}.isi-scope{padding:0 .75rem}}
 @media(max-width:360px){.isi-section{padding:1rem}.isi-hero h1{font-size:2rem}.isi-meta{gap:.4rem}}
@@ -473,6 +476,27 @@ html{scroll-padding-top:96px}.isi-action{min-height:44px;min-width:44px}.isi-opt
     <li>Evidence that the dispute concerns performance or service rather than false identity, non-existent assets or dishonest inducement.</li>
   </ul>
 </section>
+<section class="isi-section isi-summary" id="operational-summary">
+  <h2>One-screen summary</h2>
+  <p>The method on one page. Every line restates wording from the sections above and adds no new claim.</p>
+  <div id="isiOperationalSummary">
+    <h3>Four evidence streams</h3>
+    <ol class="isi-summary-list" data-summary="streams">
+      <li><strong>The proposition.</strong> <span>Start with what the customer believed they were buying, not the label later given to the case.</span></li>
+      <li><strong>The identity.</strong> <span>Is the person, domain, phone number, account or wallet in this case actually attributable to it?</span></li>
+      <li><strong>The journey.</strong> <span>Reconstruct the persuasion sequence before judging any single message.</span></li>
+      <li><strong>The money route.</strong> <span>Map each transfer as a change of control, not just a line on a statement.</span></li>
+    </ol>
+    <h3>Three decisions</h3>
+    <ol class="isi-summary-list" data-summary="decisions">
+      <li><strong>Classification.</strong> <span>Which explanation best fits the evidence?</span></li>
+      <li><strong>Containment and recovery.</strong> <span>What can still be stopped, recalled, frozen or preserved?</span></li>
+      <li><strong>Escalation and routing.</strong> <span>Which process owns the next decision?</span></li>
+    </ol>
+  </div>
+  <div class="isi-callout"><p class="isi-rule">Write what each fact establishes and what it does not, then connect the four streams.</p></div>
+</section>
+
 <section class="isi-section" id="patterns">
   <h2>Risk, Signal, Response</h2>
   <p class="isi-lede">Five ways a file goes wrong. Each card names the risk, the signal that shows it in the record, and the response.</p>
@@ -498,6 +522,7 @@ html{scroll-padding-top:96px}.isi-action{min-height:44px;min-width:44px}.isi-opt
       <dl class="isi-lines"><div><dt>Risk</dt><dd>The victim is exposed to a second scam.</dd></div><div><dt>Signal</dt><dd>A new party requests an upfront fee to recover funds.</dd></div><div><dt>Response</dt><dd>Treat the recovery offer as a new proposition that needs independent verification, and warn against further payment.</dd></div></dl>
     </div>
   </div>
+  <div class="isi-save-row"><button class="isi-action" id="saveSummaryImage" type="button">Save as image</button><span class="isi-save-status" id="saveSummaryStatus" aria-live="polite" role="status"></span></div>
 </section>
 
 <section class="isi-section isi-quiz" id="knowledge-check">
@@ -581,7 +606,7 @@ html{scroll-padding-top:96px}.isi-action{min-height:44px;min-width:44px}.isi-opt
 </main>
 <aside class="isi-toc" aria-label="On this page">
 <strong>Investigation route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#node-trap">The Legitimate Node Trap</a></li><li><a href="#streams">Four evidence streams</a></li><li><a href="#evidence-table">Evidence table</a></li><li><a href="#three-decisions">Three decisions</a></li><li><a href="#source-limits">What the sources say</a></li><li><a href="#scenario-one">Scenario 1</a></li><li><a href="#scenario-two">Scenario 2</a></li><li><a href="#what-would-change">What would change it</a></li><li><a href="#patterns">Risk, Signal, Response</a></li><li><a href="#knowledge-check">Knowledge check</a></li><li><a href="#faq">FAQ</a></li><li><a href="#sources">Sources</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#node-trap">The Legitimate Node Trap</a></li><li><a href="#streams">Four evidence streams</a></li><li><a href="#evidence-table">Evidence table</a></li><li><a href="#three-decisions">Three decisions</a></li><li><a href="#source-limits">What the sources say</a></li><li><a href="#scenario-one">Scenario 1</a></li><li><a href="#scenario-two">Scenario 2</a></li><li><a href="#what-would-change">What would change it</a></li><li><a href="#operational-summary">One-screen summary</a></li><li><a href="#patterns">Risk, Signal, Response</a></li><li><a href="#knowledge-check">Knowledge check</a></li><li><a href="#faq">FAQ</a></li><li><a href="#sources">Sources</a></li><li><a href="#related">Related</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

@@ -9,6 +9,7 @@ and only that PID is ever terminated.
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import socket
@@ -23,6 +24,7 @@ from typing import Any, Callable
 
 import requests
 import websocket
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 SLUG = "investment-scam-investigation-handbook"
@@ -640,9 +642,9 @@ def check_r11_live_regions(ctx: Context) -> None:
     """R11: every live region is polite and in the document from the start, so announcements are not lost."""
     navigate(ctx.cdp, ctx.url, 390)
     regions = ctx.cdp.evaluate("""[...document.querySelectorAll('[aria-live]')].map(el => ({live: el.getAttribute('aria-live'), role: el.getAttribute('role'),
-      empty: el.textContent === '', id: el.id || el.closest('form').dataset.scenarioId || ''}))""")
-    require(len(regions) == 3 and all(r["live"] == "polite" and r["role"] == "status" and r["empty"] for r in regions), f"live regions: {regions}")
-    print("OK: three polite status regions present and empty at load")
+      empty: el.textContent === '', id: el.id || (el.closest('form') && el.closest('form').dataset.scenarioId) || ''}))""")
+    require(len(regions) == 4 and all(r["live"] == "polite" and r["role"] == "status" and r["empty"] for r in regions), f"live regions: {regions}")
+    print("OK: four polite status regions present and empty at load")
 
 
 # R13 ----------------------------------------------------------------------------------------------
@@ -668,7 +670,69 @@ def check_r13_knowledge_hub(ctx: Context) -> None:
     print(f"OK: Knowledge Hub card visible, count {state['stat']} matches the hero, Fraud filter keeps it")
 
 
+# R14 ----------------------------------------------------------------------------------------------
+
+def check_export_layout(image: Image.Image) -> None:
+    """Every white surface must end shortly after its last text row, so nothing is clipped or floating."""
+    rgb = image.convert("RGB")
+    x = 100
+    runs = []
+    start = None
+    for y in range(rgb.height):
+        white = rgb.getpixel((x, y)) == (255, 255, 255)
+        if white and start is None:
+            start = y
+        if not white and start is not None:
+            if y - 1 - start > 60:  # ignore white glyph strokes in the title
+                runs.append((start, y - 1))
+            start = None
+    require(len(runs) == 6, f"expected the summary panel and five cards in the export, found {len(runs)} white surfaces")
+    for top, bottom in runs:
+        last_text = top
+        for y in range(top, bottom + 1):
+            if any(rgb.getpixel((px, y)) != (255, 255, 255) for px in range(112, 1100, 3)):
+                last_text = y
+        require(bottom - last_text <= 40, f"surface {top}-{bottom} has {bottom - last_text}px of empty space below its text")
+        require(bottom - last_text >= 8, f"surface {top}-{bottom} text runs too close to the edge")
+
+
+def check_r14_image_export(ctx: Context) -> None:
+    """R14: Save as image downloads a 1200px PNG holding the summary panel and the five cards, with no clipped text."""
+    navigate(ctx.cdp, ctx.url, 390)
+    for stale in ctx.downloads.glob(f"{SLUG}-summary*.png"):
+        stale.unlink()
+    ctx.cdp.evaluate("document.getElementById('saveSummaryImage').click()")
+    for _ in range(80):
+        if ctx.cdp.evaluate("document.getElementById('saveSummaryStatus').textContent") == "Summary image created.":
+            break
+        time.sleep(0.1)
+    else:
+        raise AssertionError("Canvas export did not complete")
+    exported: list[Path] = []
+    for _ in range(80):
+        exported = list(ctx.downloads.glob(f"{SLUG}-summary*.png"))
+        if exported and exported[0].stat().st_size > 0:
+            break
+        time.sleep(0.1)
+    else:
+        raise AssertionError("Canvas export file was not downloaded")
+    time.sleep(0.2)
+    with Image.open(exported[0]) as image:
+        rendered = image.convert("RGB")
+        require(image.format == "PNG" and rendered.width == 1200 and rendered.height > 1500, f"export is {image.format} {rendered.size}")
+        require(rendered.getpixel((10, 10)) == (7, 29, 43), "export brand background is missing")
+        require(rendered.getpixel((75, 190)) == (15, 118, 110), "export first block accent is missing")
+        require(rendered.getpixel((100, 190)) == (255, 255, 255), "export first block surface is missing")
+        check_export_layout(image)
+    keep = os.environ.get("ISI_EXPORT_COPY")
+    if keep:
+        shutil.copyfile(exported[0], keep)
+    require(ctx.cdp.evaluate("document.querySelectorAll('#saveSummaryStatus[role=\"status\"]').length") == 1, "export status semantics missing or duplicated")
+    print(f"OK: exported summary image {rendered.width}x{rendered.height}, six surfaces, no clipped text, status region announced")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R14", check_r14_image_export),
     ("R13", check_r13_knowledge_hub),
     ("R11", check_r11_reduced_motion),
     ("R11", check_r11_touch_targets),
