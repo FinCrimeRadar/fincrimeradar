@@ -68,9 +68,17 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
+### Investment Scam Investigation Handbook: Reconstructing the Offer, Identity and Money Route
+
+- **Status:** READY for repository implementation, subject to the normal independent regulatory review before publication. Public format Guide, Default Knowledge Hub treatment. The specification is a research pack dated 3 October 2026 that fixes the analytical model (the Legitimate Node Trap and four evidence streams), both scenarios, nine proposed ledger claims and a Requirement Coverage Matrix.
+- **Verification owner:** GPT/Codex research session, 3 October 2026.
+- **Primary sources or repository evidence checked:** FCA Firm Checker and Financial Services Register guidance, FCA Warning List, FCA scam reporting guidance, FCA crypto investment scam guidance, FCA crypto financial promotions guidance, Financial Ombudsman Service guidance for firms handling authorised scam complaints, PSR consolidated APP reimbursement guidance, and the four overlapping FinCrimeRadar publications (app-scam-decision-framework.html, fraud-investigation-playbook.html, scam-compound-money-laundering-guide.html, money-mule-or-victim-case-file.html).
+- **Review date:** 3 October 2026.
+- **Verification outcome:** PASS. Current primary-source base and a distinct practitioner decision model, with non-overlap shown against the four publications above. No publication claim is approved beyond the propositions and qualifications recorded in the pack. Independent regulatory review is still required for ledger claims 001, 005, 006 and 007 against the final wording before release. Source titles, dates and targets must be rechecked at the release gate.
+
 ### Scenario Lab API synchronisation: COMPLETE, 3 October 2026
 
-Closes the Scenario Lab cases 7 and 8 release. No other item is in Next Up.
+Closes the Scenario Lab cases 7 and 8 release. Retained as an evidence record, not an active queue item.
 
 - **Status:** COMPLETE. The live API serves the repository's cases exactly. The blocker is removed and Build Loop gating may resume. This record does not gate or approve any new case.
 - **Evidence:**
@@ -148,7 +156,7 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are rel
 
 ## Content Loop
 
-Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. There is no verified content candidate in Next Up. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
+Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. The only content item in Next Up is the Investment Scam Investigation Handbook. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
 
 ### Priority research candidates
 
@@ -166,10 +174,9 @@ Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. There is no verifi
 ### Reserve and parked content
 
 - **Repeat AML Failure as a Risk Signal:** moved from the priority list to reserve research. It depends on the FinCEN UBS action and an unverified UK comparator. Find a primary FCA comparator first and do not create a blended US and UK standard.
+- Financial Crime Information Sharing: Can I Tell Another Bank? Next reserve topic, immediately behind the Investment Scam Investigation Handbook. Not yet researched or gated, so it is not READY and no source has been checked.
 - Possible MLRO Handbook Part 3: resourcing benchmarks and the future professional-services AML supervisor.
 - Victim, Mule or Fraudster? The First Party Fraud Decision Handbook. Run an originality check against the shipped Money Mule Case File first.
-- Investment Scam Investigation Handbook.
-- Financial Crime Information Sharing: Can I Tell Another Bank?
 - AI in AML: Where the Model Stops and the Control Begins.
 - Agentic AI in AML: What Should an AI Agent Never Be Allowed to Do Alone? Prove non-overlap with ai-agent-transaction-guide.html first.
 - Australia AML and CTF Tranche 2, parked until the implementation window creates renewed practitioner value.
