@@ -831,7 +831,124 @@ def check_r15_no_flash(ctx: Context) -> None:
         print(f"OK: {width}px no visible flash before the js class ({flash['frames']} frames observed)")
 
 
+# R16 ----------------------------------------------------------------------------------------------
+
+def check_r16_consent_denied(ctx: Context) -> None:
+    """R16: without consent nothing is sent for scenarios, the knowledge check or the image export."""
+    navigate(ctx.cdp, ctx.url, 390)
+    ctx.cdp.evaluate("""(() => {
+      localStorage.removeItem('fcr_cookie_consent_v2');
+      window.__ev = []; window.gtag = (...a) => window.__ev.push(a);
+      document.querySelectorAll('[data-decision-form]').forEach(f => {
+        f.querySelector('input[data-grade="best"]').checked = true;
+        f.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      });
+      document.querySelectorAll('#knowledgeForm input[data-correct="true"]').forEach(i => i.checked = true);
+      document.getElementById('knowledgeForm').dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      document.getElementById('saveSummaryImage').click();
+    })()""")
+    for _ in range(80):
+        if ctx.cdp.evaluate("document.getElementById('saveSummaryStatus').textContent") == "Summary image created.":
+            break
+        time.sleep(0.1)
+    else:
+        raise AssertionError("export did not complete with consent denied")
+    time.sleep(0.2)
+    require(ctx.cdp.evaluate("window.__ev.length") == 0, "a telemetry family fired without consent")
+    for stale in ctx.downloads.glob(f"{SLUG}-summary*.png"):
+        stale.unlink()
+    print("OK: consent denied, scenario, knowledge and export telemetry all stay silent")
+
+
+def check_r16_consented_payloads(ctx: Context) -> None:
+    """R16: with consent each event is aggregate only, identical whichever option was chosen, and sent once."""
+    navigate(ctx.cdp, ctx.url, 390)
+    result = ctx.cdp.evaluate("""(() => {
+      localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
+      window.__ev = []; window.gtag = (...a) => window.__ev.push(a);
+      const net = {fetch: 0, xhr: 0, beacon: 0, storage: 0};
+      const f0 = window.fetch; window.fetch = (...a) => { net.fetch += 1; return f0.apply(window, a); };
+      const x0 = XMLHttpRequest.prototype.send; XMLHttpRequest.prototype.send = function (...a) { net.xhr += 1; return x0.apply(this, a); };
+      navigator.sendBeacon = () => { net.beacon += 1; return true; };
+      const s0 = Storage.prototype.setItem; Storage.prototype.setItem = function (...a) { net.storage += 1; return s0.apply(this, a); };
+      const submit = (form, value) => {
+        form.querySelectorAll('input').forEach(i => i.checked = false);
+        form.querySelector('input[value="' + value + '"]').checked = true;
+        form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      };
+      const clone = document.querySelector('[data-scenario-id="clone-firm"]');
+      submit(clone, 'a'); submit(clone, 'b'); submit(clone, 'c');
+      const afterRepeat = window.__ev.length;
+      const exch = document.querySelector('[data-scenario-id="real-exchange"]');
+      submit(exch, 'd');
+      const k = document.getElementById('knowledgeForm');
+      k.querySelectorAll('input[data-correct="true"]').forEach(i => i.checked = true);
+      k.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      k.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      return {events: window.__ev.map(e => [e[0], e[1], e[2]]), afterRepeat, net,
+              fields: document.querySelectorAll('textarea, select, input:not([type=radio])').length};
+    })()""")
+    require(result["afterRepeat"] == 1, f"repeated Record must send one scenario event: {result}")
+    names = [e[1] for e in result["events"]]
+    require(names == ["scenario_complete", "scenario_complete", "knowledge_check_complete"], f"events sent: {names}")
+    require(all(e[0] == "event" for e in result["events"]), f"only gtag events may be sent: {result['events']}")
+    allowed = {"scenario_complete": {"guide_id", "scenario_id"}, "knowledge_check_complete": {"guide_id", "score", "total"}}
+    for _, name, params in result["events"]:
+        require(set(params) == allowed[name], f"{name} parameters are {sorted(params)}")
+        require(params["guide_id"] == "investment_scam_investigation_handbook", f"guide id is {params['guide_id']}")
+    require(result["events"][0][2] == {"guide_id": "investment_scam_investigation_handbook", "scenario_id": "clone-firm"}, "the chosen option must not appear in the event")
+    require(result["events"][2][2]["score"] == 5 and result["events"][2][2]["total"] == 5, f"knowledge payload: {result['events'][2]}")
+    require(result["net"] == {"fetch": 0, "xhr": 0, "beacon": 0, "storage": 0}, f"the guide made network or storage calls: {result['net']}")
+    require(result["fields"] == 0, "the page must have no free-text, select or file controls")
+    print("OK: consented events are aggregate only, identical whichever option is chosen, sent once, with no network or storage calls")
+
+
+def check_r16_export_payload(ctx: Context) -> None:
+    """R16: the image export event carries only the guide id and the export type."""
+    navigate(ctx.cdp, ctx.url, 390)
+    ctx.cdp.evaluate("""(() => { localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
+      window.__ev = []; window.gtag = (...a) => window.__ev.push(a); document.getElementById('saveSummaryImage').click(); })()""")
+    for _ in range(80):
+        if ctx.cdp.evaluate("window.__ev.length") == 1:
+            break
+        time.sleep(0.1)
+    events = ctx.cdp.evaluate("window.__ev")
+    require(events == [["event", "card_export", {"guide_id": "investment_scam_investigation_handbook", "export_type": "summary_and_patterns"}]], f"export event: {events}")
+    for stale in ctx.downloads.glob(f"{SLUG}-summary*.png"):
+        stale.unlink()
+    print("OK: export event carries only the guide id and export type")
+
+
+def check_r16_consent_timing_and_failure(ctx: Context) -> None:
+    """R16: a send that did not happen does not use up the event, and a failing analytics call is contained."""
+    navigate(ctx.cdp, ctx.url, 390)
+    result = ctx.cdp.evaluate("""(() => {
+      window.__ev = []; window.__errs = 0; window.addEventListener('error', () => { window.__errs += 1; });
+      window.gtag = (...a) => window.__ev.push(a);
+      localStorage.removeItem('fcr_cookie_consent_v2');
+      const f = document.querySelector('[data-scenario-id="clone-firm"]');
+      f.querySelector('input[value="b"]').checked = true;
+      f.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const none = window.__ev.length;
+      localStorage.setItem('fcr_cookie_consent_v2', 'accepted');
+      f.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      f.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      const once = window.__ev.length;
+      window.gtag = () => { throw new Error('analytics down'); };
+      const g = document.querySelector('[data-scenario-id="real-exchange"]');
+      g.querySelector('input[value="b"]').checked = true;
+      g.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+      return {none, once, errs: window.__errs, feedback: g.querySelector('.isi-feedback').textContent.startsWith('Recorded:')};
+    })()""")
+    require(result == {"none": 0, "once": 1, "errs": 0, "feedback": True}, f"consent timing or failure handling: {result}")
+    print("OK: event sent once after consent is given, analytics failure contained")
+
+
 BROWSER_CHECKS: list[tuple[str, Callable[[Context], None]]] = [
+    ("R16", check_r16_consent_denied),
+    ("R16", check_r16_consented_payloads),
+    ("R16", check_r16_export_payload),
+    ("R16", check_r16_consent_timing_and_failure),
     ("R15", check_r15_no_script),
     ("R15", check_r15_script_throws),
     ("R15", check_r15_no_flash),

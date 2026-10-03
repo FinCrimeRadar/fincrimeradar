@@ -639,6 +639,35 @@ def check_r15() -> None:
             "the script must not build reasoning text")
 
 
+TELEMETRY_ALLOW_LIST = {
+    "scenario_complete": {"guide_id", "scenario_id"},
+    "knowledge_check_complete": {"guide_id", "score", "total"},
+    "card_export": {"guide_id", "export_type"},
+}
+
+
+def check_r16() -> None:
+    """R16: telemetry is consent-gated, aggregate only, and carries no case, customer, wallet, payment, free-text or choice data."""
+    script = SCRIPT.read_text(encoding="utf-8")
+    html = html_text()
+    calls = re.findall(r"emitAggregateEvent\(([^,]+),\s*'([^']+)',\s*\{(.*?)\}\s*\)", script, re.S)
+    require(sorted(c[1] for c in calls) == sorted(TELEMETRY_ALLOW_LIST), f"event names are {[c[1] for c in calls]}")
+    for _, name, body in calls:
+        keys = set(re.findall(r"(\w+):", body))
+        require(keys == TELEMETRY_ALLOW_LIST[name], f"{name} sends {sorted(keys)}, allowed {sorted(TELEMETRY_ALLOW_LIST[name])}")
+        require(".value" not in body and "dataset.grade" not in body and "textContent" not in body, f"{name} parameters read from a choice or text")
+    require(script.count("window.gtag(") == 1, "gtag may only be called from the one gated helper")
+    helper = script[script.index("function emitAggregateEvent"):script.index("var menuButton")]
+    require("consentGranted()" in helper and "fcr_cookie_consent_v2" in script and "=== 'accepted'" in script, "telemetry must check the existing consent state")
+    require("try {" in helper and "catch" in helper, "an analytics failure must be contained")
+    require("sentEvents[key]" in helper and "sentEvents[key] = true" in helper, "each event must send at most once per page load")
+    require("GUIDE_ID = 'investment_scam_investigation_handbook'" in script, "guide id constant is missing")
+    require(not re.search(r'<(textarea|select)\b|type="(text|email|tel|search|url|number|password|file)"|contenteditable', html, re.I),
+            "the page must collect no free text, files or personal details")
+    require(html.count("<input") == html.count('type="radio"'), "the only form inputs are radio buttons")
+    require(not re.search(r"gtag\(['\"]set['\"]|user_id|setUserId|client_id|localStorage\.setItem|document\.cookie", script), "no identifiers or storage may be written")
+
+
 CHECKS = [
     ("R1", check_r1),
     ("R2", check_r2),
@@ -655,6 +684,7 @@ CHECKS = [
     ("R13", check_r13),
     ("R14", check_r14),
     ("R15", check_r15),
+    ("R16", check_r16),
 ]
 
 
