@@ -150,12 +150,24 @@
   ],
   "de-risking-judgement-call": [
     "app-scam-decision-framework",
-    "kyc-onboarding-dilemma"
+    "kyc-onboarding-dilemma",
+    "financial-crime-information-sharing-guide"
   ],
   "investment-scam-investigation-handbook": [
     "app-scam-decision-framework",
     "fraud-investigation-playbook",
     "money-mule-or-victim-case-file",
     "scam-compound-money-laundering-guide"
+  ],
+  "classification-asymmetry-guide": [
+    "financial-crime-information-sharing-guide"
+  ],
+  "sar-guide-part2": [
+    "financial-crime-information-sharing-guide"
+  ],
+  "financial-crime-information-sharing-guide": [
+    "classification-asymmetry-guide",
+    "sar-guide-part2",
+    "de-risking-judgement-call"
   ]
 }

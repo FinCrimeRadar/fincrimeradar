@@ -514,6 +514,58 @@ def check_f9() -> None:
     require("under review" in sources_html, "the under-review ICO pages must be disclosed in the sources section")
 
 
+RELATED_SLUGS = ["classification-asymmetry-guide", "sar-guide-part2", "de-risking-judgement-call"]
+
+
+def check_f10() -> None:
+    """F10: Knowledge Hub card, sitemap, content relations, guide counts, reading time and social card are consistent."""
+    import struct
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from check_de_risking_judgement_call import KnowledgeCountParser
+    from generate_social_card import extract_title_subtitle
+    from word_count import word_count
+
+    html = html_text()
+    knowledge = (ROOT / "knowledge.html").read_text(encoding="utf-8")
+    counts = KnowledgeCountParser()
+    counts.feed(knowledge)
+    declared = counts.standalone_guides + counts.series_guides
+    require(counts.count_text("khHeroCount") == counts.count_text("khStatGuides") == declared,
+            f"Knowledge Hub counts differ: hero={counts.count_text('khHeroCount')}, stat={counts.count_text('khStatGuides')}, declared={declared}")
+    cards = re.findall(rf'<a href="/{SLUG}\.html" class="kh-article-card"([^>]*)>(.*?)</a>', knowledge, re.S)
+    require(len(cards) == 1, f"expected one Knowledge Hub card, found {len(cards)}")
+    attrs, inner = cards[0]
+    require('data-date="2026-10-04"' in attrs and 'data-cats="aml-programme"' in attrs, "card needs data-date and the AML Programme category")
+    require('<span class="kh-format-label">Framework</span>' in inner, "card format label must be Framework")
+    minutes = int(re.search(r'<span class="kh-read">(\d+) MIN</span>', inner).group(1))
+    hero_minutes = int(re.search(r"(\d+) min read", html).group(1))
+    require(minutes == hero_minutes, f"card says {minutes} MIN but the hero says {hero_minutes} min read")
+    words = word_count(html)
+    require(words / 223 <= minutes <= words / 163, f"{minutes} min is outside the site interquartile reading speed for {words} words")
+    require(abs(minutes - round(words / 181)) <= 2, f"{minutes} min differs from the site median speed estimate {round(words / 181)}")
+    require(re.search(r'<div class="kh-item-desc">(.*?)</div>', inner, re.S).group(1) == meta(html, "name", "description"), "card description differs from the page description")
+    require(re.search(r'<div class="kh-item-title">(.*?)</div>', inner, re.S).group(1) == HEADLINE, "card title differs from the headline")
+    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    block = re.findall(rf"<url>\s*<loc>{re.escape(URL)}</loc>\s*<changefreq>monthly</changefreq>\s*<priority>0\.7</priority>\s*</url>", sitemap)
+    require(len(block) == 1 and sitemap.count(URL) == 1, "sitemap needs exactly one entry in the comparable guide format")
+    relations = json.loads((ROOT / "content-relations.json").read_text(encoding="utf-8"))
+    require(relations.get(SLUG) == RELATED_SLUGS, f"relation set is {relations.get(SLUG)}")
+    for target in RELATED_SLUGS:
+        require(SLUG in relations.get(target, []), f"relation is not reciprocal: {target}")
+        require((ROOT / f"{target}.html").exists(), f"related guide {target} does not exist")
+    related = re.search(r'<section class="fis-section" id="related">.*?</section>', html, re.S).group(0)
+    require(re.findall(r'<a href="/([^"]+)\.html">', related) == RELATED_SLUGS, "the on-page related links must match the relation set")
+    card_png = ROOT / f"{SLUG}-social-card.png"
+    require(card_png.exists(), "social card is missing")
+    data = card_png.read_bytes()
+    width, height = struct.unpack(">II", data[16:24])
+    require(data[:8] == b"\x89PNG\r\n\x1a\n" and (width, height) == (1200, 630), f"social card is {width}x{height}")
+    require(len(data) <= 400_000, f"social card is {len(data)} bytes, over the 400KB ceiling")
+    title, subtitle = extract_title_subtitle(GUIDE)
+    require((title, subtitle) == ("Financial Crime Information Sharing", "Can I tell another bank?"), f"the card source text is {(title, subtitle)}")
+
+
 CHECKS = [
     ("F1", check_f1),
     ("F2", check_f2),
@@ -524,6 +576,7 @@ CHECKS = [
     ("F7", check_f7),
     ("F8", check_f8),
     ("F9", check_f9),
+    ("F10", check_f10),
 ]
 
 
