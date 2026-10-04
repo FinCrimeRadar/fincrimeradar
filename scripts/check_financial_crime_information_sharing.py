@@ -433,11 +433,11 @@ CLAIM_PLAN = {
     "ico-criminal-offence-data.017": ((7, 10, 9), ["criminal offence data includes suspicion or allegations of criminal activity",
         "a private firm without official authority needs a condition in schedule 1"]),
     "dpa-schedule-1-paragraphs-10-36.018": ((8,), ["paragraph 10 applies where processing is necessary for the prevention, investigation or detection of an unlawful act",
-        "removes the appropriate policy document requirement only for disclosure to a competent authority", "the substantial public interest limb is removed for criminal offence data by paragraph 36"]),
+        "removes the appropriate policy document requirement where processing consists of disclosure to a competent authority or is carried out in preparation for such disclosure", "the substantial public interest limb is removed for criminal offence data by paragraph 36"]),
     "dpa-schedule-1-paragraphs-14-15.019": ((8,), ["paragraph 14 covers disclosures as a member of, or under arrangements made by, an anti-fraud organisation",
         "paragraph 15 covers a disclosure in good faith under poca section 339zb"]),
     "dpa-schedule-1-policy-document.020": ((8,), ["a policy document must explain how the article 5 principles are met and the retention and erasure policy, and the record of processing must name the condition"]),
-    "ico-criminal-offence-conditions-table.021": ((9,), ["records that paragraphs 10, 14 and 15 all need an appropriate policy document, except for paragraph 10 disclosure to the relevant authorities"]),
+    "ico-criminal-offence-conditions-table.021": ((9,), ["records that paragraphs 10, 14 and 15 all need an appropriate policy document, except for paragraph 10 disclosure to the relevant authorities or preparation for such disclosure"]),
     "ico-scams-sharing-controls.022": ((10,), ["supports a data protection impact assessment for routine sharing, a data sharing agreement where sharing is not ad hoc, and secure handling",
         "an impact assessment is a legal requirement where processing is likely to result in high risk, and good practice for routine sharing and major projects"]),
     "poca-333a-tipping-off.023": ((11,), ["section 333a of poca is an offence where a person discloses that a disclosure under part 7 has been made",
@@ -512,6 +512,13 @@ def check_f9() -> None:
     require("not legal advice" in sources_html and "Last reviewed" in sources_html and "4 October 2026" in sources_html, "sources section needs scope, review date and the evidence date")
     require("will come into force in 2026" in text and "out of date" in sources_html + text, "the stale government guidance sentence must be disclosed")
     require("under review" in sources_html, "the under-review ICO pages must be disclosed in the sources section")
+    # R17 corrections: wording that must not return, and the corrected wording that must stay
+    require("same footing" not in html and "for that firm's use for its relevant actions" not in html, "section 189 protections must not be stated as one shared footing")
+    require("The eventual recipient's use for its relevant actions does not breach an obligation of confidence." in html, "section 189(6) is a confidence protection only and the page must say so")
+    require("only for disclosure to a competent authority" not in html and "Another bank is not a competent authority" not in html, "paragraph 10(2) must include preparation for disclosure")
+    require("the paragraph 10(2) exception does not apply" in html and "so an appropriate policy document is required" in html, "Scenario 1 must apply paragraph 10(2) to its own facts")
+    require("Question 3 is not engaged" not in html and "no contemplated or current investigation has been identified" in html, "Scenario 1 must not treat the absence of a SAR as excluding a contemplated or current investigation")
+    require("has not yet been completed" not in html and "A short recheck of the corrected wording" in html, "the Methodology must record the actual review outcome")
 
 
 RELATED_SLUGS = ["classification-asymmetry-guide", "sar-guide-part2", "de-risking-judgement-call"]

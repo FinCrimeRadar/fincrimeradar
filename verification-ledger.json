@@ -9140,7 +9140,7 @@
   {
     "claimId": "financial-crime-information-sharing.eccta-indirect-sharing.005",
     "guide": "financial-crime-information-sharing-guide.html",
-    "claimText": "ECCTA section 189 protects an indirect disclosure by a person carrying on business within section 189(3) where the information relates to a customer or former customer, the sender has decided because of economic crime concerns to terminate the relationship, refuse a product or service or restrict access, the sender is satisfied the information will or may assist the persons it is onward disclosed to, the UK GDPR applies to the sender's disclosure, the sender and the intermediary are parties to an agreement that the intermediary will only handle personal data where the UK GDPR applies, and the disclosure is not privileged. Section 189(3) covers deposit-taking bodies, electronic money institutions, payment institutions, cryptoasset exchange providers and custodian wallet providers, and certain legal, accountancy, audit, tax and insolvency businesses whose UK revenue falls in specified bands. The intermediary's onward disclosure to a covered person, and that person's use for its relevant actions, are protected on the same footing.",
+    "claimText": "ECCTA section 189 protects an indirect disclosure by a person carrying on business within section 189(3) where the information relates to a customer or former customer, the sender has decided because of economic crime concerns to terminate the relationship, refuse a product or service or restrict access, the sender is satisfied the information will or may assist the persons it is onward disclosed to, the UK GDPR applies to the sender's disclosure, the sender and the intermediary are parties to an agreement that the intermediary will only handle personal data where the UK GDPR applies, and the disclosure is not privileged. Section 189(3) covers deposit-taking bodies, electronic money institutions, payment institutions, cryptoasset exchange providers and custodian wallet providers, and certain legal, accountancy, audit, tax and insolvency businesses whose UK revenue falls in specified bands. The intermediary's qualifying onward disclosure receives the breach-of-confidence and civil-liability protections in section 189(5). The eventual recipient's use for its relevant actions receives the breach-of-confidence protection in section 189(6).",
     "claimType": "regulatory",
     "source": {
       "title": "Economic Crime and Corporate Transparency Act 2023, section 189",
@@ -9152,7 +9152,7 @@
     "reviewDue": "2027-04-04",
     "status": "verified",
     "location": "financial-crime-information-sharing-guide.html, Routes table",
-    "note": "Section 189(3)(b) revenue bands were amended for financial years from April 2026 by the Finance Act 2026. The guide states only that a revenue threshold applies. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+    "note": "Section 189(3)(b) revenue bands were amended for financial years from April 2026 by the Finance Act 2026. The guide states only that a revenue threshold applies. Corrected after R17 review: the sender and the intermediary onward disclosure carry the confidence and civil-liability protections (189(2), 189(5)), and the eventual recipient's use carries the confidence protection only (189(6)). Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
   },
   {
     "claimId": "financial-crime-information-sharing.eccta-privileged-disclosure.006",
@@ -9445,7 +9445,7 @@
   {
     "claimId": "financial-crime-information-sharing.ico-criminal-offence-conditions-table.021",
     "guide": "financial-crime-information-sharing-guide.html",
-    "claimText": "The ICO's criminal offence data conditions page, marked under review, records that paragraph 10 (preventing or detecting unlawful acts) requires a justification for not getting consent and an appropriate policy document except for disclosure to the relevant authorities, that paragraphs 14 (preventing fraud) and 15 (suspicion of terrorist financing or money laundering) require an appropriate policy document, and that paragraph 36 removes the substantial public interest requirement for criminal offence data but not for special category data.",
+    "claimText": "The ICO's criminal offence data conditions page, marked under review, records that paragraph 10 (preventing or detecting unlawful acts) requires a justification for not getting consent and an appropriate policy document except for disclosure to the relevant authorities or preparation for such disclosure, that paragraphs 14 (preventing fraud) and 15 (suspicion of terrorist financing or money laundering) require an appropriate policy document, and that paragraph 36 removes the substantial public interest requirement for criminal offence data but not for special category data.",
     "claimType": "regulatory",
     "source": {
       "title": "Information Commissioner's Office, Criminal offence data: what are the conditions for processing?",
@@ -9457,7 +9457,7 @@
     "reviewDue": "2027-01-04",
     "status": "verified",
     "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (protected data), Scenario 1 option B",
-    "note": "The page is marked under review because of the Data (Use and Access) Act. The guide uses it for the table of policy document requirements only, and the statute is relied on for the conditions. The page carries no date, so source.date records the date the page was read. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+    "note": "The page is marked under review because of the Data (Use and Access) Act. The guide uses it for the table of policy document requirements only, and the statute is relied on for the conditions. Corrected after R17 review to include the preparation-for-disclosure limb, which the ICO table footnote and Schedule 1 paragraph 10(2) both state. The page carries no date, so source.date records the date the page was read. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
   },
   {
     "claimId": "financial-crime-information-sharing.ico-scams-sharing-controls.022",
