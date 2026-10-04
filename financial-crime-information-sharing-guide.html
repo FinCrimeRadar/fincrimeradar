@@ -371,10 +371,94 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
   </div>
 </section>
 
+<section class="fis-section" id="scenario-two" data-scenario="post-sar">
+  <span class="fis-scenario-tag">Worked scenario 2 · Post-SAR counterfactual</span>
+  <h2>The same request, after a SAR</h2>
+  <p class="fis-lede">Nothing about the request has changed. One fact in your own file has, and it moves the decision to a different question.</p>
+  <div class="fis-counterfactual" id="counterfactual-post-sar">
+    <h3>Counterfactual: change one fact <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h3>
+    <p><strong>The fact changed.</strong> Bank A has now submitted a SAR about the same person. Every operational fact from scenario 1 is kept.</p>
+    <p><strong>What follows.</strong> ECCTA eligibility is unchanged, so question 1 has the same answer. The decision now turns on question 3. Eligibility under sections 188 and 189 does not by itself resolve whether a disclosure would reveal or imply the SAR, or prejudice an investigation, because those protections are expressed as protection from breach of confidence and civil liability.</p>
+  </div>
+  <div class="fis-scenario">
+    <p class="fis-illustrative">Composite scenario for teaching. It does not describe a real firm, customer or case.</p>
+    <ul class="fis-facts">
+      <li>All of the facts in scenario 1 apply. Bank B's request names the former customer, states that it needs the closure reason and any fraud concerns to decide whether to restrict or close the account, and does not mention a SAR.</li>
+      <li>Four weeks ago Bank A's nominated officer submitted a SAR about the person, and the NCA acknowledged it. The SAR reference is in the case file.</li>
+      <li>The nominated officer cannot say whether any investigation is contemplated or under way.</li>
+      <li>The person was a client of Bank A and is a client of Bank B. Both are credit institutions in the United Kingdom.</li>
+      <li>Some of the information in the file came from a report supplied by a police force.</li>
+    </ul>
+    <form class="fis-choice" data-decision-form data-scenario-id="post-sar" method="dialog">
+      <fieldset>
+        <legend>What is the most defensible decision for Bank A now?</legend>
+        <label class="fis-option"><input type="radio" name="post-sar-decision" value="a" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>A.</strong> Share the same minimised set as in scenario 1. ECCTA eligibility has not changed, so the SAR makes no difference.</span></label>
+        <label class="fis-option"><input type="radio" name="post-sar-decision" value="b" data-grade="best" data-grade-label="Best supported by the evidence"><span><strong>B.</strong> Escalate to the nominated officer and do not share yet. Test whether anything in the proposed disclosure would reveal or imply the SAR or a contemplated investigation, and whether it is likely to prejudice one. Decide which route fits, including a section 339ZB disclosure with its required notification to the NCA, or no disclosure, and record why.</span></label>
+        <label class="fis-option"><input type="radio" name="post-sar-decision" value="c" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>C.</strong> Reply that Bank A cannot help because a SAR has been made.</span></label>
+        <label class="fis-option"><input type="radio" name="post-sar-decision" value="d" data-grade="incomplete" data-grade-label="Contains a true point, stops short"><span><strong>D.</strong> Share everything, including the SAR reference, relying on section 333C because both firms are banks.</span></label>
+      </fieldset>
+      <button class="fis-action" type="submit">Record decision</button>
+      <p class="fis-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="fis-optfb-set" data-optfb-for="post-sar" role="group" aria-labelledby="optfb-title-post-sar">
+    <h3 id="optfb-title-post-sar">How each option grades</h3>
+    <div class="fis-optfb" id="optfb-post-sar-a" data-option="a" data-grade="unsupported">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="unsupported">Not supported by the evidence</span> A. Share the same minimised set as in scenario 1. ECCTA eligibility has not changed, so the SAR makes no difference.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>ECCTA sections 188(2) and 189(2) protect against breach of an obligation of confidence and civil liability. <a href="#source-1">[1]</a> Section 333A of POCA makes it an offence to disclose that a SAR has been made, or that an investigation is contemplated or under way, where the disclosure is likely to prejudice an investigation. <a href="#source-11">[11]</a> The government guidance says firms that share after submitting a SAR must make sure they do not breach the tipping-off or prejudicing-investigation provisions. <a href="#source-4">[4]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>The first half of the option is right: eligibility under ECCTA is unchanged. The conclusion does not follow. Whether the proposed disclosure would reveal or imply the SAR or a contemplated investigation, and whether it is likely to prejudice one, is a question the ECCTA protections do not answer. A disclosure that reveals neither may still be possible, but that has to be tested before it is sent.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Do not send on the strength of ECCTA eligibility. Put the SAR boundary test before the disclosure and take it to the nominated officer.</p></div>
+      </div>
+    </div>
+    <div class="fis-optfb" id="optfb-post-sar-b" data-option="b" data-grade="best">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="best">Best supported by the evidence</span> B. Escalate to the nominated officer and do not share yet. Test whether anything in the proposed disclosure would reveal or imply the SAR or a contemplated investigation, and whether it is likely to prejudice one. Decide which route fits, including a section 339ZB disclosure with its required notification to the NCA, or no disclosure, and record why.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>Section 333A applies to a disclosure that reveals a SAR or a contemplated investigation and is likely to prejudice an investigation. Section 333D provides that there is no offence where the person does not know or suspect that the disclosure is likely to have that effect, and for a disclosure made in good faith by virtue of section 339ZB. <a href="#source-11">[11]</a> Section 339ZB requires a request, a required notification made to the NCA before the disclosure, and the discloser's satisfaction that the disclosure will or may assist in determining a matter connected with a suspicion of money laundering. <a href="#source-12">[12]</a> The NCA publishes a required notification form and procedure. <a href="#source-14">[14]</a> A section 339ZB disclosure may not include information obtained from a UK law enforcement agency without that agency's consent. <a href="#source-12">[12]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>The option separates the SAR boundary from the route. ECCTA settles question 1 and the nominated officer owns question 3. Section 339ZB can fit only if the facts support a suspicion of money laundering and the notification is made first, and here the police-supplied information would have to be left out unless consent is given. Until those questions are answered the safe outcome is to escalate and not share yet.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Escalate to the nominated officer, who decides what, if anything, can be said and in what words. Do not reveal or imply the SAR in any reply. If a disclosure that reveals neither can be made, the scenario 1 controls apply. If not, consider section 339ZB with its notification, or decline for a reason that does not reveal the SAR. Record the decision and the reasons.</p></div>
+      </div>
+    </div>
+    <div class="fis-optfb" id="optfb-post-sar-c" data-option="c" data-grade="unsupported">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="unsupported">Not supported by the evidence</span> C. Reply that Bank A cannot help because a SAR has been made.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>Section 333A(2) describes the matters whose disclosure is the offence, namely that a disclosure under Part 7 has been made to a constable, an HMRC officer, a nominated officer or an NCA officer. <a href="#source-11">[11]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>Giving the SAR as the reason for declining is itself a disclosure of the matter that section 333A(2) describes. Whether it is likely to prejudice an investigation is the other element, and it is not a risk to take for the sake of a tidy reply. The reason given in a reply is a disclosure like any other.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Do not give the reason. If the decision is to decline or to hold, the nominated officer approves a reply that neither reveals nor implies a SAR.</p></div>
+      </div>
+    </div>
+    <div class="fis-optfb" id="optfb-post-sar-d" data-option="d" data-grade="incomplete">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="incomplete">Contains a true point, stops short</span> D. Share everything, including the SAR reference, relying on section 333C because both firms are banks.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>Section 333C permits a disclosure by a credit institution to another credit institution only where it relates to a client or former client of both, a transaction involving both, or a service involving both, is for the purpose only of preventing an offence under Part 7 of POCA, the recipient is in the UK or an EEA state or a country with equivalent money laundering requirements, and both firms are subject to equivalent duties of professional confidentiality and data protection. <a href="#source-11">[11]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>Section 333C is a real exception and the two banks share a client, so the option has a true point. It stops short. The purpose must be only the prevention of a Part 7 offence, which cannot be assumed for a request about a fraud-related account, and every condition has to be met and recorded. The section addresses the tipping-off offence only, so confidentiality and data protection still need their own answers. Nothing in Bank B's stated decision explains why the SAR reference would be needed, and the police-supplied material raises a separate consent question.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Do not use section 333C as a default. If the nominated officer considers it, record how each condition is met and why disclosing the SAR is necessary, and answer questions 1 and 2 separately.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="fis-record" aria-labelledby="post-sar-record-heading">
+    <h3 id="post-sar-record-heading">Decision Record</h3>
+    <dl>
+      <dt>Facts</dt><dd>The scenario 1 facts, plus a SAR submitted four weeks ago and acknowledged by the NCA. The nominated officer cannot say whether an investigation is contemplated. Bank B's request does not mention a SAR. Part of the file came from a police force.</dd>
+      <dt class="fis-assumption">Assumptions</dt><dd class="fis-assumption">The SAR concerns the same person and the same suspicion. The ECCTA conditions are still met. Bank B's request is authentic.</dd>
+      <dt>Indicators</dt><dd>A SAR on file, no clarity on any investigation, and police-supplied information in the case file.</dd>
+      <dt>Mitigants</dt><dd>Nominated officer review, drafting that reveals neither the SAR nor any investigation, and the section 339ZB route with its notification as an alternative.</dd>
+      <dt>Decision</dt><dd>Escalate and do not share yet.</dd>
+      <dt>Rationale</dt><dd>ECCTA eligibility answers only the confidence and civil liability question. Whether the disclosure would reveal or imply the SAR or prejudice an investigation is unresolved, and the nominated officer decides it.</dd>
+    </dl>
+  </div>
+  <div class="fis-wwcmd">
+    <h3>What Would Change My Decision?</h3>
+    <p><strong>Towards sharing under ECCTA:</strong> the nominated officer confirms in writing that the proposed disclosure reveals neither the SAR nor any contemplated investigation and is not likely to prejudice one, and the scenario 1 controls are all met.</p>
+    <p><strong>Towards the section 339ZB route:</strong> both banks hold a suspicion of money laundering, a request that meets section 339ZC is made, and the required notification is made to the NCA before anything is disclosed.</p>
+    <p><strong>Towards not sharing:</strong> content that would reveal or imply the SAR cannot be separated from what Bank B needs, or the only way to answer is to rely on police-supplied information without the agency's consent.</p>
+  </div>
+</section>
+
 </main>
 <aside class="fis-toc" aria-label="On this page">
 <strong>Decision route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li><li><a href="#scenario-one">Scenario 1: direct request</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li><li><a href="#scenario-one">Scenario 1: direct request</a></li><li><a href="#scenario-two">Scenario 2: after a SAR</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

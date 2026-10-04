@@ -286,12 +286,34 @@ def check_f5() -> None:
     require("Share after specified controls" in text, "scenario 1 must record its outcome label")
 
 
+def check_f6() -> None:
+    """F6: scenario 2 keeps the operational facts, adds a SAR, and shows ECCTA eligibility does not resolve tipping-off risk."""
+    html = html_text()
+    check_scenario("scenario-two", "post-sar")
+    block = scenario_block(html, "scenario-two")
+    counterfactual = re.search(r'<div class="fis-counterfactual" id="counterfactual-post-sar">(.*?)</div>', block, re.S)
+    require(counterfactual is not None, "scenario 2 needs its static counterfactual analysis")
+    cf = counterfactual.group(1)
+    require("<strong>The fact changed.</strong>" in cf and "<strong>What follows.</strong>" in cf and 'data-state="assessment"' in cf, "counterfactual needs the changed fact, its effect and the assessment label")
+    require("does not by itself resolve" in cf and "eligibility" in cf, "the counterfactual must state that eligibility does not by itself resolve the SAR boundary")
+    require("<form" not in cf and "<input" not in cf, "the counterfactual must be static")
+    one = re.sub(r"<[^>]+>", " ", scenario_block(html, "scenario-one"))
+    two = re.sub(r"<[^>]+>", " ", block)
+    require("Escalate and do not share yet" in two, "scenario 2 must record its outcome label")
+    require("Share after specified controls" in one and "Escalate and do not share yet" not in re.search(r'<dt>Decision</dt><dd>(.*?)</dd>', scenario_block(html, "scenario-one"), re.S).group(1),
+            "the two scenarios must reach different recorded outcomes")
+    for needle in ("section 339ZB", "required notification", "333A", "333C", "nominated officer", "SAR"):
+        require(needle in two, f"scenario 2 does not address {needle!r}")
+    require(html.count("data-decision-form") == 2, "the guide must have exactly two decision forms")
+
+
 CHECKS = [
     ("F1", check_f1),
     ("F2", check_f2),
     ("F3", check_f3),
     ("F4", check_f4),
     ("F5", check_f5),
+    ("F6", check_f6),
 ]
 
 
