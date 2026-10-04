@@ -32,7 +32,7 @@ Status meanings:
 
 ## Current shipped baseline
 
-Production outside the Scenario Lab synchronisation and the Investment Scam Investigation Handbook was last checked independently on 14 September 2026. The handbook was verified live on 3 October 2026. Repository-derived facts below were refreshed from the working tree on 3 October 2026 at HEAD 125045a; that refresh was not a full production audit. The Scenario Lab API was separately verified on 3 October 2026 and served the repository's 19 unique cases exactly.
+Production outside the Scenario Lab synchronisation, the Investment Scam Investigation Handbook and the Financial Crime Information Sharing guide was last checked independently on 14 September 2026. The handbook was verified live on 3 October 2026 and the information sharing guide on 4 October 2026. Repository-derived facts below were refreshed from the working tree on 3 October 2026 at HEAD 125045a; that refresh was not a full production audit. The Scenario Lab API was separately verified on 3 October 2026 and served the repository's 19 unique cases exactly.
 
 ### Knowledge Hub
 
@@ -68,14 +68,16 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
-### Financial Crime Information Sharing: Can I Tell Another Bank?
+### Financial Crime Information Sharing: COMPLETE and live, 4 October 2026
 
-- **Status:** READY. Explicit user-directed promotion from reserve on 4 October 2026. docs/CONTENT_OPERATING_PLAN.md is not edited and its queue order is not changed by this promotion. Only this guide is in build. No other guide is started alongside it.
-- **Specification:** Public format Guide, composition Framework, Default Knowledge Hub treatment. United Kingdom. Audience: financial-crime, fraud, AML, MLRO, privacy and operational-risk practitioners at banks and other AML-regulated firms. Decision object: whether information may be shared with another firm, through which route, for what purpose, with what data and controls, and how the recipient may use it. The differentiator is one integrated route-selection framework covering ECCTA direct sharing, ECCTA indirect sharing, the POCA section 339ZB joint-disclosure route, the tipping-off exceptions, data protection and recipient use. It must go materially beyond classification-asymmetry-guide.html (the voluntary POCA 339ZB to 339ZD gateway only), sar-guide-part2.html (the limited 333B and 333C exceptions only) and de-risking-judgement-call.html (customer communications and exit).
-- **Verification owner:** Codex.
-- **Primary sources or repository evidence checked:** 4 October 2026. Current primary law and ICO guidance, as recorded by the Codex research session. Claude Code rebuilds and rechecks the source pack against the live sources before drafting and before release, and the ledger records what it checked.
-- **Review date:** 4 October 2026.
-- **Verification outcome:** PASS. Current primary law and ICO guidance support the guide, and the originality test passed. Independent R17 review and the corrected-wording recheck passed on 4 October 2026. Pull request review found no issues. Merge and R18 production verification remain outstanding.
+Retained as an evidence record, not an active queue item. Public format Guide, composition Framework, Default Knowledge Hub treatment, United Kingdom, at https://fincrimeradar.org/financial-crime-information-sharing-guide.html.
+
+- **Status:** COMPLETE. Merged through pull request #15 (merge commit 9ceede26d7652e28805d769a1d663c38853fb409). Fetched origin/main and git ls-remote matched that SHA, and the merge changed exactly the 10 intended files. The guide was promoted from reserve to Next Up by explicit user direction on 4 October 2026, and docs/CONTENT_OPERATING_PLAN.md was not edited.
+- **Queue fields:** verification owner Codex, primary sources checked 4 October 2026, review date 4 October 2026, verification outcome PASS.
+- **Reviews:** R17 independent review required three corrections, applied in b32faf2: the section 189 protections for the intermediary and the eventual recipient are stated separately, the preparation-for-disclosure limb of Schedule 1 paragraph 10(2) is stated, and Scenario 1 no longer treats the absence of a SAR as excluding a contemplated or current investigation. The recheck of the three corrected passages passed on 4 October 2026. The pull request /code-review ran two CLAUDE.md compliance agents and two Opus bug and security agents and found no issues.
+- **R18 production verification, 4 October 2026:** the live page, page script, social card, sitemap, Knowledge Hub and content-relations.json matched the merged repository files byte for byte. Canonical, Open Graph, Article and BreadcrumbList metadata matched. The sitemap lists the guide once. The Knowledge Hub card and the hero and stat counts of 58 were correct. The three related guides were live and linked, and all 14 source links returned HTTP 200. The guide's browser suite passed against production, covering accessibility, responsive widths, 200 and 400 percent zoom, keyboard, JavaScript-disabled reading, image export and consent behaviour with the real gtag: analytics consent defaulted to denied, Reject analytics sent no guide event, and with consent only scenario_complete and card_export fired, carrying guide and scenario or export identifiers and never the chosen option.
+- **Not verified:** a real-device mobile test, a W3C validator, the regulations that ECCTA sections 188(3) and 189(3) allow the Secretary of State to make, and case law. The script-failure probe ran locally only, because it needs a local server. The ICO criminal offence data conditions page and the ICO scams and fraud sharing page are marked under review and are used only for the policy document table and operational controls.
+- **Next review:** ledger claims resting on government and ICO guidance fall due on 4 January 2027, and the statutory claims on 4 April 2027.
 
 ### Investment Scam Investigation Handbook: COMPLETE and live, 3 October 2026
 
@@ -85,7 +87,7 @@ Retained as an evidence record, not an active queue item. Public format Guide, D
 - **Reviews:** R17 independent regulatory review of ledger claims 001, 005, 006 and 007 passed on 3 October 2026, and checked PS25/5, Pay.UK FPS Reimbursement Rules Schedule 4 v4.0 and the Bank of England CHAPS reimbursement rules. The pull request /code-review ran four reviewers over the full diff. One material finding (claim 008 wording had dropped "only") was fixed in a84cca7 with the checker pinned, and the affected checks were rerun.
 - **R18 production verification, 3 October 2026:** the live page, social card and page script matched the merged repository files byte for byte. Canonical, Open Graph, Article and BreadcrumbList metadata matched. The sitemap lists the guide once. The Knowledge Hub card is present and the count reads 57. The guide's browser suite passed against production (widths 320 to 1440, 200 and 400 percent zoom, keyboard and focus, JavaScript disabled, image export), and with the real gtag, analytics consent defaults to denied, no guide event is sent without consent or after Reject analytics, and accepted events carry only the guide id and aggregate values.
 - **Not verified:** a real-device mobile test, a W3C validator, and the PSR legal instruments behind PS25/5, which were not analysed.
-- **Reserve successor:** Financial Crime Information Sharing was promoted from reserve to Next Up on 4 October 2026, as an explicit user-directed promotion.
+- **Reserve successor:** Financial Crime Information Sharing was promoted from reserve to Next Up on 4 October 2026, as an explicit user-directed promotion, and is now complete.
 
 ### Scenario Lab API synchronisation: COMPLETE, 3 October 2026
 
@@ -167,7 +169,7 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are rel
 
 ## Content Loop
 
-Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. The only content item in Next Up is Financial Crime Information Sharing, promoted from reserve by explicit user direction on 4 October 2026. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
+Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. Next Up holds no content item after Financial Crime Information Sharing completed on 4 October 2026, and nothing below is promoted by that completion. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
 
 ### Priority research candidates
 
