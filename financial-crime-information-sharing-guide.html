@@ -91,6 +91,7 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
 .fis-record{border:2px solid var(--fis-navy);padding:1rem;margin:1.2rem 0}.fis-record h3{margin:0 0 .8rem}.fis-record dl{display:grid;grid-template-columns:140px minmax(0,1fr);margin:0}.fis-record dt,.fis-record dd{padding:.75rem;border-top:1px solid var(--fis-line)}.fis-record dt{font-weight:700;color:#075e57}.fis-record dd{margin:0}.fis-record .fis-assumption{background:#fff8eb}
 .fis-wwcmd{border:1px solid #c7d6ec;background:#f4f7fc;padding:1rem;margin:1rem 0}.fis-wwcmd h3{margin:0 0 .5rem}.fis-wwcmd p{margin:.5rem 0}
 @media(max-width:640px){.fis-record dl{grid-template-columns:minmax(0,1fr)}.fis-record dt{padding-bottom:.2rem}.fis-record dd{padding-top:.2rem;border-top:0}}
+.fis-redteam{padding-left:1.4rem}.fis-redteam li{margin:.6rem 0}
 @media(max-width:900px){.fis-layout{grid-template-columns:minmax(0,1fr)}.fis-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--fis-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.fis-breadcrumb{align-items:flex-start;flex-wrap:wrap}.fis-hero{padding-top:2.8rem}.fis-core,.fis-saa{grid-template-columns:minmax(0,1fr)}.fis-layout{padding:0 .75rem 3rem;gap:1rem}.fis-scope{padding:0 .75rem}}
 @media(max-width:360px){.fis-section{padding:1rem}.fis-hero h1{font-size:2rem}.fis-meta{gap:.4rem}}
@@ -455,10 +456,27 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
   </div>
 </section>
 
+<section class="fis-section" id="red-team">
+  <h2>Red Team Questions</h2>
+  <p class="fis-lede">Put these to your own decision before anything is sent. A disclosure that cannot answer them is not ready, and a missing answer is a finding in its own right.</p>
+  <p>These are questions for the person approving the disclosure. They test the decision and make no claim about the law, which is set out in the sequence above.</p>
+  <ol class="fis-redteam">
+    <li><strong>Purpose.</strong> Which sentence names the decision this disclosure will serve, and whose customer is that decision about?</li>
+    <li><strong>Route.</strong> Which section of which Act are you relying on, and which of its conditions would you find hardest to show to the Financial Ombudsman Service or the ICO?</li>
+    <li><strong>Scope.</strong> If the person were not your customer or former customer, or the recipient's action were not about its own customer, would the route still hold?</li>
+    <li><strong>Necessity.</strong> Which item in the disclosure could be removed without changing the recipient's decision?</li>
+    <li><strong>Accuracy.</strong> If the allegation is wrong, what would the person lose, and how would it be corrected?</li>
+    <li><strong>Protected data.</strong> Could the purpose be met with underlying facts instead of the allegation label?</li>
+    <li><strong>SAR boundary.</strong> Does any sentence reveal or imply that a SAR exists or that an investigation is contemplated, and has the nominated officer seen the draft?</li>
+    <li><strong>Recipient use.</strong> What has the recipient said it will check independently before it acts on what you send?</li>
+    <li><strong>Record.</strong> Could someone who was not in the room rebuild why you shared exactly this and nothing else?</li>
+  </ol>
+</section>
+
 </main>
 <aside class="fis-toc" aria-label="On this page">
 <strong>Decision route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li><li><a href="#scenario-one">Scenario 1: direct request</a></li><li><a href="#scenario-two">Scenario 2: after a SAR</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li><li><a href="#scenario-one">Scenario 1: direct request</a></li><li><a href="#scenario-two">Scenario 2: after a SAR</a></li><li><a href="#red-team">Red Team Questions</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

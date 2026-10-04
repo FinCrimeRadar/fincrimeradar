@@ -307,6 +307,21 @@ def check_f6() -> None:
     require(html.count("data-decision-form") == 2, "the guide must have exactly two decision forms")
 
 
+RED_TEAM_TOPICS = ["Purpose", "Route", "Scope", "Necessity", "Accuracy", "Protected data", "SAR boundary", "Recipient use", "Record"]
+
+
+def check_f7() -> None:
+    """F7: the challenge mechanisms are static: Red Team Questions, and What Would Change My Decision in each scenario."""
+    html = html_text()
+    section = re.search(r'<section class="fis-section" id="red-team">.*?</section>', html, re.S).group(0)
+    items = re.findall(r"<li><strong>([^<]+)\.</strong> (.*?)</li>", re.search(r'<ol class="fis-redteam">(.*?)</ol>', section, re.S).group(1), re.S)
+    require([i[0] for i in items] == RED_TEAM_TOPICS, f"Red Team topics are {[i[0] for i in items]}")
+    require(all(i[1].strip().endswith("?") for i in items), "every Red Team item must be a question")
+    require("make no claim about the law" in section, "Red Team Questions must be labelled as questions, not claims")
+    require("<form" not in section and "<input" not in section, "Red Team Questions must be static")
+    require(html.count('<div class="fis-wwcmd">') == 2, "each scenario needs a static What Would Change My Decision")
+
+
 CHECKS = [
     ("F1", check_f1),
     ("F2", check_f2),
@@ -314,6 +329,7 @@ CHECKS = [
     ("F4", check_f4),
     ("F5", check_f5),
     ("F6", check_f6),
+    ("F7", check_f7),
 ]
 
 
