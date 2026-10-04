@@ -92,6 +92,9 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
 .fis-wwcmd{border:1px solid #c7d6ec;background:#f4f7fc;padding:1rem;margin:1rem 0}.fis-wwcmd h3{margin:0 0 .5rem}.fis-wwcmd p{margin:.5rem 0}
 @media(max-width:640px){.fis-record dl{grid-template-columns:minmax(0,1fr)}.fis-record dt{padding-bottom:.2rem}.fis-record dd{padding-top:.2rem;border-top:0}}
 .fis-redteam{padding-left:1.4rem}.fis-redteam li{margin:.6rem 0}
+.fis-pattern-inline{margin:1.2rem 0}
+.fis-summary-list{list-style:none;padding:0;margin:.4rem 0}.fis-summary-list li{display:grid;grid-template-columns:190px minmax(0,1fr);gap:.8rem;padding:.65rem 0;border-top:1px solid #cce2de}.fis-summary-list strong{color:#075e57}
+@media(max-width:640px){.fis-summary-list li{grid-template-columns:minmax(0,1fr);gap:.15rem}}
 @media(max-width:900px){.fis-layout{grid-template-columns:minmax(0,1fr)}.fis-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--fis-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.fis-breadcrumb{align-items:flex-start;flex-wrap:wrap}.fis-hero{padding-top:2.8rem}.fis-core,.fis-saa{grid-template-columns:minmax(0,1fr)}.fis-layout{padding:0 .75rem 3rem;gap:1rem}.fis-scope{padding:0 .75rem}}
 @media(max-width:360px){.fis-section{padding:1rem}.fis-hero h1{font-size:2rem}.fis-meta{gap:.4rem}}
@@ -174,6 +177,10 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
     <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>A route can settle the first question and leave the second and third open. We call this the shield problem. Treat ECCTA eligibility as an answer to question 1 only. It is not permission to ignore confidentiality duties outside the route, the UK GDPR, legal privilege, SAR duties or the tipping-off offence. It is also not a joint disclosure report, which is a separate POCA route.</p></div>
     <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Write the three answers separately in the decision record, each with its own source. If one cannot be answered, the disclosure is not ready. Escalate it to the people who own that question, usually the MLRO for question 3 and privacy for question 2.</p></div>
   </div>
+  <div class="fis-pattern fis-pattern-inline" data-pattern-id="shield-swap" data-pattern-placement="inline">
+    <h3>The Shield Swap</h3><p class="fis-metaphor">A confidentiality shield is traded for a data protection basis.</p>
+    <dl class="fis-lines"><div><dt>Risk</dt><dd>ECCTA eligibility is treated as permission to share.</dd></div><div><dt>Signal</dt><dd>The record cites sections 188 or 189 and says nothing about the lawful basis or the Schedule 1 condition.</dd></div><div><dt>Response</dt><dd>Answer the three questions separately and cite a source for each.</dd></div></dl>
+  </div>
 </section>
 
 <section class="fis-section" id="routes">
@@ -242,6 +249,11 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
     </div>
   </div>
 
+  <div class="fis-pattern fis-pattern-inline" data-pattern-id="full-file" data-pattern-placement="inline">
+    <h3>The Full File</h3><p class="fis-metaphor">The whole case file goes out because the route fits.</p>
+    <dl class="fis-lines"><div><dt>Risk</dt><dd>More personal data is shared than the stated decision needs.</dd></div><div><dt>Signal</dt><dd>Third-party names and allegation labels appear in a disclosure whose purpose does not need them.</dd></div><div><dt>Response</dt><dd>Build the minimum set from the stated purpose and leave out the rest.</dd></div></dl>
+  </div>
+
   <div class="fis-stage" id="step-protected-data">
     <h3><span class="fis-stage-no">5</span> Protected data</h3>
     <p class="fis-question">Are allegations or suspicions criminal offence data, and which Schedule 1 condition and policy document apply?</p>
@@ -262,6 +274,11 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
     </div>
   </div>
 
+  <div class="fis-pattern fis-pattern-inline" data-pattern-id="silent-sar" data-pattern-placement="inline">
+    <h3>The Silent SAR</h3><p class="fis-metaphor">A reply says more about reporting than it should.</p>
+    <dl class="fis-lines"><div><dt>Risk</dt><dd>A reply reveals or implies that a SAR exists or that an investigation is contemplated.</dd></div><div><dt>Signal</dt><dd>A refusal explains itself by reference to reporting, or the nominated officer has not seen the draft.</dd></div><div><dt>Response</dt><dd>The nominated officer approves any reply, and it is drafted so that nothing reveals or implies a SAR.</dd></div></dl>
+  </div>
+
   <div class="fis-stage" id="step-recipient-use">
     <h3><span class="fis-stage-no">7</span> Recipient use</h3>
     <p class="fis-question">How may the recipient use what it receives?</p>
@@ -272,6 +289,11 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
     </div>
   </div>
 
+  <div class="fis-pattern fis-pattern-inline" data-pattern-id="borrowed-verdict" data-pattern-placement="inline">
+    <h3>The Borrowed Verdict</h3><p class="fis-metaphor">Another firm's information becomes this firm's conclusion.</p>
+    <dl class="fis-lines"><div><dt>Risk</dt><dd>Received intelligence is treated as proof and used as an automatic exit instruction.</dd></div><div><dt>Signal</dt><dd>The recipient's file cites only the sender's information as its reason.</dd></div><div><dt>Response</dt><dd>Record the independent checks, corroborate before acting and keep the complaint route open.</dd></div></dl>
+  </div>
+
   <div class="fis-stage" id="step-record">
     <h3><span class="fis-stage-no">8</span> Record</h3>
     <p class="fis-question">What must the record show?</p>
@@ -280,6 +302,10 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
       <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>The record is what lets the firm show a customer, the Ombudsman or the ICO why it shared what it shared. It should be one document completed before sending, not reconstructed afterwards.</p></div>
       <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Capture the request, the purpose, the route, the data shared and the data withheld, the approvals, the handling restrictions, the retention period, the decision and the complaint or correction route.</p></div>
     </div>
+  </div>
+  <div class="fis-pattern fis-pattern-inline" data-pattern-id="missing-minutes" data-pattern-placement="inline">
+    <h3>The Missing Minutes</h3><p class="fis-metaphor">The decision cannot be reconstructed afterwards.</p>
+    <dl class="fis-lines"><div><dt>Risk</dt><dd>The firm cannot show why it shared what it shared.</dd></div><div><dt>Signal</dt><dd>The request, route, data shared and approvals sit in different inboxes.</dd></div><div><dt>Response</dt><dd>Complete one decision record before sending.</dd></div></dl>
   </div>
 </section>
 
@@ -473,10 +499,74 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
   </ol>
 </section>
 
+<section class="fis-section fis-summary" id="operational-summary">
+  <h2>One-screen summary</h2>
+  <p>The framework on one page. Every line restates wording from the sections above and adds no new claim.</p>
+  <div id="fisOperationalSummary">
+    <h3>Eight steps</h3>
+    <ol class="fis-summary-list" data-summary="steps">
+      <li><strong>Purpose.</strong> <span>What precise economic-crime decision would the sharing assist?</span></li>
+      <li><strong>Route.</strong> <span>Is this ECCTA direct sharing, ECCTA indirect sharing, POCA section 339ZB sharing, a permitted post-SAR disclosure, or ordinary sharing outside those protections?</span></li>
+      <li><strong>Scope.</strong> <span>Are the sender, recipient, customer and proposed use within the chosen route?</span></li>
+      <li><strong>Data protection.</strong> <span>What is the Article 6 basis, and are necessity, purpose compatibility, minimisation, accuracy, security and transparency documented?</span></li>
+      <li><strong>Protected data.</strong> <span>Are allegations or suspicions criminal offence data, and which Schedule 1 condition and policy document apply?</span></li>
+      <li><strong>SAR boundary.</strong> <span>Has a SAR been made or an investigation contemplated, and could the disclosure reveal it or prejudice an investigation?</span></li>
+      <li><strong>Recipient use.</strong> <span>How may the recipient use what it receives?</span></li>
+      <li><strong>Record.</strong> <span>What must the record show?</span></li>
+    </ol>
+    <h3>Four outcomes</h3>
+    <ol class="fis-summary-list" data-summary="outcomes">
+      <li><strong>Share under the identified route.</strong> <span>The route conditions are met, the data protection and SAR boundary answers are recorded, and nothing beyond the ordinary record is needed.</span></li>
+      <li><strong>Share after specified controls.</strong> <span>The route fits, but named controls must be in place first, such as verifying the requester, minimising the data, confirming the policy document and agreeing handling conditions.</span></li>
+      <li><strong>Escalate and do not share yet.</strong> <span>An answer to the data protection or SAR boundary question is missing, or a SAR or investigation may be in play.</span></li>
+      <li><strong>Do not share under this route.</strong> <span>A route condition is not met, for example the recipient is outside the regulated sector, the person is not within the route, or the purpose is not economic crime.</span></li>
+    </ol>
+  </div>
+  <div class="fis-callout"><p class="fis-rule">Choose the route first. Then ask what the route protects, and what it does not.</p></div>
+</section>
+
+<section class="fis-section" id="patterns">
+  <h2>Risk, Signal, Response</h2>
+  <p class="fis-lede">Five ways an information-sharing decision goes wrong. Each card names the risk, the signal that shows it in the record, and the response.</p>
+  <div class="fis-patterns" id="fisClosingPatterns">
+    <div class="fis-pattern" data-pattern-id="shield-swap">
+      <h3>1. The Shield Swap</h3><p class="fis-metaphor">A confidentiality shield is traded for a data protection basis.</p>
+      <dl class="fis-lines"><div><dt>Risk</dt><dd>ECCTA eligibility is treated as permission to share.</dd></div><div><dt>Signal</dt><dd>The record cites sections 188 or 189 and says nothing about the lawful basis or the Schedule 1 condition.</dd></div><div><dt>Response</dt><dd>Answer the three questions separately and cite a source for each.</dd></div></dl>
+    </div>
+    <div class="fis-pattern" data-pattern-id="full-file">
+      <h3>2. The Full File</h3><p class="fis-metaphor">The whole case file goes out because the route fits.</p>
+      <dl class="fis-lines"><div><dt>Risk</dt><dd>More personal data is shared than the stated decision needs.</dd></div><div><dt>Signal</dt><dd>Third-party names and allegation labels appear in a disclosure whose purpose does not need them.</dd></div><div><dt>Response</dt><dd>Build the minimum set from the stated purpose and leave out the rest.</dd></div></dl>
+    </div>
+    <div class="fis-pattern" data-pattern-id="silent-sar">
+      <h3>3. The Silent SAR</h3><p class="fis-metaphor">A reply says more about reporting than it should.</p>
+      <dl class="fis-lines"><div><dt>Risk</dt><dd>A reply reveals or implies that a SAR exists or that an investigation is contemplated.</dd></div><div><dt>Signal</dt><dd>A refusal explains itself by reference to reporting, or the nominated officer has not seen the draft.</dd></div><div><dt>Response</dt><dd>The nominated officer approves any reply, and it is drafted so that nothing reveals or implies a SAR.</dd></div></dl>
+    </div>
+    <div class="fis-pattern" data-pattern-id="borrowed-verdict">
+      <h3>4. The Borrowed Verdict</h3><p class="fis-metaphor">Another firm's information becomes this firm's conclusion.</p>
+      <dl class="fis-lines"><div><dt>Risk</dt><dd>Received intelligence is treated as proof and used as an automatic exit instruction.</dd></div><div><dt>Signal</dt><dd>The recipient's file cites only the sender's information as its reason.</dd></div><div><dt>Response</dt><dd>Record the independent checks, corroborate before acting and keep the complaint route open.</dd></div></dl>
+    </div>
+    <div class="fis-pattern" data-pattern-id="missing-minutes">
+      <h3>5. The Missing Minutes</h3><p class="fis-metaphor">The decision cannot be reconstructed afterwards.</p>
+      <dl class="fis-lines"><div><dt>Risk</dt><dd>The firm cannot show why it shared what it shared.</dd></div><div><dt>Signal</dt><dd>The request, route, data shared and approvals sit in different inboxes.</dd></div><div><dt>Response</dt><dd>Complete one decision record before sending.</dd></div></dl>
+    </div>
+  </div>
+  <div class="fis-save-row"><button class="fis-action" id="saveSummaryImage" type="button">Save as image</button><span class="fis-save-status" id="saveSummaryStatus" aria-live="polite" role="status"></span></div>
+</section>
+
+<section class="fis-section fis-details" id="faq">
+  <h2>FAQ</h2>
+  <details><summary>Does ECCTA let me ignore the UK GDPR?</summary><p>No. Sections 188(11) and 189(10) say nothing in them requires or authorises a disclosure that would contravene the data protection legislation. <a href="#source-1">[1]</a> The ICO describes recognised legitimate interest as a lawful basis and not an exemption. <a href="#source-7">[7]</a></p></details>
+  <details><summary>Is recognised legitimate interest automatic permission to share?</summary><p>No. The crime condition covers processing necessary for detecting, investigating or preventing crime, so the firm must be able to show the sharing is necessary for that purpose. <a href="#source-5">[5]</a> The ICO says the firm must also meet the other data protection requirements, tell people it relies on the basis and which condition, and allow them to object. <a href="#source-7">[7]</a></p></details>
+  <details><summary>Is ECCTA sharing a Super SAR?</summary><p>No. The government guidance uses Super SAR for the joint disclosure report under POCA section 339ZB. <a href="#source-4">[4]</a> ECCTA sharing under sections 188 and 189 is a separate route and creates no joint report. <a href="#source-1">[1]</a> <a href="#source-12">[12]</a></p></details>
+  <details><summary>Can I share after submitting a SAR?</summary><p>Not on ECCTA eligibility alone. The government guidance says firms that share after a SAR must make sure they do not breach the tipping-off or prejudicing-investigation provisions. <a href="#source-4">[4]</a> Section 333A turns on whether the disclosure reveals the SAR or a contemplated investigation and is likely to prejudice one, and the nominated officer should decide what, if anything, can be said. <a href="#source-11">[11]</a></p></details>
+  <details><summary>Does received intelligence justify exiting a customer?</summary><p>Not on its own. The government guidance says the measures are not designed to give sectors additional powers to exclude customers inappropriately and should assist risk-based decision making. <a href="#source-4">[4]</a> The recipient owns the decision and the evidence for it, and should treat what it receives as an input to its own assessment.</p></details>
+  <details><summary>Which parts of the government and ICO material are out of date?</summary><p>The October 2025 government guidance says the recognised legitimate interest provisions will come into force in 2026. They came into force on 5 February 2026, so the commencement instrument and the ICO's March 2026 guidance are the better guide. <a href="#source-4">[4]</a> <a href="#source-6">[6]</a> <a href="#source-7">[7]</a> The ICO's pages on criminal offence data conditions and on sharing to prevent scams and fraud are marked as under review, and this guide uses them only for operational controls. <a href="#source-9">[9]</a> <a href="#source-10">[10]</a></p></details>
+  <details><summary>What should the record contain?</summary><p>The request, the purpose, the route, the data shared and the data withheld, the approvals, the handling restrictions, the retention period, the decision and the complaint or correction route. The government guidance encourages an audit trail of all information shared and a record of key decision points. <a href="#source-4">[4]</a></p></details>
+</section>
 </main>
 <aside class="fis-toc" aria-label="On this page">
 <strong>Decision route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li><li><a href="#scenario-one">Scenario 1: direct request</a></li><li><a href="#scenario-two">Scenario 2: after a SAR</a></li><li><a href="#red-team">Red Team Questions</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li><li><a href="#scenario-one">Scenario 1: direct request</a></li><li><a href="#scenario-two">Scenario 2: after a SAR</a></li><li><a href="#red-team">Red Team Questions</a></li><li><a href="#operational-summary">One-screen summary</a></li><li><a href="#patterns">Risk, Signal, Response</a></li><li><a href="#faq">FAQ</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

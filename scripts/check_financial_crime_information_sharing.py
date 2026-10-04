@@ -322,6 +322,82 @@ def check_f7() -> None:
     require(html.count('<div class="fis-wwcmd">') == 2, "each scenario needs a static What Would Change My Decision")
 
 
+PATTERN_IDS = ["shield-swap", "full-file", "silent-sar", "borrowed-verdict", "missing-minutes"]
+CLAIM_VOCABULARY = re.compile(r"ECCTA|POCA|Schedule 1|UK GDPR|SAR|tipping|ICO|Ombudsman|nominated officer|criminal offence", re.I)
+
+
+def js_string_literals(source: str) -> list[str]:
+    """String literals in the page script, skipping comments. The script has no template literals."""
+    require("`" not in source, "the page script must not use template literals")
+    found, i, n = [], 0, len(source)
+    while i < n:
+        two = source[i:i + 2]
+        if two == "//":
+            i = source.find("\n", i)
+            i = n if i == -1 else i
+        elif two == "/*":
+            i = source.find("*/", i) + 2
+        elif source[i] in "'\"":
+            quote, j, chars = source[i], i + 1, []
+            while j < n and source[j] != quote:
+                if source[j] == "\\":
+                    chars.append(source[j + 1])
+                    j += 1
+                else:
+                    chars.append(source[j])
+                j += 1
+            found.append("".join(chars))
+            i = j + 1
+        else:
+            i += 1
+    return found
+
+
+def check_f8() -> None:
+    """F8: the one-screen summary, five Risk, Signal, Response cards in two placements, image export and native FAQ are present."""
+    html = html_text()
+    summary = re.search(r'<section class="fis-section fis-summary" id="operational-summary">.*?</section>', html, re.S).group(0)
+    body = html.replace(summary, "")
+    body_text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body))
+    lists = re.findall(r'<ol class="fis-summary-list" data-summary="(\w+)">(.*?)</ol>', summary, re.S)
+    require([name for name, _ in lists] == ["steps", "outcomes"], "summary needs a steps list and an outcomes list")
+    for name, expected in (("steps", 8), ("outcomes", 4)):
+        items = re.findall(r"<li><strong>([^<]+)</strong> <span>([^<]+)</span></li>", dict(lists)[name])
+        require(len(items) == expected, f"summary {name} list needs {expected} items, found {len(items)}")
+        for _, sentence in items:
+            require(sentence in body_text, f"summary line is not verbatim body copy: {sentence!r}")
+    require("adds no new claim" in summary, "the summary must say it adds no new claim")
+    section = re.search(r'<section class="fis-section" id="patterns">.*?</section>', html, re.S).group(0)
+    pieces = re.split(r'<div class="fis-pattern" data-pattern-id="([^"]+)">', section)
+    cards = list(zip(pieces[1::2], pieces[2::2]))
+    require([c[0] for c in cards] == PATTERN_IDS, f"closing cards found: {[c[0] for c in cards]}")
+    for number, (pattern_id, card_body) in enumerate(cards, 1):
+        require(re.search(rf"<h3>{number}\. [^<]+</h3>", card_body) is not None, f"{pattern_id} needs a numbered metaphor-style name")
+        require('<p class="fis-metaphor">' in card_body, f"{pattern_id} needs its one short explanatory line")
+        lines = re.findall(r"<div><dt>(\w+)</dt><dd>(.*?)</dd></div>", card_body, re.S)
+        require([l[0] for l in lines] == ["Risk", "Signal", "Response"], f"{pattern_id} needs Risk, Signal, Response in order")
+    outside = html.replace(section, "")
+    inline = re.findall(r'<div class="fis-pattern fis-pattern-inline" data-pattern-id="([^"]+)" data-pattern-placement="inline">(.*?)\n  </div>', outside, re.S)
+    require(sorted(i[0] for i in inline) == sorted(PATTERN_IDS), f"inline placements found: {[i[0] for i in inline]}")
+
+    def flat(text: str) -> str:
+        return re.sub(r"\s+", " ", re.sub(r"<h3>\d\. ", "<h3>", text)).strip()
+
+    closing_by_id = dict(cards)
+    for pattern_id, inline_body in inline:
+        require(flat(inline_body) == flat(closing_by_id[pattern_id].rsplit("\n    </div>", 1)[0]), f"inline {pattern_id} wording differs from the closing card")
+    require('id="saveSummaryImage"' in html and 'id="saveSummaryStatus" aria-live="polite" role="status"' in html, "the save button and its status region are required")
+    require("#saveSummaryImage{display:none}.js #saveSummaryImage{display:inline-block}" in html, "the save button must stay hidden without JavaScript")
+    faq = re.search(r'<section class="fis-section fis-details" id="faq">.*?</section>', html, re.S).group(0)
+    items = re.findall(r"<details><summary>(.*?)</summary><p>(.*?)</p></details>", faq, re.S)
+    require(len(items) == 7 and all(len(a) > 100 for _, a in items), f"expected seven substantial FAQ items, found {len(items)}")
+    script = SCRIPT.read_text(encoding="utf-8")
+    start = script.index("function exportSummary")
+    claims = [l for l in js_string_literals(script[start:]) if CLAIM_VOCABULARY.search(l)]
+    require(not claims, f"the image export carries wording of its own that looks like a claim: {claims}")
+    require("querySelector('h3')" in script and "fisClosingPatterns" in script and "fisOperationalSummary" in script, "the export must read the page's own text")
+
+
 CHECKS = [
     ("F1", check_f1),
     ("F2", check_f2),
@@ -330,6 +406,7 @@ CHECKS = [
     ("F5", check_f5),
     ("F6", check_f6),
     ("F7", check_f7),
+    ("F8", check_f8),
 ]
 
 
