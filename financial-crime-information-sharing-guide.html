@@ -88,6 +88,9 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
 .fis-save-row{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin-top:1rem}.fis-save-status{font-size:13px;color:#536a74}#saveSummaryImage{display:none}.js #saveSummaryImage{display:inline-block}
 @media(max-width:640px){.fis-summary-list li{grid-template-columns:minmax(0,1fr);gap:.15rem}}
 .fis-labels,.fis-change{padding-left:1.3rem}.fis-labels li,.fis-change li{margin:.5rem 0}.fis-question{font-weight:700;color:#073d3a;margin:.4rem 0}
+.fis-record{border:2px solid var(--fis-navy);padding:1rem;margin:1.2rem 0}.fis-record h3{margin:0 0 .8rem}.fis-record dl{display:grid;grid-template-columns:140px minmax(0,1fr);margin:0}.fis-record dt,.fis-record dd{padding:.75rem;border-top:1px solid var(--fis-line)}.fis-record dt{font-weight:700;color:#075e57}.fis-record dd{margin:0}.fis-record .fis-assumption{background:#fff8eb}
+.fis-wwcmd{border:1px solid #c7d6ec;background:#f4f7fc;padding:1rem;margin:1rem 0}.fis-wwcmd h3{margin:0 0 .5rem}.fis-wwcmd p{margin:.5rem 0}
+@media(max-width:640px){.fis-record dl{grid-template-columns:minmax(0,1fr)}.fis-record dt{padding-bottom:.2rem}.fis-record dd{padding-top:.2rem;border-top:0}}
 @media(max-width:900px){.fis-layout{grid-template-columns:minmax(0,1fr)}.fis-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--fis-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.fis-breadcrumb{align-items:flex-start;flex-wrap:wrap}.fis-hero{padding-top:2.8rem}.fis-core,.fis-saa{grid-template-columns:minmax(0,1fr)}.fis-layout{padding:0 .75rem 3rem;gap:1rem}.fis-scope{padding:0 .75rem}}
 @media(max-width:360px){.fis-section{padding:1rem}.fis-hero h1{font-size:2rem}.fis-meta{gap:.4rem}}
@@ -290,10 +293,88 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
   </ul>
 </section>
 
+<section class="fis-section" id="scenario-one" data-scenario="direct-request">
+  <span class="fis-scenario-tag">Worked scenario 1 · Direct request</span>
+  <h2>The request about a former customer</h2>
+  <p class="fis-lede">Another bank asks why you closed an account. The route may fit. The data still needs its own answer.</p>
+  <div class="fis-scenario">
+    <p class="fis-illustrative">Composite scenario for teaching. It does not describe a real firm, customer or case.</p>
+    <ul class="fis-facts">
+      <li>You lead financial crime at Bank A, a UK bank carrying on business in the regulated sector. Six weeks ago Bank A closed a personal account after concerns about fraud, so the account holder is a former customer.</li>
+      <li>The fraud team at Bank B, also a UK bank, emails you. It says a customer who opened an account there five weeks ago has received three payments from different people that it suspects are authorised push payment scam payments, 14,500 GBP in total.</li>
+      <li>Bank B names the person, says it believes they were previously a customer of Bank A, and asks for the reason for the closure and any fraud concerns Bank A holds, so that it can decide whether to restrict or close the account.</li>
+      <li>Bank A's file holds the closure reason code and date, two reports from victims of other banks that name the account, device and address overlaps with two other accounts, the names of the two victims, and a note summarising an alleged mule role.</li>
+      <li>Bank A has not submitted a SAR about this person. The email comes from a named analyst at a bank email domain. There is no data sharing agreement between the banks. Bank A has an appropriate policy document for its crime-prevention processing, which has not been checked against this kind of disclosure.</li>
+    </ul>
+    <form class="fis-choice" data-decision-form data-scenario-id="direct-request" method="dialog">
+      <fieldset>
+        <legend>What is the most defensible decision for Bank A?</legend>
+        <label class="fis-option"><input type="radio" name="direct-request-decision" value="a" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>A.</strong> Send the full case file. ECCTA gives Bank A protection from breach of confidence and civil liability, so nothing more is needed.</span></label>
+        <label class="fis-option"><input type="radio" name="direct-request-decision" value="b" data-grade="best" data-grade-label="Best supported by the evidence"><span><strong>B.</strong> Verify the request through a contact Bank A sources itself, confirm that the section 188 conditions are met, then share a minimised set tied to Bank B's stated decision. Withhold the victims' names and unrelated material, record the basis, the Schedule 1 condition and the policy document, and attach handling conditions.</span></label>
+        <label class="fis-option"><input type="radio" name="direct-request-decision" value="c" data-grade="unsupported" data-grade-label="Not supported by the evidence"><span><strong>C.</strong> Decline. Without a statute that compels disclosure, a bank should not tell another bank anything about a customer.</span></label>
+        <label class="fis-option"><input type="radio" name="direct-request-decision" value="d" data-grade="incomplete" data-grade-label="Contains a true point, stops short"><span><strong>D.</strong> Hold everything until a full data sharing agreement and a data protection impact assessment are signed off, even though this is a one-off request.</span></label>
+      </fieldset>
+      <button class="fis-action" type="submit">Record decision</button>
+      <p class="fis-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="fis-optfb-set" data-optfb-for="direct-request" role="group" aria-labelledby="optfb-title-direct-request">
+    <h3 id="optfb-title-direct-request">How each option grades</h3>
+    <div class="fis-optfb" id="optfb-direct-request-a" data-option="a" data-grade="unsupported">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="unsupported">Not supported by the evidence</span> A. Send the full case file. ECCTA gives Bank A protection from breach of confidence and civil liability, so nothing more is needed.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>ECCTA sections 188(2) and 188(11) protect against breach of confidence and civil liability to the customer, and say nothing in the section requires or authorises a disclosure that would contravene the data protection legislation. <a href="#source-1">[1]</a> The ICO says recognised legitimate interest is a lawful basis and not an exemption, and that the firm must decide whether using the information is necessary. <a href="#source-7">[7]</a> The government guidance says the information must be accurate, adequate, relevant and limited to what is necessary. <a href="#source-4">[4]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>The file holds the personal data of two other victims and an allegation label that Bank B's decision does not need. ECCTA answers the confidence and civil liability question. It does not answer the data protection question, and sending the whole file fails necessity and minimisation.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Do not send the file. Build the minimum set from the purpose Bank B has stated, and leave out what that decision does not need.</p></div>
+      </div>
+    </div>
+    <div class="fis-optfb" id="optfb-direct-request-b" data-option="b" data-grade="best">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="best">Best supported by the evidence</span> B. Verify the request through a contact Bank A sources itself, confirm that the section 188 conditions are met, then share a minimised set tied to Bank B's stated decision. Withhold the victims' names and unrelated material, record the basis, the Schedule 1 condition and the policy document, and attach handling conditions.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>The request condition in ECCTA section 188(4) is met where the disclosure responds to a request from the other firm, and that firm has reason to believe the sender holds information about the customer that will or may assist its relevant actions. Relevant actions include deciding whether to terminate a relationship with a customer. <a href="#source-1">[1]</a> Annex 1 paragraph 5 of the UK GDPR, the crime condition, covers processing necessary for detecting, investigating or preventing crime. <a href="#source-5">[5]</a> The ICO says suspicion or allegations of criminal activity are criminal offence data and need a Schedule 1 condition. <a href="#source-7">[7]</a> Schedule 1 paragraph 10 applies to processing necessary for the prevention, investigation or detection of an unlawful act, and a policy document is needed for a disclosure to another bank. <a href="#source-8">[8]</a> <a href="#source-9">[9]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>The route fits on these facts. Bank B's customer is the subject of the decision, the person is Bank A's former customer, and the request states the decision. Question 2 is still answered separately: the recognised legitimate interest basis, the paragraph 10 condition and the policy document must be recorded, and the disclosure must be limited to facts that bear on Bank B's decision. Question 3 is not engaged here because no SAR has been made, but the nominated officer should confirm that.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Verify the requester, check each section 188 element, share the closure date, the category of concern and the corroborating facts that bear on it, and leave out the victims' names. Attach handling conditions: purpose only, corroborate before acting, and a contact for corrections. Record the decision as share after specified controls.</p></div>
+      </div>
+    </div>
+    <div class="fis-optfb" id="optfb-direct-request-c" data-option="c" data-grade="unsupported">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="unsupported">Not supported by the evidence</span> C. Decline. Without a statute that compels disclosure, a bank should not tell another bank anything about a customer.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>The government guidance says the measures are voluntary and were introduced to give firms clarity and comfort to share relevant customer information to prevent, detect or investigate economic crime. It also says private bodies do not need statutory authority to share information, though they need a lawful basis for personal data. <a href="#source-4">[4]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>Voluntary means Bank A may decline, not that it must. Neither ECCTA nor the guidance requires a refusal, and a blanket rule skips the route that was built for this request. Declining is a defensible outcome where a condition fails, and it is not a defensible default when the conditions are met.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Decide on the conditions. If one fails, record which and why, and treat that as the outcome. Do not record a blanket policy as the reason.</p></div>
+      </div>
+    </div>
+    <div class="fis-optfb" id="optfb-direct-request-d" data-option="d" data-grade="incomplete">
+      <p class="fis-optfb-head"><span class="fis-grade" data-grade="incomplete">Contains a true point, stops short</span> D. Hold everything until a full data sharing agreement and a data protection impact assessment are signed off, even though this is a one-off request.</p>
+      <div class="fis-saa">
+        <div class="fis-saa-block"><h4>Source</h4><p>The ICO's scams page, which is under review, says an impact assessment is a legal requirement where processing is likely to result in high risk, and good practice for routine sharing and major projects. It says a data sharing agreement is good practice, particularly where sharing is not ad hoc or one-off. <a href="#source-10">[10]</a></p></div>
+        <div class="fis-saa-block"><h4>Application</h4><p>An agreement and an assessment are sound for recurring sharing. A single request does not have to wait for a bilateral agreement, but the firm should assess whether the risk is high and record why it did or did not carry out a full assessment. Holding everything can also delay a request whose purpose may be time-sensitive.</p></div>
+        <div class="fis-saa-block"><h4>Action</h4><p>Carry out a short, proportionate assessment now and record the conclusion, share the minimised set if the conditions are met, and propose an agreement if requests between the two banks are likely to recur.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="fis-record" aria-labelledby="direct-request-record-heading">
+    <h3 id="direct-request-record-heading">Decision Record</h3>
+    <dl>
+      <dt>Facts</dt><dd>Former customer of Bank A, now a customer of Bank B. The request names the person and states Bank B's decision. No SAR has been made. The file holds third-party victim data and an allegation note. There is no data sharing agreement, and the policy document has not been checked against this disclosure.</dd>
+      <dt class="fis-assumption">Assumptions</dt><dd class="fis-assumption">The requester is who it says it is. The named person is the same individual. The nominated officer confirms no SAR exists and no investigation is contemplated. The closure was decided because of economic crime concerns.</dd>
+      <dt>Indicators</dt><dd>A closure for fraud concerns, two victim reports naming the account, and device and address overlaps with two other accounts.</dd>
+      <dt>Mitigants</dt><dd>Verification of the requester, a minimised data set, handling conditions, a correction contact and a check that the policy document covers the disclosure.</dd>
+      <dt>Decision</dt><dd>Share after specified controls.</dd>
+      <dt>Rationale</dt><dd>The section 188 conditions are met on the facts, the data protection and SAR boundary questions are answered separately, and the disclosure is limited to what Bank B's stated decision needs.</dd>
+    </dl>
+  </div>
+  <div class="fis-wwcmd">
+    <h3>What Would Change My Decision?</h3>
+    <p><strong>Towards escalating or not sharing:</strong> the person is not, and was not, a customer of Bank A. The requester cannot be verified, or the request does not state a decision. Bank B is not carrying on business in the regulated sector. The nominated officer says a SAR exists or an investigation is contemplated. The policy document does not cover the processing.</p>
+    <p><strong>Towards sharing more:</strong> Bank B shows that a further fact bears directly on its stated decision, and the same conditions and minimisation test are met for that fact.</p>
+  </div>
+</section>
+
 </main>
 <aside class="fis-toc" aria-label="On this page">
 <strong>Decision route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li><li><a href="#scenario-one">Scenario 1: direct request</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

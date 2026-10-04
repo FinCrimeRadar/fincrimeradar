@@ -216,11 +216,82 @@ def check_f4() -> None:
     require("not legal categories" in outcomes, "outcome labels must be marked as non-legal")
 
 
+GRADE_LABELS = {
+    "best": "Best supported by the evidence",
+    "incomplete": "Contains a true point, stops short",
+    "unsupported": "Not supported by the evidence",
+}
+EXPECTED_OPTION_GRADES = {
+    "direct-request": {"a": "unsupported", "b": "best", "c": "unsupported", "d": "incomplete"},
+    "post-sar": {"a": "unsupported", "b": "best", "c": "unsupported", "d": "incomplete"},
+}
+BLAME_WORDS = ("negligent", "careless", "gullible", "naive", "complicit", "foolish", "at fault", "guilty", "fraudster", "criminal account holder")
+RECORD_FIELDS = ["Facts", "Assumptions", "Indicators", "Mitigants", "Decision", "Rationale"]
+
+
+def scenario_block(html: str, section_id: str) -> str:
+    match = re.search(rf'<section class="fis-section" id="{section_id}" data-scenario="[^"]+">.*?</section>', html, re.S)
+    require(match is not None, f"scenario section {section_id} is missing")
+    return match.group(0)
+
+
+def check_scenario(section_id: str, scenario: str) -> None:
+    html = html_text()
+    block = scenario_block(html, section_id)
+    require(f'data-scenario="{scenario}"' in block, f"{section_id} has the wrong scenario id")
+    facts = re.search(r'<ul class="fis-facts">(.*?)</ul>', block, re.S).group(1)
+    require(facts.count("<li>") >= 4, f"{section_id} needs at least four stated facts")
+    require("Composite scenario for teaching" in block, f"{section_id} must say it is synthetic")
+    form = re.search(r'<form class="fis-choice" data-decision-form data-scenario-id="([^"]+)".*?</form>', block, re.S)
+    require(form is not None and form.group(1) == scenario, f"{section_id} decision form is missing or mislabelled")
+    form_html = form.group(0)
+    radio_pattern = (r'<input type="radio" name="[^"]+" value="(\w)" data-grade="(\w+)" '
+                     r'data-grade-label="([^"]+)"><span><strong>([A-D])\.</strong> (.*?)</span>')
+    radios = re.findall(radio_pattern, form_html, re.S)
+    require([r[0] for r in radios] == ["a", "b", "c", "d"], f"{section_id} must offer four options in order")
+    require({r[0]: r[1] for r in radios} == EXPECTED_OPTION_GRADES[scenario], f"{section_id} option grades differ from the contract")
+    require(all(GRADE_LABELS[r[1]] == r[2] for r in radios), f"{section_id} grade labels differ from the contract")
+    require(sum(1 for r in radios if r[1] == "best") == 1, f"{section_id} must have exactly one best option")
+    require('<p class="fis-feedback" aria-live="polite" role="status"></p>' in form_html, f"{section_id} feedback region needs aria-live and role=status")
+    require("<legend>" in form_html and "<fieldset>" in form_html, f"{section_id} options must sit in a fieldset with a legend")
+    pieces = re.split(r'<div class="fis-optfb" id="([^"]+)" data-option="(\w)" data-grade="(\w+)">', block)
+    analyses = list(zip(pieces[1::4], pieces[2::4], pieces[3::4], pieces[4::4]))
+    require([a[1] for a in analyses] == ["a", "b", "c", "d"], f"{section_id} must analyse every option, found {[a[1] for a in analyses]}")
+    for (analysis_id, option, grade, body), radio in zip(analyses, radios):
+        require(grade == radio[1] and analysis_id == f"optfb-{scenario}-{option}", f"{section_id} analysis {option} does not match its option")
+        require(radio[4].strip() in body, f"{section_id} analysis {option} does not restate its option")
+        require(f'<span class="fis-grade" data-grade="{grade}">{GRADE_LABELS[grade]}</span>' in body, f"{section_id} analysis {option} badge is wrong")
+        layers = re.findall(r'<div class="fis-saa-block"><h4>(\w+)</h4><p>(.*?)</p></div>', body, re.S)
+        require([l[0] for l in layers] == ["Source", "Application", "Action"], f"{section_id} analysis {option} needs Source, Application, Action")
+        require(all(len(re.sub(r"<[^>]+>", "", l[1])) > 60 for l in layers), f"{section_id} analysis {option} has a thin layer")
+        require(re.search(r'href="#source-\d+"', layers[0][1]) is not None, f"{section_id} analysis {option} Source layer is uncited")
+    record = re.search(r'<div class="fis-record"[^>]*>(.*?)</div>', block, re.S)
+    require(record is not None, f"{section_id} needs a Decision Record")
+    require(re.findall(r"<dt[^>]*>(\w+)</dt>", record.group(1)) == RECORD_FIELDS, f"{section_id} Decision Record fields are wrong")
+    wwcmd = re.search(r'<div class="fis-wwcmd">(.*?)</div>', block, re.S)
+    require(wwcmd is not None and "What Would Change My Decision?" in wwcmd.group(1), f"{section_id} needs a static What Would Change My Decision")
+    require("<form" not in wwcmd.group(1) and "<input" not in wwcmd.group(1), f"{section_id} What Would Change My Decision must be static")
+    visible = re.sub(r"<[^>]+>", " ", block).lower()
+    for word in BLAME_WORDS:
+        require(word not in visible, f"{section_id} uses blaming or conclusory wording {word!r}")
+
+
+def check_f5() -> None:
+    """F5: scenario 1 tests the ECCTA request condition, relevant action, data protection and minimisation, with graded options."""
+    check_scenario("scenario-one", "direct-request")
+    block = scenario_block(html_text(), "scenario-one")
+    text = re.sub(r"<[^>]+>", " ", block)
+    for needle in ("request condition", "relevant action", "recognised legitimate interest", "criminal offence data", "minimis"):
+        require(needle in text.lower() or needle.replace("minimis", "minimi") in text.lower(), f"scenario 1 does not test {needle!r}")
+    require("Share after specified controls" in text, "scenario 1 must record its outcome label")
+
+
 CHECKS = [
     ("F1", check_f1),
     ("F2", check_f2),
     ("F3", check_f3),
     ("F4", check_f4),
+    ("F5", check_f5),
 ]
 
 
