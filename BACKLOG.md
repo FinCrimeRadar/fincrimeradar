@@ -68,6 +68,15 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
+### Financial Crime Information Sharing: Can I Tell Another Bank?
+
+- **Status:** READY. Explicit user-directed promotion from reserve on 4 October 2026. docs/CONTENT_OPERATING_PLAN.md is not edited and its queue order is not changed by this promotion. Only this guide is in build. No other guide is started alongside it.
+- **Specification:** Public format Guide, composition Framework, Default Knowledge Hub treatment. United Kingdom. Audience: financial-crime, fraud, AML, MLRO, privacy and operational-risk practitioners at banks and other AML-regulated firms. Decision object: whether information may be shared with another firm, through which route, for what purpose, with what data and controls, and how the recipient may use it. The differentiator is one integrated route-selection framework covering ECCTA direct sharing, ECCTA indirect sharing, the POCA section 339ZB joint-disclosure route, the tipping-off exceptions, data protection and recipient use. It must go materially beyond classification-asymmetry-guide.html (the voluntary POCA 339ZB to 339ZD gateway only), sar-guide-part2.html (the limited 333B and 333C exceptions only) and de-risking-judgement-call.html (customer communications and exit).
+- **Verification owner:** Codex.
+- **Primary sources or repository evidence checked:** 4 October 2026. Current primary law and ICO guidance, as recorded by the Codex research session. Claude Code rebuilds and rechecks the source pack against the live sources before drafting and before release, and the ledger records what it checked.
+- **Review date:** 4 October 2026.
+- **Verification outcome:** PASS. Current primary law and ICO guidance support the guide, and the originality test passed. Independent R17 review and the corrected-wording recheck passed on 4 October 2026. Pull request review found no issues. Merge and R18 production verification remain outstanding.
+
 ### Investment Scam Investigation Handbook: COMPLETE and live, 3 October 2026
 
 Retained as an evidence record, not an active queue item. Public format Guide, Default Knowledge Hub treatment, at https://fincrimeradar.org/investment-scam-investigation-handbook.html.
@@ -76,7 +85,7 @@ Retained as an evidence record, not an active queue item. Public format Guide, D
 - **Reviews:** R17 independent regulatory review of ledger claims 001, 005, 006 and 007 passed on 3 October 2026, and checked PS25/5, Pay.UK FPS Reimbursement Rules Schedule 4 v4.0 and the Bank of England CHAPS reimbursement rules. The pull request /code-review ran four reviewers over the full diff. One material finding (claim 008 wording had dropped "only") was fixed in a84cca7 with the checker pinned, and the affected checks were rerun.
 - **R18 production verification, 3 October 2026:** the live page, social card and page script matched the merged repository files byte for byte. Canonical, Open Graph, Article and BreadcrumbList metadata matched. The sitemap lists the guide once. The Knowledge Hub card is present and the count reads 57. The guide's browser suite passed against production (widths 320 to 1440, 200 and 400 percent zoom, keyboard and focus, JavaScript disabled, image export), and with the real gtag, analytics consent defaults to denied, no guide event is sent without consent or after Reject analytics, and accepted events carry only the guide id and aggregate values.
 - **Not verified:** a real-device mobile test, a W3C validator, and the PSR legal instruments behind PS25/5, which were not analysed.
-- **Next reserve topic:** Financial Crime Information Sharing, not started, not researched and not gated.
+- **Reserve successor:** Financial Crime Information Sharing was promoted from reserve to Next Up on 4 October 2026, as an explicit user-directed promotion.
 
 ### Scenario Lab API synchronisation: COMPLETE, 3 October 2026
 
@@ -158,7 +167,7 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are rel
 
 ## Content Loop
 
-Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. There is no content item in Next Up. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
+Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. The only content item in Next Up is Financial Crime Information Sharing, promoted from reserve by explicit user direction on 4 October 2026. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
 
 ### Priority research candidates
 
@@ -176,7 +185,6 @@ Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. There is no conten
 ### Reserve and parked content
 
 - **Repeat AML Failure as a Risk Signal:** moved from the priority list to reserve research. It depends on the FinCEN UBS action and an unverified UK comparator. Find a primary FCA comparator first and do not create a blended US and UK standard.
-- Financial Crime Information Sharing: Can I Tell Another Bank? Next reserve topic, now that the Investment Scam Investigation Handbook is live. Not yet researched or gated, so it is not READY and no source has been checked.
 - Possible MLRO Handbook Part 3: resourcing benchmarks and the future professional-services AML supervisor.
 - Victim, Mule or Fraudster? The First Party Fraud Decision Handbook. Run an originality check against the shipped Money Mule Case File first.
 - AI in AML: Where the Model Stops and the Control Begins.
