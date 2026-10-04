@@ -75,7 +75,7 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 - **Verification owner:** Codex.
 - **Primary sources or repository evidence checked:** 4 October 2026. Current primary law and ICO guidance, as recorded by the Codex research session. Claude Code rebuilds and rechecks the source pack against the live sources before drafting and before release, and the ledger records what it checked.
 - **Review date:** 4 October 2026.
-- **Verification outcome:** PASS. Current primary law and ICO guidance support the guide, and the originality test passed. Independent R17 review of the ECCTA, data-protection, criminal-offence-data and tipping-off conclusions is still required before publication, then the pull request review, then R18 production verification.
+- **Verification outcome:** PASS. Current primary law and ICO guidance support the guide, and the originality test passed. Independent R17 review and the corrected-wording recheck passed on 4 October 2026. Pull request review found no issues. Merge and R18 production verification remain outstanding.
 
 ### Investment Scam Investigation Handbook: COMPLETE and live, 3 October 2026
 
