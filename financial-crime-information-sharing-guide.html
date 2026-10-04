@@ -87,6 +87,7 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
 .fis-summary{border:2px solid #0f766e;background:#eff9f6}.fis-summary h3{margin:1rem 0 .3rem}.fis-summary-list{list-style:none;padding:0;margin:.4rem 0}.fis-summary-list li{display:grid;grid-template-columns:190px minmax(0,1fr);gap:.8rem;padding:.65rem 0;border-top:1px solid #cce2de}.fis-summary-list strong{color:#075e57}
 .fis-save-row{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin-top:1rem}.fis-save-status{font-size:13px;color:#536a74}#saveSummaryImage{display:none}.js #saveSummaryImage{display:inline-block}
 @media(max-width:640px){.fis-summary-list li{grid-template-columns:minmax(0,1fr);gap:.15rem}}
+.fis-labels,.fis-change{padding-left:1.3rem}.fis-labels li,.fis-change li{margin:.5rem 0}.fis-question{font-weight:700;color:#073d3a;margin:.4rem 0}
 @media(max-width:900px){.fis-layout{grid-template-columns:minmax(0,1fr)}.fis-toc{position:static;order:-1}}
 @media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--fis-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.fis-breadcrumb{align-items:flex-start;flex-wrap:wrap}.fis-hero{padding-top:2.8rem}.fis-core,.fis-saa{grid-template-columns:minmax(0,1fr)}.fis-layout{padding:0 .75rem 3rem;gap:1rem}.fis-scope{padding:0 .75rem}}
 @media(max-width:360px){.fis-section{padding:1rem}.fis-hero h1{font-size:2rem}.fis-meta{gap:.4rem}}
@@ -192,10 +193,107 @@ html{scroll-padding-top:96px}.fis-action{min-height:44px;min-width:44px}.fis-opt
   </div>
 </section>
 
+<section class="fis-section" id="sequence">
+  <h2>The eight-step sequence</h2>
+  <p class="fis-lede">Work the steps in order. Each ends with a recorded answer, and a missing answer at any step stops the disclosure.</p>
+  <p>The sequence is our own decision structure. The sources are cited step by step, and each step keeps what the authority says apart from how we apply it and what we recommend.</p>
+
+  <div class="fis-stage" id="step-purpose">
+    <h3><span class="fis-stage-no">1</span> Purpose</h3>
+    <p class="fis-question">What precise economic-crime decision would the sharing assist?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>ECCTA section 191 defines the relevant actions the sharing must serve: determining, to prevent, detect or investigate economic crime, whether and how to apply customer due diligence to a customer or proposed customer, carrying out those measures, and deciding whether to terminate, decline, restrict or refuse a transaction for such a customer. The warning condition in section 188(5) requires the sender to have decided on safeguarding action because of economic crime concerns. <a href="#source-1">[1]</a> The government guidance says disclosure for purposes other than those in ECCTA gets no protection, and that sharing personal data for commercial purposes could lead to ICO enforcement. <a href="#source-4">[4]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>A purpose is a decision someone will take, stated in one sentence. Helping with fraud is not a purpose. If the decision cannot be named, necessity cannot be tested at step 4 and the relevant action cannot be identified at step 3.</p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Write the purpose sentence into the record before drafting any content. Send a request back to the requester if it does not state one.</p></div>
+    </div>
+  </div>
+
+  <div class="fis-stage" id="step-route">
+    <h3><span class="fis-stage-no">2</span> Route</h3>
+    <p class="fis-question">Is this ECCTA direct sharing, ECCTA indirect sharing, POCA section 339ZB sharing, a permitted post-SAR disclosure, or ordinary sharing outside those protections?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>The routes and their conditions are set out in the table above. Economic crime for ECCTA sections 188 to 191 means a listed offence in Schedule 11, an attempt, conspiracy or related offence, or conduct that would be one if done in the UK. <a href="#source-1">[1]</a> Schedule 11 lists, among others, fraud under section 1 of the Fraud Act 2006, the money laundering offences in sections 327 to 329 of POCA, and the tipping-off offence in section 333A. <a href="#source-2">[2]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Choose the narrowest route that fits and name what it leaves open. Whether suspected conduct maps to a listed offence is a question for the file. Section 339ZB asks for a suspicion of money laundering, which is narrower than economic crime and needs its own basis in the facts.</p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Record the route. If two routes apply, record both and say which of the three questions each one answers.</p></div>
+    </div>
+  </div>
+
+  <div class="fis-stage" id="step-scope">
+    <h3><span class="fis-stage-no">3</span> Scope</h3>
+    <p class="fis-question">Are the sender, recipient, customer and proposed use within the chosen route?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>For direct sharing, both firms must carry on business to which section 188(3) applies, the information must relate to a customer or former customer of the sender, the request or warning condition must be met, the sender must be satisfied the disclosure will or may assist the recipient's relevant actions, and the disclosure must not be a privileged disclosure. <a href="#source-1">[1]</a> Relevant actions concern a customer or proposed customer of the person carrying them out. <a href="#source-1">[1]</a> The government guidance says the measures are domestic, and that it is the firm's own responsibility to verify that the other firm is legitimate. <a href="#source-4">[4]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Two points are easy to miss. First, is the person your customer or former customer? Second, is the recipient's relevant action about its own customer or proposed customer? On the text we read, a bank asking about someone who is not its customer may not be able to point to a relevant action, so test it and do not assume it.</p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Check each element against the section text and record the result. Verify the requester through a contact you sourced yourself, not through the details in the request.</p></div>
+    </div>
+  </div>
+
+  <div class="fis-stage" id="step-data-protection">
+    <h3><span class="fis-stage-no">4</span> Data protection</h3>
+    <p class="fis-question">What is the Article 6 basis, and are necessity, purpose compatibility, minimisation, accuracy, security and transparency documented?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>Section 70 of the Data (Use and Access) Act 2025 added Article 6(1)(ea), processing necessary for a recognised legitimate interest, and provides that this applies only if a condition in Annex 1 is met. Annex 1 paragraph 5 covers processing necessary for detecting, investigating or preventing crime, or apprehending or prosecuting offenders. <a href="#source-5">[5]</a> Section 70 and Schedule 4 came into force on 5 February 2026. <a href="#source-6">[6]</a> The ICO says the crime condition covers sharing for crime-related purposes, including scams, fraud and money laundering, that the firm must decide whether the use is necessary, and that recognised legitimate interest is a lawful basis and not an exemption. It adds that the firm must tell people it relies on this basis and which condition, that people can object, and that statutory crime reporting is more likely to rest on legal obligation. <a href="#source-7">[7]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>The crime condition is open to a private firm sharing for a crime-related purpose, and it removes the balancing test. It does not remove necessity, proportionality, purpose limitation, minimisation, accuracy, security or transparency. It is not automatic permission to share. The recipient needs its own basis for its own use. The government guidance sentence that these provisions will come into force in 2026 is out of date, and we rely on the commencement instrument instead. <a href="#source-4">[4]</a></p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Record the basis and why the sharing is necessary for the stated purpose, list what is excluded, and check that the privacy information and the right to object are covered. The ICO's scams page, which is under review, still supports a data protection impact assessment for routine sharing, a data sharing agreement where sharing is not ad hoc, and secure handling. <a href="#source-10">[10]</a></p></div>
+    </div>
+  </div>
+
+  <div class="fis-stage" id="step-protected-data">
+    <h3><span class="fis-stage-no">5</span> Protected data</h3>
+    <p class="fis-question">Are allegations or suspicions criminal offence data, and which Schedule 1 condition and policy document apply?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>The ICO says criminal offence data includes suspicion or allegations of criminal activity, and that a private firm without official authority needs a condition in Schedule 1 to the Data Protection Act 2018. <a href="#source-7">[7]</a> <a href="#source-10">[10]</a> Paragraph 10 applies where processing is necessary for the prevention, investigation or detection of an unlawful act and must be carried out without consent so as not to prejudice that purpose. The substantial public interest limb is removed for criminal offence data by paragraph 36. <a href="#source-8">[8]</a> Paragraph 10(2) removes the appropriate policy document requirement only for disclosure to a competent authority. Paragraph 14 covers disclosures as a member of, or under arrangements made by, an anti-fraud organisation. Paragraph 15 covers a disclosure in good faith under POCA section 339ZB. <a href="#source-8">[8]</a> The ICO's conditions page, which is under review, records that paragraphs 10, 14 and 15 all need an appropriate policy document, except for paragraph 10 disclosure to the relevant authorities. <a href="#source-9">[9]</a> A policy document must explain how the Article 5 principles are met and the retention and erasure policy, and the record of processing must name the condition. <a href="#source-8">[8]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Another bank is not a competent authority, so the policy document exception does not help a bank-to-bank disclosure. For an ECCTA request the likely condition is paragraph 10. For a section 339ZB disclosure it is paragraph 15, and for sharing through an anti-fraud organisation it is paragraph 14. If special category data is also involved, the substantial public interest requirement stays for that data. The firm decides which condition fits and records why.</p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Name the condition, confirm the policy document exists and covers this processing, and add the condition to the processing record. Share the allegation only if the purpose needs it. A factual identifier is often enough without the label.</p></div>
+    </div>
+  </div>
+
+  <div class="fis-stage" id="step-sar-boundary">
+    <h3><span class="fis-stage-no">6</span> SAR boundary</h3>
+    <p class="fis-question">Has a SAR been made or an investigation contemplated, and could the disclosure reveal it or prejudice an investigation?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>Section 333A of POCA is an offence where a person discloses that a disclosure under Part 7 has been made to a constable, an HMRC officer, a nominated officer or an NCA officer, the disclosure is likely to prejudice any investigation that might follow, and the information came in the course of regulated sector business. It is also an offence to disclose that an investigation into a Part 7 offence is contemplated or under way, where that is likely to prejudice it. <a href="#source-11">[11]</a> Section 333C permits certain disclosures between credit institutions or between financial institutions only where the disclosure relates to a client, transaction or service both share, is for the purpose only of preventing an offence under Part 7, and meets the recipient location and equivalent confidentiality and data protection conditions. <a href="#source-11">[11]</a> Section 333D includes disclosure for the detection, investigation or prosecution of a criminal offence, and disclosure in good faith under section 339ZB. <a href="#source-11">[11]</a> The government guidance says firms that share after submitting a SAR must make sure they do not breach the provisions on tipping off or prejudicing investigations. <a href="#source-4">[4]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>The offence is about what the disclosure reveals, namely the SAR or the contemplated investigation, and its likely effect. It is not about every fact held on the customer. Many requests can be answered without any reference to a SAR. Where the honest answer would reveal or imply one, ECCTA eligibility does not resolve the problem, because the ECCTA protections are expressed as protection from breach of confidence and civil liability.</p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Ask the nominated officer whether a SAR exists or an investigation is contemplated for this customer before anything is sent. Draft so that nothing reveals or implies either. If that is not possible, use an exception or another route that fits, or escalate and do not share yet.</p></div>
+    </div>
+  </div>
+
+  <div class="fis-stage" id="step-recipient-use">
+    <h3><span class="fis-stage-no">7</span> Recipient use</h3>
+    <p class="fis-question">How may the recipient use what it receives?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>Under section 188(7) the recipient's use of the disclosed information for its relevant actions does not breach an obligation of confidence. <a href="#source-1">[1]</a> The government guidance advises strict handling conditions, says the measures are not designed to give sectors additional powers to exclude customers inappropriately, and says they should assist risk-based decision making. It also advises receiving firms to make clear that they are the right entity to complain to. <a href="#source-4">[4]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Received intelligence is an input to the recipient's own assessment. It is not proof of wrongdoing and it is not an instruction to exit. The recipient owns the decision, the evidence behind it and any complaint about it.</p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>The sender states handling conditions with the disclosure: purpose, no onward disclosure, corroborate before acting, and a contact for corrections. The recipient records what it checked independently and does not rely on the sender's information as its only reason.</p></div>
+    </div>
+  </div>
+
+  <div class="fis-stage" id="step-record">
+    <h3><span class="fis-stage-no">8</span> Record</h3>
+    <p class="fis-question">What must the record show?</p>
+    <div class="fis-saa">
+      <div class="fis-saa-block"><h4>Source <span class="fis-state" data-state="established">Established</span></h4><p>The government guidance encourages sending and receiving firms to keep an audit trail of all information shared and to record key decision points, which helps firms and the Financial Ombudsman Service with complaints and redress. <a href="#source-4">[4]</a> Schedule 1 requires a policy document and a record of processing that names the condition relied on. <a href="#source-8">[8]</a> For a section 339ZB request the NCA's procedure asks the requesting firm to obtain a reference number and to include it in any SAR submitted as a result. <a href="#source-14">[14]</a></p></div>
+      <div class="fis-saa-block"><h4>Application <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>The record is what lets the firm show a customer, the Ombudsman or the ICO why it shared what it shared. It should be one document completed before sending, not reconstructed afterwards.</p></div>
+      <div class="fis-saa-block"><h4>Action <span class="fis-state" data-state="assessment">FinCrimeRadar assessment</span></h4><p>Capture the request, the purpose, the route, the data shared and the data withheld, the approvals, the handling restrictions, the retention period, the decision and the complaint or correction route.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="fis-section" id="outcomes">
+  <h2>Four outcomes</h2>
+  <p class="fis-lede">Every request ends in one of four recorded outcomes. These are FinCrimeRadar labels, not legal categories.</p>
+  <ul class="fis-labels">
+    <li><strong>Share under the identified route.</strong> The route conditions are met, the data protection and SAR boundary answers are recorded, and nothing beyond the ordinary record is needed.</li>
+    <li><strong>Share after specified controls.</strong> The route fits, but named controls must be in place first, such as verifying the requester, minimising the data, confirming the policy document and agreeing handling conditions.</li>
+    <li><strong>Escalate and do not share yet.</strong> An answer to the data protection or SAR boundary question is missing, or a SAR or investigation may be in play. The MLRO and privacy decide the next step.</li>
+    <li><strong>Do not share under this route.</strong> A route condition is not met, for example the recipient is outside the regulated sector, the person is not within the route, or the purpose is not economic crime. Consider whether another route fits, or do not share.</li>
+  </ul>
+</section>
+
 </main>
 <aside class="fis-toc" aria-label="On this page">
 <strong>Decision route</strong>
-<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li></ol>
+<ol><li><a href="#question">The question</a></li><li><a href="#shield-problem">Three questions, not one</a></li><li><a href="#routes">Five routes</a></li><li><a href="#sequence">Eight-step sequence</a></li><li><a href="#outcomes">Four outcomes</a></li></ol>
 </aside>
 </div>
 <div id="site-footer"></div>

@@ -182,10 +182,45 @@ def check_f3() -> None:
     require("voluntary" in model.section_text("shield-problem") + model.section_text("routes"), "the voluntary nature of the measures must be stated")
 
 
+STEPS = [
+    ("step-purpose", "Purpose"), ("step-route", "Route"), ("step-scope", "Scope"), ("step-data-protection", "Data protection"),
+    ("step-protected-data", "Protected data"), ("step-sar-boundary", "SAR boundary"), ("step-recipient-use", "Recipient use"),
+    ("step-record", "Record"),
+]
+OUTCOME_LABELS = [
+    "Share under the identified route", "Share after specified controls", "Escalate and do not share yet", "Do not share under this route",
+]
+
+
+def check_f4() -> None:
+    """F4: the eight-step sequence and four outcomes are present, each step with Source, Application and Action."""
+    html = html_text()
+    section = re.search(r'<section class="fis-section" id="sequence">.*?</section>', html, re.S).group(0)
+    parts = re.split(r'<div class="fis-stage" id="(step-[\w-]+)">', section)
+    steps = list(zip(parts[1::2], parts[2::2]))
+    require([s[0] for s in steps] == [s[0] for s in STEPS], f"steps found: {[s[0] for s in steps]}")
+    for number, ((step_id, body), (_, title)) in enumerate(zip(steps, STEPS), 1):
+        require(f'<span class="fis-stage-no">{number}</span> {title}</h3>' in body, f"{step_id} heading is wrong")
+        require('<p class="fis-question">' in body, f"{step_id} needs its question")
+        blocks = saa_blocks(body)
+        require([b[0] for b in blocks] == ["Source", "Application", "Action"], f"{step_id} needs Source, Application, Action")
+        require([b[1] for b in blocks] == ["established", "assessment", "assessment"], f"{step_id} evidence states are wrong")
+        require(re.search(r'href="#source-\d+"', blocks[0][2]) is not None, f"{step_id} Source block has no citation")
+        require('href="#source-' not in blocks[1][2].replace('<a href="#source-4">[4]</a>', "") or step_id == "step-data-protection",
+                f"{step_id} Application block must not cite as if it were the authority")
+        require(all(len(re.sub(r"<[^>]+>", "", b[2])) > 100 for b in blocks), f"{step_id} has a thin layer")
+    require("our own decision structure" in section, "the sequence must be labelled as our structure")
+    outcomes = re.search(r'<section class="fis-section" id="outcomes">.*?</section>', html, re.S).group(0)
+    found = re.findall(r"<li><strong>([^<]+)\.</strong>", outcomes)
+    require(found == OUTCOME_LABELS, f"outcome labels are {found}")
+    require("not legal categories" in outcomes, "outcome labels must be marked as non-legal")
+
+
 CHECKS = [
     ("F1", check_f1),
     ("F2", check_f2),
     ("F3", check_f3),
+    ("F4", check_f4),
 ]
 
 
