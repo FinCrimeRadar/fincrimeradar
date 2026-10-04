@@ -518,7 +518,8 @@ def check_f9() -> None:
     require("only for disclosure to a competent authority" not in html and "Another bank is not a competent authority" not in html, "paragraph 10(2) must include preparation for disclosure")
     require("the paragraph 10(2) exception does not apply" in html and "so an appropriate policy document is required" in html, "Scenario 1 must apply paragraph 10(2) to its own facts")
     require("Question 3 is not engaged" not in html and "no contemplated or current investigation has been identified" in html, "Scenario 1 must not treat the absence of a SAR as excluding a contemplated or current investigation")
-    require("has not yet been completed" not in html and "A short recheck of the corrected wording" in html, "the Methodology must record the actual review outcome")
+    require("has not yet been completed" not in html and "had not been completed" not in html and "A short recheck of the corrected wording" not in html, "the Methodology must not describe the recheck as outstanding")
+    require("A short recheck of the three corrected passages against the cited primary sources was completed on 4 October 2026 and passed." in html, "the Methodology must record the completed recheck")
 
 
 RELATED_SLUGS = ["classification-asymmetry-guide", "sar-guide-part2", "de-risking-judgement-call"]
