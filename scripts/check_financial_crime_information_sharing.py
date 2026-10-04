@@ -398,6 +398,122 @@ def check_f8() -> None:
     require("querySelector('h3')" in script and "fisClosingPatterns" in script and "fisOperationalSummary" in script, "the export must read the page's own text")
 
 
+CLAIM_PREFIX = "financial-crime-information-sharing."
+LEDGER = ROOT / "verification-ledger.json"
+# claim suffix -> (page source numbers it covers, phrases that must appear in the visible body copy)
+CLAIM_PLAN = {
+    "eccta-direct-conditions.001": ((1,), ["the information must relate to a customer or former customer of the sender", "the request or warning condition must be met",
+        "the disclosure must not be a privileged disclosure", "no civil liability to the customer for the sender", "does not breach confidence"]),
+    "eccta-request-warning-conditions.002": ((1,), ["request condition in eccta section 188(4)", "warning condition in section 188(5)",
+        "has reason to believe the sender holds information about the customer"]),
+    "eccta-relevant-actions.003": ((1,), ["eccta section 191 defines the relevant actions", "to a customer or proposed customer",
+        "relevant actions concern a customer or proposed customer of the person carrying them out"]),
+    "eccta-data-protection-saving.004": ((1,), ["nothing in section 188 or 189 authorises a disclosure that would contravene the data protection legislation",
+        "sections 188(11) and 189(10) provide that nothing in them authorises a disclosure that would contravene the data protection legislation"]),
+    "eccta-indirect-sharing.005": ((1,), ["deposit-taking bodies, electronic money institutions, payment institutions, cryptoasset exchange providers and custodian wallet providers",
+        "above a revenue threshold", "an agreement that the data will only be handled where the uk gdpr applies"]),
+    "eccta-privileged-disclosure.006": ((1,), ["the privileged disclosure exclusion", "the disclosure must not be a privileged disclosure"]),
+    "eccta-economic-crime.007": ((2, 1), ["economic crime for eccta sections 188 to 191 means a listed offence in schedule 11", "fraud under section 1 of the fraud act 2006",
+        "sections 327 to 329 of poca", "the tipping-off offence in section 333a"]),
+    "eccta-explanatory-notes-188-3.008": ((3,), ["the explanatory notes and the government guidance read the provision as covering aml-regulated firms"]),
+    "eccta-government-guidance-scope.009": ((4,), ["calls the measures voluntary", "uk-based sharing", "private bodies do not need statutory authority to share information",
+        "disclosure for purposes other than those in eccta gets no protection", "sharing personal data for commercial purposes could lead to ico enforcement",
+        "verify that the other firm is legitimate"]),
+    "eccta-government-guidance-indirect.010": ((4,), ["relies on the sender's decision in section 189(1)(c) and not on the request condition"]),
+    "eccta-government-guidance-sar.011": ((4,), ["must not breach the tipping-off or prejudicing-investigation provisions", "uses the term super sar for the joint disclosure report"]),
+    "eccta-government-guidance-handling.012": ((4,), ["advises strict handling conditions", "not designed to give sectors additional powers to exclude customers inappropriately",
+        "audit trail of all information shared", "accurate, adequate, relevant and limited to what is necessary"]),
+    "eccta-government-guidance-stale.013": ((4,), ["will come into force in 2026", "out of date"]),
+    "duaa-recognised-legitimate-interest.014": ((5,), ["article 6(1)(ea), processing necessary for a recognised legitimate interest",
+        "annex 1 paragraph 5 covers processing necessary for detecting, investigating or preventing crime, or apprehending or prosecuting offenders"]),
+    "si-2026-82-commencement.015": ((6,), ["section 70 and schedule 4 came into force on 5 february 2026"]),
+    "ico-recognised-legitimate-interest-guidance.016": ((7,), ["the crime condition covers sharing for crime-related purposes, including scams, fraud and money laundering",
+        "recognised legitimate interest is a lawful basis and not an exemption", "tell people it relies on this basis and which condition",
+        "statutory crime reporting is more likely to rest on legal obligation", "decide whether the use is necessary"]),
+    "ico-criminal-offence-data.017": ((7, 10, 9), ["criminal offence data includes suspicion or allegations of criminal activity",
+        "a private firm without official authority needs a condition in schedule 1"]),
+    "dpa-schedule-1-paragraphs-10-36.018": ((8,), ["paragraph 10 applies where processing is necessary for the prevention, investigation or detection of an unlawful act",
+        "removes the appropriate policy document requirement only for disclosure to a competent authority", "the substantial public interest limb is removed for criminal offence data by paragraph 36"]),
+    "dpa-schedule-1-paragraphs-14-15.019": ((8,), ["paragraph 14 covers disclosures as a member of, or under arrangements made by, an anti-fraud organisation",
+        "paragraph 15 covers a disclosure in good faith under poca section 339zb"]),
+    "dpa-schedule-1-policy-document.020": ((8,), ["a policy document must explain how the article 5 principles are met and the retention and erasure policy, and the record of processing must name the condition"]),
+    "ico-criminal-offence-conditions-table.021": ((9,), ["records that paragraphs 10, 14 and 15 all need an appropriate policy document, except for paragraph 10 disclosure to the relevant authorities"]),
+    "ico-scams-sharing-controls.022": ((10,), ["supports a data protection impact assessment for routine sharing, a data sharing agreement where sharing is not ad hoc, and secure handling",
+        "an impact assessment is a legal requirement where processing is likely to result in high risk, and good practice for routine sharing and major projects"]),
+    "poca-333a-tipping-off.023": ((11,), ["section 333a of poca is an offence where a person discloses that a disclosure under part 7 has been made",
+        "likely to prejudice any investigation that might follow"]),
+    "poca-333b-333c-exceptions.024": ((11,), ["section 333c permits certain disclosures between credit institutions or between financial institutions only where",
+        "for the purpose only of preventing an offence under part 7"]),
+    "poca-333d-other-permitted.025": ((11,), ["section 333d includes disclosure for the detection, investigation or prosecution of a criminal offence, and disclosure in good faith under section 339zb",
+        "there is no offence where the person does not know or suspect that the disclosure is likely to have that effect"]),
+    "poca-339zb-conditions.026": ((12,), ["a required notification made to the nca before the disclosure",
+        "will or may assist in determining a matter connected with a suspicion of money laundering"]),
+    "poca-339zd-339ze-effect.027": ((12,), ["a joint disclosure report can satisfy the required disclosure duties within set limits"]),
+    "poca-339zf-confidence.028": ((12,), ["does not breach an obligation of confidence or any other restriction on disclosure",
+        "information obtained from a uk law enforcement agency cannot be included without that agency's consent"]),
+    "cfa-2017-section-11.029": ((13,), ["linked to a suspicion that a person is engaged in money laundering"]),
+    "nca-required-notification-procedure.030": ((14,), ["obtain a reference number and to include it in any sar submitted as a result",
+        "the nca publishes a required notification form and procedure"]),
+}
+SOURCE_DATES = {4: ("updated 3 October 2025", "2025-10-03"), 6: ("made 29 January 2026", "2026-01-29"), 7: ("published 23 March 2026", "2026-03-23")}
+FAMILIES = [
+    ("ukpga/2023/56/section/", 1), ("ukpga/2023/56/schedule/11", 2), ("ukpga/2023/56/notes/", 3), ("gov.uk/government/publications/information-sharing", 4),
+    ("ukpga/2025/18/", 5), ("uksi/2026/82", 6), ("lawful-basis/a-guide-to-lawful-basis/recognised-legitimate-interest", 7), ("ukpga/2018/12/schedule/1", 8),
+    ("lawful-basis/criminal-offence-data/what-are-the-conditions", 9), ("data-sharing/sharing-personal-information-when-preventing", 10),
+    ("ukpga/2002/29/section/333", 11), ("ukpga/2002/29/section/339", 12), ("ukpga/2017/22/notes/", 13), ("nationalcrimeagency.gov.uk", 14),
+]
+
+
+def source_family(url: str) -> int:
+    for fragment, number in FAMILIES:
+        if fragment in url:
+            return number
+    raise AssertionError(f"url not in any source family: {url}")
+
+
+def check_f9() -> None:
+    """F9: the source list, methodology and ledger agree, every claim is pinned to final body wording, and nothing is cited without a claim."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import check_ledger as ledger
+
+    html = html_text()
+    entries = json.loads(LEDGER.read_text(encoding="utf-8"))
+    errors = ledger.validate(entries)
+    require(not errors, f"ledger does not validate: {errors[:3]}")
+    ours = {e["claimId"]: e for e in entries if e["claimId"].startswith(CLAIM_PREFIX)}
+    require(sorted(ours) == sorted(CLAIM_PREFIX + key for key in CLAIM_PLAN), f"ledger claim ids differ: {sorted(set(ours) ^ {CLAIM_PREFIX + k for k in CLAIM_PLAN})}")
+    sources_html = re.search(r'<section class="fis-section fis-sources" id="sources">.*?</section>', html, re.S).group(0)
+    listed = {int(n): (url, li) for n, url, li in re.findall(r'<li id="source-(\d+)"><a href="([^"]+)"[^>]*>.*?</a>(.*?)</li>', sources_html, re.S)}
+    require(sorted(listed) == list(range(1, 15)), f"source list holds {sorted(listed)}")
+    for number, (url, _) in listed.items():
+        require(source_family(url) == number, f"source {number} url sits in family {source_family(url)}")
+    ids = set(re.findall(r'\bid="([^"]+)"', html))
+    broken = sorted({h for h in re.findall(r'href="#([^"]+)"', html) if h not in ids})
+    require(not broken, f"in-page links do not resolve: {broken}")
+    body_html = html.split('<section class="fis-section fis-sources"')[0]
+    text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", body_html)).lower().replace("’", "'")
+    for key, (numbers, phrases) in CLAIM_PLAN.items():
+        entry = ours[CLAIM_PREFIX + key]
+        require(entry["guide"] == GUIDE.name and entry["status"] == "verified" and entry["claimType"] == "regulatory", f"{key} metadata is wrong")
+        families = {source_family(entry["source"]["url"])} | {source_family(s["url"]) for s in entry.get("additionalSources", [])}
+        require(families == set(numbers), f"{key} ledger sources map to {sorted(families)}, page sources {sorted(numbers)}")
+        for phrase in phrases:
+            require(phrase in text, f"{key}: body copy is missing the claimed wording {phrase!r}")
+        require(entry["reviewDue"] > entry["verifiedOn"], f"{key} reviewDue must follow verifiedOn")
+    for number, (printed, iso) in SOURCE_DATES.items():
+        require(printed in listed[number][1], f"source {number} list no longer prints {printed!r}")
+        for key, (numbers, _) in CLAIM_PLAN.items():
+            if numbers[0] == number:
+                require(ours[CLAIM_PREFIX + key]["source"]["date"] == iso, f"{key} source date differs from the page")
+    covered = {n for numbers, _ in CLAIM_PLAN.values() for n in numbers}
+    cited = {int(n) for n in re.findall(r'href="#source-(\d+)"', body_html)}
+    require(cited == set(range(1, 15)), f"sources cited in the body: {sorted(cited)}")
+    require(cited <= covered, f"sources cited in the body with no ledger claim: {sorted(cited - covered)}")
+    require("not legal advice" in sources_html and "Last reviewed" in sources_html and "4 October 2026" in sources_html, "sources section needs scope, review date and the evidence date")
+    require("will come into force in 2026" in text and "out of date" in sources_html + text, "the stale government guidance sentence must be disclosed")
+    require("under review" in sources_html, "the under-review ICO pages must be disclosed in the sources section")
+
+
 CHECKS = [
     ("F1", check_f1),
     ("F2", check_f2),
@@ -407,6 +523,7 @@ CHECKS = [
     ("F6", check_f6),
     ("F7", check_f7),
     ("F8", check_f8),
+    ("F9", check_f9),
 ]
 
 

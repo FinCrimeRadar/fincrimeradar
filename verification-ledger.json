@@ -9061,5 +9061,569 @@
     "status": "verified",
     "location": "investment-scam-investigation-handbook.html, What the sources say (keep the correspondence), Scenario 1 option C, FAQ",
     "note": "Two statements from the same page share one record because the handbook uses them together in one teaching point. The page carries no date, so source.date records the date the page was read."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-direct-conditions.001",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "ECCTA section 188 protects a disclosure made by a person carrying on business in the regulated sector to another such person where the information relates to a customer or former customer of the sender, either the request condition or the warning condition is met, the sender is satisfied that the disclosure will or may assist the recipient's relevant actions, and the disclosure is not a privileged disclosure. The protections are that the disclosure does not give rise to a breach of any obligation of confidence owed by the sender or to any civil liability of the sender to the person to whom the information relates, and that the recipient's use of the information for its relevant actions does not breach any obligation of confidence owed by the recipient.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 188",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/188",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table, Eight-step sequence (scope and recipient use), Scenario 1",
+    "note": "Section 188(3) applies to business in the regulated sector and, per the Explanatory Notes, to businesses prescribed by regulations. The regulations were not analysed. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-request-warning-conditions.002",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The request condition in ECCTA section 188(4) is that the disclosure is made in response to a request from the recipient, and that at the time of the request the recipient has reason to believe that the sender holds information relating to the customer, the disclosure of which will or may assist the recipient's relevant actions. The warning condition in section 188(5) is that the sender, due to concerns about risks of economic crime, has decided to take safeguarding action, or would have decided to but for the customer having ceased to be a customer. Safeguarding action means terminating a business relationship, refusing a product or service, or restricting the customer's access to elements of a product or service available to other customers.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 188",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/188",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (purpose and scope), Scenario 1",
+    "note": "Section 188(4) to (6). Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-relevant-actions.003",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "ECCTA section 191 defines relevant actions as determining, for the purposes of preventing, detecting or investigating economic crime, whether and to what extent customer due diligence or similar measures are appropriate for a customer or proposed customer of the person, carrying out customer due diligence measures for such a customer, and determining whether it is appropriate to terminate a business relationship with, decline to establish one with, decline to provide a product or service to, restrict access of, or decline to carry out a transaction for such a customer.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 191",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/191",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (purpose and scope), Scenario 1",
+    "note": "The text frames relevant actions by reference to a customer or proposed customer of the person carrying them out. The guide's reading that a request about someone who is not the requester's customer may not fit is a FinCrimeRadar assessment, labelled as one. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-data-protection-saving.004",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "ECCTA section 188(11) provides that nothing in section 188 requires or authorises a disclosure of information that would contravene, or prevents any civil liability arising under, the data protection legislation, and section 189(10) provides that nothing in section 189 authorises such a disclosure or prevents such civil liability arising.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 188",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/188",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Three questions, Scenario 1 option A, FAQ",
+    "note": "Section 188(11) says requires or authorises. Section 189(10) says authorises. The page uses the narrower common wording where it refers to both. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication.",
+    "additionalSources": [
+      {
+        "title": "Economic Crime and Corporate Transparency Act 2023, section 189",
+        "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/189",
+        "publisher": "legislation.gov.uk (UK National Archives)"
+      }
+    ]
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-indirect-sharing.005",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "ECCTA section 189 protects an indirect disclosure by a person carrying on business within section 189(3) where the information relates to a customer or former customer, the sender has decided because of economic crime concerns to terminate the relationship, refuse a product or service or restrict access, the sender is satisfied the information will or may assist the persons it is onward disclosed to, the UK GDPR applies to the sender's disclosure, the sender and the intermediary are parties to an agreement that the intermediary will only handle personal data where the UK GDPR applies, and the disclosure is not privileged. Section 189(3) covers deposit-taking bodies, electronic money institutions, payment institutions, cryptoasset exchange providers and custodian wallet providers, and certain legal, accountancy, audit, tax and insolvency businesses whose UK revenue falls in specified bands. The intermediary's onward disclosure to a covered person, and that person's use for its relevant actions, are protected on the same footing.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 189",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/189",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table",
+    "note": "Section 189(3)(b) revenue bands were amended for financial years from April 2026 by the Finance Act 2026. The guide states only that a revenue threshold applies. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-privileged-disclosure.006",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "ECCTA section 190 defines a privileged disclosure as a disclosure by a professional legal adviser or relevant professional adviser of information that came to the adviser in privileged circumstances, and sections 188 and 189 do not protect a privileged disclosure.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, section 190",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/190",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table, Eight-step sequence (scope)",
+    "note": "Section 188(1)(f) and section 189(1)(g) require that the disclosure is not a privileged disclosure.",
+    "additionalSources": [
+      {
+        "title": "Economic Crime and Corporate Transparency Act 2023, section 188",
+        "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/188",
+        "publisher": "legislation.gov.uk (UK National Archives)"
+      }
+    ]
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-economic-crime.007",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "For ECCTA sections 188 to 191, economic crime means an act that constitutes a listed offence in Schedule 11, an attempt or conspiracy to commit one, an offence under Part 2 of the Serious Crime Act 2007 or the Scottish equivalent in relation to one, aiding, abetting, counselling or procuring one, or an act that would be one if done in the United Kingdom. Schedule 11 lists, among others, fraud under section 1 of the Fraud Act 2006, the money laundering offences in sections 327 to 329 of the Proceeds of Crime Act 2002, and the tipping-off offence in section 333A.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Economic Crime and Corporate Transparency Act 2023, Schedule 11 and section 193",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/schedule/11",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (route)",
+    "note": "Definition in section 193, list in Schedule 11. Whether suspected conduct is a listed offence is a question for the file.",
+    "additionalSources": [
+      {
+        "title": "Economic Crime and Corporate Transparency Act 2023, section 193",
+        "url": "https://www.legislation.gov.uk/ukpga/2023/56/section/193",
+        "publisher": "legislation.gov.uk (UK National Archives)"
+      }
+    ]
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-explanatory-notes-188-3.008",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The Explanatory Notes to ECCTA say that section 188(3) covers businesses in the AML regulated sector, as defined in Part 1 of Schedule 9 to POCA, or those prescribed in regulations made by the Secretary of State.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Explanatory Notes to the Economic Crime and Corporate Transparency Act 2023, sections 188 and 189",
+      "url": "https://www.legislation.gov.uk/ukpga/2023/56/notes/division/11/index.htm",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2023-10-26"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table, Limits",
+    "note": "The statutory text of section 188(3) is expressed as paragraphs (a) and (b). The guide follows the Explanatory Notes and the government guidance on how it applies."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-government-guidance-scope.009",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The government guidance says the information sharing measures are voluntary, that the disapplication of confidentiality and civil liability is limited to UK-based information sharing, that private sector bodies do not need statutory authority to share information but do need a UK GDPR lawful basis when sharing personal data, that disclosure for purposes other than those specified in ECCTA would not receive the protections, that sharing personal data for commercial purposes could lead to ICO enforcement, and that it is an individual firm's responsibility to verify that the other firm it shares with is legitimate.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Guidance on the information sharing measures in the Economic Crime and Corporate Transparency Act 2023",
+      "url": "https://www.gov.uk/government/publications/information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act/guidance-on-the-information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act-2023",
+      "publisher": "Home Office, HM Treasury, Ministry of Justice, Companies House, Serious Fraud Office, Department for Business and Trade",
+      "date": "2025-10-03"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Three questions, Routes table, Eight-step sequence, Scenario 1 option C",
+    "note": "Government guidance updated 3 October 2025. One sentence in it is out of date, see the claim on the commencement wording. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-government-guidance-indirect.010",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The government guidance says that when firms share indirectly through a third-party intermediary they should only be relying on the warning condition set out in section 189(1)(c) to receive the protections, and not the request condition.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Guidance on the information sharing measures in the Economic Crime and Corporate Transparency Act 2023",
+      "url": "https://www.gov.uk/government/publications/information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act/guidance-on-the-information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act-2023",
+      "publisher": "Home Office, HM Treasury, Ministry of Justice, Companies House, Serious Fraud Office, Department for Business and Trade",
+      "date": "2025-10-03"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table",
+    "note": "Paragraph 26 of the guidance."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-government-guidance-sar.011",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The government guidance says firms that choose to share customer information after submitting a SAR will need to make sure they do not breach provisions related to tipping-off or prejudicing investigations, and uses the term Super SAR for the joint disclosure report made under POCA section 339ZB.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Guidance on the information sharing measures in the Economic Crime and Corporate Transparency Act 2023",
+      "url": "https://www.gov.uk/government/publications/information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act/guidance-on-the-information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act-2023",
+      "publisher": "Home Office, HM Treasury, Ministry of Justice, Companies House, Serious Fraud Office, Department for Business and Trade",
+      "date": "2025-10-03"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Three questions, Routes table, Eight-step sequence (SAR boundary), Scenario 2, FAQ",
+    "note": "Paragraphs 47 and 48 of the guidance. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-government-guidance-handling.012",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The government guidance advises firms to include strict handling conditions on information when it is shared, encourages sending and receiving firms to keep an audit trail of all information shared and to record key decision points, advises receiving firms to make clear they are the appropriate entity to complain to, says the measures are not designed to provide sectors with additional powers to exclude customers inappropriately and should assist risk-based decision making, and says information must be accurate, adequate, relevant and limited to what is necessary.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Guidance on the information sharing measures in the Economic Crime and Corporate Transparency Act 2023",
+      "url": "https://www.gov.uk/government/publications/information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act/guidance-on-the-information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act-2023",
+      "publisher": "Home Office, HM Treasury, Ministry of Justice, Companies House, Serious Fraud Office, Department for Business and Trade",
+      "date": "2025-10-03"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (data protection, recipient use, record), Scenario 1 option A, FAQ",
+    "note": "Paragraphs 32, 56, 58, 59 and 61 of the guidance."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.eccta-government-guidance-stale.013",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The government guidance, updated 3 October 2025, says that the Data (Use and Access) Act 2025 amends the UK GDPR to establish detecting, investigating or preventing crime as a recognised legitimate interest for sharing information, and that the relevant provisions will come into force in 2026.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Guidance on the information sharing measures in the Economic Crime and Corporate Transparency Act 2023",
+      "url": "https://www.gov.uk/government/publications/information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act/guidance-on-the-information-sharing-measures-in-the-economic-crime-and-corporate-transparency-act-2023",
+      "publisher": "Home Office, HM Treasury, Ministry of Justice, Companies House, Serious Fraud Office, Department for Business and Trade",
+      "date": "2025-10-03"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (data protection), FAQ, Sources and methodology",
+    "note": "The sentence is superseded: the provisions came into force on 5 February 2026 under SI 2026/82. The guide states this and relies on the commencement instrument. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.duaa-recognised-legitimate-interest.014",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "Section 70 of the Data (Use and Access) Act 2025 inserted Article 6(1)(ea) into the UK GDPR, processing necessary for the purposes of a recognised legitimate interest, which applies only if the processing meets a condition in Annex 1. Annex 1 paragraph 5, inserted by Schedule 4, is met where the processing is necessary for the purposes of detecting, investigating or preventing crime, or apprehending or prosecuting offenders.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Data (Use and Access) Act 2025, section 70",
+      "url": "https://www.legislation.gov.uk/ukpga/2025/18/section/70",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2025-06-19"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (data protection), FAQ, Scenario 1 option B",
+    "note": "Annex 1 is inserted by Schedule 4 to the Act. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication.",
+    "additionalSources": [
+      {
+        "title": "Data (Use and Access) Act 2025, Schedule 4 (Annex 1 to the UK GDPR)",
+        "url": "https://www.legislation.gov.uk/ukpga/2025/18/schedule/4",
+        "publisher": "legislation.gov.uk (UK National Archives)"
+      }
+    ]
+  },
+  {
+    "claimId": "financial-crime-information-sharing.si-2026-82-commencement.015",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "Section 70 and Schedule 4 of the Data (Use and Access) Act 2025 came into force on 5 February 2026 under regulation 2 of SI 2026/82, made on 29 January 2026.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Data (Use and Access) Act 2025 (Commencement No. 6 and Transitional and Saving Provisions) Regulations 2026 (SI 2026/82)",
+      "url": "https://www.legislation.gov.uk/uksi/2026/82/made",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2026-01-29"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (data protection), FAQ, Sources and methodology",
+    "note": "Regulation 2(c) and (z6). Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.ico-recognised-legitimate-interest-guidance.016",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The ICO's recognised legitimate interest guidance, published 23 March 2026, says the crime condition covers using personal information to prevent and report crimes and help prosecute offenders, including sharing for crime-related purposes and crimes such as scams, fraud and money laundering. It says the firm must decide whether using the information is necessary, that no balancing of rights against the interest is required, that recognised legitimate interest is a lawful basis not an exemption, that people must be told the firm relies on it and which condition applies, that people have a right to object, and that where a firm has statutory crime reporting obligations the legal obligation basis is more likely to be appropriate.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Information Commissioner's Office, Recognised legitimate interest",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/recognised-legitimate-interest/",
+      "publisher": "Information Commissioner's Office",
+      "date": "2026-03-23"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (data protection), Scenario 1, FAQ",
+    "note": "ICO guidance, not law. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.ico-criminal-offence-data.017",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The ICO says criminal offence data includes suspicion or allegations of criminal activity, that a firm using it for a recognised legitimate interest must also identify a specific condition for processing in the Data Protection Act 2018 unless it has official authority, that a private sector organisation is unlikely to have official authority, and that if none of the conditions applies it may only be processed with official authority.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Information Commissioner's Office, Recognised legitimate interest",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/recognised-legitimate-interest/",
+      "publisher": "Information Commissioner's Office",
+      "date": "2026-03-23"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (protected data), Scenario 1 option B",
+    "note": "Recognised legitimate interest guidance, supported by the ICO scams page and the criminal offence data conditions page, both marked under review. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication.",
+    "additionalSources": [
+      {
+        "title": "Information Commissioner's Office, Sharing personal information when preventing, detecting and investigating scams and frauds",
+        "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/sharing-personal-information-when-preventing-detecting-and-investigating-scams-and-frauds/",
+        "publisher": "Information Commissioner's Office"
+      },
+      {
+        "title": "Information Commissioner's Office, Criminal offence data: what are the conditions for processing?",
+        "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/criminal-offence-data/what-are-the-conditions-for-processing/",
+        "publisher": "Information Commissioner's Office"
+      }
+    ]
+  },
+  {
+    "claimId": "financial-crime-information-sharing.dpa-schedule-1-paragraphs-10-36.018",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "Paragraph 10 of Schedule 1 to the Data Protection Act 2018 is met where processing is necessary for the purposes of the prevention, investigation or detection of an unlawful act, must be carried out without the consent of the data subject so as not to prejudice those purposes, and is necessary for reasons of substantial public interest. Paragraph 10(2) removes the appropriate policy document requirement only where the processing is a disclosure of personal data to a competent authority or preparation for it. Paragraph 36 provides that a Part 2 condition is met where processing would meet it but for an express requirement for substantial public interest.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Data Protection Act 2018, Schedule 1",
+      "url": "https://www.legislation.gov.uk/ukpga/2018/12/schedule/1",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2018-05-23"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (protected data), Scenario 1 option B",
+    "note": "The word investigation in paragraph 10(1)(a) was inserted with effect from 5 February 2026. Competent authority has the Part 3 meaning in section 30. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.dpa-schedule-1-paragraphs-14-15.019",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "Paragraph 14 of Schedule 1 is met where processing is necessary for preventing fraud and consists of a disclosure by a member of an anti-fraud organisation, a disclosure in accordance with arrangements made by an anti-fraud organisation, preparation for such a disclosure, or processing of data so disclosed. Paragraph 15 is met where processing is necessary for making a disclosure in good faith under section 21CA of the Terrorism Act 2000 or section 339ZB of POCA.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Data Protection Act 2018, Schedule 1",
+      "url": "https://www.legislation.gov.uk/ukpga/2018/12/schedule/1",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2018-05-23"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (protected data)",
+    "note": "Paragraph 14(1)(b)(iia) was inserted with effect from 5 February 2026. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.dpa-schedule-1-policy-document.020",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "An appropriate policy document under paragraph 39 of Schedule 1 must explain the controller's procedures for securing compliance with the Article 5 principles and its retention and erasure policies. Paragraph 40 requires it to be retained, reviewed and made available on request, and paragraph 41 requires the record of processing to state which condition is relied on, how Article 6 is satisfied and whether retention follows the policy. Paragraph 5(1) makes a Part 2 condition met only if the controller has an appropriate policy document in place, except as otherwise provided.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Data Protection Act 2018, Schedule 1",
+      "url": "https://www.legislation.gov.uk/ukpga/2018/12/schedule/1",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2018-05-23"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (protected data, record)",
+    "note": "Paragraphs 5, 39, 40 and 41. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.ico-criminal-offence-conditions-table.021",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The ICO's criminal offence data conditions page, marked under review, records that paragraph 10 (preventing or detecting unlawful acts) requires a justification for not getting consent and an appropriate policy document except for disclosure to the relevant authorities, that paragraphs 14 (preventing fraud) and 15 (suspicion of terrorist financing or money laundering) require an appropriate policy document, and that paragraph 36 removes the substantial public interest requirement for criminal offence data but not for special category data.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Information Commissioner's Office, Criminal offence data: what are the conditions for processing?",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/criminal-offence-data/what-are-the-conditions-for-processing/",
+      "publisher": "Information Commissioner's Office",
+      "date": "2026-10-04"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (protected data), Scenario 1 option B",
+    "note": "The page is marked under review because of the Data (Use and Access) Act. The guide uses it for the table of policy document requirements only, and the statute is relied on for the conditions. The page carries no date, so source.date records the date the page was read. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.ico-scams-sharing-controls.022",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The ICO's page on sharing personal information to prevent scams and fraud, marked under review, says a data protection impact assessment is a legal requirement where processing is likely to result in high risk and good practice for major projects or routine data sharing, that a data sharing agreement is good practice particularly where sharing is not ad hoc or one-off, that it is the third party's responsibility to determine its own lawful basis, and that the discloser should take reasonable steps to ensure the recipient protects the data with adequate security.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Information Commissioner's Office, Sharing personal information when preventing, detecting and investigating scams and frauds",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/sharing-personal-information-when-preventing-detecting-and-investigating-scams-and-frauds/",
+      "publisher": "Information Commissioner's Office",
+      "date": "2026-10-04"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (data protection), Scenario 1 option D",
+    "note": "The page is marked under review. The guide uses it for operational controls only, not for the Article 6 analysis. The page carries no date, so source.date records the date the page was read."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.poca-333a-tipping-off.023",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "POCA section 333A makes it an offence for a person to disclose that the person or another has made a disclosure under Part 7 to a constable, an officer of Revenue and Customs, a nominated officer or an NCA officer, where the disclosure is likely to prejudice any investigation that might follow and the information came in the course of a business in the regulated sector. It is also an offence to disclose that an investigation into allegations of a Part 7 offence is contemplated or being carried out where the disclosure is likely to prejudice it.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 333A",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333A",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Three questions, Eight-step sequence (SAR boundary), Scenario 2",
+    "note": "Section 333A(1) to (3). Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.poca-333b-333c-exceptions.024",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "POCA section 333B provides that there is no section 333A offence for a disclosure within the same undertaking or, between credit or financial institutions in the same group meeting the location conditions. Section 333C provides that there is no section 333A offence for a disclosure by a credit institution to another credit institution, or by a financial institution to another financial institution, where it relates to a client or former client of both, a transaction involving both or a service involving both, is for the purpose only of preventing an offence under Part 7, the recipient is in the UK or an EEA state or a country imposing equivalent money laundering requirements, and both are subject to equivalent duties of professional confidentiality and data protection.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 333C",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333C",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table, Eight-step sequence (SAR boundary), Scenario 2 option D",
+    "note": "Section 333C also covers professional legal advisers and relevant professional advisers. The guide describes the institution limbs only. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication.",
+    "additionalSources": [
+      {
+        "title": "Proceeds of Crime Act 2002, section 333B",
+        "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333B",
+        "publisher": "legislation.gov.uk (UK National Archives)"
+      }
+    ]
+  },
+  {
+    "claimId": "financial-crime-information-sharing.poca-333d-other-permitted.025",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "POCA section 333D provides that there is no section 333A offence for a disclosure made for the purpose of the detection, investigation or prosecution of a criminal offence, or made in good faith by virtue of section 339ZB, and that a person does not commit the section 333A(1) or (3) offence if the person does not know or suspect that the disclosure is likely to prejudice the investigation.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 333D",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/333D",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (SAR boundary), Scenario 2, Routes table",
+    "note": "Section 333D(1)(b), (1)(ab), (3) and (4). Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.poca-339zb-conditions.026",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "POCA section 339ZB allows a person carrying on business in the regulated sector as a relevant undertaking to disclose information to another such person if an NCA authorised officer or the recipient has requested the disclosure, the required notification has been made to an NCA authorised officer before the disclosure, and the discloser is satisfied that the disclosure will or may assist in determining a matter in connection with a suspicion that a person is engaged in money laundering.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 339ZB",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/339ZB",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table, Scenario 2",
+    "note": "Section 339ZB(1) to (5). Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.poca-339zd-339ze-effect.027",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "POCA section 339ZD treats a required notification made in good faith as satisfying the required disclosure duties under sections 330 and 331, and treats a joint disclosure report made in good faith as satisfying them for the persons making it, subject to the limits in section 339ZE. A joint disclosure report must be sent within the applicable period, which is 84 days from the required notification where a firm made the request, and must be approved and signed by the nominated officer of each person making it.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 339ZD",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/339ZD",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table",
+    "note": "Section 339ZD(2) to (7) and section 339ZE. Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication.",
+    "additionalSources": [
+      {
+        "title": "Proceeds of Crime Act 2002, section 339ZE",
+        "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/339ZE",
+        "publisher": "legislation.gov.uk (UK National Archives)"
+      }
+    ]
+  },
+  {
+    "claimId": "financial-crime-information-sharing.poca-339zf-confidence.028",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "POCA section 339ZF provides that a relevant disclosure made in good faith under section 339ZB does not breach an obligation of confidence or any other restriction on the disclosure of information, and that a relevant disclosure may not include information obtained from a UK law enforcement agency, including a police force, unless that agency consents.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Proceeds of Crime Act 2002, section 339ZF",
+      "url": "https://www.legislation.gov.uk/ukpga/2002/29/section/339ZF",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2002-07-24"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Three questions, Routes table, Scenario 2",
+    "note": "Section 339ZF(1), (2) and (5). Flagged for independent R17 review of the ECCTA, data protection, criminal offence data and tipping-off conclusions before publication."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.cfa-2017-section-11.029",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The Explanatory Notes to the Criminal Finances Act 2017 say section 11 inserted sections 339ZB to 339ZG into Part 7 of POCA to provide for the voluntary sharing of information between bodies in the regulated sector, and between those bodies and the NCA, in connection with suspicions of money laundering.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Criminal Finances Act 2017, section 11, Explanatory Notes",
+      "url": "https://www.legislation.gov.uk/ukpga/2017/22/notes/division/6/index.htm",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-04-27"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-04-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Routes table",
+    "note": "Explanatory Notes on section 11."
+  },
+  {
+    "claimId": "financial-crime-information-sharing.nca-required-notification-procedure.030",
+    "guide": "financial-crime-information-sharing-guide.html",
+    "claimText": "The NCA's page on the required notification under section 339ZC says the requesting firm must contact the NCA to receive a reference number for each request, and that any SAR submitted as a result of the process must include the reference number. The page also publishes a required notification form.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "National Crime Agency, Required notification under s.339ZC of Proceeds of Crime Act 2002",
+      "url": "https://www.nationalcrimeagency.gov.uk/what-we-do/crime-threats/money-laundering-and-illicit-finance/required-notification-under-s-339zc-of-proceeds-of-crime-act-2002",
+      "publisher": "National Crime Agency",
+      "date": "2026-10-04"
+    },
+    "verifiedOn": "2026-10-04",
+    "reviewDue": "2027-01-04",
+    "status": "verified",
+    "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (record)",
+    "note": "Operational detail that may change. The page carries no date, so source.date records the date the page was read."
   }
 ]
