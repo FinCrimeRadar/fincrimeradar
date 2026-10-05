@@ -1,0 +1,69 @@
+{
+  "week": "2026-W40",
+  "period_start": "2026-09-28",
+  "period_end": "2026-10-04",
+  "published_at": "2026-10-05",
+  "author": "Pratik Zanke",
+  "items": [
+    {
+      "id": "fca-opens-gateway-regulated-crypto",
+      "headline": "FCA opens the gateway to regulated crypto, with firms intending to keep operating urged to apply by 28 February 2027",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/news/press-releases/fca-opens-gateway-regulated-crypto",
+      "published_date": "2026-09-30",
+      "jurisdiction": "UK",
+      "category": "CRYPTO",
+      "signal": "REGULATORY",
+      "what_happened": "On 30 September 2026 the FCA opened its authorisation gateway, allowing crypto firms to apply for authorisation under the future UK cryptoasset regime. The FCA says firms intending to continue operating in the UK should apply by 28 February 2027. The new regime itself comes into force on 25 October 2027, so the gateway opening on 30 September was an application milestone and not the start of the regime. The FCA states that authorisation is not automatic. Existing firms that apply during the application period can continue providing cryptoasset services, including taking new business, while an unresolved application is assessed. Applicants will be assessed against FCA standards covering consumer protection, safeguarding of customer assets, market integrity and financial resilience.",
+      "why_it_matters": "The announcement sets out dates and a process, not new substantive rules. What it settles is the sequence: applications are open now, the FCA's stated application date for firms that intend to keep operating is 28 February 2027, and the regime applies from 25 October 2027. The continuation arrangement for applicants applies to firms that apply during the application period, and it does not amount to authorisation. The FCA's statement that authorisation is not automatic means an applicant has to show it meets the standards.",
+      "radar_implication": "This is FinCrimeRadar analysis, not an FCA statement. The UK crypto transition has moved from regulatory design towards operational authorisation readiness. For firms, that suggests the practical task is converting regulatory requirements into operating controls that can be demonstrated to the FCA, such as safeguarding arrangements, governance, market integrity arrangements and evidence of financial resilience, rather than describing them in policy documents alone. Firms should work backwards from 28 February 2027 and treat the application as an evidence exercise, since the FCA has said authorisation will not be granted by default.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "crime-and-policing-act-2026-proceeds-of-crime-factsheet",
+      "headline": "Government factsheet sets out Crime and Policing Act 2026 reforms to confiscation, victim compensation and SIM farms",
+      "source_name": "UK Government",
+      "source_url": "https://www.gov.uk/government/publications/crime-and-policing-act-2026-factsheets/crime-and-policing-act-2026-proceeds-of-crime-factsheet",
+      "published_date": "2026-09-30",
+      "jurisdiction": "UK",
+      "category": "ASSET_RECOVERY",
+      "signal": "REGULATORY",
+      "what_happened": "The government's Proceeds of Crime factsheet for the Crime and Policing Act 2026 was updated on 30 September 2026. It describes reforms to confiscation under Parts 2 and 4 of the Proceeds of Crime Act 2002, including changes to confiscation orders and their enforcement. It also describes a mechanism to redirect additional recovered funds towards victims who have outstanding compensation orders, and costs and expenses protections for enforcement authorities in specified civil recovery proceedings. The Act also introduces offences concerning the possession or supply of SIM farms without good reason or adequate due diligence. The factsheet does not state a commencement date, and the update date should not be read as the date any provision came into force.",
+      "why_it_matters": "The factsheet is a government description of the Act's measures. The date it was updated tells a reader when the page changed, and it says nothing on when individual provisions commence. The package spans two different areas: how criminal proceeds are recovered and paid out once an offender has been convicted, and a new offence aimed at the supply and possession of SIM farm devices.",
+      "radar_implication": "This is FinCrimeRadar analysis, not something the factsheet says. Asset recovery and fraud infrastructure increasingly need to be considered alongside conventional detection and investigation controls. Firms that support fraud and mule investigations may want to check whether their case records and evidence handling could support later confiscation and victim compensation processes, and teams assessing telecoms and fraud typologies should note that SIM farm possession and supply now sits in the offence framework. Confirm commencement of each provision against the legislation before changing any control.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "uk-russia-sanctions-package-kremlin-war-chest",
+      "headline": "UK announces Russia sanctions package of 31 measures covering 23 individuals and entities and eight ships",
+      "source_name": "UK Government",
+      "source_url": "https://www.gov.uk/government/news/new-uk-sanctions-target-kremlin-war-chest-propagandists-and-torturers",
+      "published_date": "2026-10-01",
+      "jurisdiction": "UK",
+      "category": "SANCTIONS",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 1 October 2026 the UK government announced a Russia sanctions package of 31 measures. The package comprises 23 individuals and entities and eight ships, so the figure of 31 counts measures and is not a count of newly designated people or companies. The vessels include three shadow fleet vessels, two vessels providing bunkering services and three Russian owned ice class vessels. The package also targets disinformation networks and people connected with abuses in occupied Ukraine. The announcement says existing licensing arrangements were extended on a targeted and time limited basis to cover LNG, to support the energy security of Japan and South Korea.",
+      "why_it_matters": "The announcement mixes several kinds of target in one package: individuals and entities, ships, disinformation actors and people connected with abuses in occupied Ukraine. The LNG point is a licensing extension for specified energy security reasons, and it is not a relaxation of the wider package. Readers should take the breakdown from the announcement itself, because the headline number combines people and entities with vessels.",
+      "radar_implication": "This is FinCrimeRadar analysis, not a requirement stated in the announcement. The shadow fleet problem is expanding beyond simple vessel name screening and beyond an exclusively oil focused sanctions narrative, with bunkering providers and ice class vessels now named alongside shadow fleet tankers. Firms in trade finance, insurance and maritime services may want to test whether their screening looks at vessel identity, ownership and history, and at service relationships such as bunkering, rather than names alone. Any reliance on the LNG licensing arrangements should be checked against the licence terms.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "fca-confiscation-orders-crypto-fraud-victims",
+      "headline": "FCA secures confiscation orders of £603,404.28 and £247,997.99 against two defendants in crypto fraud case",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/news/press-releases/fca-secures-money-back-victims-crypto-fraud",
+      "published_date": "2026-09-28",
+      "jurisdiction": "UK",
+      "category": "ASSET_RECOVERY",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 28 September 2026 the FCA announced that it had obtained confiscation orders against Raymondip Bedi and Patrick Mavanga. Bedi was ordered to pay £603,404.28 and Mavanga £247,997.99. The FCA says at least 65 investors lost £1,541,799. It says it has identified and contacted victims and that funds recovered through the confiscation process will be returned to victims. The two defendants were sentenced in July 2025, so the event reported this week is the confiscation and victim recovery stage, and not the original conviction or sentencing.",
+      "why_it_matters": "The confiscation orders total less than the losses the FCA attributes to the scheme, and the announcement does not say how much will in the end be recovered or when payments to victims will be made. What the FCA does state is that recovered funds will go back to victims. The announcement is a reminder that a case continues after sentencing.",
+      "radar_implication": "This is FinCrimeRadar analysis, not an FCA conclusion. Recovery of criminal proceeds is a distinct financial crime outcome from detection, reporting, disruption and prosecution. Firms often measure their own effectiveness through alerts, reports and referrals, and this case suggests it is worth asking whether records and evidence preserved at the investigation stage would also support later tracing and recovery.",
+      "primary_source": true,
+      "reviewed": true
+    }
+  ]
+}
