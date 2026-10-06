@@ -9625,5 +9625,226 @@
     "status": "verified",
     "location": "financial-crime-information-sharing-guide.html, Eight-step sequence (record)",
     "note": "Operational detail that may change. The page carries no date, so source.date records the date the page was read."
+  },
+  {
+    "claimId": "digital-identity-cdd.guidance-identity-scope.001",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "HM Treasury and DSIT guidance says that where a digital verification service is certified and on the statutory register it can be treated as a reliable source independent of the person whose identity is being verified and as providing an appropriate level of assurance that the person claiming the identity is in fact that person. For an individual customer, a regulated entity may use such a service to verify identity for Regulation 28 purposes, and such services may also be used to verify company directors.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "HM Treasury and DSIT, Using digital identities with the Money Laundering Regulations",
+      "url": "https://www.gov.uk/government/publications/using-digital-identities-with-the-money-laundering-regulations/using-digital-identities-with-the-money-laundering-regulations",
+      "publisher": "HM Treasury and Department for Science, Innovation and Technology",
+      "date": "2026-02-26"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-01-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Intelligence status, Executive assessment, Worked decisions and FAQ",
+    "note": "The page confines the conclusion to the identity-verification proposition and does not say that every Regulation 28 duty is fulfilled. Flagged for independent regulatory review before publication."
+  },
+  {
+    "claimId": "digital-identity-cdd.guidance-residual-duties.002",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "The government guidance says digital identities do not fulfil all customer due diligence requirements. The regulated entity must still assess customer risk, apply enhanced due diligence where appropriate, assess and where appropriate maintain information on purpose and intended nature, meet record-retention requirements and remains ultimately liable for failures to conduct appropriate customer due diligence.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "HM Treasury and DSIT, Using digital identities with the Money Laundering Regulations",
+      "url": "https://www.gov.uk/government/publications/using-digital-identities-with-the-money-laundering-regulations/using-digital-identities-with-the-money-laundering-regulations",
+      "publisher": "HM Treasury and Department for Science, Innovation and Technology",
+      "date": "2026-02-26"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-01-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Executive assessment, What changed, Proof Boundary Record and Scenario 1",
+    "note": "Government guidance, not a transfer of responsibility. Flagged for independent regulatory review before publication."
+  },
+  {
+    "claimId": "digital-identity-cdd.reg28-core-and-corporate-duties.003",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "Regulation 28 separately requires identification, verification and assessment of the purpose and intended nature of the relationship or occasional transaction. It also contains separate requirements for corporate particulars, ownership and control, beneficial owners and the authority and identity of a person purporting to act for a customer.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering Regulations 2017, Regulation 28",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-22"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-04-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Executive assessment, What changed, Proof boundary and both worked decisions",
+    "note": "Current revised text checked through legislation.gov.uk XML. Flagged for independent review of every scenario conclusion before publication."
+  },
+  {
+    "claimId": "digital-identity-cdd.reg28-risk-monitoring-electronic-id.004",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "Regulation 28 requires ongoing monitoring and keeping customer due diligence information current, makes the extent of measures risk-sensitive and demonstrable to the supervisor, defines verification by reference to documents or information from a reliable source independent of the person being verified, and permits electronic identification where the process is secure from fraud and misuse and provides the assurance necessary to manage money-laundering and terrorist-financing risks effectively.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering Regulations 2017, Regulation 28",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-22"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-04-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Intelligence status, Executive assessment, Proof Boundary Record, Decision Horizon and FAQ",
+    "note": "Current revised text checked through legislation.gov.uk XML."
+  },
+  {
+    "claimId": "digital-identity-cdd.reg40-record-retention.005",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "Regulation 40 requires a relevant person to retain copies of documents and information obtained to satisfy customer due diligence requirements and sufficient supporting transaction records, subject to the regulation's period, conditions and deletion requirements.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering Regulations 2017, Regulation 40",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/40",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-22"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-04-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Proof Boundary Record, Operational implementation and FAQ",
+    "note": "The page does not claim that retaining a vendor pass alone is sufficient."
+  },
+  {
+    "claimId": "digital-identity-cdd.reg76-approved-guidance.006",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "Under Regulation 76, when deciding whether a relevant requirement was contravened, the designated supervisory authority must consider whether the person followed relevant FCA guidance or guidance issued by another supervisory authority or appropriate body and approved by the Treasury.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering Regulations 2017, Regulation 76",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/76",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2017-06-22"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-04-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Settled and unresolved",
+    "note": "The page expressly avoids describing approved guidance as a safe harbour. Flagged for independent regulatory review before publication."
+  },
+  {
+    "claimId": "digital-identity-cdd.duaa-service-specific-register.007",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "Part 2 of the Data (Use and Access) Act 2025 requires a DVS trust framework and public register, ties registration to a certificate for specified services and requires register changes where a service ceases, a certificate no longer covers it or supplementary-code coverage changes.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Data (Use and Access) Act 2025, Part 2",
+      "url": "https://www.legislation.gov.uk/ukpga/2025/18/part/2",
+      "publisher": "legislation.gov.uk (UK National Archives)",
+      "date": "2025-06-19"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-04-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, What changed, Proof Boundary Record and Decision Horizon",
+    "note": "Sections 28, 32, 33 and 42 to 44 support the service-specific and change-sensitive model."
+  },
+  {
+    "claimId": "digital-identity-cdd.register-service-fields.008",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "The statutory digital verification services register lists named services and exposes service information including role types, trust-framework version, certificate issue and expiry dates, identity profiles where applicable and supplementary codes. Its role categories include Identity, Attribute, Orchestration, Holder and Component.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Statutory digital verification services register",
+      "url": "https://www.access-dvs-register.service.gov.uk/register/all-services",
+      "publisher": "Office for Digital Identities and Attributes",
+      "date": "2026-09-30"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-01-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, What changed, Proof Boundary Record and FAQ",
+    "note": "Live register evidence. The guide does not hard-code the number of registered services or endorse a named provider."
+  },
+  {
+    "claimId": "digital-identity-cdd.trust-framework-scope.009",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "The UK digital verification services trust framework 1.0 concerns natural-person identities and attributes, uses GPG 45 levels of confidence for identity outcomes and distinguishes certified service roles. The framework warns that a relying organisation using a certified identity service for part of onboarding must not represent its whole onboarding process as certified.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "UK digital verification services trust framework 1.0",
+      "url": "https://www.gov.uk/government/publications/uk-digital-verification-services-trust-framework-1-0",
+      "publisher": "Department for Science, Innovation and Technology",
+      "date": "2026-06-09"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-01-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Intelligence timeline, Proof boundary and Proof Boundary Record",
+    "note": "Framework guidance, not legislation. The exact service entry and certificate remain date-sensitive."
+  },
+  {
+    "claimId": "digital-identity-cdd.ofdia-confidence-attributes.010",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "OfDIA's August 2026 clarification says the regulated firm selects the GPG 45 level of confidence commensurate with customer risk, and distinguishes an identity outcome from additional attributes such as address information, PEP checks and sanctions screening, whose coverage depends on service role and scope.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "OfDIA, How digital verification services can help businesses meet their obligations under the Money Laundering Regulations",
+      "url": "https://enablingdigitalidentity.blog.gov.uk/2026/08/20/how-digital-verification-services-can-help-businesses-meet-their-obligations-under-the-money-laundering-regulations/",
+      "publisher": "Office for Digital Identities and Attributes",
+      "date": "2026-08-20"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-01-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Intelligence timeline, Proof boundary, Proof Boundary Record, Settled and unresolved and FAQ",
+    "note": "Official clarification, not legislation. Flagged for independent review of all attribute-scope conclusions before publication."
+  },
+  {
+    "claimId": "digital-identity-cdd.fca-cdd-findings.011",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "The FCA's April 2026 multi-firm review says most reviewed firms had documented identity-verification procedures but few gave staff enough practical detail. It separately says several firms distinguished standard CDD from EDD and most tailored CDD to customer risk. The FCA presents clear differentiation and risk-tailored CDD as examples of good practice.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Firms' customer due diligence processes and controls: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-04-08"
+    },
+    "verifiedOn": "2026-10-05",
+    "reviewDue": "2027-01-05",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Operational implementation",
+    "note": "Evidence about the reviewed firms and FCA good and poor practice, not a statistic about all firms."
+  },
+  {
+    "claimId": "digital-identity-cdd.guidance-approved-status.012",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "The February 2026 HM Treasury and DSIT publication identifies itself as approved guidance for the purposes of compliance with the Money Laundering Regulations.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "HM Treasury and DSIT, Using digital identities with the Money Laundering Regulations",
+      "url": "https://www.gov.uk/government/publications/using-digital-identities-with-the-money-laundering-regulations/using-digital-identities-with-the-money-laundering-regulations",
+      "publisher": "HM Treasury and Department for Science, Innovation and Technology",
+      "date": "2026-02-26"
+    },
+    "verifiedOn": "2026-10-06",
+    "reviewDue": "2027-01-06",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Intelligence timeline and Settled and unresolved",
+    "note": "Approved status is stated by the guidance itself. Regulation 76 is recorded separately. The page does not present the guidance as a safe harbour."
+  },
+  {
+    "claimId": "digital-identity-cdd.certification-scheme-live-transition.013",
+    "guide": "digital-identity-cdd-intelligence-brief.html",
+    "claimText": "The certification scheme table records Gamma scheme 0.4.4 as live from 1 July 2025 with an expiry date of 1 December 2028, and scheme 1.0.1 as live from 2 September 2026 with no expiry date stated in the table.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Certification scheme for the UK digital identity and attributes trust framework",
+      "url": "https://www.gov.uk/guidance/certification-scheme-for-the-uk-digital-identity-and-attributes-trust-framework",
+      "publisher": "Office for Digital Identities and Attributes and Department for Culture, Media and Sport",
+      "date": "2026-09-21"
+    },
+    "verifiedOn": "2026-10-06",
+    "reviewDue": "2027-01-06",
+    "status": "verified",
+    "location": "digital-identity-cdd-intelligence-brief.html, Intelligence timeline",
+    "note": "Temporal certification-scheme context only. Service suitability still depends on the exact register entry, certificate, role and risk context."
   }
 ]

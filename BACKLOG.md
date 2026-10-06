@@ -68,6 +68,17 @@ Completed. The permanent publication architecture (Universal Evidence Core, Inte
 
 ## Next Up
 
+### Digital Identity Is Not the Whole of CDD: What Verification Does and Does Not Prove
+
+- **Status:** LOCAL RELEASE GATE PASS. Promoted from priority research on 5 October 2026 after primary-source verification and originality review. Local implementation and fresh-context independent review are complete. Commit, push and publication remain separate, explicit actions.
+- **Specification:** Public format Intelligence Brief, Default Knowledge Hub treatment. United Kingdom. Audience: AML, KYC, onboarding, MLRO, financial-crime systems, procurement and assurance practitioners at MLR-regulated firms. Decision object: what a successful certified digital identity result establishes, about whom, at what assurance level, and which CDD duties remain with the regulated firm. The differentiator is a six-field Proof Boundary Record covering Subject, Proposition, Service scope, Assurance, Residual duties and Change trigger. It must go materially beyond regulator summaries and existing FinCrimeRadar coverage of identity-evidence gaps, synthetic identities, deepfake verification and perpetual KYC.
+- **Verification owner:** Codex.
+- **Primary sources or repository evidence checked:** 6 October 2026. HM Treasury and DSIT's 26 February 2026 MLR guidance, current MLR 2017 regulations 28, 40 and 76, Data (Use and Access) Act 2025 Part 2, the live statutory DVS register, current trust framework and certification scheme, OfDIA's 20 August 2026 clarification, the FCA's 8 April 2026 CDD findings, repository overlap and external originality results. Full record: `docs/review-queue/digital-identity-cdd-source-pack.md`.
+- **Review date:** 6 October 2026.
+- **Verification outcome:** PASS after remediation and independent closure recheck on 6 October 2026. The first fresh-context review failed on missing ledger coverage, weak contract enforcement, two source-fidelity issues and incomplete browser evidence. Those findings were addressed. The second review identified stale modification metadata and acceptance-artifact dates; those were corrected and the focused closure recheck passed with no residual blocker.
+- **Editorial package:** Content Loop steps 04 to 06 completed on 5 October 2026. The analytical model, substantive editorial draft, Requirement Coverage Matrix and implementation plan are locked in `docs/review-queue/digital-identity-cdd-design-memo.md`, `docs/review-queue/digital-identity-cdd-editorial-draft.md`, `docs/review-queue/digital-identity-cdd-implementation-contract.md` and `docs/review-queue/digital-identity-cdd-implementation-plan.md`. Local implementation is complete. This is not publication approval.
+- **Implementation state:** The page, script, social card, Knowledge Hub card, sitemap entry, reciprocal relationships and 13 claim-level ledger records are present locally. The static contract, full browser regression, ledger checks, reading-time check and affected shared static suites pass. Fresh-context independent review and the focused closure recheck pass. Nothing has been staged, committed, pushed or published.
+
 ### Financial Crime Information Sharing: COMPLETE and live, 4 October 2026
 
 Retained as an evidence record, not an active queue item. Public format Guide, composition Framework, Default Knowledge Hub treatment, United Kingdom, at https://fincrimeradar.org/financial-crime-information-sharing-guide.html.
@@ -169,16 +180,15 @@ Scenario Lab expansion is no longer under a blanket pause. Cases 7 and 8 are rel
 
 ## Content Loop
 
-Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. Next Up holds no content item after Financial Crime Information Sharing completed on 4 October 2026, and nothing below is promoted by that completion. Every item below is RESEARCH, BLOCKED or PARKED until all four queue-rule fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
+Queue order follows docs/CONTENT_OPERATING_PLAN.md section 8. Digital Identity Is Not the Whole of CDD was promoted to Next Up on 5 October 2026 after the four queue-rule fields were recorded. Every item below remains RESEARCH, BLOCKED or PARKED until all four fields are recorded. Evidence named below comes from the operating plan and has not been re-verified here.
 
 ### Priority research candidates
 
-1. **Digital Identity Is Not the Whole of CDD: What Verification Does and Does Not Prove:** RESEARCH. Intelligence Brief. Check the February 2026 HM Treasury and DSIT guidance, the statutory digital verification services register and the line between identity verification and the wider CDD obligation.
-2. **Customer Risk Scores: What the Number Cannot Decide:** RESEARCH. Decision framework on factors, weightings, overrides, evidence, model changes and review triggers. Check the FCA November 2025 risk-assessment findings. Link to the Scenario Lab Risk Scoring module.
-3. **Financial Crime Control Testing: A Control Exists, But Does It Work?:** RESEARCH. Separate design, implementation and operating effectiveness. Check the FCA 2025 and 2026 good-and-poor-practice findings on CDD, risk assessments, monitoring, testing and audit.
-4. **SAR Escalation Under Commercial Pressure:** RESEARCH. Develop as a UK-first judgement guide. Read the US Senate source directly and preserve allegation versus finding, but do not convert it into a UK legal standard. Establish the NCA, POCA, governance and documentation basis before promotion.
-5. **Synthetic Data for AML Model Testing:** RESEARCH. Verify the FCA and Alan Turing Institute programme from primary sources, and check whether the 2026 Solution Sprint has published outcomes before stating what synthetic data can prove about model effectiveness.
-6. **Nested VASP Exposure: The Counterparty You Cannot See:** RESEARCH. Narrow Intelligence Brief on nested relationships, visibility, attribution and due-diligence limits. Replaces the broader offshore-VASP proposal. Verify the claimed FATF March 2026 publication and prove a distinct decision model beyond the six-part Crypto series, the Travel Rule guide and the Scam Compound guide.
+1. **Customer Risk Scores: What the Number Cannot Decide:** RESEARCH. Decision framework on factors, weightings, overrides, evidence, model changes and review triggers. Check the FCA November 2025 risk-assessment findings. Link to the Scenario Lab Risk Scoring module.
+2. **Financial Crime Control Testing: A Control Exists, But Does It Work?:** RESEARCH. Separate design, implementation and operating effectiveness. Check the FCA 2025 and 2026 good-and-poor-practice findings on CDD, risk assessments, monitoring, testing and audit.
+3. **SAR Escalation Under Commercial Pressure:** RESEARCH. Develop as a UK-first judgement guide. Read the US Senate source directly and preserve allegation versus finding, but do not convert it into a UK legal standard. Establish the NCA, POCA, governance and documentation basis before promotion.
+4. **Synthetic Data for AML Model Testing:** RESEARCH. Verify the FCA and Alan Turing Institute programme from primary sources, and check whether the 2026 Solution Sprint has published outcomes before stating what synthetic data can prove about model effectiveness.
+5. **Nested VASP Exposure: The Counterparty You Cannot See:** RESEARCH. Narrow Intelligence Brief on nested relationships, visibility, attribution and due-diligence limits. Replaces the broader offshore-VASP proposal. Verify the claimed FATF March 2026 publication and prove a distinct decision model beyond the six-part Crypto series, the Travel Rule guide and the Scam Compound guide.
 
 ### Deliberate hold
 

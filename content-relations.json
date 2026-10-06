@@ -61,7 +61,8 @@
     "synthetic-identity-device-network-guide",
     "ubo-investigation-handbook",
     "annex-1-firms-aml-blind-spot-guide",
-    "de-risking-judgement-call"
+    "de-risking-judgement-call",
+    "digital-identity-cdd-intelligence-brief"
   ],
   "source-of-wealth-investigation-handbook": [
     "annex-1-firms-aml-blind-spot-guide"
@@ -169,5 +170,12 @@
     "classification-asymmetry-guide",
     "sar-guide-part2",
     "de-risking-judgement-call"
+  ],
+  "perpetual-kyc-framework-guide": [
+    "digital-identity-cdd-intelligence-brief"
+  ],
+  "digital-identity-cdd-intelligence-brief": [
+    "kyc-onboarding-dilemma",
+    "perpetual-kyc-framework-guide"
   ]
 }
