@@ -49,11 +49,11 @@ Repository and queue state were audited on 10 October 2026 against `main` at `36
 - Screening and PEP search, Knowledge Hub domain filtering, weekly digest and FinCrime Week are shipped.
 - FinCrime Week issues W36 to W40 are present on `main`. W40, covering 28 September to 4 October 2026, is the current published issue.
 - Quiz titles use semantic `h2` headings across the 25-page repair scope. `learn.html` retains its two distinct badges. A shared scoped rule keeps all six `article-section` quiz headings white; real-browser computed-style, contrast and representative responsive checks passed on 10 October 2026.
+- **Skip-link accessibility batch (closed 10 October 2026):** all 21 `#main-content` pages now pass `scripts/check_skip_link_focus.py`: skip link first in tab order, no inline positioning, a `:focus` rule that reveals it, and a `tabindex="-1"` target. The last 5 Stablecoin series pages received the `stablecoin-series-guide-1.html` CSS block. `element.focus()` in a real browser put the link on-screen with 17.4:1 contrast and a visible outline at 390px and 1440px, matching a conforming page. The check is a manual script, not CI, as no static-check CI exists. A real keyboard Tab and Enter test still needs a human.
 - The verification ledger contains 695 valid entries with no overdue entries. `scripts/check_ledger_base.py`, `scripts/check_ledger.py validate` and `scripts/check_ledger.py overdue` passed on 10 October 2026.
 
 ## Next Up
 
-- **Skip-link visibility on five Stablecoin series pages (open, found 10 October 2026):** the tab-order move shipped and `scripts/check_skip_link_focus.py` passes on all 21 pages, but `element.focus()` on `why-stablecoins-compliance-priority-guide`, `systemic-stablecoins-guide`, `stablecoin-financial-crime-guide`, `a7a5-sanctions-evasion-guide` and `freezing-a-stablecoin-guide` leaves the link at `left:-9999px` (390px and 1440px). The pages carry the hiding as an inline style and no `.skip-link:focus` rule, so the link is focusable but never appears. Fix by replacing the inline style with the `.skip-link` and `.skip-link:focus` CSS used on `stablecoin-series-guide-1.html` and `shadow-fleet-guide-part1.html`. Owner: Claude Code. Review date: 10 October 2026. Outcome: scope is mechanical but needs a go-ahead because it edits more than the placement. A real keyboard Tab and Enter test still needs a human on all skip-link pages.
 
 Promote any further item only after all four queue fields are recorded and the relevant source, originality and review gates pass.
 
