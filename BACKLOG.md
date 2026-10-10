@@ -53,7 +53,9 @@ Repository and queue state were audited on 10 October 2026 against `main` at `36
 
 ## Next Up
 
-No item is currently READY. Promote only after all four queue fields are recorded and the relevant source, originality and review gates pass.
+- **READY: Skip-link focus target batch.** Owner: Claude Code. Evidence: fresh scan of tracked files on 10 October 2026 found 21 pages linking to `#main-content`: 4 conforming (Digital Identity, Financial Crime Information Sharing, Gambling White Label, Investment Scam), 17 with the target present but no `tabindex="-1"`, 0 missing targets, 0 other mismatches. Review date: 10 October 2026. Outcome: scope confirmed as mechanical, add `tabindex="-1"` to the 17 targets and touch no other markup. No external review (CLAUDE.md section 16).
+
+Promote any further item only after all four queue fields are recorded and the relevant source, originality and review gates pass.
 
 ## Polish Loop
 
