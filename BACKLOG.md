@@ -49,12 +49,13 @@ Repository and queue state were audited on 10 October 2026 against `main` at `36
 - Screening and PEP search, Knowledge Hub domain filtering, weekly digest and FinCrime Week are shipped.
 - FinCrime Week issues W36 to W40 are present on `main`. W40, covering 28 September to 4 October 2026, is the current published issue.
 - Quiz titles use semantic `h2` headings across the 25-page repair scope. `learn.html` retains its two distinct badges. A shared scoped rule keeps all six `article-section` quiz headings white; real-browser computed-style, contrast and representative responsive checks passed on 10 October 2026.
-- **Skip-link focus target gap (closed 10 October 2026):** fresh scan found 21 pages linking to `#main-content`, 17 targets lacked `tabindex="-1"`, none missing. All 17 fixed with the conforming-page pattern, no new CSS. Real-browser activation check passed at 390px and 1440px on representative pages from each template; static scan now shows 21 of 21 conforming.
 - The verification ledger contains 695 valid entries with no overdue entries. `scripts/check_ledger_base.py`, `scripts/check_ledger.py validate` and `scripts/check_ledger.py overdue` passed on 10 October 2026.
 
 ## Next Up
 
-No item is currently READY. Promote only after all four queue fields are recorded and the relevant source, originality and review gates pass.
+- **READY: Skip-link tab order, reopened.** Owner: Claude Code. Evidence: fresh run of the new static check (`scripts/check_skip_link_focus.py`) on 10 October 2026 across 21 skip-link pages: 16 pass, 5 Stablecoin series pages place the skip link after `<nav>` and `#mobileNav` (tab position 11), contrary to `GUIDE_STANDARD.md`: `why-stablecoins-compliance-priority-guide`, `systemic-stablecoins-guide`, `stablecoin-financial-crime-guide`, `a7a5-sanctions-evasion-guide`, `freezing-a-stablecoin-guide`. The earlier `tabindex="-1"` fix (21 of 21) stands. Review date: 10 October 2026. Outcome: scope confirmed as a mechanical move of the existing link to be the first child of `<body>`; no external review (CLAUDE.md section 16).
+
+Promote any further item only after all four queue fields are recorded and the relevant source, originality and review gates pass.
 
 ## Polish Loop
 
