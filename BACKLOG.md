@@ -52,7 +52,13 @@ Repository and queue state were audited on 10 October 2026 against `main` at `36
 
 ## Next Up
 
-No item is currently READY. Promote only after all four queue fields are recorded and the relevant source, originality and review gates pass.
+### Quiz-title semantic heading repair
+
+- **Status:** READY for one Polish session.
+- **Verification owner:** Codex, explicitly authorised to implement on 10 October 2026.
+- **Repository evidence checked:** the 10 October scan confirmed 25 guide pages using `<div class="quiz-title">`. Five of those quiz wrappers also carry `article-section`; `stablecoin-series-guide-1.html` already uses an `h2` inside the same wrapper. `learn.html` uses `quiz-title` for two distinct badges and is excluded.
+- **Review date:** 10 October 2026.
+- **Verification outcome:** scope confirmed. Convert the 25 guide instances to `h2`, add one scoped white-colour rule covering all six `quiz-section article-section` headings, and leave `learn.html` unchanged. Verify the two page groups in a real browser, including computed colour and contrast on at least one converted `article-section` page. Do not include the separate skip-link batch.
 
 ## Polish Loop
 
