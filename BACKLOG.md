@@ -48,17 +48,12 @@ Repository and queue state were audited on 10 October 2026 against `main` at `36
 - SAR Writing Sandbox is live with three case summaries: `sar-002`, `sar-003` and `sar-phase0-001`. Case-file validation and verified scoring projection are shipped through API pull requests 3 and 4. Red-flag credit remains model-judged and is tracked under the parked PR 5 work.
 - Screening and PEP search, Knowledge Hub domain filtering, weekly digest and FinCrime Week are shipped.
 - FinCrime Week issues W36 to W40 are present on `main`. W40, covering 28 September to 4 October 2026, is the current published issue.
+- Quiz titles use semantic `h2` headings across the 25-page repair scope. `learn.html` retains its two distinct badges. A shared scoped rule keeps all six `article-section` quiz headings white; real-browser computed-style, contrast and representative responsive checks passed on 10 October 2026.
 - The verification ledger contains 695 valid entries with no overdue entries. `scripts/check_ledger_base.py`, `scripts/check_ledger.py validate` and `scripts/check_ledger.py overdue` passed on 10 October 2026.
 
 ## Next Up
 
-### Quiz-title semantic heading repair
-
-- **Status:** READY for one Polish session.
-- **Verification owner:** Codex, explicitly authorised to implement on 10 October 2026.
-- **Repository evidence checked:** the 10 October scan confirmed 25 guide pages using `<div class="quiz-title">`. Five of those quiz wrappers also carry `article-section`; `stablecoin-series-guide-1.html` already uses an `h2` inside the same wrapper. `learn.html` uses `quiz-title` for two distinct badges and is excluded.
-- **Review date:** 10 October 2026.
-- **Verification outcome:** scope confirmed. Convert the 25 guide instances to `h2`, add one scoped white-colour rule covering all six `quiz-section article-section` headings, and leave `learn.html` unchanged. Verify the two page groups in a real browser, including computed colour and contrast on at least one converted `article-section` page. Do not include the separate skip-link batch.
+No item is currently READY. Promote only after all four queue fields are recorded and the relevant source, originality and review gates pass.
 
 ## Polish Loop
 
@@ -69,8 +64,8 @@ Repository and queue state were audited on 10 October 2026 against `main` at `36
 - **Scenario Lab dispatch hardening:** replace conflicting silent module fallbacks with one explicit per-module dispatch map that fails loudly for an unknown module.
 - **Scenario Lab API load-crash pattern:** the live API repository at `main` commit `4e4d109` still loads `routes_scenario_lab.py` cases with unvalidated `json.load` during import. Reuse the bounded, per-file Pydantic validation pattern already shipped for SAR Sandbox.
 - **Screening cold-path latency:** last measured at 6.6 to 9.9 seconds. Re-measure before changing anything. First test a smaller OpenSanctions result limit with explicit truncation escalation; parallel RSS work can only recover a minor share of the delay.
-- **Quiz-title heading gap:** 25 guide pages still use `<div class="quiz-title">`. Five pages whose quiz wrapper also carries `article-section` need both the semantic heading change and a scoped white-heading override; the other 20 need the heading change only. `learn.html` uses the same class for a distinct badge and is excluded. Execute as one scripted batch with representative browser checks from both guide groups.
 - **Skip-link focus target gap:** a repository-wide scan on 10 October found 21 pages linking to `#main-content`; 17 targets lack `tabindex="-1"`. Digital Identity, Financial Crime Information Sharing, Gambling White Label and Investment Scam already conform. Fix the remaining 17 as a separately reviewed batch.
+- **Pre-existing narrow-screen overflow:** the quiz-title browser run found page-level overflow at 390px on `fatf-guide-part2.html`, `scam-compound-money-laundering-guide.html` and `screening-algorithm-tuning-guide.html`. It persisted when each converted heading was reverted to a `div` in the browser, so the semantic repair did not introduce it. Identify the overflowing elements and scope a separate fix.
 - **FCTR dated-field ambiguity:** the FCTR 12 chapter page (handbook.fca.org.uk/handbook/fctr12) shows a page-level "last updated 01/11/2024", while the FCTR 12.3 section page and its individual paragraphs (12.3.6G-12.3.8G) each independently show 13/12/2018. Confirmed as two genuinely different dated fields, not an error in either reading, during de-risking-judgement-call.html sourcing (2026-09-21). Any other guide citing FCTR 12.3 by its chapter-level date rather than its paragraph-level date should be checked for the same conflation. RESEARCH until scope across guides is confirmed.
 
 ### Shared architecture and presentation debt

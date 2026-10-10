@@ -59,6 +59,9 @@ h1,h2,h3,
   font-family:'Playfair Display',Georgia,serif !important;
   letter-spacing:-.012em;
 }
+.quiz-section.article-section > .quiz-title{
+  color:var(--white,#fff);
+}
 code,pre,kbd,samp{
   font-family:'IBM Plex Mono',ui-monospace,monospace !important;
 }
