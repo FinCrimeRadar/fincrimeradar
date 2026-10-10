@@ -1,6 +1,7 @@
 # FinCrimeRadar Operating Plan
 
 **Effective date:** Monday, 28 September 2026  
+**Last reviewed:** 10 October 2026<br>
 **Planning horizon:** 90 days  
 **Purpose:** Keep FinCrimeRadar active, credible and improving while Pratik starts a full-time role at Nisbets.
 
@@ -8,16 +9,16 @@
 
 FinCrimeRadar should run as a controlled publishing system, not as a collection of ad hoc tasks.
 
-The sustainable weekly commitment is:
+The sustainable base commitment is:
 
 - One FinCrime Week issue, published on Monday.
-- Two substantive Knowledge Hub publications.
-- One additional publication as a stretch target, released only from a two-week bank of fully researched and reviewed work.
-- Two Scenario Lab cases per fortnight.
-- Three LinkedIn posts per week, each built from work already produced for the website.
+- One substantive Knowledge Hub publication no more often than fortnightly, and only when an item has passed every queue and release gate.
+- One scoped Polish, Build or Content batch each week. A batch may advance work without creating a public release.
+- No more than two Scenario Lab cases per month, with each case separately gated by distinct value and current repository-to-API synchronisation evidence.
+- Up to three LinkedIn posts per week, each built from work already produced for the website and separately approved.
 - One small website improvement or maintenance batch per fortnight.
 
-Three full guides every week should not be the minimum commitment. The existing guide workflow targets 2.5 to 4 hours of active production per guide. Three guides therefore require 7.5 to 12 hours before FinCrime Week, Scenario Lab, distribution, maintenance and unexpected remediation. The safer target is three public content releases each week, normally two guides plus FinCrime Week. A third guide becomes routine only after the quality gates have passed for four consecutive weeks and there is always a six-guide release bank.
+Publication volume is an output, not a quota. Missing a nominal date is preferable to compressing sourcing, originality, review or production verification. Increase cadence only after four consecutive review cycles show that quality, the release-ready bank, employment boundaries and personal workload remain healthy.
 
 ## 2. Non-negotiable boundaries
 
@@ -25,9 +26,12 @@ Three full guides every week should not be the minimum commitment. The existing 
 
 - Perform all FinCrimeRadar work outside Nisbets working time and on personal equipment and accounts.
 - Do not use Nisbets data, systems, internal examples, customer information, policies, incidents or confidential knowledge.
-- Review the employment contract, intellectual property terms, external interests policy and social-media policy before 28 September.
+- Review the employment contract and handbook provisions covering outside activities, intellectual-property assignment, confidential information and social media before starting any FinCrimeRadar research that materially overlaps Nisbets' business.
+- Do not copy the contract, handbook or other employer documents into the FinCrimeRadar repository or research materials.
 - Record FinCrimeRadar as an independent pre-existing project if the policy requires disclosure.
 - State personal views where relevant. Do not imply that Nisbets sponsors or endorses FinCrimeRadar.
+- If an applicable clause is unclear, obtain written clearance before investing in the research or charter. If clearance is doubtful, park the topic rather than narrowing it informally.
+- For the proposed e-commerce fraud series, record in the series charter that every scenario, taxonomy and example is derived only from identified public sources. Complete this employer-conflict gate before any subject-matter research starts.
 
 ### Editorial and publication controls
 
@@ -44,11 +48,11 @@ Three full guides every week should not be the minimum commitment. The existing 
 | Saturday | Collect primary-source candidates, score backlog readiness, prepare research packs, run stale-source and broken-link checks | Select the coming week's topics and reject weak or overlapping ideas | Approved weekly release slate |
 | Sunday | Prepare FinCrime Week candidate file, guide specifications, social drafts and test plans | Verify the selected sources and approve the final FinCrime Week stories | FinCrime Week ready for release, guide work queued |
 | Monday | Run FinCrime Week validation, generator, tests and production checklist | Final claim review and release approval by 20:30 | FinCrime Week issue and LinkedIn briefing post |
-| Tuesday | Existing weekly digest sends at 08:00 UTC; guide A checks and release pack run | Review metrics and approve guide A if every gate passes | Guide A and its LinkedIn post |
-| Wednesday | Prepare Scenario Lab cases or a website polish batch; produce LinkedIn Engagement Radar shortlist | Approve cases or maintenance scope; choose at most one engagement action | Scenario work or maintenance advances |
-| Thursday | Guide B checks, social card, discovery updates and release pack run | Approve guide B if every gate passes | Guide B and its LinkedIn post |
+| Tuesday | Existing weekly digest sends at 08:00 UTC; advance the selected queue item | Review metrics and confirm that the item remains within scope | Content, Build or Polish work advances |
+| Wednesday | Prepare Scenario Lab work or a website polish batch; produce LinkedIn Engagement Radar shortlist | Approve the case or maintenance scope; choose at most one engagement action | Scenario or maintenance work advances |
+| Thursday | Run the applicable checks and prepare a release pack only when an item is release-ready | Approve or defer without penalty | Fortnightly guide release when every gate passes |
 | Friday | Monitoring only: uptime, failed workflows, broken links, ledger expiry and production drift | Intervene only for a real incident | Protected no-build evening |
-| Saturday | Release a banked guide C only when the bank remains at six release-ready guides after publication | Approve or skip without penalty | Optional guide C |
+| Saturday | Refresh source packs, resolve review findings or prepare the next bounded batch | Approve the next scope only when capacity remains healthy | Release bank and evidence improve |
 
 The schedule is deliberately weekend-heavy. Weekday human attention should normally be limited to 20 to 45 minute approval windows.
 
@@ -69,9 +73,9 @@ Every proposed publication moves through one queue:
 
 Use the existing `BACKLOG.md` as the source of truth. Do not introduce another planning database. Keep work-in-progress limits of:
 
-- Maximum two items in Build.
-- Maximum three items in Review or Release-ready.
-- Minimum six items in the combined Qualified and Specified bank before attempting three guides per week.
+- Maximum one item in Build.
+- Maximum two items across Review and Release-ready.
+- No cadence increase unless at least three items remain in the combined Qualified and Specified bank after the next planned release.
 
 An item enters the release queue only when it has a verification owner, checked evidence, review date and recorded outcome.
 
@@ -143,7 +147,7 @@ The case pipeline should:
 - Poll the live API and compare its case count and identifiers with the repository source.
 - Fail the release if the API is stale, unless the documented local fallback is explicitly accepted for that release.
 
-The current API synchronisation issue must be closed before increasing the Scenario Lab cadence.
+Repository-to-API synchronisation is proven. Do not increase the Scenario Lab cadence until the remaining dispatch and API case-loading hardening is complete and usage supports expansion.
 
 ### E. LinkedIn automation
 
@@ -225,10 +229,11 @@ Do not redesign the site while starting a new job. Use a controlled polish lane.
 
 ### Priority 1: reliability and accessibility
 
-- Close Scenario Lab API synchronisation proof.
+- Harden Scenario Lab module dispatch so unknown modules fail explicitly.
+- Replace unvalidated Scenario Lab case loading in the API with bounded schema validation.
 - Complete the confirmed quiz-title heading repair across the affected guides.
 - Scope and repair the skip-link focus-target issue.
-- Add stronger stale or incomplete API payload detection where still outstanding.
+- Preserve direct repository-to-API inventory comparison as the release proof for Scenario Lab changes.
 
 ### Priority 2: discovery and retention
 
@@ -244,24 +249,20 @@ Do not redesign the site while starting a new job. Use a controlled polish lane.
 - Keep SAR Writing Sandbox expansion separate from normal guide delivery.
 - Do not start the guide chatbot until ranking, attribution, refusal, prompt-injection, freshness and cost controls are resolved.
 
-## 8. Initial content queue
+## 8. Current content research queue
 
-The first queue should be drawn from current research candidates, not invented solely to fill dates.
+`BACKLOG.md` remains the queue authority. The list below records the current order and planning constraints only. Every candidate remains RESEARCH until its owner, checked evidence, review date and verification outcome are recorded.
 
 ### Prioritised guide queue
 
-1. **Digital Identity Is Not the Whole of CDD: What Verification Does and Does Not Prove.** A timely Intelligence Brief grounded in the February 2026 HM Treasury and DSIT guidance, the statutory digital verification services register and the distinction between identity verification and the wider CDD obligation.
-2. **Customer Risk Scores: What the Number Cannot Decide.** A decision framework on risk factors, weightings, overrides, evidence, model changes and review triggers, grounded in the FCA's November 2025 risk-assessment findings and linked to the existing Scenario Lab Risk Scoring module.
-3. **Financial Crime Control Testing: A Control Exists, But Does It Work?** A practitioner guide separating control design, implementation and operating effectiveness, using the FCA's 2025 and 2026 good-and-poor-practice findings on CDD, risk assessments, monitoring, testing and audit.
-4. **SAR Escalation Under Commercial Pressure.** Retain, but develop it as a UK-first judgement guide. The US Senate material may illustrate pressure, but it must not be converted into a UK legal standard. Establish the NCA, POCA, governance and documentation basis before promotion.
-5. **Synthetic Data for AML Model Testing: When Privacy-Safe Data Creates False Confidence.** Retain as research. Use the FCA and Alan Turing Institute project, but check whether the 2026 Solution Sprint has published outcomes before stating what synthetic data can prove about model effectiveness.
-6. **Nested VASP Exposure: The Counterparty You Cannot See.** Reshape the offshore-VASP proposal into a narrow Intelligence Brief about nested relationships, visibility, attribution and due-diligence limits. It must add a distinct decision model beyond the existing Crypto Guide, Travel Rule guide and Scam Compound guide.
+1. **Customer Risk Scores: What the Number Cannot Decide.** Prove distinct value beyond the Scenario Lab Risk Scoring module and re-check the FCA evidence before promotion.
+2. **Financial Crime Control Testing: A Control Exists, But Does It Work?** Separate design, implementation and operating effectiveness using current primary sources.
+3. **SAR Escalation Under Commercial Pressure.** Develop as a UK-first judgement guide. Do not convert US material into a UK legal standard.
+4. **Synthetic Data for AML Model Testing.** Verify the FCA and Alan Turing Institute programme and any published 2026 Solution Sprint outcome before drawing effectiveness conclusions.
+5. **Nested VASP Exposure: The Counterparty You Cannot See.** Prove a distinct decision model beyond the Crypto series, Travel Rule guide and Scam Compound guide.
+6. **E-commerce Fraud: From Account Creation to Chargeback.** Do not begin subject-matter research until the employer-conflict gate in section 2 passes. The first authorised scope is limited to the series-level non-overlap review and the Part 1 charter. Do not build the master taxonomy, five-guide coverage matrix or scenario inventory in that first scope. The charter must record public-source provenance and prohibit Nisbets information, systems, policies, incidents and examples.
 
-Suggested release pairing preserves subject variety:
-
-- Week 1: Digital Identity and SAR Escalation.
-- Week 2: Customer Risk Scores and Synthetic Data.
-- Week 3: Control Testing and Nested VASP Exposure.
+Do not assign dated release pairings while no candidate is READY.
 
 ### Removed or moved out of the active guide queue
 
@@ -274,8 +275,7 @@ Suggested release pairing preserves subject variety:
 
 1. Event-Driven CDD Review.
 2. Failure to Prevent Fraud, reusing the verified evidence pack from the shipped Evidence Essay.
-3. Companies House identity verification versus beneficial-ownership verification, as a synthetic precursor to the planned KYB Investigation Lab.
-4. Proliferation Financing Investigation, only after a defensive scope and UK regulatory basis are established.
+3. Proliferation Financing Investigation, only after a defensive scope and UK regulatory basis are established.
 
 Domestic PEP Proportionality is not a new candidate because Scenario Lab already contains **The PEP Who Should Not Be Declined**, grounded in MLR 2017 and FCA FG25/3.
 
@@ -288,31 +288,30 @@ Domestic PEP Proportionality is not a new candidate because Scenario Lab already
 
 ## 9. 30, 60 and 90-day rollout
 
-### Before 28 September
+### Current reset, 10 October 2026
 
-1. Confirm Nisbets conflict, intellectual-property and social-media boundaries.
-2. Close or clearly contain the Scenario Lab API synchronisation blocker.
-3. Create the scheduled planning, FinCrime Week preparation, release monitoring and monthly analytics tasks.
-4. Add one consolidated publication check that reports pass, fail and not-run gates.
-5. Promote at least three topics to Specified and three more to Qualified.
-6. Prepare the next FinCrime Week issue and the first two guide release packs.
-7. Freeze unrelated redesign work.
+1. Treat the refreshed `BACKLOG.md` as the queue authority. No content item is READY.
+2. Prepare FinCrime Week W41 through the normal manual sourcing and release gates.
+3. Scope the quiz-title heading repair as the next Polish batch.
+4. Treat Scenario Lab synchronisation as closed. Scope dispatch hardening and bounded API case validation as the remaining reliability work.
+5. Complete the employer-conflict gate before any e-commerce series research.
+6. Keep unrelated redesign work frozen.
 
 ### Days 1 to 30
 
-- Run the cadence at two guides, one FinCrime Week issue and three LinkedIn posts each week.
-- Add two Scenario Lab cases during the month only after the sync blocker is closed.
+- Publish FinCrime Week weekly and no more than one fully gated guide per fortnight.
+- Add no more than two separately gated Scenario Lab cases during the month.
+- Advance one bounded Polish, Build or Content batch each week without treating progress as a publication obligation.
 - Keep one protected evening with no planned work.
 - Measure human approval time and automation failure rate.
-- End the month with a minimum six-item Qualified or Specified bank.
+- Build a three-item Qualified or Specified bank before considering any cadence increase.
 
 ### Days 31 to 60
 
-- Trial one three-guide week using only banked work.
 - Add automated seven-day and 28-day performance reports.
 - Complete the highest-priority accessibility debt.
-- Compare one-guide, two-guide and three-guide weeks on quality, traffic and human workload.
-- Retain three guides only if the bank, review quality and personal workload remain healthy.
+- Review the fortnightly guide cadence against quality, traffic and human workload.
+- Increase output only if the bank, review quality, employment boundaries and personal workload remain healthy.
 
 ### Days 61 to 90
 
@@ -368,7 +367,7 @@ Reduce the cadence immediately when any of these occurs:
 - FinCrimeRadar work regularly exceeds the agreed weekly time budget.
 - Nisbets responsibilities, rest or family time are being affected.
 
-When reduced, preserve FinCrime Week, one guide and essential reliability work. Pause the third guide, new product work and low-value distribution first.
+When reduced, preserve FinCrime Week and essential reliability work. Publish a guide only when it is already release-ready and capacity remains healthy. Pause new product work and low-value distribution first.
 
 ## 12. Recommended automation tasks
 
@@ -385,14 +384,13 @@ Notifications should be exception-based. Routine successful checks should remain
 
 ## 13. Current planning baseline
 
-Repository evidence inspected on 22 September 2026 shows:
+Repository and named production evidence inspected on 10 October 2026 shows:
 
-- 56 Knowledge Hub publications recorded in the current backlog baseline.
-- 19 Scenario Lab cases in the static production source, while the live API was still recorded at 17 and using a completeness-checked local fallback.
-- FinCrime Week W36 and W37 present, with W37 recorded as current.
-- The weekly digest already scheduled for Tuesday at 08:00 UTC.
-- The Scenario Lab API deployment trigger already present, but its end-to-end result not yet proven.
-- 639 verification-ledger entries validated in the current working tree, with no overdue entries.
-- All 53 FinCrime Week tests passed when run with a writable temporary directory.
+- 59 Knowledge Hub publications: 25 series parts and 34 standalone publications.
+- 19 Scenario Lab cases, with the live API matching the repository's entity identifiers and module counts on the first comparison attempt.
+- FinCrime Week W36 to W40 present, with W40 current.
+- The weekly digest scheduled for Tuesday at 08:00 UTC.
+- Scenario Lab repository-to-API synchronisation proven. The local fallback remains a resilience path, not release evidence.
+- 695 verification-ledger entries validated, with no overdue entries.
 
-This is a repository planning baseline, not a fresh complete production audit. Production should be rechecked as part of the first implementation sprint.
+This is a planning baseline, not a complete site-wide production audit. Recheck every material dependency as part of its own release gate.
