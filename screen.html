@@ -618,13 +618,13 @@ async function footerSignup() {
 <script>
   const API_BASE = 'https://fincrimeradar-api.onrender.com';
 
-  // Keep-alive ping: fires silently on page load to wake the API
-  // so it is ready by the time the user clicks Screen
-  (function pingAPI() {
-    fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-cache' })
-      .then(() => console.log('API warm'))
-      .catch(() => console.log('API warming up...'));
-  })();
+  // Wake the API when the reader first focuses the search input, so a cold start overlaps
+  // with typing. Nothing is sent to the API just for opening the page.
+  document.getElementById('searchInput').addEventListener('focus', function () {
+    try {
+      fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-store' }).catch(function () {});
+    } catch (e) {}
+  }, { once: true });
   let currentType = 'all';
 
   function setType(el) {
