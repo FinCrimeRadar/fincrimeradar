@@ -1,0 +1,337 @@
+{
+  "status": 200,
+  "headers": {},
+  "body": {
+    "company_number": "ZZ000001",
+    "retrieved_at": "2026-10-11T12:00:00Z",
+    "source": "Companies House Public Data API",
+    "company": {
+      "name": "EXAMPLE TRADING LIMITED",
+      "status": "active",
+      "type": "ltd",
+      "date_of_creation": "2019-03-04",
+      "date_of_cessation": null
+    },
+    "interpretation": {
+      "scope": "interpreted",
+      "current_obligations": "interpreted",
+      "notice": null
+    },
+    "register_reported_values": null,
+    "indicators": [
+      {
+        "id": "accounts_overdue",
+        "label": "Accounts are flagged overdue",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "accounts.next_accounts.overdue": true
+        },
+        "source_endpoints": [
+          "profile"
+        ],
+        "does_not_establish": "A register flag that accounts are overdue does not establish the reason, whether the company is trading, or any wrongdoing."
+      },
+      {
+        "id": "confirmation_statement_overdue",
+        "label": "Confirmation statement is flagged overdue",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "confirmation_statement.overdue": true
+        },
+        "source_endpoints": [
+          "profile"
+        ],
+        "does_not_establish": "A register flag that a confirmation statement is overdue does not establish the reason, whether the company is trading, or any wrongdoing."
+      },
+      {
+        "id": "idv_statement_overdue",
+        "label": "At least one current role has an identity verification statement past its due date",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "records": [
+            {
+              "name": "DIRECTOR, One",
+              "source": "officer",
+              "due_on": "2026-09-01"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "officers"
+        ],
+        "does_not_establish": "A register record that a statement is overdue is not a finding that the person is unverified or that an offence has occurred."
+      },
+      {
+        "id": "idv_statement_removed",
+        "label": "At least one current role has a removed identity verification statement",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "records": [
+            {
+              "name": "DIRECTOR, One",
+              "source": "officer",
+              "ended_on": "2026-02-01"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "officers"
+        ],
+        "does_not_establish": "A removed statement record does not establish why it was removed or the person's current verification position."
+      },
+      {
+        "id": "active_psc_statements",
+        "label": "The company has PSC statements that have not ceased",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "statements": [
+            {
+              "statement": "psc-has-failed-to-confirm-changed-details",
+              "description": "SMITH, Alex has failed to comply with a notice given by the company under section 790E or EA of the Act",
+              "notified_on": "2024-02-02"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "pscs"
+        ],
+        "does_not_establish": "A PSC statement records what the company told the register. It does not establish who owns or controls the company or that the statement is accurate."
+      },
+      {
+        "id": "ceased_psc_statements",
+        "label": "The company has PSC statements that have ceased",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "statements": [
+            {
+              "statement": "psc-exists-but-not-identified",
+              "description": "The company knows or has reasonable cause to believe that there is a registrable person in relation to the company but it has not identified the registrable person",
+              "notified_on": "2021-01-01",
+              "ceased_on": "2022-02-02"
+            },
+            {
+              "statement": "not-a-known-statement-code",
+              "description": null,
+              "notified_on": "2020-01-01",
+              "ceased_on": "2020-06-01"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "pscs"
+        ],
+        "does_not_establish": "A ceased statement is a historical register record. It does not establish the current position or that the statement was accurate."
+      },
+      {
+        "id": "previous_names",
+        "label": "The company has previous names",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "names": [
+            {
+              "name": "OLD NAME LIMITED",
+              "effective_from": "2019-01-01",
+              "ceased_on": "2020-01-01"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "profile"
+        ],
+        "does_not_establish": "A previous name is a register record. It does not establish why the name changed."
+      },
+      {
+        "id": "insolvency_history",
+        "label": "The register holds an insolvency record",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "status": [
+            "voluntary-arrangement"
+          ],
+          "cases": [
+            {
+              "type": "corporate-voluntary-arrangement",
+              "number": "1"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "insolvency"
+        ],
+        "does_not_establish": "An insolvency record does not establish current solvency, cause or outcome."
+      },
+      {
+        "id": "outstanding_charges",
+        "label": "The company has charges with status outstanding",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "outstanding_count": 1,
+          "returned_count": 2,
+          "total_count": 2,
+          "charges": [
+            {
+              "charge_number": 2,
+              "created_on": "2023-03-03",
+              "status": "outstanding"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "charges"
+        ],
+        "does_not_establish": "The register status of a charge does not establish the amount secured, the value of the assets or the company's ability to pay."
+      }
+    ],
+    "officers": {
+      "source_status": "available",
+      "items": [
+        {
+          "name": "DIRECTOR, One",
+          "role": "director",
+          "appointed_on": "2020-01-01",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "statement_overdue",
+            "display": "The register shows a verification statement for this role was due by 2026-09-01, and none is recorded as supplied. This is a register record, not a finding that the person is unverified or that an offence has occurred. Check the register record directly before relying on it.",
+            "evidence": {
+              "appointment_verification_statement_due_on": "2026-09-01"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "DIRECTOR, One",
+          "role": "director",
+          "appointed_on": "2020-01-01",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "statement_removed",
+            "display": "The register records that the verification statement for this role was removed on 2026-02-01.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-01-01",
+              "appointment_verification_end_on": "2026-02-01"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        }
+      ],
+      "events": [
+        {
+          "date": "2020-01-01",
+          "event": "appointed",
+          "name": "DIRECTOR, One",
+          "role": "director"
+        },
+        {
+          "date": "2020-01-01",
+          "event": "appointed",
+          "name": "DIRECTOR, One",
+          "role": "director"
+        }
+      ],
+      "truncated": false
+    },
+    "pscs": {
+      "records_source_status": "available",
+      "statements_source_status": "available",
+      "items": [
+        {
+          "name": "SMITH, Alex",
+          "kind": "individual-person-with-significant-control",
+          "notified_on": "2019-03-04",
+          "ceased_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "statement_due",
+            "display": "The register shows a verification statement for this role is due by 2026-12-01. None is recorded as supplied at the time of retrieval.",
+            "evidence": {
+              "appointment_verification_statement_due_on": "2026-12-01",
+              "appointment_verification_statement_date": "2025-11-01",
+              "statement_can_be_supplied_from": "statement can be supplied from 2025-11-01"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "EXAMPLE HOLDINGS LIMITED",
+          "kind": "corporate-entity-person-with-significant-control",
+          "notified_on": "2019-03-04",
+          "ceased_on": null,
+          "identity_verification": {
+            "eligibility": "not_interpreted",
+            "status": null,
+            "display": "FinCrimeRadar does not derive a verification status for this record in phase 1.",
+            "evidence": {},
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        }
+      ],
+      "active_statements": [
+        {
+          "statement": "psc-has-failed-to-confirm-changed-details",
+          "description": "SMITH, Alex has failed to comply with a notice given by the company under section 790E or EA of the Act",
+          "notified_on": "2024-02-02",
+          "ceased_on": null
+        }
+      ],
+      "ceased_statements": [
+        {
+          "statement": "psc-exists-but-not-identified",
+          "description": "The company knows or has reasonable cause to believe that there is a registrable person in relation to the company but it has not identified the registrable person",
+          "notified_on": "2021-01-01",
+          "ceased_on": "2022-02-02"
+        },
+        {
+          "statement": "not-a-known-statement-code",
+          "description": null,
+          "notified_on": "2020-01-01",
+          "ceased_on": "2020-06-01"
+        }
+      ],
+      "truncated": false
+    },
+    "registered_office_change_filings": {
+      "source_status": "available",
+      "items": [
+        {
+          "date": "2026-03-03",
+          "transaction_id": "T3",
+          "description_identifier": "change-registered-office-address-company"
+        },
+        {
+          "date": "2025-01-15",
+          "transaction_id": "T1",
+          "description_identifier": "change-registered-office-address-company-with-date-old-address-new-address"
+        },
+        {
+          "date": "2022-05-05",
+          "transaction_id": "T2",
+          "description_identifier": "change-registered-office-address-limited-liability-partnership"
+        }
+      ],
+      "truncated": false
+    },
+    "charges": {
+      "source_status": "available"
+    },
+    "insolvency": {
+      "source_status": "available"
+    },
+    "not_returned_notice": "This register section was not returned. FinCrimeRadar draws no conclusion from its absence.",
+    "does_not_establish": [
+      "The register is not comprehensive and may contain inaccuracies, errors or omissions. Companies House accepts no responsibility for their consequences.",
+      "Companies House checks filings for completeness and validity but does not closely review every document. Accounts receive only basic checks.",
+      "Register status does not establish that a company is trading. Dormant accounts are a separate filing fact.",
+      "Identity verification records do not establish legitimacy, ownership accuracy or completed CDD.",
+      "The absence of an indicator is not evidence of low risk.",
+      "This readout is not customer due diligence and does not replace it."
+    ],
+    "attribution": "Source: Companies House public register, retrieved 2026-10-11T12:00:00Z. FinCrimeRadar is not affiliated with or endorsed by Companies House."
+  }
+}

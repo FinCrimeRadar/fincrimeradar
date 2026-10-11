@@ -1,0 +1,257 @@
+{
+  "status": 200,
+  "headers": {},
+  "body": {
+    "company_number": "ZZ000005",
+    "retrieved_at": "2026-10-11T12:00:00Z",
+    "source": "Companies House Public Data API",
+    "company": {
+      "name": "SYNTHETIC COMPANY 5 LIMITED",
+      "status": "active",
+      "type": "ltd",
+      "date_of_creation": "2024-06-16",
+      "date_of_cessation": null
+    },
+    "interpretation": {
+      "scope": "interpreted",
+      "current_obligations": "interpreted",
+      "notice": null
+    },
+    "register_reported_values": null,
+    "indicators": [
+      {
+        "id": "outstanding_charges",
+        "label": "The company has charges with status outstanding",
+        "evidence_state": "register_fact",
+        "evidence": {
+          "outstanding_count": 2,
+          "returned_count": 2,
+          "total_count": 2,
+          "charges": [
+            {
+              "charge_number": 2,
+              "created_on": "2025-08-31",
+              "status": "outstanding"
+            },
+            {
+              "charge_number": 1,
+              "created_on": "2025-01-08",
+              "status": "outstanding"
+            }
+          ]
+        },
+        "source_endpoints": [
+          "charges"
+        ],
+        "does_not_establish": "The register status of a charge does not establish the amount secured, the value of the assets or the company's ability to pay."
+      }
+    ],
+    "officers": {
+      "source_status": "available",
+      "items": [
+        {
+          "name": "PERSON A",
+          "role": "director",
+          "appointed_on": "2024-06-16",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "statement_supplied",
+            "display": "The register records that an identity verification statement was supplied for this role on 2026-06-17, linking a verified identity to it.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-06-17",
+              "appointment_verification_end_on": "9999-12-31"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "PERSON B",
+          "role": "director",
+          "appointed_on": "2024-06-16",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "verification_data_conflict",
+            "display": "The register returned verification dates that are inconsistent or incomplete. FinCrimeRadar does not interpret them; check the register record directly.",
+            "evidence": {
+              "appointment_verification_end_on": "9999-12-31"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "PERSON D",
+          "role": "director",
+          "appointed_on": "2024-06-16",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "verification_data_conflict",
+            "display": "The register returned verification dates that are inconsistent or incomplete. FinCrimeRadar does not interpret them; check the register record directly.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-06-17",
+              "appointment_verification_end_on": "2099-01-01"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "PERSON E",
+          "role": "director",
+          "appointed_on": "2024-06-16",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "verification_data_conflict",
+            "display": "The register returned verification dates that are inconsistent or incomplete. FinCrimeRadar does not interpret them; check the register record directly.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-06-17",
+              "appointment_verification_end_on": "2026-06-01"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "PERSON F",
+          "role": "director",
+          "appointed_on": "2024-06-16",
+          "resigned_on": "2026-08-01",
+          "identity_verification": {
+            "eligibility": "not_interpreted",
+            "status": null,
+            "display": "Verification fields were returned by the register for this record. FinCrimeRadar does not interpret them in phase 1.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-06-17",
+              "appointment_verification_end_on": "9999-12-31"
+            },
+            "evidence_label": "fields returned by the register; not interpreted in phase 1",
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        }
+      ],
+      "events": [
+        {
+          "date": "2026-08-01",
+          "event": "resigned",
+          "name": "PERSON F",
+          "role": "director"
+        },
+        {
+          "date": "2024-06-16",
+          "event": "appointed",
+          "name": "PERSON A",
+          "role": "director"
+        },
+        {
+          "date": "2024-06-16",
+          "event": "appointed",
+          "name": "PERSON B",
+          "role": "director"
+        },
+        {
+          "date": "2024-06-16",
+          "event": "appointed",
+          "name": "PERSON D",
+          "role": "director"
+        },
+        {
+          "date": "2024-06-16",
+          "event": "appointed",
+          "name": "PERSON E",
+          "role": "director"
+        },
+        {
+          "date": "2024-06-16",
+          "event": "appointed",
+          "name": "PERSON F",
+          "role": "director"
+        }
+      ],
+      "truncated": false
+    },
+    "pscs": {
+      "records_source_status": "available",
+      "statements_source_status": "not_returned",
+      "items": [
+        {
+          "name": "PERSON C",
+          "kind": "individual-person-with-significant-control",
+          "notified_on": "2024-06-16",
+          "ceased_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "statement_supplied",
+            "display": "The register records that an identity verification statement was supplied for this role on 2026-06-16, linking a verified identity to it.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-06-16",
+              "appointment_verification_end_on": "9999-12-31"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "PERSON D",
+          "kind": "individual-person-with-significant-control",
+          "notified_on": "2024-06-16",
+          "ceased_on": null,
+          "identity_verification": {
+            "eligibility": "derivation_eligible",
+            "status": "statement_supplied",
+            "display": "The register records that an identity verification statement was supplied for this role on 2026-06-16, linking a verified identity to it.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-06-16",
+              "appointment_verification_end_on": "9999-12-31"
+            },
+            "evidence_label": null,
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "PERSON G",
+          "kind": "individual-person-with-significant-control",
+          "notified_on": "2024-06-16",
+          "ceased_on": "2026-08-01",
+          "identity_verification": {
+            "eligibility": "not_interpreted",
+            "status": null,
+            "display": "Verification fields were returned by the register for this record. FinCrimeRadar does not interpret them in phase 1.",
+            "evidence": {
+              "appointment_verification_start_on": "2026-06-16",
+              "appointment_verification_end_on": "9999-12-31"
+            },
+            "evidence_label": "fields returned by the register; not interpreted in phase 1",
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        }
+      ],
+      "active_statements": [],
+      "ceased_statements": [],
+      "truncated": null
+    },
+    "registered_office_change_filings": {
+      "source_status": "available",
+      "items": [],
+      "truncated": false
+    },
+    "charges": {
+      "source_status": "available"
+    },
+    "insolvency": null,
+    "not_returned_notice": "This register section was not returned. FinCrimeRadar draws no conclusion from its absence.",
+    "does_not_establish": [
+      "The register is not comprehensive and may contain inaccuracies, errors or omissions. Companies House accepts no responsibility for their consequences.",
+      "Companies House checks filings for completeness and validity but does not closely review every document. Accounts receive only basic checks.",
+      "Register status does not establish that a company is trading. Dormant accounts are a separate filing fact.",
+      "Identity verification records do not establish legitimacy, ownership accuracy or completed CDD.",
+      "The absence of an indicator is not evidence of low risk.",
+      "This readout is not customer due diligence and does not replace it."
+    ],
+    "attribution": "Source: Companies House public register, retrieved 2026-10-11T12:00:00Z. FinCrimeRadar is not affiliated with or endorsed by Companies House."
+  }
+}

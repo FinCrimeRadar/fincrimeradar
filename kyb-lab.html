@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  gtag('js',new Date());
+  (function(){try{if(localStorage.getItem('fcr_cookie_consent_v2')==='accepted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}})();
+  gtag('config','G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement('iframe');iframe.style.cssText='width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;';iframe.name='googlefcPresent';document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KYB Lab: Companies House Company Readout (Beta) | FinCrimeRadar</title>
+<meta name="description" content="Look up one UK company's public Companies House record: facts, dated officer and PSC records, and register indicators, each labelled with what it does not establish. Beta. Not customer due diligence.">
+<meta name="author" content="Pratik Zanke, FinCrimeRadar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fincrimeradar.org/kyb-lab.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KYB Lab (Beta): Companies House Company Readout">
+<meta property="og:description" content="One UK company's public register record, with every indicator labelled by what it does not establish. Not customer due diligence.">
+<meta property="og:url" content="https://fincrimeradar.org/kyb-lab.html">
+<meta property="og:image" content="https://fincrimeradar.org/kyb-lab-social-card.png">
+<meta property="og:site_name" content="FinCrimeRadar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KYB Lab (Beta): Companies House Company Readout">
+<meta name="twitter:description" content="One UK company's public register record, with every indicator labelled by what it does not establish. Not customer due diligence.">
+<meta name="twitter:image" content="https://fincrimeradar.org/kyb-lab-social-card.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}
+:root{--kyb-navy:#0c1b2a;--kyb-ink:#14232b;--kyb-muted:#4a5a63;--kyb-line:#d6dfe3;--kyb-paper:#f5f8f7;--kyb-white:#fff;--kyb-teal:#0f766e;--kyb-teal-soft:#e3f4f1;--kyb-amber:#8a4b08;--kyb-amber-soft:#fff6e5;--kyb-red:#a61b1b;--kyb-red-soft:#fdeeee;--kyb-focus:#0b5ed7}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--kyb-paper);color:var(--kyb-ink);line-height:1.6;overflow-x:hidden}
+.kyb-skip{position:absolute;left:1rem;top:-5rem;background:#fff;color:#0c1b2a;padding:.75rem 1rem;z-index:1000;border:2px solid var(--kyb-teal)}.kyb-skip:focus{top:1rem}
+nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.98);border-bottom:1px solid var(--kyb-line);position:sticky;top:0;z-index:90}
+.nav-brand img{height:44px;width:auto;max-width:200px;display:block;object-fit:contain}.nav-links{display:flex;align-items:center;gap:1.25rem}.nav-links a{color:#465962;text-decoration:none;font-size:13px}.nav-links a[aria-current="page"]{color:var(--kyb-teal);font-weight:600}.nav-cta{padding:8px 16px;border-radius:7px;background:#0f766e;color:#fff!important}.nav-hamburger{display:none;background:transparent;border:0;color:#0c1b2a;font-size:24px;min-width:44px;min-height:44px}.mobile-nav{display:none}
+.kyb-main{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 3rem}
+.kyb-hero{max-width:760px}
+.kyb-eyebrow{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.kyb-hero h1{font-weight:700;font-size:clamp(2.1rem,5vw,3rem);line-height:1.1;margin:.3rem 0 .8rem;color:var(--kyb-navy)}
+.kyb-beta{display:inline-block;padding:.15rem .6rem;border:1.5px solid var(--kyb-amber);color:var(--kyb-amber);border-radius:99px;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.kyb-intro{font-size:1.06rem;color:var(--kyb-ink);margin:0 0 1.4rem}
+.kyb-form{display:flex;gap:.6rem;flex-wrap:wrap;align-items:flex-end;background:var(--kyb-white);border:1px solid var(--kyb-line);border-radius:12px;padding:1rem 1.1rem;max-width:760px}
+.kyb-field{flex:1 1 240px;min-width:0}
+.kyb-field label{display:block;font-weight:600;font-size:.92rem;margin-bottom:.3rem}
+.kyb-hint{display:block;font-size:.82rem;color:var(--kyb-muted);margin-top:.3rem}
+.kyb-field input{width:100%;font:inherit;font-size:1.05rem;letter-spacing:.04em;padding:.7rem .8rem;border:1.5px solid #8a9aa3;border-radius:8px;background:#fff;color:var(--kyb-ink);text-transform:uppercase}
+.kyb-btn{font:inherit;font-weight:600;padding:.72rem 1.3rem;border-radius:8px;border:1.5px solid var(--kyb-teal);background:var(--kyb-teal);color:#fff;cursor:pointer;min-height:44px}
+.kyb-btn:disabled{opacity:.6;cursor:progress}
+.kyb-btn-quiet{background:#fff;color:var(--kyb-teal);margin-top:.6rem;padding:.5rem 1rem;font-size:.9rem}
+.kyb-btn:focus-visible,.kyb-field input:focus-visible,.kyb-link:focus-visible,.kyb-main a:focus-visible{outline:3px solid var(--kyb-focus);outline-offset:2px}
+.kyb-status{min-height:1.5rem;margin:.9rem 0 0;max-width:760px;color:var(--kyb-muted);font-size:.95rem}
+.kyb-error{max-width:760px;margin:.6rem 0 0;padding:.8rem 1rem;border-left:4px solid var(--kyb-red);background:var(--kyb-red-soft);color:#6e1111;border-radius:6px;font-weight:600}
+.kyb-error[hidden],.kyb-btn[hidden],#kybResultsWrap[hidden]{display:none}
+.kyb-results-wrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:1.5rem;margin-top:1.8rem;align-items:start}
+.kyb-results{min-width:0}
+.kyb-result-head{margin-bottom:1rem}
+.kyb-h2{font-weight:700;font-size:clamp(1.6rem,3.6vw,2.1rem);line-height:1.15;margin:0 0 .4rem;color:var(--kyb-navy);overflow-wrap:anywhere}
+.kyb-h2:focus{outline:none}
+.kyb-block{background:#fff;border:1px solid var(--kyb-line);border-radius:12px;padding:1rem 1.2rem;margin:0 0 1rem;overflow-wrap:anywhere}
+.kyb-h3{font-size:1.15rem;margin:0 0 .6rem;color:var(--kyb-navy)}
+.kyb-h4{font-size:1rem;margin:.9rem 0 .4rem;color:var(--kyb-navy)}
+.kyb-h5{font-size:.9rem;margin:.7rem 0 .3rem;color:var(--kyb-muted);text-transform:uppercase;letter-spacing:.04em}
+.kyb-facts{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.25rem 1rem;margin:0}
+.kyb-facts dt{color:var(--kyb-muted);font-size:.9rem}.kyb-ev dt{text-transform:capitalize}.kyb-facts dd{margin:0}
+.kyb-notice{margin:.6rem 0;padding:.65rem .85rem;background:var(--kyb-amber-soft);border-left:4px solid var(--kyb-amber);border-radius:6px;color:#5c3205}
+.kyb-note{margin:.4rem 0;color:var(--kyb-muted);font-size:.93rem}
+.kyb-muted{color:var(--kyb-muted)}
+.kyb-plain{margin:0;padding-left:1.1rem}
+.kyb-list{list-style:none;margin:0;padding:0}
+.kyb-row{padding:.7rem 0;border-top:1px solid var(--kyb-line)}.kyb-list>.kyb-row:first-child{border-top:0}
+.kyb-row:focus{outline:2px solid var(--kyb-focus);outline-offset:2px}.kyb-row-title{margin:0;font-weight:600}.kyb-row-meta{margin:.1rem 0 .3rem;color:var(--kyb-muted);font-size:.9rem}
+.kyb-idv{background:var(--kyb-paper);border-radius:8px;padding:.55rem .75rem;margin-top:.3rem;font-size:.92rem}
+.kyb-idv-display{margin:0 0 .3rem;font-weight:600}
+.kyb-ind{border:1px solid var(--kyb-line);border-radius:10px;padding:.8rem 1rem;margin:.7rem 0;background:#fcfdfd}
+.kyb-ind-title{margin:0 0 .3rem}.kyb-tag-line{margin:0 0 .5rem}.kyb-dne-block{margin:.5rem 0 0}.kyb-label{display:block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--kyb-muted)}.kyb-dne-block p{margin:.1rem 0 0;font-size:.92rem;color:#2c3b43}
+.kyb-tag{font-size:.75rem;font-weight:600;color:var(--kyb-teal);background:var(--kyb-teal-soft);border-radius:99px;padding:.1rem .6rem;white-space:nowrap}
+.kyb-source{margin:.4rem 0 0;font-size:.82rem;color:var(--kyb-muted);text-transform:capitalize}
+.kyb-link{color:var(--kyb-teal);font-weight:600;overflow-wrap:anywhere}
+.kyb-dne{position:sticky;top:88px;background:#fff;border:2px solid var(--kyb-navy);border-radius:12px;padding:1rem 1.1rem}
+.kyb-dne h2{font-size:1.05rem;margin:0 0 .5rem;color:var(--kyb-navy)}
+.kyb-dne ul{margin:0;padding-left:1.1rem;font-size:.92rem}.kyb-dne li{margin:.4rem 0}
+.kyb-attribution{margin:.8rem 0 0;font-size:.82rem;color:var(--kyb-muted);border-top:1px solid var(--kyb-line);padding-top:.6rem}
+.kyb-about{max-width:760px;margin-top:2.2rem;font-size:.92rem;color:var(--kyb-muted)}
+@media(max-width:900px){.kyb-results-wrap{grid-template-columns:minmax(0,1fr)}.kyb-dne{position:static;order:-1}}
+@media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--kyb-line);padding:.5rem 0;box-shadow:0 8px 24px rgba(0,0,0,.08)}.mobile-nav a{padding:14px 1.5rem;font-size:15px;color:#33444d;text-decoration:none;font-weight:500;border-bottom:1px solid #eef1f3}.kyb-form{padding:.9rem}.kyb-facts{grid-template-columns:minmax(0,1fr)}.kyb-main{padding:1.4rem 1rem 2.5rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{nav,.mobile-nav,.kyb-form,#site-footer{display:none!important}}</style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<a class="kyb-skip" href="#main-content">Skip to main content</a>
+<nav aria-label="Primary">
+  <a class="nav-brand" href="/"><img src="/logo.png" alt="FinCrimeRadar" width="660" height="237"></a>
+  <div class="nav-links"><a href="/knowledge.html">Knowledge Hub</a><a href="/scenario-lab.html">Scenario Lab</a><a href="/screen.html">Screen</a><a href="/kyb-lab.html" aria-current="page">KYB Lab</a><a class="nav-cta" href="/screen.html">Try the tool</a></div>
+  <button class="nav-hamburger" id="navHamburger" type="button" onclick="toggleMobileNav()" aria-label="Toggle menu" aria-controls="mobileNav">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav"><a href="/knowledge.html">Knowledge Hub</a><a href="/scenario-lab.html">Scenario Lab</a><a href="/screen.html">Screen</a><a href="/kyb-lab.html" aria-current="page">KYB Lab</a><a href="/about.html">About</a><a href="/screen.html">Try the tool</a></div>
+<main id="main-content" class="kyb-main" tabindex="-1">
+  <div class="kyb-hero">
+    <div class="kyb-eyebrow"><span class="kyb-beta">Beta</span></div>
+    <h1>KYB Lab</h1>
+    <p class="kyb-intro">KYB Lab reads one UK company's public Companies House record and sets out what the register says, with each fact, date and gap labelled as such. It is not customer due diligence, and it does not produce a risk score or a verdict.</p>
+  </div>
+  <form class="kyb-form" id="kybForm" novalidate>
+    <div class="kyb-field">
+      <label for="kybNumber">Company number</label>
+      <input id="kybNumber" name="company_number" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" aria-describedby="kybHint" required>
+      <span class="kyb-hint" id="kybHint">For example 00445790 or SC123456. Short numeric numbers are padded with zeros.</span>
+    </div>
+    <button class="kyb-btn" id="kybSubmit" type="submit">Look up</button>
+  </form>
+  <p class="kyb-status" id="kybStatus" role="status" aria-live="polite"></p>
+  <p class="kyb-error" id="kybError" role="alert" hidden></p>
+  <button class="kyb-btn kyb-btn-quiet" id="kybRetry" type="button" hidden>Try again</button>
+  <div class="kyb-results-wrap" id="kybResultsWrap" hidden>
+    <div class="kyb-results" id="kybResults"></div>
+    <aside class="kyb-dne" aria-labelledby="kybDneHeading">
+      <h2 id="kybDneHeading">What this readout does not establish</h2>
+      <ul id="kybDneList"></ul>
+      <p class="kyb-attribution" id="kybAttribution"></p>
+    </aside>
+  </div>
+  <p class="kyb-about">Source: the Companies House public register, read through the Companies House Public Data API. Searching by company name or by person is not supported.</p>
+</main>
+<div id="site-footer"></div>
+<script defer src="/js/kyb-lab.js"></script>
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

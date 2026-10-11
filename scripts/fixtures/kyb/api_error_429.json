@@ -1,0 +1,9 @@
+{
+  "status": 429,
+  "headers": {
+    "retry-after": "60"
+  },
+  "body": {
+    "detail": "Lookup limit reached. Try again shortly."
+  }
+}
