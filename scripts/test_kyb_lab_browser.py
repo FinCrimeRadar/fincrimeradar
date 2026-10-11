@@ -127,6 +127,14 @@ def hostile_body() -> dict[str, Any]:
             ind["evidence"]["status"] = [XSS2]
     body["does_not_establish"][0] = XSS
     body["attribution"] = XSS2
+    body["source"] = XSS2
+    body["retrieved_at"] = XSS
+    body["company"]["status"] = XSS
+    body["company"]["type"] = XSS2
+    body["company"]["date_of_creation"] = XSS
+    body["company"]["date_of_cessation"] = XSS2
+    body["interpretation"] = {"scope": "interpreted", "current_obligations": "register_reported_only", "notice": XSS}
+    body["register_reported_values"] = {"label": XSS2, XSS2: XSS}
     body["not_returned_notice"] = XSS
     return body
 
@@ -175,6 +183,15 @@ _missing["indicators"][0]["evidence_state"] = None
 _missing["indicators"][0]["source_endpoints"] = [None, "pscs"]
 _missing["indicators"][0]["evidence"] = {"empty_text": "", "kept": "value"}
 MOCKS["ZZ0000B2"] = {"status": 200, "body": _missing}
+_blank = variant("ZZ0000B3")
+_blank["officers"]["items"][0]["identity_verification"]["display"] = ""
+_blank["officers"]["items"][0]["identity_verification"]["does_not_establish"] = None
+_blank["indicators"][0]["label"] = ""
+_blank["indicators"][0]["does_not_establish"] = None
+_blank["does_not_establish"][0] = ""
+_blank["does_not_establish"][1] = None
+_blank["does_not_establish"][2] = {"not": "a string"}
+MOCKS["ZZ0000B3"] = {"status": 200, "body": _blank}
 MOCKS["ZZ0000B1"] = {"status": 200, "body": variant("ZZ0000B1", charges=None, insolvency=None)}
 for alias, name in (("ZZ000422", "error_422"), ("ZZ000404", "error_404"), ("ZZ000429", "error_429"), ("ZZ000503", "error_503")):
     MOCKS[alias] = {"status": api(name)["status"], "body": api(name)["body"], "headers": api(name)["headers"]}
@@ -526,10 +543,20 @@ def run() -> None:
         cdp = CDP(tab["webSocketDebuggerUrl"])
         cdp.call("Page.enable")
         cdp.call("Runtime.enable")
+        cdp.call("Emulation.setFocusEmulationEnabled", {"enabled": True})  # focus events fire in headless Chrome
         cdp.call("Page.addScriptToEvaluateOnNewDocument", {"source": STUB})
 
         # ---- page header, nav, keyboard, normalisation (1440px) -------------------
         navigate(cdp, site, 1440)
+        require(cdp.evaluate("window.__kybCalls.length") == 0, "no API request is made when the page loads")
+        brand = (ROOT / "brand.css").read_text(encoding="utf-8")
+        body_font = re.search(r"body\{\s*font-family:'([^']+)'", brand).group(1)
+        head_font = re.search(r"h1,h2,h3,[^{]*\{\s*font-family:'([^']+)'", brand).group(1)
+        fonts = cdp.evaluate("({body: getComputedStyle(document.body).fontFamily, h1: getComputedStyle(document.querySelector('h1')).fontFamily, h2: getComputedStyle(document.getElementById('kybDneHeading')).fontFamily})")
+        require(body_font in fonts["body"], f"body font is the brand font {body_font}, got {fonts['body']}")
+        require(head_font in fonts["h1"] and head_font in fonts["h2"], f"heading font is the brand font {head_font}, got {fonts}")
+        page_html = (ROOT / "kyb-lab.html").read_text(encoding="utf-8")
+        require("Inter" not in page_html and "DM+Serif" not in page_html, "unused font families are not requested")
         require(cdp.evaluate("document.title.includes('KYB Lab')"), "title")
         require("Beta" in "".join(texts(cdp, ".kyb-beta")), "Beta label")
         require(texts(cdp, "h1") == ["KYB Lab"], "h1")
@@ -540,6 +567,10 @@ def run() -> None:
         print("OK: page header, Beta label, nav link beside Screen")
 
         cdp.evaluate("document.getElementById('kybNumber').focus()")
+        wait_for(cdp, "window.__kybCalls.length === 1", "warm-up on first focus")
+        require(cdp.evaluate("window.__kybCalls[0].endsWith('/api/health')"), "the first request is the health warm-up")
+        require("mobile-nav" in page_html and cdp.evaluate("[...document.querySelectorAll('#mobileNav a')].some(a => a.textContent === 'KYB Lab')"),
+                "the mobile nav links to KYB Lab")
         cdp.evaluate("document.getElementById('kybNumber').value = '  zz0000a1  '")
         cdp.call("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Enter", "code": "Enter",
                                             "windowsVirtualKeyCode": 13, "nativeVirtualKeyCode": 13, "text": "\r"})
@@ -598,6 +629,13 @@ def run() -> None:
         require(hrefs == ["https://find-and-update.company-information.service.gov.uk/company/ZZ999999"],
                 f"only the Companies House link built from the validated number, got {hrefs}")
         require(cdp.evaluate("document.querySelector('#kybResults a[href]').rel") == "noopener noreferrer", "link rel")
+        company_dd = texts(cdp, "#kyb-h-company ~ dl dd")
+        require(company_dd[2] == XSS and company_dd[3] == XSS2 and company_dd[4] == XSS and company_dd[5] == XSS2,
+                f"company facts are literal text: {company_dd}")
+        head_text = cdp.evaluate("document.querySelector('.kyb-result-head').textContent")
+        require(XSS in head_text and XSS2 in head_text, "retrieved_at and source are literal text")
+        require(XSS in results_text and results_text.count(XSS2) >= 3, "interpretation notice and register reported values are literal text")
+        require(cdp.evaluate("window.__xss === undefined"), "XSS payload executed through the new fields")
         print("OK: hostile text in every API string, code and key is literal; one validated link")
 
         show(cdp, "ZZ999996")  # the response names a different company number than was looked up
@@ -627,6 +665,15 @@ def run() -> None:
         require("undefined" not in everything and "null" not in everything, "no stray undefined or null text")
         print("OK: missing codes and empty strings render as a hyphen")
 
+        # ---- empty, null and non string prose from the API shows a hyphen -----------------------
+        show(cdp, "ZZ0000B3")
+        require(texts(cdp, ".kyb-idv-display")[0] == "-", "an empty IDV display text is a hyphen")
+        require(texts(cdp, ".kyb-idv-dne")[0] == "-", "a null per record does_not_establish is a hyphen")
+        require(texts(cdp, ".kyb-ind-title")[0] == "-" and texts(cdp, ".kyb-ind-dne")[0] == "-", "an empty indicator label and string are hyphens")
+        require(texts(cdp, "#kybDneList li")[:3] == ["-", "-", "-"], "empty, null and non string global items are hyphens")
+        require("[object Object]" not in cdp.evaluate("document.body.textContent"), "no stringified object is shown")
+        print("OK: empty, null and non string API prose renders as a hyphen")
+
         # ---- null charges and insolvency: the section is absent (the API means not requested) ------
         show(cdp, "ZZ0000B1")
         require(cdp.evaluate("!document.getElementById('kyb-h-charges') && !document.getElementById('kyb-h-insolvency')"),
@@ -642,6 +689,8 @@ def run() -> None:
         require(cdp.evaluate(officer_rows) == 20, "first page of officers is 20")
         cdp.evaluate("document.getElementById('kyb-h-officers').parentElement.querySelector('button.kyb-btn-quiet').click()")
         require(cdp.evaluate(officer_rows) == 40, "second page is 40")
+        require(cdp.evaluate("(() => { const a = document.activeElement; return !!a && a.tagName === 'LI' && [...a.parentElement.children].indexOf(a) === 20; })()"),
+                "focus moves to the first new row after Show more")
         require("incomplete" in section_text(cdp, "kyb-h-officers").lower(), "truncated officers noted")
         print("OK: long lists page by 20 with a keyboard operable button; truncation noted")
 
@@ -663,11 +712,10 @@ def run() -> None:
         print("OK: unsupported type shows the API scope notice, no indicators, and not_returned sections")
 
         # ---- error codes (real API bodies where the API sends them) -----------------------
-        retry = api("error_429")["headers"]["retry-after"]
         cases = [
             ("ZZ000422", "Enter a valid UK company number", False),
             ("ZZ000404", "No company found with that number", False),
-            ("ZZ000429", f"Too many lookups; try again in {retry} seconds.", False),
+            ("ZZ000429", "Too many lookups; try again in a minute.", False),
             ("ZZ000430", "Too many lookups; try again in a minute.", False),
             ("ZZ000503", "The register lookup is temporarily unavailable", True),
             ("ZZ000500", "The register lookup could not be completed. Try again shortly.", True),
@@ -685,6 +733,16 @@ def run() -> None:
             require(cdp.evaluate("document.getElementById('kybError').getAttribute('role')") == "alert", "error role")
         print("OK: 422, 404, 429 (with and without Retry-After), 503, 500, malformed body, render failure, network error")
 
+        lookup(cdp, "ZZ000800")  # hangs, then is superseded before its timeout
+        lookup(cdp, "ZZ0000A1")
+        results_ready(cdp)
+        time.sleep(1.0)  # longer than the superseded request's own timeout
+        require(cdp.evaluate("document.getElementById('kybError').hidden"), "a superseded lookup shows no error")
+        require(texts(cdp, "#kybStatus") == ["Register record loaded."], "the newer lookup's status is kept")
+        require(cdp.evaluate("!document.getElementById('kybSubmit').disabled"), "the form is enabled after the newer lookup")
+        require(texts(cdp, "#kybResultsHeading") == [MOCKS["ZZ0000A1"]["body"]["company"]["name"]], "the newer lookup's result is shown")
+        print("OK: a superseded lookup does not disturb the newer one")
+
         before = cdp.evaluate("window.__kybCalls.length")
         lookup(cdp, "   ")
         require(error_text(cdp) == "Enter a valid UK company number", "empty input message")
@@ -693,11 +751,11 @@ def run() -> None:
         lookup(cdp, "ZZ000800")
         wait_for(cdp, "document.getElementById('kybStatus').textContent.indexOf('Still working') === 0", "cold start notice")
         require(cdp.evaluate("document.getElementById('kybSubmit').disabled"), "button disabled while waiting")
-        require(error_text(cdp) == "The lookup timed out after 70 seconds. Try again.", "timeout message")
+        require(error_text(cdp) == "The lookup timed out after 1 second. Try again.", "timeout message")
         require(cdp.evaluate("!document.getElementById('kybRetry').hidden"), "retry offered after a timeout")
         wait_for(cdp, "!document.getElementById('kybSubmit').disabled", "button re-enabled")
         cdp.evaluate("document.getElementById('kybRetry').click()")
-        require(error_text(cdp) == "The lookup timed out after 70 seconds. Try again.", "retry repeats the lookup")
+        require(error_text(cdp) == "The lookup timed out after 1 second. Try again.", "retry repeats the lookup")
         print("OK: cold start notice, abort and retry message on timeout")
 
         # ---- skip link ---------------------------------------------------------------------

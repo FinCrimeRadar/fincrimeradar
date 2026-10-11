@@ -49,6 +49,13 @@ def main() -> int:
     args = ap.parse_args()
     out_dir = Path(tempfile.mkdtemp(prefix="kyb-fixtures-")) if args.check else OUT
     api = Path(args.api_repo).resolve()
+    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=api, capture_output=True, text=True)
+    dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=api, capture_output=True, text=True)
+    commit = head.stdout.strip()
+    if head.returncode != 0 or not commit or dirty.returncode != 0 or dirty.stdout.strip():
+        print("ERROR: the API repository must be a git checkout with no uncommitted changes, so the manifest records a real commit")
+        return 2
+    api = Path(args.api_repo).resolve()
     sys.path.insert(0, str(api))
     sys.path.insert(0, str(api / "tests"))
 
@@ -149,15 +156,12 @@ def main() -> int:
         last = get(t.NUM)
         if last.status_code == 429:
             break
+    if last is None or last.status_code != 429:
+        print("ERROR: the burst cap never produced a 429, so there is no real 429 response to save")
+        return 2
     save("error_429", last)
     kyb.reset_state_for_tests()
 
-    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=api, capture_output=True, text=True)
-    dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=api, capture_output=True, text=True)
-    commit = head.stdout.strip()
-    if head.returncode != 0 or not commit or dirty.returncode != 0 or dirty.stdout.strip():
-        print("ERROR: the API repository must be a git checkout with no uncommitted changes, so the manifest records a real commit")
-        return 2
     manifest = {
         "api_repo_commit": commit,
         "nine_does_not_establish": t.NINE_DOES_NOT_ESTABLISH,

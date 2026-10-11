@@ -26,9 +26,13 @@
     503: 'The register lookup is temporarily unavailable',
     other: 'The register lookup could not be completed. Try again shortly.',
     network: 'The lookup service could not be reached. Check your connection and try again.',
-    timeout: 'The lookup timed out after 70 seconds. Try again.',
     shape: 'The lookup returned an unexpected response. Try again shortly.'
   };
+
+  function timeoutMessage() {
+    var secs = Math.max(1, Math.round(TIMEOUT_MS / 1000));
+    return 'The lookup timed out after ' + secs + (secs === 1 ? ' second' : ' seconds') + '. Try again.';
+  }
 
   var form = document.getElementById('kybForm');
   var input = document.getElementById('kybNumber');
@@ -62,6 +66,11 @@
 
   function clear(node) {
     while (node.firstChild) node.removeChild(node.firstChild);
+  }
+
+  // A string from the API, or null when the field is missing or not a string.
+  function str(value) {
+    return typeof value === 'string' ? value : null;
   }
 
   // Null, undefined and empty values show as a plain hyphen, never as words.
@@ -128,9 +137,14 @@
     var ul = el('ul', 'kyb-list');
     var shown = 0;
     var btn = null;
-    function more() {
+    function more(fromClick) {
       var end = Math.min(items.length, shown + PAGE_SIZE);
-      for (; shown < end; shown++) add(ul, renderItem(items[shown]));
+      var firstNew = null;
+      for (; shown < end; shown++) {
+        var row = renderItem(items[shown]);
+        if (!firstNew) firstNew = row;
+        add(ul, row);
+      }
       if (btn) {
         var left = items.length - shown;
         if (left <= 0) {
@@ -139,16 +153,21 @@
           btn.textContent = 'Show ' + Math.min(PAGE_SIZE, left) + ' more ' + noun + ' (' + left + ' not shown)';
         }
       }
+      // The activated button may be removed, so keep the keyboard user's place.
+      if (fromClick && firstNew) {
+        firstNew.tabIndex = -1;
+        firstNew.focus();
+      }
     }
     var holder = el('div');
     add(holder, ul);
     if (items.length > PAGE_SIZE) {
       btn = el('button', 'kyb-btn kyb-btn-quiet', '');
       btn.type = 'button';
-      btn.addEventListener('click', more);
+      btn.addEventListener('click', function () { more(true); });
       add(holder, btn);
     }
-    more();
+    more(false);
     return holder;
   }
 
@@ -166,7 +185,7 @@
   // adds only field labels and never infers or rewrites a status.
   function idvBlock(iv) {
     var box = el('div', 'kyb-idv');
-    add(box, el('p', 'kyb-idv-display', iv.display));
+    add(box, el('p', 'kyb-idv-display', text(str(iv.display))));
     var state = facts([
       ['Eligibility', iv.eligibility],
       ['Status', iv.status]
@@ -175,7 +194,7 @@
     add(box, state);
     if (iv.evidence_label) add(box, el('p', 'kyb-note', iv.evidence_label));
     if (iv.evidence && Object.keys(iv.evidence).length) add(box, renderValue(iv.evidence));
-    if (iv.does_not_establish) add(box, verbatim('Does not establish', iv.does_not_establish, 'kyb-idv-dne'));
+    add(box, verbatim('Does not establish', text(str(iv.does_not_establish)), 'kyb-idv-dne'));
     return box;
   }
 
@@ -215,12 +234,12 @@
     }
     list.forEach(function (ind) {
       var a = el('article', 'kyb-ind');
-      add(a, el('h4', 'kyb-h4 kyb-ind-title', ind.label));
+      add(a, el('h4', 'kyb-h4 kyb-ind-title', text(str(ind.label))));
       var tagLine = el('p', 'kyb-tag-line');
       add(tagLine, el('span', 'kyb-tag', text(ind.evidence_state && label(ind.evidence_state))));
       add(a, tagLine);
       if (ind.evidence && Object.keys(ind.evidence).length) add(a, renderValue(ind.evidence));
-      add(a, verbatim('Does not establish', text(ind.does_not_establish), 'kyb-ind-dne'));
+      add(a, verbatim('Does not establish', text(str(ind.does_not_establish)), 'kyb-ind-dne'));
       add(a, el('p', 'kyb-source', 'Source: ' + sourceLabel(ind.source_endpoints)));
       add(s, a);
     });
@@ -344,7 +363,7 @@
   function renderDne(data) {
     clear(dneList);
     (Array.isArray(data.does_not_establish) ? data.does_not_establish : []).forEach(function (t) {
-      add(dneList, el('li', null, t));
+      add(dneList, el('li', null, text(str(t))));
     });
     attribution.textContent = text(data.attribution);
   }
@@ -409,12 +428,6 @@
     input.setAttribute('aria-busy', isBusy ? 'true' : 'false');
   }
 
-  function retryAfterText(res) {
-    var raw = res.headers && res.headers.get('Retry-After');
-    var n = raw ? parseInt(raw, 10) : NaN;
-    return n > 0 && n < 3600 ? 'in ' + (n === 1 ? '1 second' : n + ' seconds') : 'in a minute';
-  }
-
   function lookup() {
     var value = normalise(input.value);
     input.value = value;
@@ -467,14 +480,14 @@
         });
       }
       if (res.status === 429) {
-        showError('Too many lookups; try again ' + retryAfterText(res) + '.', false);
+        showError('Too many lookups; try again in a minute.', false);
       } else if (MSG[res.status]) {
         showError(MSG[res.status], res.status === 503);
       } else {
         showError(MSG.other, true);
       }
     }).catch(function (err) {
-      if (timedOut) showError(MSG.timeout, true);
+      if (timedOut) showError(timeoutMessage(), true);
       else if (err && err.name === 'AbortError') { if (inflight === controller) showStatus(''); }
       else if (err instanceof SyntaxError) showError(MSG.shape, true);
       else showError(MSG.network, true);
@@ -496,8 +509,11 @@
   });
   retryBtn.addEventListener('click', lookup);
 
-  // Wake the API so a cold start overlaps with the reader typing a number.
-  try {
-    fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-store' }).catch(function () {});
-  } catch (e) {}
+  // Wake the API when the reader first focuses the input, so a cold start overlaps with
+  // typing. Nothing is sent to the API just for opening the page.
+  input.addEventListener('focus', function () {
+    try {
+      fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-store' }).catch(function () {});
+    } catch (e) {}
+  }, { once: true });
 })();

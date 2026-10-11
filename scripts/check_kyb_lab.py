@@ -27,7 +27,13 @@ FORBIDDEN_SINKS = [
     "insertAdjacentHTML",
     "document.write",
     "eval(",
-    "new Function",
+    "Function(",
+    "DOMParser",
+    "createContextualFragment",
+    ".src =",
+    ".src=",
+    "setAttribute('on",
+    'setAttribute("on',
     "setTimeout(\"",
     "setTimeout('",
     "srcdoc",
@@ -45,8 +51,36 @@ DASHES = re.compile("[\u2013\u2014]")
 
 
 def strip_js_comments(src: str) -> str:
-    src = re.sub(r"/\*.*?\*/", "", src, flags=re.S)
-    return re.sub(r"(?m)^\s*//.*$", "", src)
+    """Remove // and /* */ comments (whole line or trailing), leaving string contents alone."""
+    out: list[str] = []
+    i, n = 0, len(src)
+    quote = ""
+    while i < n:
+        ch = src[i]
+        nxt = src[i + 1] if i + 1 < n else ""
+        if quote:
+            out.append(ch)
+            if ch == chr(92) and i + 1 < n:
+                out.append(nxt)
+                i += 2
+                continue
+            if ch == quote:
+                quote = ""
+        elif ch in "'\"`":
+            quote = ch
+            out.append(ch)
+        elif ch == "/" and nxt == "/":
+            while i < n and src[i] != chr(10):
+                i += 1
+            continue
+        elif ch == "/" and nxt == "*":
+            end = src.find("*/", i + 2)
+            i = n if end == -1 else end + 2
+            continue
+        else:
+            out.append(ch)
+        i += 1
+    return "".join(out)
 
 
 def main() -> int:
@@ -105,6 +139,13 @@ def main() -> int:
             problems.append(f"{name} does not match the generator manifest, regenerate it instead of editing it")
     if len(nine) != 9:
         problems.append("the manifest does not carry the nine indicator strings")
+
+    # The mobile nav must carry the link on this page and in the shared partial.
+    for mobile_path in (PAGE, ROOT / "partials" / "nav.html"):
+        text_ = mobile_path.read_text(encoding="utf-8")
+        mobile = text_[text_.find('class="mobile-nav"') :]
+        if not KYB_LINK.search(mobile):
+            problems.append(f"{mobile_path.name}: the mobile nav has no KYB Lab link")
 
     pages = 0
     for path in sorted(ROOT.glob("*.html")) + [ROOT / "partials" / "nav.html"]:
