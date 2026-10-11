@@ -404,8 +404,16 @@
             showError(MSG.shape, true);
             return;
           }
+          try {
+            renderResults(data, value);
+          } catch (renderErr) {
+            // Unexpected register shape: never show a half-rendered readout.
+            clear(results);
+            wrap.hidden = true;
+            showError(MSG.shape, true);
+            return;
+          }
           showStatus('Register record loaded.');
-          renderResults(data, value);
           var h = document.getElementById('kybResultsHeading');
           if (h) h.focus();
         });
@@ -419,14 +427,18 @@
       }
     }).catch(function (err) {
       if (timedOut) showError(MSG.timeout, true);
-      else if (err && err.name === 'AbortError') showStatus('');
+      else if (err && err.name === 'AbortError') { if (inflight === controller) showStatus(''); }
       else if (err instanceof SyntaxError) showError(MSG.shape, true);
       else showError(MSG.network, true);
     }).then(function () {
       clearTimeout(coldTimer);
       clearTimeout(killTimer);
-      if (inflight === controller) inflight = null;
+      // A superseded request must not re-enable the form or clear the newer one's state.
+      if (inflight !== controller) return;
+      inflight = null;
       busy(false);
+      // The disabled submit button drops keyboard focus to body; return it to the form.
+      if (document.activeElement === document.body) input.focus();
     });
   }
 

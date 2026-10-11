@@ -214,6 +214,7 @@ MOCKS = {
     "00000503": {"status": 503, "body": {"detail": "unavailable"}},
     "00000500": {"status": 500, "body": {"detail": "boom"}},
     "00000600": {"status": 200, "body": {"unexpected": True}},
+    "00000701": {"status": 200, "body": {**active_company(), "indicators": [None]}},
     "00000700": {"network": True},
     "00000800": {"hang": True},
 }
@@ -491,6 +492,7 @@ def run() -> None:
             ("00000503", "The register lookup is temporarily unavailable", True),
             ("00000500", "The register lookup could not be completed. Try again shortly.", True),
             ("00000600", "The lookup returned an unexpected response. Try again shortly.", True),
+            ("00000701", "The lookup returned an unexpected response. Try again shortly.", True),
             ("00000700", "The lookup service could not be reached. Check your connection and try again.", True),
         ]
         for number, message, retry in cases:
