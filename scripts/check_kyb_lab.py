@@ -13,6 +13,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -45,7 +46,6 @@ ALLOWED_SCRIPT_SRC = (
     "/js/site-chrome.js",
     "/brand.js",
 )
-SCREEN_LINK = re.compile(r'<a href="/screen\.html"(?: class="hm")?>Screen</a>')
 KYB_LINK = re.compile(r'<a href="/kyb-lab\.html"[^>]*>KYB Lab</a>')
 DASHES = re.compile("[\u2013\u2014]")
 
@@ -81,6 +81,19 @@ def strip_js_comments(src: str) -> str:
             out.append(ch)
         i += 1
     return "".join(out)
+
+
+def div_block(text: str, open_pattern: str) -> str | None:
+    """The balanced <div> block that starts at the first match of open_pattern, or None."""
+    m = re.search(open_pattern, text)
+    if not m:
+        return None
+    depth = 0
+    for tag in re.finditer(r"<div\b|</div>", text[m.start() :]):
+        depth += 1 if tag.group(0) == "<div" else -1
+        if depth == 0:
+            return text[m.start() : m.start() + tag.end()]
+    return None
 
 
 def main() -> int:
@@ -140,31 +153,31 @@ def main() -> int:
     if len(nine) != 9:
         problems.append("the manifest does not carry the nine indicator strings")
 
-    # The mobile nav must carry the link on this page and in the shared partial.
-    for mobile_path in (PAGE, ROOT / "partials" / "nav.html"):
-        text_ = mobile_path.read_text(encoding="utf-8")
-        mobile = text_[text_.find('class="mobile-nav"') :]
-        if not KYB_LINK.search(mobile):
-            problems.append(f"{mobile_path.name}: the mobile nav has no KYB Lab link")
-
+    # Every page with a static desktop nav must carry KYB Lab in BOTH the desktop and the mobile nav.
+    # Pages that take their nav from partials/nav.html at runtime (#site-nav) have no static nav
+    # and are covered through the partial, which is itself checked here.
     pages = 0
-    for path in sorted(ROOT.glob("*.html")) + [ROOT / "partials" / "nav.html"]:
-        text = path.read_text(encoding="utf-8")
-        # Primary nav only: a Screen link in a nav-links or mobile-nav block.
-        for m in SCREEN_LINK.finditer(text):
-            window = text[max(0, m.start() - 600) : m.end() + 400]
-            if "nav-links" not in window and "mobile-nav" not in window and "<nav" not in window:
-                continue  # footer link, not the primary nav
-            pages += 1
-            if not KYB_LINK.search(window):
-                problems.append(f"{path.name}: nav links to Screen but not to KYB Lab")
+    tracked = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True).stdout.split()
+    for rel in tracked:
+        text = (ROOT / rel).read_text(encoding="utf-8")
+        desktop = div_block(text, r'<div class="nav-links"')
+        if desktop is None:
+            continue
+        pages += 1
+        mobile = div_block(text, r'<div class="mobile-nav"')
+        if not KYB_LINK.search(desktop):
+            problems.append(f"{rel}: the desktop nav has no KYB Lab link")
+        if mobile is None:
+            problems.append(f"{rel}: has a desktop nav but no mobile nav block")
+        elif not KYB_LINK.search(mobile):
+            problems.append(f"{rel}: the mobile nav has no KYB Lab link")
 
     if problems:
         print("FAIL: KYB Lab static checks")
         for p in problems:
             print("  -", p)
         return 1
-    print(f"OK: KYB Lab static checks, {pages} navs link Screen and KYB Lab, no forbidden sinks, scripts allowlisted, no ad slots")
+    print(f"OK: KYB Lab static checks, {pages} pages with a static desktop nav carry KYB Lab in desktop and mobile navs, no forbidden sinks, scripts allowlisted, no ad slots")
     return 0
 
 
