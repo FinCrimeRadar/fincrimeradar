@@ -37,6 +37,11 @@ HERE = Path(__file__).resolve().parent
 OUT = HERE / "fixtures" / "kyb"
 
 
+def lf_sha256(path: Path) -> str:
+    """SHA-256 of the file with CRLF folded to LF, so the hash is the same on every checkout."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--api-repo", default=str(HERE.parents[1] / "fincrimeradar-api"))
@@ -73,7 +78,9 @@ def main() -> int:
             "headers": {k: v for k, v in response.headers.items() if k.lower() == "retry-after"},
             "body": response.json(),
         }
-        (out_dir / f"api_{name}.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        (out_dir / f"api_{name}.json").write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + chr(10), encoding="utf-8", newline=chr(10)
+        )
         print(f"api_{name}.json: HTTP {response.status_code}")
 
     # 1. Hand-authored upstream set from the API's own fixtures (all sections present).
@@ -145,24 +152,38 @@ def main() -> int:
     save("error_429", last)
     kyb.reset_state_for_tests()
 
-    commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=api, capture_output=True, text=True).stdout.strip()
+    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=api, capture_output=True, text=True)
+    dirty = subprocess.run(["git", "status", "--porcelain", "--untracked-files=no"], cwd=api, capture_output=True, text=True)
+    commit = head.stdout.strip()
+    if head.returncode != 0 or not commit or dirty.returncode != 0 or dirty.stdout.strip():
+        print("ERROR: the API repository must be a git checkout with no uncommitted changes, so the manifest records a real commit")
+        return 2
     manifest = {
         "api_repo_commit": commit,
         "nine_does_not_establish": t.NINE_DOES_NOT_ESTABLISH,
-        "files": {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(out_dir.glob("api_*.json"))},
+        "files": {f.name: lf_sha256(f) for f in sorted(out_dir.glob("api_*.json"))},
     }
-    (out_dir / "MANIFEST.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + chr(10), encoding="utf-8")
+    (out_dir / "MANIFEST.json").write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False) + chr(10), encoding="utf-8", newline=chr(10)
+    )
 
     if args.check:
-        stale = [
-            f.name
-            for f in sorted(out_dir.glob("*.json"))
-            if not (OUT / f.name).exists() or (OUT / f.name).read_bytes() != f.read_bytes()
-        ]
+        def norm(path: Path) -> bytes:
+            return path.read_bytes().replace(b"\r\n", b"\n")
+
+        generated = {f.name for f in out_dir.glob("api_*.json")}
+        committed = {f.name for f in OUT.glob("api_*.json")}
+        stale = sorted(n for n in generated & committed if norm(out_dir / n) != norm(OUT / n))
+        stale += [f"{n} (not generated any more)" for n in sorted(committed - generated)]
+        stale += [f"{n} (not committed)" for n in sorted(generated - committed)]
+        old = json.loads((OUT / "MANIFEST.json").read_text(encoding="utf-8"))
+        if old["nine_does_not_establish"] != manifest["nine_does_not_establish"]:
+            stale.append("the nine indicator strings")
         if stale:
             print("STALE fixtures (regenerate with this script and commit):", ", ".join(stale))
             return 1
-        print("OK: committed fixtures match what the API produces now")
+        moved = "" if old["api_repo_commit"] == commit else f" (API commit moved from {old['api_repo_commit'][:7]} to {commit[:7]}, no response change)"
+        print("OK: committed fixtures match what the API produces now" + moved)
     return 0
 
 

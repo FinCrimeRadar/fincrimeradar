@@ -84,19 +84,26 @@ def main() -> int:
             if not re.fullmatch(r"ZZ\d{6}", number):
                 problems.append(f"{fixture.name}: company number {number!r} is not a reserved ZZ number")
 
-    # Fixture freshness (cheap): every committed fixture must match the hash the generator
-    # recorded, so a hand edited response is caught. Full regeneration needs the API repo:
+    # Hand edit detection (cheap, needs no API repo): each committed fixture must match the
+    # hash the generator recorded, taken over LF normalised bytes. This proves the fixtures
+    # were not edited by hand; it does not prove they are current. For that run
     #   python scripts/generate_kyb_api_fixtures.py --check
-    manifest_path = ROOT / "scripts" / "fixtures" / "kyb" / "MANIFEST.json"
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    on_disk = {f.name for f in (ROOT / "scripts" / "fixtures" / "kyb").glob("api_*.json")}
-    if on_disk != set(manifest["files"]):
-        problems.append(f"fixtures differ from the manifest: {sorted(on_disk ^ set(manifest['files']))}")
-    for name, digest in manifest["files"].items():
-        path = ROOT / "scripts" / "fixtures" / "kyb" / name
-        if path.exists() and hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+    fixture_dir = ROOT / "scripts" / "fixtures" / "kyb"
+    try:
+        manifest = json.loads((fixture_dir / "MANIFEST.json").read_text(encoding="utf-8"))
+        recorded = manifest["files"]
+        nine = manifest["nine_does_not_establish"]
+    except (OSError, ValueError, KeyError) as exc:
+        problems.append(f"fixtures/kyb/MANIFEST.json is missing or unreadable: {exc!r}")
+        recorded, nine = {}, {}
+    on_disk = {f.name for f in fixture_dir.glob("api_*.json")}
+    if on_disk != set(recorded):
+        problems.append(f"fixtures differ from the manifest: {sorted(on_disk ^ set(recorded))}")
+    for name, digest in recorded.items():
+        path = fixture_dir / name
+        if path.exists() and hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != digest:
             problems.append(f"{name} does not match the generator manifest, regenerate it instead of editing it")
-    if len(manifest["nine_does_not_establish"]) != 9:
+    if len(nine) != 9:
         problems.append("the manifest does not carry the nine indicator strings")
 
     pages = 0

@@ -20,6 +20,7 @@ and the nine indicator strings.
 Optional: set KYB_SCREENSHOT_DIR to save 390px and 1440px screenshots of
 API-generated data. KYB_COLLECT_FAILURES=1 lists every failed assertion instead of
 stopping at the first; it is for diagnosis only and must not be used in CI.
+KYB_CHROME_PATH and KYB_DEBUG_PORT override the Chrome binary and the debugging port.
 """
 
 from __future__ import annotations
@@ -168,6 +169,11 @@ MOCKS: dict[str, Any] = {
 MOCKS["ZZ999999"] = {"status": 200, "body": hostile_body()}
 MOCKS["ZZ999997"] = {"status": 200, "body": awkward_body()}
 MOCKS["ZZ999996"] = {"status": 200, "body": {**body_as("default", "ZZ111111")}}  # response number differs from the lookup
+_missing = variant("ZZ0000B2")
+_missing["indicators"][0]["evidence_state"] = None
+_missing["indicators"][0]["source_endpoints"] = [None, "pscs"]
+_missing["indicators"][0]["evidence"] = {"empty_text": "", "kept": "value"}
+MOCKS["ZZ0000B2"] = {"status": 200, "body": _missing}
 MOCKS["ZZ0000B1"] = {"status": 200, "body": variant("ZZ0000B1", charges=None, insolvency=None)}
 for alias, name in (("ZZ000422", "error_422"), ("ZZ000404", "error_404"), ("ZZ000429", "error_429"), ("ZZ000503", "error_503")):
     MOCKS[alias] = {"status": api(name)["status"], "body": api(name)["body"], "headers": api(name)["headers"]}
@@ -368,12 +374,31 @@ def leaf_texts(cdp: CDP, selector: str) -> list[str]:
     )
 
 
+# What each real fixture must exercise, so an assertion cannot pass because both sides are empty.
+EXPECT = {
+    "default": {"charges", "insolvency", "filings", "statements", "events"},
+    "active_ltd_outstanding_charges": {"charges", "events"},
+    "dissolved": {"events"},
+    "active_registered_office_change": {"filings", "events"},
+    "many_officers": {"charges", "insolvency", "filings", "statements", "events"},
+    "all_nine_indicators": {"charges", "insolvency", "filings", "statements", "events"},
+}
+
+
 def contract_checks(cdp: CDP, alias: str, name: str) -> None:
     """Prose is byte-identical to the API, keys and enum codes follow the formatting rule."""
     body = MOCKS[alias]["body"]
     show(cdp, alias)
     off, psc = body["officers"]["items"][:20], body["pscs"]["items"][:20]
     ivs = [r["identity_verification"] for r in off + psc]
+    expect = EXPECT[name]
+    require(len(ivs) > 0, f"{name}: the fixture has no identity verification records to compare")
+    require(("filings" in expect) == bool((body["registered_office_change_filings"] or {}).get("items")), f"{name}: filings expectation")
+    require(("statements" in expect) == bool(body["pscs"]["active_statements"] + body["pscs"]["ceased_statements"]), f"{name}: statements expectation")
+    require(("events" in expect) == bool(body["officers"]["events"]), f"{name}: events expectation")
+    kinds = {i["id"] for i in body["indicators"]}
+    require(("charges" in expect) == ("outstanding_charges" in kinds), f"{name}: charges expectation")
+    require(("insolvency" in expect) == ("insolvency_history" in kinds), f"{name}: insolvency expectation")
 
     # --- prose: byte-identical -------------------------------------------------------
     require(texts(cdp, ".kyb-idv-display") == [iv["display"] for iv in ivs], f"{name}: IDV display text is not byte-identical")
@@ -456,12 +481,14 @@ def contract_checks(cdp: CDP, alias: str, name: str) -> None:
         require(got == want, f"{name}: charge counts are not the returned fields: {got} vs {want}")
         if charges:
             keys, vals = leaves(charges["evidence"]["charges"])
+            require(bool(keys and vals), f"{name}: no charge fields to compare")
             got_keys = cdp.evaluate("[...document.querySelectorAll('#kyb-h-charges ~ ul.kyb-plain dt')].map(n => n.textContent)")
             require(got_keys == keys, f"{name}: charge keys differ: {got_keys} vs {keys}")
             require(leaf_texts(cdp, "#kyb-h-charges ~ ul.kyb-plain") == vals, f"{name}: charge values differ from the API")
     ins = next((i for i in inds if i["id"] == "insolvency_history"), None)
     if body["insolvency"] and body["insolvency"]["source_status"] == "available" and ins:
         keys, vals = leaves(ins["evidence"])
+        require(bool(keys and vals), f"{name}: no insolvency fields to compare")
         got_keys = cdp.evaluate("[...document.querySelectorAll('#kyb-h-insolvency ~ dl.kyb-ev dt')].map(n => n.textContent)")
         require(got_keys == keys, f"{name}: insolvency keys differ: {got_keys} vs {keys}")
         require(leaf_texts(cdp, "#kyb-h-insolvency ~ dl.kyb-ev") == vals, f"{name}: insolvency values differ from the API")
@@ -469,13 +496,14 @@ def contract_checks(cdp: CDP, alias: str, name: str) -> None:
 
 
 def run() -> None:
-    chrome = next((path for path in CHROME_CANDIDATES if path.exists()), None)
-    require(chrome is not None, "Chrome not found")
+    configured = os.environ.get("KYB_CHROME_PATH")
+    chrome = Path(configured) if configured else next((path for path in CHROME_CANDIDATES if path.exists()), None)
+    require(chrome is not None and chrome.exists(), "Chrome not found (set KYB_CHROME_PATH)")
 
     server = QuietServer(("127.0.0.1", 0), lambda *args: QuietHandler(*args, directory=str(ROOT)))
     threading.Thread(target=server.serve_forever, daemon=True).start()
     site = f"http://127.0.0.1:{server.server_address[1]}/kyb-lab.html"
-    debug_port = 9431
+    debug_port = int(os.environ.get("KYB_DEBUG_PORT", "9431"))
     profile = Path(tempfile.mkdtemp(prefix="fcr-kyb-lab-chrome-"))
     process = subprocess.Popen([
         str(chrome), "--headless=new", "--disable-gpu", "--no-sandbox", "--disable-background-networking",
@@ -585,6 +613,16 @@ def run() -> None:
         require(any(t == awk["pscs"]["active_statements"][0]["description"] for t in texts(cdp, ".kyb-row-title")),
                 "statement description is byte-identical")
         print("OK: prose with leading, trailing and double spaces and unicode punctuation is byte-identical")
+
+        # ---- missing codes and empty strings show a hyphen, never the words undefined or null ----
+        show(cdp, "ZZ0000B2")
+        require(texts(cdp, ".kyb-tag")[0] == "-", "a missing evidence state is a hyphen")
+        require(texts(cdp, ".kyb-source")[0] == "Source: -, pscs", "a missing source endpoint is a hyphen")
+        first = cdp.evaluate("[...document.querySelectorAll('.kyb-ind')[0].querySelectorAll('dd')].map(d => d.textContent)")
+        require(first == ["-", "value"], f"an empty evidence string is a hyphen, got {first}")
+        everything = cdp.evaluate("document.getElementById('kybResults').textContent")
+        require("undefined" not in everything and "null" not in everything, "no stray undefined or null text")
+        print("OK: missing codes and empty strings render as a hyphen")
 
         # ---- null charges and insolvency: the section is absent (the API means not requested) ------
         show(cdp, "ZZ0000B1")

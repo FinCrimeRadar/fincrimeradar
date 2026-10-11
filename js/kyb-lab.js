@@ -77,7 +77,7 @@
 
   // Generic, safe renderer for register evidence of any shape.
   function renderValue(value) {
-    if (value === null || value === undefined) return el('span', 'kyb-muted', '-');
+    if (value === null || value === undefined || value === '') return el('span', 'kyb-muted', '-');
     if (Array.isArray(value)) {
       if (!value.length) return el('span', 'kyb-muted', '-');
       var ul = el('ul', 'kyb-plain');
@@ -203,7 +203,7 @@
   }
 
   function sourceLabel(list) {
-    return (list || []).map(label).join(', ');
+    return (list || []).map(function (x) { return text(x && label(x)); }).join(', ');
   }
 
   function renderIndicators(data) {
@@ -217,7 +217,7 @@
       var a = el('article', 'kyb-ind');
       add(a, el('h4', 'kyb-h4 kyb-ind-title', ind.label));
       var tagLine = el('p', 'kyb-tag-line');
-      add(tagLine, el('span', 'kyb-tag', label(ind.evidence_state)));
+      add(tagLine, el('span', 'kyb-tag', text(ind.evidence_state && label(ind.evidence_state))));
       add(a, tagLine);
       if (ind.evidence && Object.keys(ind.evidence).length) add(a, renderValue(ind.evidence));
       add(a, verbatim('Does not establish', text(ind.does_not_establish), 'kyb-ind-dne'));
