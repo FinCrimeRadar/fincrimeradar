@@ -220,6 +220,9 @@ SEARCH_MOCKS: dict[str, Any] = {
     "err500": {"status": 500, "body": {"detail": "boom"}},
     "bad shape": {"status": 200, "body": {"unexpected": True}},
     "render fail": {"status": 200, "body": {"candidates": [None], "truncated": False}},
+    "bad total": {"status": 200, "body": {**api("search_many")["body"], "reported_total": "356"}},
+    "inconsistent total": {"status": 200, "body": {**api("search_default")["body"], "truncated": True, "reported_total": 2}},
+    "no number": {"status": 200, "body": {**api("search_default")["body"], "candidates": [{**api("search_default")["body"]["candidates"][0], "company_number": None}, api("search_default")["body"]["candidates"][1]]}},
     "net": {"network": True},
     "hang": {"hang": True},
 }
@@ -674,6 +677,8 @@ def search_checks(cdp: CDP, site: str) -> None:
         ("err500", "The register lookup could not be completed. Try again shortly.", True),
         ("bad shape", "The lookup returned an unexpected response. Try again shortly.", True),
         ("render fail", "The lookup returned an unexpected response. Try again shortly.", True),
+        ("bad total", "The lookup returned an unexpected response. Try again shortly.", True),
+        ("inconsistent total", "The lookup returned an unexpected response. Try again shortly.", True),
         ("net", "The lookup service could not be reached. Check your connection and try again.", True),
     ]
     for query, message, retry in cases:
@@ -687,10 +692,17 @@ def search_checks(cdp: CDP, site: str) -> None:
     submit_name(cdp, "   ")
     require(name_error(cdp) == "Enter 2 to 160 characters of text", "an empty term is refused locally")
     require(cdp.evaluate("window.__kybSearchCalls.length") == before, "an empty term sends no request")
+    cdp.evaluate(
+        "window.__nameStatusLog = []; new MutationObserver(() => window.__nameStatusLog.push(document.getElementById('kybNameStatus').textContent))"
+        ".observe(document.getElementById('kybNameStatus'), {childList: true, characterData: true, subtree: true}); true"
+    )
     submit_name(cdp, "hang")
-    wait_for(cdp, "document.getElementById('kybNameStatus').textContent.indexOf('Still working') === 0", "cold start notice for the search")
     require(name_error(cdp) == "The lookup timed out after 1 second. Try again.", "search timeout message")
+    require(any(t.startswith("Still working") for t in cdp.evaluate("window.__nameStatusLog")), "cold start notice for the search")
     require(cdp.evaluate("!document.getElementById('kybNameRetry').hidden"), "retry offered after a timeout")
+    submit_name(cdp, "no number")
+    cands_ready(cdp)
+    require(cdp.evaluate("[...document.querySelectorAll('.kyb-cand')].map(li => li.querySelectorAll('.kyb-cand-pick').length)") == [0, 1], "a candidate without a company number has no pick button")
     print("OK: name search errors: 422, 413, 429, 503, 500, shape, render failure, network, timeout, empty input")
 
     # ---- keyboard: Enter submits, the pick button is reachable, results announced ----
@@ -725,6 +737,7 @@ def search_checks(cdp: CDP, site: str) -> None:
     rects = cand_rects(cdp)
     for i, r in enumerate(rects):
         require(r["num"]["t"] >= r["title"]["b"] - 1, f"390 candidate {i}: the trusted fields stack below the title")
+        require(abs(r["num"]["l"] - rects[0]["num"]["l"]) <= 1 and r["status"]["l"] > r["num"]["l"], f"390 candidate {i}: number then status keep their places with an override title")
     screenshot(cdp, "kyb-lab-390-name-search-hostile.png", full=True)
     submit_name(cdp, "default query")
     cands_ready(cdp)
@@ -733,6 +746,12 @@ def search_checks(cdp: CDP, site: str) -> None:
     submit_name(cdp, "default query")
     cands_ready(cdp)
     screenshot(cdp, "kyb-lab-1440-name-search.png", full=True)
+    navigate(cdp, site, 1024)
+    submit_name(cdp, "default query")
+    cands_ready(cdp)
+    no_overflow(cdp, "1024 candidates")
+    narrow = cdp.evaluate("[...document.querySelectorAll('.kyb-cand-number, .kyb-cand-type')].map(e => e.getBoundingClientRect().height)")
+    require(max(narrow) < 30, f"1024: no company number or type breaks across lines: {narrow}")
     print("OK: name search at 390px and 1440px: no overflow, trusted fields stack below the title on a phone")
 
 def run() -> None:

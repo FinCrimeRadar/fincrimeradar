@@ -42,7 +42,7 @@ def lf_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
-def generate_search_fixtures(t, kyb, save, setup, api):
+def generate_search_fixtures(t, kyb, save, setup):
     """Candidate lists from the real POST /api/kyb/search code (routes_kyb_search.py)."""
     import routes_kyb_search as ks
     from fastapi import FastAPI
@@ -115,6 +115,7 @@ def generate_search_fixtures(t, kyb, save, setup, api):
     save("search_error_422", client.post("/api/kyb/search", json={"q": "x"}))
     save("search_error_413", client.post("/api/kyb/search", content=b"x" * 5000, headers=json_headers))
     kyb.reset_state_for_tests()
+    ks.reset_search_state_for_tests()
     setup({"/search/companies": envelope([upstream_item(1)])})
     last = None
     for i in range(12):
@@ -251,7 +252,7 @@ def main() -> int:
     save("error_429", last)
     kyb.reset_state_for_tests()
 
-    generate_search_fixtures(t, kyb, save, setup, api)
+    generate_search_fixtures(t, kyb, save, setup)
 
     manifest = {
         "api_repo_commit": commit,

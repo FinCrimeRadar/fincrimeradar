@@ -521,6 +521,7 @@
   var candNotice = document.getElementById('kybCandNotice');
   var candNote = document.getElementById('kybCandNote');
   var nameInflight = null;
+  var nameReady = !!(nameForm && nameInput && nameSubmit && nameStatus && nameError && nameRetry && cands && candList && candNotice && candNote);
 
   var NAME_MSG = {
     422: 'Enter 2 to 160 characters of text',
@@ -578,21 +579,32 @@
     add(li, cell('kyb-cand-date', 'Created', text(c.date_of_creation)));
     var actions = el('div', 'kyb-cand-actions');
     if (c.scope === 'unsupported_entity_type') add(actions, el('span', 'kyb-tag kyb-cand-scope', NOT_INTERPRETED));
-    // The button text uses only the trusted fields, never the title.
-    var pick = el('button', 'kyb-btn kyb-btn-quiet kyb-cand-pick', 'Look up company ' + text(str(c.company_number)));
-    pick.type = 'button';
-    pick.addEventListener('click', function () {
-      input.value = str(c.company_number) || '';
-      lookup();
-    });
-    add(actions, pick);
+    // The button text uses only the trusted fields, never the title. A candidate
+    // without a company number cannot be looked up, so it gets no button.
+    var number = str(c.company_number);
+    if (number) {
+      var pick = el('button', 'kyb-btn kyb-btn-quiet kyb-cand-pick', 'Look up company ' + number);
+      pick.type = 'button';
+      pick.addEventListener('click', function () {
+        input.value = number;
+        lookup();
+      });
+      add(actions, pick);
+    }
     add(li, actions);
     return li;
   }
 
   function renderCandidates(data) {
-    clear(candList);
     var list = data.candidates;
+    var total = data.reported_total;
+    // reported_total is the register's own integer or null. Anything else, or a total that
+    // does not exceed the candidates shown on a truncated list, is not a response this page
+    // can describe truthfully: take the unexpected response path.
+    var isInteger = typeof total === 'number' && isFinite(total) && Math.floor(total) === total && total >= 0;
+    if (!(total === null || isInteger)) throw new Error('reported_total');
+    if (data.truncated === true && isInteger && total <= list.length) throw new Error('truncated total');
+    clear(candList);
     list.forEach(function (c) { add(candList, candidateRow(c)); });
     cands.hidden = false;
     if (!list.length) {
@@ -604,8 +616,7 @@
     candNotice.textContent = text(str(data.search_notice));
     candNotice.hidden = false;
     if (data.truncated === true) {
-      var total = data.reported_total;
-      candNote.textContent = (typeof total === 'number' && total > list.length)
+      candNote.textContent = isInteger
         ? 'The register reports ' + String(total) + ' matches. Only ' + String(list.length) + ' are shown.'
         : 'The register did not report a total, so this list may be incomplete.';
       candNote.hidden = false;
@@ -614,8 +625,8 @@
       candNote.textContent = '';
     }
   }
-
   function searchByName() {
+    if (!nameReady) return;
     var raw = nameInput.value;
     resetNameMessages();
     hideCands();
@@ -685,7 +696,7 @@
     });
   }
 
-  if (nameForm && nameInput) {
+  if (nameReady) {
     nameForm.addEventListener('submit', function (e) {
       e.preventDefault();
       searchByName();
