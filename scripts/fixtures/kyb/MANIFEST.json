@@ -1,5 +1,5 @@
 {
-  "api_repo_commit": "9c2fcbadc40af523ba17e4210ad7e7bfa24879f7",
+  "api_repo_commit": "be04f3a9b0dd0d03f4f0a46228ead16352ce30cf",
   "nine_does_not_establish": {
     "accounts_overdue": "A register flag that accounts are overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
     "confirmation_statement_overdue": "A register flag that a confirmation statement is overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
@@ -12,8 +12,8 @@
     "outstanding_charges": "The register status of a charge does not establish the amount secured, the value of the assets or the company's ability to pay."
   },
   "files": {
-    "api_active_ltd_outstanding_charges.json": "621c29ca283f7207b6cfe1fa0e5f4b47fce4f997040913b957933130e4247557",
-    "api_active_registered_office_change.json": "6f40cc495a950aafd336f3bfc81b8200ea73d2dbdbd0db1344db3cfa1fe6967b",
+    "api_active_ltd_outstanding_charges.json": "0009491403f181a06fac4348e29737528a5b6b5a3bf8e62ea8314658b66e0410",
+    "api_active_registered_office_change.json": "e1b8c5c8b5b4385b4422c93e62bb2cdc7e8cd43bd850d3d9aa5605a1cefe271b",
     "api_all_nine_indicators.json": "4dd9057dd7c3d690f5f84e97e2ce947cc9b706752961e47332046248058bb966",
     "api_default.json": "d46944fd41d249c37ed4a2fe4017ff18f5d08091b513a6dd595e7739309b8399",
     "api_dissolved.json": "e2dc605b138b178d0870ab8472905bf1195f52bc1762b1a3be1f198b4b68f376",
@@ -23,6 +23,7 @@
     "api_error_503.json": "81400c7c640f7e2bc26e328e6a89311e1e9d3b858399a3dca913e56b7f83948d",
     "api_many_officers.json": "21421b64c6b0976fb78c0f216215f43fd333ae62a47c54e3e68af77b330a02b7",
     "api_not_returned.json": "9e8e25171697dfe95381b054fbc116ec0982ec2ae8961980e181fda6033cccea",
+    "api_open_ended_verification.json": "d33415e57155a34d4a1867944d8ab89864b78dcb55fca6066eab0b47d9cebabc",
     "api_unsupported.json": "c672a439cd7677ddefa0e6120d9fb3978e46f6dd8cdcd72727b87c382dabd00c"
   }
 }

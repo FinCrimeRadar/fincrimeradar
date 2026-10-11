@@ -56,11 +56,11 @@
           "resigned_on": null,
           "identity_verification": {
             "eligibility": "derivation_eligible",
-            "status": "verification_data_conflict",
-            "display": "The register returned verification dates that are inconsistent or incomplete. FinCrimeRadar does not interpret them; check the register record directly.",
+            "status": "statement_supplied",
+            "display": "The register records that an identity verification statement was supplied for this role on 2026-06-17, linking a verified identity to it.",
             "evidence": {
               "appointment_verification_start_on": "2026-06-17",
-              "appointment_verification_end_on": "9999-12-08"
+              "appointment_verification_end_on": "9999-12-31"
             },
             "evidence_label": null,
             "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
@@ -73,11 +73,11 @@
           "resigned_on": null,
           "identity_verification": {
             "eligibility": "derivation_eligible",
-            "status": "verification_data_conflict",
-            "display": "The register returned verification dates that are inconsistent or incomplete. FinCrimeRadar does not interpret them; check the register record directly.",
+            "status": "statement_supplied",
+            "display": "The register records that an identity verification statement was supplied for this role on 2026-06-17, linking a verified identity to it.",
             "evidence": {
               "appointment_verification_start_on": "2026-06-17",
-              "appointment_verification_end_on": "9999-12-08"
+              "appointment_verification_end_on": "9999-12-31"
             },
             "evidence_label": null,
             "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
@@ -111,11 +111,11 @@
           "ceased_on": null,
           "identity_verification": {
             "eligibility": "derivation_eligible",
-            "status": "verification_data_conflict",
-            "display": "The register returned verification dates that are inconsistent or incomplete. FinCrimeRadar does not interpret them; check the register record directly.",
+            "status": "statement_supplied",
+            "display": "The register records that an identity verification statement was supplied for this role on 2026-06-16, linking a verified identity to it.",
             "evidence": {
               "appointment_verification_start_on": "2026-06-16",
-              "appointment_verification_end_on": "9999-12-08"
+              "appointment_verification_end_on": "9999-12-31"
             },
             "evidence_label": null,
             "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
@@ -128,11 +128,11 @@
           "ceased_on": null,
           "identity_verification": {
             "eligibility": "derivation_eligible",
-            "status": "verification_data_conflict",
-            "display": "The register returned verification dates that are inconsistent or incomplete. FinCrimeRadar does not interpret them; check the register record directly.",
+            "status": "statement_supplied",
+            "display": "The register records that an identity verification statement was supplied for this role on 2026-06-16, linking a verified identity to it.",
             "evidence": {
               "appointment_verification_start_on": "2026-06-16",
-              "appointment_verification_end_on": "9999-12-08"
+              "appointment_verification_end_on": "9999-12-31"
             },
             "evidence_label": null,
             "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."

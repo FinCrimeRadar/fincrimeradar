@@ -162,6 +162,7 @@ FIXTURE_ALIASES = {
     "ZZ0000A6": "unsupported",
     "ZZ0000A7": "many_officers",
     "ZZ0000A8": "all_nine_indicators",
+    "ZZ0000A9": "open_ended_verification",
 }
 MOCKS: dict[str, Any] = {
     alias: {"status": 200, "body": body_as(name, alias)} for alias, name in FIXTURE_ALIASES.items()
@@ -382,6 +383,7 @@ EXPECT = {
     "active_registered_office_change": {"filings", "events"},
     "many_officers": {"charges", "insolvency", "filings", "statements", "events"},
     "all_nine_indicators": {"charges", "insolvency", "filings", "statements", "events"},
+    "open_ended_verification": {"charges", "events"},
 }
 
 
@@ -563,6 +565,7 @@ def run() -> None:
             contract_checks(cdp, alias, name)
         shown = {i["id"] for i in MOCKS["ZZ0000A8"]["body"]["indicators"]}
         require(shown == set(NINE), f"the all-nine fixture must carry all nine indicators, got {sorted(shown)}")
+        show(cdp, "ZZ0000A8")
         want_nine = [NINE[i["id"]] for i in MOCKS["ZZ0000A8"]["body"]["indicators"]]
         require(texts(cdp, ".kyb-ind-dne") == want_nine, "all nine indicator strings render exactly, in the API order")
         require(len(set(want_nine)) == 9, "nine distinct strings")
