@@ -75,6 +75,13 @@ def main() -> int:
     if not (ROOT / "kyb-lab-social-card.png").exists():
         problems.append("kyb-lab-social-card.png is missing")
 
+    # Test responses are synthetic: reserved ZZ company numbers only, never live register data.
+    for fixture in sorted((ROOT / "scripts" / "fixtures" / "kyb").glob("api_*.json")):
+        numbers = re.findall(r'"company_number":\s*"([^"]*)"', fixture.read_text(encoding="utf-8"))
+        for number in numbers:
+            if not re.fullmatch(r"ZZ\d{6}", number):
+                problems.append(f"{fixture.name}: company number {number!r} is not a reserved ZZ number")
+
     pages = 0
     for path in sorted(ROOT.glob("*.html")) + [ROOT / "partials" / "nav.html"]:
         text = path.read_text(encoding="utf-8")

@@ -1,0 +1,125 @@
+{
+  "status": 200,
+  "headers": {},
+  "body": {
+    "company_number": "ZZ000003",
+    "retrieved_at": "2026-10-11T12:00:00Z",
+    "source": "Companies House Public Data API",
+    "company": {
+      "name": "SYNTHETIC COMPANY 3 LIMITED",
+      "status": "dissolved",
+      "type": "ltd",
+      "date_of_creation": "2024-06-13",
+      "date_of_cessation": "2025-11-13"
+    },
+    "interpretation": {
+      "scope": "interpreted",
+      "current_obligations": "register_reported_only",
+      "notice": "register-reported values; FinCrimeRadar does not interpret current obligations for status dissolved"
+    },
+    "register_reported_values": {
+      "label": "register-reported values; FinCrimeRadar does not interpret current obligations for status dissolved",
+      "company_status": "dissolved",
+      "date_of_cessation": "2025-11-13",
+      "accounts_next_accounts_overdue": null,
+      "confirmation_statement_overdue": null
+    },
+    "indicators": [],
+    "officers": {
+      "source_status": "available",
+      "items": [
+        {
+          "name": "PERSON A",
+          "role": "director",
+          "appointed_on": "2024-06-13",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "not_interpreted",
+            "status": null,
+            "display": "Verification fields were returned by the register for this record. FinCrimeRadar does not interpret them in phase 1.",
+            "evidence": {
+              "appointment_verification_statement_due_on": "2025-10-02"
+            },
+            "evidence_label": "fields returned by the register; not interpreted in phase 1",
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        },
+        {
+          "name": "PERSON B",
+          "role": "director",
+          "appointed_on": "2024-07-16",
+          "resigned_on": null,
+          "identity_verification": {
+            "eligibility": "not_interpreted",
+            "status": null,
+            "display": "Verification fields were returned by the register for this record. FinCrimeRadar does not interpret them in phase 1.",
+            "evidence": {
+              "appointment_verification_statement_due_on": "2025-10-02"
+            },
+            "evidence_label": "fields returned by the register; not interpreted in phase 1",
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        }
+      ],
+      "events": [
+        {
+          "date": "2024-07-16",
+          "event": "appointed",
+          "name": "PERSON B",
+          "role": "director"
+        },
+        {
+          "date": "2024-06-13",
+          "event": "appointed",
+          "name": "PERSON A",
+          "role": "director"
+        }
+      ],
+      "truncated": false
+    },
+    "pscs": {
+      "records_source_status": "available",
+      "statements_source_status": "not_returned",
+      "items": [
+        {
+          "name": "PERSON C",
+          "kind": "individual-person-with-significant-control",
+          "notified_on": "2024-06-13",
+          "ceased_on": null,
+          "identity_verification": {
+            "eligibility": "not_interpreted",
+            "status": null,
+            "display": "Verification fields were returned by the register for this record. FinCrimeRadar does not interpret them in phase 1.",
+            "evidence": {
+              "appointment_verification_statement_due_on": "2026-06-26",
+              "appointment_verification_statement_date": "2026-06-13",
+              "statement_can_be_supplied_from": "statement can be supplied from 2026-06-13"
+            },
+            "evidence_label": "fields returned by the register; not interpreted in phase 1",
+            "does_not_establish": "A register record of a supplied statement is not evidence that the person, the company or its activity is legitimate. It does not establish who ultimately owns or controls the company, whether ownership filings are accurate, the source of funds, or that customer due diligence is complete."
+          }
+        }
+      ],
+      "active_statements": [],
+      "ceased_statements": [],
+      "truncated": null
+    },
+    "registered_office_change_filings": {
+      "source_status": "available",
+      "items": [],
+      "truncated": false
+    },
+    "charges": null,
+    "insolvency": null,
+    "not_returned_notice": "This register section was not returned. FinCrimeRadar draws no conclusion from its absence.",
+    "does_not_establish": [
+      "The register is not comprehensive and may contain inaccuracies, errors or omissions. Companies House accepts no responsibility for their consequences.",
+      "Companies House checks filings for completeness and validity but does not closely review every document. Accounts receive only basic checks.",
+      "Register status does not establish that a company is trading. Dormant accounts are a separate filing fact.",
+      "Identity verification records do not establish legitimacy, ownership accuracy or completed CDD.",
+      "The absence of an indicator is not evidence of low risk.",
+      "This readout is not customer due diligence and does not replace it."
+    ],
+    "attribution": "Source: Companies House public register, retrieved 2026-10-11T12:00:00Z. FinCrimeRadar is not affiliated with or endorsed by Companies House."
+  }
+}

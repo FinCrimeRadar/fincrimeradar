@@ -85,7 +85,7 @@
       return ul;
     }
     if (typeof value === 'object') {
-      var dl = el('dl', 'kyb-facts');
+      var dl = el('dl', 'kyb-facts kyb-ev');
       Object.keys(value).forEach(function (k) {
         add(dl, el('dt', null, label(k)), add(el('dd'), renderValue(value[k])));
       });
@@ -152,12 +152,28 @@
 
   // ---- Sections -----------------------------------------------------------
 
+  // A labelled paragraph whose body is an API string, shown verbatim.
+  function verbatim(labelText, value, className) {
+    var box = el('div', 'kyb-dne-block');
+    add(box, el('span', 'kyb-label', labelText), el('p', className, value));
+    return box;
+  }
+
+  // Per record identity verification. Everything comes from the API as returned:
+  // display text, eligibility, status, evidence and does_not_establish. The page
+  // adds only field labels and never infers or rewrites a status.
   function idvBlock(iv) {
     var box = el('div', 'kyb-idv');
     add(box, el('p', 'kyb-idv-display', iv.display));
+    var state = facts([
+      ['Eligibility', iv.eligibility],
+      ['Status', iv.status === null || iv.status === undefined ? 'None' : iv.status]
+    ]);
+    state.className += ' kyb-idv-state';
+    add(box, state);
     if (iv.evidence_label) add(box, el('p', 'kyb-note', iv.evidence_label));
     if (iv.evidence && Object.keys(iv.evidence).length) add(box, renderValue(iv.evidence));
-    if (iv.does_not_establish) add(box, el('p', 'kyb-dne-inline', 'Does not establish: ' + iv.does_not_establish));
+    if (iv.does_not_establish) add(box, verbatim('Does not establish', iv.does_not_establish, 'kyb-idv-dne'));
     return box;
   }
 
@@ -167,10 +183,10 @@
     add(s, facts([
       ['Name', c.name],
       ['Company number', data.company_number],
-      ['Status', c.status],
-      ['Type', c.type],
-      ['Incorporated', c.date_of_creation],
-      ['Dissolved', c.date_of_cessation]
+      ['Company status', c.status],
+      ['Company type', c.type],
+      ['Date when the company was created', c.date_of_creation],
+      ['Date which the company was converted/closed, dissolved or removed', c.date_of_cessation]
     ]));
     var interp = data.interpretation || {};
     if (interp.scope === 'unsupported_entity_type') {
@@ -197,12 +213,12 @@
     }
     list.forEach(function (ind) {
       var a = el('article', 'kyb-ind');
-      var head = el('div', 'kyb-ind-head');
-      add(head, el('h4', 'kyb-h4', ind.label));
-      add(head, el('span', 'kyb-tag', ind.evidence_state === 'register_fact' ? 'Register fact' : 'FinCrimeRadar assessment'));
-      add(a, head);
+      add(a, el('h4', 'kyb-h4 kyb-ind-title', ind.label));
+      var tagLine = el('p', 'kyb-tag-line');
+      add(tagLine, el('span', 'kyb-tag', label(ind.evidence_state)));
+      add(a, tagLine);
       if (ind.evidence && Object.keys(ind.evidence).length) add(a, renderValue(ind.evidence));
-      add(a, el('p', 'kyb-dne-inline', 'Does not establish: ' + text(ind.does_not_establish, '')));
+      add(a, verbatim('Does not establish', text(ind.does_not_establish, ''), 'kyb-ind-dne'));
       add(a, el('p', 'kyb-source', 'Source: ' + sourceLabel(ind.source_endpoints)));
       add(s, a);
     });
@@ -277,18 +293,43 @@
     if (f.source_status !== 'available') return add(s, notReturned(data));
     if (!(f.items || []).length) add(s, note('No registered office change filings were found in the part of the filing history that was returned.'));
     else add(s, pagedList(f.items, function (it) {
-      return el('li', 'kyb-row', text(it.date) + ': ' + text(it.description_identifier) + (it.transaction_id ? ' (transaction ' + it.transaction_id + ')' : ''));
+      return el('li', 'kyb-row kyb-filing', text(it.date) + ': ' + text(it.description_identifier));
     }, 'filings'));
     if (f.truncated === true) add(s, note('The filing history holds more entries than were returned. Older registered office changes may be missing.'));
     return s;
   }
 
-  function renderRecord(data, key, title, id, present) {
-    var r = data[key];
+  function indicatorEvidence(data, id) {
+    var list = Array.isArray(data.indicators) ? data.indicators : [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] && list[i].id === id) return list[i].evidence || {};
+    }
+    return null;
+  }
+
+  function renderCharges(data) {
+    var r = data.charges;
     if (!r) return null;
-    var s = block(id, title);
+    var s = block('kyb-h-charges', 'Charges');
     if (r.source_status !== 'available') return add(s, notReturned(data));
-    return add(s, note(present));
+    var ev = indicatorEvidence(data, 'outstanding_charges');
+    if (!ev) return add(s, note('No charge with status outstanding was returned.'));
+    add(s, facts([
+      ['Outstanding charges', ev.outstanding_count],
+      ['Charges returned', ev.returned_count],
+      ['Total charges', ev.total_count]
+    ]));
+    if (Array.isArray(ev.charges) && ev.charges.length) add(s, renderValue(ev.charges));
+    return s;
+  }
+
+  function renderInsolvency(data) {
+    var r = data.insolvency;
+    if (!r) return null;
+    var s = block('kyb-h-insolvency', 'Insolvency');
+    if (r.source_status !== 'available') return add(s, notReturned(data));
+    var ev = indicatorEvidence(data, 'insolvency_history');
+    return add(s, ev ? renderValue(ev) : note('The register returned an insolvency resource.'));
   }
 
   function renderDne(data) {
@@ -322,10 +363,8 @@
       renderOfficers(data),
       renderPscs(data),
       renderFilings(data),
-      renderRecord(data, 'charges', 'Charges', 'kyb-h-charges',
-        'The register holds charge records for this company. The charge list is not shown in this readout.'),
-      renderRecord(data, 'insolvency', 'Insolvency', 'kyb-h-insolvency',
-        'The register holds an insolvency record for this company. The detail is not shown in this readout.'));
+      renderCharges(data),
+      renderInsolvency(data));
     renderDne(data);
     wrap.hidden = false;
   }

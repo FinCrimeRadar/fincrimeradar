@@ -1,0 +1,56 @@
+{
+  "status": 200,
+  "headers": {},
+  "body": {
+    "company_number": "ZZ000002",
+    "retrieved_at": "2026-10-11T12:00:00Z",
+    "source": "Companies House Public Data API",
+    "company": {
+      "name": "SYNTHETIC COMPANY 2 LIMITED",
+      "status": "active",
+      "type": "ltd",
+      "date_of_creation": "2024-06-16",
+      "date_of_cessation": null
+    },
+    "interpretation": {
+      "scope": "interpreted",
+      "current_obligations": "interpreted",
+      "notice": null
+    },
+    "register_reported_values": null,
+    "indicators": [],
+    "officers": {
+      "source_status": "not_returned",
+      "items": [],
+      "events": [],
+      "truncated": null
+    },
+    "pscs": {
+      "records_source_status": "not_returned",
+      "statements_source_status": "not_returned",
+      "items": [],
+      "active_statements": [],
+      "ceased_statements": [],
+      "truncated": null
+    },
+    "registered_office_change_filings": {
+      "source_status": "not_returned",
+      "items": [],
+      "truncated": null
+    },
+    "charges": {
+      "source_status": "not_returned"
+    },
+    "insolvency": null,
+    "not_returned_notice": "This register section was not returned. FinCrimeRadar draws no conclusion from its absence.",
+    "does_not_establish": [
+      "The register is not comprehensive and may contain inaccuracies, errors or omissions. Companies House accepts no responsibility for their consequences.",
+      "Companies House checks filings for completeness and validity but does not closely review every document. Accounts receive only basic checks.",
+      "Register status does not establish that a company is trading. Dormant accounts are a separate filing fact.",
+      "Identity verification records do not establish legitimacy, ownership accuracy or completed CDD.",
+      "The absence of an indicator is not evidence of low risk.",
+      "This readout is not customer due diligence and does not replace it."
+    ],
+    "attribution": "Source: Companies House public register, retrieved 2026-10-11T12:00:00Z. FinCrimeRadar is not affiliated with or endorsed by Companies House."
+  }
+}
