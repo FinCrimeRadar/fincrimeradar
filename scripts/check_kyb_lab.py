@@ -106,10 +106,23 @@ def main() -> int:
             problems.append(f"js/kyb-lab.js contains forbidden sink {sink!r}")
     if DASHES.search(js):
         problems.append("js/kyb-lab.js contains an em or en dash")
+    # Company name search (spec v1.9 section 14.7): the term goes in a JSON POST body only,
+    # never in a URL, and the title is isolated in <bdi>.
+    if "'/api/kyb/search'" not in js or "method: 'POST'" not in js:
+        problems.append("js/kyb-lab.js does not POST to /api/kyb/search")
+    if "/api/kyb/search?" in js or "?q=" in js:
+        problems.append("js/kyb-lab.js puts a search term in a URL")
+    if "el('bdi'" not in js:
+        problems.append("js/kyb-lab.js does not render candidate titles inside <bdi>")
+    for needed in ("api_search_default.json", "api_search_hostile.json", "api_search_empty.json", "api_search_many.json", "api_search_few.json", "api_search_no_total.json"):
+        if not (ROOT / "scripts" / "fixtures" / "kyb" / needed).exists():
+            problems.append(f"missing search fixture {needed}")
     if "https://fincrimeradar-api.onrender.com" not in js:
         problems.append("js/kyb-lab.js does not name the production API base")
 
     page = PAGE.read_text(encoding="utf-8")
+    if 'id="kybNameForm"' not in page:
+        problems.append("kyb-lab.html has no company name search form")
     if DASHES.search(page):
         problems.append("kyb-lab.html contains an em or en dash")
     for src in re.findall(r"<script[^>]*\ssrc=\"([^\"]+)\"", page):

@@ -201,6 +201,31 @@ MOCKS["ZZ000500"] = {"status": 500, "body": {"detail": "boom"}}
 MOCKS["ZZ000600"] = {"status": 200, "body": {"unexpected": True}}
 MOCKS["ZZ000701"] = {"status": 200, "body": {**body_as("default", "ZZ000701"), "indicators": [None]}}
 MOCKS["ZZ000700"] = {"network": True}
+# Candidate numbers of the search fixtures resolve to a real readout when picked.
+for _n in range(1, 4):
+    MOCKS[f"ZZ{_n:06d}"] = {"status": 200, "body": body_as("default", f"ZZ{_n:06d}")}
+
+# POST /api/kyb/search mocks, keyed by the exact q the page sends.
+SEARCH_MOCKS: dict[str, Any] = {
+    "default query": {"status": 200, "body": api("search_default")["body"]},
+    "many query": {"status": 200, "body": api("search_many")["body"]},
+    "few query": {"status": 200, "body": api("search_few")["body"]},
+    "no total query": {"status": 200, "body": api("search_no_total")["body"]},
+    "empty query": {"status": 200, "body": api("search_empty")["body"]},
+    "hostile query": {"status": 200, "body": api("search_hostile")["body"]},
+    "err422": {"status": 422, "body": api("search_error_422")["body"]},
+    "err413": {"status": 413, "body": api("search_error_413")["body"]},
+    "err429": {"status": 429, "body": api("search_error_429")["body"], "headers": api("search_error_429")["headers"]},
+    "err503": {"status": 503, "body": api("search_error_503")["body"]},
+    "err500": {"status": 500, "body": {"detail": "boom"}},
+    "bad shape": {"status": 200, "body": {"unexpected": True}},
+    "render fail": {"status": 200, "body": {"candidates": [None], "truncated": False}},
+    "bad total": {"status": 200, "body": {**api("search_many")["body"], "reported_total": "356"}},
+    "inconsistent total": {"status": 200, "body": {**api("search_default")["body"], "truncated": True, "reported_total": 2}},
+    "no number": {"status": 200, "body": {**api("search_default")["body"], "candidates": [{**api("search_default")["body"]["candidates"][0], "company_number": None}, api("search_default")["body"]["candidates"][1]]}},
+    "net": {"network": True},
+    "hang": {"hang": True},
+}
 MOCKS["ZZ000800"] = {"hang": True}
 
 
@@ -267,13 +292,29 @@ window.__consoleErrors = [];
 })();
 window.KYB_LAB_CONFIG = { timeoutMs: 700, coldNoticeMs: 150 };
 window.__kybCalls = [];
-window.__kybMocks = %s;
+window.__kybMocks = __MOCKS__;
+window.__kybSearchMocks = __SEARCH__;
+window.__kybSearchCalls = [];
 (function () {
   var realFetch = window.fetch.bind(window);
   window.fetch = function (url, opts) {
     url = String(url);
     if (url.indexOf('fincrimeradar-api.onrender.com') === -1) return realFetch(url, opts);
     window.__kybCalls.push(url);
+    if (url.slice(-15) === '/api/kyb/search') {
+      var parsed = {};
+      try { parsed = JSON.parse(opts.body); } catch (e) {}
+      window.__kybSearchCalls.push({ url: url, method: opts.method, headers: opts.headers, body: opts.body });
+      var sm = window.__kybSearchMocks[parsed.q];
+      if (!sm) return Promise.resolve(new Response('{"detail":"x"}', { status: 500 }));
+      if (sm.network) return Promise.reject(new TypeError('Failed to fetch'));
+      if (sm.hang) {
+        return new Promise(function (resolve, reject) {
+          opts.signal.addEventListener('abort', function () { reject(new DOMException('aborted', 'AbortError')); });
+        });
+      }
+      return Promise.resolve(new Response(JSON.stringify(sm.body), { status: sm.status, headers: sm.headers || {} }));
+    }
     if (url.indexOf('/api/health') !== -1) return Promise.resolve(new Response('{}', { status: 200 }));
     var m = url.match(/\\/api\\/kyb\\/company\\/([^?]*)$/);
     var key = m ? decodeURIComponent(m[1]) : '';
@@ -288,7 +329,8 @@ window.__kybMocks = %s;
     return Promise.resolve(new Response(JSON.stringify(mock.body), { status: mock.status, headers: mock.headers || {} }));
   };
 })();
-""" % json.dumps(MOCKS)
+"""
+STUB = STUB.replace("__MOCKS__", json.dumps(MOCKS)).replace("__SEARCH__", json.dumps(SEARCH_MOCKS))
 
 ERRORS: list[str] = []
 
@@ -513,6 +555,204 @@ def contract_checks(cdp: CDP, alias: str, name: str) -> None:
         require(leaf_texts(cdp, "#kyb-h-insolvency ~ dl.kyb-ev") == vals, f"{name}: insolvency values differ from the API")
     print(f"OK: contract, {name}: prose byte-identical, codes and keys formatted, null as a hyphen, returned fields only")
 
+
+def submit_name(cdp: CDP, query: str) -> None:
+    cdp.evaluate(
+        "(() => { const i = document.getElementById('kybName'); i.value = %s;"
+        " document.getElementById('kybNameForm').requestSubmit(); return true; })()" % json.dumps(query)
+    )
+
+
+def cands_ready(cdp: CDP) -> None:
+    wait_for(cdp, "!document.getElementById('kybCands').hidden", "candidates visible")
+
+
+def name_error(cdp: CDP) -> str:
+    wait_for(cdp, "!document.getElementById('kybNameError').hidden", "name error visible")
+    return cdp.evaluate("document.getElementById('kybNameError').textContent")
+
+
+def cand_rects(cdp: CDP) -> list[dict[str, Any]]:
+    return cdp.evaluate(
+        "[...document.querySelectorAll('.kyb-cand')].map(li => { const r = n => { const e = li.querySelector(n).getBoundingClientRect(); return {l: e.left, r: e.right, t: e.top, b: e.bottom}; };"
+        " return {title: r('.kyb-cand-titlecell'), num: r('.kyb-cand-number'), status: r('.kyb-cand-status'), type: r('.kyb-cand-type'), date: r('.kyb-cand-date'), li: li.getBoundingClientRect().top}; })"
+    )
+
+
+def search_checks(cdp: CDP, site: str) -> None:
+    # ---- nothing before focus, one health request on the first focus of either input ----
+    navigate(cdp, site, 1440)
+    require(cdp.evaluate("window.__kybCalls.length") == 0, "no API request on load")
+    cdp.evaluate("document.getElementById('kybName').focus()")
+    wait_for(cdp, "window.__kybCalls.length === 1", "health on first focus of the name input")
+    cdp.evaluate("document.getElementById('kybNumber').focus()")
+    cdp.evaluate("document.getElementById('kybName').blur(); document.getElementById('kybName').focus()")
+    time.sleep(0.3)
+    calls = cdp.evaluate("window.__kybCalls")
+    require(len(calls) == 1 and calls[0].endswith("/api/health"), f"exactly one health request, got {calls}")
+    require(cdp.evaluate("window.__kybSearchCalls.length") == 0, "no search request before a submit")
+    print("OK: name search: nothing on load, exactly one health request on the first focus of either input")
+
+    # ---- the request: POST, JSON body, no query string, the term exactly as typed ----
+    submit_name(cdp, "default query")
+    cands_ready(cdp)
+    sent = cdp.evaluate("window.__kybSearchCalls")
+    require(len(sent) == 1, f"one search request, got {sent}")
+    require(sent[0]["method"] == "POST" and sent[0]["url"] == "https://fincrimeradar-api.onrender.com/api/kyb/search", f"POST to the search path with no query string: {sent[0]['url']}")
+    require(sent[0]["headers"]["Content-Type"] == "application/json", "JSON content type")
+    require(json.loads(sent[0]["body"]) == {"q": "default query"}, "the body is only the term")
+
+    # ---- rendering is the API's own fixture, byte for byte ----
+    body = api("search_default")["body"]
+    cs = body["candidates"]
+    require(texts(cdp, "bdi.kyb-cand-title") == [c["title"] for c in cs], "titles are inside bdi and byte identical")
+    require(texts(cdp, ".kyb-cand-number") == [c["company_number"] for c in cs], "company numbers")
+    require(texts(cdp, ".kyb-cand-status") == [dash(c["company_status"] and fmt(c["company_status"])) for c in cs], "status codes formatted, open is passed through")
+    require(texts(cdp, ".kyb-cand-type") == [dash(c["company_type"] and fmt(c["company_type"])) for c in cs], "type codes formatted")
+    require(texts(cdp, ".kyb-cand-date") == [dash(c["date_of_creation"]) for c in cs], "creation dates")
+    require(texts(cdp, ".kyb-cand-scope") == ["Not interpreted in phase 1"] * sum(c["scope"] == "unsupported_entity_type" for c in cs), "scope flag only on unsupported types")
+    require(texts(cdp, "#kybCandNotice") == [body["search_notice"]], "the search notice is the API string, byte for byte")
+    require(cdp.evaluate("document.getElementById('kybCandNote').hidden"), "no truncated or empty message when the list is complete")
+    require(cdp.evaluate("document.activeElement && document.activeElement.id") == "kybCandsHeading", "focus moves to the candidates heading")
+    require(texts(cdp, "#kybNameStatus") == ["Search results loaded."], "status region announces the results")
+    require(cdp.evaluate("document.getElementById('kybNameStatus').getAttribute('role')") == "status", "status role")
+    require(cdp.evaluate("[...document.querySelectorAll('#kybCands a')].length") == 0, "no link in the candidate list: titles are never links")
+    no_overflow(cdp, "1440 candidates")
+    print("OK: candidates: titles in bdi, trusted fields, scope flag, search notice, focus and status")
+
+    # ---- picking a candidate runs the existing number lookup for exactly that number ----
+    before = cdp.evaluate("window.__kybCalls.length")
+    cdp.evaluate("document.querySelectorAll('.kyb-cand-pick')[0].click()")
+    results_ready(cdp)
+    company_calls = cdp.evaluate("window.__kybCalls.slice(%d).filter(u => u.indexOf('/api/kyb/company/') !== -1)" % before)
+    require(company_calls == ["https://fincrimeradar-api.onrender.com/api/kyb/company/" + cs[0]["company_number"]], f"pick runs the lookup for the picked number only: {company_calls}")
+    require(cdp.evaluate("document.getElementById('kybNumber').value") == cs[0]["company_number"], "the number field shows the picked number")
+    require(cdp.evaluate("window.__kybSearchCalls.length") == 1, "picking makes no further search")
+    require(texts(cdp, ".kyb-cand-pick")[0] == "Look up company " + cs[0]["company_number"], "the pick button names only the trusted number")
+    print("OK: picking a candidate runs the existing number lookup for exactly that number")
+
+    # ---- the two truncated messages, the empty message and no message ----
+    expected = [
+        ("many query", "The register reports 356 matches. Only 20 are shown."),
+        ("few query", "The register reports 7 matches. Only 5 are shown."),
+        ("no total query", "The register did not report a total, so this list may be incomplete."),
+    ]
+    for query, message in expected:
+        submit_name(cdp, query)
+        cands_ready(cdp)
+        require(texts(cdp, "#kybCandNote") == [message], f"{query}: truncated message")
+        require(not cdp.evaluate("document.getElementById('kybCandNote').hidden"), f"{query}: message visible")
+    submit_name(cdp, "empty query")
+    cands_ready(cdp)
+    require(texts(cdp, "#kybCandNote") == ["No companies were returned for this search."], "empty message")
+    require(cdp.evaluate("document.getElementById('kybCandNotice').hidden && document.querySelectorAll('.kyb-cand').length === 0"), "no notice and no rows for an empty result")
+    require(texts(cdp, "#kybNameStatus") == [""], "no announcement of results for an empty list")
+    print("OK: truncated (reported total, few shown, no total) and empty messages are the exact strings")
+
+    # ---- hostile and bidirectional titles ----
+    submit_name(cdp, "hostile query")
+    cands_ready(cdp)
+    hostile = api("search_hostile")["body"]["candidates"]
+    require(cdp.evaluate("window.__xss === undefined"), "XSS payload executed")
+    require(cdp.evaluate("document.querySelectorAll('#kybCands img, #kybCands svg, #kybCands script').length") == 0, "no injected element")
+    require(texts(cdp, "bdi.kyb-cand-title") == [c["title"] for c in hostile], "hostile and RLO titles are literal, byte for byte")
+    require(texts(cdp, ".kyb-cand-number") == [c["company_number"] for c in hostile], "numbers are not reordered by an override in a title")
+    require(set(cdp.evaluate("[...document.querySelectorAll('bdi.kyb-cand-title')].map(b => getComputedStyle(b).unicodeBidi)")) == {"isolate"}, "titles are bidi isolated")
+    rects = cand_rects(cdp)
+    first = rects[0]
+    for i, r in enumerate(rects):
+        require(r["title"]["r"] <= r["num"]["l"] + 1 <= r["status"]["l"] + 1 <= r["type"]["l"] + 1 <= r["date"]["l"] + 1, f"candidate {i}: trusted fields stay to the right of the title in order")
+        for k in ("num", "status", "type", "date"):
+            require(abs(r[k]["l"] - first[k]["l"]) <= 1 and abs(r[k]["r"] - first[k]["r"]) <= 1, f"candidate {i}: {k} sits where it does for a plain title")
+    no_overflow(cdp, "1440 hostile candidates")
+    screenshot(cdp, "kyb-lab-1440-name-search-hostile.png", full=True)
+    print("OK: hostile and RLO titles: literal text, bdi isolated, trusted fields keep their visual order (1440px)")
+
+    # ---- every error path ----
+    cases = [
+        ("err422", "Enter 2 to 160 characters of text", False),
+        ("err413", "That search is too long", False),
+        ("err429", "Too many lookups; try again in a minute", False),
+        ("err503", "The register lookup is temporarily unavailable", True),
+        ("err500", "The register lookup could not be completed. Try again shortly.", True),
+        ("bad shape", "The lookup returned an unexpected response. Try again shortly.", True),
+        ("render fail", "The lookup returned an unexpected response. Try again shortly.", True),
+        ("bad total", "The lookup returned an unexpected response. Try again shortly.", True),
+        ("inconsistent total", "The lookup returned an unexpected response. Try again shortly.", True),
+        ("net", "The lookup service could not be reached. Check your connection and try again.", True),
+    ]
+    for query, message, retry in cases:
+        submit_name(cdp, query)
+        got = name_error(cdp)
+        require(got == message, f"{query}: expected {message!r}, got {got!r}")
+        require(cdp.evaluate("document.getElementById('kybCands').hidden"), f"{query}: no stale candidates")
+        require(cdp.evaluate("!document.getElementById('kybNameRetry').hidden") is retry, f"{query}: retry button visibility")
+        require(cdp.evaluate("document.getElementById('kybNameError').getAttribute('role')") == "alert", f"{query}: error role")
+    before = cdp.evaluate("window.__kybSearchCalls.length")
+    submit_name(cdp, "   ")
+    require(name_error(cdp) == "Enter 2 to 160 characters of text", "an empty term is refused locally")
+    require(cdp.evaluate("window.__kybSearchCalls.length") == before, "an empty term sends no request")
+    cdp.evaluate(
+        "window.__nameStatusLog = []; new MutationObserver(() => window.__nameStatusLog.push(document.getElementById('kybNameStatus').textContent))"
+        ".observe(document.getElementById('kybNameStatus'), {childList: true, characterData: true, subtree: true}); true"
+    )
+    submit_name(cdp, "hang")
+    require(name_error(cdp) == "The lookup timed out after 1 second. Try again.", "search timeout message")
+    require(any(t.startswith("Still working") for t in cdp.evaluate("window.__nameStatusLog")), "cold start notice for the search")
+    require(cdp.evaluate("!document.getElementById('kybNameRetry').hidden"), "retry offered after a timeout")
+    submit_name(cdp, "no number")
+    cands_ready(cdp)
+    require(cdp.evaluate("[...document.querySelectorAll('.kyb-cand')].map(li => li.querySelectorAll('.kyb-cand-pick').length)") == [0, 1], "a candidate without a company number has no pick button")
+    print("OK: name search errors: 422, 413, 429, 503, 500, shape, render failure, network, timeout, empty input")
+
+    # ---- keyboard: Enter submits, the pick button is reachable, results announced ----
+    navigate(cdp, site, 1440)
+    cdp.evaluate("document.getElementById('kybName').focus()")
+    cdp.evaluate("document.getElementById('kybName').value = 'default query'")
+    cdp.call("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Enter", "code": "Enter", "windowsVirtualKeyCode": 13, "nativeVirtualKeyCode": 13, "text": "\r"})
+    cdp.call("Input.dispatchKeyEvent", {"type": "keyUp", "key": "Enter", "code": "Enter", "windowsVirtualKeyCode": 13, "nativeVirtualKeyCode": 13})
+    cands_ready(cdp)
+    cdp.evaluate("document.getElementById('kybCandsHeading').focus()")
+    reached = False
+    for _ in range(6):
+        cdp.call("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Tab", "code": "Tab", "windowsVirtualKeyCode": 9, "nativeVirtualKeyCode": 9})
+        cdp.call("Input.dispatchKeyEvent", {"type": "keyUp", "key": "Tab", "code": "Tab", "windowsVirtualKeyCode": 9, "nativeVirtualKeyCode": 9})
+        if cdp.evaluate("document.activeElement.classList.contains('kyb-cand-pick')"):
+            reached = True
+            break
+    require(reached, "the first pick button is reachable by Tab from the candidates heading")
+    cdp.call("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Enter", "code": "Enter", "windowsVirtualKeyCode": 13, "nativeVirtualKeyCode": 13, "text": "\r"})
+    cdp.call("Input.dispatchKeyEvent", {"type": "keyUp", "key": "Enter", "code": "Enter", "windowsVirtualKeyCode": 13, "nativeVirtualKeyCode": 13})
+    results_ready(cdp)
+    require(cdp.evaluate("document.getElementById('kybNumber').value") == api("search_default")["body"]["candidates"][0]["company_number"], "Enter on the pick button runs the lookup")
+    print("OK: keyboard: Enter submits the search, Tab reaches the pick button, Enter on it runs the lookup")
+
+    # ---- 390px: stacked, no overflow, a 500 character title wraps ----
+    navigate(cdp, site, 390)
+    no_overflow(cdp, "390 empty")
+    for query in ("default query", "many query", "hostile query"):
+        submit_name(cdp, query)
+        cands_ready(cdp)
+        no_overflow(cdp, f"390 {query}")
+    rects = cand_rects(cdp)
+    for i, r in enumerate(rects):
+        require(r["num"]["t"] >= r["title"]["b"] - 1, f"390 candidate {i}: the trusted fields stack below the title")
+        require(abs(r["num"]["l"] - rects[0]["num"]["l"]) <= 1 and r["status"]["l"] > r["num"]["l"], f"390 candidate {i}: number then status keep their places with an override title")
+    screenshot(cdp, "kyb-lab-390-name-search-hostile.png", full=True)
+    submit_name(cdp, "default query")
+    cands_ready(cdp)
+    screenshot(cdp, "kyb-lab-390-name-search.png", full=True)
+    navigate(cdp, site, 1440)
+    submit_name(cdp, "default query")
+    cands_ready(cdp)
+    screenshot(cdp, "kyb-lab-1440-name-search.png", full=True)
+    navigate(cdp, site, 1024)
+    submit_name(cdp, "default query")
+    cands_ready(cdp)
+    no_overflow(cdp, "1024 candidates")
+    narrow = cdp.evaluate("[...document.querySelectorAll('.kyb-cand-number, .kyb-cand-type')].map(e => e.getBoundingClientRect().height)")
+    require(max(narrow) < 30, f"1024: no company number or type breaks across lines: {narrow}")
+    print("OK: name search at 390px and 1440px: no overflow, trusted fields stack below the title on a phone")
 
 def run() -> None:
     configured = os.environ.get("KYB_CHROME_PATH")
@@ -791,6 +1031,8 @@ def run() -> None:
             time.sleep(0.2)
             screenshot(cdp, f"kyb-lab-{width}-api-all-nine-indicators.png", full=True)
         print("OK: 1440px and 390px have no overflow, the six item panel is visible beside (desktop) or above (mobile) the results")
+
+        search_checks(cdp, site)
 
         errors = ERRORS + (cdp.evaluate("window.__consoleErrors") or [])
         require(not errors, f"console errors: {errors}")

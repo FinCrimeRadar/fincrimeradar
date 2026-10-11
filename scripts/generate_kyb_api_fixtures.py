@@ -42,6 +42,96 @@ def lf_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
+def generate_search_fixtures(t, kyb, save, setup):
+    """Candidate lists from the real POST /api/kyb/search code (routes_kyb_search.py)."""
+    import routes_kyb_search as ks
+    from fastapi import FastAPI
+    from fastapi.testclient import TestClient
+
+    app = FastAPI()
+    app.include_router(kyb.router)
+    app.include_router(ks.router)
+    ks.install_search_controls(app)
+    client = TestClient(app)
+    json_headers = {"Content-Type": "application/json"}
+
+    def upstream_item(i, **kw):
+        item = {
+            "company_number": f"ZZ{i:06d}",
+            "title": f"SYNTHETIC TRADING {i} LIMITED",
+            "company_status": "active",
+            "company_type": "ltd",
+            "date_of_creation": f"20{10 + i % 15}-0{1 + i % 9}-1{i % 9}",
+            # fields the API must drop
+            "address": {"address_line_1": "SYNTHETIC ADDRESS LINE", "postal_code": "ZZ1 1ZZ"},
+            "address_snippet": "SYNTHETIC ADDRESS SNIPPET",
+            "snippet": "SYNTHETIC SNIPPET",
+            "description": "SYNTHETIC DESCRIPTION",
+            "description_identifier": ["incorporated-on"],
+            "matches": {"title": [1, 3]},
+            "links": {"self": "/company/SYNTHETIC"},
+            "kind": "searchresults#company",
+        }
+        item.update(kw)
+        return item
+
+    def envelope(items, total=None, omit_total=False):
+        env = {"kind": "search#companies", "items_per_page": 20, "start_index": 0, "page_number": 1, "items": items}
+        if not omit_total:
+            env["total_results"] = len(items) if total is None else total
+        return env
+
+    def search(name, q, upstream_body):
+        kyb.reset_state_for_tests()
+        ks.reset_search_state_for_tests()
+        kyb.COMPANIES_HOUSE_API_KEY = t.TEST_KEY
+        setup({"/search/companies": upstream_body})
+        save(f"search_{name}", client.post("/api/kyb/search", json={"q": q}))
+
+    search("default", "synthetic trading", envelope([
+        upstream_item(1),
+        upstream_item(2, company_status="dissolved", company_type="private-unlimited"),
+        upstream_item(3, company_status="open", company_type="limited-partnership", title="SYNTHETIC PARTNERSHIP LP"),
+    ]))
+    search("many", "synthetic", envelope([upstream_item(i) for i in range(20)], 356))
+    search("few", "synthetic", envelope([upstream_item(i) for i in range(5)], 7))
+    search("no_total", "synthetic", envelope([upstream_item(i) for i in range(3)], omit_total=True))
+    search("empty", "zzqxkv", envelope([], 0))
+    rlo = chr(0x202E)
+    hostile = [
+        '<img src=x onerror="window.__xss=1"><script>window.__xss=1</script>',
+        rlo + "SYNTHETIC REVERSED " + chr(0x2066) + " LIMITED",
+        "SYNTHETIC ENDS WITH OVERRIDE " + rlo,
+        "A" * 500,
+        '"quotes" and </script> and \\ backslash',
+    ]
+    search("hostile", "synthetic", envelope([upstream_item(i, title=title) for i, title in enumerate(hostile)]))
+
+    # error responses exactly as the API sends them
+    kyb.reset_state_for_tests()
+    ks.reset_search_state_for_tests()
+    kyb.COMPANIES_HOUSE_API_KEY = t.TEST_KEY
+    setup({"/search/companies": envelope([])})
+    save("search_error_422", client.post("/api/kyb/search", json={"q": "x"}))
+    save("search_error_413", client.post("/api/kyb/search", content=b"x" * 5000, headers=json_headers))
+    kyb.reset_state_for_tests()
+    ks.reset_search_state_for_tests()
+    setup({"/search/companies": envelope([upstream_item(1)])})
+    last = None
+    for i in range(12):
+        last = client.post("/api/kyb/search", json={"q": f"synthetic {i}"})
+        if last.status_code == 429:
+            break
+    if last is None or last.status_code != 429:
+        raise SystemExit("ERROR: the burst cap never produced a 429 for the search route")
+    save("search_error_429", last)
+    kyb.reset_state_for_tests()
+    kyb.COMPANIES_HOUSE_API_KEY = ""
+    save("search_error_503", client.post("/api/kyb/search", json={"q": "synthetic"}))
+    kyb.COMPANIES_HOUSE_API_KEY = t.TEST_KEY
+    kyb.reset_state_for_tests()
+    ks.reset_search_state_for_tests()
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--api-repo", default=str(HERE.parents[1] / "fincrimeradar-api"))
@@ -86,7 +176,7 @@ def main() -> int:
             "body": response.json(),
         }
         (out_dir / f"api_{name}.json").write_text(
-            json.dumps(data, indent=2, ensure_ascii=False) + chr(10), encoding="utf-8", newline=chr(10)
+            json.dumps(data, indent=2, ensure_ascii=True) + chr(10), encoding="utf-8", newline=chr(10)
         )
         print(f"api_{name}.json: HTTP {response.status_code}")
 
@@ -161,6 +251,8 @@ def main() -> int:
         return 2
     save("error_429", last)
     kyb.reset_state_for_tests()
+
+    generate_search_fixtures(t, kyb, save, setup)
 
     manifest = {
         "api_repo_commit": commit,

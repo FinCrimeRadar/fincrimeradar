@@ -1,5 +1,5 @@
 {
-  "api_repo_commit": "be04f3a9b0dd0d03f4f0a46228ead16352ce30cf",
+  "api_repo_commit": "aea23f89173456825dddbc2e3986849aa7263008",
   "nine_does_not_establish": {
     "accounts_overdue": "A register flag that accounts are overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
     "confirmation_statement_overdue": "A register flag that a confirmation statement is overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
@@ -24,6 +24,16 @@
     "api_many_officers.json": "21421b64c6b0976fb78c0f216215f43fd333ae62a47c54e3e68af77b330a02b7",
     "api_not_returned.json": "9e8e25171697dfe95381b054fbc116ec0982ec2ae8961980e181fda6033cccea",
     "api_open_ended_verification.json": "d33415e57155a34d4a1867944d8ab89864b78dcb55fca6066eab0b47d9cebabc",
+    "api_search_default.json": "d9e3e3fab8c08c438e22f56964c608513f5f2c4fc4ab8bbb8d0edfae6def8e60",
+    "api_search_empty.json": "bc6897c7083ba8ff23f3eddec1e9ef5c873cb0c8d35865386ccf422b173de239",
+    "api_search_error_413.json": "bc04f20ed11149f4cecd15e7d4070963f1c318b249054da26c92a1c6dbaaee36",
+    "api_search_error_422.json": "31ce99898f65316a36c467304b1f6653cba2b50d74384cb7d015865ea95b49e6",
+    "api_search_error_429.json": "b8e5c01647a606d025801e938ffab9f39b270fddc6465f8e91d2ab8a99296e4b",
+    "api_search_error_503.json": "81400c7c640f7e2bc26e328e6a89311e1e9d3b858399a3dca913e56b7f83948d",
+    "api_search_few.json": "32b89fb7026c3fadc669445424d0876eaa7ed1df46e91a60433ec06cb1597b6c",
+    "api_search_hostile.json": "3cec1cb5c22242f7993c010e8e567a9eefc72a05649f1aa24a29ce86d3294da4",
+    "api_search_many.json": "6c8093a3cc65b88e3a1e870385e732bb3f4da4e699cb63cd6785017a6b294a0f",
+    "api_search_no_total.json": "ac5b832b411e09241b09f12f2fcf4ebfc0b47c14f3fd9a8853e046c9eb4b99c2",
     "api_unsupported.json": "c672a439cd7677ddefa0e6120d9fb3978e46f6dd8cdcd72727b87c382dabd00c"
   }
 }

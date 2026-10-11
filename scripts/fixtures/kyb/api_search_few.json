@@ -1,0 +1,54 @@
+{
+  "status": 200,
+  "headers": {},
+  "body": {
+    "retrieved_at": "2026-10-11T12:00:00Z",
+    "source": "Companies House Public Data API",
+    "candidates": [
+      {
+        "company_number": "ZZ000000",
+        "title": "SYNTHETIC TRADING 0 LIMITED",
+        "company_status": "active",
+        "company_type": "ltd",
+        "date_of_creation": "2010-01-10",
+        "scope": "interpreted"
+      },
+      {
+        "company_number": "ZZ000001",
+        "title": "SYNTHETIC TRADING 1 LIMITED",
+        "company_status": "active",
+        "company_type": "ltd",
+        "date_of_creation": "2011-02-11",
+        "scope": "interpreted"
+      },
+      {
+        "company_number": "ZZ000002",
+        "title": "SYNTHETIC TRADING 2 LIMITED",
+        "company_status": "active",
+        "company_type": "ltd",
+        "date_of_creation": "2012-03-12",
+        "scope": "interpreted"
+      },
+      {
+        "company_number": "ZZ000003",
+        "title": "SYNTHETIC TRADING 3 LIMITED",
+        "company_status": "active",
+        "company_type": "ltd",
+        "date_of_creation": "2013-04-13",
+        "scope": "interpreted"
+      },
+      {
+        "company_number": "ZZ000004",
+        "title": "SYNTHETIC TRADING 4 LIMITED",
+        "company_status": "active",
+        "company_type": "ltd",
+        "date_of_creation": "2014-05-14",
+        "scope": "interpreted"
+      }
+    ],
+    "truncated": true,
+    "reported_total": 7,
+    "search_notice": "Several companies can share a similar name, and a name match is not an identity check. Confirm the company number before relying on a result.",
+    "attribution": "Source: Companies House public register, retrieved 2026-10-11T12:00:00Z. FinCrimeRadar is not affiliated with or endorsed by Companies House."
+  }
+}
