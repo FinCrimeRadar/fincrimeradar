@@ -275,7 +275,12 @@ def wait_ready(cdp: CDP) -> None:
     raise TimeoutError("page did not reach readyState complete")
 
 
+ERRORS: list[str] = []
+
+
 def navigate(cdp: CDP, url: str, width: int) -> None:
+    # Each navigation resets the in-page error log, so bank it first.
+    ERRORS.extend(cdp.evaluate("window.__consoleErrors || []") or [])
     cdp.call("Emulation.setDeviceMetricsOverride", {
         "width": width, "height": 900, "deviceScaleFactor": 1, "mobile": width < 768,
     })
@@ -559,7 +564,7 @@ def run() -> None:
                 time.sleep(0.3)
                 full_page_screenshot(cdp, f"kyb-lab-{width}-readout.png")
 
-        errors = cdp.evaluate("window.__consoleErrors")
+        errors = ERRORS + (cdp.evaluate("window.__consoleErrors") or [])
         require(not errors, f"console errors: {errors}")
         print("PASS: KYB Lab browser regression")
     finally:

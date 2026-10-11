@@ -78,8 +78,6 @@ def main() -> int:
     pages = 0
     for path in sorted(ROOT.glob("*.html")) + [ROOT / "partials" / "nav.html"]:
         text = path.read_text(encoding="utf-8")
-        if path.name == "partials/footer.html":
-            continue
         # Primary nav only: a Screen link in a nav-links or mobile-nav block.
         for m in SCREEN_LINK.finditer(text):
             window = text[max(0, m.start() - 600) : m.end() + 400]
