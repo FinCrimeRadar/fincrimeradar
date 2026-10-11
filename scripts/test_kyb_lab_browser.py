@@ -18,7 +18,8 @@ display text and does_not_establish of every record, the six global statements
 and the nine indicator strings.
 
 Optional: set KYB_SCREENSHOT_DIR to save 390px and 1440px screenshots of
-API-generated data.
+API-generated data. KYB_COLLECT_FAILURES=1 lists every failed assertion instead of
+stopping at the first; it is for diagnosis only and must not be used in CI.
 """
 
 from __future__ import annotations
@@ -26,6 +27,7 @@ from __future__ import annotations
 import copy
 import json
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -46,20 +48,42 @@ CHROME_CANDIDATES = (
 )
 
 NOT_RETURNED = "This register section was not returned. FinCrimeRadar draws no conclusion from its absence."
-# The nine indicator does_not_establish strings, as fixed by the API spec (v1.2).
-NINE = {
-    "accounts_overdue": "A register flag that accounts are overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
-    "confirmation_statement_overdue": "A register flag that a confirmation statement is overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
-    "idv_statement_overdue": "A register record that a statement is overdue is not a finding that the person is unverified or that an offence has occurred.",
-    "idv_statement_removed": "A removed statement record does not establish why it was removed or the person's current verification position.",
-    "active_psc_statements": "A PSC statement records what the company told the register. It does not establish who owns or controls the company or that the statement is accurate.",
-    "ceased_psc_statements": "A ceased statement is a historical register record. It does not establish the current position or that the statement was accurate.",
-    "previous_names": "A previous name is a register record. It does not establish why the name changed.",
-    "insolvency_history": "An insolvency record does not establish current solvency, cause or outcome.",
-    "outstanding_charges": "The register status of a charge does not establish the amount secured, the value of the assets or the company's ability to pay.",
-}
+MANIFEST = json.loads((FIXTURES / "MANIFEST.json").read_text(encoding="utf-8"))
+# The nine indicator does_not_establish strings exactly as the API's own tests fix them.
+NINE = MANIFEST["nine_does_not_establish"]
 XSS = '<img src=x onerror="window.__xss=1"><script>window.__xss=1</script>'
 XSS2 = '"><svg onload="window.__xss=1">'
+
+
+def fmt(code: str) -> str:
+    """The only transform allowed on API keys and enum codes."""
+    return re.sub(r"[_-]", " ", code)
+
+
+def dash(value: Any) -> str:
+    return "-" if value is None or value == "" else str(value)
+
+
+def leaves(value: Any) -> tuple[list[str], list[str]]:
+    """(formatted keys, leaf texts) of an evidence value, in DOM order."""
+    keys: list[str] = []
+    out: list[str] = []
+
+    def go(x: Any) -> None:
+        if isinstance(x, dict):
+            for k, v in x.items():
+                keys.append(fmt(k))
+                go(v)
+        elif isinstance(x, list):
+            if not x:
+                out.append("-")
+            for item in x:
+                go(item)
+        else:
+            out.append(dash(x))
+
+    go(value)
+    return keys, out
 
 
 def api(name: str) -> dict[str, Any]:
@@ -74,17 +98,56 @@ def body_as(name: str, alias: str) -> dict[str, Any]:
 
 
 def hostile_body() -> dict[str, Any]:
-    """A real response with register text overwritten by payloads (the API would not emit these)."""
+    """A real response with every API string overwritten by payloads (the API would not emit these)."""
     body = body_as("default", "ZZ999999")
     body["company"]["name"] = XSS
     body["company"]["links"] = {"self": "javascript:window.__xss=1"}
     body["company"]["url"] = "https://evil.example/phish"
     body["officers"]["items"][0]["name"] = XSS
+    body["officers"]["items"][0]["role"] = XSS2
     body["officers"]["events"][0]["name"] = XSS
     body["indicators"][0]["label"] = "The company has a label " + XSS2
     body["indicators"][0]["evidence"] = {"statements": [{"description": XSS}], XSS2: "key payload"}
+    body["indicators"][0]["does_not_establish"] = XSS
+    body["indicators"][0]["evidence_state"] = XSS2
+    for iv in (body["officers"]["items"][0]["identity_verification"], body["pscs"]["items"][0]["identity_verification"]):
+        iv["display"] = XSS
+        iv["does_not_establish"] = XSS2
+        iv["eligibility"] = XSS2
+        iv["status"] = XSS
+        iv["evidence_label"] = XSS2
+        iv["evidence"] = {XSS: XSS2}
     body["pscs"]["active_statements"][0]["description"] = XSS2
     body["registered_office_change_filings"]["items"][0]["description_identifier"] = XSS
+    for ind in body["indicators"]:
+        if ind["id"] == "outstanding_charges":
+            ind["evidence"]["charges"][0]["status"] = XSS
+        if ind["id"] == "insolvency_history":
+            ind["evidence"]["status"] = [XSS2]
+    body["does_not_establish"][0] = XSS
+    body["attribution"] = XSS2
+    body["not_returned_notice"] = XSS
+    return body
+
+
+def awkward_body() -> dict[str, Any]:
+    """A real response whose prose has leading and trailing spaces, double spaces and unicode punctuation."""
+    body = body_as("default", "ZZ999997")
+    awkward = "  Spaced  twice \u2019quoted\u2019 and a dash \u2014 here.  "
+    for iv in (body["officers"]["items"][0]["identity_verification"], body["pscs"]["items"][0]["identity_verification"]):
+        iv["display"] = awkward
+        iv["does_not_establish"] = awkward + "2"
+    body["indicators"][0]["label"] = awkward + "3"
+    body["indicators"][0]["does_not_establish"] = awkward + "4"
+    body["does_not_establish"][0] = awkward + "5"
+    body["attribution"] = awkward + "6"
+    body["pscs"]["active_statements"][0]["description"] = awkward + "7"
+    return body
+
+
+def variant(alias: str, **changes: Any) -> dict[str, Any]:
+    body = body_as("default", alias)
+    body.update(changes)
     return body
 
 
@@ -103,6 +166,9 @@ MOCKS: dict[str, Any] = {
     alias: {"status": 200, "body": body_as(name, alias)} for alias, name in FIXTURE_ALIASES.items()
 }
 MOCKS["ZZ999999"] = {"status": 200, "body": hostile_body()}
+MOCKS["ZZ999997"] = {"status": 200, "body": awkward_body()}
+MOCKS["ZZ999996"] = {"status": 200, "body": {**body_as("default", "ZZ111111")}}  # response number differs from the lookup
+MOCKS["ZZ0000B1"] = {"status": 200, "body": variant("ZZ0000B1", charges=None, insolvency=None)}
 for alias, name in (("ZZ000422", "error_422"), ("ZZ000404", "error_404"), ("ZZ000429", "error_429"), ("ZZ000503", "error_503")):
     MOCKS[alias] = {"status": api(name)["status"], "body": api(name)["body"], "headers": api(name)["headers"]}
 # Transport level cases, not API output.
@@ -292,43 +358,114 @@ def records(body: dict[str, Any]) -> list[dict[str, Any]]:
     return body["officers"]["items"][:20] + body["pscs"]["items"][:20]
 
 
+def leaf_texts(cdp: CDP, selector: str) -> list[str]:
+    """Text nodes under a container, in order, excluding field keys (dt)."""
+    return cdp.evaluate(
+        "(() => { const root = document.querySelector(%s); if (!root) return null; const out = [];"
+        " const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); let n;"
+        " while ((n = w.nextNode())) { if (n.parentElement.closest('dt')) continue; out.push(n.nodeValue); }"
+        " return out; })()" % json.dumps(selector)
+    )
+
+
 def contract_checks(cdp: CDP, alias: str, name: str) -> None:
-    """Rendered text equals the API strings exactly for one response."""
+    """Prose is byte-identical to the API, keys and enum codes follow the formatting rule."""
     body = MOCKS[alias]["body"]
     show(cdp, alias)
-    recs = records(body)
-    ivs = [r["identity_verification"] for r in recs]
-    require(texts(cdp, ".kyb-idv-display") == [iv["display"] for iv in ivs], f"{name}: IDV display text is not verbatim")
+    off, psc = body["officers"]["items"][:20], body["pscs"]["items"][:20]
+    ivs = [r["identity_verification"] for r in off + psc]
+
+    # --- prose: byte-identical -------------------------------------------------------
+    require(texts(cdp, ".kyb-idv-display") == [iv["display"] for iv in ivs], f"{name}: IDV display text is not byte-identical")
     require(texts(cdp, ".kyb-idv-dne") == [iv["does_not_establish"] for iv in ivs],
-            f"{name}: per-record does_not_establish is not verbatim")
-    pairs = cdp.evaluate("[...document.querySelectorAll('.kyb-idv-state')].map(dl => [...dl.querySelectorAll('dd')].map(d => d.textContent))")
-    want = [[iv["eligibility"], "None" if iv["status"] is None else iv["status"]] for iv in ivs]
-    require(pairs == want, f"{name}: eligibility and status are not the API values: {pairs} vs {want}")
+            f"{name}: per-record does_not_establish is not byte-identical")
+    require(texts(cdp, ".kyb-idv > .kyb-note") == [iv["evidence_label"] for iv in ivs if iv["evidence_label"]],
+            f"{name}: evidence_label is not byte-identical")
     require(texts(cdp, "#kybDneList li") == body["does_not_establish"], f"{name}: global statements differ")
     require(len(body["does_not_establish"]) == 6, f"{name}: the API did not return six global statements")
+    require(texts(cdp, "#kybAttribution") == [body["attribution"]], f"{name}: attribution differs")
     inds = body["indicators"]
     if body["interpretation"]["scope"] == "interpreted":
-        require(texts(cdp, ".kyb-ind-title") == [i["label"] for i in inds], f"{name}: indicator titles differ or are concatenated")
+        require(texts(cdp, ".kyb-ind-title") == [i["label"] for i in inds], f"{name}: indicator labels differ")
         require(texts(cdp, ".kyb-ind-dne") == [i["does_not_establish"] for i in inds], f"{name}: indicator does_not_establish differs")
     for i in inds:
         if i["id"] in NINE:
             require(i["does_not_establish"] == NINE[i["id"]], f"{name}: the API changed the {i['id']} string")
-    require(texts(cdp, "#kybAttribution") == [body["attribution"]], f"{name}: attribution differs")
+    statements = body["pscs"]["active_statements"] + body["pscs"]["ceased_statements"]
+
+    # --- row titles: names verbatim, role and kind formatted as codes; statement text verbatim ------
+    want_titles = (
+        [dash(o["name"]) + (", " + fmt(o["role"]) if o["role"] else "") for o in off]
+        + [dash(p["name"]) + (", " + fmt(p["kind"]) if p["kind"] else "") for p in psc]
+        + [st["description"] if st["description"] else (fmt(st["statement"]) if st["statement"] else "-") for st in statements]
+    )
+    require(texts(cdp, ".kyb-row-title") == want_titles, f"{name}: row titles are not name verbatim plus formatted codes")
+    metas = (
+        [f"Appointed {dash(o['appointed_on'])}. Resigned {dash(o['resigned_on'])}" for o in off]
+        + [f"Notified {dash(p['notified_on'])}. Ceased {dash(p['ceased_on'])}" for p in psc]
+        + [f"Notified {dash(st['notified_on'])}. Ceased {dash(st['ceased_on'])}" for st in statements]
+    )
+    require(texts(cdp, ".kyb-row-meta") == metas, f"{name}: dates are not shown as returned, null as a hyphen")
+    events = body["officers"]["events"][:20]
+    shown_events = cdp.evaluate(
+        "[...(document.getElementById('kyb-h-officers').parentElement.querySelectorAll('ul.kyb-list')[1] || {children: []}).children].map(n => n.textContent)"
+    )
+    want_events = [
+        f"{dash(e['date'])}: {fmt(e['event'])}, {dash(e['name'])}, {fmt(e['role']) if e['role'] else '-'}" for e in events
+    ]
+    require(shown_events == want_events, f"{name}: events are not date, formatted event code, name verbatim, formatted role")
+
+    # --- codes and keys: eligibility and status raw, tag and sources and evidence keys formatted ------
+    pairs = cdp.evaluate("[...document.querySelectorAll('.kyb-idv-state')].map(dl => [...dl.querySelectorAll('dd')].map(d => d.textContent))")
+    require(pairs == [[iv["eligibility"], dash(iv["status"])] for iv in ivs],
+            f"{name}: eligibility and status are not the API values: {pairs}")
+    require(texts(cdp, ".kyb-tag") == [fmt(i["evidence_state"]) for i in inds], f"{name}: evidence_state is not the formatted code")
+    require(texts(cdp, ".kyb-source") == ["Source: " + ", ".join(fmt(e) for e in i["source_endpoints"]) for i in inds],
+            f"{name}: source endpoints are not formatted codes")
+    for k, ind in enumerate(inds):
+        keys, _vals = leaves(ind["evidence"])
+        got = cdp.evaluate("[...document.querySelectorAll('.kyb-ind')[%d].querySelectorAll('dt')].map(n => n.textContent)" % k)
+        require(got == keys, f"{name}: {ind['id']} evidence keys are not the formatted API keys: {got} vs {keys}")
+
+    # --- company facts and filings -----------------------------------------------------------------
+    company = body["company"]
+    want_facts = [dash(company["name"]), body["company_number"], dash(company["status"]), dash(company["type"]),
+                  dash(company["date_of_creation"]), dash(company["date_of_cessation"])]
+    require(texts(cdp, "#kyb-h-company ~ dl dd")[:6] == want_facts, f"{name}: company facts differ from the API values")
+    labels = texts(cdp, "#kyb-h-company ~ dl dt")[:6]
+    require(labels[4] == "Date when the company was created", f"{name}: creation date label, got {labels}")
+    require(labels[5] == "Date which the company was converted/closed, dissolved or removed", f"{name}: cessation label, got {labels}")
     filings = body.get("registered_office_change_filings")
     if filings and filings["source_status"] == "available":
-        require(texts(cdp, ".kyb-filing") == [f"{f['date']}: {f['description_identifier']}" for f in filings["items"][:20]],
-                f"{name}: filings are not date plus description")
-        for f in filings["items"]:
-            require(f["transaction_id"] not in section_text(cdp, "kyb-h-filings"), f"{name}: transaction id is shown")
-    labels = texts(cdp, "#kyb-h-company ~ dl dt")
-    require("Date when the company was created" in labels, f"{name}: creation date label, got {labels}")
-    require(not any(label.startswith("Incorporated") for label in labels), f"{name}: invented date label")
+        want_filings = [f"{dash(f['date'])}: {fmt(f['description_identifier'])}" for f in filings["items"][:20]]
+        require(texts(cdp, ".kyb-filing") == want_filings, f"{name}: filings are not date plus formatted description code")
+
+    # --- charges and insolvency: returned fields only -----------------------------------------------
+    results_text = cdp.evaluate("document.getElementById('kybResults').textContent")
+    for phrase in ("No charge with status", "returned an insolvency resource", "Not recorded"):
+        require(phrase not in results_text, f"{name}: frontend authored phrase {phrase!r} is shown")
     charges = next((i for i in inds if i["id"] == "outstanding_charges"), None)
-    if charges:
-        shown = section_text(cdp, "kyb-h-charges")
-        for c in charges["evidence"]["charges"]:
-            require(c["created_on"] in shown and c["status"] in shown, f"{name}: charge detail missing: {c}")
-    print(f"OK: contract, {name}: IDV text, eligibility, status, six global items, indicator strings, filings")
+    if body["charges"] and body["charges"]["source_status"] == "available":
+        want = [body["charges"]["source_status"]]
+        if charges:
+            ev = charges["evidence"]
+            want += [str(ev[k]) for k in ("outstanding_count", "returned_count", "total_count") if ev.get(k) is not None]
+        got = cdp.evaluate(
+            "[...document.getElementById('kyb-h-charges').parentElement.querySelectorAll(':scope > dl.kyb-facts:not(.kyb-ev) dd')].map(d => d.textContent)"
+        )
+        require(got == want, f"{name}: charge counts are not the returned fields: {got} vs {want}")
+        if charges:
+            keys, vals = leaves(charges["evidence"]["charges"])
+            got_keys = cdp.evaluate("[...document.querySelectorAll('#kyb-h-charges ~ ul.kyb-plain dt')].map(n => n.textContent)")
+            require(got_keys == keys, f"{name}: charge keys differ: {got_keys} vs {keys}")
+            require(leaf_texts(cdp, "#kyb-h-charges ~ ul.kyb-plain") == vals, f"{name}: charge values differ from the API")
+    ins = next((i for i in inds if i["id"] == "insolvency_history"), None)
+    if body["insolvency"] and body["insolvency"]["source_status"] == "available" and ins:
+        keys, vals = leaves(ins["evidence"])
+        got_keys = cdp.evaluate("[...document.querySelectorAll('#kyb-h-insolvency ~ dl.kyb-ev dt')].map(n => n.textContent)")
+        require(got_keys == keys, f"{name}: insolvency keys differ: {got_keys} vs {keys}")
+        require(leaf_texts(cdp, "#kyb-h-insolvency ~ dl.kyb-ev") == vals, f"{name}: insolvency values differ from the API")
+    print(f"OK: contract, {name}: prose byte-identical, codes and keys formatted, null as a hyphen, returned fields only")
 
 
 def run() -> None:
@@ -398,15 +535,10 @@ def run() -> None:
             contract_checks(cdp, alias, name)
         shown = {i["id"] for i in MOCKS["ZZ0000A8"]["body"]["indicators"]}
         require(shown == set(NINE), f"the all-nine fixture must carry all nine indicators, got {sorted(shown)}")
-        require(set(texts(cdp, ".kyb-ind-dne")) == set(NINE.values()), "all nine indicator strings render exactly")
+        want_nine = [NINE[i["id"]] for i in MOCKS["ZZ0000A8"]["body"]["indicators"]]
+        require(texts(cdp, ".kyb-ind-dne") == want_nine, "all nine indicator strings render exactly, in the API order")
+        require(len(set(want_nine)) == 9, "nine distinct strings")
         print("OK: all nine indicator strings render exactly and match the spec text")
-
-        # real response details worth naming
-        show(cdp, "ZZ0000A1")
-        charges_text = section_text(cdp, "kyb-h-charges")
-        require("outstanding" in charges_text and "2023-03-03" in charges_text, "charge list with status and dates")
-        require("voluntary-arrangement" in section_text(cdp, "kyb-h-insolvency"), "insolvency detail from the response")
-        print("OK: charges and insolvency render the returned detail")
 
         show(cdp, "ZZ0000A3")
         require("dissolved" in section_text(cdp, "kyb-h-company"), "dissolved status shown raw")
@@ -415,19 +547,53 @@ def run() -> None:
         # ---- hostile text renders literally ------------------------------------------
         show(cdp, "ZZ999999")
         require(cdp.evaluate("window.__xss === undefined"), "XSS payload executed")
-        require(cdp.evaluate("document.querySelectorAll('#kybResults img, #kybResults svg, #kybResults script').length") == 0,
-                "no injected elements inside results")
+        require(cdp.evaluate("document.querySelectorAll('#kybResults img, #kybResults svg, #kybResults script, .kyb-dne img, .kyb-dne svg, .kyb-dne script').length") == 0,
+                "no injected elements anywhere in results or the panel")
         require(texts(cdp, "#kybResultsHeading") == [XSS], "company name is literal text")
         results_text = cdp.evaluate("document.getElementById('kybResults').textContent")
         for payload in (XSS, XSS2):
             require(payload in results_text, f"payload {payload!r} is shown as text")
+        require(texts(cdp, ".kyb-idv-display")[0] == XSS and texts(cdp, ".kyb-idv-dne")[0] == XSS2, "IDV prose is literal text")
+        require(texts(cdp, ".kyb-ind-dne")[0] == XSS and texts(cdp, ".kyb-ind-title")[0].endswith(XSS2), "indicator prose is literal text")
+        require(texts(cdp, ".kyb-idv-state dd")[:2] == [XSS2, XSS], "eligibility and status are literal text")
+        require(texts(cdp, "#kybDneList li")[0] == XSS and texts(cdp, "#kybAttribution") == [XSS2], "panel and attribution are literal text")
         require(texts(cdp, ".kyb-row-title")[0].startswith(XSS), "officer name is literal text")
-        require(texts(cdp, ".kyb-filing")[0].endswith(XSS), "filing description is literal text")
+        require(texts(cdp, ".kyb-filing")[0].endswith(fmt(XSS)), "filing description code is literal text")
+        require(texts(cdp, ".kyb-tag")[0] == fmt(XSS2), "evidence state code is literal text")
+        charges_html = cdp.evaluate("document.getElementById('kyb-h-charges').parentElement.textContent")
+        require(XSS in charges_html, "charge status payload is shown as text")
+        require(XSS2 in cdp.evaluate("document.getElementById('kyb-h-insolvency').parentElement.textContent"), "insolvency payload is shown as text")
         hrefs = cdp.evaluate("[...document.querySelectorAll('#kybResults a[href]')].map(a => a.getAttribute('href'))")
         require(hrefs == ["https://find-and-update.company-information.service.gov.uk/company/ZZ999999"],
                 f"only the Companies House link built from the validated number, got {hrefs}")
         require(cdp.evaluate("document.querySelector('#kybResults a[href]').rel") == "noopener noreferrer", "link rel")
-        print("OK: hostile text in name, officer, indicator, evidence key and value, statement and filing is literal; one validated link")
+        print("OK: hostile text in every API string, code and key is literal; one validated link")
+
+        show(cdp, "ZZ999996")  # the response names a different company number than was looked up
+        require(cdp.evaluate("document.querySelectorAll('#kybResults a[href]').length") == 0,
+                "no Companies House link when the response number differs from the lookup number")
+        print("OK: a response number that differs from the lookup number gets no link")
+
+        # ---- prose is byte-identical, including spaces and unicode punctuation ----------------
+        show(cdp, "ZZ999997")
+        awk = MOCKS["ZZ999997"]["body"]
+        require(texts(cdp, ".kyb-idv-display")[0] == awk["officers"]["items"][0]["identity_verification"]["display"],
+                "display text with spaces and unicode punctuation is byte-identical")
+        require(texts(cdp, ".kyb-ind-title")[0] == awk["indicators"][0]["label"], "indicator label is byte-identical")
+        require(texts(cdp, "#kybDneList li")[0] == awk["does_not_establish"][0], "panel item is byte-identical")
+        require(texts(cdp, "#kybAttribution") == [awk["attribution"]], "attribution is byte-identical")
+        require(any(t == awk["pscs"]["active_statements"][0]["description"] for t in texts(cdp, ".kyb-row-title")),
+                "statement description is byte-identical")
+        print("OK: prose with leading, trailing and double spaces and unicode punctuation is byte-identical")
+
+        # ---- null charges and insolvency: the section is absent (the API means not requested) ------
+        show(cdp, "ZZ0000B1")
+        require(cdp.evaluate("!document.getElementById('kyb-h-charges') && !document.getElementById('kyb-h-insolvency')"),
+                "null charges and insolvency show no section")
+        show(cdp, "ZZ0000A2")
+        require(cdp.evaluate("!document.getElementById('kyb-h-insolvency') && !!document.getElementById('kyb-h-charges')"),
+                "a null insolvency object shows no section while charges still shows")
+        print("OK: pinned: null charges or insolvency show no section")
 
         # ---- show more -------------------------------------------------------------------
         officer_rows = "document.getElementById('kyb-h-officers').parentElement.querySelector('ul.kyb-list').children.length"
@@ -442,6 +608,8 @@ def run() -> None:
         show(cdp, "ZZ0000A5")
         n = cdp.evaluate("[...document.querySelectorAll('#kybResults .kyb-notice')].filter(p => p.textContent === %s).length" % json.dumps(NOT_RETURNED))
         require(n >= 5, f"every not_returned section shows the notice, got {n}")
+        require(set(texts(cdp, "#kybResults .kyb-notice")) == {MOCKS["ZZ0000A5"]["body"]["not_returned_notice"]},
+                "the notice is the API's not_returned_notice, byte-identical")
         require(cdp.evaluate("document.querySelectorAll('#kybResults .kyb-row').length") == 0, "no rows when not returned")
         print("OK: not_returned sections each show the fixed notice")
 

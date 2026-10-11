@@ -9,16 +9,28 @@ API really returns, so the frontend tests never depend on hand-built shapes.
     python scripts/generate_kyb_api_fixtures.py --api-repo ../fincrimeradar-api
 
 Run it with the API repository's Python environment (it needs fastapi, pydantic,
-requests and pytest). Output: scripts/fixtures/kyb/api_*.json. Re-run it when the
-API response shape changes, and commit the result.
+requests and pytest). Output: scripts/fixtures/kyb/api_*.json plus MANIFEST.json
+(the API commit it ran against, the nine indicator strings as the API's own tests
+fix them, and a SHA-256 for every fixture). Re-run it when the API response shape
+changes, and commit the result.
+
+    python scripts/generate_kyb_api_fixtures.py --check
+
+regenerates into a temporary directory and fails if the committed fixtures differ
+from what the API produces now (freshness check). scripts/check_kyb_lab.py runs a
+cheaper check that needs no API repository: it verifies the manifest hashes, which
+catches a hand edited fixture.
 """
 
 from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -28,7 +40,9 @@ OUT = HERE / "fixtures" / "kyb"
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--api-repo", default=str(HERE.parents[1] / "fincrimeradar-api"))
+    ap.add_argument("--check", action="store_true", help="regenerate to a temp dir and compare with the committed fixtures")
     args = ap.parse_args()
+    out_dir = Path(tempfile.mkdtemp(prefix="kyb-fixtures-")) if args.check else OUT
     api = Path(args.api_repo).resolve()
     sys.path.insert(0, str(api))
     sys.path.insert(0, str(api / "tests"))
@@ -53,13 +67,13 @@ def main() -> int:
         return client.get(f"/api/kyb/company/{number}", headers=headers or {})
 
     def save(name, response):
-        OUT.mkdir(parents=True, exist_ok=True)
+        out_dir.mkdir(parents=True, exist_ok=True)
         data = {
             "status": response.status_code,
             "headers": {k: v for k, v in response.headers.items() if k.lower() == "retry-after"},
             "body": response.json(),
         }
-        (OUT / f"api_{name}.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        (out_dir / f"api_{name}.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"api_{name}.json: HTTP {response.status_code}")
 
     # 1. Hand-authored upstream set from the API's own fixtures (all sections present).
@@ -130,6 +144,25 @@ def main() -> int:
             break
     save("error_429", last)
     kyb.reset_state_for_tests()
+
+    commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=api, capture_output=True, text=True).stdout.strip()
+    manifest = {
+        "api_repo_commit": commit,
+        "nine_does_not_establish": t.NINE_DOES_NOT_ESTABLISH,
+        "files": {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(out_dir.glob("api_*.json"))},
+    }
+    (out_dir / "MANIFEST.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + chr(10), encoding="utf-8")
+
+    if args.check:
+        stale = [
+            f.name
+            for f in sorted(out_dir.glob("*.json"))
+            if not (OUT / f.name).exists() or (OUT / f.name).read_bytes() != f.read_bytes()
+        ]
+        if stale:
+            print("STALE fixtures (regenerate with this script and commit):", ", ".join(stale))
+            return 1
+        print("OK: committed fixtures match what the API produces now")
     return 0
 
 

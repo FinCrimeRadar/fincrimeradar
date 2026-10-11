@@ -10,6 +10,8 @@ from any page whose primary nav links to Screen.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
 import sys
 from pathlib import Path
@@ -39,7 +41,7 @@ ALLOWED_SCRIPT_SRC = (
 )
 SCREEN_LINK = re.compile(r'<a href="/screen\.html"(?: class="hm")?>Screen</a>')
 KYB_LINK = re.compile(r'<a href="/kyb-lab\.html"[^>]*>KYB Lab</a>')
-DASHES = re.compile("[–—]")
+DASHES = re.compile("[\u2013\u2014]")
 
 
 def strip_js_comments(src: str) -> str:
@@ -81,6 +83,21 @@ def main() -> int:
         for number in numbers:
             if not re.fullmatch(r"ZZ\d{6}", number):
                 problems.append(f"{fixture.name}: company number {number!r} is not a reserved ZZ number")
+
+    # Fixture freshness (cheap): every committed fixture must match the hash the generator
+    # recorded, so a hand edited response is caught. Full regeneration needs the API repo:
+    #   python scripts/generate_kyb_api_fixtures.py --check
+    manifest_path = ROOT / "scripts" / "fixtures" / "kyb" / "MANIFEST.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    on_disk = {f.name for f in (ROOT / "scripts" / "fixtures" / "kyb").glob("api_*.json")}
+    if on_disk != set(manifest["files"]):
+        problems.append(f"fixtures differ from the manifest: {sorted(on_disk ^ set(manifest['files']))}")
+    for name, digest in manifest["files"].items():
+        path = ROOT / "scripts" / "fixtures" / "kyb" / name
+        if path.exists() and hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+            problems.append(f"{name} does not match the generator manifest, regenerate it instead of editing it")
+    if len(manifest["nine_does_not_establish"]) != 9:
+        problems.append("the manifest does not carry the nine indicator strings")
 
     pages = 0
     for path in sorted(ROOT.glob("*.html")) + [ROOT / "partials" / "nav.html"]:

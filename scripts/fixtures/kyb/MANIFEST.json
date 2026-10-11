@@ -1,0 +1,28 @@
+{
+  "api_repo_commit": "9c2fcbadc40af523ba17e4210ad7e7bfa24879f7",
+  "nine_does_not_establish": {
+    "accounts_overdue": "A register flag that accounts are overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
+    "confirmation_statement_overdue": "A register flag that a confirmation statement is overdue does not establish the reason, whether the company is trading, or any wrongdoing.",
+    "idv_statement_overdue": "A register record that a statement is overdue is not a finding that the person is unverified or that an offence has occurred.",
+    "idv_statement_removed": "A removed statement record does not establish why it was removed or the person's current verification position.",
+    "active_psc_statements": "A PSC statement records what the company told the register. It does not establish who owns or controls the company or that the statement is accurate.",
+    "ceased_psc_statements": "A ceased statement is a historical register record. It does not establish the current position or that the statement was accurate.",
+    "previous_names": "A previous name is a register record. It does not establish why the name changed.",
+    "insolvency_history": "An insolvency record does not establish current solvency, cause or outcome.",
+    "outstanding_charges": "The register status of a charge does not establish the amount secured, the value of the assets or the company's ability to pay."
+  },
+  "files": {
+    "api_active_ltd_outstanding_charges.json": "b24900debd387b693b62a8ea9510004293c9827afa2262ad79600b21327933d8",
+    "api_active_registered_office_change.json": "a3532771dd81778d34f4b6a0049edde06b944c94fcb3f0e6409b72ed2e4184a7",
+    "api_all_nine_indicators.json": "53f564d2daf1d4476a44b5518bb33d1e11c5977b69d5303d6fce93f77599afe3",
+    "api_default.json": "9728a9af85965817ef7afce6f78242da84fe0ca76d66f2e3a69e6abffe99c267",
+    "api_dissolved.json": "e8d559c959f66c4fdf23517fecbb4823fd6dc3a685c9e14a704ca8f589973cbf",
+    "api_error_404.json": "ee119277ca544431081ee6a4a90294294361e3849e3e17553674c70afc2a28dd",
+    "api_error_422.json": "86e6571843fc65b8b139da84345b95d9ec960747b942fd8fde63ed5e110fac30",
+    "api_error_429.json": "18b39960a584951e9c3a166dd31d9408924a98c3d53054f19faab2e55953df7a",
+    "api_error_503.json": "621749d3ecf508cac0eb9a217e7bac28e52c64a63e806a32a5e990de95589078",
+    "api_many_officers.json": "5234457ed9beee8fdfdf12cfe88eabb86a8d308b011c671ff1202a1855f101dc",
+    "api_not_returned.json": "07ef3e3e4f8c8802576c2b16a785d47f7781ea5c4174855eeba6069d2d8d7d2c",
+    "api_unsupported.json": "4018b93459f801f13158a3fa4a0b471bb467bad9101f5765a4023c75e434c618"
+  }
+}

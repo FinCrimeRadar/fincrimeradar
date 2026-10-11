@@ -64,20 +64,22 @@
     while (node.firstChild) node.removeChild(node.firstChild);
   }
 
-  function text(value, fallback) {
-    if (value === null || value === undefined || value === '') return fallback || 'Not recorded';
-    return String(value);
+  // Null, undefined and empty values show as a plain hyphen, never as words.
+  function text(value) {
+    return value === null || value === undefined || value === '' ? '-' : String(value);
   }
 
+  // The only transform applied to API strings: field keys and enum codes may have
+  // underscores and hyphens turned into spaces. Prose is never passed through this.
   function label(key) {
-    return String(key).replace(/_/g, ' ');
+    return String(key).replace(/[_-]/g, ' ');
   }
 
   // Generic, safe renderer for register evidence of any shape.
   function renderValue(value) {
-    if (value === null || value === undefined) return el('span', 'kyb-muted', 'Not recorded');
+    if (value === null || value === undefined) return el('span', 'kyb-muted', '-');
     if (Array.isArray(value)) {
-      if (!value.length) return el('span', 'kyb-muted', 'None');
+      if (!value.length) return el('span', 'kyb-muted', '-');
       var ul = el('ul', 'kyb-plain');
       value.forEach(function (v) {
         add(ul, add(el('li'), renderValue(v)));
@@ -167,7 +169,7 @@
     add(box, el('p', 'kyb-idv-display', iv.display));
     var state = facts([
       ['Eligibility', iv.eligibility],
-      ['Status', iv.status === null || iv.status === undefined ? 'None' : iv.status]
+      ['Status', iv.status]
     ]);
     state.className += ' kyb-idv-state';
     add(box, state);
@@ -190,7 +192,7 @@
     ]));
     var interp = data.interpretation || {};
     if (interp.scope === 'unsupported_entity_type') {
-      add(s, el('p', 'kyb-notice kyb-scope', text(interp.notice, 'This entity type is not interpreted in phase 1.')));
+      add(s, el('p', 'kyb-notice kyb-scope', text(interp.notice)));
     } else if (interp.notice) {
       add(s, note(interp.notice));
     }
@@ -218,7 +220,7 @@
       add(tagLine, el('span', 'kyb-tag', label(ind.evidence_state)));
       add(a, tagLine);
       if (ind.evidence && Object.keys(ind.evidence).length) add(a, renderValue(ind.evidence));
-      add(a, verbatim('Does not establish', text(ind.does_not_establish, ''), 'kyb-ind-dne'));
+      add(a, verbatim('Does not establish', text(ind.does_not_establish), 'kyb-ind-dne'));
       add(a, el('p', 'kyb-source', 'Source: ' + sourceLabel(ind.source_endpoints)));
       add(s, a);
     });
@@ -235,7 +237,7 @@
       var li = el('li', 'kyb-row');
       add(li, el('p', 'kyb-row-title', text(it.name) + (it.role ? ', ' + label(it.role) : '')));
       add(li, el('p', 'kyb-row-meta',
-        'Appointed ' + text(it.appointed_on) + (it.resigned_on ? '. Resigned ' + it.resigned_on : '. Not recorded as resigned')));
+        'Appointed ' + text(it.appointed_on) + '. Resigned ' + text(it.resigned_on)));
       if (it.identity_verification) add(li, idvBlock(it.identity_verification));
       return li;
     }, 'officers'));
@@ -244,7 +246,7 @@
     if (ev.length) {
       add(s, el('h4', 'kyb-h4', 'Dated appointments and resignations'));
       add(s, pagedList(ev, function (e) {
-        return el('li', 'kyb-row', e.date + ': ' + label(e.event) + ', ' + text(e.name) + (e.role ? ', ' + label(e.role) : ''));
+        return el('li', 'kyb-row', text(e.date) + ': ' + text(e.event && label(e.event)) + ', ' + text(e.name) + ', ' + text(e.role && label(e.role)));
       }, 'events'));
     }
     return s;
@@ -252,9 +254,9 @@
 
   function statementRow(st) {
     var li = el('li', 'kyb-row');
-    add(li, el('p', 'kyb-row-title', text(st.description || st.statement)));
+    add(li, el('p', 'kyb-row-title', st.description ? st.description : text(st.statement && label(st.statement))));
     add(li, el('p', 'kyb-row-meta',
-      'Notified ' + text(st.notified_on) + (st.ceased_on ? '. Ceased ' + st.ceased_on : '')));
+      'Notified ' + text(st.notified_on) + '. Ceased ' + text(st.ceased_on)));
     return li;
   }
 
@@ -268,7 +270,7 @@
       var li = el('li', 'kyb-row');
       add(li, el('p', 'kyb-row-title', text(it.name) + (it.kind ? ', ' + label(it.kind) : '')));
       add(li, el('p', 'kyb-row-meta',
-        'Notified ' + text(it.notified_on) + (it.ceased_on ? '. Ceased ' + it.ceased_on : '. Not recorded as ceased')));
+        'Notified ' + text(it.notified_on) + '. Ceased ' + text(it.ceased_on)));
       if (it.identity_verification) add(li, idvBlock(it.identity_verification));
       return li;
     }, 'PSC records'));
@@ -293,7 +295,7 @@
     if (f.source_status !== 'available') return add(s, notReturned(data));
     if (!(f.items || []).length) add(s, note('No registered office change filings were found in the part of the filing history that was returned.'));
     else add(s, pagedList(f.items, function (it) {
-      return el('li', 'kyb-row kyb-filing', text(it.date) + ': ' + text(it.description_identifier));
+      return el('li', 'kyb-row kyb-filing', text(it.date) + ': ' + text(it.description_identifier && label(it.description_identifier)));
     }, 'filings'));
     if (f.truncated === true) add(s, note('The filing history holds more entries than were returned. Older registered office changes may be missing.'));
     return s;
@@ -307,19 +309,24 @@
     return null;
   }
 
+  // Charges and insolvency show the returned fields only. There is no frontend
+  // sentence about what the absence of a charge or case would mean.
   function renderCharges(data) {
     var r = data.charges;
     if (!r) return null;
     var s = block('kyb-h-charges', 'Charges');
     if (r.source_status !== 'available') return add(s, notReturned(data));
+    add(s, facts([['Source status', r.source_status]]));
     var ev = indicatorEvidence(data, 'outstanding_charges');
-    if (!ev) return add(s, note('No charge with status outstanding was returned.'));
-    add(s, facts([
-      ['Outstanding charges', ev.outstanding_count],
-      ['Charges returned', ev.returned_count],
-      ['Total charges', ev.total_count]
-    ]));
-    if (Array.isArray(ev.charges) && ev.charges.length) add(s, renderValue(ev.charges));
+    if (ev) {
+      var rows = [];
+      [['Outstanding charges', 'outstanding_count'], ['Charges returned', 'returned_count'], ['Total charges', 'total_count']]
+        .forEach(function (p) {
+          if (ev[p[1]] !== undefined && ev[p[1]] !== null) rows.push([p[0], ev[p[1]]]);
+        });
+      if (rows.length) add(s, facts(rows));
+      if (Array.isArray(ev.charges) && ev.charges.length) add(s, renderValue(ev.charges));
+    }
     return s;
   }
 
@@ -328,8 +335,10 @@
     if (!r) return null;
     var s = block('kyb-h-insolvency', 'Insolvency');
     if (r.source_status !== 'available') return add(s, notReturned(data));
+    add(s, facts([['Source status', r.source_status]]));
     var ev = indicatorEvidence(data, 'insolvency_history');
-    return add(s, ev ? renderValue(ev) : note('The register returned an insolvency resource.'));
+    if (ev && Object.keys(ev).length) add(s, renderValue(ev));
+    return s;
   }
 
   function renderDne(data) {
@@ -337,13 +346,13 @@
     (Array.isArray(data.does_not_establish) ? data.does_not_establish : []).forEach(function (t) {
       add(dneList, el('li', null, t));
     });
-    attribution.textContent = text(data.attribution, '');
+    attribution.textContent = text(data.attribution);
   }
 
   function renderResults(data, normalised) {
     clear(results);
     var head = el('div', 'kyb-result-head');
-    var title = el('h2', 'kyb-h2', text(data.company && data.company.name, 'Company readout'));
+    var title = el('h2', 'kyb-h2', text(data.company && data.company.name));
     title.id = 'kybResultsHeading';
     title.tabIndex = -1;
     add(head, title);
