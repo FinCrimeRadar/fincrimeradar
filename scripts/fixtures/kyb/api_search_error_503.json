@@ -1,0 +1,7 @@
+{
+  "status": 503,
+  "headers": {},
+  "body": {
+    "detail": "Service not configured."
+  }
+}

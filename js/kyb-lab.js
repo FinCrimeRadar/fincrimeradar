@@ -2,7 +2,9 @@
  * KYB Lab: one UK company's public register readout.
  *
  * Calls GET /api/kyb/company/{number} on the FinCrimeRadar API and renders the
- * response. Everything the API returns is untrusted third party text, so every
+ * response. It also offers a company name search (POST /api/kyb/search with a JSON
+ * body, never a query string) that lists candidate companies to pick from.
+ * Everything the API returns is untrusted third party text, so every
  * value reaches the page through textContent or createTextNode only. This file
  * must never use innerHTML, outerHTML, insertAdjacentHTML or document.write
  * (scripts/check_kyb_lab.py fails the build if it does). Links are built only
@@ -503,17 +505,209 @@
     });
   }
 
+  // ---- Company name search (spec v1.9 section 14.7) -----------------------------
+  // The term goes only in a JSON POST body. Every returned string, the title above
+  // all, is untrusted register text: textContent only, the title inside <bdi> and in
+  // its own element so a bidirectional control cannot reorder the trusted fields.
+
+  var nameForm = document.getElementById('kybNameForm');
+  var nameInput = document.getElementById('kybName');
+  var nameSubmit = document.getElementById('kybNameSubmit');
+  var nameStatus = document.getElementById('kybNameStatus');
+  var nameError = document.getElementById('kybNameError');
+  var nameRetry = document.getElementById('kybNameRetry');
+  var cands = document.getElementById('kybCands');
+  var candList = document.getElementById('kybCandList');
+  var candNotice = document.getElementById('kybCandNotice');
+  var candNote = document.getElementById('kybCandNote');
+  var nameInflight = null;
+
+  var NAME_MSG = {
+    422: 'Enter 2 to 160 characters of text',
+    413: 'That search is too long',
+    429: 'Too many lookups; try again in a minute',
+    503: MSG[503],
+    other: MSG.other,
+    network: MSG.network,
+    shape: MSG.shape
+  };
+  var EMPTY_MESSAGE = 'No companies were returned for this search.';
+  var NOT_INTERPRETED = 'Not interpreted in phase 1';
+
+  function showNameStatus(message) {
+    nameStatus.textContent = message;
+  }
+
+  function showNameError(message, canRetry) {
+    showNameStatus('');
+    nameError.textContent = message;
+    nameError.hidden = false;
+    nameRetry.hidden = !canRetry;
+  }
+
+  function resetNameMessages() {
+    nameError.hidden = true;
+    nameError.textContent = '';
+    nameRetry.hidden = true;
+    showNameStatus('');
+  }
+
+  function hideCands() {
+    cands.hidden = true;
+    clear(candList);
+    candNotice.hidden = true;
+    candNote.hidden = true;
+    candNote.textContent = '';
+  }
+
+  function cell(className, labelText, value) {
+    var c = el('div', 'kyb-cand-cell');
+    add(c, el('span', 'kyb-cand-lab', labelText), el('span', 'kyb-cand-val ' + className, value));
+    return c;
+  }
+
+  function candidateRow(c) {
+    var li = el('li', 'kyb-cand');
+    var titleCell = el('div', 'kyb-cand-titlecell');
+    // <bdi> isolates the title's direction from everything around it.
+    add(titleCell, el('bdi', 'kyb-cand-title', text(str(c.title))));
+    add(li, titleCell);
+    add(li, cell('kyb-cand-number', 'Company number', text(str(c.company_number))));
+    add(li, cell('kyb-cand-status', 'Status', text(c.company_status && label(c.company_status))));
+    add(li, cell('kyb-cand-type', 'Type', text(c.company_type && label(c.company_type))));
+    add(li, cell('kyb-cand-date', 'Created', text(c.date_of_creation)));
+    var actions = el('div', 'kyb-cand-actions');
+    if (c.scope === 'unsupported_entity_type') add(actions, el('span', 'kyb-tag kyb-cand-scope', NOT_INTERPRETED));
+    // The button text uses only the trusted fields, never the title.
+    var pick = el('button', 'kyb-btn kyb-btn-quiet kyb-cand-pick', 'Look up company ' + text(str(c.company_number)));
+    pick.type = 'button';
+    pick.addEventListener('click', function () {
+      input.value = str(c.company_number) || '';
+      lookup();
+    });
+    add(actions, pick);
+    add(li, actions);
+    return li;
+  }
+
+  function renderCandidates(data) {
+    clear(candList);
+    var list = data.candidates;
+    list.forEach(function (c) { add(candList, candidateRow(c)); });
+    cands.hidden = false;
+    if (!list.length) {
+      candNotice.hidden = true;
+      candNote.textContent = EMPTY_MESSAGE;
+      candNote.hidden = false;
+      return;
+    }
+    candNotice.textContent = text(str(data.search_notice));
+    candNotice.hidden = false;
+    if (data.truncated === true) {
+      var total = data.reported_total;
+      candNote.textContent = (typeof total === 'number' && total > list.length)
+        ? 'The register reports ' + String(total) + ' matches. Only ' + String(list.length) + ' are shown.'
+        : 'The register did not report a total, so this list may be incomplete.';
+      candNote.hidden = false;
+    } else {
+      candNote.hidden = true;
+      candNote.textContent = '';
+    }
+  }
+
+  function searchByName() {
+    var raw = nameInput.value;
+    resetNameMessages();
+    hideCands();
+    if (!raw.trim()) {
+      showNameError(NAME_MSG[422], false);
+      nameInput.focus();
+      return;
+    }
+    if (nameInflight) nameInflight.abort();
+    var controller = new AbortController();
+    nameInflight = controller;
+    var timedOut = false;
+    nameSubmit.disabled = true;
+    nameInput.setAttribute('aria-busy', 'true');
+    showNameStatus('Searching the register. If the service has been idle, the first search can take up to a minute while it starts.');
+    var coldTimer = setTimeout(function () {
+      showNameStatus('Still working. The service is starting up and this can take up to a minute. Please keep this page open.');
+    }, COLD_NOTICE_MS);
+    var killTimer = setTimeout(function () {
+      timedOut = true;
+      controller.abort();
+    }, TIMEOUT_MS);
+
+    fetch(API_BASE + '/api/kyb/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      cache: 'no-store',
+      body: JSON.stringify({ q: raw }),
+      signal: controller.signal
+    }).then(function (res) {
+      if (res.status === 200) {
+        return res.json().then(function (data) {
+          if (!data || typeof data !== 'object' || !Array.isArray(data.candidates) || typeof data.truncated !== 'boolean') {
+            showNameError(NAME_MSG.shape, true);
+            return;
+          }
+          try {
+            renderCandidates(data);
+          } catch (renderErr) {
+            hideCands();
+            showNameError(NAME_MSG.shape, true);
+            return;
+          }
+          showNameStatus(data.candidates.length ? 'Search results loaded.' : '');
+          var h = document.getElementById('kybCandsHeading');
+          if (h) h.focus();
+        });
+      }
+      if (NAME_MSG[res.status]) {
+        showNameError(NAME_MSG[res.status], res.status === 503);
+      } else {
+        showNameError(NAME_MSG.other, true);
+      }
+    }).catch(function (err) {
+      if (timedOut) showNameError(timeoutMessage(), true);
+      else if (err && err.name === 'AbortError') { if (nameInflight === controller) showNameStatus(''); }
+      else if (err instanceof SyntaxError) showNameError(NAME_MSG.shape, true);
+      else showNameError(NAME_MSG.network, true);
+    }).then(function () {
+      clearTimeout(coldTimer);
+      clearTimeout(killTimer);
+      if (nameInflight !== controller) return;
+      nameInflight = null;
+      nameSubmit.disabled = false;
+      nameInput.setAttribute('aria-busy', 'false');
+      if (document.activeElement === document.body) nameInput.focus();
+    });
+  }
+
+  if (nameForm && nameInput) {
+    nameForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      searchByName();
+    });
+    nameRetry.addEventListener('click', searchByName);
+  }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     lookup();
   });
   retryBtn.addEventListener('click', lookup);
 
-  // Wake the API when the reader first focuses the input, so a cold start overlaps with
-  // typing. Nothing is sent to the API just for opening the page.
-  input.addEventListener('focus', function () {
+  // Wake the API when the reader first focuses either input, once, so a cold start
+  // overlaps with typing. Nothing is sent to the API just for opening the page.
+  var warmed = false;
+  function warm() {
+    if (warmed) return;
+    warmed = true;
     try {
       fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-store' }).catch(function () {});
     } catch (e) {}
-  }, { once: true });
+  }
+  input.addEventListener('focus', warm, { once: true });
+  if (nameInput) nameInput.addEventListener('focus', warm, { once: true });
 })();

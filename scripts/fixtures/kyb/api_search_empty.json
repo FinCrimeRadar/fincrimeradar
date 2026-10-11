@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "headers": {},
+  "body": {
+    "retrieved_at": "2026-10-11T12:00:00Z",
+    "source": "Companies House Public Data API",
+    "candidates": [],
+    "truncated": false,
+    "reported_total": 0,
+    "search_notice": "Several companies can share a similar name, and a name match is not an identity check. Confirm the company number before relying on a result.",
+    "attribution": "Source: Companies House public register, retrieved 2026-10-11T12:00:00Z. FinCrimeRadar is not affiliated with or endorsed by Companies House."
+  }
+}
