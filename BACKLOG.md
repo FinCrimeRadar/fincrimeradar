@@ -158,6 +158,7 @@ The ordered candidates below remain RESEARCH until all four queue fields are rec
 - **Anthropic Open Source Programme:** external status is unverified. Confirm directly before treating the application or support follow-up as pending action.
 - **SAR Sandbox LinkedIn drafts:** repository state cannot confirm whether they were posted. Check the account before retaining or scheduling them.
 - **Authority building:** continue only through legitimate practitioner contributions, citations, relevant directories and useful community participation. No guaranteed-ranking or paid-link schemes.
+- **GitHub Support sensitive-data purge for fincrimeradar-api SHA 7cac9af, after PR #5 merge (owner: Pratik):** that commit added live Companies House fixture bundles and is no longer on the PR branch, but GitHub still resolves it by SHA. Request the purge once PR #5 is merged.
 - **Bank of England systemic stablecoin Code of Practice:** a primary-source check on 10 October 2026 confirmed that the consultation is closed, the Code remains draft and finalisation is still targeted for the end of 2026. Revisit the affected ledger claim when the final Code is published.
 
 Update this file when an item's state changes. Do not append a completion essay. Remove completed items, update the compact shipped baseline if the planning picture changes, and rely on Git history and release records for detail.
