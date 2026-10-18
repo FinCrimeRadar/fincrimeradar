@@ -9846,5 +9846,243 @@
     "status": "verified",
     "location": "digital-identity-cdd-intelligence-brief.html, Intelligence timeline",
     "note": "Temporal certification-scheme context only. Service suitability still depends on the exact register entry, certificate, role and risk context."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.uk-finance-remote-purchase.001",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "UK Finance reported that remote purchase card fraud accounted for £423.5 million of losses and 3.2 million cases in 2025, within data reported to UK Finance by its members, which include card issuers and card payment acquirers. UK Finance's notes state that each incident of fraud refers to the number of cards or accounts defrauded rather than to one person being defrauded. The figures are industry-reported and are not a measure of total e-commerce fraud or total merchant loss.",
+    "claimType": "statistic",
+    "source": {
+      "title": "UK Finance, Fraud remains a national security threat as criminals steal almost £1.3 billion (Annual Fraud Report 2026 press release)",
+      "url": "https://www.ukfinance.org.uk/news-and-insight/press-release/fraud-report-2026-press-release",
+      "publisher": "UK Finance (industry body)",
+      "date": "2026-06-15"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-06-30",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Executive assessment and Sources",
+    "note": "Industry evidence, not regulatory authority. The 3.2 million figure is for remote purchase card fraud only, not the 3.81 million total unauthorised fraud cases. Authorised push payment fraud and purchase scams are reported separately by UK Finance and are not blended into this claim."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.eba-ecb-sca-effectiveness.002",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "The joint European Banking Authority and European Central Bank report on payment fraud says strong customer authentication remains effective against the fraud types it was designed to mitigate, that transactions verified with strong customer authentication were generally less susceptible to fraud than those without it, especially card payments, and that new types of fraud are emerging, often targeting transactions for which an SCA exemption is applied or manipulating legitimate users into authenticating fraudulent transactions.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "EBA and ECB, Joint report on payment fraud: strong authentication remains effective, fraudsters are adapting (press release)",
+      "url": "https://www.eba.europa.eu/publications-and-media/press-releases/joint-eba-ecb-report-payment-fraud-strong-authentication-remains-effective-fraudsters-are-adapting",
+      "publisher": "European Banking Authority and European Central Bank",
+      "date": "2025-12-15"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Executive assessment, lifecycle, Worked decision 1 and FAQ",
+    "note": "European Economic Area evidence. It does not establish a United Kingdom merchant control standard or a merchant loss measure. The page uses it only for the bounded proposition that authentication can reduce some payment fraud without settling account control, intent, delivery, refund legitimacy or a dispute."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.fca-sca-uk-scope.003",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "The FCA's Strong Customer Authentication page states that the strong customer authentication rules affect how banks and other payment service providers check that the person requesting access to an account or trying to make a payment is permitted to do so, and that they apply when a payer initiates an electronic payment transaction, accesses their payment account online or carries out a remote action that may imply a risk of payment fraud, unless an exemption applies. The page addresses payment service providers and does not set out merchant obligations.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Strong Customer Authentication",
+      "url": "https://www.fca.org.uk/firms/strong-customer-authentication",
+      "publisher": "Financial Conduct Authority",
+      "date": "2023-02-15"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Lifecycle, Worked decision 1, Knowledge check and FAQ",
+    "note": "Source date is the page's last-updated date (editorial amendment). The page records that application of SCA to e-commerce was removed in an earlier 2022 update entry, so the guide does not explain exemptions, merchant-initiated transactions or liability allocation. FCA Handbook technical standards also checked on 18 October 2026: Chapter -3 Application (https://handbook.fca.org.uk/technical-standards/provision/s140c1221sn0p1814) applies the Standards to payment service providers authorised or registered in the UK or Gibraltar, and Chapter 3 (https://handbook.fca.org.uk/technical-standards/s140c1226) sets out the exemptions in Articles 10 to 21. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.ncsc-credential-stuffing.004",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "National Cyber Security Centre guidance states that credential stuffing takes advantage of people reusing username and password combinations across different accounts, and that by gaining valid combinations for one site and successfully using them on other sites an attacker can access legitimate accounts.",
+    "claimType": "definition",
+    "source": {
+      "title": "NCSC, Use of credential stuffing tools",
+      "url": "https://www.ncsc.gov.uk/news/use-credential-stuffing-tools",
+      "publisher": "National Cyber Security Centre",
+      "date": "2018-11-19"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Lifecycle (account and promotion) and Worked decision 1",
+    "note": "Used only to describe one possible route to legitimate-account access. The guide states that a recovery event or new device is not proof of compromise."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.europol-ecommerce-fraud-types.005",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Europol's Safe sales, safe revenue merchant guide lists clean fraud, phishing, spoofing, money laundering (including a criminal buying high-value goods, returning them and asking for the refund to a different payment source), account take over and discount or refund abuse (use of stolen discount codes to buy items at a lower price for resale) among the most common types of e-commerce fraud. It is law-enforcement prevention guidance, not a legal rule or a prevalence source.",
+    "claimType": "definition",
+    "source": {
+      "title": "Europol, Safe sales, safe revenue",
+      "url": "https://www.europol.europa.eu/operations-services-and-innovation/public-awareness-and-prevention-guides/safe-sales-safe-revenue",
+      "publisher": "Europol",
+      "date": "2026-10-18"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Lifecycle (return and refund) and Worked decision 2",
+    "note": "The Europol page carries no publication date; the source date field records the date the page was read. The guide words this precisely: Europol lists discount and refund abuse, and laundering through refunds to a different payment source, among common e-commerce fraud types. It does not say Europol describes organised refund fraud."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.visa-dispute-categories-evidence.006",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Visa's Dispute Management Guide for Merchants (October 2026) groups dispute reasons into four categories: Fraud (Category 10), Authorization (Category 11), Processing Errors (Category 12) and Consumer Disputes (Category 13), each with specific dispute conditions that explain why the dispute was raised and what kind of evidence is needed. It says the Visa Rules define which information is relevant, when a dispute may be initiated and whether documentation is required, that information must be provided within the defined timeframes, that effective responses focus on relevance and clarity, not volume, and that evidence is most effective when it links the transaction to the cardholder, demonstrates the cardholder's participation in or benefit from the transaction, or confirms the transaction was processed, fulfilled and billed according to agreed terms. It uses 'dispute' as Visa's official terminology and notes that merchants may hear disputes called chargebacks in operational contexts.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Visa, Dispute Management Guide for Merchants: Best Practices, Tools and Resources (October 2026)",
+      "url": "https://usa.visa.com/content/dam/VCOM/global/support-legal/documents/merchants-dispute-management-guidelines.pdf",
+      "publisher": "Visa Inc.",
+      "date": "2026-10-01"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Executive assessment, lifecycle, Worked decisions, checklist and FAQ",
+    "note": "Scheme guidance only. Source date is the edition month shown in the document. The page does not state specific rules, deadlines or eligibility. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.visa-guide-limitation.007",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Visa's Dispute Management Guide for Merchants states that it does not replace the Visa Core Rules or Product and Service Rules, does not replace the merchant agreement, acquirer requirements or applicable laws and regulations, does not guarantee dispute outcomes, and does not expand dispute rights, response eligibility or remedies beyond what the Visa Rules permit. It also states that rules discussed may not apply to all countries and that the guide does not provide legal advice.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Visa, Dispute Management Guide for Merchants: Best Practices, Tools and Resources (October 2026), Important Legal Notices and Disclaimer and What This Guide Does Not Replace",
+      "url": "https://usa.visa.com/content/dam/VCOM/global/support-legal/documents/merchants-dispute-management-guidelines.pdf",
+      "publisher": "Visa Inc.",
+      "date": "2026-10-01"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Every section that relies on Visa guidance, and Sources",
+    "note": "The page carries this limitation wherever it relies on the Visa guide, in the wording that the guide does not replace the Visa Rules, merchant agreements, acquirer requirements or applicable law. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.psr-2017-reg67-consent.008",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Under regulation 67 of the Payment Services Regulations 2017, a payment transaction is regarded as authorised by the payer for the purposes of that Part only if the payer has given its consent to the execution of the payment transaction or of a series of payment transactions of which it forms part, and the consent must be given in the form, and in accordance with the procedure, agreed between the payer and its payment service provider.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Payment Services Regulations 2017, regulation 67",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752/regulation/67",
+      "publisher": "UK legislation (Statutory Instrument 2017/752)",
+      "date": "2026-10-18"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Rights and outcome boundary, FAQ",
+    "note": "Checked as up to date on 18 October 2026. The guide uses regulation 67 only for the proposition that authorisation depends on payer consent. It is a payment-service relationship rule and is not presented as a merchant chargeback rule. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.psr-2017-reg75-evidence.009",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Under regulation 75 of the Payment Services Regulations 2017, where a payment service user denies having authorised an executed payment transaction, the use of a payment instrument recorded by the payment service provider is not in itself necessarily sufficient to prove either that the payment transaction was authorised by the payer or that the payer acted fraudulently or failed with intent or gross negligence to comply with regulation 72, and a payment service provider that claims the payer acted fraudulently or with intent or gross negligence must provide supporting evidence to the payer.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Payment Services Regulations 2017, regulation 75",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752/regulation/75",
+      "publisher": "UK legislation (Statutory Instrument 2017/752)",
+      "date": "2026-10-18"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Rights and outcome boundary",
+    "note": "Checked as up to date on 18 October 2026. The page states only that recorded use of a payment instrument is not in itself necessarily sufficient to prove authorisation, and does not say authentication evidence is irrelevant. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.psr-2017-reg76-refund.010",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Under regulation 76 of the Payment Services Regulations 2017, subject to regulations 74 and 75, where an executed payment transaction was not authorised in accordance with regulation 67, the payment service provider must refund the amount of the unauthorised payment transaction to the payer and, where applicable, restore the debited payment account to the state it would have been in had the unauthorised transaction not taken place.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Payment Services Regulations 2017, regulation 76",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752/regulation/76",
+      "publisher": "UK legislation (Statutory Instrument 2017/752)",
+      "date": "2026-10-18"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Rights and outcome boundary",
+    "note": "Page header records up to date on or before 16 October 2026. The page says the duty is subject to regulations 74 and 75; regulation 74 is recorded separately in e-commerce-fraud-system.psr-2017-reg74-notification.014. The page does not state the conditions of either. The duty is on the payment service provider, not the merchant. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.cra-2015-s20-reject-refund.011",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Under section 20 of the Consumer Rights Act 2015, the short-term right to reject is subject to section 22 and the final right to reject is subject to section 24. The right to reject is exercised if the consumer indicates to the trader that the consumer is rejecting the goods and treating the contract as at an end. The trader then has a duty to give the consumer a refund, subject to subsection (18), without undue delay and in any event within 14 days beginning with the day on which the trader agrees that the consumer is entitled to a refund.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Consumer Rights Act 2015, section 20 (Right to reject)",
+      "url": "https://www.legislation.gov.uk/ukpga/2015/15/section/20",
+      "publisher": "UK legislation (2015 c. 15)",
+      "date": "2026-10-18"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Rights and outcome boundary, Worked decision 2 and FAQ",
+    "note": "The page states only that consumers may have rejection rights where the statutory conditions apply. It does not summarise the goods-conformity conditions, sections 22 and 24, or subsection (18). Checked as up to date on 18 October 2026. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.ccr-2013-reg29-34-cancellation.012",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Under regulation 29 of the Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013, the consumer may cancel a distance or off-premises contract at any time in the cancellation period without giving any reason and without incurring any liability except under specified provisions. Regulation 34 requires the trader to reimburse payments received from the consumer, subject to its conditions, including timing that for sales contracts runs from receipt of the goods or evidence of having sent them back, and a right to recover an amount where the value of the goods is diminished by handling beyond what is necessary to establish their nature, characteristics and functioning.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Consumer Contracts (Information, Cancellation and Additional Charges) Regulations 2013, regulations 29 and 34",
+      "url": "https://www.legislation.gov.uk/uksi/2013/3134/regulation/29",
+      "publisher": "UK legislation (Statutory Instrument 2013/3134)",
+      "date": "2026-10-18"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Rights and outcome boundary, Worked decision 2 and FAQ",
+    "note": "Regulation 34 is at https://www.legislation.gov.uk/uksi/2013/3134/regulation/34 and is grouped with regulation 29 as one public source record, so the ledger source URL is the regulation 29 page and regulation 34 is named in the claim. The page states only that consumers may have cancellation and reimbursement rights where the statutory conditions apply. Checked as up to date on 18 October 2026. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.doj-artemis-sentencing.013",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "A United States Department of Justice press release of 29 April 2026 states that eleven co-conspirators have been sentenced after pleading guilty to conspiracy to commit wire fraud in a refund fraud scheme run by the self-styled Artemis Refund Group, which targeted numerous online retailers. It states that the group instructed customers to purchase a product, collect information about the order and contact the retailer to initiate a fraudulent refund, after which the customers kept the item and received a full refund, that the group typically charged customers between 15% and 25% of the refunded item's total price, and that members also obtained stolen goods and resold them on online marketplaces.",
+    "claimType": "enforcement",
+    "source": {
+      "title": "U.S. Attorney's Office, Northern District of Oklahoma, Eleven Sentenced for Refund Fraud Scheme Causing Millions of Dollars in Losses to Online Retailers",
+      "url": "https://www.justice.gov/usao-ndok/pr/eleven-sentenced-refund-fraud-scheme-causing-millions-dollars-losses-online-retailers",
+      "publisher": "United States Department of Justice, U.S. Attorney's Office, Northern District of Oklahoma",
+      "date": "2026-04-29"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-04-29",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Worked decision 2 and Sources",
+    "note": "United States criminal sentencing record, not allegation-only and not a United Kingdom authority or prevalence measure. The guide uses it only to evidence a mechanism and does not quote the percentage fee, the retailer names or the sentences. Flagged for independent regulatory review before publication (legal or scheme scope claim)."
+  },
+  {
+    "claimId": "e-commerce-fraud-system.psr-2017-reg74-notification.014",
+    "guide": "e-commerce-fraud-system-guide.html",
+    "claimText": "Under regulation 74(1) of the Payment Services Regulations 2017, a payment service user is entitled to redress under regulation 76 (among other regulations) only if it notifies the payment service provider without undue delay, and in any event no later than 13 months after the debit date, on becoming aware of any unauthorised or incorrectly executed payment transaction. Under regulation 74(2), where the payment service provider has failed to provide or make available information concerning the payment transaction in accordance with Part 6, the user remains entitled to that redress notwithstanding a failure to notify as paragraph (1) requires.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "The Payment Services Regulations 2017, regulation 74",
+      "url": "https://www.legislation.gov.uk/uksi/2017/752/regulation/74",
+      "publisher": "UK legislation (Statutory Instrument 2017/752)",
+      "date": "2026-10-18"
+    },
+    "verifiedOn": "2026-10-18",
+    "reviewDue": "2027-01-18",
+    "status": "verified",
+    "location": "e-commerce-fraud-system-guide.html, Rights and outcome boundary (regulation 76 is subject to regulations 74 and 75) and Sources",
+    "note": "Page header records up to date on or before 18 October 2026. Supports only the cross-reference that regulation 76 is subject to regulation 74; the guide does not state the notification period or give merchant advice. The notification requirement is a condition of the payment service user's redress against the payment service provider, not a merchant rule."
   }
 ]
