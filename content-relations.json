@@ -50,7 +50,8 @@
   ],
   "fraud-investigation-playbook": [
     "money-mule-financial-crime-networks-handbook",
-    "investment-scam-investigation-handbook"
+    "investment-scam-investigation-handbook",
+    "e-commerce-fraud-system-guide"
   ],
   "ubo-investigation-handbook": [
     "money-mule-financial-crime-networks-handbook",
@@ -79,7 +80,8 @@
   "fraud-red-flags-guide": [
     "synthetic-identity-device-network-guide",
     "app-scam-decision-framework",
-    "failure-to-prevent-fraud-evidence-essay"
+    "failure-to-prevent-fraud-evidence-essay",
+    "e-commerce-fraud-system-guide"
   ],
   "screening-algorithm-tuning-guide": [
     "tm-guide",
@@ -177,5 +179,9 @@
   "digital-identity-cdd-intelligence-brief": [
     "kyc-onboarding-dilemma",
     "perpetual-kyc-framework-guide"
+  ],
+  "e-commerce-fraud-system-guide": [
+    "fraud-red-flags-guide",
+    "fraud-investigation-playbook"
   ]
 }
