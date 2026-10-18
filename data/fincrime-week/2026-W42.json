@@ -1,0 +1,69 @@
+{
+  "week": "2026-W42",
+  "period_start": "2026-10-12",
+  "period_end": "2026-10-18",
+  "published_at": "2026-10-18",
+  "author": "Pratik Zanke",
+  "items": [
+    {
+      "id": "nca-international-scam-infrastructure-crackdown",
+      "headline": "NCA-hosted crackdown on fraud and scams reports almost 30 suspected scammers arrested and 3.7 million Meta accounts removed",
+      "source_name": "National Crime Agency",
+      "source_url": "https://www.nationalcrimeagency.gov.uk/news/nca-hosts-international-law-enforcement-and-tech-industry-crackdown-on-fraud-and-scams",
+      "published_date": "2026-10-13",
+      "jurisdiction": "UK",
+      "category": "FRAUD",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 13 October 2026 the NCA reported on an international crackdown it hosted from 6 to 9 October, bringing together 15 law enforcement agencies and 15 technology companies. The NCA says almost 30 suspected scammers have been arrested, including 19 people in Ghana and nine in Nigeria's Delta State, with 303 electronic devices seized in Ghana. It says 3.7 million online profiles and accounts were removed by Meta, and that private sector partners identified a total of $11 million in potentially freezable funds. The NCA's page describes arrests and does not report any convictions.",
+      "why_it_matters": "The headline figures measure different things. Arrests of suspects, accounts removed by a platform, funds identified as potentially freezable and funds actually frozen or recovered sit at different points in the process, and the NCA page does not say how much money has been frozen or returned to victims. The account figure also reflects platform enforcement action and should not be read as a finding that each removed account was individually proven to be criminal.",
+      "radar_implication": "This is FinCrimeRadar analysis, not an NCA statement. Teams that report on disruption or fraud typologies should keep these measures as separate fields: suspects arrested, accounts identified, accounts removed, assets located, assets frozen and money recovered. For payment and fraud monitoring, the practical question is whether intelligence from takedowns reaches internal alerts and case reviews, and whether any account or payment link is treated as a lead to verify rather than as proof of criminality. A potentially freezable amount is a pipeline figure, and should not be reported internally or externally as a recovery.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "uk-iran-designations-bazghandi-jakki",
+      "headline": "UK designates Ruhollah Bazghandi and Shahram Ali Reza Tamarzadeh Jakki under the Iran sanctions regime",
+      "source_name": "UK Government (FCDO and OFSI)",
+      "source_url": "https://www.gov.uk/guidance/iran-list-of-designations-and-sanctions-notices",
+      "published_date": "2026-10-12",
+      "jurisdiction": "UK",
+      "category": "SANCTIONS",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 12 October 2026 the UK added two individuals to the UK Sanctions List under the Iran (Sanctions) Regulations 2023: Ruhollah Bazghandi (Unique ID IRN0282, with Rouhollah Azimi recorded as a Primary Name Variation) and Shahram Ali Reza Tamarzadeh Jakki (Unique ID IRN0283, with Farhad Ali Tamarzadeh recorded as a Primary Name Variation). The notice records an asset freeze, a travel ban and a director disqualification sanction for each. In its statements of reasons the Secretary of State says there are reasonable grounds to suspect each is an involved person, citing hostile activity by the Government of Iran. For Bazghandi the stated grounds include espionage and threatening, planning or conducting attacks. For Jakki the stated ground is conduct supporting activity of that attack-related kind in a country other than Iran.",
+      "why_it_matters": "Both entries carry a Primary Name Variation, so a screening process that depends on the primary name alone can miss a relevant record. The listed identifiers and dates of birth are what allow a reviewer to separate a true match from a similar name, and a name resemblance on its own does not establish a match. The notice concerns UK measures only, and it should not be read as describing US or EU restrictions.",
+      "radar_implication": "This is FinCrimeRadar analysis, not a requirement stated in the notice. Screening teams should confirm that the 12 October additions, including the variation names and Unique IDs, have reached their list feeds and rescreening runs, then review customers, counterparties and recent payments for possible exposure. For each potential match, keep the evidence behind the decision, such as dates of birth, nationality and the identifiers compared, so a true match or false positive outcome can be explained later. Where a confirmed match exists, the asset freeze and reporting steps set out in the notice and OFSI guidance apply, and the legal effect should be assessed against the designation date.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "fca-nca-insider-dealing-ring-arrests",
+      "headline": "FCA and NCA arrest three people in operation against suspected insider dealing and money laundering group",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/news/press-releases/three-arrests-major-fca-operation-against-criminal-insider-dealing-ring",
+      "published_date": "2026-10-13",
+      "jurisdiction": "UK",
+      "category": "FINANCIAL_CRIME",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 13 October 2026 the FCA announced that three individuals were arrested following a joint operation with the National Crime Agency. More than 100 FCA and NCA staff took part in searches at five residential premises in London and Manchester, and FCA investigators seized more than 30 mobile phones, laptops and tablets. The FCA describes the operation as targeting a suspected organised criminal group engaging in insider dealing and money laundering. The three people were being interviewed at police stations in London and Manchester. The announcement gives no trading or laundering values, and an arrest is not a finding of guilt.",
+      "why_it_matters": "The joint FCA and NCA operation concerns suspected insider dealing and money laundering. No criminal liability has been established. The operation involved searches by staff from both agencies and the seizure of devices. That is a reminder that a single suspicious trade rarely tells the whole story. Trading activity, communications, account relationships and movements of funds each answer a different question, and the announcement does not say what evidence will ultimately be relied on.",
+      "radar_implication": "This is FinCrimeRadar analysis, not an FCA statement about the evidence in this case. Firms should check that market abuse surveillance, AML transaction monitoring and investigations teams can share information about the same people and accounts, subject to legal and confidentiality limits. Where a suspicious order report and a suspicious activity report concern linked parties, the case file should show how the trading pattern, communications review and fund flows were compared. Case notes should describe suspicion on the evidence held and avoid stating that anyone has committed an offence.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "fca-revokes-libor-euribor-related-bans",
+      "headline": "FCA revokes bans on four individuals and removes Final Notices after convictions overturned by the Court of Appeal",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/news/statements/libor-euribor-related-bans",
+      "published_date": "2026-10-16",
+      "jurisdiction": "UK",
+      "category": "FINANCIAL_CRIME",
+      "signal": "REGULATORY",
+      "what_happened": "On 16 October 2026 the FCA published a statement saying it had reviewed its regulatory action against individuals whose convictions have recently been overturned by the Court of Appeal. Because those convictions formed the basis for the FCA's action, it revoked the bans on Colin Bermingham, Philippe Moryoussef, Jonathan Mathew and Christian Bittar and removed the associated Final Notices from FCA channels. The FCA says it will take no further action against these individuals in relation to this matter. The statement is limited to those four people and does not describe the court's reasoning.",
+      "why_it_matters": "The change affects the legal status of an enforcement record, not only its existence. A regulatory ban that has been revoked, a Final Notice that has been removed and a conviction that has been overturned are different dispositions from a live restriction. The FCA statement also does not say that every allegation or every historical record connected to the matter has ceased to exist.",
+      "radar_implication": "This is FinCrimeRadar analysis, not an FCA instruction on records. Adverse media and regulatory history systems should be able to show the chronology and the current disposition separately: the original allegation or action, the conviction, the overturning of the conviction, the revoked ban and the removal of the Final Notice. Screening reviewers should not treat the reversal as blanket exoneration, and should not assume that all historical records must be deleted. Any decision to retain, qualify or remove a record should follow the firm's own data protection and records policy, with the current legal status recorded.",
+      "primary_source": true,
+      "reviewed": true
+    }
+  ]
+}
