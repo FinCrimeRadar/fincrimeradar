@@ -189,6 +189,19 @@ Search, social and structured-data descriptions may be shortened for platform li
 | J13 | Do not collect free text or persist scenario choices beyond what the existing page architecture needs for the current session. | Static DOM and storage inspection. |
 | J14 | Pass `node --check js/e-commerce-fraud-system-guide.js`. | Recorded command output. |
 
+#### Telemetry audit against product questions (18 October 2026)
+
+Audited by reading `js/e-commerce-fraud-system-guide.js` at `f544c4477b93e0b4e2afaf3eaf5e5584c084e6ec` and running `scripts/check_ecommerce_fraud_system_guide.py`. The browser suite `scripts/test_ecommerce_fraud_system_guide_browser.py` was not re-run for this audit. No contradiction with J04 to J10 was found, so neither the guide nor its script changed.
+
+| Event | Payload | Product question | Limitation |
+| --- | --- | --- | --- |
+| `scenario_complete` | `guide_id`, `scenario_id`, `decision_grade`, `confidence_band` | Are readers selecting evidence-bounded decisions, and at what confidence band? | Records the decision grade (weak, caution or strongest), not answer text or the chosen option. |
+| `counterfactual_complete` | `guide_id`, `scenario_id`, `reconsidered` | Do readers say they would reconsider when a material fact changes? | Records self-reported reconsideration, not whether the reconsideration was correct. |
+| `knowledge_check_complete` | `guide_id`, `score`, `total` | What is aggregate understanding across the five questions? | Cannot identify which individual boundary was misunderstood. |
+| `card_export` | `guide_id`, `export_type` | Is the closing-pattern summary export used? | Records successful exports only, not attempts or failure rates. |
+
+Consent gating and payload boundaries are unchanged: `emitAggregateEvent` sends nothing unless `localStorage.getItem('fcr_cookie_consent_v2') === 'accepted'` and `window.gtag` is a function, it is the only `window.gtag` call site, and the static checker pins the four event names and the four payload field sets. No selected answer text, rationale, customer information or free text is sent.
+
 ### G. Discovery, metadata and relationships
 
 | ID | Requirement | Deterministic proof |
