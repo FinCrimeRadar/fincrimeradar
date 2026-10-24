@@ -10084,5 +10084,569 @@
     "status": "verified",
     "location": "e-commerce-fraud-system-guide.html, Rights and outcome boundary (regulation 76 is subject to regulations 74 and 75) and Sources",
     "note": "Page header records up to date on or before 18 October 2026. Supports only the cross-reference that regulation 76 is subject to regulation 74; the guide does not state the notification period or give merchant advice. The notification requirement is a condition of the payment service user's redress against the payment service provider, not a merchant rule."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg18-1-business-risk-assessment.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 18(1) requires a relevant person to take appropriate steps to identify and assess the money laundering and terrorist financing risks to which its business is subject. Regulation 18 is the business-wide risk assessment duty. It is distinct from the customer risk assessment, which enters through regulation 28(12) and (13).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 18, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/18",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #question (two terms) and #law (Source block)"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg18-2-3-factors-size-nature.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "In carrying out the regulation 18 risk assessment a relevant person must take into account information made available by its supervisory authority and risk factors including factors relating to its customers, the countries or geographic areas in which it operates, its products or services, its transactions and its delivery channels (regulation 18(2)), and must take into account the size and nature of its business in deciding what steps are appropriate (regulation 18(3)).",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 18, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/18",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law (Source block); #inside-number (control point 1)"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg18-4-record.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 18(4) requires a relevant person to keep an up-to-date record in writing of all the steps it has taken under regulation 18(1), unless its supervisory authority notifies it in writing that such a record is not required. Regulation 18 text read contains no review frequency.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 18, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/18",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #change (testing, change and reassessment)",
+    "note": "The phrase \"if the supervisory authority so requires\" does not appear in regulation 18 and is not used in the guide."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg18-28-33-no-prescribed-model.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "As read on 24 October 2026, regulations 18, 28 and 33 of the Money Laundering Regulations 2017 prescribe no scoring method, no weighting scheme and no number of rating bands. This is a statement about the text read, not a legal opinion on other instruments.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 28, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law (Source block); #thresholds (bands); FAQ 1",
+    "note": "Absence confirmed against the three pages as fetched on 24 October 2026."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg28-11-ongoing-monitoring.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 28(11) requires ongoing monitoring of a business relationship, including (a) scrutiny of transactions to ensure they are consistent with the relevant person's knowledge of the customer, the customer's business and risk profile, and (b) reviews of existing records and keeping the documents or information obtained for customer due diligence up to date. Neither limb states a review frequency.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 28, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #outside (Figure 3, monitoring intensity); #change; FAQ 3"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg28-12-extent-reflects-risk-assessment.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 28(12) provides that the ways in which a relevant person complies with the requirement to take customer due diligence measures, and the extent of the measures taken, must reflect the risk assessment carried out under regulation 18(1) and its assessment of the level of risk arising in any particular case, and may differ from case to case.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 28, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law (Source block); Figure 3; Scenarios 1 and 2; Knowledge check Q5"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg28-13-case-risk-factors.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 28(13) requires a relevant person, in assessing the level of risk in a particular case, to take account of factors including, among other things, the purpose of an account, transaction or business relationship, the level of assets to be deposited or the size of the transactions, and the regularity and duration of the business relationship. The list is expressly non-exhaustive.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 28, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law (Source block); #inside-number (control point 1)"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg28-16-demonstrate-appropriate.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 28(16) requires a relevant person to be able to demonstrate to its supervisory authority that the extent of the customer due diligence measures it has taken is appropriate in view of the risks of money laundering and terrorist financing, including risks identified by its regulation 18(1) risk assessment and by its supervisory authority. Regulation 28(17) disapplies paragraph (16) for the National Savings Bank and the Director of Savings.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 28, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/28",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-10-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law (Source and Application blocks); Scenario 1 Decision Record"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg33-1-fact-based-and-assessment-based-cases.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 33(1) requires enhanced customer due diligence and enhanced ongoing monitoring in listed cases. Paragraph (a) (a case identified as high risk by the relevant person under regulation 18(1) or in supervisory information) and paragraph (g) (any other case that by its nature can present a higher risk) depend on the firm's assessment. Paragraph (b) (a person established in a FATF call for action country), paragraph (c) (correspondent relationships caught by regulation 33(1)(c), in accordance with regulation 34, whose own scope conditions the guide does not analyse; not every correspondent relationship with a credit or financial institution is asserted to be caught), paragraph (d) (a customer determined to be a PEP, family member or known close associate), paragraph (e) (false or stolen identification where the firm proposes to continue dealing) and paragraph (f) (unusual transactions) turn on facts, not on a rating.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 33, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #outside (control point 4); Figure 3; Knowledge check Q2",
+    "note": "The guide does not analyse regulation 35 (PEP), which paragraph (d) cross-refers to."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg33-1b-call-for-action-and-exception.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 33(1)(b) applies to a business relationship with a person established in a FATF call for action country, or a relevant transaction where either party is so established. Regulation 33(3)(a) defines the term as a country named on the FATF list of High-Risk Jurisdictions subject to a Call for Action as that list has effect from time to time. Regulation 33(2) gives a narrow exception for a branch or majority owned subsidiary of an entity established in a third country where its three conditions are met.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 33, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #outside; Knowledge check Q2 and answer note"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg33-1b-wording-changed-30-june-2026.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The wording of regulation 33(1)(b) changed with effect from 30 June 2026 (words substituted by SI 2026/621 regulation 19). The page for regulation 33 shows no further changes to its text yet to be applied.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 33, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #outside",
+    "note": "The pre-amendment wording is not reproduced in the guide. The De-Risking Judgement Call sets out the change."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.reg33-7-risk-factors-not-always-high.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Regulation 33(7) requires relevant persons, in making the assessment referred to in regulation 33(6) of whether there is a high risk of money laundering or terrorist financing, to bear in mind that the presence of one or more risk factors may not always indicate a high risk. It does not address suspicion or exit; the guide's statement that a high score does not itself establish suspicion or require exit is FinCrimeRadar assessment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 33, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/33",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2026-06-30"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #outside (what a high score does not do); FAQ 5"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-status-existing-requirements.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA's findings page published on 11 November 2025 states that its purpose is to help firms reflect on how they are meeting the existing risk assessment requirements, and that good practice often goes beyond the minimum regulatory requirements. It does not state that the examples create new rules.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law (what the FCA material adds)"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-weightings-subfactors-joined-up.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA found that some firms have used sub-factors and weightings to tailor their customer risk assessment process, and lists as good practice reflecting the risks identified in the business-wide risk assessment in the customer risk assessment through weightings or sub-factors.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #inside-number (control point 2)"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-cra-feeds-cdd-tm.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA lists as good practice customer risk assessments that directly affect firms' customer due diligence, transaction monitoring and other processes and controls used to mitigate identified risks.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #thresholds; Figure 3"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-cra-mi-senior-committees.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA lists as good practice customer risk assessment management information being provided to senior management committees for discussion.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #mi (control point 7); Scenario 2 option analysis"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-document-and-approve-methodology-changes.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA lists as good practice firms documenting risk assessment methodologies in detail and formally logging, discussing and approving changes. The item refers to risk assessment methodologies generally and does not name customer scoring models.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #change; Scenario 1 option analysis"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-regular-review-quarterly-or-triggered.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA lists as good practice firms reviewing their risk assessment models and processes, and quarterly or triggered updates to risk assessments. The FCA presents these as examples of good practice. The statutory text read (regulations 18 and 28) names no review frequency, so quarterly updating is not a legal minimum.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #change; Figure 3 note; Knowledge check Q3; FAQ 3"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-poor-limited-testing-on-change.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA lists as poor practice some firms carrying out limited or no testing and reviews of risk assessment processes when they make enhancements, upgrades or automation. The item uses the general words \"risk assessment processes\" and does not address validation of a customer scoring model.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #outside (can and cannot); #change; Scenario 1"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-poor-growth-and-rapid-expansion.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA lists as poor practice some firms not developing their customer risk assessments in line with business growth to ensure scalability, consistency and accuracy, and some firms rapidly expanding product, service and customer type without considering and ensuring that controls remain appropriate and effective beforehand. The second item does not use the terms business-wide risk assessment, customer risk assessment or risk assessment.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #change; Scenario 1"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-poor-static-assessment.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA lists as poor practice risk assessments that are not sufficiently dynamic, which could lead to outdated risk profiles. The item uses the general words \"risk assessments\".",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #change"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.find-cra-coverage-and-generic-wording.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The guide states that the FCA findings page covers customer risk assessment briefly and that most of its items use the words \"risk assessment\" without distinguishing the firm from the customer, and that the page does not mention overrides, thresholds, risk bands, data quality, validation, scoring calibration or double counting. Basis: an item by item review of every good and poor practice tab on 24 October 2026, followed by a second pass that classified each item as business-wide, customer or generic in its own wording.",
+    "claimType": "process-record",
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law; #sources (Sources and methodology, Limits)",
+    "note": "Internal review record. The item scoping was done by reading the page twice, not by an external check."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-8-1-reg28-12-13.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Chapter 8 of the FCA's January 2025 review (paragraph 8.1, page 26) states that firms are responsible for conducting risk assessments of their customers in line with regulation 28(12) and (13) of the Money Laundering Regulations, with further support in paragraph 3.2.3 of the FCA Financial Crime Guide.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law; #inside-number"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-cs17-structure.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Case Study 17 (page 28 of the FCA's January 2025 review) describes one firm's spreadsheet, completed by the onboarding team, with detailed questions and risk scoring for six categories weighted as follows: product and service 10%, customer type 20%, customer industry 10%, geographical 30%, relationship structure 5%, and adverse media and PEP 25% (total 100%). The total score aligns to a high, medium or low rating and determines the level of due diligence to be completed. The spreadsheet alerts the reader when escalation to the MLRO for approval is needed, has a section for manual overrides and their rationale, and prompts the user to consider other risk factors that would require additional action.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #inside-number (control point 2); Figure 3; Knowledge check Q1; FAQ 2",
+    "note": "The guide reports the category names but does not reproduce the percentages, and states that they are one firm's illustration."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-8-8-reasonable-approach.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Paragraph 8.8 of the FCA's January 2025 review states that Case Study 17 illustrates a reasonable approach to calculating risk ratings. The review is a sample of wholesale brokers.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #inside-number; FAQ 2"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-8-4-8-5-observations.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA's January 2025 review (paragraphs 8.4 and 8.5, page 27) observed that most firms considered a variety of risk factors and several weighted their calculations; that most assessed firms failed to document the customer risk assessment methodology in policies or procedures; that some firms automatically assigned certain client types as low risk regardless of other risk factors; that one firm determined customers' risk rating upon completion of due diligence rather than using the customer risk assessment to determine the level of due diligence; and that some firms based the assessment solely on customer jurisdiction.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #inside-number; #thresholds"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-8-6-rationale-overrides.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Paragraph 8.6 of the FCA's January 2025 review states that few firms adequately documented an appropriate rationale for the risk rating of a customer, particularly where updated risk factors or trigger events, management overrides and periodic reviews had taken place, and that evidence of appropriate escalations, decisions taken and any quality assurance checks completed were often not evident.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #overrides (overrides); #mi; Scenario 2"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-8-9-good-poor-practices.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The FCA's January 2025 review (paragraph 8.9 and its lists, page 28) states an expectation that firms have a formal, robust method for considering, assessing and determining customer risk; lists as good practice a clear audit trail of customer risk rating overrides and rationale; and lists as poor practice customer risk assessment scores predominantly based on one risk factor, for example jurisdiction, and waiting for periodic reviews or file refreshes to update risk ratings where new information and changes to risks have been identified.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #inside-number; #overrides; #change"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-8-3-trigger-events.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Paragraph 8.3 of the FCA's January 2025 review (page 26) records that some firms only considered changes to geographical risk during the customer periodic review, which could result in the customer risk rating not accurately considering interim information, and states that firms should consider the events that would trigger a review or customer risk assessment update.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #change"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.mltm-9-9-review-cycles.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "Paragraph 9.9 of the FCA's January 2025 review (page 30) records that firms use a cycle of periodic customer reviews most often determined on a 1, 3 or 5 year basis according to customer risk level, and that several firms trigger a KYC refresh on events such as a SAR being raised, screening or monitoring alerts, new information, new products and changes of customer circumstances. It is an observation, not a requirement.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025",
+      "url": "https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-01-01"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, Figure 3 (review frequency)"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.fcg-3-2-3-poor-practice-examples.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "FCG 3.2.3 lists as examples of poor practice: an inappropriate risk classification system that makes it almost impossible for a relationship to be classified as high risk; higher risk countries allocated low-risk scores to avoid enhanced due diligence measures; relationship managers being able to override customer risk scores without sufficient evidence to support their decision; risk assessments on money laundering unduly influenced by the potential profitability of new or existing relationships; the firm being unable to evidence why customers are rated as high, medium or low risk; and a UK branch or subsidiary relying on group risk assessments without assessing their compliance with UK requirements.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide, FCG 3.2.3 Risk assessment",
+      "url": "https://handbook.fca.org.uk/handbook/fcg3/fcg3s2",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2024-11-29"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #inside-number; #thresholds; #overrides; Scenarios 1 and 2; Knowledge check Q4",
+    "note": "Good and poor practice columns attributed from the Handbook page table markup on 24 October 2026."
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.fcg-3-2-3-good-practice-examples.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "FCG 3.2.3 lists as examples of good practice evidence that the firm's risk assessment informs the design of its anti-money laundering controls; consideration of the risk associated with individual business relationships taking account of factors such as company structures, political connections, country risk, the customer's or beneficial owner's reputation, source of wealth, source of funds, expected account activity, products and services, transactions, delivery channels, sector risk and involvement in public contracts; and identifying and managing the risk that a relationship manager becomes too close to customers to take an objective view.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide, FCG 3.2.3 Risk assessment",
+      "url": "https://handbook.fca.org.uk/handbook/fcg3/fcg3s2",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2024-11-29"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #inside-number (control point 1); #overrides"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.fcg-regular-review-wording.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "FCG 3.2.3 states that firms must regularly review their risk assessment to ensure it remains current. FCG 2.2.4 states that firms should regularly review both their business-wide and individual risk assessments to ensure they remain current. The word \"regularly\" is the Financial Crime Guide's wording and does not appear in regulation 18.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide, FCG 3.2.3 Risk assessment",
+      "url": "https://handbook.fca.org.uk/handbook/fcg3/fcg3s2",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2024-11-29"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #change",
+    "additionalSources": [
+      {
+        "title": "FCA Handbook, Financial Crime Guide, FCG 2.2.4 Risk assessment",
+        "url": "https://handbook.fca.org.uk/handbook/fcg2/fcg2s2",
+        "publisher": "Financial Conduct Authority (FCA Handbook)",
+        "date": "2018-12-13"
+      }
+    ]
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.fcg-1-1-status.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "FCG 1.1.7 states that the Financial Crime Guide contains general guidance as defined in section 139B FSMA, that the guidance is not binding, and that the FCA will not presume that a firm's departure from it indicates a breach of its rules. FCG 1.1.8 states that firms can comply with their financial crime obligations in ways other than following the good practice set out in the Guide.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide, FCG 1.1 What is the FCG?",
+      "url": "https://handbook.fca.org.uk/handbook/fcg1/fcg1s1",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2025-06-03"
+    },
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #law (what the FCA material adds); FAQ 1"
+  },
+  {
+    "claimId": "customer-risk-score-decision-framework.methodology-statement-source-reading.001",
+    "guide": "customer-risk-score-decision-framework.html",
+    "claimText": "The guide states that the statutory text and FCA web pages were read on 24 October 2026; that the January 2025 FCA review was read from its PDF with the text extracted locally and page numbers matched to the printed page numbers; and that the good practice and poor practice columns of FCG 3.2.3 were attributed from the Handbook page table markup because plain text extraction loses the column. These statements describe the reading actually performed in the drafting session.",
+    "claimType": "process-record",
+    "verifiedOn": "2026-10-24",
+    "reviewDue": "2027-04-24",
+    "status": "verified",
+    "location": "customer-risk-score-decision-framework.html, #sources (Sources and methodology, Method)",
+    "note": "Internal process record under CLAUDE.md section 11. The statutory pages and FCA web pages were retrieved through a web fetch helper and the FCG 3.2.3 columns were then confirmed by parsing the raw page HTML."
   }
 ]

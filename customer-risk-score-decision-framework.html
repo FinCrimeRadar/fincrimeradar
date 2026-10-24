@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  gtag('js',new Date());
+  (function(){try{if(localStorage.getItem('fcr_cookie_consent_v2')==='accepted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}})();
+  gtag('config','G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement('iframe');iframe.style.cssText='width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;';iframe.name='googlefcPresent';document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Customer Risk Scores: What the Number Cannot Decide | FinCrimeRadar</title>
+<meta name="description" content="A governance framework for customer risk scoring: seven control points for factors, weights, bands, triggers outside the arithmetic, overrides, model change and management information, so the number informs judgement without replacing it.">
+<meta name="author" content="Pratik Zanke, FinCrimeRadar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fincrimeradar.org/customer-risk-score-decision-framework.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Customer Risk Scores: What the Number Cannot Decide">
+<meta property="og:description" content="Seven control points that keep a customer risk score informing judgement instead of replacing it, with two worked decisions.">
+<meta property="og:url" content="https://fincrimeradar.org/customer-risk-score-decision-framework.html">
+<meta property="og:image" content="https://fincrimeradar.org/customer-risk-score-decision-framework-social-card.png">
+<meta property="og:site_name" content="FinCrimeRadar">
+<meta property="article:published_time" content="2026-10-24">
+<meta property="article:modified_time" content="2026-10-24">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Customer Risk Scores: What the Number Cannot Decide">
+<meta name="twitter:description" content="Seven control points that keep a customer risk score informing judgement instead of replacing it, with two worked decisions.">
+<meta name="twitter:image" content="https://fincrimeradar.org/customer-risk-score-decision-framework-social-card.png">
+<link rel="icon" href="/favicon.ico">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Customer Risk Scores: What the Number Cannot Decide","description":"A governance framework for customer risk scoring: seven control points for factors, weights, bands, triggers outside the arithmetic, overrides, model change and management information, so the number informs judgement without replacing it.","datePublished":"2026-10-24","dateModified":"2026-10-24","author":{"@type":"Person","name":"Pratik Zanke","url":"https://fincrimeradar.org/about.html"},"publisher":{"@type":"Organization","name":"FinCrimeRadar","url":"https://fincrimeradar.org","logo":{"@type":"ImageObject","url":"https://fincrimeradar.org/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fincrimeradar.org/customer-risk-score-decision-framework.html"},"image":"https://fincrimeradar.org/customer-risk-score-decision-framework-social-card.png","inLanguage":"en-GB","articleSection":"Framework"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"AML Programme","item":"https://fincrimeradar.org/knowledge.html?domain=aml-programme"},{"@type":"ListItem","position":3,"name":"Customer Risk Scores: What the Number Cannot Decide","item":"https://fincrimeradar.org/customer-risk-score-decision-framework.html"}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--crs-navy:#071d2b;--crs-navy2:#0c2c3a;--crs-green:#0f766e;--crs-green2:#14b8a6;--crs-ink:#14232b;--crs-muted:#586b75;--crs-line:#d9e3e6;--crs-paper:#f5f8f7;--crs-white:#fff;--crs-amber:#b45309;--crs-red:#b42318}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--crs-ink);line-height:1.65}
+.crs-skip{position:absolute;left:1rem;top:-5rem;background:#fff;color:#071d2b;padding:.75rem 1rem;z-index:1000;border:2px solid #14b8a6}.crs-skip:focus{top:1rem}
+nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.98);border-bottom:1px solid var(--crs-line);position:sticky;top:0;z-index:90}
+.nav-brand img{height:44px;width:auto;max-width:200px;display:block;object-fit:contain}.nav-links{display:flex;align-items:center;gap:1.25rem}.nav-links a{color:#465962;text-decoration:none;font-size:13px}.nav-cta{padding:8px 16px;border-radius:7px;background:#0f766e;color:#fff!important}.nav-hamburger{display:none;background:transparent;border:0;color:#071d2b;font-size:24px;min-width:44px;min-height:44px}.mobile-nav{display:none}
+.crs-breadcrumb{max-width:1180px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:.6rem;align-items:center;font-size:13px;color:var(--crs-muted)}.crs-breadcrumb a{color:#0f766e}
+.crs-hero{background:linear-gradient(135deg,#061923,#0b3440 70%,#0f554f);color:#fff;padding:4rem 1.5rem 3.5rem}.crs-hero-inner{max-width:980px;margin:0 auto}.crs-format{display:inline-flex;align-items:center;gap:.45rem;border:1px solid rgba(94,234,212,.55);border-radius:999px;padding:.35rem .7rem;color:#99f6e4;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}.crs-hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.35rem,6vw,4.9rem);line-height:1.02;max-width:900px;margin:1.25rem 0;overflow-wrap:anywhere}.crs-hero h1 em{color:#99f6e4;font-style:normal}.crs-hero-sub{font-size:clamp(1.05rem,2vw,1.35rem);max-width:780px;color:#d8eeee}.crs-meta{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.4rem}.crs-meta span{font-size:13px;padding:.32rem .55rem;border:1px solid rgba(255,255,255,.25);border-radius:5px}
+.crs-scope{max-width:1180px;margin:-1.5rem auto 0;padding:0 1.5rem;position:relative}.crs-scope-inner{background:#fff;border:1px solid var(--crs-line);border-top:4px solid var(--crs-green);padding:1.2rem 1.35rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;box-shadow:0 8px 22px rgba(7,29,43,.08)}.crs-scope dt{font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--crs-muted);letter-spacing:.06em}.crs-scope dd{margin:.25rem 0 0;font-size:14px;font-weight:600}
+.crs-layout{max-width:1180px;margin:2.5rem auto 0;padding:0 1.5rem 5rem;display:grid;grid-template-columns:minmax(0,760px) 260px;gap:3rem;align-items:start}.crs-article{min-width:0}.crs-toc{position:sticky;top:92px;background:#fff;border:1px solid var(--crs-line);padding:1rem}.crs-toc strong{font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase}.crs-toc ol{margin:.7rem 0 0;padding-left:1.25rem}.crs-toc a{color:#35505c;font-size:13px;text-decoration:none}.crs-toc a:hover{text-decoration:underline}
+.crs-section{background:#fff;border:1px solid var(--crs-line);padding:clamp(1.2rem,4vw,2.2rem);margin-bottom:1.35rem;min-width:0}.crs-section h2{font-family:"Playfair Display",Georgia,serif;color:var(--crs-navy);font-size:clamp(1.7rem,4vw,2.45rem);line-height:1.12;margin:0 0 1rem}.crs-section h3{color:var(--crs-navy);font-size:1.15rem;margin:1.6rem 0 .55rem}.crs-section p{margin:.75rem 0}.crs-section a{color:#0b6b63;text-decoration-thickness:1px;text-underline-offset:2px}.crs-lede{font-size:1.2rem;color:#28414b}.crs-callout{border-left:4px solid var(--crs-green);background:#eef8f5;padding:1rem 1.2rem;margin:1.2rem 0}.crs-callout strong{color:#075e57}.crs-rule{font-size:1.2rem;font-weight:700;color:#073d3a}
+.crs-verdicts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1.25rem 0}.crs-verdict{border:1px solid var(--crs-line);border-top:3px solid var(--crs-green);padding:1rem;min-width:0}.crs-verdict .crs-kicker{font:600 11px "IBM Plex Mono",monospace;color:#0f766e;text-transform:uppercase}.crs-verdict h3{margin:.35rem 0;font-size:1.05rem}.crs-verdict p{font-size:14px;margin:.2rem 0}
+.crs-gates{list-style:none;padding:0;margin:1.5rem 0;counter-reset:gate}.crs-gates li{counter-increment:gate;display:grid;grid-template-columns:48px minmax(0,1fr);gap:1rem;padding:1rem 0;border-top:1px solid var(--crs-line)}.crs-gates li:before{content:counter(gate);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--crs-navy);color:#fff;font:600 15px "IBM Plex Mono",monospace}.crs-gates h3{margin:0 0 .25rem}.crs-gates p{margin:0;color:#425963}
+.crs-scenario{border:1px solid #b9d6d1;background:#fbfefd;margin:1.4rem 0;padding:clamp(1rem,4vw,1.6rem)}.crs-scenario-tag{font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;color:#0f766e;letter-spacing:.07em}.crs-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin:1rem 0;padding:0;list-style:none}.crs-facts li{padding:.7rem;background:#eef5f3;border-left:3px solid #5aa89c;font-size:14px}
+.crs-choice{margin:1.2rem 0}.crs-choice fieldset{border:1px solid var(--crs-line);padding:1rem;min-width:0}.crs-choice legend{font-weight:700;padding:0 .35rem;max-width:100%}.crs-option{display:grid;grid-template-columns:22px minmax(0,1fr);gap:.6rem;align-items:start;padding:.65rem;margin:.3rem 0;border:1px solid transparent;border-radius:5px}.crs-option:hover{background:#f2f8f7}.crs-option[data-selected="true"]{border-color:#0f766e;background:#edf8f6}.crs-option input{margin-top:.28rem;width:18px;height:18px;accent-color:#0f766e}.crs-action{border:0;border-radius:5px;background:var(--crs-green);color:#fff;font-weight:700;padding:.75rem 1rem;min-height:44px;cursor:pointer}.crs-action:hover{background:#0b5f59}.crs-action:focus-visible,.crs-option:has(input:focus-visible),summary:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}.crs-feedback{min-height:1.6rem;margin:.75rem 0 0;font-weight:700;color:#075e57}.crs-feedback[data-state="caution"]{color:#8a4b08}
+.crs-saa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}.crs-saa-block{border:1px solid var(--crs-line);padding:.9rem;min-width:0}.crs-saa-block h3{margin:0 0 .4rem;color:#075e57;font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase}.crs-saa-block p{font-size:14px;margin:0}
+.crs-change{border:1px solid #c7d6ec;background:#f4f7fc;padding:1rem;margin:1rem 0}.crs-change h3{margin:0 0 .5rem}.crs-change ul{margin:.5rem 0 .1rem}
+.crs-record{border:2px solid var(--crs-navy);padding:1rem;margin:1.2rem 0}.crs-record h3{margin:0 0 .8rem}.crs-record dl{display:grid;grid-template-columns:140px minmax(0,1fr);margin:0}.crs-record dt,.crs-record dd{padding:.75rem;border-top:1px solid var(--crs-line)}.crs-record dt{font-weight:700;color:#075e57}.crs-record dd{margin:0}.crs-record .crs-assumption{background:#fff8eb}
+.crs-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}.crs-compare>div{border:1px solid var(--crs-line);padding:1rem}.crs-compare h3{margin:0 0 .45rem}
+.crs-details details{border:1px solid var(--crs-line);background:#fff;margin:.55rem 0;padding:.8rem 1rem}.crs-details summary{font-weight:700;cursor:pointer;min-height:34px}.crs-details details[open] summary{margin-bottom:.65rem}
+.crs-patterns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.crs-pattern{border:1px solid var(--crs-line);border-top:4px solid var(--crs-green);padding:1rem;background:#fff;min-width:0}.crs-pattern h3{margin:0 0 .35rem}.crs-pattern .crs-metaphor{font-size:14px;color:#48616b}.crs-lines{margin:.75rem 0 0}.crs-lines div{display:grid;grid-template-columns:74px minmax(0,1fr);gap:.45rem;border-top:1px solid #e8eeee;padding:.45rem 0;font-size:13px}.crs-lines dt{font-weight:700;color:#075e57}.crs-lines dd{margin:0}
+.crs-summary{border:2px solid #0f766e;background:#eff9f6}.crs-summary ol{list-style:none;padding:0;margin:1rem 0}.crs-summary li{display:grid;grid-template-columns:115px minmax(0,1fr);gap:.8rem;padding:.65rem 0;border-top:1px solid #cce2de}.crs-summary strong{color:#075e57}
+.crs-quiz fieldset{border:0;padding:0;margin:1.25rem 0}.crs-quiz legend{font-weight:700;margin-bottom:.45rem}.crs-radar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.crs-radar>div{background:#072431;color:#e8f7f4;padding:1rem}.crs-radar h3{color:#7ee7d5;margin:0 0 .4rem}.crs-radar p,.crs-radar ul{font-size:14px;margin:.25rem 0}
+.crs-sources ol{padding-left:1.4rem}.crs-sources li{margin:.7rem 0;font-size:14px;overflow-wrap:anywhere}.crs-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.crs-related a{display:block;border:1px solid var(--crs-line);padding:1rem;text-decoration:none;background:#fff}.crs-related strong{display:block;color:#073d3a}.crs-related span{color:#536a74;font-size:14px}
+.crs-save-row{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin-top:1rem}.crs-save-status{font-size:13px;color:#536a74}
+@media(max-width:900px){.crs-layout{grid-template-columns:minmax(0,1fr)}.crs-toc{position:static;order:-1}.crs-scope-inner{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--crs-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.crs-breadcrumb{align-items:flex-start;flex-wrap:wrap}.crs-hero{padding-top:2.8rem}.crs-scope-inner,.crs-verdicts,.crs-facts,.crs-saa,.crs-compare,.crs-patterns,.crs-radar,.crs-related{grid-template-columns:minmax(0,1fr)}.crs-layout{padding:0 .75rem 3rem;gap:1rem}.crs-scope{padding:0 .75rem}.crs-record dl{grid-template-columns:minmax(0,1fr)}.crs-record dt{padding-bottom:.2rem}.crs-record dd{padding-top:.2rem;border-top:0}.crs-summary li{grid-template-columns:minmax(0,1fr);gap:.15rem}.crs-lines div{grid-template-columns:66px minmax(0,1fr)}}
+@media(max-width:360px){.crs-section{padding:1rem}.crs-hero h1{font-size:2.15rem}.crs-gates li{grid-template-columns:38px minmax(0,1fr);gap:.65rem}.crs-gates li:before{width:34px;height:34px}.crs-meta{gap:.4rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media print{nav,.mobile-nav,.crs-toc,.crs-choice,.crs-save-row,#site-footer{display:none!important}.crs-layout{display:block;max-width:none}.crs-section{break-inside:avoid;border-color:#999}.crs-hero{background:#fff;color:#000;padding:1rem}.crs-hero-sub{color:#222}}
+
+.crs-state{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;padding:.15rem .5rem;border:1px solid var(--crs-line);background:#f5f8f7;color:var(--crs-navy);vertical-align:middle;white-space:normal}
+.crs-state[data-state="unknown"]{border-color:#b45309;background:#fff7ed;color:#7c2d12}
+.crs-state[data-state="established"]{border-color:#0f766e;background:#ecfdf5;color:#065f46}
+.crs-state[data-state="guidance"]{border-color:#3b6ea8;background:#eef4fb;color:#1e3a5f}
+.crs-state[data-state="industry"]{border-color:#7a5c1c;background:#fbf6e8;color:#5b4310}
+.crs-state[data-state="assessment"]{border-color:#586b75;background:#f3f6f7;color:#33454e}
+.crs-legend{list-style:none;padding:0;margin:1rem 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.crs-legend li{border:1px solid var(--crs-line);padding:.7rem .85rem;min-width:0;font-size:14px}
+.crs-open{border:1px solid var(--crs-line);border-left:4px solid var(--crs-amber);padding:1rem 1.1rem;margin:1.1rem 0;background:#fffdfa;min-width:0}.crs-open h3{margin:.1rem 0 .5rem;font-size:1.1rem}.crs-open h4{margin:0 0 .35rem;font-size:1rem;color:#075e57}.crs-decide{font-weight:700;color:#7c2d12}
+.crs-illustrative{font-size:13px;color:var(--crs-muted);margin:0 0 .8rem;font-style:italic}
+.crs-feedback[data-state="reading"]{color:#8a4b08}.crs-feedback[data-state="unsupported"],.crs-feedback[data-state="unsupported-facts"]{color:#8f1d14}.crs-feedback[data-state="incomplete"]{color:#8a4b08}
+.crs-optfb-set{margin:1.2rem 0}.crs-optfb{border:1px solid var(--crs-line);border-left:4px solid var(--crs-line);padding:.8rem .9rem;margin:.7rem 0;background:#fff}.crs-optfb[data-grade="best"]{border-left-color:#0f766e}.crs-optfb[data-grade="reading"],.crs-optfb[data-grade="incomplete"]{border-left-color:#b45309}.crs-optfb[data-grade="unsupported"],.crs-optfb[data-grade="unsupported-facts"]{border-left-color:#b42318}.crs-optfb[data-selected="true"]{background:#edf8f6;box-shadow:0 0 0 2px #0f766e}
+.crs-choice .crs-action,#knowledgeForm .crs-action,#saveFrameworkImage{display:none}.js .crs-choice .crs-action,.js #knowledgeForm .crs-action,.js #saveFrameworkImage{display:inline-block}.js .crs-optfb-set:not([data-revealed="true"]){display:none}.crs-optfb{scroll-margin-top:120px}.crs-optfb:focus{outline:3px solid #0f766e;outline-offset:2px}.crs-feedback a{color:#075e57;font-weight:700}.crs-grade[data-grade="unsupported-facts"]{border-color:#b42318;color:#8f1d14;background:#fdf0ee}@media print{.js .crs-optfb-set{display:block!important}}
+.crs-optfb-head{margin:0 0 .5rem;font-size:15px}.crs-grade{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:.12rem .45rem;border:1px solid var(--crs-line);background:#f5f8f7;margin-right:.35rem}
+.crs-counterfactual{border:1px solid #d6c8a4;background:#fbf8ef;padding:1rem;margin:1rem 0}.crs-counterfactual h3{margin:0 0 .5rem}
+.crs-branch-note{font-size:14px;color:var(--crs-muted)}
+.crs-answer-notes summary{font-weight:700}
+
+.crs-core{display:grid;grid-template-columns:150px minmax(0,1fr);margin:1.2rem 0;border:1px solid var(--crs-line)}.crs-core dt,.crs-core dd{padding:.7rem .85rem;border-top:1px solid var(--crs-line);margin:0;font-size:14px}.crs-core dt:first-of-type,.crs-core dt:first-of-type+dd{border-top:0}.crs-core dt{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;color:#075e57;background:#f3f8f7}
+.crs-fig{margin:1.6rem 0;padding:0}.crs-fig figcaption{font-size:13px;color:var(--crs-muted);margin-top:.7rem}.crs-fig-title{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:#075e57;margin:0 0 .7rem}
+.crs-chain{list-style:none;margin:0;padding:0;counter-reset:stage}.crs-chain>li{position:relative;display:grid;grid-template-columns:42px minmax(0,1fr);gap:1rem;padding:0 0 1.35rem;counter-increment:stage}.crs-chain>li:before{content:counter(stage);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--crs-navy);color:#fff;font:600 14px "IBM Plex Mono",monospace;z-index:1}.crs-chain>li:not(:last-child):after{content:"\2193";position:absolute;left:0;bottom:.15rem;width:38px;text-align:center;font-size:17px;color:#0f766e}.crs-chain>li:not(:last-child){border-left:0}.crs-chain>li:not(:last-child)>div{border-bottom:1px solid var(--crs-line);padding-bottom:1.1rem}.crs-chain h3{margin:0 0 .2rem;font-size:1.05rem}.crs-chain p{margin:.15rem 0;font-size:14px}.crs-cp{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;border:1px solid #0f766e;color:#075e57;background:#ecfdf5;padding:.1rem .45rem;margin-top:.3rem}
+.crs-outside{border:2px dashed var(--crs-navy);padding:1rem 1.1rem;margin:1.2rem 0;background:#fcfdfd}.crs-outside h3{margin:0 0 .4rem;font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--crs-navy)}.crs-outside p{margin:.3rem 0;font-size:14px}
+.crs-cplist{list-style:none;margin:1rem 0;padding:0;display:grid;gap:.5rem}.crs-cplist li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:.8rem;border:1px solid var(--crs-line);padding:.7rem .85rem;font-size:14px}.crs-cplist strong{font:700 13px "IBM Plex Mono",monospace;color:#075e57}
+.crs-layers{list-style:none;margin:0;padding:0;counter-reset:layer}.crs-layers>li{counter-increment:layer;position:relative;border:1px solid #b9d6d1;background:#fbfefd;padding:.75rem .9rem .75rem 3.1rem;margin:0 0 .5rem;box-shadow:3px 3px 0 #d7e8e4;min-width:0}.crs-layers>li:before{content:counter(layer);position:absolute;left:.8rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--crs-navy);color:#fff;display:grid;place-items:center;font:600 12px "IBM Plex Mono",monospace}.crs-layers>li:nth-child(2){margin-left:3px}.crs-layers>li:nth-child(3){margin-left:6px}.crs-layers>li:nth-child(4){margin-left:9px}.crs-layers>li:nth-child(5){margin-left:12px}.crs-layers>li:nth-child(6){margin-left:9px}.crs-layers>li:nth-child(7){margin-left:6px}.crs-layers>li:nth-child(8){margin-left:3px}.crs-layers strong{display:block;color:var(--crs-navy)}.crs-layers p{margin:.2rem 0;font-size:14px}.crs-ask{color:#075e57}.crs-ask b{font:700 11px "IBM Plex Mono",monospace;text-transform:uppercase}
+.crs-can{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}.crs-can>div{border:1px solid var(--crs-line);padding:1rem;min-width:0}.crs-can h3{margin:0 0 .6rem;font:700 13px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em}.crs-can .crs-yes{border-top:4px solid #0f766e}.crs-can .crs-no{border-top:4px solid #b42318}.crs-can ul{list-style:none;margin:0;padding:0}.crs-can li{border-top:1px solid #e8eeee;padding:.6rem 0;font-size:14px}.crs-can li:first-child{border-top:0}.crs-can li strong{display:block}.crs-can .crs-state{margin-top:.3rem}
+.crs-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.7rem;counter-reset:step}.crs-steps>li{counter-increment:step;border:1px solid var(--crs-line);border-top:4px solid var(--crs-green);padding:.8rem .9rem;background:#fff;min-width:0;font-size:14px}.crs-steps>li:before{content:"Step " counter(step);display:block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;color:#0f766e;margin-bottom:.2rem}.crs-steps strong{display:block;color:var(--crs-navy)}.crs-steps p{margin:.2rem 0;font-size:13px}.crs-return{font-size:14px;border-left:4px solid var(--crs-amber);background:#fffdfa;padding:.7rem .9rem;margin:.9rem 0}
+.crs-contrast{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem;margin:1rem 0}.crs-contrast>div{border:1px solid var(--crs-line);padding:1rem;min-width:0}.crs-contrast h3{margin:0 0 .5rem;font-size:1rem}.crs-contrast .crs-ok{border-top:4px solid #0f766e}.crs-contrast .crs-bad{border-top:4px solid #b42318}.crs-contrast ul{margin:.3rem 0 0;padding-left:1.1rem;font-size:14px}.crs-contrast li{margin:.25rem 0}
+.crs-triggers{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:.7rem 0}.crs-triggers li{border:1px solid var(--crs-line);background:#f5f8f7;padding:.25rem .6rem;font-size:13px}
+.crs-figs{border:1px solid var(--crs-line);border-left:4px solid var(--crs-amber);padding:.8rem 1rem;margin:1rem 0;background:#fffdfa;font-size:14px}.crs-figs ul{margin:.4rem 0 0;padding-left:1.1rem}
+@media(max-width:640px){.crs-core{grid-template-columns:minmax(0,1fr)}.crs-core dd{border-top:0;padding-top:.2rem}.crs-can,.crs-contrast{grid-template-columns:minmax(0,1fr)}.crs-steps{grid-template-columns:minmax(0,1fr)}.crs-cplist li{grid-template-columns:38px minmax(0,1fr)}.crs-layers>li{padding-left:2.8rem}}
+@media(max-width:360px){.crs-chain>li{grid-template-columns:34px minmax(0,1fr);gap:.7rem}.crs-chain>li:before{width:32px;height:32px}.crs-chain>li:not(:last-child):after{width:32px}.crs-layers>li{margin-left:0!important}}
+@media(min-width:641px){.crs-summary li{grid-template-columns:140px minmax(0,1fr)}}
+</style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<a class="crs-skip" href="#main-content">Skip to main content</a>
+<noscript><div style="background:#0c2c3a;color:#fff;text-align:center;padding:10px 16px;font-size:13px">All material reasoning remains available. Scenario scoring, the knowledge check, export and the shared footer require JavaScript.</div></noscript>
+<nav aria-label="Primary">
+  <a class="nav-brand" href="/"><img src="/logo.png" alt="FinCrimeRadar" width="660" height="237"></a>
+  <div class="nav-links"><a href="/knowledge.html">Knowledge Hub</a><a href="/scenario-lab.html">Scenario Lab</a><a href="/screen.html">Screen</a><a href="/kyb-lab.html">KYB Lab</a><a class="nav-cta" href="/screen.html">Try the tool</a></div>
+  <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav"><a href="/knowledge.html">Knowledge Hub</a><a href="/scenario-lab.html">Scenario Lab</a><a href="/about.html">About</a><a href="/kyb-lab.html">KYB Lab</a><a href="/screen.html">Try the tool</a></div>
+<div class="crs-breadcrumb" aria-label="Breadcrumb"><a href="/knowledge.html">Knowledge Hub</a><span aria-hidden="true">›</span><a href="/knowledge.html?domain=aml-programme">AML Programme</a><span aria-hidden="true">›</span><span aria-current="page">Customer Risk Scores: What the Number Cannot Decide</span></div>
+<header class="crs-hero">
+  <div class="crs-hero-inner">
+    <span class="crs-format">Framework</span>
+    <h1>Customer Risk Scores:<br><em>What the Number Cannot Decide</em></h1>
+    <p class="crs-hero-sub">A firm can score every customer consistently and still decide badly. This framework governs the method, so the number informs the judgement instead of replacing it.</p>
+    <p>Written by <a href="/about.html" style="color:#99f6e4">Pratik Zanke</a></p>
+    <div class="crs-meta"><span>UK</span><span>MLR 2017 regulations 18, 28 and 33</span><span>55 min read</span><span>2 worked scenarios</span></div>
+  </div>
+</header>
+<div class="crs-scope">
+  <dl class="crs-scope-inner">
+    <div><dt>Jurisdiction</dt><dd>United Kingdom</dd></div>
+    <div><dt>Status</dt><dd>No prescribed scoring model</dd></div>
+    <div><dt>Law read as at</dt><dd>24 October 2026</dd></div>
+    <div><dt>Evidence reviewed</dt><dd>24 October 2026</dd></div>
+    <div><dt>Last reviewed</dt><dd>24 October 2026</dd></div>
+    <div><dt>Change watch</dt><dd>FCA findings, FATF list</dd></div>
+  </dl>
+</div>
+<div class="crs-layout">
+<main id="main-content" class="crs-article" tabindex="-1">
+
+<section class="crs-section" id="question">
+  <h2>The question, and what this guide will not decide</h2>
+  <p class="crs-lede">A scoring engine produces a number every time it is asked. Whether the number deserves the weight the firm puts on it is a separate question, and it is the one a supervisor, an auditor or the next MLRO will ask.</p>
+  <p>This guide answers one question. How can a firm design and govern a customer risk scoring method so that the number informs judgement without replacing it? It is written for the people who own, run or challenge a scoring method. It is a practitioner framework, not a scoring model and not legal advice.</p>
+  <p>It will not tell you what to weight, where to put the bands or how many bands to have. No source read for this guide does, and a guide that supplied those figures would be inventing a standard and presenting it as one. What it does give you is seven control points a reviewer can put to the model owner, and a way to tell a controlled departure from the number from a quiet manipulation of it.</p>
+  <div class="crs-callout"><p class="crs-rule">A score earns its place by what the firm can show about how it was built, what it is allowed to decide and what happens when it is wrong.</p></div>
+  <h3>Two terms, used precisely</h3>
+  <p>A <strong>customer risk assessment</strong> is the exercise of assessing the risk a customer presents. A <strong>customer risk rating</strong> is its output: a band or label such as high, medium or low, usually produced from a score. The <strong>business-wide risk assessment</strong> under regulation 18 is a different exercise, about the firm itself. They connect, and a model that ignores the connection is a weaker model, but they are not the same document. <a href="#source-1">[1]</a></p>
+  <h3>The analytical spine</h3>
+  <dl class="crs-core">
+    <dt>Question</dt><dd>How can a firm design and govern a customer risk scoring method so the number informs judgement without replacing it?</dd>
+    <dt>Evidence state</dt><dd>The Regulations require risk assessment and risk-sensitive due diligence and prescribe no model. The FCA material is guidance and examples. The seven control points, the override and change designs and the scenario grading are FinCrimeRadar assessment.</dd>
+    <dt>Decision object</dt><dd>One judgement about a scoring method: accept it, challenge it, or require a controlled change. It is not a decision about any one customer's rating.</dd>
+    <dt>Uncertainty</dt><dd>No source read sets a validation standard, a sensitivity test, an acceptable override rate or a number of bands. The FCA findings on customer scoring are thin, and several items speak only of "risk assessment" in general.</dd>
+    <dt>What would change this</dt><dd>A regulator or court stating a model standard. An FCA finding that deals directly with overrides or thresholds. A change to regulation 28 or 33. The firm's own testing contradicting a control point.</dd>
+    <dt>Practitioner outcome</dt><dd>After this guide you should be able to challenge a scoring methodology against seven control points, document an override so that it survives review, and recognise when a change to the model needs an impact assessment, testing and approval.</dd>
+  </dl>
+  <h3>How evidence is labelled</h3>
+  <ul class="crs-legend">
+    <li><span class="crs-state" data-state="established">Established</span> Statute or an in-force regulation, read from the text.</li>
+    <li><span class="crs-state" data-state="guidance">Guidance</span> FCA findings, case studies and Handbook guidance. Examples and observations, not rules.</li>
+    <li><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> Our analysis. It rests on the sources but is not their wording.</li>
+    <li><span class="crs-state" data-state="unknown">Unknown</span> No source read settles it.</li>
+  </ul>
+  <p class="crs-branch-note">Out of scope: business-wide risk assessment design, screening and transaction monitoring thresholds, the exit decision itself (see <a href="/de-risking-judgement-call.html">The De-Risking Judgement Call</a>), regulation 35 on politically exposed persons beyond naming it, and other jurisdictions. The word "threshold" in this guide means a customer risk band boundary and nothing else.</p>
+</section>
+
+<section class="crs-section" id="law">
+  <h2>What the Regulations ask for, and what they leave to the firm</h2>
+  <p class="crs-lede">The legal text is shorter than most scoring methodologies and says nothing about their arithmetic.</p>
+  <div class="crs-saa" aria-label="Law, application and recommendation">
+    <div class="crs-saa-block"><h3>Source</h3><p><span class="crs-state" data-state="established">Established</span> Regulation 18 requires a firm to take appropriate steps to identify and assess the money laundering and terrorist financing risks to which its business is subject, taking account of risk factors that include its customers, geographies, products or services, transactions and delivery channels, and the size and nature of the business. <a href="#source-1">[1]</a> Regulation 28(12) says the ways a firm applies customer due diligence, and the extent of the measures, must reflect that risk assessment and the firm's assessment of the level of risk in the particular case. Regulation 28(13) lists case-level factors, including the purpose of the account or relationship, the level of assets or size of transactions, and the regularity and duration of the relationship, and the words "among other things" keep the list open. Regulation 28(16) requires the firm to be able to demonstrate to its supervisory authority that the extent of its measures is appropriate in view of the risks. <a href="#source-2">[2]</a> None of regulations 18, 28 or 33, as read, prescribes a scoring method, a weighting scheme or a number of rating bands. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p></div>
+    <div class="crs-saa-block"><h3>Application</h3><p><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> The number is therefore not a legal artefact. It is the firm's own instrument for meeting duties that are phrased in terms of risk sensitivity and demonstrability. Under regulation 28(16), "the model rated this customer medium" is not a demonstration. The demonstration is the reasoning that connects the customer, the assessment and the measures taken, and a score helps only to the extent that the firm can show how it connects.</p></div>
+    <div class="crs-saa-block"><h3>Recommendation</h3><p>Treat the score as evidence supporting a due diligence decision, not as the decision. A useful test for any method: if the number vanished tomorrow, could the firm still explain why this customer received this level of due diligence?</p></div>
+  </div>
+  <h3>What the FCA material adds, and what it does not</h3>
+  <p>The FCA's findings of 11 November 2025 say their purpose is to help firms reflect on how they meet the existing risk assessment requirements, and note that good practice often goes beyond the minimum regulatory requirements. <a href="#source-4">[4]</a> The Financial Crime Guide is general guidance. It is not binding, and the FCA says firms can comply in ways other than following the good practice in it. <a href="#source-8">[8]</a> The January 2025 markets review applies the same register to a sample of wholesale brokers. <a href="#source-5">[5]</a></p>
+  <p><span class="crs-state" data-state="guidance">Guidance</span> So this guide treats an FCA example as an indication of what a supervisory conversation is likely to cover, and never as a standalone legal obligation. Where an example is applied to a customer scoring model and the source does not itself say so, the text says it is an application. That matters here more than usual, because the 2025 findings page covers customer risk assessment briefly, and most of its items use the general words "risk assessment" without distinguishing the firm from the customer. <a href="#source-4">[4]</a></p>
+</section>
+
+<section class="crs-section" id="chain">
+  <h2>The score-to-decision chain</h2>
+  <p class="crs-lede">Every scoring method, however it is built, runs the same seven stages. Control points attach to stages, not to the number.</p>
+  <figure class="crs-fig" aria-labelledby="chain-title">
+    <p class="crs-fig-title" id="chain-title">Figure 1. From evidence to reassessment</p>
+    <ol class="crs-chain">
+      <li><div><h3>Evidence inputs</h3><p>What the firm knows about the customer, from documents, screening, onboarding answers and third parties.</p><span class="crs-cp">Control point 1</span></div></li>
+      <li><div><h3>Factor treatment</h3><p>Each input becomes a factor value: its direction, its scale, what a missing input means, and any caps or floors.</p><span class="crs-cp">Control points 1 and 2</span></div></li>
+      <li><div><h3>Weighting and interaction</h3><p>Factor values are combined, with weights and any rules for factors that move together.</p><span class="crs-cp">Control point 2</span></div></li>
+      <li><div><h3>Thresholds</h3><p>The combined result is cut into bands.</p><span class="crs-cp">Control point 3</span></div></li>
+      <li><div><h3>Operational response</h3><p>Each band is attached to consequences: depth of due diligence, monitoring, review and escalation.</p><span class="crs-cp">Control point 3</span></div></li>
+      <li><div><h3>Override control</h3><p>A person may depart from the output, on evidence, with a reason, an approver and a record.</p><span class="crs-cp">Control point 5</span></div></li>
+      <li><div><h3>Monitoring and reassessment</h3><p>Outcomes, overrides and events feed back into re-scoring and into changes to the model itself.</p><span class="crs-cp">Control points 6 and 7</span></div></li>
+    </ol>
+    <div class="crs-outside">
+      <h3>Outside the arithmetic</h3>
+      <p><strong>Legal and policy triggers</strong> apply whatever the number says (control point 4). <strong>Human judgement</strong> enters at stage 1, where a person decides what evidence is reliable, and at stage 6, where a person may depart from the output. <strong>Governance</strong> wraps the whole chain: testing, approval and change control.</p>
+    </div>
+    <figcaption>Text equivalent: the list above is the figure. Stages run in order from 1 to 7. The dashed block names three things that are not stages and cannot be reached by adjusting a weight.</figcaption>
+  </figure>
+  <h3>The seven control points</h3>
+  <ol class="crs-cplist">
+    <li><strong>CP1</strong><span>Factor admissibility and evidence quality. Why is this input in the model, where does it come from and how reliable is it?</span></li>
+    <li><strong>CP2</strong><span>Weighting rationale and double counting. Why this weight, and is the same underlying fact being counted twice?</span></li>
+    <li><strong>CP3</strong><span>Threshold design and operational consequences. Where do the bands fall, and what does each band actually cause?</span></li>
+    <li><strong>CP4</strong><span>Triggers outside the arithmetic. Which legal or policy triggers apply whatever the score says?</span></li>
+    <li><strong>CP5</strong><span>Controlled overrides. What evidence, reason, approval and record does a departure from the output need?</span></li>
+    <li><strong>CP6</strong><span>Model testing, change control and triggered reassessment. What tells the firm the model still works, and what happens when it changes?</span></li>
+    <li><strong>CP7</strong><span>Management information and feedback. What comes back from the chain, to whom, and who can act on it?</span></li>
+  </ol>
+</section>
+
+<section class="crs-section" id="inside-number">
+  <h2>Inside the number: nine decisions nobody sees on the dashboard</h2>
+  <p class="crs-lede">A customer risk score appears as one figure. It contains at least nine design decisions, and a reviewer who sees only the figure cannot challenge any of them.</p>
+  <figure class="crs-fig" aria-labelledby="layers-title">
+    <p class="crs-fig-title" id="layers-title">Figure 2. What one score hides</p>
+    <ol class="crs-layers">
+      <li><strong>Data provenance</strong><p>Where each input comes from and how reliable it is.</p><p class="crs-ask"><b>Ask</b> Which inputs are self-declared and which are verified, and does the model know the difference?</p></li>
+      <li><strong>Missing-data treatment</strong><p>What the model does when an input is absent.</p><p class="crs-ask"><b>Ask</b> Does a blank score as low, neutral or unknown, and who decided that?</p></li>
+      <li><strong>Factor direction</strong><p>Whether more of a thing raises or lowers the score.</p><p class="crs-ask"><b>Ask</b> Is each direction stated and justified, including factors that can cut both ways, such as the length of a relationship?</p></li>
+      <li><strong>Weighting</strong><p>How far each factor can move the result.</p><p class="crs-ask"><b>Ask</b> What is the written rationale for each weight, and what was it tested against?</p></li>
+      <li><strong>Caps and floors</strong><p>Limits on how far one factor can drive the result, or be driven out of it.</p><p class="crs-ask"><b>Ask</b> Can a single factor swamp the rest, or be offset by several small ones?</p></li>
+      <li><strong>Correlated factors</strong><p>Factors that move together and count one underlying fact twice.</p><p class="crs-ask"><b>Ask</b> Which pairs are correlated across the book, and is the shared fact counted once?</p></li>
+      <li><strong>Threshold placement</strong><p>Where each band begins and ends.</p><p class="crs-ask"><b>Ask</b> Why there, and what does a small movement do to the population in each band?</p></li>
+      <li><strong>Consequences by band</strong><p>What each band causes: due diligence, monitoring, review, escalation.</p><p class="crs-ask"><b>Ask</b> Is every consequence stated, and do two bands share one that they should not?</p></li>
+      <li><strong>Version and effective date</strong><p>Which version of all the above produced this rating, and since when.</p><p class="crs-ask"><b>Ask</b> Could the firm reproduce any historic rating using the version in force at the time?</p></li>
+    </ol>
+    <figcaption>Text equivalent: nine numbered layers sit behind the displayed figure, each with the question a reviewer should put to the model owner. The layers are offset on wide screens to suggest a stack and are listed in order on every screen.</figcaption>
+  </figure>
+
+  <h3>Control point 1: factors the firm can defend</h3>
+  <p>A factor earns its place when the firm can say what risk it stands for, where the value comes from, how far it has been verified and what the model does when it is missing. The Regulations name categories of risk factor, among them customers, geographies, products or services, transactions and delivery channels, and the case-level factors in regulation 28(13) are expressly not a closed list. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <span class="crs-state" data-state="established">Established</span> The FCA's guidance lists the kind of relationship factors a firm might weigh, such as company structures, political connections, country risk, source of wealth and funds and expected account activity. <a href="#source-7">[7]</a> <span class="crs-state" data-state="guidance">Guidance</span></p>
+  <p>The difficulty is the gap between the factor as named and the evidence behind it. A self-declared industry code and a verified registry entry are different inputs, and a model that cannot tell them apart will weigh them alike. The same goes for a blank. <span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> Decide in writing whether a missing input scores as unknown, as neutral or as low, and who approved that choice. A default that happens to be benign is a hidden decision. It can produce the effects the FCA lists as poor practice: a classification system that makes a high rating almost impossible, or higher risk countries given low scores to avoid enhanced due diligence. <a href="#source-7">[7]</a> The FCA describes those as design failures, not as consequences of missing data, so the link to defaults is our application.</p>
+  <p>The FCA also lists as poor practice customer scores that rest predominantly on one factor, such as jurisdiction, and records firms that based the assessment solely on customer jurisdiction. <a href="#source-5">[5]</a> <span class="crs-state" data-state="guidance">Guidance</span> A model that is easy to explain because it only has one moving part is not thereby defensible.</p>
+  <div class="crs-pattern" data-pattern-id="false-precision">
+      <h3>1. The Decimal Illusion</h3><p class="crs-metaphor">An exact-looking score claims more certainty than the evidence supports.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>A score reported to a decimal place implies a precision the inputs, weights and bands cannot support.</dd></div><div><dt>Signal</dt><dd>Small changes in one or two inputs move customers across a band boundary.</dd></div><div><dt>Response</dt><dd>Test sensitivity near each boundary, record the uncertainty, and show the reviewer the band as well as the figure.</dd></div></dl>
+    </div>
+
+  <h3>Control point 2: weights, and facts counted twice</h3>
+  <p>The FCA's Case Study 17 is the example practitioners reach for, so it is worth reading for what it says. One wholesale broker used a spreadsheet that scored six categories (product and service, customer type, customer industry, geography, relationship structure, and adverse media and PEP status), weighted the category scores, and mapped the total to a high, medium or low rating that determined the level of due diligence. The same sheet alerted the user when escalation to the MLRO for approval was needed, had a section for manual overrides and their rationale, and prompted the user to consider other risk factors. The FCA introduced it as an illustration of a reasonable approach to calculating risk ratings. <a href="#source-5">[5]</a> <span class="crs-state" data-state="guidance">Guidance</span></p>
+  <p>It did not say those weights are right for anyone else. The percentages belong to one firm's business and risk profile, and copying them copies the least transferable feature of the case. What transfers is the structure around the arithmetic: a score that sets the level of due diligence, a route to escalation, and a controlled place for overrides and their reasons. <span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <p>The FCA's wider observation is that most firms it saw considered a variety of risk factors and several weighted their calculations. <a href="#source-5">[5]</a> Some tailored their customer assessment through sub-factors and weightings, and the FCA lists as good practice reflecting the risks found in the business-wide assessment in the customer assessment through weightings or sub-factors. <a href="#source-4">[4]</a> So the question for this control point is not whether to weight. It is whether the firm can write down why each weight is what it is and what evidence it was tested against. A weight with no recorded rationale is a guess that has been given authority by a spreadsheet.</p>
+  <p>Double counting is the quieter risk. No source read addresses it, so this is <span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span>. Suppose a model scores a customer's sector, its country of registration and the channel through which it was onboarded, and in the firm's book the three move together: most customers in the sector are registered in that country and arrive through agents there. The model has counted one fact three times, and the customer looks three times as risky as the facts support. The control is to measure how factors move together across the book, then cap or net the overlap by rule, and record the decision.</p>
+  <div class="crs-pattern" data-pattern-id="double-counted-risk">
+      <h3>2. The Echo Factor</h3><p class="crs-metaphor">One fact is heard three times.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>Correlated factors amplify the same underlying fact.</dd></div><div><dt>Signal</dt><dd>Linked geography, industry and delivery channel factors rise and fall together across the customer book.</dd></div><div><dt>Response</dt><dd>Test dependencies between factors, and apply caps or interaction rules where they overlap.</dd></div></dl>
+    </div>
+</section>
+
+<section class="crs-section" id="thresholds">
+  <h2>Where the bands fall, and what each band does</h2>
+  <p class="crs-lede">Consequences attach to bands, not to scores. That makes each cut-off one of the most consequential numbers in the model, and one of the least often justified in writing.</p>
+  <p>Two customers a point apart on either side of a boundary receive different due diligence, different monitoring and perhaps a different approver. That is acceptable only if the firm chose the boundary deliberately and knows how many customers sit close to it. Three questions follow. Why is the boundary here? What does a small movement do to the population in each band? And can the teams who receive each band's customers actually do the work?</p>
+  <p>The last question is the one models skip. A high band that swallows a large share of the book gets worked through rather than investigated, and a high band that catches almost nobody is the failure the FCA describes as a classification system that makes a high rating almost impossible. <a href="#source-7">[7]</a> <span class="crs-state" data-state="guidance">Guidance</span> <span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> Set the boundaries by reference to risk appetite and operational capacity together, and record both. The Regulations do not fix a number of bands, and Case Study 17 happened to use three. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a> <a href="#source-5">[5]</a></p>
+  <div class="crs-pattern" data-pattern-id="threshold-drift">
+      <h3>3. The Drifting Band</h3><p class="crs-metaphor">The cut-offs stay put while the population moves.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>A changing customer population makes old band boundaries produce different outcomes.</dd></div><div><dt>Signal</dt><dd>The share of customers in a band shifts suddenly without a matching change in underlying risk.</dd></div><div><dt>Response</dt><dd>Investigate data, population and boundary performance before accepting or adjusting the movement.</dd></div></dl>
+    </div>
+  <div class="crs-figs"><strong>Illustration, fictional figures.</strong> A firm's high band holds 6% of its customers in March. In June, after a new data provider replaces the old one, it holds 14%, with no change in products or customer mix. The model has not found more risk. An input has changed its meaning. Finding that takes a comparison of the band distributions and a look at which input moved, which is why band distribution belongs in management information (control point 7).</div>
+  <h3>Control point 3: every band needs a stated consequence</h3>
+  <p>The FCA lists as good practice customer risk assessments that directly affect due diligence, transaction monitoring and other controls, and in Case Study 17 the rating determined the level of due diligence. <a href="#source-4">[4]</a> <a href="#source-5">[5]</a> The FCA also saw the reverse: a customer's rating set on completion of due diligence instead of the assessment deciding how much due diligence to do, and some client types assigned low risk automatically regardless of other factors. <a href="#source-5">[5]</a> <span class="crs-state" data-state="guidance">Guidance</span> The mapping from band to consequence is where a scoring method either does something or does nothing, so for each band the firm should be able to answer:</p>
+  <ul>
+    <li>What depth of due diligence applies, and who decides it?</li>
+    <li>What level of ongoing monitoring applies?</li>
+    <li>When is the next review, and which events bring it forward?</li>
+    <li>Who may approve onboarding or continuation?</li>
+    <li>Which of these consequences is required by law (see the next section), and which is firm policy?</li>
+  </ul>
+  <div class="crs-pattern" data-pattern-id="consequence-mismatch">
+      <h3>6. The Mismatched Door</h3><p class="crs-metaphor">Every high band opens the same door.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>Every high score produces the same action whatever caused it.</dd></div><div><dt>Signal</dt><dd>Bands are disconnected from the due diligence, monitoring or escalation actually performed.</dd></div><div><dt>Response</dt><dd>Map each consequence explicitly, and keep statutory triggers separate from the arithmetic.</dd></div></dl>
+    </div>
+</section>
+
+<section class="crs-section" id="outside">
+  <h2>Rules that sit outside the arithmetic</h2>
+  <p class="crs-lede">Some obligations do not ask what the score is. A model that can lower them has no business being in the chain.</p>
+  <h3>Control point 4: statutory and policy triggers</h3>
+  <p><span class="crs-state" data-state="established">Established</span> Regulation 33(1) requires enhanced due diligence and enhanced ongoing monitoring in listed cases. Two of them depend on the firm's own assessment: a case identified as high risk by the firm under regulation 18(1) or in supervisory information, and any other case that by its nature can present a higher risk. The rest turn on facts. They are a business relationship or relevant transaction involving a person established in a "FATF call for action country", subject to the narrow exception in regulation 33(2); correspondent relationships caught by regulation 33(1)(c), in accordance with regulation 34; a customer the firm has determined to be a politically exposed person or a family member or known close associate of one; a customer who has provided false or stolen identification where the firm proposes to continue dealing; and the unusual transaction cases. <a href="#source-3">[3]</a> Separately, regulation 33(7) tells the firm, when it assesses whether a situation is high risk, to bear in mind that the presence of one or more risk factors may not always indicate a high risk. <a href="#source-3">[3]</a></p>
+  <p><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> The fact-based cases are not conditioned on a rating. A model that returns low for a customer established in a Call for Action country has not changed what regulation 33(1)(b) requires, unless the regulation 33(2) exception applies. That exception turns on its own conditions and not on the score. Where it does not apply, the model has produced a wrong treatment. Build these cases as rules that act beside or before the score, either as a floor under which the applied treatment cannot fall or as a flag that attaches the legally required measures whatever the band. For every customer record two things: the model output, and the treatment applied with the rule that set it. When the two differ, the difference is then a record and not a mystery.</p>
+  <p>The wording of regulation 33(1)(b) changed with effect from 30 June 2026. <a href="#source-3">[3]</a> A rules engine built before that date may carry the older trigger, so check it against the current text. <a href="#source-3">[3]</a> <a href="/de-risking-judgement-call.html">The De-Risking Judgement Call</a> sets out what changed and what it left in place.</p>
+  <p>Policy triggers are the firm's own: sectors it will not serve, jurisdictions it will not touch, activities that need senior approval. They sit outside the arithmetic for a different reason. They are risk appetite decisions, and a model should not be able to dilute them. Label each trigger as law or policy, so that nobody mistakes one for the other.</p>
+  <h3>What a high score does not do</h3>
+  <p><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> A high rating raises the level of due diligence and attention. By itself it does not establish suspicion, require the firm to exit the customer, or show that the customer is outside the firm's appetite. None of the sources read ties a rating band to a suspicion judgement or to an exit decision, and nothing in the regulations read converts a score into either. Regulation 33(7) is a narrower point: it says that one or more risk factors may not always indicate a high risk, and it does not address suspicion or exit. <a href="#source-3">[3]</a> Whether a suspicion exists, and whether to end a relationship, are separate judgements made on facts. For the second, see <a href="/de-risking-judgement-call.html">The De-Risking Judgement Call</a>.</p>
+  <figure class="crs-fig" aria-labelledby="can-title">
+    <p class="crs-fig-title" id="can-title">Figure 3. What the number can and cannot decide</p>
+    <div class="crs-can">
+      <div class="crs-yes">
+        <h3>Can inform</h3>
+        <ul>
+          <li><strong>Relative prioritisation</strong>Ordering customers for attention is what a score does well, if the order is stable and the firm knows what it is ordering by. <span class="crs-state" data-state="assessment">Assessment</span></li>
+          <li><strong>Depth of due diligence</strong>Regulation 28(12) requires the extent of measures to reflect the risk assessments, and in Case Study 17 the rating set the level of due diligence. <a href="#source-2">[2]</a> <a href="#source-5">[5]</a> <span class="crs-state" data-state="established">Established</span> <span class="crs-state" data-state="guidance">Guidance</span></li>
+          <li><strong>Monitoring intensity</strong>Ongoing monitoring must be consistent with the customer's risk profile, and the FCA lists risk assessments that directly affect transaction monitoring as good practice. <a href="#source-2">[2]</a> <a href="#source-4">[4]</a> <span class="crs-state" data-state="established">Established</span> <span class="crs-state" data-state="guidance">Guidance</span></li>
+          <li><strong>Review frequency</strong>The FCA observed periodic reviews set at one, three or five years by risk level, with event triggers alongside. It is an observation, not a requirement. <a href="#source-5">[5]</a> <span class="crs-state" data-state="guidance">Guidance</span></li>
+          <li><strong>Escalation routing</strong>The Case Study 17 sheet alerted the user when MLRO approval was needed. <a href="#source-5">[5]</a> <span class="crs-state" data-state="guidance">Guidance</span></li>
+        </ul>
+      </div>
+      <div class="crs-no">
+        <h3>Cannot decide alone</h3>
+        <ul>
+          <li><strong>Whether the evidence is reliable</strong>That is a judgement about sources, not an output of arithmetic. The FCG lists being unable to evidence why customers are rated as they are as poor practice. <a href="#source-7">[7]</a> <span class="crs-state" data-state="assessment">Assessment</span></li>
+          <li><strong>Whether a legal trigger applies</strong>Regulation 33(1)(b), (d) and (e) turn on facts, not on a rating, as do correspondent relationships caught by regulation 33(1)(c), in accordance with regulation 34. <a href="#source-3">[3]</a> <span class="crs-state" data-state="established">Established</span></li>
+          <li><strong>Whether suspicion exists</strong>No source read links a rating band to a suspicion judgement. <span class="crs-state" data-state="assessment">Assessment</span></li>
+          <li><strong>Whether the customer must be exited</strong>Nothing in the text read ties a band to exit. <span class="crs-state" data-state="assessment">Assessment</span></li>
+          <li><strong>Whether an override is justified</strong>The FCA examples turn on evidence, rationale and audit trail, not on the arithmetic. <a href="#source-5">[5]</a> <a href="#source-7">[7]</a> <span class="crs-state" data-state="guidance">Guidance</span></li>
+          <li><strong>Whether the model still works after a change</strong>The FCA lists limited or no testing when firms make enhancements, upgrades or automation as poor practice. <a href="#source-4">[4]</a> <span class="crs-state" data-state="guidance">Guidance</span></li>
+        </ul>
+      </div>
+    </div>
+    <figcaption>Text equivalent: the left list is what the number may inform and the right list is what it cannot decide alone. Each item carries its own evidence label in words, so nothing depends on colour.</figcaption>
+  </figure>
+</section>
+
+<section class="crs-section" id="overrides">
+  <h2>Overrides: a controlled departure or a quiet manipulation</h2>
+  <p class="crs-lede">An override is a person disagreeing with the model. Whether that is good governance depends entirely on what gets written down.</p>
+  <h3>Control point 5: evidence, reason, approval and record</h3>
+  <p><span class="crs-state" data-state="guidance">Guidance</span> The FCA lists a clear audit trail of customer risk rating overrides and their rationale as good practice, and the Case Study 17 sheet had a section for manual overrides and rationale. <a href="#source-5">[5]</a> On the other side, FCG 3.2.3 lists relationship managers being able to override customer risk scores without sufficient evidence as poor practice, together with risk assessments unduly influenced by the potential profitability of relationships and the risk that a relationship manager becomes too close to customers to take an objective view. <a href="#source-7">[7]</a> The markets review found that few firms adequately documented the rationale for a rating, particularly where management overrides had taken place, and that evidence of escalation, decisions and quality assurance was often not evident. <a href="#source-5">[5]</a></p>
+  <p><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> The sources treat evidence and record as the dividing line. They do not say overrides are acceptable only below some frequency, and they do not say who must approve one. Those are design choices, and the loop below is ours.</p>
+  <figure class="crs-fig" aria-labelledby="loop-title">
+    <p class="crs-fig-title" id="loop-title">Figure 4. The override governance loop</p>
+    <ol class="crs-steps">
+      <li><strong>Case evidence</strong><p>The facts that make the output wrong or incomplete for this customer, attached to the file.</p></li>
+      <li><strong>Reason-coded override</strong><p>A reason from a closed list plus a rationale specific to the customer. The model output stays stored, unaltered.</p></li>
+      <li><strong>Independent approval, where required</strong><p>An approver outside the requester's commercial line, at a level set by policy for direction and size.</p></li>
+      <li><strong>Audit trail</strong><p>Who, what, when, why and on what evidence, reproducible from the record.</p></li>
+      <li><strong>Aggregate MI</strong><p>Overrides by reason, team, approver, direction and age, reported to the people who can act.</p></li>
+      <li><strong>Model review or remediation</strong><p>A decision on whether a pattern shows a model gap, a data problem, inconsistent practice or pressure.</p></li>
+    </ol>
+    <p class="crs-return">Step 6 feeds back into the chain: factors, weights, bands or the reason code list may change, and the loop starts again at step 1.</p>
+    <figcaption>Text equivalent: six numbered steps in a loop, labelled Step 1 to Step 6. The return from step 6 to the chain is stated in the note above this caption.</figcaption>
+  </figure>
+  <div class="crs-contrast">
+    <div class="crs-ok"><h3>A controlled override</h3><ul><li>The original model output is stored and never changed.</li><li>The override is a separate recorded decision.</li><li>The reason comes from a closed list, with a rationale specific to this customer.</li><li>Evidence is attached or referenced.</li><li>Where policy requires, an approver independent of the requester signs it off.</li><li>Someone who was not there can reconstruct what happened.</li></ul></div>
+    <div class="crs-bad"><h3>Silent score manipulation</h3><ul><li>Inputs are edited after the first score until the band changes.</li><li>A factor value is changed with no evidence behind it.</li><li>"Other" is used as the reason.</li><li>The requester approves their own change.</li><li>The stored score is overwritten and the original is lost.</li><li>Nobody counts how often it happens.</li></ul></div>
+  </div>
+  <p>A simple test separates the two. Could an independent reviewer reconstruct the original output, the change, the reason, the evidence and the approver from the record alone? Downward overrides deserve the sharper control, because they reduce due diligence, while an upward override adds it. The sources do not draw that distinction, so it is <span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span>.</p>
+  <div class="crs-pattern" data-pattern-id="override-shadow-policy">
+      <h3>4. The Shadow Policy</h3><p class="crs-metaphor">A second, undocumented model grows in the exceptions.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>Repeated overrides become an unwritten second method.</dd></div><div><dt>Signal</dt><dd>Overrides cluster by reason code, team, approver or direction.</dd></div><div><dt>Response</dt><dd>Reason-code each override, approve it independently where policy requires, report the pattern and remediate the model.</dd></div></dl>
+    </div>
+</section>
+
+<section class="crs-section" id="change">
+  <h2>Testing, change and reassessment</h2>
+  <p class="crs-lede">A model that was sound when it was approved is only sound today if something has checked.</p>
+  <h3>Control point 6: test, approve, release, watch</h3>
+  <p><span class="crs-state" data-state="guidance">Guidance</span> The FCA lists as good practice documenting risk assessment methodologies in detail and formally logging, discussing and approving changes, and reviewing risk assessment models and processes with quarterly or triggered updates. It lists as poor practice limited or no testing and review of risk assessment processes when firms make enhancements, upgrades or automation, customer assessments not developed in line with business growth, assessments that are not sufficiently dynamic, and rapid expansion of products, services and customer types without first ensuring controls remain appropriate. <a href="#source-4">[4]</a> FCG 3.2.3 says firms must regularly review their risk assessment to ensure it remains current, and FCG 2.2.4 says firms should regularly review both their business-wide and their individual risk assessments. <a href="#source-7">[7]</a> <a href="#source-6">[6]</a></p>
+  <p><span class="crs-state" data-state="established">Established</span> The statutory text names no frequency. Regulation 28(11)(b) requires reviews of existing records and keeping due diligence information up to date, and regulation 18(4) requires an up-to-date record of the steps taken. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> Quarterly updating is therefore an FCA example of good practice, not a legal minimum, and the FCA presents triggered updates alongside it. What matters is that the firm can name its triggers and show that they work.</p>
+  <p><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> Firms blur two kinds of reassessment. <strong>Customer reassessment</strong> re-scores a customer when something about them changes. It is operational, and the FCA says firms should consider the events that would trigger a review or update, noting that some firms looked at changes in geographical risk only at the periodic review. <a href="#source-5">[5]</a> <strong>Model reassessment</strong> re-tests the method when something about the book, the data, the law or the product changes. It is change control, and the cycle below is how it should run. Nothing in the findings addresses validation of a scoring model by name, so the testing ideas that follow are ours.</p>
+  <figure class="crs-fig" aria-labelledby="cycle-title">
+    <p class="crs-fig-title" id="cycle-title">Figure 5. The change-control cycle</p>
+    <ol class="crs-steps">
+      <li><strong>Trigger</strong><p>Something that may have changed what the model means.</p></li>
+      <li><strong>Impact assessment</strong><p>Which factors, values, bands and consequences are affected, and which customers.</p></li>
+      <li><strong>Test design</strong><p>What would show the change works, set before the test is run.</p></li>
+      <li><strong>Approval</strong><p>By the body that approved the model, on the impact assessment and the test plan.</p></li>
+      <li><strong>Controlled release</strong><p>A dated version, with interim controls where the old version is relied on meanwhile.</p></li>
+      <li><strong>Outcome monitoring</strong><p>Band distribution, overrides and sample re-rating after release.</p></li>
+      <li><strong>Rollback or remediation</strong><p>A decision to keep, fix or revert, recorded with its reason.</p></li>
+    </ol>
+    <p class="crs-return">Useful triggers, all FinCrimeRadar assessment:</p>
+    <ul class="crs-triggers"><li>Regulatory change</li><li>A new product</li><li>A new customer type</li><li>A change of data source</li><li>Unexpected band movement</li><li>Repeated overrides</li><li>A control failure</li></ul>
+    <figcaption>Text equivalent: seven numbered steps from trigger to rollback or remediation, and a list of triggers that can start the cycle. The cycle repeats whenever a trigger recurs.</figcaption>
+  </figure>
+  <p>Useful tests, none of them prescribed by any source read: how many customers change band if each input moves by a small margin; how an independent reviewer would rate a sample of files, compared with the model, across all bands and not only the high one; how the model treats a customer whose key input is missing; and whether any segment is rated differently from the rest for reasons the firm cannot explain.</p>
+  <div class="crs-pattern" data-pattern-id="stale-reassessment">
+      <h3>5. The Stale Rating</h3><p class="crs-metaphor">The score keeps its date while the customer moves on.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>A rating stays unchanged after material customer information changes.</dd></div><div><dt>Signal</dt><dd>Updates wait for the next periodic review.</dd></div><div><dt>Response</dt><dd>Define event-driven triggers for re-scoring and test that they fire.</dd></div></dl>
+    </div>
+</section>
+
+<section class="crs-section" id="mi">
+  <h2>What should come back from the chain</h2>
+  <p class="crs-lede">A scoring method that reports nothing about itself cannot be governed.</p>
+  <h3>Control point 7: management information and feedback</h3>
+  <p><span class="crs-state" data-state="guidance">Guidance</span> The FCA lists customer risk assessment management information provided to senior management committees for discussion as good practice. <a href="#source-4">[4]</a> The markets review found that evidence of escalations, decisions taken and quality assurance checks was often not evident. <a href="#source-5">[5]</a> No source sets a threshold for any measure below, and this guide gives none.</p>
+  <p><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> A useful pack reports:</p>
+  <ul>
+    <li>The distribution of customers across bands over time, and what moved when it moved.</li>
+    <li>Movement between bands, and the inputs behind it.</li>
+    <li>Overrides by reason code, team, approver and direction, with age.</li>
+    <li>The time from a trigger event to a re-score.</li>
+    <li>The result of sampled file reviews: how often an independent reviewer would have rated differently.</li>
+    <li>Consequences actually applied against the consequences expected for the band.</li>
+    <li>Model changes, test results and open remediation.</li>
+  </ul>
+  <p>The test of the pack is who can act on it. Someone must be able to pause reliance on the model, someone must decide to change it, and the pack must reach them. Management information that nobody has the authority to act on is decoration.</p>
+</section>
+
+<section class="crs-section" id="scenario-one" data-scenario="newproduct">
+  <span class="crs-scenario-tag">Worked scenario 1 · Model applicability</span>
+  <h2>The model that was approved for someone else</h2>
+  <p class="crs-lede">The engine will score anyone. That is not the same as being valid for them.</p>
+  <div class="crs-scenario">
+    <p class="crs-illustrative">Composite scenario for teaching. All figures are fictional. It does not describe a real firm or customer.</p>
+    <ul class="crs-facts"><li>The firm's customer risk model was approved twenty months ago for one population: sole traders and small companies holding a standard business account.</li><li>The firm has now launched a payments account for online marketplace sellers, many based overseas and paid by marketplace payouts. The product and the customer type are both new.</li><li>The engine scored the new customers without error. It has no value for the new product, so that factor falls back to its standard setting, and the new customer type is filed under "other", which scores as neutral.</li><li>After six weeks, 92% of the new segment is rated low or medium. A reviewer in the MLRO's team looked at 12 files and would have rated 3 of them higher.</li><li>No impact assessment was written before launch. The model's next scheduled review is in four months.</li></ul>
+    <form class="crs-choice" data-decision-form data-scenario-id="newproduct" method="dialog">
+      <fieldset>
+        <legend>What is the most defensible current decision?</legend>
+        <label class="crs-option"><input type="radio" name="newproduct-decision" value="continue" data-grade="unsupported" data-grade-label="Not supported on the sources"><span>Keep scoring the new segment. The engine ran without error, the ratings look plausible, and the model's scheduled review is in four months.</span></label><label class="crs-option"><input type="radio" name="newproduct-decision" value="stop" data-grade="incomplete" data-grade-label="Defensible but incomplete"><span>Stop onboarding the new segment until a replacement model has been built, tested and approved, and take no other step in the meantime.</span></label><label class="crs-option"><input type="radio" name="newproduct-decision" value="controlled" data-grade="best" data-grade-label="Supported by the sources and the facts"><span>Treat the model as unvalidated for the segment: write the impact assessment, apply interim controls, test, and get approval before relying on it.</span></label><label class="crs-option"><input type="radio" name="newproduct-decision" value="highonly" data-grade="incomplete" data-grade-label="Defensible but incomplete"><span>Keep using the score and have a second analyst review every new-segment customer the model rates high, because the high band is where the risk sits and the rest can wait for the model review.</span></label>
+      </fieldset>
+      <button class="crs-action" type="submit">Record decision</button>
+      <p class="crs-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="crs-optfb-set" data-optfb-for="newproduct" role="group" aria-labelledby="optfb-title-newproduct">
+  <h3 id="optfb-title-newproduct">How each option grades</h3>
+  <div class="crs-optfb" id="optfb-newproduct-continue" data-option="continue" data-grade="unsupported">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="unsupported">Not supported on the sources</span> Keep scoring the new segment. The engine ran without error, the ratings look plausible, and the model's scheduled review is in four months.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>The FCA lists as poor practice limited or no testing and review of risk assessment processes when firms make enhancements, upgrades or automation, and the rapid expansion of products, services and customer types without first ensuring controls remain appropriate and effective. It also lists customer assessments not developed in line with business growth. <a href="#source-4">[4]</a> Regulation 28(12) ties the extent of due diligence to the risk assessments and to the assessment of risk in the particular case. <a href="#source-2">[2]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>A result with no error is not evidence of suitability. Two inputs for this segment are defaults, not assessments, so a low or medium rating partly records what the model does not know. The FCA items describe risk assessment processes generally and do not name scoring models, so reading them across to this model is our application.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>Do not extend reliance on the output to the segment until applicability has been assessed and recorded. A scheduled review in four months does not answer the question for the customers being onboarded now. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="crs-optfb" id="optfb-newproduct-stop" data-option="stop" data-grade="incomplete">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="incomplete">Defensible but incomplete</span> Stop onboarding the new segment until a replacement model has been built, tested and approved, and take no other step in the meantime.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>The expectation running through these FCA examples is that controls stay appropriate and effective as a firm expands, and the FCA lists failing to consider that beforehand as poor practice. <a href="#source-4">[4]</a> Nothing in the regulations text read requires a pause, or any particular model. <a href="#source-2">[2]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>A pause can be a sound commercial choice and it does protect the firm. It is incomplete as an answer. It does nothing about the customers already onboarded, who are in the book and rated on defaults, and it forgoes interim controls that could cover the gap while the model is rebuilt. It also assumes the fix is a new model before anyone has established what is wrong.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>Keep it in reserve for the case where interim controls cannot be made to work. It is a fallback and not the first response. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="crs-optfb" id="optfb-newproduct-controlled" data-option="controlled" data-grade="best">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="best">Supported by the sources and the facts</span> Treat the model as unvalidated for the segment: write the impact assessment, apply interim controls, test, and get approval before relying on it.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>The FCA lists as good practice documenting methodologies and formally logging, discussing and approving changes, and as poor practice the absence of testing when firms change or automate their processes. <a href="#source-4">[4]</a> In Case Study 17 the calculated rating set the level of due diligence, and the process carried a controlled route for overrides and escalation. <a href="#source-5">[5]</a> Regulation 28(16) requires the firm to be able to demonstrate that its measures are appropriate in view of the risks. <a href="#source-2">[2]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>The impact assessment asks which factors, values, bands and consequences relate to the new population, which inputs defaulted, and what a sample shows. Interim controls cover the period before the model is revalidated: a manual rating review wherever an input defaulted, for example, and a temporary floor on the treatment. Testing checks the factors and bands against the new segment, and approval sits with the body that approved the model. This sequence is our assessment. No source read sets it.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>Do it in that order and record each step. Reliance on the model for the new segment resumes when the approval says so, and the scope of the approval is written down. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="crs-optfb" id="optfb-newproduct-highonly" data-option="highonly" data-grade="incomplete">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="incomplete">Defensible but incomplete</span> Keep using the score and have a second analyst review every new-segment customer the model rates high, because the high band is where the risk sits and the rest can wait for the model review.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>FCG 3.2.3 lists as poor practice a risk classification system that makes it almost impossible for a relationship to be rated high, and the markets review observed some client types being assigned low risk automatically regardless of other risk factors. <a href="#source-7">[7]</a> <a href="#source-5">[5]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>Reviewing only the high band assumes the model's ranking is right. The facts point the other way. Defaulted inputs push ratings down, so the wrongly rated customers are most likely in the bands nobody is looking at. A second look at the low and medium bands, in a sample weighted towards files where an input defaulted, is what tests that.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>Sample across all bands. Keep the review of the high band, but do not mistake it for a test of the model. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  </div>
+  <div class="crs-counterfactual">
+    <h3>Counterfactual: change one fact</h3>
+    <p>The new product is a rebranded variant of an existing one, sold to the same customer type, using the same data sources and the same verification. The impact assessment can then be short, and may conclude that the approved model remains applicable. The documented applicability conclusion is still needed, because the decision is about recorded reasoning and not about length. The fact that moved the decision was whether the model's inputs still mean what they meant when it was approved.</p>
+  </div>
+  <div class="crs-change">
+    <h3>What Would Change My Decision?</h3>
+    <p><strong>Towards lighter controls:</strong> an impact assessment showing the factors and data apply to the segment unchanged, no defaulted inputs, and a sample re-rating that agrees with the model across all bands.</p>
+    <p><strong>Towards heavier controls:</strong> a sample re-rating showing systematic under-rating, an unreliable data source for the segment, growth outrunning the interim reviews, or a supervisory communication about the segment.</p>
+  </div>
+  <div class="crs-record" aria-labelledby="newproduct-record-heading">
+    <h3 id="newproduct-record-heading">Decision Record</h3>
+    <dl><dt>Facts</dt><dd>Model approved for a different population. New product and customer type launched. Two inputs default. 92% of the segment rated low or medium. Three of twelve reviewed files under-rated. No impact assessment.</dd><dt class="crs-assumption">Assumptions</dt><dd class="crs-assumption">Twelve files is too few to estimate a rate. The defaults explain at least part of the under-rating, until the sample shows otherwise.</dd><dt>Indicators</dt><dd>A product factor with no value for the product. A customer type that scores neutral because it is "other". No testing before launch.</dd><dt>Mitigants</dt><dd>Manual rating review wherever an input defaulted, a temporary floor on the treatment, weekly sample re-rating across all bands, and continued onboarding under those controls.</dd><dt>Decision</dt><dd>The model is not relied on for the new segment until the impact assessment, testing and approval are complete. Interim controls apply now, with an owner and a date.</dd><dt>Rationale</dt><dd>The engine's output does not show that the model is valid for this population. The firm can show what it did about that, in what order and with whose approval, which is what regulation 28(16) asks it to be able to demonstrate.</dd></dl>
+  </div>
+</section>
+
+<section class="crs-section" id="scenario-two" data-scenario="overridepattern">
+  <span class="crs-scenario-tag">Worked scenario 2 · Override pattern</span>
+  <h2>The same reason, again and again</h2>
+  <p class="crs-lede">Each file looks defensible. The pattern may not be.</p>
+  <div class="crs-scenario">
+    <p class="crs-illustrative">Composite scenario for teaching. All figures are fictional. It does not describe a real firm or customer.</p>
+    <ul class="crs-facts"><li>In one quarter the model rated 620 business customers high. In the Commercial Services unit, 71 of 240 high ratings (30%) were overridden downwards. Across all other units, 12 of 380 (3%).</li><li>58 of the 71 overrides used the same reason code, "established relationship".</li><li>Every one of the 71 files carries a rationale and an approval. Some cite evidence, such as source of wealth documents. Others restate the reason code in a sentence.</li><li>61 of the 71 were approved by two senior managers in the unit's own reporting line. The unit is measured on time to onboard.</li><li>The quarterly MI reports total overrides for the firm. It does not break them down by reason, unit or approver. The MLRO has seen the figures only because an analyst built a separate report.</li></ul>
+    <form class="crs-choice" data-decision-form data-scenario-id="overridepattern" method="dialog">
+      <fieldset>
+        <legend>What is the most defensible current decision?</legend>
+        <label class="crs-option"><input type="radio" name="overridepattern-decision" value="banall" data-grade="unsupported" data-grade-label="Not supported on the sources"><span>Stop all downward overrides across the firm until the model is rebuilt, because the pattern shows the override process cannot be trusted.</span></label><label class="crs-option"><input type="radio" name="overridepattern-decision" value="pattern" data-grade="best" data-grade-label="Supported by the sources and the facts"><span>Keep the files, sample the affected cases, test the reason code and approvers for conflicts, and report the pattern as MI and a possible model remediation trigger.</span></label><label class="crs-option"><input type="radio" name="overridepattern-decision" value="accept" data-grade="unsupported" data-grade-label="Not supported on the sources"><span>Accept the pattern. Every one of the 71 files carries a rationale and an approval, so the control has worked as designed and the unit is simply a lower risk book than the others.</span></label><label class="crs-option"><input type="radio" name="overridepattern-decision" value="reverse" data-grade="incomplete" data-grade-label="Defensible but incomplete"><span>Review all 71 files one by one and reverse the overrides that are not adequately evidenced, then close the matter once the reversals are done.</span></label>
+      </fieldset>
+      <button class="crs-action" type="submit">Record decision</button>
+      <p class="crs-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="crs-optfb-set" data-optfb-for="overridepattern" role="group" aria-labelledby="optfb-title-overridepattern">
+  <h3 id="optfb-title-overridepattern">How each option grades</h3>
+  <div class="crs-optfb" id="optfb-overridepattern-banall" data-option="banall" data-grade="unsupported">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="unsupported">Not supported on the sources</span> Stop all downward overrides across the firm until the model is rebuilt, because the pattern shows the override process cannot be trusted.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>The FCA lists a clear audit trail of customer risk rating overrides and their rationale as good practice, and Case Study 17 has a section for overrides. <a href="#source-5">[5]</a> What FCG 3.2.3 lists as poor practice is overriding without sufficient evidence, not overriding as such. <a href="#source-7">[7]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>The sources put the line at evidence, not at the existence of overrides. A firm-wide ban removes the route by which a rating that is wrong for a particular customer gets corrected, and pushes judgement into editing inputs, which is harder to see than an override. It also treats a finding about one unit as proof about all of them, when the figures say otherwise: 3% everywhere else.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>If the risk is judged high enough to act before the review finishes, put targeted conditions on the affected reason code, such as an extra approver, and keep the control itself. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="crs-optfb" id="optfb-overridepattern-pattern" data-option="pattern" data-grade="best">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="best">Supported by the sources and the facts</span> Keep the files, sample the affected cases, test the reason code and approvers for conflicts, and report the pattern as MI and a possible model remediation trigger.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>The markets review found that few firms adequately documented the rationale for a rating where management overrides had taken place, and that evidence of escalation, decisions and quality assurance was often not evident. <a href="#source-5">[5]</a> FCG 3.2.3 lists risk assessments unduly influenced by the potential profitability of relationships, and relationship managers too close to customers to take an objective view, as poor practice. <a href="#source-7">[7]</a> The FCA lists customer risk assessment MI provided to senior management committees as good practice. <a href="#source-4">[4]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>No source says what concentration of overrides is acceptable, or that repeated overrides signal a model defect. That reading is our assessment, and it rests on a plain point. An override is a disagreement between the model and a person, and a cluster means the same disagreement keeps arising. The cause could be a factor the model lacks, such as relationship history; weak data; inconsistent practice; or commercial pressure. Sampling is what tells those apart, and the facts leave all four open.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>Preserve the files. Sample the affected cases for evidence quality and approval quality, across the 58 that share the reason and the 13 that do not. Check who approved and whether they have a stake in the result. Compare outcomes: do the overridden customers behave like the model's low and medium customers? Report the pattern to the governance forum as MI and as a possible trigger for model remediation, and decide there whether "established relationship" is a genuine risk-reducing factor the model should carry or a convenient label. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="crs-optfb" id="optfb-overridepattern-accept" data-option="accept" data-grade="unsupported">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="unsupported">Not supported on the sources</span> Accept the pattern. Every one of the 71 files carries a rationale and an approval, so the control has worked as designed and the unit is simply a lower risk book than the others.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>FCG 3.2.3 lists as poor practice a firm being unable to evidence why customers are rated as they are, risk assessments unduly influenced by the potential profitability of relationships, and relationship managers too close to customers to take an objective view. <a href="#source-7">[7]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>A file-by-file test asks whether this override was acceptable. The facts raise a different question: why one unit overrides roughly ten times as often as the rest, on one reason, approved within its own reporting line, while being measured on speed. Every file passing does not answer that. A control can work as designed and still be designed in a way that allows the pattern.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>Treat the pattern as a finding in its own right. Individual files passing is where the review starts and not where it ends. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="crs-optfb" id="optfb-overridepattern-reverse" data-option="reverse" data-grade="incomplete">
+    <p class="crs-optfb-head"><span class="crs-grade" data-grade="incomplete">Defensible but incomplete</span> Review all 71 files one by one and reverse the overrides that are not adequately evidenced, then close the matter once the reversals are done.</p>
+    <div class="crs-saa">
+      <div class="crs-saa-block"><h3>Source</h3><p>The markets review found that evidence of escalations, decisions taken and quality assurance checks was often not evident where overrides had taken place. <a href="#source-5">[5]</a></p></div>
+      <div class="crs-saa-block"><h3>Application</h3><p>Reviewing and reversing unsupported overrides corrects the files in front of the reviewer. It does not tell the model owner whether "established relationship" is a real risk-reducing factor the model omits or a convenient label, and it does not examine the approvers. Without that, the next quarter produces the same pattern with better rationales.</p></div>
+      <div class="crs-saa-block"><h3>Recommendation</h3><p>Make the file review part of the sample and not the whole response, and carry its findings into the model review. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  </div>
+  <div class="crs-counterfactual">
+    <h3>Counterfactual: change one fact</h3>
+    <p>The same 71 overrides are spread across five units, with five different reasons and five different approvers. The pattern points less to a single design gap and more to ordinary variation in individual judgement, though sampling still applies because the aggregate volume is itself notable. The fact that moved the decision was concentration, not volume.</p>
+  </div>
+  <div class="crs-change">
+    <h3>What Would Change My Decision?</h3>
+    <p><strong>Towards stronger action:</strong> a sample showing evidence missing or thin across the 58 files, approvers with a stake in the unit's onboarding targets, or overridden customers generating alerts or adverse findings at a higher rate than the model's low and medium customers.</p>
+    <p><strong>Towards lighter action:</strong> a sample showing each override independently evidenced, outcomes in line with the model's lower bands, and MI showing the pattern was a one-off following a book migration.</p>
+  </div>
+  <div class="crs-record" aria-labelledby="overridepattern-record-heading">
+    <h3 id="overridepattern-record-heading">Decision Record</h3>
+    <dl><dt>Facts</dt><dd>71 of 240 high ratings overridden downwards in one unit against 12 of 380 elsewhere. 58 share one reason. 61 approved by two managers in the unit's line. MI does not break overrides down.</dd><dt class="crs-assumption">Assumptions</dt><dd class="crs-assumption">The rationales are genuine attempts to record reasons, not fabrications. The cause is not yet known.</dd><dt>Indicators</dt><dd>Concentration by unit, reason and approver. A unit measured on speed. Reporting that hides the pattern.</dd><dt>Mitigants</dt><dd>Files preserved, a stratified sample under review, an extra approver on the affected reason code pending findings, and a breakdown added to the next MI pack.</dd><dt>Decision</dt><dd>The pattern is reported to the governance forum as MI and a possible model remediation trigger. Individual overrides stand unless the sample shows them unsupported.</dd><dt>Rationale</dt><dd>Individual files do not explain a concentration. The sample tests the four candidate causes, and the forum, not the unit, decides whether the model or the practice changes.</dd></dl>
+  </div>
+</section>
+
+<section class="crs-section crs-summary" id="operational-summary">
+  <h2>One Screen Operational Summary</h2>
+  <ol>
+    <li><strong>Inputs</strong><span>Name each factor's source, the level of verification its weight assumes, and what a blank means.</span></li>
+    <li><strong>Weights</strong><span>Write the rationale for each weight, and test for facts counted twice.</span></li>
+    <li><strong>Bands</strong><span>Justify each boundary against risk appetite and capacity, and test sensitivity near it.</span></li>
+    <li><strong>Consequences</strong><span>State what each band causes in due diligence, monitoring, review and escalation.</span></li>
+    <li><strong>Triggers</strong><span>Keep legal and policy triggers outside the arithmetic, and label which is which.</span></li>
+    <li><strong>Overrides</strong><span>Store the original output. Require a reason code, evidence and an approver, and keep the trail.</span></li>
+    <li><strong>Change</strong><span>Run impact assessment, testing, approval and controlled release for every trigger.</span></li>
+    <li><strong>Feedback</strong><span>Report band movement, overrides, re-score timing and sample results to someone who can act.</span></li>
+  </ol>
+</section>
+
+<section class="crs-section" id="red-team">
+  <h2>Red Team Questions</h2>
+  <ol>
+    <li>If the number disappeared tomorrow, could we still explain why this customer received this level of due diligence?</li>
+    <li>Do we know what a blank input does to the score, and who approved that?</li>
+    <li>Which factors move together in our book, and have we counted any fact twice?</li>
+    <li>If one input moved slightly, how many customers would change band?</li>
+    <li>Does any band produce the same action as another, whatever caused the rating?</li>
+    <li>Is there a legal trigger the model can lower, and is every policy trigger labelled as policy?</li>
+    <li>Could someone who was not there reconstruct an override from the record alone?</li>
+    <li>What would we have to see to conclude the model no longer works, and who has the authority to stop relying on it?</li>
+  </ol>
+  <div class="crs-callout"><p class="crs-rule">A scoring method is defended by its controls, not by its output.</p></div>
+</section>
+
+<section class="crs-section crs-quiz" id="knowledge-check">
+  <h2>Knowledge check</h2>
+  <p>Choose one answer for each question. The score is an aid to review, not a credential or a case decision.</p>
+  <form id="knowledgeForm" method="dialog">
+    <fieldset><legend>1. In the FCA's Case Study 17, what did the firm's onboarding spreadsheet do besides turning weighted category scores into a high, medium or low rating?</legend>
+      <label class="crs-option"><input type="radio" name="q1" value="a" data-correct="true"><span>It flagged when escalation to the MLRO was needed and held a section for manual overrides and their rationale.</span></label>
+      <label class="crs-option"><input type="radio" name="q1" value="b"><span>It set each customer's next review date at one, three or five years with no manual input, so that nobody needed to decide.</span></label>
+      <label class="crs-option"><input type="radio" name="q1" value="c"><span>It fixed the rating to the weighted score and locked it, so that an analyst could not record a different view for any reason.</span></label>
+    </fieldset>
+    <fieldset><legend>2. A model gives a low rating to a customer established in a country on the FATF Call for Action list, because geography has a small weight. What follows under regulation 33?</legend>
+      <label class="crs-option"><input type="radio" name="q2" value="a"><span>The low rating prevails, because the Regulations are risk based and the firm's own assessment of the customer was low.</span></label>
+      <label class="crs-option"><input type="radio" name="q2" value="b"><span>Enhanced due diligence applies only if the score also reaches the high band.</span></label>
+      <label class="crs-option"><input type="radio" name="q2" value="c" data-correct="true"><span>Regulation 33(1)(b) still requires enhanced due diligence, subject to its narrow exception, whatever the score says.</span></label>
+    </fieldset>
+    <fieldset><legend>3. How does the FCA present quarterly or triggered updates to risk assessments?</legend>
+      <label class="crs-option"><input type="radio" name="q3" value="a"><span>As a minimum frequency set by regulation 28 of the Money Laundering Regulations.</span></label>
+      <label class="crs-option"><input type="radio" name="q3" value="b" data-correct="true"><span>As an example of good practice, not a legal minimum.</span></label>
+      <label class="crs-option"><input type="radio" name="q3" value="c"><span>As a requirement in FCG 3.2.3 that applies to every customer rating without exception.</span></label>
+    </fieldset>
+    <fieldset><legend>4. Which of these does FCG 3.2.3 list as an example of poor practice?</legend>
+      <label class="crs-option"><input type="radio" name="q4" value="a" data-correct="true"><span>Relationship managers able to override scores without sufficient evidence.</span></label>
+      <label class="crs-option"><input type="radio" name="q4" value="b"><span>Using sub-factors and weightings to tailor a customer risk assessment to the business.</span></label>
+      <label class="crs-option"><input type="radio" name="q4" value="c"><span>Providing customer risk assessment management information to senior management committees.</span></label>
+    </fieldset>
+    <fieldset><legend>5. What does regulation 28(12) tie the extent of customer due diligence to?</legend>
+      <label class="crs-option"><input type="radio" name="q5" value="a"><span>The numerical score that the firm's customer risk model produces.</span></label>
+      <label class="crs-option"><input type="radio" name="q5" value="b" data-correct="true"><span>The firm's regulation 18(1) risk assessment and its assessment of the risk in the particular case.</span></label>
+      <label class="crs-option"><input type="radio" name="q5" value="c"><span>The customer's position in a three-band rating scale.</span></label>
+    </fieldset>
+    <button class="crs-action" type="submit">Score knowledge check</button>
+    <p id="knowledgeFeedback" class="crs-feedback" aria-live="polite" role="status"></p>
+  </form>
+  <div class="crs-details crs-answer-notes"><details><summary>Answer notes</summary>
+    <p><strong>Question 1.</strong> <em>Source:</em> Case Study 17 describes a spreadsheet that alerts the user when escalation to the MLRO for approval is needed, has a section for manual overrides and rationale, and prompts consideration of other risk factors. <a href="#source-5">[5]</a> <em>Application:</em> The case study's value as an example lies in those controls, not in its percentages. <em>Recommendation:</em> Copy the structure around the arithmetic and set your own weights.</p>
+    <p><strong>Question 2.</strong> <em>Source:</em> Regulation 33(1)(b) requires enhanced due diligence for a business relationship with a person established in a FATF call for action country, and regulation 33(2) gives a narrow exception. <a href="#source-3">[3]</a> <em>Application:</em> The trigger turns on establishment, not on a rating, so a low score does not displace it. <em>Recommendation:</em> Build fact-based triggers as a floor or a flag beside the score.</p>
+    <p><strong>Question 3.</strong> <em>Source:</em> The FCA lists quarterly or triggered updates to risk assessments as good practice. <a href="#source-4">[4]</a> The statutory text read names no frequency. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <em>Application:</em> The FCA presents triggered updates alongside quarterly ones, so the point is that triggers are defined and work. <em>Recommendation:</em> Name your triggers and test that they fire.</p>
+    <p><strong>Question 4.</strong> <em>Source:</em> FCG 3.2.3 lists relationship managers being able to override customer risk scores without sufficient evidence as poor practice. <a href="#source-7">[7]</a> The FCA lists sub-factors and weightings as something some firms do, and management information to senior committees as good practice. <a href="#source-4">[4]</a> <em>Application:</em> The line the sources draw is evidence, not the existence of overrides. <em>Recommendation:</em> Require evidence for every override.</p>
+    <p><strong>Question 5.</strong> <em>Source:</em> Regulation 28(12) says the ways of complying with customer due diligence, and its extent, must reflect the regulation 18(1) risk assessment and the firm's assessment of the level of risk in the particular case. <a href="#source-2">[2]</a> <em>Application:</em> The Regulations name no scoring method or band structure, so a score is the firm's own instrument for meeting this duty. <em>Recommendation:</em> Be able to explain the due diligence without the number.</p>
+  </details></div>
+</section>
+
+<section class="crs-section" id="patterns">
+  <h2>Risk, Signal, Response</h2>
+  <div class="crs-patterns" id="crsClosingPatterns">
+    <div class="crs-pattern" data-pattern-id="false-precision">
+      <h3>1. The Decimal Illusion</h3><p class="crs-metaphor">An exact-looking score claims more certainty than the evidence supports.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>A score reported to a decimal place implies a precision the inputs, weights and bands cannot support.</dd></div><div><dt>Signal</dt><dd>Small changes in one or two inputs move customers across a band boundary.</dd></div><div><dt>Response</dt><dd>Test sensitivity near each boundary, record the uncertainty, and show the reviewer the band as well as the figure.</dd></div></dl>
+    </div>
+    <div class="crs-pattern" data-pattern-id="double-counted-risk">
+      <h3>2. The Echo Factor</h3><p class="crs-metaphor">One fact is heard three times.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>Correlated factors amplify the same underlying fact.</dd></div><div><dt>Signal</dt><dd>Linked geography, industry and delivery channel factors rise and fall together across the customer book.</dd></div><div><dt>Response</dt><dd>Test dependencies between factors, and apply caps or interaction rules where they overlap.</dd></div></dl>
+    </div>
+    <div class="crs-pattern" data-pattern-id="threshold-drift">
+      <h3>3. The Drifting Band</h3><p class="crs-metaphor">The cut-offs stay put while the population moves.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>A changing customer population makes old band boundaries produce different outcomes.</dd></div><div><dt>Signal</dt><dd>The share of customers in a band shifts suddenly without a matching change in underlying risk.</dd></div><div><dt>Response</dt><dd>Investigate data, population and boundary performance before accepting or adjusting the movement.</dd></div></dl>
+    </div>
+    <div class="crs-pattern" data-pattern-id="override-shadow-policy">
+      <h3>4. The Shadow Policy</h3><p class="crs-metaphor">A second, undocumented model grows in the exceptions.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>Repeated overrides become an unwritten second method.</dd></div><div><dt>Signal</dt><dd>Overrides cluster by reason code, team, approver or direction.</dd></div><div><dt>Response</dt><dd>Reason-code each override, approve it independently where policy requires, report the pattern and remediate the model.</dd></div></dl>
+    </div>
+    <div class="crs-pattern" data-pattern-id="stale-reassessment">
+      <h3>5. The Stale Rating</h3><p class="crs-metaphor">The score keeps its date while the customer moves on.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>A rating stays unchanged after material customer information changes.</dd></div><div><dt>Signal</dt><dd>Updates wait for the next periodic review.</dd></div><div><dt>Response</dt><dd>Define event-driven triggers for re-scoring and test that they fire.</dd></div></dl>
+    </div>
+    <div class="crs-pattern" data-pattern-id="consequence-mismatch">
+      <h3>6. The Mismatched Door</h3><p class="crs-metaphor">Every high band opens the same door.</p>
+      <dl class="crs-lines"><div><dt>Risk</dt><dd>Every high score produces the same action whatever caused it.</dd></div><div><dt>Signal</dt><dd>Bands are disconnected from the due diligence, monitoring or escalation actually performed.</dd></div><div><dt>Response</dt><dd>Map each consequence explicitly, and keep statutory triggers separate from the arithmetic.</dd></div></dl>
+    </div>
+  </div>
+  <div class="crs-save-row"><button class="crs-action" id="saveFrameworkImage" type="button">Save as image</button><span class="crs-save-status" id="saveFrameworkStatus" aria-live="polite" role="status"></span></div>
+</section>
+
+<section class="crs-section crs-details" id="faq">
+  <h2>FAQ</h2>
+  <details><summary>Does the FCA require a numerical customer risk score?</summary><p>Not on the sources read. Regulations 18, 28 and 33 prescribe no scoring method, weighting scheme or number of bands. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-3">[3]</a> The FCA material describes weighted scoring in examples, and the Financial Crime Guide is general guidance that is not binding. <a href="#source-5">[5]</a> <a href="#source-8">[8]</a> The duty is risk sensitivity, and being able to demonstrate it.</p></details>
+  <details><summary>Are the Case Study 17 weightings a standard?</summary><p>No. They are one wholesale broker's approach, which the FCA introduced as an illustration of a reasonable approach to calculating risk ratings. <a href="#source-5">[5]</a> The FCA does not say they suit other firms, and this guide gives no weights of its own.</p></details>
+  <details><summary>Is quarterly reassessment required?</summary><p>The statutory text read gives no frequency. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> The FCA lists quarterly or triggered updates to risk assessments as an example of good practice. <a href="#source-4">[4]</a> Treat it as an example, and be able to say what triggers your own updates.</p></details>
+  <details><summary>Can a firm override a score?</summary><p>The FCA examples assume it can. They list a clear audit trail of overrides and rationale as good practice, and overriding without sufficient evidence as poor practice. <a href="#source-5">[5]</a> <a href="#source-7">[7]</a> What an override needs in practice is the design set out in the overrides section, which is our assessment.</p></details>
+  <details><summary>Does a high rating mean the firm must report a suspicion or exit the customer?</summary><p><span class="crs-state" data-state="assessment">FinCrimeRadar assessment</span> Not on the sources read. None ties a rating band to a suspicion judgement or an exit decision. Regulation 33(7) is a narrower caution, that one or more risk factors may not always indicate a high risk. <a href="#source-3">[3]</a> Suspicion and exit are separate judgements. For exit, see <a href="/de-risking-judgement-call.html">The De-Risking Judgement Call</a>.</p></details>
+  <details><summary>How is this different from the Scenario Lab Risk Scoring module?</summary><p>Scenario Lab asks you to weigh the signals on one customer file and choose a proportionate response. This guide asks whether the method that produced the number deserves the weight placed on it, and how it should be governed. The two meet at overrides: Scenario Lab covers the analyst's decision, and this guide covers the firm's controls around it. See the <a href="/scenario-lab.html">Scenario Lab</a>.</p></details>
+  <details><summary>Should a firm change its model whenever overrides rise?</summary><p>Not automatically. A rise is a prompt to find out why, which is what the sampling in the second scenario does. The cause may be a model gap, but it may also be data, practice or pressure. No source read sets an acceptable override rate.</p></details>
+</section>
+
+<section class="crs-section crs-sources" id="sources">
+  <h2>Sources and methodology</h2>
+  <p><strong>Scope:</strong> UK customer risk assessment under the Money Laundering Regulations 2017 (regulations 18, 28 and 33) and the FCA's published findings and Handbook guidance on it. It does not cover business-wide risk assessment design, regulation 31, regulation 35, JMLSG guidance, other jurisdictions or the exit decision. This is decision support for practitioners, not legal advice.</p>
+  <p><strong>Method:</strong> The statutory text and FCA web pages were read on 24 October 2026. The January 2025 FCA review was read from its PDF, with the text extracted locally and the page numbers matched to the printed page numbers. The good practice and poor practice columns of FCG 3.2.3 were attributed from the Handbook page's own table markup, because plain text extraction loses the column. A first pass at the FCA findings page was followed by a second pass that checked, item by item, whether each item names customer risk assessment, business-wide risk assessment or only risk assessment in general.</p>
+  <p><strong>Evidence separation:</strong> Source blocks state what an authority establishes. Application blocks are FinCrimeRadar analysis. Recommendation blocks are operational judgements and are labelled as ours. The nine layers, seven control points, override loop and change-control cycle are FinCrimeRadar designs, not a regulator's.</p>
+  <p><strong>Limits:</strong> The FCA findings page covers customer risk assessment briefly, and most items use the words "risk assessment" without distinguishing the firm from the customer. Case Study 17 is one firm, and the markets review sampled wholesale brokers. No source read sets a validation standard, a double counting test or an acceptable override rate. Scenario figures are fictional.</p>
+  <ol>
+    <li id="source-1"><a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/18" target="_blank" rel="noopener">Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 18, Risk assessment by relevant persons, as revised</a>, read 24 October 2026, page stating it is up to date with changes in force on or before 21 October 2026.</li>
+    <li id="source-2"><a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/28" target="_blank" rel="noopener">The same Regulations, regulation 28, Customer due diligence measures, paragraphs 11, 12, 13 and 16, as revised</a>, read 24 October 2026, up to date to 20 October 2026.</li>
+    <li id="source-3"><a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/33" target="_blank" rel="noopener">The same Regulations, regulation 33, Obligation to apply enhanced customer due diligence, as revised and amended with effect from 30 June 2026 by SI 2026/621</a>, read 24 October 2026, up to date to 22 October 2026.</li>
+    <li id="source-4"><a href="https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings" target="_blank" rel="noopener">Financial Conduct Authority, Risk assessment processes and controls in firms: our findings</a>, published and last updated 11 November 2025.</li>
+    <li id="source-5"><a href="https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf" target="_blank" rel="noopener">Financial Conduct Authority, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025, Chapter 8 (pages 26 to 28) including Case Study 17, and paragraph 9.9 (page 30)</a>.</li>
+    <li id="source-6"><a href="https://handbook.fca.org.uk/handbook/fcg2/fcg2s2" target="_blank" rel="noopener">FCA Handbook, Financial Crime Guide, FCG 2.2.4, Risk assessment</a>, cited by paragraph.</li>
+    <li id="source-7"><a href="https://handbook.fca.org.uk/handbook/fcg3/fcg3s2" target="_blank" rel="noopener">FCA Handbook, Financial Crime Guide, FCG 3.2.3, Risk assessment</a>, cited by paragraph.</li>
+    <li id="source-8"><a href="https://handbook.fca.org.uk/handbook/fcg1/fcg1s1" target="_blank" rel="noopener">FCA Handbook, Financial Crime Guide, FCG 1.1, What is the FCG? (paragraphs 1.1.7 and 1.1.8)</a>, cited by paragraph.</li>
+  </ol>
+  <p><strong>Last reviewed:</strong> 24 October 2026. Recheck when the FCA publishes further findings on customer risk assessment, when regulation 28 or 33 is amended again, and if any authority sets a validation standard or an override expectation.</p>
+</section>
+
+<section class="crs-section" id="related">
+  <h2>Related intelligence</h2>
+  <div class="crs-related">
+    <a href="/de-risking-judgement-call.html"><strong>The De-Risking Judgement Call</strong><span>What happens when a higher-risk relationship keeps its risk: the decision to keep, restrict or exit, which a score cannot make.</span></a>
+    <a href="/kyc-onboarding-dilemma.html"><strong>KYC / KYB / CDD / EDD: The Onboarding Dilemma</strong><span>The due diligence choices that the customer risk rating is meant to inform.</span></a>
+    <a href="/perpetual-kyc-framework-guide.html"><strong>Perpetual KYC</strong><span>How periodic and event-driven review differ as controls, the operating side of triggered reassessment.</span></a>
+    <a href="/scenario-lab.html"><strong>Scenario Lab, Risk Scoring module</strong><span>Practise weighing the signals on a single customer file and recording an override rationale.</span></a>
+  </div>
+</section>
+</main>
+<aside class="crs-toc" aria-label="On this page">
+<strong>Decision route</strong>
+<ol><li><a href="#question">The question</a></li><li><a href="#law">What the law asks</a></li><li><a href="#chain">The chain</a></li><li><a href="#inside-number">Inside the number</a></li><li><a href="#thresholds">Bands and consequences</a></li><li><a href="#outside">Outside the arithmetic</a></li><li><a href="#overrides">Overrides</a></li><li><a href="#change">Testing and change</a></li><li><a href="#mi">Management information</a></li><li><a href="#scenario-one">Scenario 1</a></li><li><a href="#scenario-two">Scenario 2</a></li><li><a href="#knowledge-check">Knowledge check</a></li><li><a href="#sources">Sources</a></li></ol>
+</aside>
+</div>
+<div id="site-footer"></div>
+<script defer src="/js/customer-risk-score-decision-framework.js"></script>
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>
