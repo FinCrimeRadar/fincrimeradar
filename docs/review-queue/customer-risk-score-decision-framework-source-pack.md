@@ -1,0 +1,132 @@
+# Customer Risk Scores: What the Number Cannot Decide, source pack
+
+Status: built before drafting, per CLAUDE.md section 5. Evidence date: 24 October 2026. Format: Framework (Default Knowledge Hub treatment). Prepared in a Claude Code session; every proposition below was read from the source on the evidence date, not recalled.
+
+## 1. How the sources were read
+
+| Source | Read how | Limits of the reading |
+| --- | --- | --- |
+| Legislation (reg 18, 28, 33) | legislation.gov.uk pages fetched on 24 October 2026, "Latest available (Revised)" version, via a web-fetch helper that returned the statutory text | The helper reports text, not a rendered page. Amendment footnotes were read as printed. Two instruments (S.I. 2026/621 reg 20 inserting reg 34A, and reg 36(b) inserting Sch. 6 para. 7(ga)) are shown as "changes yet to be applied" on each page. They do not alter the text of regs 18, 28 or 33 as read. |
+| FCA findings page | fca.org.uk page fetched on 24 October 2026. Tab titles, section placement and wording read verbatim. A second pass scoped each item to business-wide (BWRA), customer (CRA) or generic "risk assessment" wording. | The page's body headings carry no numbers. "2.1 to 2.3" is the page's own navigation numbering. |
+| FCA markets review PDF | PDF bytes saved locally and text extracted with pypdf (52 pages). PDF page index equals the printed page number for pages 26 to 28. | Chapter 8 starts at printed page 26. Case Study 17 is on page 28. Figure 8 (a chart) is not text and was not used. |
+| FCG 2.2.4, FCG 3.2.3, FCG 1.1 | handbook.fca.org.uk pages fetched on 24 October 2026. The FCG 3.2.3 good-practice and poor-practice columns were attributed by parsing the page's own table markup, because plain-text extraction loses the column. | The pages do not explain the "G" suffix. FCG 1.1.8 points to the Handbook Reader's Guide for that. |
+
+## 2. Source register
+
+| Ref | Source | Version or date | Used for |
+| --- | --- | --- | --- |
+| S1 | Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017 (SI 2017/692), regulation 18. https://www.legislation.gov.uk/uksi/2017/692/regulation/18 | Revised; page states up to date with changes in force on or before 21 October 2026 | Business-wide risk assessment duty |
+| S2 | Same instrument, regulation 28. https://www.legislation.gov.uk/uksi/2017/692/regulation/28 | Revised; up to date to 20 October 2026 | Ongoing monitoring, risk-sensitive extent of CDD, risk factors, demonstrating appropriateness |
+| S3 | Same instrument, regulation 33. https://www.legislation.gov.uk/uksi/2017/692/regulation/33 | Revised; up to date to 22 October 2026. 30 June 2026 version shown, amended by SI 2026/621 reg 19 | Statutory EDD triggers that sit outside any score. Added to the six named sources, see section 6 |
+| S4 | FCA, Risk assessment processes and controls in firms: our findings. https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings | Published and last updated 11 November 2025 | Good and poor practice examples |
+| S5 | FCA, Assessing and reducing the risk of Money Laundering Through the Markets, January 2025, Chapter 8 (printed pages 26 to 28) and Case Study 17. https://www.fca.org.uk/publication/corporate/money-laundering-through-markets-review-january-2025.pdf | January 2025 | Customer risk assessment findings, Case Study 17 |
+| S6 | FCA Handbook, Financial Crime Guide (FCG) 2.2.4. https://handbook.fca.org.uk/handbook/fcg2/fcg2s2 | FCG 2.2 last updated 13/12/2018 | Risk assessment, review of individual risk assessments |
+| S7 | FCA Handbook, FCG 3.2.3. https://handbook.fca.org.uk/handbook/fcg3/fcg3s2 | FCG 3.2 last updated 29/11/2024; 3.2.3 dated 29/11/2024 | Customer risk classification, overrides |
+| S8 | FCA Handbook, FCG 1.1 What is the FCG? https://handbook.fca.org.uk/handbook/fcg1/fcg1s1 | Last updated 03/06/2025 | Status of FCG guidance |
+
+## 3. Proposition register
+
+Quotations are kept under fifteen words. "Not supported" lists what the source must not be used to claim.
+
+### Legislation
+
+| ID | Proposition | Locator and wording | Conditions and scope | Evidence state | Not supported |
+| --- | --- | --- | --- | --- | --- |
+| P01 | A relevant person must take appropriate steps to identify and assess the money laundering and terrorist financing risks to which its business is subject. | S1 reg 18(1): "appropriate steps to identify and assess the risks" | Business-level assessment. Reg 18 is the business-wide assessment, not a per-customer rating. | Established | That reg 18 requires a customer score |
+| P02 | In carrying out that assessment the firm must take into account supervisory authority information and risk factors relating to customers, countries or geographic areas, products or services, transactions and delivery channels. | S1 reg 18(2)(a), (b)(i) to (v) | As above | Established | |
+| P03 | The steps must take into account the size and nature of the business. | S1 reg 18(3) | | Established | A universal method or standard |
+| P04 | The firm must keep an up-to-date written record of the steps taken unless its supervisory authority notifies it in writing that no record is required, and must provide the assessment, its information and the record to the supervisory authority on request. | S1 reg 18(4) and (6). Reg 18(5) limits when a supervisory authority may give the no-record notification. | | Established | The phrase "if the supervisory authority so requires" does not appear in reg 18. Do not use it. |
+| P05 | Regulation 18 prescribes no scoring method, weighting scheme, number of rating bands or format. | Absence from the text of reg 18 | A statement about the text read, not a legal opinion on other instruments | Established (as an absence) | |
+| P06 | A relevant person must conduct ongoing monitoring of a business relationship, including scrutiny of transactions to ensure they are consistent with its knowledge of the customer, the customer's business and risk profile, and reviews of existing records, keeping CDD documents or information up to date. | S2 reg 28(11)(a) and (b) | | Established | A fixed review frequency |
+| P07 | The ways a firm complies with CDD and the extent of the measures taken must reflect the reg 18(1) risk assessment and its assessment of the level of risk in the particular case, and may differ from case to case. | S2 reg 28(12): "must reflect" | Applies to the CDD measures under reg 28 | Established | That the "level of risk" must be a number |
+| P08 | In assessing the level of risk in a particular case the firm must take account of factors including, among other things, the purpose of an account, transaction or relationship, the level of assets or size of transactions, and the regularity and duration of the relationship. | S2 reg 28(13)(a) to (c) | The list is expressly non-exhaustive ("among other things") | Established | That these three are a complete factor set |
+| P09 | The firm must be able to demonstrate to its supervisory authority that the extent of the CDD measures is appropriate in view of the money laundering and terrorist financing risks, including risks identified by the reg 18(1) assessment and by its supervisory authority. | S2 reg 28(16) | Paragraph (17) disapplies (16) for the National Savings Bank and the Director of Savings | Established | That a score is itself the demonstration |
+| P10 | Regulation 28 prescribes no scoring method or rating bands. | Absence from the text of reg 28 | As P05 | Established (as an absence) | |
+| P11 | Enhanced due diligence must be applied in any case identified as high risk by the firm under reg 18(1) or in information from the supervisory authority. | S3 reg 33(1)(a) | Assessment-dependent trigger | Established | |
+| P12 | Enhanced due diligence must be applied in any business relationship with a person established in a "FATF call for action country", or in a relevant transaction where either party is so established. The term means a country named on the FATF list of High-Risk Jurisdictions subject to a Call for Action "as such list has effect from time to time". | S3 reg 33(1)(b) and (3)(a). Content of the measures: reg 33(3A) | Subject to the narrow exception in reg 33(2) (branch or majority owned subsidiary of an equivalent third country entity, three conditions). Wording amended with effect from 30 June 2026 by SI 2026/621 reg 19. | Established | That Increased Monitoring status is an automatic trigger. It is not read from this text. |
+| P13 | Enhanced due diligence must also be applied where the firm has determined a customer is a PEP or a family member or known close associate (reg 33(1)(d)), where a customer has given false or stolen identification and the firm proposes to continue dealing (reg 33(1)(e)), and in the unusual transaction cases in reg 33(1)(f). Reg 33(1)(g) covers any other case that by its nature can present a higher risk. | S3 reg 33(1)(d), (e), (f), (g) | (d) is "in accordance with regulation 35", which this guide does not analyse. (g) is assessment-dependent. | Established | That (d) to (f) depend on a score. The text ties them to facts. |
+| P14 | In assessing whether there is a high risk, firms must take account of listed risk factors (customer, product, service, transaction, delivery channel and geographic), and must bear in mind that the presence of one or more risk factors may not always indicate a high risk. | S3 reg 33(6) and (7) | Lists are introduced by "including, among other things" | Established | That any factor combination equals high risk, or low risk |
+| P15 | Regulation 33 contains no numerical score or rating band. | Absence from the text | As P05 | Established (as an absence) | |
+
+### FCA good and poor practice findings (S4)
+
+All items are examples to help firms reflect on existing requirements. The page says so, see P20.
+
+| ID | Proposition | Locator and wording | Scope as worded on the page | Evidence state | Not supported |
+| --- | --- | --- | --- | --- | --- |
+| P20 | The FCA shares findings and good and poor practice "to help firms reflect" on how they meet existing risk assessment requirements. It says good practice often goes beyond the minimum regulatory requirements, and expects firms to already be complying with existing requirements. It does not state that the examples create new rules. | S4 introduction and "Next steps" | | Guidance | Converting any example into a standalone legal obligation |
+| P21 | The review in 2025 was a multi-firm review of business-wide and customer risk assessment processes. Firms included building societies, platforms, custody and fund services, e-money payments and wealth management. The page gives no firm count. Method: questionnaire, desk-based review of policies and procedures, and interviews. | S4 "What we looked at" | | Guidance | Representativeness of the whole market |
+| P22 | Some firms use sub-factors and weightings to tailor their customer risk assessment to their business and specific risks. | S4 section 2.1 narrative | CRA | Guidance (a finding, not labelled good or poor) | |
+| P23 | Good practice: customer risk assessments that directly affect customer due diligence, transaction monitoring and other mitigating processes and controls. | S4 section 2.2 good practice, "Risk assessments feed into firm's wider work" | CRA | Guidance | |
+| P24 | Good practice: customer risk assessment management information is provided to senior management committees for discussion. | S4 section 2.3 good practice, "Senior oversight and challenge" | CRA | Guidance | |
+| P25 | Good practice: firms document risk assessment methodologies in detail and formally log, discuss and approve changes. | S4 section 2.3 good practice, "Clear, consistent methods to assess risk" | Generic "risk assessment". The page does not say CRA. | Guidance | That it is specific to customer scoring models |
+| P26 | Good practice: firms review their risk assessment models and processes, and make "quarterly or triggered updates to risk assessments". | S4 section 2.3 good practice, "Regular review" | Generic "risk assessment" | Guidance | That quarterly updates are a requirement or a minimum. The FCA presents quarterly or triggered updates as an example of good practice. |
+| P27 | Poor practice: some firms carry out limited or no testing and reviews of risk assessment processes when they make enhancements, upgrades or automation. | S4 section 2.3 poor practice, "Lack of testing" | Generic "risk assessment processes" | Guidance | That the page addresses validation of a scoring model |
+| P28 | Poor practice: some firms have not developed their customer risk assessments in line with business growth to ensure scalability, consistency and accuracy. | S4 section 2.2 poor practice, "Growth outpaces risk assessment" | CRA | Guidance | |
+| P29 | Poor practice: some firms rapidly expanded product, service and customer type without considering and ensuring controls remain appropriate and effective beforehand. | S4 section 2.2 poor practice, "Rapid expansion" | The item uses neither "BWRA" nor "CRA" nor "risk assessment" | Guidance | That it is about customer scoring models |
+| P30 | Poor practice: risk assessments not sufficiently dynamic, which could lead to outdated risk profiles. | S4 section 2.3 poor practice, "Static approach to assessment" | Generic | Guidance | |
+| P31 | Good practice: firms reflect the risks identified and assessed in the business-wide assessment within the customer risk assessment through weightings or sub-factors. | S4 section 2.3 good practice, "Joined-up assessments" | BWRA and CRA | Guidance | |
+| P32 | The page does not mention overrides, thresholds, risk bands, data quality, validation, scoring calibration or double counting. | Absence confirmed by item-by-item review of every good and poor practice tab | | Established (as an absence) | Any claim that "the FCA says" something about those topics on the strength of this page |
+
+### FCA Money Laundering Through the Markets review, Chapter 8 (S5)
+
+| ID | Proposition | Locator and wording | Scope | Evidence state | Not supported |
+| --- | --- | --- | --- | --- | --- |
+| P40 | The review frames customer risk assessment as a firm responsibility "in line with" reg 28(12) and (13) and further supported by FCG 3.2.3. | S5 para 8.1, p26 | | Guidance, pointing to P07 and P08 | |
+| P41 | Some firms only considered changes to geographical risk at the customer periodic review, so the rating might not reflect interim information. The FCA says firms should consider the events that would trigger a review or CRA update. | S5 para 8.3, p26 | Wholesale brokers sampled | Guidance | A prescribed list of trigger events |
+| P42 | Most firms observed considered a variety of risk factors and several weighted their calculations. | S5 para 8.4, p27 | | Guidance (an observation) | |
+| P43 | Most assessed firms did not document the CRA methodology in policies or procedures. Observed examples: certain client types automatically assigned low risk with simplified due diligence "regardless of other risk factors"; a customer risk rating set on completion of due diligence rather than the CRA determining the level of due diligence; CRAs based solely on customer jurisdiction. | S5 para 8.5, p27 | Wholesale brokers sampled | Guidance (observations) | |
+| P44 | Few firms adequately documented the rationale for a customer's risk rating, particularly where updated risk factors, trigger events, management overrides and periodic reviews had taken place. Evidence of escalations, decisions and quality assurance was often not evident. | S5 para 8.6, p27 | | Guidance (an observation) | |
+| P45 | Case Study 17 describes a firm's onboarding spreadsheet with detailed questions and scoring across six categories weighted: product and service 10%, customer type 20%, customer industry 10%, geographical 30%, relationship structure 5%, adverse media and PEP 25%. The weights total 100. The category scores are multiplied by the weights to give a total, which "aligns to" a high, medium or low rating and "determines the level of due diligence". The spreadsheet alerts the user when escalation to the MLRO for approval is needed, has a section for manual overrides and rationale, and prompts consideration of other risk factors that would require additional action. | S5 Case Study 17, p28 | One wholesale broker firm | Guidance (a case study) | That the weightings are recommended, typical or universal |
+| P46 | The FCA introduces Case Study 17 as an illustration of "a reasonable approach to calculating risk ratings". | S5 para 8.8, p27 | | Guidance | That it is the only reasonable approach |
+| P47 | The FCA's stated expectation is a "formal, robust method" for considering, assessing and determining customer risk. Good practices identified: a customer risk assessment that considers business-specific financial crime risks; appropriate consideration of higher-risk factors, weighting and documenting how risks are mitigated; a clear audit trail of customer risk rating overrides and rationale; a clear methodology for country risk. Poor practices identified: scores predominantly based on one factor such as jurisdiction; waiting for periodic reviews or file refreshes to update ratings where new information has been identified; poorly documented methodology; PEPs treated as high risk by default regardless of domestic or foreign status. | S5 para 8.9 and lists, p28 | | Guidance | |
+| P48 | Firms use periodic review cycles most often set on a 1, 3 or 5 year basis according to customer risk level, and several trigger a KYC refresh on events such as a SAR, screening or monitoring alerts, new information, new products or changes of circumstances. | S5 para 9.9, p30 | Observation in the sample | Guidance (an observation) | That 1, 3 or 5 years is a requirement |
+| P49 | The sample was selected by data analysis across firm size, business model, previous supervisory work and perceived financial crime risk; the FCA says it believes the sample reasonably represents the sector and that it represented 8% of notional transaction value and 21% of revenue based market share. | S5 paras 6.2 and 6.3, p22 | | Guidance | Findings generalised beyond wholesale brokers |
+
+### FCA Handbook, Financial Crime Guide (S6, S7, S8)
+
+| ID | Proposition | Locator and wording | Evidence state | Not supported |
+| --- | --- | --- | --- | --- |
+| P60 | FCG says firms should regularly review both their business-wide and individual risk assessments to ensure they remain current, and should build on their business-wide risk assessment to determine the level of risk associated with individual relationships. | S6 FCG 2.2.4, guidance paragraph | Guidance | That this is the wording of the Regulations |
+| P61 | FCG 3.2.3 states that firms must regularly review their risk assessment to ensure it remains current, and that firms must put in place systems and controls to identify, assess, monitor and manage money laundering, terrorist financing and proliferation financing risk. | S7 FCG 3.2.3 | Guidance (restating duties; "regularly review" is FCG wording and does not appear in reg 18) | Citing the FCG sentence as statutory text |
+| P62 | FCG 3.2.3 examples of good practice include: evidence that the risk assessment informs the design of AML controls; a consideration of individual relationship risk that takes account of factors such as company structures, political connections, country risk, reputation, source of wealth, source of funds, expected account activity, products, transactions, delivery channels, sector risk and involvement in public contracts; identifying and managing the risk that a relationship manager becomes too close to customers to take an objective view. | S7 FCG 3.2.3, good practice column | Guidance | |
+| P63 | FCG 3.2.3 examples of poor practice include: an inappropriate risk classification system that makes it "almost impossible" for a relationship to be rated high risk; higher risk countries allocated low risk scores to avoid enhanced due diligence; relationship managers able to override customer risk scores without sufficient evidence; risk assessments unduly influenced by the potential profitability of relationships; the firm cannot evidence why customers are rated high, medium or low risk; a UK branch or subsidiary relying on group risk assessments without assessing their compliance with UK requirements. | S7 FCG 3.2.3, poor practice column (attribution confirmed from the page table markup) | Guidance | |
+| P64 | FCG is "general guidance" under section 139B FSMA. The guidance is not binding, and the FCA will not presume that a departure from it indicates a breach of its rules. Firms can comply in ways other than following the good practice in FCG. If FCG and an applicable legal requirement differ, the legal requirement prevails. FCG is not approved by HM Treasury as relevant guidance under the Regulations. | S8 FCG 1.1.7, 1.1.8, 1.1.9, 1.1.11 | Guidance | That FCG "creates no obligations". That exact phrase is not on the page. |
+
+## 4. Distinctions the publication must keep
+
+| Distinction | Where the source basis sits | How the publication handles it |
+| --- | --- | --- |
+| The MLRs require risk assessment and risk-sensitive CDD but no numerical model, weighting scheme or three-band rating | P05, P10, P15, P07, P08 | Stated as an observation about the text read, and as the reason the rest of the guide is FinCrimeRadar assessment |
+| FCA good and poor practice examples are examples, not new obligations | P20, P64 | Every FCA example is introduced as an example. No example is described as a requirement. |
+| Case Study 17 weightings are one firm's illustration | P45, P46 | Weightings are reported as the FCA's case study description, with the sentence that they are not a formula. They are not repeated in the scenarios or the cards. |
+| A rating informs due diligence and monitoring; it does not replace holistic assessment | P07, P08, P23, P45, P47 | Stated as: reg 28(12) ties the extent of CDD to the risk assessment and the case-level assessment, and case-level factors are non-exhaustive (reg 28(13)). The "does not replace a holistic assessment" conclusion is FinCrimeRadar assessment resting on these. |
+| A manual override can be legitimate but needs evidence, rationale and an audit trail | P45, P47 (good: "clear audit trail of customer risk rating overrides and rationale"), P63 (poor: override "without sufficient evidence"), P44 | Stated as FCA examples. Approval and reason-coding design are FinCrimeRadar assessment. |
+| Repeated overrides can indicate model or data problems | No source states this | Labelled FinCrimeRadar assessment, resting on P44 (overrides are a documentation weak point) and P63. The guide says plainly that no source read states it. |
+| A statutory trigger cannot be neutralised merely because the numerical score is low | P12, P13 (the cases are tied to facts, not to a score) | Stated as FinCrimeRadar application of reg 33(1)(b), (d) and (e), with the text quoted. Assessment-dependent limbs (reg 33(1)(a) and (g)) are named as different. |
+| A high score does not by itself establish suspicion, mandate closure or prove the customer is outside appetite | P14 (reg 33(7)), the absence in P05, P10, P15, P32 | Stated as FinCrimeRadar assessment. The guide points to the De-Risking Judgement Call for exit decisions and does not restate regulation 31. |
+| Quarterly review is not a universal legal minimum | P26, P61 | Quoted as FCA good practice. The statutory text (reg 28(11)(b), reg 18(4)) has no frequency. |
+| Business-wide and customer risk assessment are distinct | P01, P07, P31, P60 | Reg 18 is business-wide. Customer-level assessment enters through reg 28(12) and (13). |
+
+## 5. Gaps and unknowns, stated so the publication does not fill them
+
+1. No source read prescribes how to validate a customer scoring model, how large a sensitivity test should be, or any acceptable override rate.
+2. No source read addresses double counting of correlated factors. The guide's treatment is FinCrimeRadar assessment.
+3. No source read addresses data quality or missing-data treatment in scoring. FCG 3.2.3 and S5 mention that firms must be able to evidence ratings, which is the nearest point.
+4. The FCA findings page is thin on customer-level scoring. Most items use the generic words "risk assessment". Where the guide applies an item to customer scoring models, it says that is an application.
+5. S5 findings come from a sample of wholesale brokers. S4 covers building societies, platforms, custody and fund services, e-money payments and wealth management. Neither is a retail bank sample.
+6. This guide does not analyse regulation 35 (PEPs), regulation 33(2) beyond naming it, or regulation 31. It does not analyse the Money Laundering Regulations 2017 supervisory regime, JMLSG Part I, or sector guidance, none of which were part of the named source pack.
+
+## 6. Source added to the named pack
+
+The brief named six sources. Regulation 33 was added (S3) because the guide's fourth control point, statutory triggers outside the arithmetic, needs a statute that actually lists such triggers. FCG 1.1 (S8) was added to state the status of FCG accurately. Both are primary sources read in full on the evidence date.
+
+## 7. Claims deliberately not made
+
+- No universal percentage, threshold, band count or scoring formula.
+- No claim that the FCA requires, recommends or endorses the Case Study 17 weightings.
+- No claim that quarterly reassessment is mandatory.
+- No claim that FCA findings define a validation standard for customer scoring models.
+- No claim that a high score implies suspicion, or a reporting duty, or exit.
+- No statement about how many firms in any sector use scoring models.
+- No Nisbets information of any kind. All examples are fictional or from the named public sources.

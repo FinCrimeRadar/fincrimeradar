@@ -63,7 +63,8 @@
     "ubo-investigation-handbook",
     "annex-1-firms-aml-blind-spot-guide",
     "de-risking-judgement-call",
-    "digital-identity-cdd-intelligence-brief"
+    "digital-identity-cdd-intelligence-brief",
+    "customer-risk-score-decision-framework"
   ],
   "source-of-wealth-investigation-handbook": [
     "annex-1-firms-aml-blind-spot-guide"
@@ -154,7 +155,8 @@
   "de-risking-judgement-call": [
     "app-scam-decision-framework",
     "kyc-onboarding-dilemma",
-    "financial-crime-information-sharing-guide"
+    "financial-crime-information-sharing-guide",
+    "customer-risk-score-decision-framework"
   ],
   "investment-scam-investigation-handbook": [
     "app-scam-decision-framework",
@@ -174,7 +176,8 @@
     "de-risking-judgement-call"
   ],
   "perpetual-kyc-framework-guide": [
-    "digital-identity-cdd-intelligence-brief"
+    "digital-identity-cdd-intelligence-brief",
+    "customer-risk-score-decision-framework"
   ],
   "digital-identity-cdd-intelligence-brief": [
     "kyc-onboarding-dilemma",
@@ -183,5 +186,10 @@
   "e-commerce-fraud-system-guide": [
     "fraud-red-flags-guide",
     "fraud-investigation-playbook"
+  ],
+  "customer-risk-score-decision-framework": [
+    "de-risking-judgement-call",
+    "kyc-onboarding-dilemma",
+    "perpetual-kyc-framework-guide"
   ]
 }
