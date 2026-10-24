@@ -334,6 +334,15 @@ def main() -> None:
     require("one firm" in main_text.lower() and "least transferable" in main_text, "Case Study 17 must be framed as one firm's illustration")
     require("prescribes a scoring method" in main_text, "the no prescribed model statement is missing")
     require("subject to the narrow exception in regulation 33(2)" in main_text, "the regulation 33(2) exception must be named beside the Call for Action trigger")
+    # reg 33 contract: (c) listed, exception kept in the application sentence, 33(7) separate from the suspicion and exit claim
+    require("correspondent relationships with a credit institution or a financial institution" in main_text, "regulation 33(1)(c) must appear in the fact-based list")
+    require("unless the regulation 33(2) exception applies" in main_text, "the regulation 33(2) exception must stay attached to the application sentence")
+    require("Regulation 33(1)(b), (c), (d) and (e) turn on facts" in main_text, "Figure 3 text must list (b), (c), (d) and (e)")
+    opener = "FinCrimeRadar assessment</span> A high rating raises"
+    require(html.count(opener) == 1, "the high score paragraph must open with the FinCrimeRadar assessment label")
+    para = html.split(opener)[1].split("</p>")[0]
+    require("Regulation 33(7) is a narrower point" in para and "does not address suspicion or exit" in para, "regulation 33(7) must be described narrowly and separately")
+    require("Regulation 33(7) points the same way" not in html, "regulation 33(7) must not be offered as authority for the suspicion or exit claim")
     for needle in ("None of the sources read ties a rating band", "No source read addresses it", "the link to defaults is our application"):
         require(needle in main_text, f"required honesty statement missing: {needle}")
     for pid_needle in ("FinCrimeRadar assessment",):

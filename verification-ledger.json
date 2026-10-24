@@ -10218,7 +10218,7 @@
   {
     "claimId": "customer-risk-score-decision-framework.reg33-1-fact-based-and-assessment-based-cases.001",
     "guide": "customer-risk-score-decision-framework.html",
-    "claimText": "Regulation 33(1) requires enhanced customer due diligence and enhanced ongoing monitoring in listed cases. Paragraph (a) (a case identified as high risk by the relevant person under regulation 18(1) or in supervisory information) and paragraph (g) (any other case that by its nature can present a higher risk) depend on the firm's assessment. Paragraph (b) (a person established in a FATF call for action country), paragraph (d) (a customer determined to be a PEP, family member or known close associate), paragraph (e) (false or stolen identification where the firm proposes to continue dealing) and paragraph (f) (unusual transactions) turn on facts, not on a rating.",
+    "claimText": "Regulation 33(1) requires enhanced customer due diligence and enhanced ongoing monitoring in listed cases. Paragraph (a) (a case identified as high risk by the relevant person under regulation 18(1) or in supervisory information) and paragraph (g) (any other case that by its nature can present a higher risk) depend on the firm's assessment. Paragraph (b) (a person established in a FATF call for action country), paragraph (c) (correspondent relationships with a credit institution or a financial institution), paragraph (d) (a customer determined to be a PEP, family member or known close associate), paragraph (e) (false or stolen identification where the firm proposes to continue dealing) and paragraph (f) (unusual transactions) turn on facts, not on a rating.",
     "claimType": "regulatory",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 33, as revised",
@@ -10268,7 +10268,7 @@
   {
     "claimId": "customer-risk-score-decision-framework.reg33-7-risk-factors-not-always-high.001",
     "guide": "customer-risk-score-decision-framework.html",
-    "claimText": "Regulation 33(7) requires relevant persons, in assessing whether there is a high risk of money laundering or terrorist financing, to bear in mind that the presence of one or more risk factors may not always indicate a high risk.",
+    "claimText": "Regulation 33(7) requires relevant persons, in making the assessment referred to in regulation 33(6) of whether there is a high risk of money laundering or terrorist financing, to bear in mind that the presence of one or more risk factors may not always indicate a high risk. It does not address suspicion or exit; the guide's statement that a high score does not itself establish suspicion or require exit is FinCrimeRadar assessment.",
     "claimType": "regulatory",
     "source": {
       "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 33, as revised",

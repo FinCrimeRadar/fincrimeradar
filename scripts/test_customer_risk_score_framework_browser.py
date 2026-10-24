@@ -255,10 +255,11 @@ def check_telemetry(cdp: CDP) -> None:
 
 
 def check_export(cdp: CDP, downloads: Path) -> None:
-    for old in downloads.glob("*"):
-        old.unlink()
-    cdp.evaluate("document.getElementById('saveFrameworkImage').click()")
     target = downloads / f"{SLUG}-summary.png"
+    # Remove only the expected export and its partial download, never unrelated files such as downloads.htm.
+    for old in (target, downloads / f"{target.name}.crdownload"):
+        old.unlink(missing_ok=True)
+    cdp.evaluate("document.getElementById('saveFrameworkImage').click()")
     for _ in range(80):
         if target.exists() and not list(downloads.glob("*.crdownload")):
             break
