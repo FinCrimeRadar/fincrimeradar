@@ -140,6 +140,12 @@
     input[type=range] { accent-color: var(--accent); }
 
     /* DISCLAIMER */
+    .screen-maintenance { display: block; margin: 0 0 1rem; padding: 1rem 1.25rem; border: 1px solid #b45309; border-left-width: 4px; border-radius: 12px; background: #fffbeb; color: #78350f; font-size: 14px; line-height: 1.55; }
+    .screen-maintenance strong { display: block; margin: 0 0 0.25rem; color: #78350f; font-size: 15px; font-weight: 700; }
+    .screen-maintenance p { margin: 0; color: #78350f; }
+    .screen-maintenance a { color: #78350f; font-weight: 600; text-decoration: underline; }
+    .search-box[aria-disabled="true"] { opacity: 0.55; }
+    .search-box[aria-disabled="true"] button, .search-box[aria-disabled="true"] input { cursor: not-allowed; }
     .disclaimer {
       font-size: 12px; color: #92400e; padding: 8px 12px;
       background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; margin-bottom: 1.25rem;
@@ -409,21 +415,26 @@
 
   <div class="screen-grid">
     <div class="screen-main">
-      <div class="search-box">
+      <div class="screen-maintenance" id="screenMaintenance" role="status">
+        <strong>Service down for maintenance</strong>
+        <p>Sanctions, PEP and adverse media screening is temporarily unavailable. No searches can be run while we carry out maintenance. The <a href="/kyb-lab.html">KYB Lab</a>, <a href="/scenario-lab.html">Scenario Lab</a> and <a href="/knowledge.html">Knowledge Hub</a> remain available.</p>
+      </div>
+      <div class="search-box" aria-disabled="true">
         <div class="search-row">
-          <input class="search-input" id="searchInput" type="text" placeholder="Enter a name or organisation, e.g. Vladimir Putin, Wagner Group" />
-          <button class="btn-search" id="searchBtn" onclick="runSearch()">Screen</button>
+          <label for="searchInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;">Name or organisation to screen</label>
+          <input class="search-input" id="searchInput" type="text" disabled aria-describedby="screenMaintenance" placeholder="Screening is unavailable during maintenance" />
+          <button class="btn-search" id="searchBtn" onclick="runSearch()" disabled>Unavailable</button>
         </div>
         <div class="options-row">
           <div class="type-pills">
-            <button class="pill active" data-type="all" onclick="setType(this)">All</button>
-            <button class="pill" data-type="sanctions" onclick="setType(this)">Sanctions</button>
-            <button class="pill" data-type="pep" onclick="setType(this)">PEP</button>
-            <button class="pill" data-type="adverse" onclick="setType(this)">Adverse media</button>
+            <button class="pill active" disabled data-type="all" onclick="setType(this)">All</button>
+            <button class="pill" disabled data-type="sanctions" onclick="setType(this)">Sanctions</button>
+            <button class="pill" disabled data-type="pep" onclick="setType(this)">PEP</button>
+            <button class="pill" disabled data-type="adverse" onclick="setType(this)">Adverse media</button>
           </div>
           <div class="option-group">
             <label>Threshold:</label>
-            <input type="range" min="50" max="100" value="80" id="threshold" style="width:70px" oninput="document.getElementById('thresholdVal').textContent=this.value+'%'" />
+            <input type="range" min="50" max="100" value="80" id="threshold" disabled style="width:70px" oninput="document.getElementById('thresholdVal').textContent=this.value+'%'" />
             <span class="threshold-val" id="thresholdVal">80%</span>
           </div>
         </div>
@@ -617,14 +628,20 @@ async function footerSignup() {
 
 <script>
   const API_BASE = 'https://fincrimeradar-api.onrender.com';
+  // 24 October 2026: screening is in maintenance after an OpenSanctions billing spike. While
+  // false, the page makes no request to the API at all. Set to true only together with
+  // re-enabling SCREENING_ENABLED on the API and removing the maintenance notice and disabled controls.
+  const SCREENING_AVAILABLE = false;
 
   // Wake the API when the reader first focuses the search input, so a cold start overlaps
   // with typing. Nothing is sent to the API just for opening the page.
-  document.getElementById('searchInput').addEventListener('focus', function () {
-    try {
-      fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-store' }).catch(function () {});
-    } catch (e) {}
-  }, { once: true });
+  if (SCREENING_AVAILABLE) {
+    document.getElementById('searchInput').addEventListener('focus', function () {
+      try {
+        fetch(API_BASE + '/api/health', { method: 'GET', cache: 'no-store' }).catch(function () {});
+      } catch (e) {}
+    }, { once: true });
+  }
   let currentType = 'all';
 
   function setType(el) {
@@ -730,6 +747,7 @@ async function footerSignup() {
   }
 
   async function runSearch() {
+    if (!SCREENING_AVAILABLE) return;
     const query = document.getElementById('searchInput').value.trim();
     if (!query) return;
     const threshold = document.getElementById('threshold').value;
