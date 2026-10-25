@@ -1,7 +1,9 @@
 # FinCrimeRadar Operating Plan
 
 **Effective date:** Monday, 28 September 2026  
-**Last reviewed:** 10 October 2026<br>
+**Last reviewed:** 10 October 2026 for the plan as a whole, except the sections listed next<br>
+**Reviewed 25 October 2026 (FinCrime Week cadence, source cutoff, corrections and addenda only):** section 1 (FinCrime Week cadence bullet), section 3 (Sunday and Monday rows), section 5C, C1 and C2, section 10 (FinCrime Week reliability bullet), section 12 (items 2 and 3)<br>
+**Last reviewed 10 October 2026:** every other section, including the dated rollout in section 9 and the planning baseline in section 13<br>
 **Planning horizon:** 90 days  
 **Purpose:** Keep FinCrimeRadar active, credible and improving while Pratik starts a full-time role at Nisbets.
 
@@ -148,13 +150,38 @@ Effective from issue 2026-W44. This section sets how sources are selected and da
 **Every material late source gets an explicit, recorded treatment.** None is excluded silently. The permitted treatments are:
 
 1. Include it in the current issue, only if it is published inside the coverage week, completes full primary source verification and external adversarial review, and the recorded cutoff is updated to the time of that verification.
-2. Carry it forward to the next issue as a prior-week item with its true publication date.
-3. Cover it as a verified addendum (below) when an important prior-week event warrants inclusion.
+2. Carry it forward. Carrying forward is a research queue action only: the source stays in the queue for the next issue's research. It does not change the source's first published date and does not make the item part of the earlier week. If the next issue covers it, the item states its true `published_date` and that it falls outside that issue's coverage week. It is then a late item in an ordinary issue, not an addendum.
+3. Cover it as an addendum under C2. This is unavailable until addendum tooling exists (see C2); until then use option 2 or 4.
 4. Decline it, with the reason recorded in the approval pack.
 
-**Dates are never adjusted.** `published_date` is always the date the primary source was actually published. `period_start`, `period_end` and `published_at` describe the issue, not the source. An item whose source was published outside the issue's coverage week must say so in its `what_happened` text, giving the true date and stating that it falls outside the coverage week. The generator accepts any valid ISO date in `published_date`, so no schema or generator change is needed. The draft check that every `published_date` falls inside the coverage week applies to ordinary items; an addendum item is the only permitted exception and must be named as such in the approval pack.
+**Dates are never adjusted.** `published_date` is always the date the primary source was actually published. `period_start`, `period_end` and `published_at` describe the issue, not the source. An item whose source was published outside the issue's coverage week must say so in its `what_happened` text, giving the true date and stating that it falls outside the coverage week. The generator accepts any valid ISO date in `published_date`, so no schema or generator change is needed. The draft check that every `published_date` falls inside the coverage week applies to ordinary items; a carried-forward late item is the only permitted exception and must be named as such in the approval pack.
 
-**Verified addendum.** An addendum is an item for an important event from an earlier week, included in a later issue. It begins its `what_happened` text with the word "Addendum", states the true publication date, and passes every gate an ordinary item passes: primary source verification, external adversarial review before its `reviewed` flag becomes true, the generator, automated tests, full diff review, commit and push, remote SHA verification and production browser smoke testing. A published issue is never edited to add a late item. Corrections to published content follow the existing correction process, not this one.
+### C2. FinCrime Week corrections and addenda
+
+Effective from issue 2026-W44. Corrections and addenda are different things and are governed separately. Neither changes Sunday publication, the Monday to Sunday ISO week, or any editorial, adversarial review or engineering release gate. Neither alters the first published date of any source.
+
+**Definitions.**
+
+- A correction changes a claim already published in an issue because the claim was inaccurate, unsupported or misleading as published. A later development that makes a published claim out of date is not a correction. It is a new source and follows C1.
+- An addendum is a separately identifiable publication that relates to an original ISO week and adds coverage the original issue did not contain. It has its own identifier and publication date, links back to the original issue, and leaves the original issue's items unchanged.
+- A late item covered in a later ordinary issue (C1, option 2) is neither a correction nor an addendum.
+
+**Corrections.**
+
+1. Every correction has a correction record kept in `docs/FINCRIME_WEEK_CORRECTIONS.md`, created when the first correction is made. Each record contains: the original claim; the corrected claim; the reason; the primary source evidence, rechecked against the source itself; the review outcome; the correction date; and the release reference (the pull request and the commit SHA that published the correction).
+2. A material correction changes a fact, figure, date, name, legal status, attribution or qualifier, or the meaning or conclusion of a claim, including the difference between an allegation and a finding or between a proposal and a final rule. A material correction requires fresh primary source verification and external adversarial review (manual ChatGPT or Codex review outside the session) before the corrected text is published. The `reviewed` flag stays true only for text that has been reviewed.
+3. A non-material correction (spelling, punctuation, formatting) needs no external review but is recorded in its commit message and still passes the engineering release gates.
+4. Every correction passes the generator, automated tests, full diff review, commit and push, remote SHA verification and production browser smoke testing.
+5. A material correction is never silent. Under current tooling the only supported mechanism is to edit the affected item in the issue's own JSON file and regenerate, with a visible correction note in the item text giving the correction date. `published_at`, `period_start` and `period_end` are not changed, and the correction date is never used as a publication date.
+
+**Addendum support: current limitation.** Repository evidence checked on 25 October 2026 (`scripts/generate_fincrime_week.py`, `scripts/fincrime_week_lib.py`) shows the generator and schema cannot publish an addendum as defined above:
+
+- The filename must equal the `week` field and `week` must match `YYYY-WNN`, so there is one file per ISO week. A test copy named `2026-W43-A1.json` was rejected whether `week` was `2026-W43` (filename mismatch) or `2026-W43-A1` (invalid format).
+- There is no field that records an addendum, the issue it relates to, or an addendum number.
+- The archive, anchors and pager use `week` as the issue identity, and the homepage and digest select the latest record by `published_at`, so any separate record would be treated as the latest weekly issue.
+- Accepting an out-of-period `published_date` on an ordinary item shows only that the date is a valid ISO date. It is not addendum support and must not be described as such.
+
+Until the implementation task in `BACKLOG.md` (FinCrime Week addendum support) is completed and verified, no addendum is published. Important prior-week events are handled as late items under C1 or declined with the reason recorded. Addendum tooling must satisfy the definition above, including its own identifier, a link to the original issue, an unchanged original issue, and no displacement of the weekly issue from the homepage or digest, and must be verified before this section is relied on.
 
 ### D. Scenario Lab automation
 
