@@ -46,7 +46,7 @@ Publication volume is an output, not a quota. Missing a nominal date is preferab
 | Day | Automated preparation | Human decision or action | Planned output |
 | --- | --- | --- | --- |
 | Saturday | Collect primary-source candidates, score backlog readiness, prepare research packs, run stale-source and broken-link checks | Select the coming week's topics and reject weak or overlapping ideas | Approved weekly release slate |
-| Sunday | Research scan at approximately 19:00 UK time (configured separately); prepare the FinCrime Week candidate file, guide specifications, social drafts and test plans | ChatGPT completes editorial research and primary source verification. External adversarial review is required before publication approval and before any `reviewed` flag becomes true. Claude Code then runs the generator, automated test suite, full diff review, commit and push, remote SHA verification and production browser smoke testing. If any mandatory check is incomplete, publication waits | FinCrime Week published on the Sunday that ends its ISO week, or held until every gate passes; guide work queued |
+| Sunday | Research scan at approximately 19:00 UK time (configured separately); prepare the FinCrime Week candidate file, guide specifications, social drafts and test plans | ChatGPT completes editorial research and primary source verification. External adversarial review is required before publication approval and before any `reviewed` flag becomes true. Claude Code then runs the generator, automated test suite, full diff review, commit and push, remote SHA verification and production browser smoke testing. If any mandatory check is incomplete, publication waits. The actual source verification cutoff is recorded before approval and late sources follow section 5, C1 | FinCrime Week published on the Sunday that ends its ISO week, or held until every gate passes; guide work queued |
 | Monday | Prepare the LinkedIn briefing draft from the published FinCrime Week issue | Approve the LinkedIn briefing post | LinkedIn briefing post |
 | Tuesday | Existing weekly digest sends at 08:00 UTC; advance the selected queue item | Review metrics and confirm that the item remains within scope | Content, Build or Polish work advances |
 | Wednesday | Prepare Scenario Lab work or a website polish batch; produce LinkedIn Engagement Radar shortlist | Approve the case or maintenance scope; choose at most one engagement action | Scenario or maintenance work advances |
@@ -124,7 +124,7 @@ Keep FinCrime Week manually curated and primary-sourced. Automate preparation, n
 
 The system should:
 
-- Scan a controlled allow-list of regulators, courts and government publishers for candidate developments.
+- Scan a controlled allow-list of regulators, courts and government publishers for candidate developments throughout the ISO week, logging each with its first published date (see C1).
 - Deduplicate links and carry forward unresolved candidates.
 - Draft `WHAT HAPPENED`, `WHAT CHANGES` and `WHAT TO REVIEW` fields with sentence-level source references.
 - Flag allegation, provisional decision, consultation, effective-date and jurisdiction issues.
@@ -134,6 +134,27 @@ The system should:
 - Verify the production issue after publication.
 
 Do not allow automated headline selection or unattended publication. A machine cannot safely decide whether a source changes regulatory applicability.
+
+### C1. FinCrime Week source cutoff and late source governance
+
+Effective from issue 2026-W44. This section sets how sources are selected and dated. It does not change the Sunday publication day, the Monday to Sunday ISO week coverage, or any editorial, adversarial review or engineering release gate.
+
+**Research runs throughout the week.** Candidate developments are collected from Monday onward, not only on the Sunday. Each candidate is logged with its URL, publisher, the date the primary source shows as first published (and the time where the source shows it) and the date first seen. A candidate that has not been verified against its primary source is not an issue item.
+
+**The cutoff is recorded, not assumed.** On the Sunday, the cutoff is the date and UK time at which the final primary source verification pass was completed. The research scan time in section 3 is a scan, not the cutoff. The actual cutoff is written into the approval pack before publication approval. A source is late if it was first published after that recorded cutoff.
+
+**Late source review queue.** Every candidate first published after the cutoff goes into a late source review queue with its URL, publisher, first published date and time, a materiality note and a treatment decision. The queue is reviewed before publication approval and again at the start of the next issue's research. A source is material if it could change a regulatory obligation or its scope, an enforcement or sanctions outcome, a legal threshold, or what a practitioner should do. When materiality is unclear, treat it as material.
+
+**Every material late source gets an explicit, recorded treatment.** None is excluded silently. The permitted treatments are:
+
+1. Include it in the current issue, only if it is published inside the coverage week, completes full primary source verification and external adversarial review, and the recorded cutoff is updated to the time of that verification.
+2. Carry it forward to the next issue as a prior-week item with its true publication date.
+3. Cover it as a verified addendum (below) when an important prior-week event warrants inclusion.
+4. Decline it, with the reason recorded in the approval pack.
+
+**Dates are never adjusted.** `published_date` is always the date the primary source was actually published. `period_start`, `period_end` and `published_at` describe the issue, not the source. An item whose source was published outside the issue's coverage week must say so in its `what_happened` text, giving the true date and stating that it falls outside the coverage week. The generator accepts any valid ISO date in `published_date`, so no schema or generator change is needed. The draft check that every `published_date` falls inside the coverage week applies to ordinary items; an addendum item is the only permitted exception and must be named as such in the approval pack.
+
+**Verified addendum.** An addendum is an item for an important event from an earlier week, included in a later issue. It begins its `what_happened` text with the word "Addendum", states the true publication date, and passes every gate an ordinary item passes: primary source verification, external adversarial review before its `reviewed` flag becomes true, the generator, automated tests, full diff review, commit and push, remote SHA verification and production browser smoke testing. A published issue is never edited to add a late item. Corrections to published content follow the existing correction process, not this one.
 
 ### D. Scenario Lab automation
 
