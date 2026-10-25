@@ -11,7 +11,7 @@ FinCrimeRadar should run as a controlled publishing system, not as a collection 
 
 The sustainable base commitment is:
 
-- One FinCrime Week issue, published on Monday.
+- One FinCrime Week issue per ISO week (Monday to Sunday), published on the Sunday that ends it once every release gate has passed.
 - One substantive Knowledge Hub publication no more often than fortnightly, and only when an item has passed every queue and release gate.
 - One scoped Polish, Build or Content batch each week. A batch may advance work without creating a public release.
 - No more than two Scenario Lab cases per month, with each case separately gated by distinct value and current repository-to-API synchronisation evidence.
@@ -46,8 +46,8 @@ Publication volume is an output, not a quota. Missing a nominal date is preferab
 | Day | Automated preparation | Human decision or action | Planned output |
 | --- | --- | --- | --- |
 | Saturday | Collect primary-source candidates, score backlog readiness, prepare research packs, run stale-source and broken-link checks | Select the coming week's topics and reject weak or overlapping ideas | Approved weekly release slate |
-| Sunday | Prepare FinCrime Week candidate file, guide specifications, social drafts and test plans | Verify the selected sources and approve the final FinCrime Week stories | FinCrime Week ready for release, guide work queued |
-| Monday | Run FinCrime Week validation, generator, tests and production checklist | Final claim review and release approval by 20:30 | FinCrime Week issue and LinkedIn briefing post |
+| Sunday | Research scan at approximately 19:00 UK time (configured separately); prepare the FinCrime Week candidate file, guide specifications, social drafts and test plans | ChatGPT completes editorial research and primary source verification. External adversarial review is required before publication approval and before any `reviewed` flag becomes true. Claude Code then runs the generator, automated test suite, full diff review, commit and push, remote SHA verification and production browser smoke testing. If any mandatory check is incomplete, publication waits | FinCrime Week published on the Sunday that ends its ISO week, or held until every gate passes; guide work queued |
+| Monday | Prepare the LinkedIn briefing draft from the published FinCrime Week issue | Approve the LinkedIn briefing post | LinkedIn briefing post |
 | Tuesday | Existing weekly digest sends at 08:00 UTC; advance the selected queue item | Review metrics and confirm that the item remains within scope | Content, Build or Polish work advances |
 | Wednesday | Prepare Scenario Lab work or a website polish batch; produce LinkedIn Engagement Radar shortlist | Approve the case or maintenance scope; choose at most one engagement action | Scenario or maintenance work advances |
 | Thursday | Run the applicable checks and prepare a release pack only when an item is release-ready | Approve or defer without penalty | Fortnightly guide release when every gate passes |
@@ -326,7 +326,7 @@ Review this dashboard each Sunday. Keep it to one page.
 
 ### Reliability
 
-- FinCrime Week published by Monday 20:30.
+- FinCrime Week published on the Sunday that ends its ISO week, or deliberately held because a release gate was incomplete. Never backdated, and review never bypassed to meet the day.
 - Tuesday digest workflow successful.
 - Production checks completed for every release.
 - Scenario Lab repository and API inventories match.
@@ -374,8 +374,8 @@ When reduced, preserve FinCrime Week and essential reliability work. Publish a g
 Create these recurring tasks after the plan is approved:
 
 1. **Saturday Content Planner:** prepare the next week's ranked queue and research packs, with no writes to production.
-2. **Sunday FinCrime Week Desk:** prepare candidate stories and claim-source mapping, then wait for approval.
-3. **Monday Release Gate:** run FinCrime Week checks and return an approval pack.
+2. **Sunday FinCrime Week Desk:** after the research scan at approximately 19:00 UK time, prepare candidate stories and claim-source mapping, then wait for approval.
+3. **Sunday Release Gate:** once external adversarial review is complete, run the generator, automated tests, full diff review, commit and push, remote SHA verification and production browser smoke testing, and return an approval pack. Publication waits if any check is incomplete.
 4. **Wednesday Engagement Radar:** return at most five high-value LinkedIn opportunities, with no external action.
 5. **Friday Reliability Monitor:** report only failures or material changes in production, workflows, links, ledger status or Scenario Lab synchronisation.
 6. **Monthly Performance Review:** produce the scorecard and recommend one cadence or backlog adjustment.
