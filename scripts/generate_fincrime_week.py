@@ -517,6 +517,7 @@ NAV_HTML = """<nav>
     <a href="/knowledge.html">Knowledge Hub</a>
     <a href="/fincrime-week.html">FinCrime Week</a>
     <a href="/scenario-lab.html">Scenario Lab</a>
+    <a href="/kyb-lab.html">KYB Lab</a>
     <a href="/screen.html" class="nav-cta">Try the tool &rarr;</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">&#9776;</button>
@@ -525,6 +526,7 @@ NAV_HTML = """<nav>
   <a href="/knowledge.html">Knowledge Hub</a>
   <a href="/fincrime-week.html">FinCrime Week</a>
   <a href="/scenario-lab.html">Scenario Lab</a>
+  <a href="/kyb-lab.html">KYB Lab</a>
   <a href="/screen.html" class="mobile-nav-cta">Try the tool &rarr;</a>
 </div>
 <script>
