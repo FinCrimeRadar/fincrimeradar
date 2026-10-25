@@ -567,6 +567,15 @@ class NavigatorTests(unittest.TestCase):
         self.assertIn('id="fcwMobileSelect"', select_html)
         self.assertIn("aria-label=", select_html)
 
+    def test_archive_nav_links_kyb_lab_in_desktop_and_mobile(self):
+        # The archive nav is rendered from the generator's own template, so a
+        # hand edit to fincrime-week.html does not survive regeneration.
+        page = gen.render_archive_page(self.desc(self.w37))
+        for marker in ('<div class="nav-links">', '<div class="mobile-nav"'):
+            block = page[page.index(marker):]
+            block = block[:block.index("</div>")]
+            self.assertIn('href="/kyb-lab.html"', block, marker)
+
     def test_empty_archive_behaviour(self):
         page = gen.render_archive_page([])
         self.assertIn("No FinCrime Week issues published yet", page)
