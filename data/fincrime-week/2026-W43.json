@@ -1,0 +1,69 @@
+{
+  "week": "2026-W43",
+  "period_start": "2026-10-19",
+  "period_end": "2026-10-25",
+  "published_at": "2026-10-25",
+  "author": "Pratik Zanke",
+  "items": [
+    {
+      "id": "fca-annex1-lenders-aml-restrictions",
+      "headline": "FCA reports restrictions on six Annex 1 lenders over AML control concerns",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/news/press-releases/fca-restricts-6-firms-following-concerns-over-anti-money-laundering-controls",
+      "published_date": "2026-10-23",
+      "jurisdiction": "UK",
+      "category": "AML_CTF",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 23 October 2026 the FCA announced that restrictions had been placed on six unregulated lenders, known as Annex 1 firms, after it raised concerns about their anti-money laundering policies, controls and procedures while assessing applications. The restrictions were imposed at the firms' request on dates between April and October, not all during W43. They limit new customer activity or business with existing customers, with conditions varying by firm. The FCA said it was assessing responses to an information request sent to around 900 registered Annex 1 firms. Annex 1 registration is for supervision under the Money Laundering Regulations and is not FCA authorisation for wider regulated activities.",
+      "why_it_matters": "The supervisory signal is broader than the six named lenders. A firm can be registered for AML supervision without being authorised to provide regulated financial services, and the restrictions are not identical across the six cases. The FCA's announcement identifies concerns about controls, not a finding that each firm committed money laundering. It also distinguishes restrictions requested by the firms from a blanket sector prohibition.",
+      "radar_implication": "This is FinCrimeRadar analysis. Counterparty due diligence should record the difference between an Annex 1 registration, any FCA authorisation and the actual permissions or restrictions relevant to the relationship. For lenders and payment counterparties, confirm registration directly, independently check status, assess the underlying business model and revisit exposures when restrictions change. The FCA itself reminds regulated firms that registration under the Money Laundering Regulations does not replace their own appropriate due diligence. Do not treat the existence of restrictions as proof of criminal conduct.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "doj-cambodia-crypto-scam-extradition-usdt-route",
+      "headline": "US case traces alleged Cambodia scam proceeds through bank accounts and USDT wallets",
+      "source_name": "US Department of Justice",
+      "source_url": "https://www.justice.gov/opa/pr/chinese-national-extradited-alleged-role-multimillion-dollar-cryptocurrency-scam-targeting",
+      "published_date": "2026-10-23",
+      "jurisdiction": "US",
+      "category": "FRAUD",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 23 October 2026 the US Department of Justice announced that Zheng Zhao had appeared in federal court following extradition from the Netherlands in a case concerning an alleged cryptocurrency investment scam linked to centres in Cambodia. Prosecutors said they had identified 174 US victims. According to the court documents described by the Department, more than $36.9 million in victim funds moved from US bank accounts controlled by alleged co-conspirators to one account at Deltec Bank in the Bahamas. The Department alleges that Zhao and others arranged conversion into Tether (USDT) and transfers to a wallet controlled in Cambodia. Zhao was charged with conspiracy to commit money laundering in August 2025. The allegations against him have not been proven.",
+      "why_it_matters": "The alleged flow crosses distinct control environments: victim acquisition, US bank accounts, offshore banking, stablecoin conversion and wallets linked to the alleged scam operation. The $36.9 million figure refers to transfers described by prosecutors to one account, not a verified total loss for all victims or an amount recovered. The Department's account does not itself establish misconduct by the bank named in the alleged transfer route.",
+      "radar_implication": "This is FinCrimeRadar analysis, not a judicial finding about Zhao. Fraud and AML investigators should map each transition separately, preserving account ownership evidence, transfer timing, intermediary relationships and wallet attribution confidence. A case narrative that jumps directly from a victim's payment to a final crypto wallet can hide the entities and decision points where a bank or payment provider might have identified anomalies. Distinguish allegations about one defendant from guilty pleas entered by other individuals in the wider case.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "fca-defi-guidance-consultation-gc26-7",
+      "headline": "FCA consults on DeFi financial crime and operational resilience guidance",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/publications/guidance-consultations/gc26-7-decentralised-finance-guidance",
+      "published_date": "2026-10-21",
+      "jurisdiction": "UK",
+      "category": "CRYPTO",
+      "signal": "REGULATORY",
+      "what_happened": "On 21 October 2026 the FCA opened GC26/7, a consultation on proposed non-Handbook guidance for firms providing financial services using decentralised finance. The consultation addresses financial crime and operational resilience risks, including the Money Laundering Regulations and the FCA's relevant SYSC frameworks. The FCA identifies regulated firms using DeFi that fall within the listed SYSC and MLR regimes as its principal audience. Responses are due by 18 November 2026, with final guidance planned for January 2027. The FCA says new cryptoasset activities enter its regulatory perimeter from 25 October 2027.",
+      "why_it_matters": "This is proposed guidance, not a final rule or a new blanket authorisation requirement for every DeFi protocol. Its practical value is the focus on which regulated firm remains accountable for financial crime and operational resilience when a service relies on distributed ledger technology, automation or third-party infrastructure. The separate cryptoasset perimeter consultation, CP26/36, is relevant to deciding which activities fall inside regulation.",
+      "radar_implication": "This is FinCrimeRadar analysis. Firms evaluating DeFi should document the activity, the legal entity performing it, the customer and asset flows, any reliance on external protocols, and where sanctions screening, transaction monitoring, incident response and record keeping actually operate. Compare the proposed examples against existing obligations without treating them as final FCA requirements. Capture consultation feedback and reassess when the FCA publishes its final guidance and the applicable perimeter rules take effect.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "fca-vector-wealth-front-director-mini-bonds",
+      "headline": "FCA bans former Vector Wealth chief executive after firm used as front for disqualified director",
+      "source_name": "Financial Conduct Authority",
+      "source_url": "https://www.fca.org.uk/news/press-releases/former-chief-executive-banned-after-misconduct-led-4m-losses-high-risk-investments",
+      "published_date": "2026-10-21",
+      "jurisdiction": "UK",
+      "category": "FINANCIAL_CRIME",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 21 October 2026 the FCA announced it had banned Jeffrey Dawkins, former chief executive of Vector Wealth Ltd, and fined him nearly £270,000. The FCA found that Dawkins dishonestly acted as a front for a disqualified director who was in fact running the firm and using its FCA-authorised status to promote high-risk mini-bonds. The FCA said investors are expected to lose about £4 million, which is an expected loss rather than a confirmed final recovery or loss total. It also banned former senior manager Kadir Kanizi from senior management roles and fined him for failing to ensure consumers were properly warned about risks.",
+      "why_it_matters": "An authorised firm's status can be used to create apparent legitimacy even where its real control differs from what the regulator and customers are told. This case concerns an FCA finding of dishonest conduct by Dawkins, not merely an allegation, while the £4 million investor figure remains an estimate of expected losses. It also illustrates why permission status, product risk and who actually controls decisions must be assessed separately.",
+      "radar_implication": "This is FinCrimeRadar analysis. Governance and counterparty reviews should test who directs sales, controls customer communications, approves promotions and receives economic benefits, rather than relying only on named directors or a firm's historic authorised status. A change in ownership or effective control should trigger a documented check of regulatory notifications, delegated authority and product marketing oversight. Do not infer from the firm's FCA status that the mini-bonds themselves were FCA approved or protected.",
+      "primary_source": true,
+      "reviewed": true
+    }
+  ]
+}
