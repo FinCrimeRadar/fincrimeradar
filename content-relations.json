@@ -33,7 +33,8 @@
   "tm-guide": [
     "screening-algorithm-tuning-guide",
     "money-mule-financial-crime-networks-handbook",
-    "screening-alerts-guide"
+    "screening-alerts-guide",
+    "financial-crime-control-testing-framework"
   ],
   "crypto-guide-part1": [
     "crypto-travel-rule-sunrise-guide"
@@ -86,7 +87,8 @@
   ],
   "screening-algorithm-tuning-guide": [
     "tm-guide",
-    "screening-alerts-guide"
+    "screening-alerts-guide",
+    "financial-crime-control-testing-framework"
   ],
   "screening-alerts-guide": [
     "tm-guide",
@@ -177,7 +179,8 @@
   ],
   "perpetual-kyc-framework-guide": [
     "digital-identity-cdd-intelligence-brief",
-    "customer-risk-score-decision-framework"
+    "customer-risk-score-decision-framework",
+    "financial-crime-control-testing-framework"
   ],
   "digital-identity-cdd-intelligence-brief": [
     "kyc-onboarding-dilemma",
@@ -190,6 +193,13 @@
   "customer-risk-score-decision-framework": [
     "de-risking-judgement-call",
     "kyc-onboarding-dilemma",
-    "perpetual-kyc-framework-guide"
+    "perpetual-kyc-framework-guide",
+    "financial-crime-control-testing-framework"
+  ],
+  "financial-crime-control-testing-framework": [
+    "customer-risk-score-decision-framework",
+    "screening-algorithm-tuning-guide",
+    "perpetual-kyc-framework-guide",
+    "tm-guide"
   ]
 }

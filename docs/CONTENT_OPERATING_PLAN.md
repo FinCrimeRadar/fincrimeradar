@@ -299,16 +299,18 @@ Do not redesign the site while starting a new job. Use a controlled polish lane.
 
 ## 8. Current content research queue
 
-`BACKLOG.md` remains the queue authority. The list below records the current order and planning constraints only. Every candidate remains RESEARCH until its owner, checked evidence, review date and verification outcome are recorded.
+`BACKLOG.md` remains the queue authority. The list below records the current order and planning constraints only. An item remains RESEARCH until its owner, checked evidence, review date and verification outcome are recorded.
 
-### Prioritised guide queue
+### Specified guide queue
 
-1. **Customer Risk Scores: What the Number Cannot Decide.** Prove distinct value beyond the Scenario Lab Risk Scoring module and re-check the FCA evidence before promotion.
-2. **Financial Crime Control Testing: A Control Exists, But Does It Work?** Separate design, implementation and operating effectiveness using current primary sources.
-3. **SAR Escalation Under Commercial Pressure.** Develop as a UK-first judgement guide. Do not convert US material into a UK legal standard.
-4. **Synthetic Data for AML Model Testing.** Verify the FCA and Alan Turing Institute programme and any published 2026 Solution Sprint outcome before drawing effectiveness conclusions.
-5. **Nested VASP Exposure: The Counterparty You Cannot See.** Prove a distinct decision model beyond the Crypto series, Travel Rule guide and Scam Compound guide.
-6. **E-commerce Fraud: From Account Creation to Chargeback.** Do not begin subject-matter research until the employer-conflict gate in section 2 passes. The first authorised scope is limited to the series-level non-overlap review and the Part 1 charter. Do not build the master taxonomy, five-guide coverage matrix or scenario inventory in that first scope. The charter must record public-source provenance and prohibit Nisbets information, systems, policies, incidents and examples.
+1. **Financial Crime Control Testing: A Control Exists, But Does It Work?** IMPLEMENTED in branch `guide/financial-crime-control-testing`, not for release. The 1 November 2026 source, originality, non-overlap and specification review, the implementation, ledger reconciliation, static and browser testing, and the manual independent regulatory and grading review are complete and recorded in `BACKLOG.md` and `docs/review-queue/financial-crime-control-testing-*.md`. Publication metadata carries a proposed 3 November 2026 date to be reconciled again if merge occurs later. Release remains blocked on a real pull request, `/code-review`, exact-revision approval, merge and production verification.
+
+### Prioritised research queue
+
+1. **SAR Escalation Under Commercial Pressure.** Develop as a UK-first judgement guide. Do not convert US material into a UK legal standard.
+2. **Synthetic Data for AML Model Testing.** Verify the FCA and Alan Turing Institute programme and any published 2026 Solution Sprint outcome before drawing effectiveness conclusions.
+3. **Nested VASP Exposure: The Counterparty You Cannot See.** Prove a distinct decision model beyond the Crypto series, Travel Rule guide and Scam Compound guide.
+4. **E-commerce Fraud: From Account Creation to Chargeback.** Do not begin subject-matter research until the employer-conflict gate in section 2 passes. The first authorised scope is limited to the series-level non-overlap review and the Part 1 charter. Do not build the master taxonomy, five-guide coverage matrix or scenario inventory in that first scope. The charter must record public-source provenance and prohibit Nisbets information, systems, policies, incidents and examples.
 
 Do not assign dated release pairings while no candidate is READY.
 
