@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  gtag('js',new Date());
+  (function(){try{if(localStorage.getItem('fcr_cookie_consent_v2')==='accepted'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}})();
+  gtag('config','G-FC1VMTE7JH');
+</script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-1158691611711023?ers=1"></script>
+<script>(function(){function signalGooglefcPresent(){if(!window.frames.googlefcPresent){if(document.body){var iframe=document.createElement('iframe');iframe.style.cssText='width:0;height:0;border:none;position:absolute;top:-9999px;left:-9999px;display:none;';iframe.name='googlefcPresent';document.body.appendChild(iframe);}else{setTimeout(signalGooglefcPresent,0);}}}signalGooglefcPresent();})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FC1VMTE7JH"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Financial Crime Control Testing: A Control Exists, But Does It Work? | FinCrimeRadar</title>
+<meta name="description" content="A framework for testing financial crime controls: three proofs of design, deployment and operation, four conclusion states including Not evidenced, and two worked decisions on a clean CDD sample and vendor screening assurance.">
+<meta name="author" content="Pratik Zanke, FinCrimeRadar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fincrimeradar.org/financial-crime-control-testing-framework.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Financial Crime Control Testing: A Control Exists, But Does It Work?">
+<meta property="og:description" content="Three proofs and four conclusion states for testing whether a financial crime control works, with two worked decisions.">
+<meta property="og:url" content="https://fincrimeradar.org/financial-crime-control-testing-framework.html">
+<meta property="og:image" content="https://fincrimeradar.org/financial-crime-control-testing-framework-social-card.png">
+<meta property="og:site_name" content="FinCrimeRadar">
+<meta property="article:published_time" content="2026-11-03">
+<meta property="article:modified_time" content="2026-11-03">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Financial Crime Control Testing: A Control Exists, But Does It Work?">
+<meta name="twitter:description" content="Three proofs and four conclusion states for testing whether a financial crime control works, with two worked decisions.">
+<meta name="twitter:image" content="https://fincrimeradar.org/financial-crime-control-testing-framework-social-card.png">
+<link rel="icon" href="/favicon.ico">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Financial Crime Control Testing: A Control Exists, But Does It Work?","description":"A framework for testing financial crime controls: three proofs of design, deployment and operation, four conclusion states including Not evidenced, and two worked decisions on a clean CDD sample and vendor screening assurance.","datePublished":"2026-11-03","dateModified":"2026-11-03","author":{"@type":"Person","name":"Pratik Zanke","url":"https://fincrimeradar.org/about.html"},"publisher":{"@type":"Organization","name":"FinCrimeRadar","url":"https://fincrimeradar.org","logo":{"@type":"ImageObject","url":"https://fincrimeradar.org/logo.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fincrimeradar.org/financial-crime-control-testing-framework.html"},"image":"https://fincrimeradar.org/financial-crime-control-testing-framework-social-card.png","inLanguage":"en-GB","articleSection":"Framework"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Knowledge Hub","item":"https://fincrimeradar.org/knowledge.html"},{"@type":"ListItem","position":2,"name":"AML Programme","item":"https://fincrimeradar.org/knowledge.html?domain=aml-programme"},{"@type":"ListItem","position":3,"name":"Financial Crime Control Testing: A Control Exists, But Does It Work?","item":"https://fincrimeradar.org/financial-crime-control-testing-framework.html"}]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{--fct-navy:#071d2b;--fct-green:#0f766e;--fct-ink:#14232b;--fct-muted:#586b75;--fct-line:#d9e3e6;--fct-amber:#b45309;--fct-red:#b42318}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--fct-ink);line-height:1.65}
+.fct-skip{position:absolute;left:1rem;top:-5rem;background:#fff;color:#071d2b;padding:.75rem 1rem;z-index:1000;border:2px solid #14b8a6}.fct-skip:focus{top:1rem}
+nav{height:72px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.98);border-bottom:1px solid var(--fct-line);position:sticky;top:0;z-index:90}
+.nav-brand img{height:44px;width:auto;max-width:200px;display:block;object-fit:contain}.nav-links{display:flex;align-items:center;gap:1.25rem}.nav-links a{color:#465962;text-decoration:none;font-size:13px}.nav-cta{padding:8px 16px;border-radius:7px;background:#0f766e;color:#fff!important}.nav-hamburger{display:none;background:transparent;border:0;color:#071d2b;font-size:24px;min-width:44px;min-height:44px}.mobile-nav{display:none}
+.fct-breadcrumb{max-width:1180px;margin:0 auto;padding:1rem 1.5rem;display:flex;gap:.6rem;align-items:center;font-size:13px;color:var(--fct-muted)}.fct-breadcrumb a{color:#0f766e}
+.fct-hero{background:linear-gradient(135deg,#061923,#0b3440 70%,#0f554f);color:#fff;padding:4rem 1.5rem 3.5rem}.fct-hero-inner{max-width:980px;margin:0 auto}.fct-format{display:inline-flex;align-items:center;gap:.45rem;border:1px solid rgba(94,234,212,.55);border-radius:999px;padding:.35rem .7rem;color:#99f6e4;font:600 12px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}.fct-hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.2rem,5.4vw,4.4rem);line-height:1.04;max-width:900px;margin:1.25rem 0;overflow-wrap:anywhere}.fct-hero h1 em{color:#99f6e4;font-style:normal}.fct-hero-sub{font-size:clamp(1.05rem,2vw,1.35rem);max-width:780px;color:#d8eeee}.fct-meta{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.4rem}.fct-meta span{font-size:13px;padding:.32rem .55rem;border:1px solid rgba(255,255,255,.25);border-radius:5px}
+.fct-scope{max-width:1180px;margin:-1.5rem auto 0;padding:0 1.5rem;position:relative}.fct-scope-inner{background:#fff;border:1px solid var(--fct-line);border-top:4px solid var(--fct-green);padding:1.2rem 1.35rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;box-shadow:0 8px 22px rgba(7,29,43,.08)}.fct-scope dt{font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;color:var(--fct-muted);letter-spacing:.06em}.fct-scope dd{margin:.25rem 0 0;font-size:14px;font-weight:600}
+.fct-layout{max-width:1180px;margin:2.5rem auto 0;padding:0 1.5rem 5rem;display:grid;grid-template-columns:minmax(0,760px) 260px;gap:3rem;align-items:start}.fct-article{min-width:0}.fct-toc{position:sticky;top:92px;background:#fff;border:1px solid var(--fct-line);padding:1rem}.fct-toc strong{font:600 12px "IBM Plex Mono",monospace;text-transform:uppercase}.fct-toc ol{margin:.7rem 0 0;padding-left:1.25rem}.fct-toc a{color:#35505c;font-size:13px;text-decoration:none}.fct-toc a:hover{text-decoration:underline}
+.fct-section{background:#fff;border:1px solid var(--fct-line);padding:clamp(1.2rem,4vw,2.2rem);margin-bottom:1.35rem;min-width:0}.fct-section h2{font-family:"Playfair Display",Georgia,serif;color:var(--fct-navy);font-size:clamp(1.7rem,4vw,2.45rem);line-height:1.12;margin:0 0 1rem}.fct-section h3{color:var(--fct-navy);font-size:1.15rem;margin:1.6rem 0 .55rem}.fct-section p{margin:.75rem 0}.fct-section a{color:#0b6b63;text-decoration-thickness:1px;text-underline-offset:2px}.fct-lede{font-size:1.2rem;color:#28414b}.fct-callout{border-left:4px solid var(--fct-green);background:#eef8f5;padding:1rem 1.2rem;margin:1.2rem 0}.fct-rule{font-size:1.2rem;font-weight:700;color:#073d3a}
+.fct-scenario{border:1px solid #b9d6d1;background:#fbfefd;margin:1.4rem 0;padding:clamp(1rem,4vw,1.6rem)}.fct-scenario-tag{font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;color:#0f766e;letter-spacing:.07em}.fct-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin:1rem 0;padding:0;list-style:none}.fct-facts li{padding:.7rem;background:#eef5f3;border-left:3px solid #5aa89c;font-size:14px}
+.fct-choice{margin:1.2rem 0}.fct-choice fieldset{border:1px solid var(--fct-line);padding:1rem;min-width:0}.fct-choice legend{font-weight:700;padding:0 .35rem;max-width:100%}.fct-option{display:grid;grid-template-columns:22px minmax(0,1fr);gap:.6rem;align-items:start;padding:.65rem;margin:.3rem 0;border:1px solid transparent;border-radius:5px}.fct-option:hover{background:#f2f8f7}.fct-option[data-selected="true"]{border-color:#0f766e;background:#edf8f6}.fct-option input{margin-top:.28rem;width:18px;height:18px;accent-color:#0f766e}.fct-action{border:0;border-radius:5px;background:var(--fct-green);color:#fff;font-weight:700;padding:.75rem 1rem;min-height:44px;cursor:pointer}.fct-action:hover{background:#0b5f59}.fct-action:focus-visible,.fct-option:has(input:focus-visible),summary:focus-visible,a:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}.fct-feedback{min-height:1.6rem;margin:.75rem 0 0;font-weight:700;color:#075e57}.fct-feedback[data-state="caution"]{color:#8a4b08}
+.fct-saa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}.fct-saa-block{border:1px solid var(--fct-line);padding:.9rem;min-width:0}.fct-saa-block h3{margin:0 0 .4rem;color:#075e57;font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase}.fct-saa-block p{font-size:14px;margin:.4rem 0}
+.fct-record{border:2px solid var(--fct-navy);padding:1rem;margin:1.2rem 0}.fct-record h3{margin:0 0 .8rem}.fct-record dl{display:grid;grid-template-columns:140px minmax(0,1fr);margin:0}.fct-record dt,.fct-record dd{padding:.75rem;border-top:1px solid var(--fct-line)}.fct-record dt{font-weight:700;color:#075e57}.fct-record dd{margin:0}.fct-record .fct-assumption{background:#fff8eb}
+.fct-details details{border:1px solid var(--fct-line);background:#fff;margin:.55rem 0;padding:.8rem 1rem}.fct-details summary{font-weight:700;cursor:pointer;min-height:34px}.fct-details details[open] summary{margin-bottom:.65rem}
+.fct-patterns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.fct-pattern{border:1px solid var(--fct-line);border-top:4px solid var(--fct-green);padding:1rem;background:#fff;min-width:0}.fct-pattern h3{margin:0 0 .35rem}.fct-pattern .fct-metaphor{font-size:14px;color:#48616b}.fct-lines{margin:.75rem 0 0}.fct-lines div{display:grid;grid-template-columns:74px minmax(0,1fr);gap:.45rem;border-top:1px solid #e8eeee;padding:.45rem 0;font-size:13px}.fct-lines dt{font-weight:700;color:#075e57}.fct-lines dd{margin:0}
+.fct-summary{border:2px solid #0f766e;background:#eff9f6}.fct-summary ol{list-style:none;padding:0;margin:1rem 0}.fct-summary li{display:grid;grid-template-columns:115px minmax(0,1fr);gap:.8rem;padding:.65rem 0;border-top:1px solid #cce2de}.fct-summary strong{color:#075e57}
+.fct-quiz fieldset{border:0;padding:0;margin:1.25rem 0}.fct-quiz legend{font-weight:700;margin-bottom:.45rem}
+.fct-sources ol{padding-left:1.4rem}.fct-sources li{margin:.7rem 0;font-size:14px;overflow-wrap:anywhere}.fct-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}.fct-related a{display:block;border:1px solid var(--fct-line);padding:1rem;text-decoration:none;background:#fff}.fct-related strong{display:block;color:#073d3a}.fct-related span{color:#536a74;font-size:14px}
+.fct-save-row{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin-top:1rem}.fct-save-status{font-size:13px;color:#536a74}
+.fct-state{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;padding:.15rem .5rem;border:1px solid var(--fct-line);background:#f5f8f7;color:var(--fct-navy);vertical-align:middle;white-space:normal}
+.fct-state[data-state="unknown"]{border-color:#b45309;background:#fff7ed;color:#7c2d12}
+.fct-state[data-state="established"]{border-color:#0f766e;background:#ecfdf5;color:#065f46}
+.fct-state[data-state="guidance"]{border-color:#3b6ea8;background:#eef4fb;color:#1e3a5f}
+.fct-state[data-state="public"]{border-color:#6b4aa0;background:#f5f0fb;color:#3f2a66}
+.fct-state[data-state="assessment"]{border-color:#586b75;background:#f3f6f7;color:#33454e}
+.fct-legend{list-style:none;padding:0;margin:1rem 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.fct-legend li{border:1px solid var(--fct-line);padding:.7rem .85rem;min-width:0;font-size:14px}
+.fct-illustrative{font-size:13px;color:var(--fct-muted);margin:0 0 .8rem;font-style:italic}
+.fct-feedback[data-state="unsupported"]{color:#8f1d14}.fct-feedback[data-state="incomplete"]{color:#8a4b08}
+.fct-optfb-set{margin:1.2rem 0}.fct-optfb{border:1px solid var(--fct-line);border-left:4px solid var(--fct-line);padding:.8rem .9rem;margin:.7rem 0;background:#fff}.fct-optfb[data-grade="best"]{border-left-color:#0f766e}.fct-optfb[data-grade="incomplete"]{border-left-color:#b45309}.fct-optfb[data-grade="unsupported"]{border-left-color:#b42318}.fct-optfb[data-selected="true"]{background:#edf8f6;box-shadow:0 0 0 2px #0f766e}
+.fct-choice .fct-action,#knowledgeForm .fct-action,#saveFrameworkImage{display:none}.js .fct-choice .fct-action,.js #knowledgeForm .fct-action,.js #saveFrameworkImage{display:inline-block}.js .fct-optfb-set:not([data-revealed="true"]){display:none}.fct-optfb{scroll-margin-top:120px}.fct-optfb:focus{outline:3px solid #0f766e;outline-offset:2px}.fct-feedback a{color:#075e57;font-weight:700}@media print{.js .fct-optfb-set{display:block!important}}
+.fct-optfb-head{margin:0 0 .5rem;font-size:15px}.fct-grade{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:.12rem .45rem;border:1px solid var(--fct-line);background:#f5f8f7;margin-right:.35rem}
+.fct-counterfactual{border:1px solid #d6c8a4;background:#fbf8ef;padding:1rem;margin:1rem 0}.fct-counterfactual h3{margin:0 0 .5rem}
+.fct-branch-note{font-size:14px;color:var(--fct-muted)}
+.fct-answer-notes summary{font-weight:700}
+.fct-core{display:grid;grid-template-columns:150px minmax(0,1fr);margin:1.2rem 0;border:1px solid var(--fct-line)}.fct-core dt,.fct-core dd{padding:.7rem .85rem;border-top:1px solid var(--fct-line);margin:0;font-size:14px}.fct-core dt:first-of-type,.fct-core dt:first-of-type+dd{border-top:0}.fct-core dt{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;color:#075e57;background:#f3f8f7}
+.fct-fig{margin:1.6rem 0;padding:0}.fct-fig figcaption{font-size:13px;color:var(--fct-muted);margin-top:.7rem}.fct-fig-title{font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:#075e57;margin:0 0 .7rem}
+.fct-chain{list-style:none;margin:0;padding:0;counter-reset:stage}.fct-chain>li{position:relative;display:grid;grid-template-columns:42px minmax(0,1fr);gap:1rem;padding:0 0 1.35rem;counter-increment:stage}.fct-chain>li:before{content:counter(stage);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--fct-navy);color:#fff;font:600 14px "IBM Plex Mono",monospace;z-index:1}.fct-chain>li:not(:last-child):after{content:"\2193";position:absolute;left:0;bottom:.15rem;width:38px;text-align:center;font-size:17px;color:#0f766e}.fct-chain>li:not(:last-child)>div{border-bottom:1px solid var(--fct-line);padding-bottom:1.1rem}.fct-chain h3{margin:0 0 .2rem;font-size:1.05rem}.fct-chain p{margin:.15rem 0;font-size:14px}.fct-cp{display:inline-block;font:600 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;border:1px solid #0f766e;color:#075e57;background:#ecfdf5;padding:.1rem .45rem;margin-top:.3rem}
+.fct-proofs{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.8rem}.fct-proof{border:1px solid var(--fct-line);border-top:4px solid var(--fct-navy);padding:1rem;background:#fff;min-width:0}.fct-proof h3{margin:0 0 .6rem;font-size:1.05rem}.fct-proof dl{margin:0}.fct-proof dt{font:700 11px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.04em;color:#075e57;margin-top:.7rem}.fct-proof dd{margin:.15rem 0 0;font-size:14px}.fct-proof .fct-false{color:#7c2d12}
+.fct-ladder{list-style:none;margin:0;padding:0}.fct-ladder>li{border:1px solid var(--fct-line);border-left:6px solid var(--fct-green);padding:.75rem .95rem;margin:0 0 .5rem;background:#fbfefd;min-width:0}.fct-ladder>li[data-rung="partial"]{border-left-color:var(--fct-amber);margin-left:14px}.fct-ladder>li[data-rung="ineffective"]{border-left-color:var(--fct-red);margin-left:28px}.fct-ladder strong{display:block;color:var(--fct-navy)}.fct-ladder p{margin:.2rem 0;font-size:14px}
+.fct-limit{border:2px dashed var(--fct-navy);padding:1rem 1.1rem;margin:1.1rem 0 0;background:#fcfdfd}.fct-limit h3{margin:0 0 .4rem;font:700 12px "IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.05em;color:var(--fct-navy)}.fct-limit p{margin:.3rem 0;font-size:14px}
+.fct-fields{list-style:none;margin:1rem 0;padding:0;display:grid;gap:.5rem;counter-reset:field}.fct-fields li{counter-increment:field;display:grid;grid-template-columns:34px minmax(0,1fr);gap:.8rem;border:1px solid var(--fct-line);padding:.65rem .85rem;font-size:14px}.fct-fields li:before{content:counter(field);font:700 13px "IBM Plex Mono",monospace;color:#075e57}
+.fct-scopebox{border:1px solid var(--fct-line);border-left:4px solid #6b4aa0;padding:.9rem 1.1rem;margin:1.1rem 0;background:#fbf9fd;font-size:14px}.fct-scopebox p{margin:.3rem 0}
+.fct-modes{list-style:none;margin:1rem 0;padding:0;display:grid;gap:.5rem}.fct-modes li{border:1px solid var(--fct-line);padding:.7rem .9rem;font-size:14px}.fct-modes strong{color:var(--fct-navy)}
+@media(max-width:900px){.fct-layout{grid-template-columns:minmax(0,1fr)}.fct-toc{position:static;order:-1}.fct-scope-inner{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){nav{padding:0 1rem}.nav-links{display:none}.nav-hamburger{display:block}.mobile-nav.open{display:flex;position:fixed;top:72px;left:0;right:0;z-index:89;flex-direction:column;background:#fff;border-bottom:1px solid var(--fct-line)}.mobile-nav a{padding:13px 1rem;color:#243b45;text-decoration:none;border-top:1px solid #edf1f2}.fct-breadcrumb{align-items:flex-start;flex-wrap:wrap}.fct-hero{padding-top:2.8rem}.fct-scope-inner,.fct-facts,.fct-saa,.fct-patterns,.fct-related,.fct-legend{grid-template-columns:minmax(0,1fr)}.fct-layout{padding:0 .75rem 3rem;gap:1rem}.fct-scope{padding:0 .75rem}.fct-record dl{grid-template-columns:minmax(0,1fr)}.fct-record dt{padding-bottom:.2rem}.fct-record dd{padding-top:.2rem;border-top:0}.fct-summary li{grid-template-columns:minmax(0,1fr);gap:.15rem}.fct-lines div{grid-template-columns:66px minmax(0,1fr)}.fct-core{grid-template-columns:minmax(0,1fr)}.fct-core dd{border-top:0;padding-top:.2rem}.fct-fields li{grid-template-columns:28px minmax(0,1fr)}}
+@media(max-width:360px){.fct-section{padding:1rem}.fct-hero h1{font-size:2rem}.fct-chain>li{grid-template-columns:34px minmax(0,1fr);gap:.7rem}.fct-chain>li:before{width:32px;height:32px}.fct-chain>li:not(:last-child):after{width:32px}.fct-ladder>li[data-rung="partial"],.fct-ladder>li[data-rung="ineffective"]{margin-left:0}.fct-meta{gap:.4rem}}
+@media(min-width:641px){.fct-summary li{grid-template-columns:140px minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media print{nav,.mobile-nav,.fct-toc,.fct-choice,.fct-save-row,#site-footer{display:none!important}.fct-layout{display:block;max-width:none}.fct-section{break-inside:avoid;border-color:#999}.fct-hero{background:#fff;color:#000;padding:1rem}.fct-hero-sub{color:#222}}
+</style>
+<link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+<a class="fct-skip" href="#main-content">Skip to main content</a>
+<noscript><div style="background:#0c2c3a;color:#fff;text-align:center;padding:10px 16px;font-size:13px">All material reasoning remains available. Scenario scoring, the knowledge check, export and the shared footer require JavaScript.</div></noscript>
+<nav aria-label="Primary">
+  <a class="nav-brand" href="/"><img src="/logo.png" alt="FinCrimeRadar" width="660" height="237"></a>
+  <div class="nav-links"><a href="/knowledge.html">Knowledge Hub</a><a href="/scenario-lab.html">Scenario Lab</a><a href="/screen.html">Screen</a><a href="/kyb-lab.html">KYB Lab</a><a class="nav-cta" href="/screen.html">Try the tool</a></div>
+  <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">&#9776;</button>
+</nav>
+<div class="mobile-nav" id="mobileNav"><a href="/knowledge.html">Knowledge Hub</a><a href="/scenario-lab.html">Scenario Lab</a><a href="/about.html">About</a><a href="/kyb-lab.html">KYB Lab</a><a href="/screen.html">Try the tool</a></div>
+<div class="fct-breadcrumb" role="navigation" aria-label="Breadcrumb"><a href="/knowledge.html">Knowledge Hub</a><span aria-hidden="true">›</span><a href="/knowledge.html?domain=aml-programme">AML Programme</a><span aria-hidden="true">›</span><span aria-current="page">Financial Crime Control Testing: A Control Exists, But Does It Work?</span></div>
+<header class="fct-hero">
+  <div class="fct-hero-inner">
+    <span class="fct-format">Framework</span>
+    <h1>Financial Crime Control Testing:<br><em>A Control Exists, But Does It Work?</em></h1>
+    <p class="fct-hero-sub">A policy on file, a system switched on and a clean sample are not a conclusion. This framework separates three proofs, design, deployment and operation, and says what to conclude when the evidence cannot supply them.</p>
+    <p>Written by <a href="/about.html" style="color:#99f6e4">Pratik Zanke</a></p>
+    <div class="fct-meta"><span>UK</span><span>MLR 2017 regulations 19 and 21</span><span>47 min read</span><span>2 worked scenarios</span></div>
+  </div>
+</header>
+<div class="fct-scope">
+  <dl class="fct-scope-inner">
+    <div><dt>Jurisdiction</dt><dd>United Kingdom</dd></div>
+    <div><dt>Status</dt><dd>No prescribed test method</dd></div>
+    <div><dt>Law read as at</dt><dd>1 November 2026</dd></div>
+    <div><dt>Evidence reviewed</dt><dd>1 November 2026</dd></div>
+    <div><dt>Last reviewed</dt><dd>1 November 2026</dd></div>
+    <div><dt>Change watch</dt><dd>FCA testing expectations, MLR amendments</dd></div>
+  </dl>
+</div>
+<div class="fct-layout">
+<main id="main-content" class="fct-article" tabindex="-1">
+
+<section class="fct-section" id="question">
+  <h2>The question, and what this framework will not decide</h2>
+  <p class="fct-lede">The most dangerous control is not the one everyone knows is broken. It is the one recorded as effective because a policy exists, a system is enabled or a sample contained no failures.</p>
+  <p>Control testing is the work of replacing that comfort with evidence. The conclusion is not whether a document looks sensible. It is whether the control could work, reaches the population it claims to cover and actually operated during the period being tested.</p>
+  <p>This framework separates those three questions. A control has to pass three different proofs, and if the evidence cannot answer them the honest conclusion is Not evidenced, not Effective. It is written for first-line control owners, second-line monitoring, MLRO oversight and internal audit, and it teaches a shared way of reaching and recording a conclusion. Who owns which test inside a particular firm is a structural decision this guide leaves to the firm. It is a practitioner framework, not an audit programme, not an assurance opinion and not legal advice.</p>
+  <p>It will not give you a sample size, a pass rate or a test frequency. No source read for this guide sets one across financial crime controls, and a guide that supplied a number would be inventing a standard and presenting it as one. What it gives you is a way to say, for one control, one scope and one period, what the evidence supports and what it does not.</p>
+  <div class="fct-callout"><p class="fct-rule">A conclusion is only as wide as its evidence: one control, one scope, one period.</p></div>
+  <h3>The analytical spine</h3>
+  <dl class="fct-core">
+    <dt>Question</dt><dd>What evidence is sufficient to conclude that a financial crime control is designed appropriately, deployed across its intended scope and operating effectively?</dd>
+    <dt>Evidence state</dt><dd>Established: the Money Laundering Regulations 2017 and applicable FCA SYSC rules on effective controls, review and, where regulation 21 applies, independent audit. Guidance: the Financial Crime Guide and the FCA's published findings, which are examples and observations. Public-sector practice: the GOV.UK fraud control testing methods and ratings, written for public bodies. FinCrimeRadar assessment: the Control Proof Chain, the three proofs and the Not evidenced conclusion.</dd>
+    <dt>Decision object</dt><dd>One bounded conclusion about a named control, scope and period, and the action that follows. It is not a rating of a firm's whole financial crime framework.</dd>
+    <dt>Uncertainty</dt><dd>No source read sets one sample size, failure tolerance, test frequency or rating scale across financial crime controls. Whether a given rule, provision or example applies depends on the firm, the control and its regulatory perimeter.</dd>
+    <dt>What would change this</dt><dd>New legal or FCA testing requirements. A source that prescribes a cross-control method. Evidence that this model produces misleading conclusions. A material change to the MLR or SYSC provisions relied on.</dd>
+    <dt>Practitioner outcome</dt><dd>After this guide you should be able to scope a control test, choose evidence that addresses design, deployment and operation, avoid false assurance, state a supportable conclusion and specify remediation and retest.</dd>
+  </dl>
+  <h3>How evidence is labelled</h3>
+  <ul class="fct-legend">
+    <li><span class="fct-state" data-state="established">Established</span> A statute, an in-force regulation or an FCA rule, read from the text.</li>
+    <li><span class="fct-state" data-state="guidance">Guidance</span> Handbook guidance and FCA findings. Examples and observations, not rules.</li>
+    <li><span class="fct-state" data-state="public">Public-sector practice</span> Recommended practice for public bodies. Not an FCA rule or an MLR requirement.</li>
+    <li><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> Our analysis. It rests on the sources but is not their wording.</li>
+    <li><span class="fct-state" data-state="unknown">Unknown</span> No source read settles it.</li>
+  </ul>
+  <p class="fct-branch-note">Out of scope: a universal audit programme or sample-size table, certification or assurance opinions, a control library for every AML, fraud or sanctions process, scoring a firm's whole financial crime framework, and detailed transaction monitoring model validation. This guide gives no instructions for bypassing live controls. Any pressure or scenario testing has to be synthetic, authorised, lawful, reversible and isolated from live customer harm. For the governance of a customer risk scoring method, see <a href="/customer-risk-score-decision-framework.html">Customer Risk Scores: What the Number Cannot Decide</a>.</p>
+</section>
+
+<section class="fct-section" id="authority">
+  <h2>What the authority establishes, and where it stops</h2>
+  <p class="fct-lede">The legal text requires effective controls and, in stated circumstances, an independent look at them. It does not say how much evidence makes a control effective.</p>
+  <div class="fct-saa">
+    <div class="fct-saa-block"><h3>Source</h3>
+      <p><span class="fct-state" data-state="established">Established</span> Regulation 19(1) requires a relevant person to establish and maintain policies, controls and procedures to mitigate and manage effectively the money laundering and terrorist financing risks identified in its regulation 18(1) risk assessment, to review and update them regularly, and to keep written records of them, of changes made on review and of the steps taken to communicate them. They must be proportionate to the size and nature of the business and approved by senior management (regulation 19(2)), and must include risk management practices, internal controls, customer due diligence, reliance and record keeping, and the monitoring and management of compliance with them and their internal communication (regulation 19(3)). <a href="#source-1">[1]</a></p>
+      <p><span class="fct-state" data-state="established">Established</span> Regulation 21(1) applies "where appropriate with regard to the size and nature of its business". Under regulation 21(1)(c) the relevant person must establish an independent audit function with responsibility to examine and evaluate the adequacy and effectiveness of the policies, controls and procedures it has adopted to comply with the Regulations, to make recommendations on them, and to monitor compliance with those recommendations. Regulation 21(6) disapplies paragraphs (1) and (3) where the relevant person is an individual who neither employs nor acts in association with any other person. In deciding what is appropriate, regulation 21(10) requires the firm to take account of its regulation 18(1) and 18A(1) risk assessments and allows it to take account of qualifying guidance. <a href="#source-2">[2]</a></p>
+      <p><span class="fct-state" data-state="established">Established</span> A firm within SYSC 3.2.6 must take reasonable care to establish and maintain effective financial crime systems and controls. Its money laundering systems and controls must identify, assess, monitor and manage risk and be comprehensive and proportionate, and the firm must carry out regular assessments of their adequacy. Whether these rules apply, and in what form, depends on the firm. <a href="#source-3">[3]</a></p></div>
+    <div class="fct-saa-block"><h3>Application</h3>
+      <p><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> These provisions establish the need for effective controls, regular review and, in the circumstances regulation 21 specifies, independent audit. They do not provide a sample size, pass rate, test frequency or test script for any control. As read, regulations 19 and 21 prescribe no universal test frequency, sample size, pass threshold, rating scale or evidence taxonomy. That is a statement about those two regulations, not about every legal or professional standard that might apply to a particular firm. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a></p>
+      <p>The words "regular" and "effective" are therefore doing the work, and the firm has to decide, and be able to defend, what evidence shows a control is effective. This framework is one way of making that decision. It is our design and not the regulator's.</p></div>
+    <div class="fct-saa-block"><h3>Action</h3>
+      <p>Define the control objective and the testing scope before choosing documents or samples. A test method selected first will often prove only what is easiest to inspect. This is a FinCrimeRadar recommendation.</p></div>
+  </div>
+  <h3>What the guidance, the findings and the public-sector framework add</h3>
+  <p><span class="fct-state" data-state="guidance">Guidance</span> The Financial Crime Guide is general guidance under section 139B of the Financial Services and Markets Act 2000. It is not binding, it is not a standalone statement of all requirements, and firms can comply in other ways. <a href="#source-4">[4]</a> Within it, FCG 2.2.5 treats internal audit or another independent party monitoring the effectiveness of policies, procedures, systems and controls as good practice, and failing to check that policies and procedures are applied consistently and effectively as poor practice. FCG 2.2.7 treats internal audit and compliance routinely testing defences against financial crime as good practice, and asks how a firm ensures that its review of control effectiveness is comprehensive and how remediation has progressed. <a href="#source-5">[5]</a></p>
+  <p><span class="fct-state" data-state="guidance">Guidance</span> The FCA's recent good and poor practice reports on risk assessment, customer due diligence and sanctions are findings from multi-firm reviews. They are examples of what the FCA saw. The FCA says good practice often goes beyond the minimum regulatory requirements. <a href="#source-6">[6]</a> <a href="#source-7">[7]</a> <a href="#source-8">[8]</a> This guide uses them as evidence of what a supervisory conversation is likely to probe, and never as a testing specification. Where an example from one domain is applied to another, the text says that it is an application.</p>
+  <div class="fct-scopebox">
+    <p><span class="fct-state" data-state="public">Public-sector practice</span> The GOV.UK Fraud Control Testing Framework (FCTF-01) is recommended practice for public bodies, issued by the International Public Sector Fraud Forum. <a href="#source-9">[9]</a></p>
+    <p>It is not an FCA rule, a Money Laundering Regulations requirement or a private-sector AML testing standard, and it does not govern FCA-regulated firms. This guide borrows its idea of rating a control as Effective, Partially effective or Ineffective, with each rating linked to action, because the private-sector sources read offer no equivalent. Where this guide departs from it, the page says so.</p>
+  </div>
+  <p><span class="fct-state" data-state="guidance">Guidance</span> The FCA has also recorded firms concluding that their controls were effective or mature without appropriate evidence to support the conclusion. <a href="#source-6">[6]</a> That is a finding about those firms' conclusions. It does not say what evidence would have been enough.</p>
+  <div class="fct-pattern" data-pattern-id="policy-mirage">
+    <h3>1. Policy Mirage</h3><p class="fct-metaphor">From a distance, a document looks like a working control.</p>
+    <dl class="fct-lines"><div><dt>Risk</dt><dd>A documented control is mistaken for an effective one.</dd></div><div><dt>Signal</dt><dd>Test evidence is limited to policy review and interviews.</dd></div><div><dt>Response</dt><dd>Separate design, deployment and operation before concluding.</dd></div></dl>
+  </div>
+</section>
+
+<section class="fct-section" id="chain">
+  <h2>The Control Proof Chain</h2>
+  <p class="fct-lede">Every control test, however it is run, walks the same seven links. A conclusion is only as strong as the weakest link the evidence reaches.</p>
+  <figure class="fct-fig" aria-labelledby="chain-title">
+    <p class="fct-fig-title" id="chain-title">Figure 1. From risk to retest</p>
+    <ol class="fct-chain">
+      <li><div><h3>Risk</h3><p>State the failure or abuse the control is intended to reduce.</p></div></li>
+      <li><div><h3>Control objective</h3><p>State what must happen, for which population, at what point and with what escalation.</p></div></li>
+      <li><div><h3>Design</h3><p>Decide whether the specified control could achieve the objective if performed as written.</p><span class="fct-cp">Design proof</span></div></li>
+      <li><div><h3>Deployment</h3><p>Verify that the control reaches the intended systems, records, staff, vendors, products and jurisdictions.</p><span class="fct-cp">Deployment proof</span></div></li>
+      <li><div><h3>Operation</h3><p>Verify performance over the selected period, including exceptions and hand-offs.</p><span class="fct-cp">Operating proof</span></div></li>
+      <li><div><h3>Exceptions</h3><p>Determine their nature, extent, root cause and whether they undermine the objective.</p><span class="fct-cp">Tests all three proofs</span></div></li>
+      <li><div><h3>Remediation and retest</h3><p>Assign action, interim protection, owner and date, then test the corrected control before closure.</p><span class="fct-cp">Re-proves the failed proof</span></div></li>
+    </ol>
+    <figcaption>Text equivalent: the numbered list is the figure. Seven links run in order from Risk to Remediation and retest. Links 3, 4 and 5 carry the design, deployment and operating proofs. Link 6 tests all three and link 7 re-proves whichever proof failed. The chain is a FinCrimeRadar model. No source read prescribes it.</figcaption>
+  </figure>
+  <p><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> The first two links are where most weak testing is decided before any evidence is collected. If the risk is vague and the objective cannot be tested, no later link can repair it. The FCA says a business-wide risk assessment should feed into controls testing and the firm's wider risk-based approach, which is the same dependency seen from the supervisor's side. <a href="#source-6">[6]</a> <span class="fct-state" data-state="guidance">Guidance</span></p>
+  <h3>The three proofs</h3>
+  <p>The central judgement is three separate questions with three separate kinds of evidence. A strong answer to one does not stand in for the others. The labels design, deployment and operation are FinCrimeRadar's synthesis, and no source read imposes this exact three-part taxonomy. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <figure class="fct-fig" aria-labelledby="proofs-title">
+    <p class="fct-fig-title" id="proofs-title">Figure 2. What each proof asks, accepts and must reject</p>
+    <div class="fct-proofs">
+      <div class="fct-proof"><h3>Design proof</h3><dl><dt>Core question</dt><dd>Could this control achieve the stated objective if performed as specified?</dd><dt>Evidence examples</dt><dd>Risk statement, objective, process map, policy, rule logic, data requirements, ownership, escalation and failure-mode analysis.</dd><dt>False assurance to reject</dt><dd class="fct-false">A detailed policy proves the control works.</dd></dl></div>
+      <div class="fct-proof"><h3>Deployment proof</h3><dl><dt>Core question</dt><dd>Is the control embedded across the full intended scope?</dd><dt>Evidence examples</dt><dd>Population reconciliation, system and data lineage, configuration, access, training, vendor mapping, change records and walkthroughs.</dd><dt>False assurance to reject</dt><dd class="fct-false">The system is switched on, so every item is covered.</dd></dl></div>
+      <div class="fct-proof"><h3>Operating proof</h3><dl><dt>Core question</dt><dd>Did it perform consistently during the test period and handle exceptions?</dd><dt>Evidence examples</dt><dd>Logs, case files, re-performance, data analysis, samples, alerts, decisions, quality assurance, incidents, misses and remediation evidence.</dd><dt>False assurance to reject</dt><dd class="fct-false">No incident or clean sample proves effectiveness.</dd></dl></div>
+    </div>
+    <figcaption>Text equivalent: three cards side by side or stacked, one for each proof. Each card gives the core question, examples of evidence that can answer it and the false assurance that should be rejected. The false assurance line is marked in words, so nothing depends on colour.</figcaption>
+  </figure>
+</section>
+
+<section class="fct-section" id="design">
+  <h2>Proof 1: design</h2>
+  <p class="fct-lede">Design asks whether the control, if performed as specified, could address the stated risk. Start with the risk and the objective, not the policy title.</p>
+  <p>A useful control objective names the population, the action, the timing and the escalation. "Customers are reviewed" is not testable. A testable version reads: every customer in the high-risk population receives a documented review at least at the firm's defined interval, and overdue cases are escalated to the named owner. The interval in that sentence is the firm's own design choice unless a specific rule or source establishes it, and nothing here suggests what it should be.</p>
+  <p>Design testing should challenge the happy path. Ask what happens when data is missing, a vendor feed is late, an analyst is absent, a record moves between systems, an alert is returned or a customer changes segment. A control that works only when every dependency behaves perfectly has a design weakness before anyone selects a sample. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <p>Not every control deserves the same depth. The GOV.UK framework recommends focusing testing on high-risk areas and critical controls instead of attempting shallow testing of every control. <a href="#source-9">[9]</a> <span class="fct-state" data-state="public">Public-sector practice</span> The principle is sensible in a firm too, but the framework is written for public bodies and gives no private-sector depth rule, so how a firm ranks its controls is its own risk-based decision.</p>
+  <h3>Manual, automated and outsourced controls</h3>
+  <p>The same three proofs apply whoever or whatever performs the control, but the evidence changes. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <ul class="fct-modes">
+    <li><strong>Manual.</strong> The evidence is people and records. Design asks whether the steps are clear enough to be performed the same way twice. Operation asks whether they were.</li>
+    <li><strong>Automated.</strong> The evidence is logic, data and configuration. Design and deployment carry more weight because a flaw in either applies to every item. Change records matter because the control can alter without anyone deciding to alter it.</li>
+    <li><strong>Outsourced.</strong> The evidence has to include the firm's own side: what it sends, how it configures the service, what comes back and who oversees it. Design must cover the hand-offs, and a supplier's description of its own service does not cover them.</li>
+  </ul>
+  <p>The FCA's 2025 risk assessment findings record limited or no testing and review of risk assessment processes when firms made enhancements, upgrades or introduced automation. <a href="#source-6">[6]</a> <span class="fct-state" data-state="guidance">Guidance</span> That finding concerns risk assessment processes. Applying the same discipline to other automated controls is our application.</p>
+</section>
+
+<section class="fct-section" id="deployment">
+  <h2>Proof 2: deployment</h2>
+  <p class="fct-lede">Deployment asks whether the designed control reaches the real population. This is where policy and system existence most often create false assurance.</p>
+  <p>Reconcile the population independently. Identify the products, legal entities, customer segments, jurisdictions, systems, manual queues and outsourced steps that should be covered, using a source that does not come from the control itself. Trace a small number of records from source to control and back. Confirm that configuration, data fields, access, training and escalation routes match the approved design. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <p>The FCA's sanctions findings show why this proof matters. They record errors, omissions and delays in list data and in transfers between systems, firms with limited understanding of how lists were ingested into their screening systems, and a legacy integration failure that left a set of transactions unscreened over an extended period. The firm did not find it through routine monitoring. <a href="#source-8">[8]</a> <span class="fct-state" data-state="guidance">Guidance</span> A control can be well designed and running somewhere while still missing the population that matters.</p>
+  <p>The same review tested how screening systems ingest, transform and interpret names from the UK Sanctions List, and found, among other things, one-word names or names containing digits excluded by default and long names that exceeded system character limits and failed without generating an alert. <a href="#source-8">[8]</a> <span class="fct-state" data-state="guidance">Guidance</span> Those findings are specific to sanctions screening. The percentages the FCA published describe its own testing programme and are not pass thresholds for any firm.</p>
+  <div class="fct-pattern" data-pattern-id="population-blind-spot">
+    <h3>2. Population Blind Spot</h3><p class="fct-metaphor">The test only sees what the control already sees.</p>
+    <dl class="fct-lines"><div><dt>Risk</dt><dd>Records outside the test source are never examined.</dd></div><div><dt>Signal</dt><dd>The sample denominator comes from the control output rather than an independent population.</dd></div><div><dt>Response</dt><dd>Reconcile the intended population before sampling.</dd></div></dl>
+  </div>
+  <h3>Change and growth are deployment questions</h3>
+  <p>The FCA saw rapid expansion without firms first considering and ensuring that their controls remained appropriate and effective. <a href="#source-6">[6]</a> <span class="fct-state" data-state="guidance">Guidance</span> The item is not a change control specification, but it points at a practical habit. Every new product, entity, jurisdiction, data source or migration is a new deployment question, and the answer from last year's test does not carry across.</p>
+  <h3>Vendors and group functions</h3>
+  <p>The FCA's sanctions findings record limited challenge or validation of vendor configuration, logic and updates, insufficient internal testing, and historic vendor settings used without reassessment or oversight. <a href="#source-8">[8]</a> <span class="fct-state" data-state="guidance">Guidance</span> A supplier's assurance report speaks to the supplier's service under the supplier's conditions. It does not show how this firm's data, configuration and use interact with that service, and the firm remains the party that has to understand and test its own implementation. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <div class="fct-pattern" data-pattern-id="vendor-assurance-substitution">
+    <h3>3. Vendor Assurance Substitution</h3><p class="fct-metaphor">Someone else's report stands in for the firm's own evidence.</p>
+    <dl class="fct-lines"><div><dt>Risk</dt><dd>Third-party assurance is treated as proof of the firm's configuration and data.</dd></div><div><dt>Signal</dt><dd>No internal lineage, configuration or scenario testing exists.</dd></div><div><dt>Response</dt><dd>Test the firm's implementation and challenge vendor dependencies.</dd></div></dl>
+  </div>
+</section>
+
+<section class="fct-section" id="operation">
+  <h2>Proof 3: operation</h2>
+  <p class="fct-lede">Operation asks what happened over a defined period, and that takes evidence beyond asking people.</p>
+  <p>Walkthroughs show how staff say the control works. Samples, re-performance, logs, data analysis, exception records and outcome review show how it did work. The GOV.UK framework lists desktop review, interviews, walkthroughs, sample analysis, data analysis, technical testing and controlled scenario-based testing as different methods, to be chosen for the objective and used within a lawful, authorised scope. It also says testing must go beyond confirming that controls exist and processes are followed, particularly where an adversary may find a way around a control. <a href="#source-9">[9]</a> <span class="fct-state" data-state="public">Public-sector practice</span></p>
+  <p>The FCA's customer due diligence review used a questionnaire, policy and procedure review, customer file review and staff interviews, and observed some firms using sample-based compliance monitoring with proportionate review cycles. It gives no sample size and no universal cycle. <a href="#source-7">[7]</a> <span class="fct-state" data-state="guidance">Guidance</span> Those describe how the FCA worked and what it saw, which is useful to borrow from and no more than that.</p>
+  <h3>Sampling follows the objective</h3>
+  <p>Define the population and the period before selecting any item. Include the strata that matter to the objective: the higher-risk items, the items that changed, and the items that raised exceptions. State how items were selected, because a judgemental sample and a random one support different conclusions. A clean judgemental sample cannot be extrapolated to a population that has not been reconciled, and no source read for this guide supplies a universal number that cures that weakness. Record the sampling limitation in the conclusion itself instead of leaving it in a working paper. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <div class="fct-pattern" data-pattern-id="clean-sample-comfort">
+    <h3>4. Clean Sample Comfort</h3><p class="fct-metaphor">A small passing sample is read as a verdict on everything.</p>
+    <dl class="fct-lines"><div><dt>Risk</dt><dd>A small passing sample creates a broad conclusion.</dd></div><div><dt>Signal</dt><dd>Selection excludes changes, exceptions, high-risk strata or failed items.</dd></div><div><dt>Response</dt><dd>Match selection to the objective and state sampling limits.</dd></div></dl>
+  </div>
+  <h3>Silence is not a test result</h3>
+  <p>The FCA's sanctions review recorded many firms reporting no true sanctions matches, and it also recorded weaknesses in screening configuration, data and assurance testing. <a href="#source-8">[8]</a> The FCA does not say that absence of matches proves nothing. That inference is ours: <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> the absence of incidents, matches, breaches or complaints does not by itself demonstrate that a control is effective, because a control that is not seeing the population cannot report what it never sees.</p>
+  <h3>Independence of the tester</h3>
+  <p>The FCA's customer due diligence review saw stronger firms operating independent third-line testing across onboarding and due diligence, documenting findings and acting on them. It said that the same staff onboarding customers and conducting assurance raised questions about impartiality and effectiveness. Its poor practice examples included no independent review of CDD or EDD, insufficient detail on quality control, and no version control capable of demonstrating the audit trail of review and change. <a href="#source-7">[7]</a> <span class="fct-state" data-state="guidance">Guidance</span> These are observations about the arrangements the FCA reviewed. They do not say that every test must be performed by the third line, and the boundary between second-line monitoring and independent audit depends on firm structure and purpose.</p>
+</section>
+
+<section class="fct-section" id="conclusion">
+  <h2>From finding to conclusion</h2>
+  <p class="fct-lede">Rate the control only for the stated objective, scope and period. Everything outside those three is not covered by the conclusion.</p>
+  <figure class="fct-fig" aria-labelledby="ladder-title">
+    <p class="fct-fig-title" id="ladder-title">Figure 3. The conclusion ladder, and the state that sits off it</p>
+    <ul class="fct-ladder">
+      <li data-rung="effective"><strong>Effective</strong><p>All three proofs are supported and no material weakness undermines the objective.</p></li>
+      <li data-rung="partial"><strong>Partially effective</strong><p>The control reduces risk, but a bounded weakness or coverage gap remains.</p></li>
+      <li data-rung="ineffective"><strong>Ineffective</strong><p>A weakness defeats or materially undermines the objective.</p></li>
+    </ul>
+    <div class="fct-limit">
+      <h3>Not evidenced</h3>
+      <p>The work cannot support a conclusion, because the population, period, evidence or method is insufficient.</p>
+      <p>This is a limit on the assurance work, not a rung of control performance. It is not a weak pass, not a fail and not a maturity level. The next action is more or better testing, with interim protection alongside if the uncertainty concerns a critical control.</p>
+    </div>
+    <figcaption>Text equivalent: three conclusions stepped down in order, Effective, Partially effective and Ineffective, each with its definition. A separate dashed box, set apart from the steps, defines Not evidenced as a limit on the evidence and states that it is not a weaker version of any of the three.</figcaption>
+  </figure>
+  <p><span class="fct-state" data-state="public">Public-sector practice</span> The GOV.UK framework rates controls Effective, Partially Effective or Ineffective, links each rating to a recommended action, and says tolerance can depend on a control's purpose and criticality, so a control may be acceptable with some gaps in coverage where another would not be. <a href="#source-9">[9]</a> This guide adapts those three ratings. In that framework the middle and bottom ratings turn partly on whether the factors that could undermine the objectives are possible, or likely or existing. It is a public-sector device, not an FCA or MLR test, and it gives no number.</p>
+  <p><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> Not evidenced is our addition. It stops missing evidence being treated as either a pass or a failure without analysis. The distinction from Partially effective matters. Partially effective is a conclusion about the control: it works in part, and the part that does not is known. Not evidenced is a conclusion about the assurance work: it did not establish what is true. A known coverage failure is evidence. Test gaps are not.</p>
+  <h3>The conclusion record</h3>
+  <p>Every conclusion should state the nine items below, so that a reader who was not there can see what was claimed and on what basis. The fields are FinCrimeRadar's design. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <ol class="fct-fields">
+    <li><span>Control and objective.</span></li>
+    <li><span>Population and period.</span></li>
+    <li><span>Test methods and evidence used.</span></li>
+    <li><span>Findings for each of the three proofs.</span></li>
+    <li><span>Limitations and sampling risk.</span></li>
+    <li><span>The conclusion state.</span></li>
+    <li><span>Immediate risk response.</span></li>
+    <li><span>Remediation owner and target date.</span></li>
+    <li><span>Retest condition.</span></li>
+  </ol>
+  <h3>What a conclusion does not establish</h3>
+  <p><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> An Ineffective conclusion is a finding about a control against its objective. By itself it does not establish a regulatory breach, a suspicion, a loss or customer harm. Those depend on the specific obligation, the facts and the period, and they are separate judgements. Nor does a control rating alone establish residual risk. The GOV.UK framework treats control effectiveness and residual risk as separate and uses test results as an input to the residual risk assessment. <a href="#source-9">[9]</a></p>
+</section>
+
+<section class="fct-section" id="remediation">
+  <h2>Exceptions, remediation and closure</h2>
+  <p class="fct-lede">A finding is not closed because an owner says the action is complete.</p>
+  <h3>Exceptions are findings about the control</h3>
+  <p>An exception is a fact about the control as well as about the item. Establish its nature, its extent and its root cause, and decide whether it undermines the objective. The FCA records stronger firms using root cause analysis after screening mismatches, and independent testing whose findings were documented and acted on. <a href="#source-8">[8]</a> <a href="#source-7">[7]</a> <span class="fct-state" data-state="guidance">Guidance</span> A log of exceptions that never changes the control is a record of a problem the firm has chosen to keep.</p>
+  <div class="fct-pattern" data-pattern-id="exception-graveyard">
+    <h3>5. Exception Graveyard</h3><p class="fct-metaphor">Findings go in and nothing comes out.</p>
+    <dl class="fct-lines"><div><dt>Risk</dt><dd>Findings are logged but do not change the control.</dd></div><div><dt>Signal</dt><dd>Repeated issues, extensions or accepted risks have no root-cause action.</dd></div><div><dt>Response</dt><dd>Link exceptions to owners, interim protection, remediation and governance.</dd></div></dl>
+  </div>
+  <h3>Closure needs evidence of the right kind</h3>
+  <p>Closure needs evidence that the correction was implemented and that the affected proof now holds. A design rewrite needs deployment confirmation. A configuration fix needs data-flow and scenario testing. A training response needs evidence that the underlying process weakness was addressed, and attendance records do not show that. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> FCG 2.2.7 asks how remediation has progressed, which is the supervisor's version of the same question. <a href="#source-5">[5]</a></p>
+  <p>Retest the corrected control over a period capable of showing operation. If that period has not elapsed, record the action as implemented but not yet validated. Do not collapse implementation and effectiveness into one closure status. Interim protection stays in place until validation. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p>
+  <div class="fct-pattern" data-pattern-id="closure-without-retest">
+    <h3>6. Closure Without Retest</h3><p class="fct-metaphor">The paperwork says done, and nobody has looked.</p>
+    <dl class="fct-lines"><div><dt>Risk</dt><dd>An action is closed when implementation is reported.</dd></div><div><dt>Signal</dt><dd>No evidence shows the corrected control operated after the change.</dd></div><div><dt>Response</dt><dd>Separate implementation from validation and retest before effectiveness closure.</dd></div></dl>
+  </div>
+</section>
+
+<section class="fct-section" id="scenario-one" data-scenario="cddsample">
+  <span class="fct-scenario-tag">Worked scenario 1 · Deployment</span>
+  <h2>The clean CDD sample</h2>
+  <p class="fct-lede">Every file the team looked at was fine. The question is which files it looked at.</p>
+  <div class="fct-scenario">
+    <p class="fct-illustrative">Composite scenario for teaching. All names, organisations, counts and dates are fictional. It does not describe a real firm and the figures are not thresholds.</p>
+    <ul class="fct-facts"><li>Control objective: every customer in the firm's high-risk population receives a review at the firm's defined interval, and overdue cases are escalated.</li><li>The policy and workflow design are clear.</li><li>Management information reports 96 percent completion.</li><li>Compliance samples 20 completed reviews from the workflow queue and finds no errors.</li><li>Population reconciliation then finds that 312 customers migrated from a legacy system never entered the queue.</li><li>Eleven of those customers are high risk and overdue under the firm's policy.</li></ul>
+    <form class="fct-choice" data-decision-form data-scenario-id="cddsample" method="dialog">
+      <fieldset>
+        <legend>What conclusion is supportable now?</legend>
+        <label class="fct-option"><input type="radio" name="cddsample-decision" value="effective" data-grade="unsupported" data-grade-label="Unsupported on the facts"><span>Effective, because every sampled review passed, reported completion is 96 percent and the policy and workflow design are clear.</span></label><label class="fct-option"><input type="radio" name="cddsample-decision" value="notevidenced" data-grade="incomplete" data-grade-label="Incomplete"><span>Not evidenced, because the conclusion should wait until every migrated customer has been reviewed and the whole population can be tested.</span></label><label class="fct-option"><input type="radio" name="cddsample-decision" value="ineffective" data-grade="best" data-grade-label="Best supported on the facts"><span>Ineffective for this population and period: protect the missed customers, fix the feed, quantify the impact and retest.</span></label><label class="fct-option"><input type="radio" name="cddsample-decision" value="partial" data-grade="unsupported" data-grade-label="Unsupported on the facts"><span>Partially effective, because most customers were covered, the sampled reviews were clean and the shortfall looks small.</span></label>
+      </fieldset>
+      <button class="fct-action" type="submit">Record decision</button>
+      <p class="fct-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="fct-optfb-set" data-optfb-for="cddsample" role="group" aria-labelledby="optfb-title-cddsample">
+  <h3 id="optfb-title-cddsample">How each option grades</h3>
+  <div class="fct-optfb" id="optfb-cddsample-effective" data-option="effective" data-grade="unsupported">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="unsupported">Unsupported on the facts</span> Effective, because every sampled review passed, reported completion is 96 percent and the policy and workflow design are clear.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>Regulation 19(1) requires policies, controls and procedures that mitigate and manage the identified risks effectively, and neither regulation 19 nor regulation 21, as read, says how much evidence makes a control effective. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> The FCA has recorded firms concluding that controls were effective without appropriate evidence to support it. <a href="#source-6">[6]</a></p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>The sample tested files inside the queue. It says nothing about customers that never reached the queue, and the 96 percent is a share of the queue's own output, not of the intended population. Design proof holds. Deployment proof fails, because 312 customers sit outside the control and 11 of them are high risk and overdue. Operating proof is supported only for items that were in the queue. This analysis is our assessment.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Do not record the control as effective for this population. A clean in-queue sample is a result about the queue. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="fct-optfb" id="optfb-cddsample-notevidenced" data-option="notevidenced" data-grade="incomplete">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="incomplete">Incomplete</span> Not evidenced, because the conclusion should wait until every migrated customer has been reviewed and the whole population can be tested.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>FCG 2.2.7 asks how a firm ensures that its review of control effectiveness is comprehensive. <a href="#source-5">[5]</a> The FCA has recorded firms concluding that controls were effective without appropriate evidence to support the conclusion. <a href="#source-6">[6]</a></p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>Not evidenced is the right label when the work cannot support a conclusion. Here the work has produced a finding: a whole migrated cohort sits outside the control and 11 high-risk customers are overdue. More file review is needed to measure exposure, but exposure is a separate question from whether the control met its objective. Waiting would leave the control recorded as unassessed while a known failure stays open.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Conclude now on what the evidence shows and state what remains unmeasured. Keep Not evidenced for questions the work genuinely cannot answer, such as the state of the same control elsewhere in the firm. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="fct-optfb" id="optfb-cddsample-ineffective" data-option="ineffective" data-grade="best">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="best">Best supported on the facts</span> Ineffective for this population and period: protect the missed customers, fix the feed, quantify the impact and retest.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>Regulation 19(1) requires policies, controls and procedures to mitigate and manage the identified risks effectively, to be regularly reviewed and updated, and to be recorded. <a href="#source-1">[1]</a> The FCA's CDD review saw stronger firms documenting and acting on findings from independent testing, and FCG 2.2.7 asks how remediation has progressed. <a href="#source-7">[7]</a> <a href="#source-5">[5]</a> The GOV.UK framework separates a middle rating from the lowest by whether the factors that could undermine the objectives are possible, or likely or existing. <a href="#source-9">[9]</a></p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>The objective covers every high-risk customer. A known population exclusion defeats it for the excluded customers whatever the quality of the design or of the files that were reviewed. Design proof holds. Deployment proof fails. Operating proof is supported inside the queue and untested outside it. The conclusion is stated for this objective, population and period, and it does not say the firm's whole CDD framework is ineffective. The response follows the finding: the 11 are high risk and overdue now, the feed must be fixed so the rest of the cohort enters the control, the impact must be sized, and the corrected control needs a retest over a period capable of showing operation. This reasoning is our assessment.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Record Ineffective for this population and period, with the response and retest condition in the conclusion record. Review the 11 first, then the rest of the migrated cohort by risk. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="fct-optfb" id="optfb-cddsample-partial" data-option="partial" data-grade="unsupported">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="unsupported">Unsupported on the facts</span> Partially effective, because most customers were covered, the sampled reviews were clean and the shortfall looks small.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>The GOV.UK framework describes a partially effective control as one that somewhat functions to its purpose and/or has possible factors that could undermine its objectives, and an ineffective one as having likely or existing factors that could do so. <a href="#source-9">[9]</a> That is public-sector practice, not an FCA or MLR test.</p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>Partially effective needs a bounded weakness, and a weakness is bounded only when its edges are known. They are not known here. The control's own output was used as the denominator, so most customers being covered is an inference from the queue. The missed segment includes overdue high-risk customers, and the control did not detect the exclusion: reconciliation did. The rating would turn an unknown into a percentage judgement. The factor that could undermine the objective is not merely possible. It has been found.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Revisit Partially effective only if reconciliation establishes the full population and shows a limited gap that the control detected and closed. See the counterfactual. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  </div>
+  <div class="fct-counterfactual">
+    <h3>Counterfactual: change one fact</h3>
+    <p>Suppose reconciliation had proved the population complete and found only three isolated late reviews, which the control itself detected and escalated. Partially effective could then become supportable, subject to materiality and the stated tolerance. The facts that moved the decision were the completeness of the population and whether the control caught its own misses.</p>
+  </div>
+  <div class="fct-record" role="group" aria-labelledby="cddsample-record-heading">
+    <h3 id="cddsample-record-heading">Decision Record</h3>
+    <dl><dt>Facts</dt><dd>Clear design. 96 percent reported completion. 20 of 20 sampled queue reviews clean. 312 migrated customers never entered the queue. 11 of them high risk and overdue.</dd><dt class="fct-assumption">Assumptions</dt><dd class="fct-assumption">The reconciliation is correct for the legacy cohort. The ratings of the other migrated customers are not yet confirmed. The firm's policy interval is the intended standard.</dd><dt>Proofs</dt><dd>Design: supported. Deployment: not supported, because a migrated cohort never entered the control. Operation: supported for reviews inside the queue, not tested outside it.</dd><dt>Limitations</dt><dd>The sample of 20 is a judgemental sample from the queue and says nothing about the excluded cohort. The size of the exposure is not yet measured.</dd><dt>Conclusion</dt><dd>Ineffective against the stated objective, for the high-risk population, for the period tested.</dd><dt>Response</dt><dd>Complete the overdue reviews for the 11, review the rest of the migrated cohort by risk, correct the migration feed and size the impact. Record an owner and a target date. Retest once the corrected control has run over a period capable of showing operation, starting from an independent population reconciliation.</dd><dt>Rationale</dt><dd>The objective names every customer in the population. The control reached only the part that entered the queue, and its own reporting could not show the difference.</dd></dl>
+  </div>
+</section>
+
+<section class="fct-section" id="scenario-two" data-scenario="vendorscreen">
+  <span class="fct-scenario-tag">Worked scenario 2 · Data path</span>
+  <h2>The vendor screening assurance</h2>
+  <p class="fct-lede">The vendor has a report, the service is on and nothing has matched. Whether that adds up to a working control depends on what happens to the data on its way in.</p>
+  <div class="fct-scenario">
+    <p class="fct-illustrative">Composite scenario for teaching. All names, organisations, counts and dates are fictional. It does not describe a real firm or vendor.</p>
+    <ul class="fct-facts"><li>Control objective: screen the intended customer and payment population against current sanctions data, including relevant name variants, and escalate potential matches before release.</li><li>The vendor supplies an annual assurance report and the service is enabled.</li><li>Internal testing uses exact names only.</li><li>A data-lineage review finds that one-word names are excluded and long names are truncated before matching.</li><li>No exclusion was approved and no compensating control exists.</li><li>The firm has reported no true matches or suspected breaches during the period.</li></ul>
+    <form class="fct-choice" data-decision-form data-scenario-id="vendorscreen" method="dialog">
+      <fieldset>
+        <legend>What should the firm conclude?</legend>
+        <label class="fct-option"><input type="radio" name="vendorscreen-decision" value="replace" data-grade="incomplete" data-grade-label="Incomplete"><span>Replace the vendor immediately, because its assurance did not prevent the exclusions and a new supplier will remove the defect.</span></label><label class="fct-option"><input type="radio" name="vendorscreen-decision" value="ineffective" data-grade="best" data-grade-label="Best supported on the facts"><span>Ineffective for the stated objective: protect now, test the full data path, look back on a risk basis and govern any exclusion.</span></label><label class="fct-option"><input type="radio" name="vendorscreen-decision" value="effective" data-grade="unsupported" data-grade-label="Unsupported on the facts"><span>Effective, because the vendor is independently assured, the service is enabled and the firm has reported no true matches or breaches in the period.</span></label><label class="fct-option"><input type="radio" name="vendorscreen-decision" value="notevidenced" data-grade="incomplete" data-grade-label="Incomplete"><span>Not evidenced, because internal testing used exact names only and the variant testing that would settle the question is not yet done.</span></label>
+      </fieldset>
+      <button class="fct-action" type="submit">Record decision</button>
+      <p class="fct-feedback" aria-live="polite" role="status"></p>
+    </form>
+  </div>
+  <div class="fct-optfb-set" data-optfb-for="vendorscreen" role="group" aria-labelledby="optfb-title-vendorscreen">
+  <h3 id="optfb-title-vendorscreen">How each option grades</h3>
+  <div class="fct-optfb" id="optfb-vendorscreen-replace" data-option="replace" data-grade="incomplete">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="incomplete">Incomplete</span> Replace the vendor immediately, because its assurance did not prevent the exclusions and a new supplier will remove the defect.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>The FCA's sanctions findings record errors and omissions in list data arising from poor quality data and from transfers between systems, and limited challenge or validation of vendor configuration, logic and updates. <a href="#source-8">[8]</a></p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>The fault may sit in the firm's own transformation or configuration, in the vendor's service or in both, and the facts do not say which. Replacing the vendor before the root cause is known can reproduce the defect in a new service. It also does nothing about exposure in the period already run, where names have gone unscreened.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Establish the root cause first. Replacement may follow as a decision on vendor performance, but it is not the response to this finding. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="fct-optfb" id="optfb-vendorscreen-ineffective" data-option="ineffective" data-grade="best">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="best">Best supported on the facts</span> Ineffective for the stated objective: protect now, test the full data path, look back on a risk basis and govern any exclusion.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>The FCA says screening systems and processes should be proportionate to risk, appropriately calibrated and regularly tested and reviewed. <a href="#source-8">[8]</a> It lists periodic calibration and quality assurance, retesting after list or matching-logic changes, root cause analysis after mismatches and proactive thematic lookbacks as effective practice, and lists excluding categories of sanctioned names without rationale or evidence as poor practice. <a href="#source-8">[8]</a> These are findings in sanctions screening, not rules.</p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>The objective is to screen the intended population against current data, variants included. Known unapproved exclusions of one-word and long names mean part of that objective cannot be met, and no compensating control picks up what the data path removes. Design proof is unsupported for these inputs. Deployment proof fails on the data path. Operating proof cannot be shown for names that are never screened. The response addresses present risk through interim protection, impact through a risk-based lookback over the period, since silence is not evidence, and cause through full data-path and variant testing before closure. This reasoning is our assessment.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Record Ineffective and escalate through governance, then follow the response. Any exclusion that remains afterwards needs a recorded rationale, an approver and a tested compensating control. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="fct-optfb" id="optfb-vendorscreen-effective" data-option="effective" data-grade="unsupported">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="unsupported">Unsupported on the facts</span> Effective, because the vendor is independently assured, the service is enabled and the firm has reported no true matches or breaches in the period.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>The FCA recorded limited challenge or validation of vendor configuration, logic and updates, and listed historic vendor settings used without reassessment or oversight as poor practice. <a href="#source-8">[8]</a> It also recorded many firms reporting no true matches, and separately recorded configuration, data and assurance weaknesses. <a href="#source-8">[8]</a></p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>Vendor assurance describes the vendor's service. It does not test this firm's data, configuration or coverage, and the lineage review has shown that the firm's path excludes names. The FCA does not say that silence proves nothing. That inference is ours, and here it is concrete, because a control that never sees a name cannot report a match on it. Deployment proof fails and operating proof cannot be shown for the excluded names.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Do not rely on assurance and silence. Record a conclusion based on the firm's own test evidence. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  <div class="fct-optfb" id="optfb-vendorscreen-notevidenced" data-option="notevidenced" data-grade="incomplete">
+    <p class="fct-optfb-head"><span class="fct-grade" data-grade="incomplete">Incomplete</span> Not evidenced, because internal testing used exact names only and the variant testing that would settle the question is not yet done.</p>
+    <div class="fct-saa">
+      <div class="fct-saa-block"><h3>Source</h3><p>The FCA lists formal governance for approving and reviewing screening exclusions, and mitigating controls where data is excluded from automated screening, as good practice. It lists excluding categories of sanctioned names without appropriate rationale or evidence as poor practice. <a href="#source-8">[8]</a></p></div>
+      <div class="fct-saa-block"><h3>Application</h3><p>Incomplete variant testing leaves a question open, but the lineage review has already answered a different one: names the objective covers are excluded, with no approval and no compensating control. That is affirmative evidence of a coverage failure. Not evidenced would record the work as unable to conclude when it can. The label remains right for what the work has not shown, such as how variants perform across the intended list.</p></div>
+      <div class="fct-saa-block"><h3>Action</h3><p>Conclude Ineffective on the established exclusion, and carry the untested variant behaviour as an explicit limitation in the record. This is a FinCrimeRadar recommendation.</p></div>
+    </div>
+  </div>
+  </div>
+  <div class="fct-counterfactual">
+    <h3>Counterfactual: change one fact</h3>
+    <p>Suppose the exclusions had been documented, risk-assessed, approved and covered by a tested manual control. The conclusion could then move to Partially effective or Effective, depending on evidence that the compensating control operated over the period. The facts that moved the decision were the governance of the exclusion and proof that something else caught what it left out.</p>
+  </div>
+  <div class="fct-record" role="group" aria-labelledby="vendorscreen-record-heading">
+    <h3 id="vendorscreen-record-heading">Decision Record</h3>
+    <dl><dt>Facts</dt><dd>Vendor assurance report held. Service enabled. Internal testing used exact names only. One-word names excluded and long names truncated before matching. No approved exclusion and no compensating control. No true matches or suspected breaches reported.</dd><dt class="fct-assumption">Assumptions</dt><dd class="fct-assumption">The lineage review reflects production configuration for the whole period. The exclusions have existed throughout the period, until the lookback shows otherwise.</dd><dt>Proofs</dt><dd>Design: unsupported for these inputs and incomplete for variants. Deployment: not supported on the data path. Operation: cannot be shown for names that are never screened.</dd><dt>Limitations</dt><dd>Variant behaviour across the intended list is untested. Exposure in the period is unknown until the lookback is done. The vendor report was not evidence about this firm's data.</dd><dt>Conclusion</dt><dd>Ineffective against the stated screening objective, for the period tested.</dd><dt>Response</dt><dd>Interim protection for the excluded name categories with its limits stated, full data-path and variant testing, a risk-based lookback over the period, root cause across the firm's transformation and the vendor configuration, and governed exclusion decisions. Record an owner and a target date. Retest over a period capable of showing operation.</dd><dt>Rationale</dt><dd>The objective includes the names the data path removes. Assurance and silence cannot show coverage that the lineage evidence shows to be absent.</dd></dl>
+  </div>
+</section>
+
+<section class="fct-section fct-summary" id="operational-summary">
+  <h2>One Screen Operational Summary</h2>
+  <ol>
+    <li><strong>Objective</strong><span>State the risk, then the objective: population, action, timing and escalation.</span></li>
+    <li><strong>Design</strong><span>Challenge the happy path. Ask what happens when data is missing, late or moved.</span></li>
+    <li><strong>Deployment</strong><span>Reconcile the intended population independently, then trace records from source to control and back.</span></li>
+    <li><strong>Operation</strong><span>Fix the population and period first. Use samples, re-performance and data analysis, not inquiry alone.</span></li>
+    <li><strong>Exceptions</strong><span>Establish nature, extent and root cause. Link each to an owner and interim protection.</span></li>
+    <li><strong>Conclusion</strong><span>One control, one scope, one period. Effective, Partially effective, Ineffective or Not evidenced.</span></li>
+    <li><strong>Remediation</strong><span>Record implemented and validated as different statuses.</span></li>
+    <li><strong>Retest</strong><span>Test the corrected control over a period capable of showing operation before closing effectiveness.</span></li>
+  </ol>
+</section>
+
+<section class="fct-section" id="red-team">
+  <h2>Red Team Questions</h2>
+  <ol>
+    <li>Could we show the population this conclusion covers without using the control's own output?</li>
+    <li>Which proof does each piece of our evidence address, and which proof has no evidence at all?</li>
+    <li>What would a failure in the part of the population we did not test look like, and would we see it?</li>
+    <li>Are we relying on a vendor, a group function or a report for something we have not tested ourselves?</li>
+    <li>Does the sample include the changed, higher-risk and failed items, or only the easy ones?</li>
+    <li>Are we treating silence (no incidents, no matches, no complaints) as a test result?</li>
+    <li>If we cannot conclude, have we said so, with what we need to find out and what protects us meanwhile?</li>
+    <li>Is any finding marked closed on the owner's word alone, with no retest?</li>
+  </ol>
+  <div class="fct-callout"><p class="fct-rule">A control is defended by its evidence, not by its documentation.</p></div>
+</section>
+
+<section class="fct-section fct-quiz" id="knowledge-check">
+  <h2>Knowledge check</h2>
+  <p>Choose one answer for each question. The score is an aid to review, not a credential or a case decision.</p>
+  <form id="knowledgeForm" method="dialog">
+    <fieldset><legend>1. Which proof does independent reconciliation of the intended population primarily support?</legend>
+      <label class="fct-option"><input type="radio" name="q1" value="a"><span>Design proof, because it shows the control was specified for the right population.</span></label>
+      <label class="fct-option"><input type="radio" name="q1" value="b" data-correct="true"><span>Deployment proof.</span></label>
+      <label class="fct-option"><input type="radio" name="q1" value="c"><span>Operating proof, because it shows how often the control ran.</span></label>
+    </fieldset>
+    <fieldset><legend>2. Does regulation 21 require a relevant person to establish an independent audit function in every case?</legend>
+      <label class="fct-option"><input type="radio" name="q2" value="a"><span>Yes. Every relevant person must establish one, whatever the size or nature of its business and whether or not it has any staff.</span></label>
+      <label class="fct-option"><input type="radio" name="q2" value="b"><span>Yes, unless the firm has a compliance officer, because the officer appointed under the same regulation can carry out the function instead.</span></label>
+      <label class="fct-option"><input type="radio" name="q2" value="c" data-correct="true"><span>No. Paragraph (1) applies where appropriate with regard to size and nature, and paragraph (6) disapplies it for a sole individual.</span></label>
+    </fieldset>
+    <fieldset><legend>3. What does a clean sample drawn from the control's own queue fail to prove?</legend>
+      <label class="fct-option"><input type="radio" name="q3" value="a" data-correct="true"><span>That the queue contains the full intended population.</span></label>
+      <label class="fct-option"><input type="radio" name="q3" value="b"><span>That the sampled files were reviewed by someone with the right training.</span></label>
+      <label class="fct-option"><input type="radio" name="q3" value="c"><span>That the policy behind the review was approved by senior management.</span></label>
+    </fieldset>
+    <fieldset><legend>4. When is Not evidenced the right conclusion?</legend>
+      <label class="fct-option"><input type="radio" name="q4" value="a"><span>When a small number of sampled items failed, the cause is understood and the weakness is confined to those items.</span></label>
+      <label class="fct-option"><input type="radio" name="q4" value="b" data-correct="true"><span>When the method, population, period or evidence cannot support an effectiveness conclusion.</span></label>
+      <label class="fct-option"><input type="radio" name="q4" value="c"><span>When the firm has found a coverage gap in the population and is part way through fixing the feed that caused it.</span></label>
+    </fieldset>
+    <fieldset><legend>5. What closes a remediation finding?</legend>
+      <label class="fct-option"><input type="radio" name="q5" value="a"><span>The action owner confirming in writing that the corrective action has been completed and signed off by their manager.</span></label>
+      <label class="fct-option"><input type="radio" name="q5" value="b"><span>Completion of refresher training by everyone who performs the control, with attendance records filed.</span></label>
+      <label class="fct-option"><input type="radio" name="q5" value="c" data-correct="true"><span>Evidence that the action was implemented and that the affected proof was retested over a period capable of showing operation.</span></label>
+    </fieldset>
+    <button class="fct-action" type="submit">Score knowledge check</button>
+    <p id="knowledgeFeedback" class="fct-feedback" aria-live="polite" role="status"></p>
+  </form>
+  <div class="fct-details fct-answer-notes"><details><summary>Answer notes</summary>
+    <p><strong>Question 1.</strong> <em>Source:</em> No source read uses the term deployment proof. <em>Application:</em> Reconciling the intended population against an independent source tests whether the control reaches what it is meant to cover, which is the deployment question in this framework. <em>Action:</em> Reconcile before you sample.</p>
+    <p><strong>Question 2.</strong> <em>Source:</em> Regulation 21(1) applies where appropriate with regard to the size and nature of the business, and regulation 21(6) disapplies paragraphs (1) and (3) for an individual who neither employs nor acts in association with any other person. <a href="#source-2">[2]</a> <em>Application:</em> The duty to establish an independent audit function is conditional, so a statement that every firm must have one overstates the text. <em>Action:</em> Decide and record whether the function is appropriate for the firm, having regard to its regulation 18 and 18A risk assessments.</p>
+    <p><strong>Question 3.</strong> <em>Source:</em> No authority is cited for this point. It follows from how sampling works. <em>Application:</em> A sample taken from the queue is a result about the files in the queue. If the queue was not reconciled to the intended population, the sample cannot speak for the customers that never entered it. <em>Action:</em> Take the denominator from a source independent of the control.</p>
+    <p><strong>Question 4.</strong> <em>Source:</em> Not evidenced is a FinCrimeRadar conclusion state, not a term used by the regulations or the FCA. <em>Application:</em> It describes the limit of the assurance work. A known coverage gap is evidence and points to Partially effective or Ineffective. <em>Action:</em> Use Not evidenced for what the work has not shown, and say what more is needed.</p>
+    <p><strong>Question 5.</strong> <em>Source:</em> FCG 2.2.7 asks how a firm ensures review of control effectiveness is comprehensive and how remediation has progressed, and it is guidance, not a rule. <a href="#source-5">[5]</a> <em>Application:</em> Implementation shows that something was done. Retest shows whether the proof now holds. <em>Action:</em> Record implemented and validated as separate statuses.</p>
+  </details></div>
+</section>
+
+<section class="fct-section" id="patterns">
+  <h2>Risk, Signal, Response</h2>
+  <div class="fct-patterns" id="fctClosingPatterns">
+    <div class="fct-pattern" data-pattern-id="policy-mirage">
+      <h3>1. Policy Mirage</h3><p class="fct-metaphor">From a distance, a document looks like a working control.</p>
+      <dl class="fct-lines"><div><dt>Risk</dt><dd>A documented control is mistaken for an effective one.</dd></div><div><dt>Signal</dt><dd>Test evidence is limited to policy review and interviews.</dd></div><div><dt>Response</dt><dd>Separate design, deployment and operation before concluding.</dd></div></dl>
+    </div>
+    <div class="fct-pattern" data-pattern-id="population-blind-spot">
+      <h3>2. Population Blind Spot</h3><p class="fct-metaphor">The test only sees what the control already sees.</p>
+      <dl class="fct-lines"><div><dt>Risk</dt><dd>Records outside the test source are never examined.</dd></div><div><dt>Signal</dt><dd>The sample denominator comes from the control output rather than an independent population.</dd></div><div><dt>Response</dt><dd>Reconcile the intended population before sampling.</dd></div></dl>
+    </div>
+    <div class="fct-pattern" data-pattern-id="vendor-assurance-substitution">
+      <h3>3. Vendor Assurance Substitution</h3><p class="fct-metaphor">Someone else's report stands in for the firm's own evidence.</p>
+      <dl class="fct-lines"><div><dt>Risk</dt><dd>Third-party assurance is treated as proof of the firm's configuration and data.</dd></div><div><dt>Signal</dt><dd>No internal lineage, configuration or scenario testing exists.</dd></div><div><dt>Response</dt><dd>Test the firm's implementation and challenge vendor dependencies.</dd></div></dl>
+    </div>
+    <div class="fct-pattern" data-pattern-id="clean-sample-comfort">
+      <h3>4. Clean Sample Comfort</h3><p class="fct-metaphor">A small passing sample is read as a verdict on everything.</p>
+      <dl class="fct-lines"><div><dt>Risk</dt><dd>A small passing sample creates a broad conclusion.</dd></div><div><dt>Signal</dt><dd>Selection excludes changes, exceptions, high-risk strata or failed items.</dd></div><div><dt>Response</dt><dd>Match selection to the objective and state sampling limits.</dd></div></dl>
+    </div>
+    <div class="fct-pattern" data-pattern-id="exception-graveyard">
+      <h3>5. Exception Graveyard</h3><p class="fct-metaphor">Findings go in and nothing comes out.</p>
+      <dl class="fct-lines"><div><dt>Risk</dt><dd>Findings are logged but do not change the control.</dd></div><div><dt>Signal</dt><dd>Repeated issues, extensions or accepted risks have no root-cause action.</dd></div><div><dt>Response</dt><dd>Link exceptions to owners, interim protection, remediation and governance.</dd></div></dl>
+    </div>
+    <div class="fct-pattern" data-pattern-id="closure-without-retest">
+      <h3>6. Closure Without Retest</h3><p class="fct-metaphor">The paperwork says done, and nobody has looked.</p>
+      <dl class="fct-lines"><div><dt>Risk</dt><dd>An action is closed when implementation is reported.</dd></div><div><dt>Signal</dt><dd>No evidence shows the corrected control operated after the change.</dd></div><div><dt>Response</dt><dd>Separate implementation from validation and retest before effectiveness closure.</dd></div></dl>
+    </div>
+  </div>
+  <div class="fct-save-row"><button class="fct-action" id="saveFrameworkImage" type="button">Save as image</button><span class="fct-save-status" id="saveFrameworkStatus" aria-live="polite" role="status"></span></div>
+</section>
+
+<section class="fct-section fct-details" id="faq">
+  <h2>FAQ</h2>
+  <details><summary>How large should the sample be?</summary><p>No source read sets a size. Regulations 19 and 21 prescribe no sample size, pass rate or test frequency, and the FCA's CDD findings describe sample-based monitoring without giving a number. <a href="#source-1">[1]</a> <a href="#source-2">[2]</a> <a href="#source-7">[7]</a> Size follows the objective, the population, the risk and the conclusion the firm needs to be able to defend, and the firm's own audit or statistical method may set one. Whatever is chosen, record how items were selected, what the sample can and cannot support and the sampling limitation in the conclusion.</p></details>
+  <details><summary>Can the first line test its own controls?</summary><p>The sources read do not prohibit it, and where the line falls between second-line monitoring and independent audit depends on firm structure, regulatory scope and the purpose of the work. The FCA's CDD review saw stronger firms using independent third-line testing, and raised questions about impartiality and effectiveness where the same staff onboarded customers and conducted assurance. <a href="#source-7">[7]</a> Those are findings about the arrangements reviewed. Regulation 21(1)(c) is conditional, as set out above. <a href="#source-2">[2]</a> <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> First-line testing is useful for early detection, but a conclusion about effectiveness carries more weight when the tester is not the operator, so record who tested and how independent they were.</p></details>
+  <details><summary>Does no incident mean a control is effective?</summary><p><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> Not by itself. The FCA recorded many firms reporting no true sanctions matches, and it also recorded weaknesses in screening configuration, data and assurance testing. <a href="#source-8">[8]</a> The FCA does not state the inference in these words, and the inference is ours. A control that is not seeing the population cannot report what it never sees.</p></details>
+  <details><summary>Is vendor assurance enough?</summary><p>No source read says it replaces the firm's own testing, and the FCA recorded limited vendor challenge and insufficient internal testing as findings. <a href="#source-8">[8]</a> Vendor assurance can be one input. The firm still needs evidence about its own data, configuration and use of the service. <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span></p></details>
+  <details><summary>What is the difference between Partially effective and Not evidenced?</summary><p><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> Partially effective is a conclusion about the control: it reduces risk, and a bounded weakness is known. Not evidenced is a conclusion about the assurance work: the population, period, evidence or method could not support a conclusion. A known coverage gap is evidence and points away from Not evidenced. Neither state is a sign of good or bad control performance on its own.</p></details>
+  <details><summary>Does an ineffective control prove a regulatory breach?</summary><p><span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> No. An Ineffective conclusion is a finding about a control against its objective. Whether an obligation was breached depends on the specific obligation, the facts and the period, which is a legal judgement this guide does not make. It does not by itself establish suspicion, loss or customer harm either.</p></details>
+  <details><summary>How often should a control be tested?</summary><p>No source read sets one frequency across controls. Regulation 19(1)(b) requires policies, controls and procedures to be regularly reviewed and updated, and SYSC 3.2.6C R requires regular assessment of adequacy where it applies, but neither fixes an interval. <a href="#source-1">[1]</a> <a href="#source-3">[3]</a> The GOV.UK framework recommends focusing on high-risk areas and critical controls. <a href="#source-9">[9]</a> <span class="fct-state" data-state="assessment">FinCrimeRadar assessment</span> Set the frequency from risk, criticality, the rate of change and past results, record the reasoning, and retest after material change. In sanctions screening the FCA lists retesting after list or matching-logic changes as effective practice. <a href="#source-8">[8]</a></p></details>
+</section>
+
+<section class="fct-section fct-sources" id="sources">
+  <h2>Sources and methodology</h2>
+  <p><strong>Scope:</strong> UK financial crime control testing under regulations 19 and 21 of the Money Laundering Regulations 2017, applicable FCA SYSC rules, the Financial Crime Guide, three FCA good and poor practice reports and one GOV.UK public-sector framework. It does not cover other jurisdictions, JMLSG guidance, transaction monitoring model validation or the testing obligations of any particular firm. This is decision support for practitioners, not legal advice and not an assurance opinion.</p>
+  <p><strong>Method:</strong> The sources listed below were read on 1 November 2026. For each, the proposition the guide relies on was recorded with its scope and limits before drafting. Regulations 19 and 21 were read from the current revised text on legislation.gov.uk. The FCA Handbook provisions were checked on the Handbook, and the FCA findings and the GOV.UK framework were read on their publishers' pages. FCG examples are labelled as guidance throughout and FCA findings as observations.</p>
+  <p><strong>Evidence separation:</strong> Source blocks state what an authority establishes. Application blocks are FinCrimeRadar analysis. Action blocks and the recommendations in scenario analyses are operational judgements and are labelled as ours. The Control Proof Chain, the three proofs, the four conclusion states and the conclusion record are FinCrimeRadar designs, not a regulator's. Not evidenced is our addition to the three public-sector ratings.</p>
+  <p><strong>Limits:</strong> No source read sets a universal sample methodology, an acceptable failure rate or a test frequency for UK financial crime controls. The boundary between second-line monitoring and independent audit depends on firm structure and scope. The GOV.UK framework is written for public bodies and the FCA findings are multi-firm observations. This guide teaches test design and conclusion discipline and cannot certify a firm's control environment or replace professional audit judgement. Scenario figures are fictional.</p>
+  <ol>
+    <li id="source-1"><a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/19" target="_blank" rel="noopener">Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 19, Policies, controls and procedures, as revised</a>, read 1 November 2026.</li>
+    <li id="source-2"><a href="https://www.legislation.gov.uk/uksi/2017/692/regulation/21" target="_blank" rel="noopener">The same Regulations, regulation 21, Internal controls, as revised</a>, read 1 November 2026.</li>
+    <li id="source-3"><a href="https://handbook.fca.org.uk/handbook/sysc3/sysc3s2" target="_blank" rel="noopener">FCA Handbook, SYSC 3.2.6, Financial crime</a>, checked 1 November 2026.</li>
+    <li id="source-4"><a href="https://handbook.fca.org.uk/handbook/fcg1/fcg1s1" target="_blank" rel="noopener">FCA Handbook, Financial Crime Guide, FCG 1.1, What is the FCG? (paragraphs 1.1.7, 1.1.8 and 1.1.11)</a>, last updated 3 June 2025.</li>
+    <li id="source-5"><a href="https://www.handbook.fca.org.uk/handbook/FCG/2/2.pdf" target="_blank" rel="noopener">FCA Handbook, Financial Crime Guide, FCG 2.2, Financial crime systems and controls (paragraphs 2.2.5 and 2.2.7)</a>, provisions dated 13 December 2018.</li>
+    <li id="source-6"><a href="https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings" target="_blank" rel="noopener">Financial Conduct Authority, Risk assessment processes and controls in firms: our findings</a>, published and last updated 11 November 2025.</li>
+    <li id="source-7"><a href="https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings" target="_blank" rel="noopener">Financial Conduct Authority, Firms' customer due diligence processes and controls: our findings</a>, published and last updated 8 April 2026.</li>
+    <li id="source-8"><a href="https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings" target="_blank" rel="noopener">Financial Conduct Authority, Sanctions systems and controls in our firms: our findings</a>, published and last updated 28 May 2026.</li>
+    <li id="source-9"><a href="https://www.gov.uk/government/publications/international-public-sector-fraud-forum-guidance/fraud-control-testing-framework-fctf-01-html" target="_blank" rel="noopener">GOV.UK, International Public Sector Fraud Forum, Fraud Control Testing Framework FCTF-01 (HTML)</a>, updated 15 June 2026. Recommended practice for public bodies.</li>
+  </ol>
+  <p><strong>Last reviewed:</strong> 1 November 2026. Recheck when the FCA or the Government publishes testing expectations for financial crime controls, when regulation 19 or 21 is amended, when FCG 2.2 or the cited FCA findings are revised, and if any authority prescribes a cross-control test method or rating scale.</p>
+</section>
+
+<section class="fct-section" id="related">
+  <h2>Related intelligence</h2>
+  <div class="fct-related">
+    <a href="/customer-risk-score-decision-framework.html"><strong>Customer Risk Scores: What the Number Cannot Decide</strong><span>How one scoring method is governed, including testing, change control and override evidence. A narrower subject than control testing in general.</span></a>
+    <a href="/screening-algorithm-tuning-guide.html"><strong>Screening Algorithm Tuning</strong><span>The calibration side of screening controls, where the deployment and operating proofs meet matching logic.</span></a>
+    <a href="/perpetual-kyc-framework-guide.html"><strong>Perpetual KYC</strong><span>How periodic and event-driven review work as controls, the kind of control whose population this guide asks you to reconcile.</span></a>
+    <a href="/tm-guide.html"><strong>Transaction Monitoring</strong><span>A control family where population, data lineage and operating evidence decide whether the system does what the policy says.</span></a>
+  </div>
+</section>
+</main>
+<aside class="fct-toc" aria-label="On this page">
+<strong>Decision route</strong>
+<ol><li><a href="#question">The question</a></li><li><a href="#authority">What the authority establishes</a></li><li><a href="#chain">The Control Proof Chain</a></li><li><a href="#design">Proof 1: design</a></li><li><a href="#deployment">Proof 2: deployment</a></li><li><a href="#operation">Proof 3: operation</a></li><li><a href="#conclusion">From finding to conclusion</a></li><li><a href="#remediation">Remediation and closure</a></li><li><a href="#scenario-one">Scenario 1</a></li><li><a href="#scenario-two">Scenario 2</a></li><li><a href="#knowledge-check">Knowledge check</a></li><li><a href="#sources">Sources</a></li></ol>
+</aside>
+</div>
+<div id="site-footer"></div>
+<script defer src="/js/financial-crime-control-testing-framework.js"></script>
+<script defer src="/js/site-chrome.js"></script>
+<script defer src="/brand.js"></script>
+</body>
+</html>

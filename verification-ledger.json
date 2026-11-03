@@ -10648,5 +10648,791 @@
     "status": "verified",
     "location": "customer-risk-score-decision-framework.html, #sources (Sources and methodology, Method)",
     "note": "Internal process record under CLAUDE.md section 11. The statutory pages and FCA web pages were retrieved through a web fetch helper and the FCG 3.2.3 columns were then confirmed by parsing the raw page HTML."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.reg19-1-policies-controls-procedures.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "Regulation 19(1) requires a relevant person to establish and maintain policies, controls and procedures to mitigate and manage effectively the money laundering and terrorist financing risks identified in any risk assessment undertaken under regulation 18(1), to regularly review and update them, and to maintain written records of them, of changes made as a result of review and update, and of the steps taken to communicate them. It does not prescribe a testing method.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 19, Policies, controls and procedures, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/19",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-11-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Source block)",
+    "note": "Re-read in the implementation session from the legislation.gov.uk data.xml for the revised text on 2026-11-01. Source pack ref P01 and P02."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.reg19-2-3-proportionate-approved-content.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "Regulation 19(2) requires the policies, controls and procedures to be proportionate with regard to the size and nature of the relevant person's business and approved by its senior management. Regulation 19(3) requires them to include risk management practices, internal controls (see regulations 21 to 24), customer due diligence, reliance and record keeping, and the monitoring and management of compliance with, and the internal communication of, such policies, controls and procedures. The list does not imply identical testing depth for every control.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 19, Policies, controls and procedures, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/19",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-11-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Source block)",
+    "note": "Re-read in the implementation session from the legislation.gov.uk data.xml for the revised text on 2026-11-01. Source pack ref P03."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.reg21-1-independent-audit-conditional.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "Regulation 21(1) applies where appropriate with regard to the size and nature of the relevant person's business. Under regulation 21(1)(c) the relevant person must establish an independent audit function with the responsibility to examine and evaluate the adequacy and effectiveness of the policies, controls and procedures it has adopted to comply with the requirements of the Regulations, to make recommendations in relation to them, and to monitor its compliance with those recommendations.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 21, Internal controls, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-11-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Source block); #knowledge-check (question 2 and answer note); #faq (can the first line test its own controls)",
+    "note": "Re-read in the implementation session from the legislation.gov.uk data.xml for the revised text on 2026-11-01. Source pack ref P04. The pack paraphrases the third responsibility as monitoring compliance with them. The statutory text says compliance with those recommendations, and the page follows the statutory text."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.reg21-6-individual-exception.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "Regulation 21(6) provides that paragraphs (1) and (3) of regulation 21 do not apply where the relevant person is an individual who neither employs nor acts in association with any other person.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 21, Internal controls, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-11-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Source block); #knowledge-check (question 2 answer note)",
+    "note": "Re-read in the implementation session from the legislation.gov.uk data.xml for the revised text on 2026-11-01. Source pack ref P04."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.reg21-10-appropriateness-factors.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "In determining what is appropriate with regard to the size and nature of its business under regulation 21, a relevant person must take into account its risk assessments under regulations 18(1) and 18A(1), and may take into account guidance issued by the FCA or by another supervisory authority or appropriate body and approved by the Treasury.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 21, Internal controls, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-11-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Source block); #knowledge-check (question 2 answer note)",
+    "note": "Re-read in the implementation session from the legislation.gov.uk data.xml for the revised text on 2026-11-01. Source pack ref P05."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.reg19-21-no-universal-test-parameters.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "As read on 1 November 2026, regulations 19 and 21 of the Money Laundering Regulations 2017 prescribe no universal control test frequency, sample size, pass threshold, rating scale or evidence taxonomy. This is a statement about the text of those two regulations, not about every legal or professional standard that might apply to a firm.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 19, Policies, controls and procedures, as revised",
+      "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/19",
+      "publisher": "UK Government (legislation.gov.uk)",
+      "date": "2017-06-26"
+    },
+    "additionalSources": [
+      {
+        "title": "Money Laundering, Terrorist Financing and Transfer of Funds (Information on the Payer) Regulations 2017, regulation 21, Internal controls, as revised",
+        "url": "https://www.legislation.gov.uk/uksi/2017/692/regulation/21",
+        "publisher": "UK Government (legislation.gov.uk)",
+        "date": "2017-06-26"
+      }
+    ],
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-11-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Application block); #question; #faq (how large should the sample be)",
+    "note": "Source pack ref P06. Absence confirmed against the revised text of regulations 19 and 21 re-read on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.sysc-3-2-6-effective-systems-controls.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "A firm within SYSC 3.2.6 must take reasonable care to establish and maintain effective financial crime systems and controls. Its money laundering systems and controls must identify, assess, monitor and manage risk and be comprehensive and proportionate. Whether these rules apply, and in what form, depends on the firm.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, SYSC 3.2.6 Financial crime",
+      "url": "https://handbook.fca.org.uk/handbook/sysc3/sysc3s2",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Source block)",
+    "note": "Source pack ref P10 (SYSC 3.2.6R and 3.2.6A R). Checked on the FCA Handbook in the 1 November 2026 source review. The Handbook is a JavaScript application and could not be re-read in the implementation session, so this wording is carried from the source pack and needs the external reviewer's independent re-check."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.sysc-3-2-6c-regular-assessment.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "A firm within SYSC 3.2.6 must carry out regular assessments of the adequacy of its financial crime systems and controls. The rule says regular and does not set one interval for every control.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, SYSC 3.2.6 Financial crime",
+      "url": "https://handbook.fca.org.uk/handbook/sysc3/sysc3s2",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (Source block); #faq (how often should a control be tested)",
+    "note": "Source pack ref P11 (SYSC 3.2.6C R). Checked on the FCA Handbook in the 1 November 2026 source review. The Handbook is a JavaScript application and could not be re-read in the implementation session, so this wording is carried from the source pack and needs the external reviewer's independent re-check."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.fcg-2-2-5-independent-monitoring.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "FCG 2.2.5 treats internal audit or another independent party monitoring the effectiveness of policies, procedures, systems and controls as good practice, and failing to check whether policies and procedures are applied consistently and effectively as poor practice. It is general guidance.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide, FCG 2.2 Financial crime systems and controls",
+      "url": "https://www.handbook.fca.org.uk/handbook/FCG/2/2.pdf",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2018-12-13"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (guidance paragraph)",
+    "note": "Source pack ref P12 (FCG 2.2.5, dated 13 December 2018). Checked on the FCA Handbook in the 1 November 2026 source review. The Handbook is a JavaScript application and could not be re-read in the implementation session, so this wording is carried from the source pack and needs the external reviewer's independent re-check."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.fcg-2-2-7-routine-testing-remediation.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "FCG 2.2.7 treats internal audit and compliance routinely testing defences against financial crime as good practice, and asks how a firm ensures that its review of control effectiveness is comprehensive and how remediation has progressed. It does not specify one test programme.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide, FCG 2.2 Financial crime systems and controls",
+      "url": "https://www.handbook.fca.org.uk/handbook/FCG/2/2.pdf",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2018-12-13"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (guidance paragraph); #remediation; #scenario-one (options); #knowledge-check (question 5 answer note)",
+    "note": "Source pack ref P13 (FCG 2.2.7, dated 13 December 2018). Checked on the FCA Handbook in the 1 November 2026 source review. The Handbook is a JavaScript application and could not be re-read in the implementation session, so this wording is carried from the source pack and needs the external reviewer's independent re-check."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.fcg-1-1-status.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The Financial Crime Guide contains general guidance under section 139B of the Financial Services and Markets Act 2000. It is not binding, it is not a standalone statement of all requirements, and firms can comply with their obligations in other ways.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA Handbook, Financial Crime Guide, FCG 1.1 What is the FCG?",
+      "url": "https://handbook.fca.org.uk/handbook/fcg1/fcg1s1",
+      "publisher": "Financial Conduct Authority (FCA Handbook)",
+      "date": "2025-06-03"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (guidance paragraph)",
+    "note": "Source pack ref P14 (FCG 1.1.7, 1.1.8 and 1.1.11). FCG 1.1.7 and 1.1.8 were also recorded in the customer risk score guide ledger entry customer-risk-score-decision-framework.fcg-1-1-status.001 on 2026-10-24. Checked on the FCA Handbook in the 1 November 2026 source review. The Handbook is a JavaScript application and could not be re-read in the implementation session, so this wording is carried from the source pack and needs the external reviewer's independent re-check."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-risk-effective-mature-without-evidence.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA saw firms conclude that their business is low risk, or that controls are effective or mature, without appropriate evidence to support the conclusion. This is a finding from a multi-firm review and not a rule. It does not say what evidence would have been enough.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority; #scenario-one (options)",
+    "note": "Source pack ref P20 (section 2.1, Lack of evidence). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-risk-bwra-feeds-controls-testing.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA lists as good practice the business-wide risk assessment feeding into risk appetite, controls testing and the firm's overall risk-based approach.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #chain",
+    "note": "Source pack ref P21 (section 2.2, Risk assessments feed into firm's wider work). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-risk-rapid-expansion.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA saw rapid expansion without firms first considering and ensuring that their controls remained appropriate and effective, and records that as poor practice. It is not a universal change-control specification.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #deployment (change and growth)",
+    "note": "Source pack ref P22 (section 2.2, Rapid expansion). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-risk-limited-testing-after-change.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA saw some firms carry out limited or no testing and review of risk assessment processes when they make enhancements, upgrades or automation. The finding concerns risk assessment processes. Applying the same discipline to other automated controls is FinCrimeRadar's application and is labelled as such on the page.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #design (manual, automated and outsourced controls)",
+    "note": "Source pack ref P23 (section 2.3, Lack of testing). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-risk-cdd-good-practice-beyond-minimum.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA says in its risk assessment and customer due diligence findings that good practice often goes beyond the minimum regulatory requirements, and presents its findings as examples of how firms approach these topics.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Risk assessment processes and controls in firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/risk-assessment-processes-and-controls-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2025-11-11"
+    },
+    "additionalSources": [
+      {
+        "title": "FCA, Firms' customer due diligence processes and controls: our findings",
+        "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+        "publisher": "Financial Conduct Authority",
+        "date": "2026-04-08"
+      }
+    ],
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (findings paragraph)",
+    "note": "Not a source pack proposition. Added in the implementation session after the phrase was found on both FCA pages as fetched on 2026-11-01. The source pack records the same limit in its 'How the sources were read' table."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-cdd-assessment-method.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA assessed customer due diligence controls using a questionnaire, policy and procedure review, customer file review and staff interviews. This describes the FCA's review method and is not a mandatory firm testing method.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Firms' customer due diligence processes and controls: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-04-08"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation",
+    "note": "Source pack ref P30 (What we looked at). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-cdd-sample-based-monitoring.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA observed some firms using sample-based compliance monitoring and proportionate review cycles to ensure that CDD processes remained effective and up to date. It gives no universal sample size or review cycle.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Firms' customer due diligence processes and controls: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-04-08"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation; #faq (how large should the sample be)",
+    "note": "Source pack ref P31 (Compliance monitoring and audit). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-cdd-independent-third-line.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA saw stronger performing firms operate independent third line testing across customer onboarding and due diligence, document the findings and act on them. This is an observed strength and not a statement that every test must be third line.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Firms' customer due diligence processes and controls: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-04-08"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation (independence of the tester); #remediation; #scenario-one (options); #faq (can the first line test its own controls)",
+    "note": "Source pack ref P32 (Compliance monitoring and audit). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-cdd-impartiality-concern.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA found some cases with no independent second line assurance, where the same staff were responsible for both onboarding and reviewing customers, and said this raises questions about impartiality and effectiveness of testing. This is a finding about the arrangement reviewed.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Firms' customer due diligence processes and controls: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-04-08"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation (independence of the tester); #faq (can the first line test its own controls)",
+    "note": "Source pack ref P33 (Compliance monitoring and audit). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-cdd-poor-practice-examples.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA's customer due diligence poor practice examples on compliance monitoring and audit included some firms lacking detail on how they were checking quality control, no independent review of CDD or EDD where one firm's staff onboarded customers and performed second line assurance, and no version control of documentation, so that firms could not demonstrate an audit trail of reviews or changes made.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Firms' customer due diligence processes and controls: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/firms-customer-due-diligence-processes-and-controls-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-04-08"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation (independence of the tester)",
+    "note": "Source pack ref P34 (examples of poor practice). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-sanc-proportionate-calibrated-tested.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA says sanctions screening and alert management systems and processes should be proportionate to risk exposure, appropriately calibrated, and regularly tested and reviewed. This is an FCA supervisory expectation and guidance and not a statutory testing formula.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Sanctions systems and controls in our firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-05-28"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #scenario-two (best option analysis)",
+    "note": "Source pack ref P40 (section 6.6). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-sanc-exclusions-governance-vendor-settings.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "In the FCA's sanctions findings on screening policies, good practice included formal governance processes for approving and reviewing screening exclusions and mitigating controls where certain data is excluded from automated screening. Poor practice included firms not embedding screening policies into day-to-day practice, excluding categories of sanctioned names without appropriate rationale or evidence, and relying on historic vendor settings without reassessment and appropriate oversight.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Sanctions systems and controls in our firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-05-28"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #deployment (vendors and group functions); #scenario-two (options)",
+    "note": "Source pack ref P41 (section 6.7). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. The exclusion governance and mitigating controls good practice items and the exclusion poor practice item are in section 6.7 but not in the source pack's P41 summary. They were read directly from the page in the implementation session and are flagged for the external reviewer as a small addition."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-sanc-list-data-and-legacy-integration.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA found errors, omissions and delays in sanctions list data and in the transfer of data between systems, and listed firms with limited understanding of how lists were ingested into screening systems as poor practice. A legacy system integration issue at a wholesale bank meant a set of transactions was not screened over an extended period, arose from a data feed failure, was not spotted through routine monitoring and came to light only during a later internal review.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Sanctions systems and controls in our firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-05-28"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #deployment",
+    "note": "Source pack ref P42 (section 6.8 and case study). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-sanc-assurance-and-vendor-challenge.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA recorded effective sanctions screening assurance practices including periodic calibration and quality assurance testing, engaging vendors to retest systems following list updates or changes to matching logic, and root cause analysis after screening mismatches. It also recorded limited testing and oversight of screening systems and examples of firms providing limited challenge or validation of vendor configuration, logic or updates.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Sanctions systems and controls in our firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-05-28"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #deployment (vendors and group functions); #remediation; #scenario-two (options); #faq",
+    "note": "Source pack ref P43 (section 6.9). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-sanc-name-ingestion-and-thresholds.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA's sanctions screening testing considered exact names, minor name variants and how systems ingest, transform and interpret names from the UK Sanctions List, and observed examples where one-word names or names containing digits were excluded as default and long names exceeded system character limits and failed without generating an alert. The percentages the FCA published describe its own testing programme and are not pass thresholds for any firm.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Sanctions systems and controls in our firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-05-28"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #deployment; #scenario-two (facts and options)",
+    "note": "Source pack ref P44 (section 6.9). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. The page deliberately does not reproduce the published percentages."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-sanc-testing-lookbacks.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA lists as good practice in its sanctions findings validation or periodic testing after material list or system changes, periodic testing and quality assurance of alert investigations, stress tests and proactive thematic sanctions lookbacks to test control effectiveness, as opposed to only responding to known or suspected breaches.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Sanctions systems and controls in our firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-05-28"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #scenario-two (best option analysis); #faq (how often should a control be tested)",
+    "note": "Source pack ref P45 (sections 6.9 to 6.11). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.find-sanc-no-true-matches-and-weaknesses.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The FCA's sanctions findings record that, of the firms making REP-CRIM returns in 2024-25 that said they used automated screening and repeat customer screening, most had not identified any true sanctions matches for their clients since 2022, and the same findings separately record weaknesses in screening configuration, data and assurance testing. The page states this as many firms reporting no true matches and does not reproduce the percentages.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "FCA, Sanctions systems and controls in our firms: our findings",
+      "url": "https://www.fca.org.uk/publications/good-and-poor-practice/sanctions-systems-and-controls-our-firms-our-findings",
+      "publisher": "Financial Conduct Authority",
+      "date": "2026-05-28"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation (silence is not a test result); #scenario-two (options); #faq (does no incident mean a control is effective)",
+    "note": "Source pack ref P46 factual basis (section 6.7 and sections 6.8 to 6.9). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. The 95 percent and 98 percent figures in section 6.7 are not reproduced on the page."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.gov-fctf-scope-public-bodies.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The Fraud Control Testing Framework FCTF-01, issued by the International Public Sector Fraud Forum, sets out recommended best practice for fraud control testing within public bodies and is a principles-based document. It is not an FCA rule, a Money Laundering Regulations requirement or a private-sector AML testing standard.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "GOV.UK, International Public Sector Fraud Forum, Fraud Control Testing Framework FCTF-01 (HTML)",
+      "url": "https://www.gov.uk/government/publications/international-public-sector-fraud-forum-guidance/fraud-control-testing-framework-fctf-01-html",
+      "publisher": "UK Government (GOV.UK), International Public Sector Fraud Forum",
+      "date": "2026-06-15"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority (public-sector scope box)",
+    "note": "Source pack ref P50 to P54 scope. Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. Public-sector practice, not an FCA or MLR requirement."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.gov-fctf-focus-high-risk-critical-controls.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The framework recommends that public bodies focus testing effort on their highest risk areas and test their most critical controls, because testing every fraud control is impractical and would lead to a shallow approach.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "GOV.UK, International Public Sector Fraud Forum, Fraud Control Testing Framework FCTF-01 (HTML)",
+      "url": "https://www.gov.uk/government/publications/international-public-sector-fraud-forum-guidance/fraud-control-testing-framework-fctf-01-html",
+      "publisher": "UK Government (GOV.UK), International Public Sector Fraud Forum",
+      "date": "2026-06-15"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #design; #faq (how often should a control be tested)",
+    "note": "Source pack ref P50 (Choosing what areas to focus on). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. Public-sector practice, not an FCA or MLR requirement."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.gov-fctf-testing-methods.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The framework describes different testing methods, from compliance testing such as desktop research and process walk-throughs to more active methods such as technical system testing and covert testing, including desktop review, interviews, walkthroughs, sample and data analysis, technical testing and controlled scenario-based testing, to be chosen for the objective.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "GOV.UK, International Public Sector Fraud Forum, Fraud Control Testing Framework FCTF-01 (HTML)",
+      "url": "https://www.gov.uk/government/publications/international-public-sector-fraud-forum-guidance/fraud-control-testing-framework-fctf-01-html",
+      "publisher": "UK Government (GOV.UK), International Public Sector Fraud Forum",
+      "date": "2026-06-15"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation",
+    "note": "Source pack ref P51 (Testing methods). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. Public-sector practice, not an FCA or MLR requirement."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.gov-fctf-beyond-confirming-controls-exist.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The framework says fraud control testing must go beyond confirming that controls are in place and processes are being followed, because fraudsters are a capable and creative adversary.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "GOV.UK, International Public Sector Fraud Forum, Fraud Control Testing Framework FCTF-01 (HTML)",
+      "url": "https://www.gov.uk/government/publications/international-public-sector-fraud-forum-guidance/fraud-control-testing-framework-fctf-01-html",
+      "publisher": "UK Government (GOV.UK), International Public Sector Fraud Forum",
+      "date": "2026-06-15"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation",
+    "note": "Source pack ref P52 (Testing methods). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. Public-sector practice, not an FCA or MLR requirement."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.gov-fctf-rating-scheme-and-tolerance.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The framework rates controls Effective, Partially Effective or Ineffective and links each rating to recommended action. It describes a partially effective control as one that somewhat functions in a way that conforms to its purpose and/or has possible factors that could undermine the control objectives, and an ineffective control as one that does not function in a way that conforms to its purpose and/or has likely or existing factors that could undermine them. It says it may be appropriate to allow some tolerance in the coverage or operation of certain controls, depending on design and purpose.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "GOV.UK, International Public Sector Fraud Forum, Fraud Control Testing Framework FCTF-01 (HTML)",
+      "url": "https://www.gov.uk/government/publications/international-public-sector-fraud-forum-guidance/fraud-control-testing-framework-fctf-01-html",
+      "publisher": "UK Government (GOV.UK), International Public Sector Fraud Forum",
+      "date": "2026-06-15"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #conclusion; #scenario-one (options)",
+    "note": "Source pack ref P53 (Rating control effectiveness). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. Public-sector practice, not an FCA or MLR requirement."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.gov-fctf-effectiveness-and-residual-risk.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The framework treats control effectiveness and residual risk as separate, says the effectiveness of the control environment can directly influence residual risk, and says the results of fraud control testing provide additional insight to assess and measure residual risk.",
+    "claimType": "regulatory",
+    "source": {
+      "title": "GOV.UK, International Public Sector Fraud Forum, Fraud Control Testing Framework FCTF-01 (HTML)",
+      "url": "https://www.gov.uk/government/publications/international-public-sector-fraud-forum-guidance/fraud-control-testing-framework-fctf-01-html",
+      "publisher": "UK Government (GOV.UK), International Public Sector Fraud Forum",
+      "date": "2026-06-15"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #conclusion (what a conclusion does not establish)",
+    "note": "Source pack ref P54 (Assessing and measuring residual risk). Read in the 1 November 2026 source review and re-read in the implementation session against the page as fetched on 2026-11-01. Public-sector practice, not an FCA or MLR requirement."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-proof-chain-and-three-proofs.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The Control Proof Chain (seven links from Risk to Remediation and retest) and the three proofs of design, deployment and operation are FinCrimeRadar's own analytical model. No source read imposes this taxonomy, and the page labels both as FinCrimeRadar assessment and states that no source prescribes them.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #chain section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#chain",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #chain (Figures 1 and 2); #authority (Application block); #sources (evidence separation)",
+    "note": "Source pack section 4. Recorded as an analytical model, not an external claim, so no source is claimed."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-conclusion-states-not-evidenced.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The page uses four conclusion states. Effective means all three proofs are supported and no material weakness undermines the objective. Partially effective means the control reduces risk but a bounded weakness or coverage gap remains. Ineffective means a weakness defeats or materially undermines the objective. Not evidenced means the work cannot support a conclusion because the population, period, evidence or method is insufficient. The first three adapt the public-sector ratings, and Not evidenced is a FinCrimeRadar addition that is neither a pass nor a fail nor a maturity level.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #conclusion section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#conclusion",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #conclusion (Figure 3); #scenario-one; #scenario-two; #knowledge-check (question 4); #faq",
+    "note": "Source pack section 4. FinCrimeRadar assessment. The adaptation of the three public-sector ratings is sourced separately in gov-fctf-rating-scheme-and-tolerance.001."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-conclusion-record-fields.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The conclusion record has nine fields: control and objective, population and period, test methods and evidence used, findings for each of the three proofs, limitations and sampling risk, the conclusion state, immediate risk response, remediation owner and target date, and retest condition. The fields are FinCrimeRadar's design and are not prescribed by any source read.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #conclusion section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#conclusion",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #conclusion (the conclusion record); #scenario-one and #scenario-two (Decision Records)",
+    "note": "Design memo section 5. Scenario Decision Records use seven fields that cover the nine conclusion record items."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-absence-of-incidents-not-proof.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The proposition that the absence of incidents, matches, breaches or complaints does not by itself demonstrate that a control is effective is FinCrimeRadar's assessment. The FCA does not state it in these words, and the page says so wherever it is used.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #operation section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#operation",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #operation (silence is not a test result); #scenario-two (effective option); #faq (does no incident mean a control is effective)",
+    "note": "Source pack ref P46. The factual basis is recorded separately in find-sanc-no-true-matches-and-weaknesses.001."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-vendor-assurance-not-substitute.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The page states that vendor assurance does not replace the firm's own understanding, testing or oversight of its configuration, data and use. This is FinCrimeRadar's assessment. The FCA findings recorded limited vendor challenge and insufficient internal testing, but no source read says in terms that vendor assurance cannot suffice.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #deployment section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#deployment",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #deployment (vendors and group functions); #scenario-two; #faq (is vendor assurance enough)",
+    "note": "Source pack section 5 item 10 (a claim the page must not contradict). Factual basis in find-sanc-assurance-and-vendor-challenge.001."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-ineffective-not-breach-or-residual-risk.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The page states that an Ineffective conclusion by itself does not establish a regulatory breach, a suspicion, a loss or customer harm, and that a control rating alone does not establish residual risk. The first is FinCrimeRadar's assessment. The second is supported by the public-sector framework treating control effectiveness and residual risk as separate.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #conclusion section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#conclusion",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #conclusion (what a conclusion does not establish); #faq (does an ineffective control prove a regulatory breach)",
+    "note": "Source pack section 5 items 8 and 9."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-implementation-vs-validation.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The page states that implementation of a remediation action and validation of the corrected control are separate statuses, and that closure of an effectiveness finding needs a retest over a period capable of showing operation. This is FinCrimeRadar's assessment and is not stated by any source read. FCG 2.2.7 only asks how remediation has progressed.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #remediation section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#remediation",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #remediation; #knowledge-check (question 5); #operational-summary",
+    "note": "Design memo section 6, Remediation and closure."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-no-universal-sample-frequency-failure-rate.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The page states that no source read for this guide sets a universal sample methodology, an acceptable control failure rate, a test frequency or a rating scale across UK private-sector financial crime controls. This records the outcome of the source review and is not a statement about every possible standard.",
+    "claimType": "process-record",
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #question; #sources (limits); #faq (how large should the sample be; how often should a control be tested)",
+    "note": "Source pack section 6 open limits 1 and 2. The source set was regulations 19 and 21, SYSC 3.2.6, FCG 1.1 and 2.2, three FCA reports and the GOV.UK framework. No search beyond that set was made for a private-sector standard, so the statement is limited to the sources read."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-scenario-one-grading.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "Scenario 1 (the clean CDD sample) grades Ineffective as best supported, Not evidenced as incomplete, and Effective and Partially effective as unsupported on the facts. The facts (96 percent reported completion, 20 sampled queue reviews with no errors, 312 migrated customers never entering the queue, 11 of them high risk and overdue) are consistent across the facts list, the option analyses, the counterfactual and the Decision Record. All figures are illustrative.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #scenario-one section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#scenario-one",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #scenario-one",
+    "note": "Grading is FinCrimeRadar's analysis. The external review brief asks the reviewer to challenge whether Partially effective could be a defensible competing answer. High stakes grading review item."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.assess-scenario-two-grading.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "Scenario 2 (the vendor screening assurance) grades Ineffective as best supported, Replace the vendor and Not evidenced as incomplete, and Effective as unsupported on the facts. The facts (annual vendor assurance report, exact-name-only internal testing, one-word names excluded and long names truncated before matching, no approved exclusion and no compensating control, no true matches or suspected breaches reported) are consistent across the facts list, the option analyses, the counterfactual and the Decision Record. All details are illustrative.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #scenario-two section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#scenario-two",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #scenario-two",
+    "note": "Grading is FinCrimeRadar's analysis. The external review brief asks the reviewer to challenge whether Not evidenced is also defensible. High stakes grading review item."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.consistency-reg21-conditional-wording.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "Every representation of regulation 21 on the page keeps the conditional wording: the independent audit function duty in regulation 21(1)(c) applies where appropriate with regard to size and nature, regulation 21(6) removes paragraph (1) for a sole individual, and regulation 21(10) lists the factors. The representations are the authority Source block, knowledge check question 2 and its answer note, and FAQ 2.",
+    "claimType": "internal-consistency",
+    "source": {
+      "title": "financial-crime-control-testing-framework.html, #authority section and the review-queue design memo",
+      "url": "https://fincrimeradar.org/financial-crime-control-testing-framework.html#authority",
+      "publisher": "FinCrimeRadar (internal cross-reference)",
+      "date": "2026-11-01"
+    },
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #authority; #knowledge-check; #faq",
+    "note": "Internal consistency sweep under CLAUDE.md section 8. Checked against reg21-1, reg21-6 and reg21-10 entries."
+  },
+  {
+    "claimId": "financial-crime-control-testing-framework.methodology-statement-source-reading.001",
+    "guide": "financial-crime-control-testing-framework.html",
+    "claimText": "The Sources and methodology section states that the listed sources were read on 1 November 2026, that the proposition relied on was recorded with its scope and limits before drafting, that regulations 19 and 21 were read from the current revised text on legislation.gov.uk, that the FCA Handbook provisions were checked on the Handbook, and that the FCA findings and the GOV.UK framework were read on their publishers' pages. These statements describe reading that took place in the 1 November 2026 source review. In the implementation session, regulations 19 and 21 and the FCA findings and GOV.UK pages were re-read from the pages as fetched, and the FCA Handbook pages could not be re-read because they are a JavaScript application.",
+    "claimType": "process-record",
+    "verifiedOn": "2026-11-01",
+    "reviewDue": "2027-05-01",
+    "status": "verified",
+    "location": "financial-crime-control-testing-framework.html, #sources (Sources and methodology, Method)",
+    "note": "Internal process record under CLAUDE.md section 11. The Handbook-derived claims (SYSC 3.2.6, FCG 1.1, FCG 2.2) rely on the source pack and need independent re-checking in the external review."
   }
 ]
