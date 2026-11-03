@@ -29,6 +29,11 @@
     }
   }
 
+  // Stand-in for optional feedback or status markup, so a missing node cannot throw. Writes go nowhere.
+  function safe(node) {
+    return node || { textContent: '', dataset: {}, removeAttribute: function () {}, appendChild: function () {} };
+  }
+
   var menuButton = document.getElementById('navHamburger');
   var mobileNav = document.getElementById('mobileNav');
   if (menuButton && mobileNav) {
@@ -63,7 +68,7 @@
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       var selected = form.querySelector('input[type="radio"]:checked');
-      var feedback = form.querySelector('.fct-feedback');
+      var feedback = safe(form.querySelector('.fct-feedback'));
       var scenarioId = form.dataset.scenarioId;
       if (!selected) {
         feedback.textContent = 'Choose an option before recording the decision.';
@@ -112,7 +117,7 @@
   var knowledgeForm = document.getElementById('knowledgeForm');
   if (knowledgeForm) {
     knowledgeForm.addEventListener('change', function () {
-      var feedback = document.getElementById('knowledgeFeedback');
+      var feedback = safe(document.getElementById('knowledgeFeedback'));
       feedback.textContent = '';
       feedback.removeAttribute('data-state');
     });
@@ -123,7 +128,7 @@
       var selected = groups.map(function (name) {
         return knowledgeForm.querySelector('input[name="' + name + '"]:checked');
       });
-      var feedback = document.getElementById('knowledgeFeedback');
+      var feedback = safe(document.getElementById('knowledgeFeedback'));
 
       if (selected.some(function (answer) { return !answer; })) {
         feedback.textContent = 'Answer all five questions before scoring.';
@@ -204,7 +209,7 @@
   }
 
   function exportClosingPatterns() {
-    var status = document.getElementById('saveFrameworkStatus');
+    var status = safe(document.getElementById('saveFrameworkStatus'));
     var source = document.getElementById('fctClosingPatterns');
     var patterns = source ? Array.from(source.querySelectorAll('.fct-pattern')) : [];
     if (!patterns.length) {
