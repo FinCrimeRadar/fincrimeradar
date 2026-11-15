@@ -342,6 +342,13 @@ class RenderingTests(unittest.TestCase):
         self.assertNotIn("<b>bad</b>", page)
         self.assertIn("&lt;b&gt;bad&lt;/b&gt;", page)
 
+    def test_issue_article_has_no_whitespace_only_lines(self):
+        article = gen.render_issue_article(
+            make_issue(items=[make_item()]),
+            pager_html='\n    <nav class="fcw-pager">Pager</nav>',
+        )
+        self.assertNotRegex(article, r"(?m)^[ \t]+$")
+
 
 # ---------------- send_weekly_digest.py integration ----------------
 
