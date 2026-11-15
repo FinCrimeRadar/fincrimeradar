@@ -11434,5 +11434,107 @@
     "status": "verified",
     "location": "financial-crime-control-testing-framework.html, #sources (Sources and methodology, Method)",
     "note": "Internal process record under CLAUDE.md section 11. The Handbook-derived claims (SYSC 3.2.6, FCG 1.1, FCG 2.2) rely on the source pack and need independent re-checking in the external review."
+  },
+  {
+    "claimId": "fincrime-week-2026-w46.uk-notice-additions.001",
+    "guide": "data/fincrime-week/2026-W46.json",
+    "claimText": "The FCDO Sanctions Notice for Russia dated 12 November 2026 records 20 additions and 1 variation to the UK Sanctions List. The 20 additions are nine entities (including PJSC Oil and Gas Company Slavneft and LLC Vostok Oil) and 11 ships; the variation is to the entry for Altrum Group FZCO. Ship entries are specifications of vessels, not designations of companies.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-15",
+    "reviewDue": "2027-05-15",
+    "status": "verified",
+    "location": "item uk-russia-oil-producers-november-sanctions",
+    "note": "Counted entry by entry from the notice PDF (sha256 prefix 8e297dee576b0370): entries 1-3, 9-13 and 18 are entities; 4-8, 14-17, 19 and 20 are ships. Full sha256 of the notice PDF: 8e297dee576b037003321604be1b76c5d6f48b8f8ef2f52d30f140504a5e9adb (two separate downloads matched). This corrects the earlier candidate and the first review wording (11 designations and nine ship specifications). The external re-review of 15 November 2026 independently supported the corrected count. Documented discrepancy: the FCDO webpage change note (gov.uk Russia list of designations and sanctions notices, 12 November 2026) states 11 new designations, 9 new specifications and 1 variation, which is the transposed split; the PDF's own entries are 9 entities and 11 ships, and the candidate follows the PDF. Cause not established from public sources. Notice drafting inconsistency: entry 16 (IMO9958298, alias AEOLUS) has a statement of reasons naming IMO 9958315 (NELEUS), which is entry 5.",
+    "source": {
+      "title": "Sanctions Notice, Russia, 12 November 2026",
+      "url": "https://assets.publishing.service.gov.uk/media/6af5ad18cc0dbfec767a509f/Sanctions_Notice__Russia__12_November_2026.pdf",
+      "publisher": "UK Foreign, Commonwealth and Development Office",
+      "date": "2026-11-12"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w46.uk-all-ten-producers.001",
+    "guide": "data/fincrime-week/2026-W46.json",
+    "claimText": "The UK government stated on 12 November 2026 that sanctioning Slavneft means the UK has sanctioned all ten of Russia's major oil producers. This is the government's own claim and is attributed as such.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-15",
+    "reviewDue": "2027-05-15",
+    "status": "verified",
+    "location": "item uk-russia-oil-producers-november-sanctions",
+    "note": "GOV.UK news story dated 12 November 2026, read from the live page.",
+    "source": {
+      "title": "Ukraine set to be focus of EPC summit as UK sanctions Russia's top ten oil producers",
+      "url": "https://www.gov.uk/government/news/ukraine-set-to-be-focus-of-epc-summit-as-uk-sanctions-russias-top-ten-oil-producers",
+      "publisher": "UK Government",
+      "date": "2026-11-12"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w46.mexc-order-scope.001",
+    "guide": "data/fincrime-week/2026-W46.json",
+    "claimText": "FinCEN's section 9714(a) order on MEXC Global was published in the Federal Register on 10 November 2026 (document 2026-22962), is effective 10 December 2026 with no cessation date, prohibits covered financial institutions from any transmittal of funds from or to MEXC Global, defines covered financial institution by reference to 31 CFR 1010.100(t), defines MEXC Global as the Seychelles based exchanger including branches, subsidiaries and offices operating as a financial institution outside the United States and successors, and expressly excludes MEXC branches, subsidiaries and offices located in the United States.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-11-15",
+    "reviewDue": "2027-05-15",
+    "status": "verified",
+    "location": "item fincen-mexc-federal-register-effective-date",
+    "note": "Verified against the Federal Register full text (91 FR 72420, sections VI.A to VI.D) and API metadata. Order is a section 9714 transmittal measure, not OFAC blocking. Flagged for external review under CLAUDE.md section 7.",
+    "source": {
+      "title": "Imposition of Special Measure Prohibiting the Transmittal of Funds Involving MEXC Global",
+      "url": "https://www.federalregister.gov/d/2026-22962",
+      "publisher": "Federal Register (FinCEN)",
+      "date": "2026-11-10"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w46.ofac-authorities.001",
+    "guide": "data/fincrime-week/2026-W46.json",
+    "claimText": "Treasury's 13 November 2026 press release states that Los Mendoza DTO was sanctioned under E.O. 14059 and E.O. 13224, as amended, for material support to the Sinaloa Cartel, and that Los Huistas DTO was sanctioned under E.O. 13224, as amended, for material support to the Sinaloa Cartel and CJNG, having been designated under E.O. 14059 on 18 March 2022.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-15",
+    "reviewDue": "2027-05-15",
+    "status": "verified",
+    "location": "item ofac-guatemala-drug-trafficking-organisations",
+    "note": "Read from the Treasury press release sb0689 and reconciled on 15 November 2026 to OFAC's 13 November SDN update (ofac.treasury.gov/recent-actions/20261113): Los Mendoza added with [SDGT] [ILLICIT-DRUGS-EO14059]; Los Huistas changed from [ILLICIT-DRUGS-EO14059] to add [SDGT]. The same update lists Los Lorenzanas (State FTO and SDGT designation), which is outside this item's two-organisation wording.",
+    "source": {
+      "title": "Treasury press release sb0689, Los Mendoza and Los Huistas",
+      "url": "https://home.treasury.gov/news/press-releases/sb0689",
+      "publisher": "US Department of the Treasury",
+      "date": "2026-11-13"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w46.endgame-figures.001",
+    "guide": "data/fincrime-week/2026-W46.json",
+    "claimText": "Europol's 12 November 2026 release reports 235 servers and 257 domains actioned in the Gootloader, CastleRAT and StealC action, uses 6.4 million victim datasets in its headline and over 6 million victim credentials in the body, and attributes victim notification through partner platforms to CastleRAT credentials. The per toolkit server figures (14, 120, 102) sum to 236 against the stated 235.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-11-15",
+    "reviewDue": "2027-05-15",
+    "status": "verified",
+    "location": "item europol-operation-endgame-malware-infrastructure",
+    "note": "Read from the live Europol page via a browser. Unique victim count is not stated and is not claimed.",
+    "source": {
+      "title": "6.4 million victim datasets secured in international operation against malware networks",
+      "url": "https://www.europol.europa.eu/media-press/newsroom/news/64-million-victim-datasets-secured-in-international-operation-against-malware-networks",
+      "publisher": "Europol",
+      "date": "2026-11-12"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w46.europol-cocaine-laundering.001",
+    "guide": "data/fincrime-week/2026-W46.json",
+    "claimText": "Europol's 13 November 2026 release states that the investigation uncovered suspected laundering of trafficking proceeds through companies in Czechia, Germany and Switzerland, with searches on 10 and 11 November across Czechia, Germany, the Netherlands, Spain and Switzerland. These are investigative suspicions, not established findings.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-15",
+    "reviewDue": "2027-05-15",
+    "status": "verified",
+    "location": "item europol-cocaine-network-laundering-companies",
+    "note": "Read from the live Europol page via a browser.",
+    "source": {
+      "title": "Law enforcement dismantle cocaine network from Ecuador to Europe",
+      "url": "https://www.europol.europa.eu/media-press/newsroom/news/law-enforcement-dismantle-cocaine-network-ecuador-to-europe",
+      "publisher": "Europol",
+      "date": "2026-11-13"
+    }
   }
 ]

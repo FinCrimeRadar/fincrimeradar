@@ -303,6 +303,11 @@ def render_issue_article(data, pager_html="", is_latest=False):
     <noscript> override in render_archive_page keeps every issue
     readable when JavaScript is unavailable."""
     items_html = "".join(render_item_full(item) for item in data["items"])
+    body_html = "\n".join(
+        fragment.strip("\n")
+        for fragment in (items_html, pager_html)
+        if fragment.strip("\n")
+    )
     hidden_attr = "" if is_latest else " hidden"
     return f"""
   <article class="fcw-issue" id="{esc(data["week"])}" data-week="{esc(data["week"])}"{hidden_attr}>
@@ -313,8 +318,7 @@ def render_issue_article(data, pager_html="", is_latest=False):
         &middot; <a href="/editorial-standards.html">Editorial standards</a>
       </p>
     </header>
-    {items_html}
-    {pager_html}
+{body_html}
   </article>"""
 
 
