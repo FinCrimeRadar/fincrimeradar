@@ -1,0 +1,91 @@
+{
+  "week": "2026-W46",
+  "period_start": "2026-11-09",
+  "period_end": "2026-11-15",
+  "published_at": "2026-11-16",
+  "author": "Pratik Zanke",
+  "items": [
+    {
+      "id": "uk-russia-oil-producers-november-sanctions",
+      "headline": "UK extends Russia sanctions across major oil producers and vessels",
+      "source_name": "UK Foreign, Commonwealth and Development Office",
+      "source_url": "https://assets.publishing.service.gov.uk/media/6af5ad18cc0dbfec767a509f/Sanctions_Notice__Russia__12_November_2026.pdf",
+      "published_date": "2026-11-12",
+      "jurisdiction": "UK",
+      "category": "SANCTIONS",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 12 November 2026 the UK government announced a new package of Russia sanctions, including Slavneft, which it said meant the UK had sanctioned all ten of Russia’s major oil producers. The Foreign, Commonwealth and Development Office Sanctions Notice for Russia of the same date records 20 additions and one variation to the UK Sanctions List. The 20 additions are nine entities, including Slavneft and LLC Vostok Oil, and 11 ships. The variation relates to an existing entity entry, Altrum Group FZCO.",
+      "why_it_matters": "The government announcement describes the policy package; the Sanctions Notice and the UK Sanctions List entries fix the precise targets and the measures that apply. The nine entity additions and the 11 ship additions are different record types, and the total must not be presented as 20 sanctioned companies. Ship entries attach to specific vessels, so the ships’ owners, operators and managers need separate analysis. The claim that all ten major producers are now sanctioned is the government’s own statement.",
+      "radar_implication": "This is FinCrimeRadar analysis. Reconcile the 12 November Sanctions Notice against screening data, test vessel identifiers (IMO numbers) separately from corporate ownership, and record which UK prohibitions apply to each confirmed counterparty or ship.",
+      "primary_source": true,
+      "reviewed": true,
+      "supporting_sources": [
+        {
+          "source_name": "UK Government",
+          "source_url": "https://www.gov.uk/government/news/ukraine-set-to-be-focus-of-epc-summit-as-uk-sanctions-russias-top-ten-oil-producers",
+          "note": "Prime Minister's Office announcement, 12 November 2026"
+        }
+      ]
+    },
+    {
+      "id": "fincen-mexc-federal-register-effective-date",
+      "headline": "MEXC funds transfer order gains a confirmed December effective date",
+      "source_name": "Federal Register",
+      "source_url": "https://www.federalregister.gov/d/2026-22962",
+      "published_date": "2026-11-10",
+      "jurisdiction": "US",
+      "category": "CRYPTO",
+      "signal": "REGULATORY",
+      "what_happened": "On 10 November 2026 the Federal Register published FinCEN’s section 9714(a) order involving MEXC Global, document 2026-22962. The order prohibits any covered financial institution from engaging in a transmittal of funds, including convertible virtual currency, from or to MEXC Global. It takes effect on 10 December 2026 with no cessation date. The order defines MEXC Global as the Seychelles based exchanger, including its branches, subsidiaries and offices operating as a financial institution outside the United States, and successors. Branches, subsidiaries and offices of MEXC Global located in the United States are expressly excluded from that definition.",
+      "why_it_matters": "This is a dated legal publication that resolves an open effective date question in the earlier 6 November FinCEN announcement. It binds covered financial institutions, defined by reference to 31 CFR 1010.100(t), and is not an OFAC designation or asset block, so it should not be described as a worldwide ban on every MEXC transaction. FinCEN also reserves authority to impose conditions and grant exemptions. This is a later development, not evidence that the earlier W45 report was incorrect.",
+      "radar_implication": "This is FinCrimeRadar analysis. Covered institutions should map direct and indirect exposure to MEXC Global, test whether each counterparty falls inside the order’s definition (including the exclusion for US located MEXC branches, subsidiaries and offices), and complete implementation ahead of 10 December without conflating the order with asset blocking.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "europol-cocaine-network-laundering-companies",
+      "headline": "Europol links transnational cocaine investigation to corporate laundering routes",
+      "source_name": "Europol",
+      "source_url": "https://www.europol.europa.eu/media-press/newsroom/news/law-enforcement-dismantle-cocaine-network-ecuador-to-europe",
+      "published_date": "2026-11-13",
+      "jurisdiction": "EUROPE",
+      "category": "AML_CTF",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 13 November 2026 Europol reported an international investigation into a network suspected of importing cocaine into Europe from Ecuador and other Latin American countries. Authorities searched premises in Czechia, Germany, the Netherlands, Spain and Switzerland on 10 and 11 November. Europol said the investigation also uncovered suspected laundering of trafficking proceeds through companies in Czechia, Germany and Switzerland, and that shell companies registered in Switzerland and the Netherlands were suspected of facilitating the imports.",
+      "why_it_matters": "The corporate laundering links are suspicions arising from an ongoing investigation, not criminal findings, and not a finding that every business searched or named was culpable. The case shows why payment trails, trading relationships and beneficial ownership need to be assessed alongside logistics evidence.",
+      "radar_implication": "This is FinCrimeRadar analysis. Where lawful and relevant, link corporate payment activity, ownership changes and cross border trade evidence to the suspected underlying predicate offence, while separating investigative leads from established facts.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "europol-operation-endgame-malware-infrastructure",
+      "headline": "Operation ENDGAME targets malware infrastructure used in data theft and fraud",
+      "source_name": "Europol",
+      "source_url": "https://www.europol.europa.eu/media-press/newsroom/news/64-million-victim-datasets-secured-in-international-operation-against-malware-networks",
+      "published_date": "2026-11-12",
+      "jurisdiction": "GLOBAL",
+      "category": "FRAUD",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 12 November 2026 Europol announced an international action against Gootloader, CastleRAT and StealC malware infrastructure. Europol reported 235 servers and 257 domains seized or otherwise actioned with law enforcement and private partners. Its headline refers to 6.4 million victim datasets secured, and the body of the release describes over 6 million victim credentials identified in the seized infrastructure. Europol said victim notification through partner platforms relates to credentials stolen by CastleRAT.",
+      "why_it_matters": "The release uses both “datasets” and “credentials” for the headline figure, and neither is a count of unique victims, proven fraud losses or compromised accounts. The notification activity Europol describes is attributed to CastleRAT, not to all three toolkits. The per toolkit server figures in the release add to 236 against a stated total of 235, so toolkit counts should not be summed into a new total.",
+      "radar_implication": "This is FinCrimeRadar analysis. Fraud and financial crime teams should use validated compromise indicators to assess account takeover and mule risks, preserve provenance of intelligence and distinguish stolen credential exposure from confirmed account misuse.",
+      "primary_source": true,
+      "reviewed": true
+    },
+    {
+      "id": "ofac-guatemala-drug-trafficking-organisations",
+      "headline": "OFAC adds sanctions targeting two Guatemalan trafficking organisations",
+      "source_name": "US Department of the Treasury",
+      "source_url": "https://home.treasury.gov/news/press-releases/sb0689",
+      "published_date": "2026-11-13",
+      "jurisdiction": "US",
+      "category": "SANCTIONS",
+      "signal": "ENFORCEMENT",
+      "what_happened": "On 13 November 2026 the US Treasury announced OFAC sanctions against the Los Mendoza and Los Huistas drug trafficking organisations, describing their alleged logistical support to the Sinaloa Cartel and CJNG through corridors in Guatemala. Treasury said Los Mendoza was sanctioned under E.O. 14059 and E.O. 13224, as amended, for material support to the Sinaloa Cartel. It said Los Huistas was sanctioned under E.O. 13224, as amended, for material support to the Sinaloa Cartel and CJNG, and noted that OFAC had designated Los Huistas under E.O. 14059 in March 2022.",
+      "why_it_matters": "OFAC designations create specific US sanctions consequences, and the two organisations were not designated under identical authorities in this action: E.O. 14059 is the counter narcotics authority and E.O. 13224 the counter terrorism authority. Treasury descriptions of criminal activity are attributed agency assessments, not criminal convictions. Screening must distinguish Los Mendoza's new SDN listing from the additional designation of Los Huistas, which was already listed under E.O. 14059.",
+      "radar_implication": "This is FinCrimeRadar analysis. Update sanctions datasets from the authoritative OFAC entries, record the programme tags shown on each entry, check aliases and applicable ownership rules, and escalate relevant confirmed exposure without treating location or sector alone as proof of a match.",
+      "primary_source": true,
+      "reviewed": true
+    }
+  ]
+}
