@@ -1,421 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Core pages -->
   <url>
     <loc>https://fincrimeradar.org/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/screen.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/knowledge.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/fincrime-week.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/scenario-lab.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/kyb-lab.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/learn.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/contact.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- Legal -->
-  <url>
-    <loc>https://fincrimeradar.org/privacy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <!-- Trust & Reference -->
-  <url>
-    <loc>https://fincrimeradar.org/editorial-standards.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/methodology.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/supporters.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <!-- Standalone deep-dive guides -->
-  <url>
-    <loc>https://fincrimeradar.org/tm-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/screening-alerts-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/kyc-onboarding-dilemma.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/sanctions-compliance-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/fraud-red-flags-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/false-positive-playbook.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/ubo-investigation-handbook.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/source-of-wealth-investigation-handbook.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/adverse-media-intelligence-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/fraud-investigation-playbook.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/synthetic-identity-device-network-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/money-mule-financial-crime-networks-handbook.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/crypto-travel-rule-sunrise-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/perpetual-kyc-framework-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/certifications-dilemma.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/screening-algorithm-tuning-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/deepfake-onboarding-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/ai-agent-transaction-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/gambling-white-label-blind-spot-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/classification-asymmetry-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/private-markets-financial-crime-investigation-handbook.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Shadow Fleet series -->
-  <url>
-    <loc>https://fincrimeradar.org/shadow-fleet-guide-part1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/shadow-fleet-guide-part2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Scam compound money laundering guide -->
-  <url>
-    <loc>https://fincrimeradar.org/scam-compound-money-laundering-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Annex 1 firms AML blind spot guide -->
-  <url>
-    <loc>https://fincrimeradar.org/annex-1-firms-aml-blind-spot-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- UK AML Compliance series -->
-  <url>
-    <loc>https://fincrimeradar.org/aml-guide-part1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/aml-guide-part2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/aml-guide-part3.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- PEP Screening Handbook series -->
-  <url>
-    <loc>https://fincrimeradar.org/pep-guide-part1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/pep-guide-part2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/pep-guide-part3.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Suspicious Activity Reports series -->
-  <url>
-    <loc>https://fincrimeradar.org/sar-guide-part1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/sar-guide-part2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/sar-guide-part3.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- FATF Handbook series -->
-  <url>
-    <loc>https://fincrimeradar.org/fatf-guide-part1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/fatf-guide-part2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Crypto Compliance Guide series -->
-  <url>
-    <loc>https://fincrimeradar.org/crypto-guide-part1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/crypto-guide-part2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/crypto-guide-part3.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/crypto-guide-part4.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/crypto-guide-part5.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/crypto-guide-part6.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- MLRO Handbook series -->
-  <url>
-    <loc>https://fincrimeradar.org/mlro-handbook-part1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/mlro-handbook-part2.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Stablecoin series -->
-  <url>
-    <loc>https://fincrimeradar.org/why-stablecoins-compliance-priority-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/systemic-stablecoins-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://fincrimeradar.org/stablecoin-financial-crime-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://fincrimeradar.org/a7a5-sanctions-evasion-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/about.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/adverse-media-intelligence-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/ai-agent-transaction-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/aml-guide-part1.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/aml-guide-part2.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/aml-guide-part3.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/annex-1-firms-aml-blind-spot-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/app-scam-decision-framework.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/certifications-dilemma.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/classification-asymmetry-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/crypto-guide-part1.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/crypto-guide-part2.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/crypto-guide-part3.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/crypto-guide-part4.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/crypto-guide-part5.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/crypto-guide-part6.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/crypto-travel-rule-sunrise-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/customer-risk-score-decision-framework.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/de-risking-judgement-call.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/deepfake-onboarding-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/digital-identity-cdd-intelligence-brief.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/e-commerce-fraud-system-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/editorial-standards.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/failure-to-prevent-fraud-evidence-essay.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/false-positive-playbook.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/fatf-guide-part1.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/fatf-guide-part2.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/fatf-recommendation-16-intelligence-brief.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/financial-crime-control-testing-framework.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/financial-crime-information-sharing-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/fincrime-week.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/fraud-investigation-playbook.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/fraud-red-flags-guide.html</loc>
   </url>
   <url>
     <loc>https://fincrimeradar.org/freezing-a-stablecoin-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/gambling-white-label-blind-spot-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/investment-scam-investigation-handbook.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/knowledge.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/kyc-onboarding-dilemma.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/learn.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/methodology.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/mlro-handbook-part1.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/mlro-handbook-part2.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/money-mule-financial-crime-networks-handbook.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/money-mule-or-victim-case-file.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/pep-guide-part1.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/pep-guide-part2.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/pep-guide-part3.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/perpetual-kyc-framework-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/private-markets-financial-crime-investigation-handbook.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/sanctions-compliance-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/sar-guide-part1.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/sar-guide-part2.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/sar-guide-part3.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/scam-compound-money-laundering-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/screen.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/screening-alerts-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/screening-algorithm-tuning-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/shadow-fleet-guide-part1.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/shadow-fleet-guide-part2.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/source-of-wealth-investigation-handbook.html</loc>
+  </url>
+  <url>
+    <loc>https://fincrimeradar.org/stablecoin-financial-crime-guide.html</loc>
   </url>
   <url>
     <loc>https://fincrimeradar.org/stablecoin-series-guide-1.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
-
-  <!-- Framework experiments -->
   <url>
-    <loc>https://fincrimeradar.org/app-scam-decision-framework.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fincrimeradar.org/supporters.html</loc>
   </url>
-
   <url>
-    <loc>https://fincrimeradar.org/de-risking-judgement-call.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fincrimeradar.org/synthetic-identity-device-network-guide.html</loc>
   </url>
-
-  <!-- Case File experiments -->
   <url>
-    <loc>https://fincrimeradar.org/money-mule-or-victim-case-file.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fincrimeradar.org/systemic-stablecoins-guide.html</loc>
   </url>
-
-  <!-- Intelligence Brief experiments -->
   <url>
-    <loc>https://fincrimeradar.org/digital-identity-cdd-intelligence-brief.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fincrimeradar.org/terms.html</loc>
   </url>
-
   <url>
-    <loc>https://fincrimeradar.org/fatf-recommendation-16-intelligence-brief.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fincrimeradar.org/tm-guide.html</loc>
   </url>
-
   <url>
-    <loc>https://fincrimeradar.org/failure-to-prevent-fraud-evidence-essay.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fincrimeradar.org/ubo-investigation-handbook.html</loc>
   </url>
-
   <url>
-    <loc>https://fincrimeradar.org/investment-scam-investigation-handbook.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://fincrimeradar.org/why-stablecoins-compliance-priority-guide.html</loc>
   </url>
-
-  <url>
-    <loc>https://fincrimeradar.org/financial-crime-information-sharing-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://fincrimeradar.org/e-commerce-fraud-system-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://fincrimeradar.org/customer-risk-score-decision-framework.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://fincrimeradar.org/financial-crime-control-testing-framework.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
 </urlset>

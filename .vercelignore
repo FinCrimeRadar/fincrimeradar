@@ -1,0 +1,53 @@
+.claude/
+.codex/
+.vercel/
+.git/
+docs/
+tests/
+reports/
+node_modules/
+perf-fix.diff
+Experiment_04_Claude_Handoff.md
+classification-asymmetry-DRAFT.md
+crypto-guide-part1-brief.md
+gambling-white-label-blind-spot-DRAFT.md
+add-logo-dimensions.py
+Crypto Travel Rule Sunrise Guide.png
+Fraud Vs AML.png
+Gambling2.png
+Money Mule.png
+Synthetic Identity and Device Network Fraud.png
+verification_flag_decision_flowchart.png
+
+# Deployment surface audit: repository, tooling, caches and internal instructions
+.agents/
+.github/
+.pytest_cache/
+**/__pycache__/
+drafts/
+content-drafts/
+scripts/
+verification-ledger.json
+CLAUDE.md
+AGENTS.md
+BACKLOG.md
+
+# Internal operational root Markdown, by exact filename (no broad *.md pattern)
+GUIDE_STANDARD.md
+README.md
+SESSION_HANDOFF.md
+
+# Root data directory excluded as a whole (manifest, snapshots, inventories, weekly FinCrime Week JSON). Anchored with a leading slash: a bare data/ would also match scenario-lab/data/, whose cases.json is the one deployable data file.
+/data/
+content-relations.json
+
+# Unreferenced root files, repository configuration, diffs and secrets
+convert_existing_snapshot.py
+favicon.svg
+og-image.svg
+.gitattributes
+.gitignore
+.vercelignore
+*.diff
+.env
+.env.*
