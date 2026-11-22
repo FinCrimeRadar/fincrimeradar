@@ -1,0 +1,46 @@
+name: Content Quality
+
+# Quality check. Validation only: this workflow never deploys, never touches
+# the AdSense account and never calls production endpoints. It blocks a merge
+# or deployment only if it is configured as a required status check in branch
+# protection and in the Vercel deployment settings; this repository does not
+# configure either.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  content-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Automated tests
+        run: npm test
+
+      - name: Sitemap is current with the content manifest
+        run: npm run sitemap:check
+
+      - name: Manifest, indexing, structured data, internal links, AdSense eligibility, ads.txt
+        run: npm run validate:content
+
+      - name: Deployment surface contains only the permitted public files
+        run: npm run validate:deploy
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-quality-report
+          path: reports/
+          if-no-files-found: ignore
