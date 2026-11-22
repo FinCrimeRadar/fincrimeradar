@@ -11536,5 +11536,240 @@
       "publisher": "Europol",
       "date": "2026-11-13"
     }
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.fincen-proposal-status.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "FinCEN's CDD proposed rule was announced on 17 November 2026 and published in the Federal Register on 19 November 2026 as document 2026-23614 (91 FR 74514), comments due 19 January 2027. It is a proposed rule, and FinCEN proposes that a final rule take effect 90 days after its publication in the Federal Register.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item fincen-cdd-beneficial-ownership-proposal",
+    "note": "Verified 2026-11-22 via Federal Register API metadata (type Proposed Rule, citation 91 FR 74514, comments_close_on 2027-01-19) and the full text, section V Effective Date, which proposes an effective date 90 days after publication of a final rule. No final rule has been published. FinCEN news release dated 17 November 2026 read on fincen.gov. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Customer Due Diligence Requirements for Covered Financial Institutions",
+      "url": "https://www.federalregister.gov/d/2026-23614",
+      "publisher": "Federal Register",
+      "date": "2026-11-19"
+    },
+    "additionalSources": [
+      {
+        "title": "FinCEN news release",
+        "url": "https://www.fincen.gov/news/news-releases/fincen-issues-proposed-rule-strengthen-customer-due-diligence-requirements-covered-financial-institutions/",
+        "publisher": "FinCEN",
+        "date": "2026-11-17"
+      }
+    ]
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.fincen-additional-info-permissive.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "Proposed 31 CFR 1010.230(b)(1)(ii)(E) says that where warranted by other risk indicators or supervisory concerns a covered financial institution may obtain additional information, including information relevant to lawful immigration status and employment authorization. It is permissive and conditional, not a universal mandatory check.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item fincen-cdd-beneficial-ownership-proposal",
+    "note": "Quoted from the proposed regulatory text. Preamble confirms FinCEN does not specify heightened risk situations and defers that judgment to institutions. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Customer Due Diligence Requirements for Covered Financial Institutions",
+      "url": "https://www.federalregister.gov/d/2026-23614",
+      "publisher": "Federal Register",
+      "date": "2026-11-19"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.fincen-codify-feb-relief.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "The proposal would codify the exceptive relief FIN-2026-R001 (13 February 2026): beneficial owners are identified when the customer first opens an account, when the institution has knowledge of facts reasonably calling into question the reliability of previously obtained information, and as needed under risk-based ongoing CDD procedures. It does not abolish identification and verification.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item fincen-cdd-beneficial-ownership-proposal",
+    "note": "Preamble section I.C and proposed 1010.230(b)(1)(i)(A) to (C). FIN-2026-R001 was independently read and verified on 2026-11-22 from the FinCEN order PDF, issue date 13 February 2026, which grants exceptive relief limiting identification and verification to the three scenarios (first account opening, knowledge of facts reasonably calling reliability into question, and risk-based ongoing CDD). FIN-2026-R001 is the relief order, not the proposed rule. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Customer Due Diligence Requirements for Covered Financial Institutions",
+      "url": "https://www.federalregister.gov/d/2026-23614",
+      "publisher": "Federal Register",
+      "date": "2026-11-19"
+    },
+    "additionalSources": [
+      {
+        "title": "FIN-2026-R001, Exceptive Relief from Requirement to Identify and Verify Beneficial Owners at Each Account Opening",
+        "url": "https://www.fincen.gov/system/files/2026-02/FinCEN-Order-CCDExceptiveRelief.pdf",
+        "publisher": "FinCEN",
+        "date": "2026-02-13"
+      }
+    ]
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.fincen-itin.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "The proposed rule text excludes an Individual Taxpayer Identification Number from the identifying numbers that satisfy the beneficial owner information requirement (an SSN not including an ITIN; for non-US persons an SSN, passport number, alien identification card number or other government issued photographic document number).",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item fincen-cdd-beneficial-ownership-proposal",
+    "note": "Proposed 1010.230(b)(1)(ii)(D) and preamble. The item says an ITIN is not an acceptable identifying number for a beneficial owner. The handoff wording 'certain identification requirements' was narrower than the text supports. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Customer Due Diligence Requirements for Covered Financial Institutions",
+      "url": "https://www.federalregister.gov/d/2026-23614",
+      "publisher": "Federal Register",
+      "date": "2026-11-19"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.eu-council-113-listings.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "On 16 November 2026 the Council announced restrictive measures on 12 individuals and 101 entities, including nearly 50 Russian banks and financial institutions, adopted under the Ukraine territorial integrity framework via Decision (CFSP) 2026/2575 and Implementing Regulation (EU) 2026/2574, with an asset freeze, a prohibition on making funds or economic resources available, and a travel ban for natural persons.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item eu-russia-financial-sector-sanctions-november",
+    "note": "Council page read in Chrome on 2026-11-22 (curl returned a bot check). Annex counts verified on the live EUR-Lex text of Council Implementing Regulation (EU) 2026/2574: recital 4 states 12 individuals and 101 entities; the Annex numbers the persons 2945 to 2956 (12 entries) and the entities 1846 to 1946 (101 entries), all dated 16.11.2026, added to Annex I of Regulation (EU) No 269/2014. The bank count 'nearly 50' is the Council's own statement and is not an official count (an informal keyword count of entity names containing bank, credit or settlement gave 46). The asset freeze, funds prohibition and travel ban wording is taken from the Council press release. The external reviewer independently confirmed Council Decision (CFSP) 2026/2575, including its 12 individual and 101 entity additions and the Wildberries and Ozon annex descriptions. Claude Code did not open Decision 2026/2575 itself. The Council press release statements remain press release statements and are not treated as independently established by the legal annex. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Ukraine: EU lists 113 individuals and entities to further restrict Russia's ability to finance its war of aggression",
+      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/16/ukraine-eu-lists-113-individuals-and-entities-to-further-restrict-russia-s-ability-to-finance-its-war-of-aggression/",
+      "publisher": "Council of the European Union",
+      "date": "2026-11-16"
+    },
+    "additionalSources": [
+      {
+        "title": "Council Implementing Regulation (EU) 2026/2574 of 16 November 2026",
+        "url": "https://eur-lex.europa.eu/eli/reg_impl/2026/2574/oj/eng",
+        "publisher": "Council of the European Union",
+        "date": "2026-11-16"
+      }
+    ]
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.eu-council-vessels-persons.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "The Council describes listing businesspersons who own or manage vessels subject to EU restrictive measures, and companies from the UAE, China, Seychelles and Oman as buyers of crude oil products of Russian origin. The press release does not state that vessels were newly designated. The implementing regulation identifies Tatyana Kim as founder and CEO of Wildberries, and Alexander Chachava as the owner of JSC \"O23\", a holding company described as owning the biggest share in Ozon. The Council press release describes them more strongly (sole shareholder of Wildberries, individual controlling the majority stake in Ozon); those are press release statements, not independently established by the legal annex.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item eu-russia-financial-sector-sanctions-november",
+    "note": "Scope restriction: no vessel designation is claimed in the item. Wildberries and Ozon distinction: the Council press release says 'sole shareholder of Wildberries' and 'an individual controlling the majority stake in Ozon'; the Annex entries (2953 Tatyana Kim, 2955 Alexander Chachava) say founder and CEO of Wildberries and owner of JSC \"O23\", which owns the biggest share in Ozon. The item therefore says 'individuals associated with Wildberries and Ozon' and cites the Annex descriptions. Seven entity entries in the Annex carry an IMO number field; they are legal entities and no vessel designation was found. The UAE, China, Seychelles and Oman buyer companies were not individually read in the Annex. The external reviewer independently confirmed Council Decision (CFSP) 2026/2575, including its 12 individual and 101 entity additions and the Wildberries and Ozon annex descriptions. Claude Code did not open Decision 2026/2575 itself. The Council press release statements remain press release statements and are not treated as independently established by the legal annex. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Ukraine: EU lists 113 individuals and entities to further restrict Russia's ability to finance its war of aggression",
+      "url": "https://www.consilium.europa.eu/en/press/press-releases/2026/11/16/ukraine-eu-lists-113-individuals-and-entities-to-further-restrict-russia-s-ability-to-finance-its-war-of-aggression/",
+      "publisher": "Council of the European Union",
+      "date": "2026-11-16"
+    },
+    "additionalSources": [
+      {
+        "title": "Council Implementing Regulation (EU) 2026/2574 of 16 November 2026",
+        "url": "https://eur-lex.europa.eu/eli/reg_impl/2026/2574/oj/eng",
+        "publisher": "Council of the European Union",
+        "date": "2026-11-16"
+      }
+    ]
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.ofac-designations.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "On 19 November 2026 Treasury announced OFAC sanctions on three individuals (Zhao Hui, Saw Shwe Wah, Saw A One) and two companies (Bei Fang Bo Lin Construction Decoration Co., Ltd and ZHZ Investment Consulting Co., Ltd.) under E.O. 13694, as further amended.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item ofac-southeast-asia-cyber-scam-compounds",
+    "note": "Treasury page sb0695 read on 2026-11-22. SDN entries verified on 2026-11-22 against the OFAC Recent Action of 19 November 2026: five listings, all with programme tag CYBER4. Individuals: ZHAO, Hui; WAH, Saw Shwe (a.k.a. WAH, Maung Shwe; 'WA, Saw Shwe'; 'WAH, Swe'), Linked To DEMOCRATIC KAREN BENEVOLENT ARMY; ONE, Saw A (a.k.a. 'ONE, Saw Eh'; 'WAH, Saw Ew'), Linked To DEMOCRATIC KAREN BENEVOLENT ARMY. Entities: BEI FANG BO LIN CONSTRUCTION DECORATION CO., LTD. and ZHZ INVESTMENT CONSULTING CO., LTD., each Linked To ZHAO, Hui. Treasury designates the two DKBA persons as leaders or officials (commander in chief and commander) of a previously designated group. The same Recent Action also lists a separate drug trafficking package, which is not part of this item. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Treasury Targets Cyber Scam Operators and Armed Group Facilitators in Southeast Asia",
+      "url": "https://home.treasury.gov/news/press-releases/sb0695",
+      "publisher": "US Department of the Treasury",
+      "date": "2026-11-19"
+    },
+    "additionalSources": [
+      {
+        "title": "OFAC Recent Actions, 19 November 2026",
+        "url": "https://ofac.treasury.gov/recent-actions/20261119",
+        "publisher": "US Department of the Treasury",
+        "date": "2026-11-19"
+      }
+    ]
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.ofac-conduct-attribution.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "Treasury's stated basis: Zhao leased a scam center owned by an OFAC designated person, paid protection fees to the designated leader of the Prince Group TCO, and owned a scam compound in Cambodia that primarily targeted Americans and Europeans. The two companies are designated as owned or controlled by Zhao. These are Treasury assessments, not convictions.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item ofac-southeast-asia-cyber-scam-compounds",
+    "note": "Attribution preserved in the item text. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Treasury Targets Cyber Scam Operators and Armed Group Facilitators in Southeast Asia",
+      "url": "https://home.treasury.gov/news/press-releases/sb0695",
+      "publisher": "US Department of the Treasury",
+      "date": "2026-11-19"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.sfo-lcf-charges.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "On 16 November 2026 the SFO announced eight individuals charged: six with conspiracy to defraud, one with concealing criminal property, and an eighth with conspiracy to defraud and acting in contravention of a director disqualification undertaking. All eight are due before Westminster Magistrates' Court on 7 December. Charges are allegations.",
+    "claimType": "enforcement",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item sfo-london-capital-finance-eight-charged",
+    "note": "Read from gov.uk on 2026-11-22. The page gives the hearing date as 7 December without a year; the item keeps the SFO wording. The eighth defendant is unnamed and an anonymity application is expected. Defendants are deliberately not named in the item. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "SFO charges eight over London Capital & Finance collapse",
+      "url": "https://www.gov.uk/government/news/sfo-charges-eight-over-london-capital-finance-collapse",
+      "publisher": "Serious Fraud Office",
+      "date": "2026-11-16"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.sfo-lcf-losses.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "The SFO states that LCF collapsed in 2019, leading to more than 11,200 investors losing an estimated 251 million pounds. This is an SFO estimate, not a proven loss attributable to any defendant.",
+    "claimType": "statistic",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item sfo-london-capital-finance-eight-charged",
+    "note": "The handoff said 'affecting more than 11,200 investors'; the SFO wording is 'losing an estimated 251 million pounds', which the item follows. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "SFO charges eight over London Capital & Finance collapse",
+      "url": "https://www.gov.uk/government/news/sfo-charges-eight-over-london-capital-finance-collapse",
+      "publisher": "Serious Fraud Office",
+      "date": "2026-11-16"
+    }
+  },
+  {
+    "claimId": "fincrime-week-2026-w47.ec-sanctions-office.001",
+    "guide": "data/fincrime-week/2026-W47.json",
+    "claimText": "The Commission announced an EU Sanctions Office within the Secretariat-General under Commissioner Albuquerque, appointed Lars Danielsson as International Special Envoy for the Implementation of EU Sanctions from 6 February 2027 (when the current mandate ends), and said the changes take effect on 16 January 2027. It is an institutional change, not a new sanctions regulation.",
+    "claimType": "regulatory",
+    "verifiedOn": "2026-11-22",
+    "reviewDue": "2027-05-22",
+    "status": "verified",
+    "location": "item eu-commission-sanctions-office-2026",
+    "note": "Primary source is the original Commission press release IP/26/2499, publishDate 2026-11-18T12:50:41+01:00 from the Commission press corner API, text read 2026-11-22. The Cyprus Representation page dated 19 November 2026 was read and is supporting evidence; its content matches. The 6 February 2027 envoy start and 16 January 2027 effective date are stated in both. External review PASS 2026-11-22 (ChatGPT GPT-6, reviewed candidate sha256 4c82ca13e79143a4, staged ledger sha256 0bc536a521855062).",
+    "source": {
+      "title": "Commission sets up new EU Sanctions Office and appoints new EU Sanctions Envoy",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2499",
+      "publisher": "European Commission",
+      "date": "2026-11-18"
+    },
+    "additionalSources": [
+      {
+        "title": "Commission sets up new EU Sanctions Office and appoints new EU Sanctions Envoy (Representation in Cyprus republication)",
+        "url": "https://cyprus.representation.ec.europa.eu/news/commission-sets-new-eu-sanctions-office-and-appoints-new-eu-sanctions-envoy-2026-11-19_en",
+        "publisher": "European Commission Representation in Cyprus",
+        "date": "2026-11-19"
+      }
+    ]
   }
 ]
